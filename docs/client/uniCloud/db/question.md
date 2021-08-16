@@ -73,6 +73,40 @@ whereJson: _.and([
 ])
 
 ```
+### 多字段模糊搜索or
+### 一个搜索value对应多个字段模糊搜索
+```js
+let whereJson = {};
+let andArr = [];
+if (searchvalue) {
+  // 查询包含searchvalue的数据
+  try {
+    let regExp = new RegExp(searchvalue);
+    let orObj = _.or([
+      {
+        "username": regExp
+      },
+      {
+        "nickname": regExp
+      },
+      {
+        "mobile": regExp
+      },
+      {
+        "_id": searchvalue
+      }
+    ]);
+    andArr.push(orObj);
+  } catch (err) {
+    return { code: -1, msg: '请输入合法的查询内容' };
+  }
+}
+if (andArr.length > 0) {
+  whereJson = _.and(andArr);
+}
+```
+
+
 ### in （包含其中） `nin`（都不包含）
 ```js
 // 等价于 _id = "1" or _id = "2" or _id =  "3"
