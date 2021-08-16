@@ -1,0 +1,23 @@
+{
+  "name": "vuepress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "dev": "vuepress dev docs --temp .temp",
+    "build": "vuepress build docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  },
+  "dependencies": {
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "vuepress-plugin-copyright": "^1.0.2",
+    "vuepress-plugin-medium-zoom": "^1.1.9"
+  }
+}
