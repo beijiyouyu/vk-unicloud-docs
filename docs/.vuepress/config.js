@@ -1,7 +1,7 @@
 module.exports = {
 	base:"/",
   title: 'vk-unicloud 快速开发框架',
-  description: '多平台全栈快速开发框架',
+  description: 'VK云开发：多平台全栈快速开发框架。vk-unicloud-router、vk-unicloud-admin、vk-uni-pay',
 	head: [
 		[
 			'link', { rel: 'icon', href: '/image/logo.png' },
