@@ -13,10 +13,11 @@ features:
   details: 【开箱即用】vk-unicloud-admin 是基于unicloud+uni-id+element+vk-unicloud-router的一套快速PC admin完整开发框架。丰富的API可以让你开发事半功倍。支持表单可视化拖拽生成代码。
 - title: vk-uni-pay（统一支付）
   details: 【开箱即用】vk-uni-pay 是基于uniCloud量身定制的支付插件，兼容任何uniCloud框架。支持H5、PC、小程序、APP，为你支付业务扫平障碍。支持转账到支付宝和微信零钱。
-footer: MIT Licensed | Copyright @2021 VK | 浙ICP备20001549号
 ---
 
 ### 官方Q群：[22466457](https://jq.qq.com/?_wv=1027&k=RTeqPXCZ) 
 
 <friend-link></friend-link>
+
+<footer-link></footer-link>
 
