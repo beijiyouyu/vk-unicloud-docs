@@ -161,6 +161,7 @@ module.exports = {
 						'question/q7',
 						'question/q8',
 						'question/q9',
+            'question/q10',
 					]
 				}
 			],
