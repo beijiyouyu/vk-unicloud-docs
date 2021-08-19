@@ -328,7 +328,7 @@ let selectRes = await vk.baseDao.selects({
     _id: "$date_str", // _id是分组id， $ 后面接字段名，如按date_str字段进行分组(date_str字段是2021-08-19这样的字符串)
     count: _.$.addToSet("$user_id"), // $ 后面接字段名，如把user_id原样输出（去重）
   },
-  sortArr: [{ name: "date_str",type: "desc" }], // 对分组后的结果进行排序
+  sortArr: [{ name: "_id",type: "desc" }], // 对分组后的结果进行排序
   addFields:{
     count: _.$.size("$count")
   }
