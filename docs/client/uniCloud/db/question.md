@@ -10,6 +10,7 @@
 #### 7、[如判断字段是否存在](#如何判断字段是否存在)
 #### 8、[返回字段别名](#返回字段别名)
 #### 9、[查出表中字段a等于字段b的数据](#查出表中字段a等于字段b的数据)
+#### 10、[分组count](#分组count)
 
 ### and
 ### 1、`and` 、`or`、`in`、`nin`、`neq`的用法
@@ -309,6 +310,28 @@ let selectRes = await vk.baseDao.select({
   whereJson:_.expr(_.$.and([
     _.$.eq(['$a', '$b'])
   ]))
+});
+
+```
+### 分组count
+#### 最终返回的是每个日期登录的用户数量有多少个。 
+```js
+let selectRes = await vk.baseDao.selects({
+  dbName: "登录日志表",
+  pageIndex: 1,
+  pageSize: 10,
+  // where条件
+  whereJson: {
+    
+  },
+  groupJson: {
+    _id: "$date_str", // _id是分组id， $ 后面接字段名，如按date_str字段进行分组(date_str字段是2021-08-19这样的字符串)
+    count: _.$.addToSet("$user_id"), // $ 后面接字段名，如把user_id原样输出（去重）
+  },
+  sortArr: [{ name: "money",type: "desc" }], // 对分组后的结果进行排序
+  addFields:{
+    count: _.$.size("$count")
+  }
 });
 
 ```
