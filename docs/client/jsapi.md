@@ -102,7 +102,7 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss",targetTimezone);
    months     本年度每月的开始和结束时间 months[1] 代表1月
  }
  */
-vk.pubfn.getCommonTime(new Date(),targetTimezone);
+vk.pubfn.getCommonTime(new Date());
 ```
 
 ### vk.pubfn.test（检测文本格式）
