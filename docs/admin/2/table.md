@@ -349,11 +349,17 @@ console.log(info);
 ## 插槽
 #### columns中的每一个key都是插槽的名称
 #### 如重写`gender`字段的渲染
-```html
-<template  v-slot:gender="{ row, column, index }">
-  <view>{{ row.gender }}</view>
-</template>
+* 注意: 只需要把下方`<template></template>`标签和标签内的代码复制到你页面上的`<vk-data-table></vk-data-table>`标签内即可
 
+```html
+<vk-data-table>
+
+  <!-- v-slot:gender 中的 gender 对应 columns中的 key, row对应 这一行的数据源 -->
+  <template  v-slot:gender="{ row, column, index }">
+    <view>我是插槽：{{ row.gender }}</view>
+  </template>
+  
+</vk-data-table>
 ```
 
 
