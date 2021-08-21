@@ -67,6 +67,17 @@ vk.pubfn.treeToArray(treeData,{
 });
 ```
 
+### vk.pubfn.sleep（进程强制等待，休眠）
+
+```js
+/**
+ * 进程强制等待，休眠（单位毫秒）
+ * @params {Number} ms 毫秒
+ */
+await vk.pubfn.sleep(1000);
+```
+
+
 ### vk.pubfn.timeFormat（日期格式化）
 
 ```js
