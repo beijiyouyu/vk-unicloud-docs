@@ -78,7 +78,6 @@ vk.pubfn.treeToArray(treeData,{
 vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss");
 ```
 
-
 ### vk.pubfn.getCommonTime（获取时间范围）
 
 ```js
@@ -103,6 +102,39 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss");
  }
  */
 vk.pubfn.getCommonTime(new Date());
+```
+
+### vk.pubfn.getDayOffsetStartAndEnd（获得相对当前时间的偏移 count 天的起止日期）
+
+```js
+/**
+ * 获得相对当前时间的偏移 count 天的起止日期(日的开始和结束)
+ * @params {Number} count  默认0 (0代表今日 为-1代表昨日 为1代表明日以此类推)
+ * @params {Date || Number} date 指定从那天开始计算
+ */
+vk.pubfn.getDayOffsetStartAndEnd(0);
+```
+
+### vk.pubfn.getMonthOffsetStartAndEnd（获得相对当前时间的偏移 count 月的起止日期）
+
+```js
+/**
+ * 获得相对当前时间的偏移 count 月的起止日期(月的开始和结束)
+ * @params {Number} count  默认0 (0代表本月 为-1代表上月 为1代表下月以此类推)
+ * @params {Date || Number} date 指定从那天开始计算
+ */
+vk.pubfn.getMonthOffsetStartAndEnd(0);
+```
+
+### vk.pubfn.getYearOffsetStartAndEnd（获得相对当前时间的偏移 count 年的起止日期）
+
+```js
+/**
+ * 获得相对当前时间的偏移 count 年的起止日期(年的开始和结束)
+ * @params {Number} count  默认0 (0代表今年 为-1代表去年 为1代表明年以此类推)
+ * @params {Date || Number} date 指定从那天开始计算
+ */
+vk.pubfn.getYearOffsetStartAndEnd(0);
 ```
 
 ### vk.pubfn.test（检测文本格式）
