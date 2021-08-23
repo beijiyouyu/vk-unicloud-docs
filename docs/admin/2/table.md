@@ -73,8 +73,7 @@ export default {
 | show-summary     | 通用 - 是否需要显示合计行 |Boolean  | false | true |
 | summary-method     | 通用 - 自定义合计的计算函数（详情见下方） |Function  | - | [查看summary-method](#summary-method)  |
 | total-option     | 通用 - 需要自动统计的行（详情见下方） |Array  | - | - |
-
-
+| props    | 通用 - 渲染数据的配置选项 | Object  | {rows: "rows",total: "total",pageIndex: "pageIndex",pageSize: "pageSize"} | - |
 
 ### default-sort
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
