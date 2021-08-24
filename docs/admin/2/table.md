@@ -75,6 +75,8 @@ export default {
 | show-summary     | 通用 - 是否需要显示合计行 |Boolean  | false | true |
 | summary-method     | 通用 - 自定义合计的计算函数（详情见下方） |Function  | - | [查看summary-method](#summary-method)  |
 | total-option     | 通用 - 需要自动统计的行（详情见下方） |Array  | - | - |
+| expand     | 通用 - 是否开启点击可以展开行）[查看展开行](#展开行)|Boolean  | false | true |
+
 
 
 ### default-sort
@@ -97,9 +99,25 @@ columns 是一个数组，数组内每个元素有以下属性
 | headerAlign  |  表头对其方式 | String  | center    | left 、right  |
 | sortable  |  是否是排序字段 | String  | custom  | true 、false  |
 | fixed  | 列是否固定在左侧或者右侧，true 表示固定在左侧 | string, boolean  | 无  | true、left、right  |
-| show  | 显示规则，当为"detail" 代表只在详情弹窗时显示，"row" 代表只在表格内显示，"none" 代表均不显示 | string 、 array | ["detail","row"]  | "detail"、"row"、"none"  |
+| show  | 显示规则，[查看show](#show)  | string 、 array | ["detail","row","expand"]  | "detail"、"row"、"expand"、 "none"  |
 | defaultValue  |   默认值  | String  | 无  | -  |
 | formatter  | 自定义格式化函数 | function(val, row, column, index)  | -  | -  |
+
+### show
+
+show是一个字符串数组，columns 数组内每一个元素都可以单独设置 show
+
+* 如果 columns 的某元素中不存在 show 参数，则代表全部显示（行内、详情弹窗、行展开时）
+
+* 如果数组中有包含 "detail" ，则代表会在详情弹窗时显示
+
+* 如果数组中有包含 "row" ，则代表会在表格行内显示
+
+* 如果数组中有包含 "expand" ，则代表会在表格行展开时显示
+
+* 如果数组只有 ["none"] ，则代表都不显示
+
+[返回展开行](#展开行)
 
 ### type
 type（类型）
@@ -270,6 +288,22 @@ methods: {
 ></vk-data-table>
 ```
 
+### 展开行
+当行内容过多并且不想显示横向滚动条时，可以使用 Table 展开行功能。
+```html
+<vk-data-table
+  ref="table1"
+  :action="table1.action"
+  :columns="table1.columns"
+  :query-form-param="queryForm1"
+  :expand="true"
+></vk-data-table>
+```
+
+可以配合show选择展开后显示的哪些字段  [查看show](#show)
+
+同时还可以通过插槽编写展开后的样式 [查看插槽](#展开行插槽)
+
 
 ## 事件
 
@@ -387,6 +421,19 @@ console.log(info);
 </vk-data-table>
 ```
 
+#### 展开行插槽
+```html
+<vk-data-table>
+
+  <!-- v-slot:tableExpand 是固定的 row 是该行的数据源-->
+  <template  v-slot:tableExpand="{ row }">
+    <view>我是插槽：{{ row._id }}</view>
+  </template>
+  
+</vk-data-table>
+```
+
+[返回展开行](#展开行)
 
 ## 万能表格搜索组件 
 
