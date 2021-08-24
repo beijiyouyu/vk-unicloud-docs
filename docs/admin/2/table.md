@@ -41,7 +41,9 @@ export default {
 | action           | 动态模式 - vk框架下的云函数地址            | String | 无      | - |
 | auto-action       | 动态模式 - 是否组件加载完毕后自动运行action | Boolean  | 无 | -  |
 | query-form-param   | 动态模式 - 请求参数（表格查询参数） | Object  | {} | -  |
-| dataPreprocess          | 动态模式 - 云函数返回的数据进行预处理 | function(list)  | - | -  |
+| data-preprocess          | 动态模式 - 云函数返回的数据进行预处理 | function(list)  | - | -  |
+| is-request    | 动态模式 - 是否是http请求模式 | Boolean  | false | true |
+| props    | 动态模式 - 渲染数据的配置选项 | Object  | [查看http请求模式](#http请求模式)  | - |
 | data             | 静态模式 - 列表数据 | Array  | 无 | -  |
 | total            | 静态模式 - 总记录数 | Number  | 无 | -  |
 | columns          | 通用 - 字段显示规则 | Array  | [] | [查看columns](#columns)   |
@@ -73,7 +75,7 @@ export default {
 | show-summary     | 通用 - 是否需要显示合计行 |Boolean  | false | true |
 | summary-method     | 通用 - 自定义合计的计算函数（详情见下方） |Function  | - | [查看summary-method](#summary-method)  |
 | total-option     | 通用 - 需要自动统计的行（详情见下方） |Array  | - | - |
-| props    | 通用 - 渲染数据的配置选项 | Object  | {rows: 'rows',total: 'total',pageIndex: 'pageIndex',pageSize: 'pageSize',formData: 'formData'} | - |
+
 
 ### default-sort
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
@@ -242,6 +244,30 @@ methods: {
   }
 }
 
+```
+
+### http请求模式
+#### props 对象属性
+
+| 参数             | 说明                           | 类型    | 默认值  | 可选值 |
+|------------------|-------------------------------|---------|--------|-------|
+| rows           | 表格数据源的键名            | String | rows      | - |
+| total           | 总记录条数的键名           | String | total  | - |
+| pageIndex       | 查询时当前第几页的键名      | String | pageIndex  | - |
+| pageSize        | 查询时每页显示几条的键名    | String | pageSize  | - |
+| formData        | 查询表单的数据源的键名      | String | formData  | - |
+
+#### 示例代码
+
+```html
+<vk-data-table
+  ref="table1"
+  action="https://www.xxx.com/xxx/xxx"
+  :is-request="true"
+  :props="{ rows: 'rows', total: 'total', pageIndex: 'pageIndex', pageSize: 'pageSize', formData: 'formData' }"
+  :columns="table1.columns"
+  :query-form-param="queryForm1"
+></vk-data-table>
 ```
 
 

@@ -117,6 +117,7 @@ export default {
 | rules       | 表单验证规则 | Object  | 无 | -  |
 | action   | vk框架云函数地址 | String  | 无 | -  |
 | before-action   | action请求前拦截器 | Function  | 无 | -  |
+| is-request    | 是否是http请求模式[查看http请求模式](#http请求模式) | Boolean  | false | true |
 | form-type       | 表单类型，用于复用表单 | String  | 无 | -  |
 | columns          | 通用 - 字段规则 | Array  | [] | [查看columns](#columns)  |
 | loading           | 表单是否在请求中 | Boolean  | false | true  |
@@ -330,6 +331,22 @@ columns中的每一个key都是插槽的名称 （详情见示例:`/pages_templa
 </vk-data-form>
 ```
 
+
+## http请求模式
+
+#### 示例代码
+
+```html
+<vk-data-form
+  ref="form1"
+  v-model="form1.data"
+  :rules="form1.props.rules"
+  action="https://www.xxx.com/xxx/xxx"
+  :is-request="true"
+  :request-header="{ 'content-type':'application/x-www-form-urlencoded'} "
+  :columns="form1.props.columns"
+></vk-data-form>
+```
 
 
 #### 更多请见：`/pages_template/components/form/form-pro`
