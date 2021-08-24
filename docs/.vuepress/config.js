@@ -46,6 +46,7 @@ module.exports = {
 					collapsable: false,
 					children: [
 						'addQQGroup',
+            'vk-unicloud-router',
 						'',
 						'quickstart',
 						'changelog',
@@ -71,7 +72,7 @@ module.exports = {
 						'pages/isQingming',
 						{
 							title: '组件',
-							children: [ 
+							children: [
 								'pages/components/vk-data-goods-sku-popup'
 							]
 						},
@@ -85,7 +86,7 @@ module.exports = {
 						{
 							title: '云函数',
 							collapsable: true,
-							children: [ 
+							children: [
 								'uniCloud/cloudfunctions/catalogue',
 								'uniCloud/cloudfunctions/template',
 								'uniCloud/cloudfunctions/serviceParam',
@@ -102,7 +103,7 @@ module.exports = {
 						{
 							title: '数据库',
 							collapsable: true,
-							children: [ 
+							children: [
 								'uniCloud/db/api',
 								'uniCloud/db/selects',
 								'uniCloud/db/getOne',
@@ -116,21 +117,21 @@ module.exports = {
 						{
 							title: '缓存',
 							collapsable: true,
-							children: [ 
+							children: [
 								'uniCloud/cache/cache'
 							]
 						},
 						{
 							title: '中间件',
 							collapsable: true,
-							children: [ 
+							children: [
 								'uniCloud/middleware/filter'
 							]
 						},
 						{
 							title: '扩展',
 							collapsable: true,
-							children: [ 
+							children: [
 								'uniCloud/plus/weixin',
 								'uniCloud/plus/baidu',
 								'uniCloud/plus/sms',
@@ -140,7 +141,7 @@ module.exports = {
 						{
 							title: '全局配置',
 							collapsable: true,
-							children: [ 
+							children: [
 								'uniCloud/config/uni-id',
 								'uniCloud/config/vk-unicloud',
 								'uniCloud/config/uni-pay',
@@ -151,7 +152,7 @@ module.exports = {
 				{
 					title: '常见问题',
 					collapsable: true,
-					children: [ 
+					children: [
 						'question/q1',
 						'question/q2',
 						'question/q3',

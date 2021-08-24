@@ -41,7 +41,9 @@ export default {
 | action           | 动态模式 - vk框架下的云函数地址            | String | 无      | - |
 | auto-action       | 动态模式 - 是否组件加载完毕后自动运行action | Boolean  | 无 | -  |
 | query-form-param   | 动态模式 - 请求参数（表格查询参数） | Object  | {} | -  |
-| dataPreprocess          | 动态模式 - 云函数返回的数据进行预处理 | function(list)  | - | -  |
+| data-preprocess          | 动态模式 - 云函数返回的数据进行预处理 | function(list)  | - | -  |
+| is-request    | 动态模式 - 是否是http请求模式 | Boolean  | false | true |
+| props    | 动态模式 - 渲染数据的配置选项 | Object  | [查看http请求模式](#http请求模式)  | - |
 | data             | 静态模式 - 列表数据 | Array  | 无 | -  |
 | total            | 静态模式 - 总记录数 | Number  | 无 | -  |
 | columns          | 通用 - 字段显示规则 | Array  | [] | [查看columns](#columns)   |
@@ -73,7 +75,9 @@ export default {
 | show-summary     | 通用 - 是否需要显示合计行 |Boolean  | false | true |
 | summary-method     | 通用 - 自定义合计的计算函数（详情见下方） |Function  | - | [查看summary-method](#summary-method)  |
 | total-option     | 通用 - 需要自动统计的行（详情见下方） |Array  | - | - |
-| props    | 通用 - 渲染数据的配置选项 | Object  | {rows: 'rows',total: 'total',pageIndex: 'pageIndex',pageSize: 'pageSize',formData: 'formData'} | - |
+| expand     | 通用 - 是否开启点击可以展开行）[查看展开行](#展开行)|Boolean  | false | true |
+
+
 
 ### default-sort
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
@@ -95,9 +99,25 @@ columns 是一个数组，数组内每个元素有以下属性
 | headerAlign  |  表头对其方式 | String  | center    | left 、right  |
 | sortable  |  是否是排序字段 | String  | custom  | true 、false  |
 | fixed  | 列是否固定在左侧或者右侧，true 表示固定在左侧 | string, boolean  | 无  | true、left、right  |
-| show  | 显示规则，当为"detail" 代表只在详情弹窗时显示，"row" 代表只在表格内显示，"none" 代表均不显示 | string 、 array | ["detail","row"]  | "detail"、"row"、"none"  |
+| show  | 显示规则，[查看show](#show)  | string 、 array | ["detail","row","expand"]  | "detail"、"row"、"expand"、 "none"  |
 | defaultValue  |   默认值  | String  | 无  | -  |
 | formatter  | 自定义格式化函数 | function(val, row, column, index)  | -  | -  |
+
+### show
+
+show是一个字符串数组，columns 数组内每一个元素都可以单独设置 show
+
+* 如果 columns 的某元素中不存在 show 参数，则代表全部显示（行内、详情弹窗、行展开时）
+
+* 如果数组中有包含 "detail" ，则代表会在详情弹窗时显示
+
+* 如果数组中有包含 "row" ，则代表会在表格行内显示
+
+* 如果数组中有包含 "expand" ，则代表会在表格行展开时显示
+
+* 如果数组只有 ["none"] ，则代表都不显示
+
+[返回展开行](#展开行)
 
 ### type
 type（类型）
@@ -244,6 +264,46 @@ methods: {
 
 ```
 
+### http请求模式
+#### props 对象属性
+
+| 参数             | 说明                           | 类型    | 默认值  | 可选值 |
+|------------------|-------------------------------|---------|--------|-------|
+| rows           | 表格数据源的键名            | String | rows      | - |
+| total           | 总记录条数的键名           | String | total  | - |
+| pageIndex       | 查询时当前第几页的键名      | String | pageIndex  | - |
+| pageSize        | 查询时每页显示几条的键名    | String | pageSize  | - |
+| formData        | 查询表单的数据源的键名      | String | formData  | - |
+
+#### 示例代码
+
+```html
+<vk-data-table
+  ref="table1"
+  action="https://www.xxx.com/xxx/xxx"
+  :is-request="true"
+  :props="{ rows: 'rows', total: 'total', pageIndex: 'pageIndex', pageSize: 'pageSize', formData: 'formData' }"
+  :columns="table1.columns"
+  :query-form-param="queryForm1"
+></vk-data-table>
+```
+
+### 展开行
+当行内容过多并且不想显示横向滚动条时，可以使用 Table 展开行功能。
+```html
+<vk-data-table
+  ref="table1"
+  :action="table1.action"
+  :columns="table1.columns"
+  :query-form-param="queryForm1"
+  :expand="true"
+></vk-data-table>
+```
+
+可以配合show选择展开后显示的哪些字段  [查看show](#show)
+
+同时还可以通过插槽编写展开后的样式 [查看插槽](#展开行插槽)
+
 
 ## 事件
 
@@ -361,6 +421,19 @@ console.log(info);
 </vk-data-table>
 ```
 
+#### 展开行插槽
+```html
+<vk-data-table>
+
+  <!-- v-slot:tableExpand 是固定的 row 是该行的数据源-->
+  <template  v-slot:tableExpand="{ row }">
+    <view>我是插槽：{{ row._id }}</view>
+  </template>
+  
+</vk-data-table>
+```
+
+[返回展开行](#展开行)
 
 ## 万能表格搜索组件 
 
