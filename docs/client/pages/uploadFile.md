@@ -74,6 +74,13 @@ service:{
   }
 }
 ```
+#### service.aliyunOSS 参数生成工具 [点击下载](https://gitee.com/vk-uni/oss-h5-upload-js-direct.git)
+导入项目后,修改项目根目录`upload.js`内的参数,然后运行`index.html`,随便上传一张图片,页面上会显示`aliyunOSS`参数配置
+
+#### 如下图所示
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1a02b98c-ac0e-4662-95d9-e170f5f246d3.png)
+
+
 ## 上传图片，并将图片记录保存到admin后台
 ```js
 // 选择图片
