@@ -13,6 +13,13 @@ res = await vk.vkPay.transfer({
   remark: "转账备注",
   out_biz_no: "转账单号"
 });
+
+if (res.code !== 0) {
+  // 转账失败后的逻辑
+  return res;
+}
+
+// 转账成功后的逻辑
 ```
 
 ## 微信
@@ -27,6 +34,13 @@ res = await vk.vkPay.transfer({
   remark: "转账备注",
   out_biz_no: "转账单号"
 });
+
+if (res.code !== 0) {
+  // 转账失败后的逻辑
+  return res;
+}
+
+// 转账成功后的逻辑
 ```
 
 
