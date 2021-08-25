@@ -20,7 +20,8 @@
 `main.js` 引入 `vk-unicloud-page` 库
 
 ```js
-import vk from 'uni_modules/vk-unicloud';
+// 引入 vk框架前端
+import vk from 'uni_modules/vk-unicloud/vk_modules/vk-unicloud-page';
 Vue.use(vk);
 ```
 
