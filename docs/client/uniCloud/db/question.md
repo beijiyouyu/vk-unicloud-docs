@@ -285,8 +285,11 @@ let selectRes = await vk.baseDao.select({
 
 ### 返回字段别名
 ### 如何返回字段别名，如数据库中是`_id`,但想返回给前端是`user_id`
+
+* 注意：select不支持字段别名，需要selects
+
 ```js
-let selectRes = await vk.baseDao.select({
+let selectRes = await vk.baseDao.selects({
   dbName:"uni-id-users",
   pageIndex:1,
   pageSize:20,
