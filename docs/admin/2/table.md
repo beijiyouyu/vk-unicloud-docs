@@ -95,7 +95,7 @@ columns 是一个数组，数组内每个元素有以下属性
 | type   |   类型    | String  | 无    | [查看type](#type)   |
 | width  |   宽度    | Number  | 无    | -  |
 | minWidth  | 最小宽度（设置此值会自动填充宽度） | Number  | 无    | -  |
-| alignt  |  对其方式 | String  | center    | left 、right  |
+| align  |  对其方式 | String  | center    | left 、right  |
 | headerAlign  |  表头对其方式 | String  | center    | left 、right  |
 | sortable  |  是否是排序字段 | String  | custom  | true 、false  |
 | fixed  | 列是否固定在左侧或者右侧，true 表示固定在左侧 | string, boolean  | 无  | true、left、right  |
