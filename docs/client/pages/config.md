@@ -4,7 +4,7 @@
 ```js
 // 引入自定义公共函数
 import myPubFunction from '@/common/function/myPubFunction.js'
-module.exports = {
+export default {
   // 开发模式启用调式模式(请求时会打印日志)
   debug:process.env.NODE_ENV !== 'production',
   // 主云函数名称
@@ -91,6 +91,15 @@ module.exports = {
       // oss外网访问地址，也可以是阿里云cdn地址
       host:"https://xxx.xxx.com"
     }
+  },
+  // 全局异常码，可以自定义提示结果
+  globalErrorCode: {
+    // 阿里云10秒非正常超时，其实请求还在执行（且一般已经成功了，但前端接接受不到成功结果）
+    "cloudfunction-unusual-timeout": "请求超时，但请求还在执行，请重新进入页面。",
+    // 请求超时（真正的请求超时）
+    "cloudfunction-timeout": "请求超时，请重试！",
+    // 不在预期内的异常（如数据库异常、云函数编译异常等）
+    "cloudfunction-system-error": "网络开小差了！"
   }
 }
 
