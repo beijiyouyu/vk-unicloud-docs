@@ -83,6 +83,52 @@
 | debounce          | 搜索关键词输入的去抖延迟，毫秒 | Number  | 300 | -  |
 | beforeFilter          | 筛选之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止筛选 | function(value)  | -| - |
 
+#### props
+
+| 参数             | 说明                           | 类型    | 默认值  | 可选值 |
+|------------------|-------------------------------|---------|--------|-------|
+| expandTrigger    | 次级菜单的展开方式 | String  | click | hover  |
+| multiple         | 是否多选 | Boolean  | false | true |
+| checkStrictly    | 是否严格的遵守父子节点不互相关联 | Boolean  | false | true |
+| emitPath         | 在选中节点改变时，是否返回由该节点所在的各级菜单的值所组成的数组，若设置 false，则只返回该节点的值 | Boolean  | true | false |
+| lazy             | 是否多选 | Boolean  | false | true |
+| multiple         | 是否动态加载子节点，需与 lazyLoad 方法结合使用 | Boolean  | false | true |
+| lazyLoad         | 加载动态数据的方法，仅在 lazy 为 true 时有效 function(node, resolve)，node为当前点击的节点，resolve为数据加载完成的回调(必须调用) | function(node, resolve)  | - | - |
+| value            | 指定选项的值为选项对象的某个属性值 | String  | value | - |
+| label            | 指定选项标签为选项对象的某个属性值 | String  | label | - |
+| children         | 指定选项的子选项为选项对象的某个属性值 | String  | children | - |
+| disabled         | 指定选项的禁用为选项对象的某个属性值 | String  | disabled | - |
+| leaf             | 指定选项的叶子节点的标志位为选项对象的某个属性值 | String  | leaf | - |
+
+
+#### onChange 使用示例
+```js
+{
+  key:"cascader1", title:"cascader类型1", type:"cascader",
+  data:[
+    {
+      value:1,
+      label:"数学",
+      children:[
+        { value:11,label:"奥数" },
+        { value:12,label:"微积分" }
+      ]
+    },
+    {
+      value:2,
+      label:"语文",
+      children:[
+        { value:21, label:"文言文" },
+        { value:22, label:"古诗" }
+      ]
+    }
+  ],
+  onChange:function(val, formData, column, index, option){
+    console.log(1,val, formData, column, index, option);
+  }
+}
+```
+
 ### 万能表格使用方式
 
 #### 无
