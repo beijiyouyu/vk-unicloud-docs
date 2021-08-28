@@ -34,6 +34,71 @@ export default {
 	data() {
 		return {
 			list: [
+        {
+        	version: "1.5.5",
+        	date: "2021-08-28",
+        	list: [
+        		{ label: "升级", content: "`vk-unicloud-admin-ui` 包升级至 `1.5.16`" },
+        		{
+        			label: "新增", content: "`vk.pubfn.getDayOffsetStartAndEnd` 获得相对当前时间的偏移 count 天的起止日期(日的开始和结束)",
+        			a: {
+        				text: "点击查看",
+        				href:
+        					"https://vkdoc.fsq.pub/client/jsapi.html#vk-pubfn-getdayoffsetstartandend-%E8%8E%B7%E5%BE%97%E7%9B%B8%E5%AF%B9%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E7%9A%84%E5%81%8F%E7%A7%BB-count-%E5%A4%A9%E7%9A%84%E8%B5%B7%E6%AD%A2%E6%97%A5%E6%9C%9F"
+        			}
+        		},
+            {
+            	label: "新增", content: "`vk.pubfn.getMonthOffsetStartAndEnd` 获得相对当前时间的偏移 count 月的起止日期(月的开始和结束)",
+            	a: {
+            		text: "点击查看",
+            		href:
+            			"https://vkdoc.fsq.pub/client/jsapi.html#vk-pubfn-getmonthoffsetstartandend-%E8%8E%B7%E5%BE%97%E7%9B%B8%E5%AF%B9%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E7%9A%84%E5%81%8F%E7%A7%BB-count-%E6%9C%88%E7%9A%84%E8%B5%B7%E6%AD%A2%E6%97%A5%E6%9C%9F"
+            	}
+            },
+            {
+            	label: "新增", content: "`vk.pubfn.getYearOffsetStartAndEnd`获得相对当前时间的偏移 count 年的起止日期(年的开始和结束)",
+            	a: {
+            		text: "点击查看",
+            		href:
+            			"https://vkdoc.fsq.pub/client/jsapi.html#vk-pubfn-getyearoffsetstartandend-%E8%8E%B7%E5%BE%97%E7%9B%B8%E5%AF%B9%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E7%9A%84%E5%81%8F%E7%A7%BB-count-%E5%B9%B4%E7%9A%84%E8%B5%B7%E6%AD%A2%E6%97%A5%E6%9C%9F"
+            	}
+            },
+            {
+            	label: "优化", content: "`万能表格` 的查询action支持http请求（传统后端请求）",
+            	a: {
+            		text: "点击查看",
+            		href:
+            			"https://vkdoc.fsq.pub/admin/2/table.html#http%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%BC%8F"
+            	}
+            },
+            {
+            	label: "优化", content: "`万能表单` 的提交action支持http请求（传统后端请求）",
+            	a: {
+            		text: "点击查看",
+            		href:
+            			"https://vkdoc.fsq.pub/admin/3/form.html#http%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%BC%8F"
+            	}
+            },
+            {
+            	label: "优化", content: "使用帮助/代码快捷提示/javascript代码块提示.json 新增新加的几个api的代码提示，同时输入`qw`可以快捷输出常用过滤器代码。",
+            	a: {
+            		text: "点击查看",
+            		href:
+            			"https://vkdoc.fsq.pub/client/codeTips.html"
+            	}
+            },
+            {
+            	label: "优化", content: "`万能表格` 支持展开行",
+            	a: {
+            		text: "点击查看",
+            		href:
+            			"https://vkdoc.fsq.pub/admin/2/table.html#http%E8%AF%B7%E6%B1%82%E6%A8%A1%E5%BC%8F"
+            	}
+            },
+            { label: "修复", content: "`万能表格` 树形结构展示的bug" },
+            { label: "修复", content: "`万能表格`前端`queryForm1.sortRule`（排序）不生效的bug。" },
+        	]
+        },
 				{
 					version: "1.5.0",
 					date: "2021-08-11",
