@@ -74,7 +74,7 @@
 |------------------|-------------------------------|---------|--------|-------|
 | data            | 静态模式数据源 | Array  | - | -  |
 | action          | 动态模式 - 远程请求的云函数地址 | String  | - | -  |
-| props          | 数据源的属性匹配规则 | Object  | { list:'list', value:'value', label:'label', children:'children' } | -  |
+| props          | 数据源的属性匹配规则 | Object  | [查看props](#props)  | -  |
 | showAllLevels      | 输入框中是否显示选中值的完整路径 | Boolean  | true | false  |
 | collapseTags      | 多选模式下是否折叠Tag | Boolean  | false | true  |
 | separator        | 选项分隔符 | String  | 斜杠' / ' | -  |
