@@ -515,6 +515,17 @@ vk.pubfn.isArray(obj);
 vk.pubfn.isObject(obj);
 ```
 
+### vk.pubfn.createOrderNo（产生订单号）
+
+```js
+/**
+ * 产生订单号，不依赖数据库，高并发时性能高（理论上会重复，但概率非常非常低）
+ * @params {String} prefix 前缀
+ * @params {Number} num 位数，建议在25-30之间，默认25
+ */
+vk.pubfn.createOrderNo("NO");
+```
+
 
 ## 前端专属
 
