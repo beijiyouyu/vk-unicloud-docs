@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "",
     "uniCloudDeploy": "cli hosting deploy --provider aliyun --space 75591799-b3ac-4e30-b145-7fd08d6bbeac --source /dist/ --prefix ",
     "dev": "vuepress dev docs --temp .temp",
     "build": "vuepress build docs"
