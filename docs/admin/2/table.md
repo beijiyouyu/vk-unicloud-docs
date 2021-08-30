@@ -566,6 +566,23 @@ columns:[
 
 用法与vk.baseDao.selects相似，区别是 vk.baseDao.getTableData  多了一个data参数
 
+### 设置全局默认排序规则
+
+在 `common/uni-config-center/vk-unicloud/index.js` 中
+
+配置 `vk.db.unicloud.getTableData.sortArr`，可以设置 `vk.baseDao.getTableData` 全局默认排序规则
+```js
+"vk":{
+  "db":{
+    "unicloud":{
+      "getTableData":{
+        "sortArr":[{"name":"_add_time","type":"desc"}], // vk.baseDao.getTableData 默认排序规则
+      }
+    }
+  }
+}
+```
+
 [vk.baseDao.selects万能连表文档](https://vkdoc.fsq.pub/client/uniCloud/db/selects.html)
 
 ### data 参数介绍
