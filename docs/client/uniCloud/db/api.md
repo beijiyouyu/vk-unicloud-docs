@@ -90,6 +90,32 @@ let newInfo = await vk.baseDao.updateById({
 
 ### 更新并返回更新后的数据（原子操作）
 `vk.baseDao.updateAndReturn`
+根据ID修改数据，并返回修改后的数据对象（原子操作）
+
+#### 方式一
+```js
+let newInfo = await vk.baseDao.updateAndReturn({
+  dbName: "vk-test",
+  id: _id,
+  dataJson: {
+    money: 1
+  }
+});
+```
+
+#### 方式二(whereJson的条件查询后的结果必须有且只有1条记录)
+```js
+let newInfo = await vk.baseDao.updateAndReturn({
+  dbName: "vk-test",
+  whereJson: {
+    _id: _id
+  },
+  dataJson: {
+    money: 1
+  }
+});
+```
+
 #### `vk.baseDao.updateAndReturn` 和 `vk.baseDao.updateById + getUpdateData:true` 的区别？
 
 * vk.baseDao.updateAndReturn 是原子操作，而后者不是原子操作（后者是先修改再查询）
