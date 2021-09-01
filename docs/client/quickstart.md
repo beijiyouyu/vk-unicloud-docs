@@ -7,7 +7,7 @@
 
 #### 前置工作：修改云函数全局配置文件（用到微信登录的必须要配置）
 #### 注意：
-* 1、使用微信登录需要配置 manifest.json 以及 uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json 这2个配置文件，且改动配置后需要重新上传 公共模块 和 router 函数。(如果不使用微信登录，则不需要配置)
+* 1、微信小程序需要额外配置 manifest.json 以及 uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json 这2个配置文件，且改动配置后需要重新上传 公共模块 和 router 函数。
 * 2、若你的电脑没有安装 Node.js，则无法使用 npm 命令。
 * 3、Node.js 安装包及源码下载地址为：[https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 * 4、Node.js 安装教程：[https://www.runoob.com/nodejs/nodejs-install-setup.html](https://www.runoob.com/nodejs/nodejs-install-setup.html)
