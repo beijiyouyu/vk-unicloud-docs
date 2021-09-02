@@ -25,6 +25,7 @@ module.exports = {
       { text: 'client端框架', link: '/client/' },
       { text: 'admin端框架', link: '/admin/' },
       { text: 'vk-uni-pay（统一支付）', link: '/vk-uni-pay/' },
+      { text: '数据库一键搬家', link: '/db-migration/' },
 			{ text: 'DCloud插件市场', link: 'https://ext.dcloud.net.cn/publisher?id=164406' },
 			//{ text: '成品项目', link: '/product/' },
 			{
@@ -311,7 +312,16 @@ module.exports = {
 						}
 					]
 				}
-			]
+			],
+      '/db-migration/': [
+      	{
+      		title: '一键搬家',
+      		collapsable: false,
+      		children: [
+      			''
+      		]
+      	}
+      ],
 		},
 		resolve: {
 		  alias: {
