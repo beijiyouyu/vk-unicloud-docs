@@ -30,7 +30,7 @@
 
 - 2、在`旧空间`上传云函数`vk-db-migration`
 
-- 3、HBX切换到`新空间`，在`新空间`也上传云函数`vk-db-migration`
+- 3、HBX切换到`新空间`，在`新空间`也上传云函数`vk-db-migration`（右键uniCloud目录，点击关联空间，如果是阿里云转腾讯云，需要把`uniCloud`目录重命名为`uniCloud-tcb`，反之，腾讯云转阿里云，则重命名为`uniCloud-aliyun`）
 
 - 4、在`新空间`初始化你自己数据库的`db_init.json`(注意，不要带任何数据库数据，这步骤只为了创建数据库索引)
 
