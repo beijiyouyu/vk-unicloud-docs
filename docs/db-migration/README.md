@@ -10,6 +10,12 @@
 
 - 4、省心、省力、解放双手！
 
+## 效果视频
+
+<video src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/59b33602-c916-4f5e-a720-d8fa1512c964.mp4" width="1200" height="655" controls="controls" autoplay="autoplay">
+  您的浏览器不支持 video 标签。
+</video>
+
 ## 名词定义
 
 - 1、旧空间：就是你需要搬家的空间。
@@ -47,8 +53,4 @@
 - 10、完成。
 
 
-## 效果视频
 
-<video width="1200" height="655" controls="controls">
-  <source src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/59b33602-c916-4f5e-a720-d8fa1512c964.mp4" type="video/mp4" />
-</video>
