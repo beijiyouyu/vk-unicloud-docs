@@ -12,7 +12,7 @@
 
 ## 效果视频
 
-<video src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/59b33602-c916-4f5e-a720-d8fa1512c964.mp4" width="1200" height="655" controls="controls" autoplay="autoplay">
+<video src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/59b33602-c916-4f5e-a720-d8fa1512c964.mp4" controls="controls" style="max-width:100%;">
   您的浏览器不支持 video 标签。
 </video>
 
