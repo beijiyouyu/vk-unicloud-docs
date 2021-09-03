@@ -12,7 +12,7 @@
 
 ## 效果视频
 
-<video src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/59b33602-c916-4f5e-a720-d8fa1512c964.mp4" width="1200" height="655" controls="controls" autoplay="autoplay">
+<video src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/257dab2e-eedc-48c4-aef7-d6149ea7b97b.mp4" width="1200" height="655" controls="controls" autoplay="autoplay">
   您的浏览器不支持 video 标签。
 </video>
 
@@ -29,6 +29,8 @@
 - 2、`新空间`数据库的数据在导入前`会被全部清空`（需要注意空间别选错了，否则后果自负）。
 
 - 3、`旧空间`数据库的数据`不会被清空`（也不会被修改）
+
+- 4、请一定要在阿里云环境`相对稳定`的时间段进行搬家（如果当前阿里云出`故障`了，`不稳定`，则请等阿里云环境稳定了再进行搬家）
 
 ## 操作步骤
 
