@@ -76,3 +76,4 @@ return res;
 * 2、`vk.baseDao.findById`
 * 3、`vk.baseDao.updateById`
 * 4、`vk.baseDao.deleteById`
+* 5、`vk.baseDao.updateAndReturn`

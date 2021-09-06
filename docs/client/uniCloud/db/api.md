@@ -90,9 +90,9 @@ let newInfo = await vk.baseDao.updateById({
 
 ### 更新并返回更新后的数据（原子操作）
 `vk.baseDao.updateAndReturn`
-根据ID修改数据，并返回修改后的数据对象（原子操作）
+根据ID修改数据，并返回修改后的数据对象（原子操作）(支持事务)
 
-#### 方式一
+#### 方式一（此方式目前仅阿里云支持）
 ```js
 let newInfo = await vk.baseDao.updateAndReturn({
   dbName: "vk-test",
@@ -103,7 +103,7 @@ let newInfo = await vk.baseDao.updateAndReturn({
 });
 ```
 
-#### 方式二(whereJson的条件查询后的结果必须有且只有1条记录)
+#### 方式二（whereJson的条件查询后的结果必须有且只有1条记录）（此方式目前阿里云和腾讯云都支持）
 ```js
 let newInfo = await vk.baseDao.updateAndReturn({
   dbName: "vk-test",
