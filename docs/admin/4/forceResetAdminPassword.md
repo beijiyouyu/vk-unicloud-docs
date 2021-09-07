@@ -36,6 +36,13 @@ module.exports = {
       uid: userInfo._id,
       password: params.password
     });
+    await vk.baseDao.updateById({
+      dbName:"uni-id-users",
+      id: userInfo._id,
+      dataJson:{
+        login_ip_limit: _.remove()
+      }
+    });
     if(res.code === 0){
       res.msg = `密码已重置为：${params.password}`;
     }
@@ -43,6 +50,7 @@ module.exports = {
     return res;
   }
 }
+
 ```
 * 2、将下方的代码全部复制到`uniCloud/cloudfunctions/router/router.param.json`文件内（如果没有此文件则新建）
 
