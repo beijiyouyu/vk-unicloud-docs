@@ -17,10 +17,10 @@
 ```js
 
 res = await vk.baseDao.selects({
-  dbName: "uni-id-users",
-  getCount: false,
-  pageIndex: 1,
-  pageSize: 10,
+  dbName: "uni-id-users",// 主表名
+  getCount: false, // 是否需要同时查询满足条件的记录总数量
+  pageIndex: 1, // 查询第几页
+  pageSize: 10, // 每页多少条数据
   // 主表where条件
   whereJson: {
 
@@ -35,11 +35,11 @@ res = await vk.baseDao.selects({
   // 副表列表
   foreignDB: [
     {
-      dbName: "order",
-      localKey:"_id",
-      foreignKey: "user_id",
+      dbName: "order", // 副表名
+      localKey:"_id", // 主表外键字段名
+      foreignKey: "user_id", // 副表外键字段名
       as: "orderList",
-      limit: 10,
+      limit: 10, // 当limit = 1时，以对象形式返回，否则以数组形式返回
       // 副表where条件
       whereJson: {},
       // 副表字段显示规则
@@ -48,9 +48,9 @@ res = await vk.baseDao.selects({
       sortArr: [{ "name": "time","type": "desc" }],
     },
     {
-      dbName: "vip",
-      localKey:"_id",
-      foreignKey: "user_id",
+      dbName: "vip", // 副表名
+      localKey:"_id", // 主表外键字段名
+      foreignKey: "user_id", // 副表外键字段名
       as: "vipInfo",
       limit: 1, // 当limit = 1时，以对象形式返回，否则以数组形式返回
     }
