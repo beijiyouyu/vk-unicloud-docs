@@ -331,6 +331,48 @@ columns中的每一个key都是插槽的名称 （详情见示例:`/pages_templa
 </vk-data-form>
 ```
 
+#### 还可以重写提交按钮
+```html
+<vk-data-form
+  ref="form1"
+  v-model="form1.data"
+  :rules="form1.props.rules"
+  :action="form1.props.action"
+  :form-type="form1.props.formType"
+  :columns='form1.props.columns'
+  :loading.sync="form1.props.loading"
+  label-width="140px"
+  @success="onFormSuccess"
+>
+  <template v-slot:footer="{ loading }">
+  	<view style="text-align: center;" >
+  		<el-button :loading="loading" type="danger"  size="small" style="padding: 10px 40px;margin-right: 30px; " @click="adopt(-1)"> 拒绝 </el-button>
+  		<el-button :loading="loading" type="success" size="small" style="padding: 10px 40px; " @click="adopt(1)"> 通过 </el-button>
+  	</view>
+  </template>
+</vk-data-form>
+```
+
+```js
+// 审核通过执行的方法
+adopt(status){
+  that.$refs.form1.submitForm({
+    // data为额外提交的参数，真正提交的参数为form1.data+这里的data
+    data:{
+      status:status
+    },
+    success: (data) => {
+      // 提交成功
+      
+    },
+    fail: (data) => {
+      // 提交失败
+      
+    }
+  });
+}
+```
+
 
 ## http请求模式
 
