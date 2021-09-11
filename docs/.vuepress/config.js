@@ -148,6 +148,16 @@ module.exports = {
 								'uniCloud/config/uni-pay',
 							]
 						},
+            {
+            	title: 'Redis扩展',
+            	collapsable: true,
+            	children: [
+            		'uniCloud/redis/redis',
+                'uniCloud/redis/quickstart',
+                'uniCloud/redis/api',
+                'uniCloud/redis/question'
+            	]
+            }
 					]
 				},
 				{
