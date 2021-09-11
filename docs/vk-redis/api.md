@@ -1615,6 +1615,8 @@ await redis.unsubscribe(channel);
 
 ## 事务
 
+### 完整示例
+
 ```js
 const multi = await redis.multi();
 
@@ -1624,25 +1626,6 @@ multi.set('key3', 'value3');
 
 let execRes = await multi.exec();
 
-```
-### discard
-
-取消事务，放弃执行事务块内的所有命令。
-
-- 调用示例
-
-```js
-await multi.discard();
-```
-
-### exec
-
-执行所有事务块内的命令。
-
-- 调用示例
-
-```js
-await multi.exec();
 ```
 
 ### multi
@@ -1655,14 +1638,24 @@ await multi.exec();
 await redis.multi();
 ```
 
-### unwatch
+### exec
 
-取消 WATCH 命令对所有 key 的监视。
+执行所有事务块内的命令。
 
 - 调用示例
 
 ```js
-redis.unwatch();
+await multi.exec();
+```
+
+### discard
+
+取消事务，放弃执行事务块内的所有命令。
+
+- 调用示例
+
+```js
+await multi.discard();
 ```
 
 ### watch
@@ -1673,6 +1666,16 @@ redis.unwatch();
 
 ```js
 redis.watch(key1, key2);
+```
+
+### unwatch
+
+取消 WATCH 命令对所有 key 的监视。
+
+- 调用示例
+
+```js
+redis.unwatch();
 ```
 
 ## 位图（bitMap）
@@ -1777,9 +1780,10 @@ await redis.bitpos(key, value start, end);
 - 调用示例
 
 ```js
-const [operationType, currentValue] = await redis.eval(`local val = redis.call('get','key-test')
+const [operationType, currentValue] = await redis.eval(`
+    local val = redis.call('get','key-test')
     local valNum = tonumber(val)
-    if (val == nil) then
+    if (valNum == nil) then
         redis.call('set', 'key-test', 1)
         return {0, 1}
     end
