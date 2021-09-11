@@ -28,22 +28,37 @@
 ## 配置文件
 ```json
 {
-	"port": 6379,
-	"host": "你的Redis外网访问地址",
-	"password": "用户名:密码",
-	"db": 0
+	"enable": true,
+	"config": {
+		"port": 6379,
+		"host": "你的Redis外网访问地址",
+		"password": "用户名:密码",
+		"db": 0
+	}
 }
 ```
-#### 若 password 只有密码，没有用户名，则直接填密码即可。
+
+* enable ：true：代表使用外部 Redis false：代表使用 uniCloud 内置的Redis
+
+* port ：外部Redis端口号
+
+* host ：外部Redis外网访问地址
+
+* password ：外部Redis账号密码，格式：用户名:密码，若 password 只有密码，没有用户名，则直接填密码即可。
+
+* db ：外部Redis默认访问的dbIndex
 
 #### 这里给你提供一个外网可以访问的测试Redis，仅供你开发测试使用，请勿在生产环境中使用。
 
-```js
+```json
 {
-	"port": 6379,
-	"host": "redistest.fsq.pub",
-	"password": "redis123456",
-	"db": 0
+	"enable": true,
+	"config": {
+		"port": 6379,
+		"host": "redistest.fsq.pub",
+		"password": "redis123456",
+		"db": 0
+	}
 }
 ```
 * 测试的Redis是阿里云杭州机房服务器，故延迟可能较高
