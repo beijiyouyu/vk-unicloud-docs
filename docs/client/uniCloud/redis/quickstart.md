@@ -44,3 +44,24 @@ let redisRes = await redis.get('a');
 ```
 
 #### 注意：在VK框架中，不用写 `const vk = require('vk-redis');`
+
+#### 特别注意：
+
+* 如果你的空间是腾讯云，请一定要把云函数设置为node8版本，node12版本目前无法复用redis连接（腾讯云空间的问题，阿里云没问题）
+
+* 设置方法：云函数根目录的`package.json` 的 `cloudfunction-config`的`runtime` 设置为 `Nodejs8`
+
+* 如果你的云函数已经是node12版本，则需要先删除云函数，再重新上传
+
+```js
+{
+	"cloudfunction-config": {
+		"concurrency": 1,
+		"memorySize": 256,
+		"path": "",
+		"timeout": 60,
+		"triggers": [],
+		"runtime": "Nodejs8"
+	}
+}
+```
