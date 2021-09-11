@@ -36,6 +36,17 @@
 ```
 ## 若 password 只有密码，没有用户名，则直接填密码即可。
 
+### 这里给你提供一个外网可以访问的测试Redis，仅供你测试使用，请勿在生产环境中使用。
+```js
+{
+	"port": 6379,
+	"host": "redistest.fsq.pub",
+	"password": "redis123456",
+	"db": 0
+}
+```
+
+
 ## 尝试运行第一个Redis API
 ```js
 const vk = require('vk-redis');
