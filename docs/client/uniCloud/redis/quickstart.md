@@ -9,6 +9,21 @@
 * 5、上传对应的云函数
 * 6、完成
 
+## 注意
+
+如果使用uniCloud内置的Redis，则需要额外在你的云函数根目录的package.json内添加云函数的扩展能力（如果云函数目录下没有package.json，可以通过在云函数目录下执行npm init -y来生成）
+```js
+{
+  "name": "你的云函数名称",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  // 配置为此云函数开启redis扩展能力，值为空对象留作后续追加参数，暂无内容（此注释不可以有）
+  "extensions": {
+    "uni-cloud-redis": {} 
+  }
+}
+```
 
 ## 配置文件
 ```json
