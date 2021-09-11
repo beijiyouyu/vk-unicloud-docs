@@ -38,7 +38,7 @@ await redis.set(key, value, mode, duration, flag);
 |-----------|-----------------|---------|--------|-------|
 | key       | 键名            | String  | 是      | - |
 | value     | 值           | String  | 是      | - |
-| flag      |	区分状态进行SET  NX：不存在时才设置     | String  | 否      | - |
+| flag      |	区分状态进行SET  NX：不存在时才设置 XX：存在时才设置     | String  | 否      | - |
 | mode      | 标识duration的单位            | String  | 否（duration不为空时必填） | EX：单位秒，PX：单位毫秒 |
 | duration  | 过期时间，到期后自动删除            | Number  | 否      | - |
 
