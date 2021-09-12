@@ -3,15 +3,16 @@
 ## 下载安装
 
 * 1、从插件市场安装 `vk-redis` 插件到你的项目中。
-* 2、在需要使用Redis的云函数右键选择`管理公共模块依赖`菜单，引入公共模块`vk-redis`。
-* 3、Redis配置文件地址:`uniCloud/cloudfunctions/common/uni-config-center/vk-redis/config.json`(没有则新建)（注意这里是`config.json`) [查看配置文件](#配置文件)
-* 4、上传公共模块`vk-redis`
-* 5、上传对应的云函数
-* 6、完成
+* 2、右键公共模块 `vk-redis`，选择 `管理公共模块依赖` 菜单，引入 `uni-config-center` 模块（此为uni配置中心）
+* 3、在需要使用 `vk-redis` 的云函数右键选择 `管理公共模块依赖` 菜单，引入公共模块 `vk-redis`。
+* 4、Redis配置文件地址：`uniCloud/cloudfunctions/common/uni-config-center/vk-redis/config.json`（没有则新建）（注意这里是 `config.json`) [查看配置文件](#配置文件)
+* 5、上传公共模块 `vk-redis`
+* 6、上传对应的云函数
+* 7、完成
 
 ## 注意
 
-如果使用uniCloud内置的Redis，则需要额外在你的云函数根目录的package.json内添加云函数的扩展能力（如果云函数目录下没有package.json，可以通过在云函数目录下执行npm init -y来生成）
+如果使用 `uniCloud` 内置的 `Redis`，则需要额外在你的云函数根目录的 `package.json` 内添加云函数的扩展能力（如果云函数目录下没有 `package.json`，可以通过在云函数目录下执行`npm init -y`来生成）
 ```js
 {
   "name": "你的云函数名称",
@@ -38,15 +39,15 @@
 }
 ```
 
-* enable ：true：代表使用外部 Redis false：代表使用 uniCloud 内置的Redis
+* enable ：true：代表使用外部 Redis false：代表使用 uniCloud 内置的Redis，若使用外部 Redis 则需配置下面的配置信息。
 
-* port ：外部Redis端口号
+* port ：Redis端口号
 
-* host ：外部Redis外网访问地址
+* host ：Redis外网访问地址
 
-* password ：外部Redis账号密码，格式：用户名:密码，若 password 只有密码，没有用户名，则直接填密码即可。
+* password ：Redis账号密码，格式：用户名:密码，若 password 只有密码，没有用户名，则直接填密码即可。
 
-* db ：外部Redis默认访问的dbIndex
+* db ：Redis默认访问的dbIndex
 
 #### 这里给你提供一个外网可以访问的测试Redis，仅供你开发测试使用，请勿在生产环境中使用。
 
@@ -89,11 +90,11 @@ let redisRes = await redis.get('a');
 
 #### 特别注意：
 
-* 如果你的空间是腾讯云，请一定要把云函数设置为node8版本，node12版本目前无法复用redis连接（腾讯云空间的问题，阿里云没问题）
+* 如果你的空间是腾讯云，请一定要把云函数设置为 `node8` 版本，`node12` 版本目前无法复用Redis连接（腾讯云空间的问题，阿里云没问题）
 
-* 设置方法：云函数根目录的`package.json` 的 `cloudfunction-config`的`runtime` 设置为 `Nodejs8`
+* 设置方法：云函数根目录的 `package.json` 的 `cloudfunction-config` 的 `runtime` 设置为 `Nodejs8`
 
-* 如果你的云函数已经是node12版本，则需要先删除云函数，再重新上传
+* 如果你的云函数已经是 `node12` 版本，则需要先删除云函数，再重新上传。
 
 ```js
 {
