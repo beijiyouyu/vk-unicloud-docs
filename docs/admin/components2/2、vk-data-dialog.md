@@ -57,17 +57,17 @@
 | width          | 弹窗宽度  | Number|  - | - |
 | mode      | 弹窗模式 | String  | default | form  |
 | top          | margin-top 值 | String  | 7vh | - |
-| closeOnClickModal          | 是否可以通过点击 modal 关闭 Dialog  | Boolean  | false | true  |
-| closeOnPressEscape          | 是否可以通过按下 ESC 关闭 Dialog  | Boolean  | true | false  |
-| showClose          | 是否显示关闭按钮  | Boolean  | true | false  |
+| close-on-click-modal          | 是否可以通过点击 modal 关闭 Dialog  | Boolean  | false | true  |
+| close-on-press-escape          | 是否可以通过按下 ESC 关闭 Dialog  | Boolean  | true | false  |
+| show-close          | 是否显示关闭按钮  | Boolean  | true | false  |
 | modal          | 是否需要遮罩层  | Boolean  | true | false  |
 | fullscreen      | 是否全屏 | Boolean  | false | true  |
-| customClass          | Dialog 的自定义类名| String  | - | - |
-| showFullscreen          | 是否显示全屏按钮（仅在mode="form"时生效）  | Boolean  | true | false  |
-| showHeader          | 是否显示头部  | Boolean  | true | false  |
-| beforeClose          | 关闭前的回调，会暂停 Dialog 的关闭  | Function  | - | -  |
+| custom-class          | Dialog 的自定义类名| String  | - | - |
+| show-fullscreen          | 是否显示全屏按钮（仅在mode="form"时生效）  | Boolean  | true | false  |
+| show-header          | 是否显示头部  | Boolean  | true | false  |
+| before-close          | 关闭前的回调，会暂停 Dialog 的关闭  | Function  | - | -  |
 | center          | 是否对头部和底部采用居中布局  | Boolean  | false | true  |
-| maxHeight          | 最大高度，超过会有滚动条 | String| Number | - | - |
+| max-height          | 最大高度，超过会有滚动条 | String| Number | - | - |
 
 ### 事件
 

@@ -13,6 +13,6 @@
 |------------------|-------------------------------|---------|--------|-------|
 | href            | 目标url地址 | String  | - | -  |
 | text          | 显示的文本| String  | - | - |
-| showUnderLine          | 是否显示下划线  | Boolean  | true | false  |
+| show-under-line          | 是否显示下划线  | Boolean  | true | false  |
 | color      | 文本颜色 | String  | #999999 | -  |
-| fontSize         | 字体大小 | Number| String  | 13 | -  |
+| font-size         | 字体大小 | Number| String  | 13 | -  |
