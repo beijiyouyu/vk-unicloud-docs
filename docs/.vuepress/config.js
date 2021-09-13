@@ -148,7 +148,8 @@ module.exports = {
 								'uniCloud/config/vk-unicloud',
 								'uniCloud/config/uni-pay',
 							]
-						}
+						},
+            'uniCloud/redis/redis',
 					]
 				},
 				{
