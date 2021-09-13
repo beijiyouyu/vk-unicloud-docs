@@ -1,5 +1,32 @@
 # Redis开发文档
 
+## 获取redis对象
+
+- 调用示例
+
+推荐此方式：
+
+```js
+const vk = require('vk-redis');
+const redis = vk.redis();
+```
+
+- 默认情况下，redis会自动读取 `uni-config-center/vk-redis/config.json`下的配置 
+
+- 当然你也可以直接在获取redis对象时传配置参数，如：
+
+```js
+const vk = require('vk-redis');
+const redis = vk.redis({
+  "port": 6379,
+  "host": "你的Redis外网访问地址",
+  "password": "用户名:密码",
+  "db": 0
+});
+```
+
+- 注意：如果在 `VK框架` 中，不用写 `const vk = require('vk-redis');` 这段代码。
+
 ## 字符串类型（String）
 
 ### get
