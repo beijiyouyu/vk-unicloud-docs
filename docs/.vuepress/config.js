@@ -228,7 +228,16 @@ module.exports = {
 						'components/24、array',
 						'components/25、file-select'
 					]
-				}
+				},
+        {
+        	title: '其他组件',
+        	collapsable: false,
+        	children: [
+            'components2/1、vk-data-icon',
+            'components2/2、vk-data-dialog',
+            'components2/3、vk-data-link',
+        	]
+        }
 			],
 			'/vk-uni-pay/': [
 				{
