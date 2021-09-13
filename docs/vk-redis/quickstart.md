@@ -2,7 +2,7 @@
 
 ## 下载安装
 
-* 1、从插件市场安装 `vk-redis` 插件到你的项目中。
+* 1、从插件市场安装 `vk-redis` 插件到你的项目中。 [点击前往插件市场](https://ext.dcloud.net.cn/plugin?id=6158)
 * 2、右键公共模块 `vk-redis`，选择 `管理公共模块依赖` 菜单，引入 `uni-config-center` 模块（此为uni配置中心）
 * 3、在需要使用 `vk-redis` 的云函数右键选择 `管理公共模块依赖` 菜单，引入公共模块 `vk-redis`。
 * 4、Redis配置文件地址：`uniCloud/cloudfunctions/common/uni-config-center/vk-redis/config.json`（没有则新建）（注意这里是 `config.json`) [查看配置文件](#配置文件)
