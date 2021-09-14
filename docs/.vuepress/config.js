@@ -234,8 +234,9 @@ module.exports = {
         	collapsable: false,
         	children: [
             'components2/1、vk-data-icon',
-            'components2/2、vk-data-dialog',
-            'components2/3、vk-data-link',
+            'components2/2、vk-data-link',
+            'components2/3、vk-data-dialog',
+            'components2/4、vk-data-drawer',
         	]
         }
 			],

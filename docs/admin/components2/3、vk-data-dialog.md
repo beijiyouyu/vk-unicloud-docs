@@ -61,6 +61,8 @@
 | close-on-press-escape          | 是否可以通过按下 ESC 关闭 Dialog  | Boolean  | true | false  |
 | show-close          | 是否显示关闭按钮  | Boolean  | true | false  |
 | modal          | 是否需要遮罩层  | Boolean  | true | false  |
+| append-to-body          | Dialog 自身是否插入至 body 元素上。嵌套的 Dialog 必须指定该属性并赋值为 true  | Boolean  | true | false  |
+| modal-append-to-body         | 遮罩层是否插入至 body 元素上，若为 false，则遮罩层会插入至 Dialog 的父元素上  | Boolean  | true | false  |
 | fullscreen      | 是否全屏 | Boolean  | false | true  |
 | custom-class          | Dialog 的自定义类名| String  | - | - |
 | show-fullscreen          | 是否显示全屏按钮（仅在mode="form"时生效）  | Boolean  | true | false  |
@@ -68,6 +70,8 @@
 | before-close          | 关闭前的回调，会暂停 Dialog 的关闭  | Function  | - | -  |
 | center          | 是否对头部和底部采用居中布局  | Boolean  | false | true  |
 | max-height          | 最大高度，超过会有滚动条 | String| Number | - | - |
+| destroy-on-close          | 控制是否在关闭弹窗之后将子元素全部销毁  | Boolean  | false | true  |
+
 
 ### 事件
 
