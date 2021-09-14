@@ -533,18 +533,19 @@ vk.pubfn.createOrderNo("NO");
 
 ```js
 /**
- * 将时间显示成1秒前、1天前
+ * 将时间显示成1秒前、1天前（计算方式为：当前时间 - startTime）
  * @description 主要用于 文章最后回复时间: 1分钟前
  * @params {String || Number} 	startTime	需要计算的时间 如文章最后回复时间
+ * @params {String} suffix	后缀，默认为前，如 1秒前 ,若设置为空字符串，则只显示 1秒
  */
-vk.pubfn.dateDiff(startTime);
+vk.pubfn.dateDiff(startTime, suffix);
 ```
 
 ### vk.pubfn.dateDiff2（将时间显示成1秒、1天）
 
 ```js
 /**
- * 将时间显示成1秒、1天
+ * 将时间显示成1秒、1天（计算方式为：endTime - 当前时间）
  * @description 主要用于 到期时间剩余 : 3天 这样的场景
  * @params {String || Number} endTime	需要计算的时间 如到期时间
  */
