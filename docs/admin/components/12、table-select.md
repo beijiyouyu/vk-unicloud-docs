@@ -43,6 +43,7 @@
 | pageSize  | 表格分页每页显示数量 | Number  | 5 | 5、10、20、50、100、500  |
 | valueFields  | 用于控制value的值由哪些字段组成 | Array  | - | - |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
+| rowHeight   | 表格行高，单位为px（特殊情况下，可能需要手动设置行高） | Number  | - | - |
 
 #### onChange 使用示例
 ```js
