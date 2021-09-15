@@ -729,6 +729,36 @@
 		"triggerAssist": false,
 		"description": "根据id修改数据库数据"
 	},
+	"vk.baseDao.updateAndReturn": {
+	 "prefix": "baseDao.updateAndReturn",
+	 "body": [
+			"let newInfo = await vk.baseDao.updateAndReturn({",
+			"\tdbName:\"$0\",",
+			"\twhereJson:{",
+			"\t\t_id: _id",
+			"\t},",
+			"\tdataJson:{",
+			"\t\t",
+			"\t},",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "修改符合条件的首条数据，并返回修改后的结果。"
+	},
+	"vk.baseDao.updateAndReturnById": {
+	 "prefix": "baseDao.updateAndReturnById",
+	 "body": [
+			"let newInfo = await vk.baseDao.updateAndReturn({",
+			"\tdbName:\"$0\",",
+			"\tid:_id,",
+			"\tdataJson:{",
+			"\t\t",
+			"\t},",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据id修改数据库数据，并返回修改后的结果。"
+	},
 	"vk.baseDao.select": {
 	 "prefix": "baseDao.select",
 	 "body": [
@@ -901,7 +931,6 @@
 		"description": "分组统计查询"
 	}
 }
-
 
 ```
 
