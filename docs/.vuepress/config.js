@@ -238,6 +238,13 @@ module.exports = {
             'components2/3、vk-data-dialog',
             'components2/4、vk-data-drawer',
         	]
+        },
+        {
+        	title: '群友问题集',
+        	collapsable: true,
+        	children: [
+            'question/question'
+        	]
         }
 			],
 			'/vk-uni-pay/': [
