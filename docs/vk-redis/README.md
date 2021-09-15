@@ -45,3 +45,4 @@ Linux box是运行Linux 2.6,这是X3320 Xeon 2.5 ghz。
 
 * 完善的Redis API 文档
 
+### Q群：22466457 
