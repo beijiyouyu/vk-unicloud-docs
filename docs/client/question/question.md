@@ -46,6 +46,28 @@ module.exports = {
 }
 ```
 
+# 2、文件上传成功后如何自动保存到uni-id-files表里？
+
+`vk.callFunctionUtil.uploadFile` 的参数 `needSave` 设置为 true 如：
+```js
+// 选择图片
+uni.chooseImage({
+  count: 1,
+  sizeType: ['compressed'],
+  success: function (res) {
+    vk.callFunctionUtil.uploadFile({
+      title:"上传中...",
+      filePath: res.tempFilePaths[0],
+      file: res.tempFiles[0],
+      needSave:true,
+      success(res) {
+       // 上传成功
+
+      }
+    });
+  }
+});
+```
 
 
 
