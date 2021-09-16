@@ -168,7 +168,14 @@ module.exports = {
             'question/q10',
             'question/q11',
 					]
-				}
+				},
+        {
+        	title: '群友问题集',
+        	collapsable: true,
+        	children: [
+            'question/question'
+        	]
+        }
 			],
 			// 侧边栏在 /bar/ 上
 			'/admin/': [
