@@ -1,11 +1,10 @@
 # 列表渲染前后端一体模板
 
-### 页面地址 `pages/db-test/list/list` 
+### 页面地址 `pages_template/db-test/list/list` 
 ###  核心点：前端只需要更改v-for循环内的样式和请求的云函数地址即可快速开发一个列表渲染功能
 
-
-#### 客户端（前端）功能介绍:（页面路径：`pages/db-test/list/list`）
-#### 若无数据，需要先执行添加测试数据的函数（页面路径：`pages/db-test/db-test`）
+#### 客户端（前端）功能介绍:（页面路径：`pages_template/db-test/list/list`）
+#### 若无数据，需要先执行添加测试数据的函数（页面路径：`pages_template/db-test/db-test`）
 ```js
 1、列表数据分页获取
 2、无数据时的额外显示（显示空内容组件）
@@ -24,9 +23,9 @@ export default {
   ...其他
 }
 ```
-#### 云函数端（后端）功能介绍:（云函数路径：`db_test/pub/getList`）
+#### 云函数端（后端）功能介绍:（云函数路径：`template/db_api/pub/getList`）
 ```js
-1、根据where条件获取对应的数据表的数据（支持分页、排序、字段筛选、双表连接等）
+1、根据where条件获取对应的数据表的数据（支持分页、排序、字段筛选、连表查询等）
 云函数最终返回的数据格式为：
 {
   code: 0,							// 0 成功 其他：失败
