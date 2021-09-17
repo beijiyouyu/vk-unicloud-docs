@@ -90,6 +90,8 @@
 | columnIndexWidth            | 序号显示的宽度 | Number  | 80 | -  |
 | columnIndexLabel            | 序号显示的标题 | String  | # | -  |
 | rightBtns            | 右侧按钮显示列表 | Array  | - | ['copy','delete'] |
+| leftFixed     | 序号、多选框是否固定在左侧 |Boolean  | true | false |
+| rightFixed     | 操作按钮是否固定在右侧 |Boolean  | true | false |
 
 ### columns 比万能表单新增的参数
 
