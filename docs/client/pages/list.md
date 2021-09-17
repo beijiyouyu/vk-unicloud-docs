@@ -42,7 +42,7 @@ export default {
 #### 开发一个列表渲染就是这么简单
 
 #### 列表渲染模板体验地址
-![列表渲染体验地址](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-vk-cloud-router-test/97de21c0-e9ae-11ea-b997-9918a5dda011.png?x-oss-process=image/resize,h_250 "列表渲染体验地址")
+![列表渲染体验地址](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/522060bb-089a-4e9b-9da0-72c070f4eb00.png?x-oss-process=image/resize,h_250 "列表渲染体验地址")
 #### 插件首页体验地址
 ![插件首页体验地址](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-vk-cloud-router-test/51de83e0-e9ae-11ea-81ea-f115fe74321c.png?x-oss-process=image/resize,h_250 "插件首页体验地址")
  
