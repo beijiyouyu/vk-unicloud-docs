@@ -92,6 +92,7 @@
 | rightBtns            | 右侧按钮显示列表 | Array  | - | ['copy','delete'] |
 | leftFixed     | 序号、多选框是否固定在左侧 |Boolean  | true | false |
 | rightFixed     | 操作按钮是否固定在右侧 |Boolean  | true | false |
+| maxlength     | 控制最大可添加的数量 |Number  | - | - |
 
 ### columns 比万能表单新增的参数
 
