@@ -33,9 +33,7 @@ opendb-admin-menus 菜单表
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/98c6961a-22c8-4d61-833f-f558d848b0e5.png)
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/8a9406fd-ff00-48d4-b1fe-6e133c2bf13a.png)
 
-* 4、把`admin端` 内的 `components/vk-data-input-editor`目录复制到你之前的`client端`项目 `components`目录内（没有`components`目录则新建）
-
-* 5、完成
+* 4、完成
 
 ### 情况二
 已完成情况一的请直接跳过情况二和情况三
