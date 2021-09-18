@@ -137,6 +137,8 @@ export default {
 | label-suffix      | label的后缀 | String  | 无 | - |
 | disabled      | 禁用表单 | Boolean  | false | true |
 | clearable      | 表单内的组件有清空效果 | Boolean  | true | false |
+| success-msg      | 表单提交成功后右上角的提示 | String  | 操作成功！ | - |
+
 
 ### columns
 columns是一个数组，数组内每个元素有以下属性，每个元素代表一个表单元素
