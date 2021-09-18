@@ -89,3 +89,5 @@
 | 方法名   | 说明                    |
 |----------|------------------------|
 | changeFullscreen     | 全屏切换 |
+| close()     | 关闭弹窗，会触发beforeClose |
+| close({ beforeClose:false })     | 关闭弹窗，不触发beforeClose |

@@ -49,4 +49,5 @@
 
 | 方法名   | 说明                    |
 |----------|------------------------|
-| closeDrawer     | 用于关闭 Drawer, 该方法会调用传入的 before-close 方法 |
+| close()     | 关闭 Drawer，会触发before-close  |
+| close({ beforeClose:false })     | 关闭 Drawer，不触发before-close  |
