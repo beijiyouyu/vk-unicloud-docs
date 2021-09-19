@@ -1,5 +1,26 @@
 # 12、获取云函数原始请求参数
 
+`originalParam` 为原始请求参数
+
+```js
+'use strict';
+module.exports = {
+	/**
+	 * 此函数名称
+	 * @url user/pub/test1 前端调用的url参数地址
+	 */
+	main: async (event) => {
+		let { originalParam } = event;
+		let res = { code: 0, msg: "" };
+    
+		return res;
+	}
+}
+
+```
+
+`originalParam` 参数详情
+
 ```json
 {
 	"event": {
