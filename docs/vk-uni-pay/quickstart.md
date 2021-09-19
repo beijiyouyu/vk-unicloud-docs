@@ -72,6 +72,11 @@
 }
 
 ```
+
+* 配置完后，还需要到项目根目录的 `manifest.json` 文件中再次配置一下微信小程序的 `appid`，如下图所示
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/193905eb-6840-43fb-a5db-d3cfde6a9a3d.png)
+
 ## 3、 配置uni-pay支付参数
 * 1、打开文件 `cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建)
 * 复制下方代码到 `uni-pay/config.js`
