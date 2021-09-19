@@ -1,6 +1,6 @@
 # 快速上手 - 安装步骤
 
-## 2.1、 下载安装
+## 1、 下载安装
 * 1、从插件市场安装 `vk-uni-pay` 插件到你的项目中。
 * 2、在需要引入支付API的云函数右键选择`管理公共模块依赖`菜单，引入公共模块`vk-uni-pay`。
 * 3、配置支付参数文件地址:`uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建)（注意这里是`config.js`) [查看支付参数](#支付参数)
@@ -8,7 +8,7 @@
 * 5、上传云函数`vk-pay`
 * 6、完成
 
-## 2.2、 配置uni-id里的小程序参数
+## 2、 配置uni-id里的小程序参数
 因为小程序支付需要获取用户openid
 
 * 打开文件 `cloudfunctions/common/uni-config-center/uni-id/config.json`(没有则新建)（注意这里是`config.json`)
@@ -71,7 +71,7 @@
 }
 
 ```
-## 2.3、 配置uni-pay支付参数
+## 3、 配置uni-pay支付参数
 * 1、打开文件 `cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建)
 * 复制下方代码到`uni-pay/config.js`
 ```js
@@ -164,10 +164,10 @@ module.exports = {
 复制vk-pay支付回调函数的URL路径
 <img class="preview" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0a3398cd-a3aa-40fa-9078-622951a697de.png"/>
 
-## 2.4、支付宝证书生成指南
+## 4、支付宝证书生成指南
 [点击查看](https://opendocs.alipay.com/open/291/105971)
 
-## 2.5、特别注意
+## 5、特别注意
 #### 注意一
 * 因支付宝转账接口需要用到 `appCertSn` 和 `alipayRootCertSn`
 * `appCertSn` 和 `alipayRootCertSn` 可以通过`gitee`导入下方的项目，将你的 `alipayRootCert.crt` 和 `appCertPublicKey.crt` 放在`test1/alipay` 目录下，本地运行test1云函数获取
