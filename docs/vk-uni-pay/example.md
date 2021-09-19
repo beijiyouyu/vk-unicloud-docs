@@ -3,9 +3,9 @@
 ## 1、 下载安装
 
 * 1、从插件市场下载 `vk-uni-pay` 插件示例项目到你的hbx中。
-* 2、配置支付参数文件地址:`uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建) [查看支付参数](#支付参数)
-* 3、复制 `使用帮助/vk-pay云函数示例代码/service/` 目录内的所有文件粘贴到`vk-uni-pay/uniCloud/cloudfunctions/vk-pay/service/`目录(没有目录则新建)
-* 注意：测试完记得删除`vk-uni-pay/uniCloud/cloudfunctions/vk-pay/service/pay/`目录下的这两个文件（`refund.js`和`transfer.js`）（因为涉及资金退款和转账）
+* 2、配置支付参数文件地址: `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建) [查看支付参数](#支付参数)
+* 3、复制 `使用帮助/vk-pay云函数示例代码/service/` 目录内的所有文件粘贴到 `vk-uni-pay/uniCloud/cloudfunctions/vk-pay/service/` 目录(没有目录则新建)
+* 注意：测试完记得删除 `vk-uni-pay/uniCloud/cloudfunctions/vk-pay/service/pay/`目录下的这两个文件（`refund.js`和`transfer.js`）（因为涉及资金退款和转账）
 * 4、右键 `uniCloud` 点击 `运行云服务空间初始化向导`
 * 5、完成
 
@@ -14,9 +14,9 @@
 
 * 打开文件 `cloudfunctions/common/uni-config-center/uni-id/config.json`(没有则新建)（注意这里是`config.json`)
 * 完整的uni-id配置代码如下
-##### 注意：获取`openId`使用的`uni-id`接口，故`uni-id`和`uni-pay`都是要配置的
-##### 微信小程序支付时需要获取`openId`，故需要配置`mp-weixin`
-##### 支付宝小程序支付时需要获取`openId`，故需要配置`mp-alipay`
+##### 注意：获取 `openId` 使用的 `uni-id` 接口，故 `uni-id` 和 `uni-pay` 都是要配置的
+##### 微信小程序支付时需要获取 `openId` ，故需要配置 `mp-weixin`
+##### 支付宝小程序支付时需要获取 `openId` ，故需要配置 `mp-alipay`
 ```json
 {
   "passwordSecret": "passwordSecret-demo",
@@ -75,7 +75,7 @@
 
 ## 3、 配置uni-pay支付参数
 * 1、打开文件 `cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建)
-* 复制下方代码到`uni-pay/config.js`
+* 复制下方代码到 `uni-pay/config.js`
 ```js
 const fs = require('fs');
 const path = require('path')
@@ -153,10 +153,10 @@ module.exports = {
   }
 }
 ```
-* 2、打开`cloudfunctions/common/uni-config-center/uni-pay/alipay/`目录(没有则新建)
-* 3、将`appCertPublicKey.crt`、`alipayRootCert.crt`、`alipayCertPublicKey_RSA2.crt` 3个证书放在此目录下(这里用的是最新最安全的公钥证书模式，且使用的java版的证书)
-* 4、打开`cloudfunctions/common/uni-config-center/uni-pay/wxpay/`目录(没有则新建)
-* 5、将`wxpay.p12` 1个证书放在此目录下
+* 2、打开 `cloudfunctions/common/uni-config-center/uni-pay/alipay/` 目录(没有则新建)
+* 3、将 `appCertPublicKey.crt`、`alipayRootCert.crt`、`alipayCertPublicKey_RSA2.crt` 3个证书放在此目录下(这里用的是最新最安全的公钥证书模式，且使用的java版的证书)
+* 4、打开 `cloudfunctions/common/uni-config-center/uni-pay/wxpay/` 目录(没有则新建)
+* 5、将 `wxpay.p12` 1个证书放在此目录下
 
 * notifyUrl参数来源
 复制服务空间ID
@@ -173,7 +173,7 @@ module.exports = {
 ## 5、特别注意
 #### 注意一
 * 因支付宝转账接口需要用到 `appCertSn` 和 `alipayRootCertSn`
-* `appCertSn` 和 `alipayRootCertSn` 可以通过`gitee`导入下方的项目，将你的 `alipayRootCert.crt` 和 `appCertPublicKey.crt` 放在`test1/alipay` 目录下，本地运行test1云函数获取
+* `appCertSn` 和 `alipayRootCertSn` 可以通过 `gitee` 导入下方的项目，将你的 `alipayRootCert.crt` 和 `appCertPublicKey.crt` 放在 `test1/alipay` 目录下，本地运行test1云函数获取
 * gitee地址：[https://gitee.com/vk-uni/getAlipayAppCertSn.git](https://gitee.com/vk-uni/getAlipayAppCertSn.git)
 
 ##### 这么做是为了不导入第三方npm包（因为从证书中解析序列号需要导入额外一些npm包，增大代码体积）
@@ -181,3 +181,6 @@ module.exports = {
 #### 注意二
 * 支付宝H5网站扫码支付需签约 支付宝当面付（非PC网站支付）
 * 支付宝H5移动支付需签约 支付宝当面付（非移动网站支付）
+
+#### 注意三
+* 如果提示找不到 xxx 模块，如 `uni-id` 模块，则在 `uniCloud/cloudfunctions/vk-pay` 目录右键选择 `管理公共模块依赖` 菜单，至少引入这4个模块 `uni-config-center`、 `uni-id`、 `uni-pay`、 `vk-uni-pay`
