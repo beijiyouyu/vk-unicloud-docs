@@ -183,4 +183,11 @@ module.exports = {
 * 支付宝H5移动支付需签约 支付宝当面付（非移动网站支付）
 
 #### 注意三
-* 如果提示找不到 xxx 模块，如 `uni-id` 模块，则在 `uniCloud/cloudfunctions/vk-pay` 目录右键选择 `管理公共模块依赖` 菜单，至少引入这4个模块 `uni-config-center`、 `uni-id`、 `uni-pay`、 `vk-uni-pay`
+* 每次修改了支付参数后，需要重新上传公共模块 `uni-config-center`
+
+#### 注意四
+* 如果提示找不到 xxx 模块，如 `uni-id` 模块，则
+* 1、在 `uniCloud/cloudfunctions/common/vk-uni-pay` 目录右键选择 `管理公共模块依赖` 菜单，引入这2个模块 `uni-config-center`、 `uni-pay`
+* 2、在 `uniCloud/cloudfunctions/vk-pay` 目录右键选择 `管理公共模块依赖` 菜单，至少引入这4个模块 `uni-config-center`、 `uni-id`、 `uni-pay`、 `vk-uni-pay`
+* 3、重新上传公共模块 `vk-uni-pay`
+* 4、重新上传云函数 `vk-pay`
