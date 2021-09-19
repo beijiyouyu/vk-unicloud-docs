@@ -114,12 +114,12 @@ export default {
 | 参数             | 说明                   | 类型    | 默认值  | 可选值 |
 |------------------|-----------------------|---------|--------|-------|
 | v-model           | 表单数据源            | Object | {}      | - |
-| rules       | 表单验证规则 | Object  | 无 | -  |
+| rules       | 表单验证规则 [查看规则](#rules)| Object  | 无 | -  |
 | action   | vk框架云函数地址 | String  | 无 | -  |
-| before-action   | action请求前拦截器 | Function  | 无 | -  |
-| is-request    | 是否是http请求模式[查看http请求模式](#http请求模式) | Boolean  | false | true |
+| before-action   | action请求前拦截器 [查看示例代码](#before-action) | Function  | 无 | -  |
+| is-request    | 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
 | form-type       | 表单类型，用于复用表单 | String  | 无 | -  |
-| columns          | 通用 - 字段规则 | Array  | [] | [查看columns](#columns)  |
+| columns          | 通用 - 字段规则 [查看columns](#columns) | Array  | [] | - |
 | loading           | 表单是否在请求中 | Boolean  | false | true  |
 | label-width        | 左侧label宽度 | String,Number  | "80px" | -  |
 | width     | 表单宽度 | Number,String  | 无 | - |
@@ -287,6 +287,175 @@ form1:{
 }
 ```
 
+### before-action
+
+```html
+<vk-data-form
+  :before-action="form1.props.beforeAction"
+></vk-data-form>
+```
+
+```js
+data: function() {
+  // 组件创建时,进行数据初始化
+  return {
+    form1: {
+      // 表单属性
+      props: {
+        beforeAction:function(formData){
+          // 可在此处修改 formData 后返回 formData，若在此处return false，则表单不触发提交请求。
+          return formData;
+        },
+      }
+    }
+  }
+}
+```
+
+### rules
+表单验证规则，和 element 表单验证规则一致，以下是部分示例
+
+```html
+<vk-data-form
+  :rules="form1.props.rules"
+></vk-data-form>
+```
+
+```js
+data: function() {
+  // 组件创建时,进行数据初始化
+  return {
+    form1: {
+      data:{
+        
+      },
+      // 表单属性
+      props: {
+        // 表单验证规则
+        rules: {
+          user_id: [
+            // 必填
+            { required: true, message: "用户ID不能为空", trigger: ['blur','change'] }
+          ],
+          money: [
+            // 必填
+            { required: true, message: "金额不能为空", trigger: ['blur','change'] },
+            // 必须是数字
+            { type: "number", message: "金额必须是数字", trigger: ['blur','change'] }
+          ],
+          mobile: [
+            // 必填
+            { required:true,  message: '提现人手机号不能为空', trigger: 'blur' },
+            // 必须是手机号格式
+            { validator: vk.pubfn.validator("mobile"),  message: '手机号格式错误', trigger: 'blur' }
+          ],
+          username:[
+            // 必填，且用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线
+            { 
+              required: true, 
+              validator:vk.pubfn.validator("username"), 
+              message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', 
+              trigger: 'blur' 
+            }
+          ],
+          nickname: [
+            // 必填
+            { required: true, message: '昵称为必填字段', trigger: 'blur' },
+            // 长度在 2-20 个字
+            { min: 2, max: 20, message: '昵称长度在 2 到 20 之间', trigger: 'blur' }
+          ],
+          card: [
+            // 身份证
+            { validator: vk.pubfn.validator("card"),  message: '身份证格式错误', trigger: 'blur' }
+          ],
+          pwd: [
+            // 密码
+            { validator: vk.pubfn.validator("pwd"),  message: '密码长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+          ],
+          payPwd: [
+            // 支付密码
+            { validator: vk.pubfn.validator("payPwd"),  message: '支付密码必须为 6位纯数字', trigger: 'blur' }
+          ],
+          postal: [
+            // 邮政编码
+            { validator: vk.pubfn.validator("postal"),  message: '邮政编码格式错误', trigger: 'blur' }
+          ],
+          email: [
+            // 邮政编码
+            { validator: vk.pubfn.validator("email"),  message: '邮箱格式错误', trigger: 'blur' }
+          ],
+          QQ: [
+            // qq
+            { validator: vk.pubfn.validator("QQ"),  message: 'QQ号格式错误', trigger: 'blur' }
+          ],
+          URL: [
+            // URL
+            { validator: vk.pubfn.validator("URL"),  message: 'URL格式错误', trigger: 'blur' }
+          ],
+          IP: [
+            // IP
+            { validator: vk.pubfn.validator("IP"),  message: 'IP格式错误', trigger: 'blur' }
+          ],
+          date: [
+            // 日期 2014-01-01（字符串）
+            { validator: vk.pubfn.validator("date"),  message: 'date格式错误', trigger: 'blur' }
+          ],
+          time: [
+            // 时间 12:00:00（字符串）
+            { validator: vk.pubfn.validator("time"),  message: 'time格式错误', trigger: 'blur' }
+          ],
+          dateTime: [
+            // 日期+时间 2014-01-01 12:00:00（字符串）
+            { validator: vk.pubfn.validator("dateTime"),  message: 'dateTime格式错误', trigger: 'blur' }
+          ],
+          english: [
+            // 英文
+            { validator: vk.pubfn.validator("english"),  message: '只能输入英文', trigger: 'blur' }
+          ],
+          englishnumber: [
+            // 只能是英文或数字
+            { validator: vk.pubfn.validator("english+number"),  message: '只能输入英文或数字', trigger: 'blur' }
+          ],
+          englishnumber2: [
+            // 只能是英文、数字、下划线
+            { validator: vk.pubfn.validator("english+number+_"),  message: '只能输入英文、数字、下划线', trigger: 'blur' }
+          ],
+          chinese: [
+            // 中文
+            { validator: vk.pubfn.validator("chinese"),  message: '只能输入中文', trigger: 'blur' }
+          ],
+          lower: [
+            // 小写字母
+            { validator: vk.pubfn.validator("lower"),  message: '只能输入小写字母', trigger: 'blur' }
+          ],
+          upper: [
+            // 大写字母
+            { validator: vk.pubfn.validator("upper"),  message: '只能输入大写字母', trigger: 'blur' }
+          ],
+          HTML: [
+            // HTML
+            { validator: vk.pubfn.validator("HTML"),  message: 'html格式错误', trigger: 'blur' }
+          ],
+          pwd2: [
+            // 自定义
+            { validator: function(rule, value, callback){
+              if (value === '') {
+                callback(new Error('请再次输入密码'));
+              } else if (value !== that.form1.data.pwd) {
+                callback(new Error('两次输入密码不一致!'));
+              } else {
+                callback();
+              }
+            }, trigger: 'blur' }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+
 
 ## 事件
 
@@ -392,5 +561,8 @@ adopt(status){
 ></vk-data-form>
 ```
 
+## 表单可视化拖拽工具
+
+可直接生成 `vk框架代码` 和 `element` 原生代码 [点击体验](https://vkunicloud.fsq.pub/vk-form-visualizer/)
 
 #### 更多请见：`/pages_template/components/form/form-pro`
