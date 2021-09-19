@@ -100,7 +100,7 @@ module.exports = {
 								'uniCloud/cloudfunctions/beautifyCode',
 								'uniCloud/cloudfunctions/crypto',
 								'uniCloud/cloudfunctions/formRules',
-                'uniCloud/cloudfunctions/originalParam'
+                'uniCloud/cloudfunctions/originalParam',
                 'uniCloud/cloudfunctions/urlOriginalParam'
 							]
 						},
