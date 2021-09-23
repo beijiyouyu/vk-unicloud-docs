@@ -36,6 +36,7 @@ module.exports = {
       context: originalParam.context,
       provider: data.provider,
       alipayAppPayToH5Pay: data.alipayAppPayToH5Pay,
+      isPC: data.isPC,
       data: {
         openid: data.openid,
         out_trade_no: data.out_trade_no,
