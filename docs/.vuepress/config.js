@@ -319,7 +319,7 @@ module.exports = {
 				},
         {
         	title: '常见问题',
-        	collapsable: true,
+        	collapsable: false,
         	children: [
             'question/question'
         	]
