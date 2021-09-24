@@ -69,9 +69,13 @@ uni.chooseImage({
 });
 ```
 
+# 3、为什么前端路由页面刷新报404错误，正常跳转可以，刷新报错？
 
+方案一：在 `manifest.json` 中 `H5配置` 设置路由模式为 `hash`
 
+方案二：在 uniCloud `前端网页托管` 页面中 点击 `参数配置` 编辑路由规则 把 `网站首页` 和 `404页面` 都设置为 `index.html`
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/b4a3a8b9-1132-4d63-a6d3-371612f6b9c8.png)
 
 
 
