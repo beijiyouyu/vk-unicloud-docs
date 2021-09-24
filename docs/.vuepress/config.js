@@ -171,13 +171,7 @@ module.exports = {
             'question/q11',
 					]
 				},
-        {
-        	title: '群友问题集',
-        	collapsable: true,
-        	children: [
-            'question/question'
-        	]
-        }
+        'question/question'
 			],
 			// 侧边栏在 /bar/ 上
 			'/admin/': [
@@ -248,13 +242,7 @@ module.exports = {
             'components2/4、vk-data-drawer',
         	]
         },
-        {
-        	title: '群友问题集',
-        	collapsable: true,
-        	children: [
-            'question/question'
-        	]
-        }
+        'question/question'
 			],
 			'/vk-uni-pay/': [
 				{
@@ -317,13 +305,7 @@ module.exports = {
 						}
 					]
 				},
-        {
-        	title: '常见问题',
-        	collapsable: false,
-        	children: [
-            'question/question'
-        	]
-        },
+        'question/question',
 				{
 					title: 'vk-unicloud-router 框架对接示例',
 					children: [
