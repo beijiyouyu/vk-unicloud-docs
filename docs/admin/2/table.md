@@ -41,12 +41,12 @@ export default {
 | action           | 动态模式 - vk框架下的云函数地址            | String | 无      | - |
 | auto-action       | 动态模式 - 是否组件加载完毕后自动运行action | Boolean  | 无 | -  |
 | query-form-param   | 动态模式 - 请求参数（表格查询参数） | Object  | {} | -  |
-| data-preprocess          | 动态模式 - 云函数返回的数据进行预处理 | function(list)  | - | -  |
+| data-preprocess          | 动态模式 - 云函数返回的数据进行预处理 [查看数据预处理](#数据预处理)  | function(list)  | - | -  |
 | is-request    | 动态模式 - 是否是http请求模式 | Boolean  | false | true |
-| props    | 动态模式 - 渲染数据的配置选项 | Object  | [查看http请求模式](#http请求模式)  | - |
+| props    | 动态模式 - 渲染数据的配置选项 [查看http请求模式](#http请求模式) | Object  | - | - |
 | data             | 静态模式 - 列表数据 | Array  | 无 | -  |
 | total            | 静态模式 - 总记录数 | Number  | 无 | -  |
-| columns          | 通用 - 字段显示规则 | Array  | [] | [查看columns](#columns)   |
+| columns          | 通用 - 字段显示规则 [查看columns](#columns)| Array  | [] | -   |
 | height           | 通用 - table的高度 | Number  | 无 | -  |
 | max-height        | 通用 - table的最大高度 | Number  | 无 | -  |
 | row-height        | 通用 - 行高 | Number  | 无 | -  |
@@ -56,10 +56,10 @@ export default {
 | pagination     | 通用 - 显示分页器 | Boolean  | false | true |
 | page-size       | 通用 - 每页显示数量 | Number  | 10 | - |
 | page-sizes      | 通用 - 每页显示数量选择列表 | Array  | [1, 5, 10, 20, 50, 100, 1000] | - |
-| right-btns      | 通用 - 右侧显示的按钮列表 | Array  | [] | [查看right-btns](#right-btns)  |
+| right-btns      | 通用 - 右侧显示的按钮列表 [查看right-btns](#right-btns) | Array  | [] | - |
 | right-btns-type      | 通用 - 右侧显示的按钮类型 | String  | "button" | "text" |
-| right-btns-more      | 通用 - 右侧更多按钮 | Array  | [] | [查看right-btns-more](#right-btns-more) |
-| custom-right-btns      | 通用 - 自定义右侧按钮 | Array  | [] | [查看custom-right-btns](#custom-right-btns) |
+| right-btns-more      | 通用 - 右侧更多按钮 [查看right-btns-more](#right-btns-more)| Array  | [] | - |
+| custom-right-btns      | 通用 - 自定义右侧按钮 [查看custom-right-btns](#custom-right-btns)| Array  | [] | - |
 | row-key      | 通用 - 行数据的 Key | Function,String  | "_id" | - |
 | empty-text      | 通用 - 空数据时显示的文本内容 | String  | "暂无数据" | - |
 | default-expand-all      | 通用 - 是否默认展开所有行，当 Table 包含展开行存在或者为树形表格时有效 | Boolean  | false | true |
@@ -71,9 +71,9 @@ export default {
 | highlight-current-row     | 通用 - 是否要高亮当前行 | Boolean  | true | false |
 | detail-dialog-width     | 通用 - 详情弹窗的宽度 | Number,String  | "830px" | - |
 | multiple     | 通用 - 可多选 |Boolean  | true | false |
-| default-sort     | 默认排序规则 |Object  | - | [查看default-sort](#default-sort)  |
+| default-sort     | 默认排序规则 [查看default-sort](#default-sort)|Object  | - | -  |
 | show-summary     | 通用 - 是否需要显示合计行 |Boolean  | false | true |
-| summary-method     | 通用 - 自定义合计的计算函数（详情见下方） |Function  | - | [查看summary-method](#summary-method)  |
+| summary-method     | 通用 - 自定义合计的计算函数（详情见下方） [查看summary-method](#summary-method) |Function  | - |-  |
 | total-option     | 通用 - 需要自动统计的行（详情见下方） |Array  | - | - |
 | expand     | 通用 - 是否开启点击可以展开行 [查看展开行](#展开行)|Boolean  | false | true |
 | leftFixed     | 通用 - 序号、多选框是否固定在左侧 |Boolean  | true | false |
@@ -286,6 +286,33 @@ methods: {
   :columns="table1.columns"
   :query-form-param="queryForm1"
 ></vk-data-table>
+```
+
+### 数据预处理
+
+```html
+<vk-data-table
+  :data-preprocess="table1.dataPreprocess"
+></vk-data-table>
+```
+
+```js
+export default {
+  data() {
+    return {
+      table1:{
+        dataPreprocess : function(list){
+          // 这里写自己的处理逻辑，最终返回处理完的list即可。
+          list.map((item, index) => {
+          	item.a = 1;
+          });
+          return list;
+        }
+      }
+    }
+  }
+}
+  
 ```
 
 ### 展开行
