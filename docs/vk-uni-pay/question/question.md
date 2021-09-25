@@ -44,6 +44,47 @@
 * 3、微信H5支付不支持在微信浏览器中支付（只能在非微信APP的浏览器中发起支付）（微信浏览器中只能用公众号支付）
 
 
+## 2、微信公众号支付注意事项
+
+* 1、微信公众号支付时，openid为必传参数，需要先获取用户的openid（网页授权）（一般你微信公众号登录的时候已经取到了）
+
+获取openid的方法 [点击查看微信公众号文档](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)
+
+具体而言，获取openid流程分为两步：
+
+* 1、访问授权页面，获取code
+
+* 2、通过code换取openid
+
+授权地址为：
+
+`https://open.weixin.qq.com/connect/oauth2/authorize?appid=你公众号的appid&redirect_uri=你的回调地址&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect`
+
+拼接完授权地址url后，直接执行下面代码即可访问授权页面
+
+```js
+window.location.href = url;
+```
+
+其中 scope = snsapi_base时，为静默授权（无需用户点击同意）（但只能获取openid）
+
+scope = snsapi_userinfo时，是用来获取用户的基本信息的。但这种授权需要用户手动同意，并且由于用户同意过，所以无须关注，就可在授权后获取该用户的基本信息。
+
+#### 注意：
+* 1、微信公众号支付的域名需要在微信支付商户后台进行配置
+* 2、微信公众号支付的unicloud配置在 `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` 的
+```js
+// 微信 - 公众号支付
+"wxConfigH5Weixin": {
+  "appId": "",
+  "secret": "", 
+  "mchId": "", // 商户id
+  "key": "", // 商户key
+  "pfx": fs.readFileSync(__dirname+'/wxpay/wxpay.p12')
+},
+```
+* 3、微信公众号支付只能在微信浏览器中支付（非微信APP的浏览器中无法发起支付，非微信APP的浏览器请使用H5支付）
+
 
 
 
