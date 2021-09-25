@@ -60,6 +60,10 @@
 
 `https://open.weixin.qq.com/connect/oauth2/authorize?appid=你公众号的appid&redirect_uri=你的回调地址&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect`
 
+注意：
+
+redirect_uri（你的回调地址）不可以带参数，访问授权页面后，最终会返回你的回调地址页面，同时带上 `code` 参数，使用这个 `code` 参数即可获取 `openid`（注意 `code` 是一次性的）
+
 拼接完授权地址url后，直接执行下面代码即可访问授权页面
 
 ```js
