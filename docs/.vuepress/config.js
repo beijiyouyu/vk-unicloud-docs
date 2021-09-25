@@ -286,6 +286,7 @@ module.exports = {
 							children: [
 								'template/service/pay/code2SessionAlipay',
 								'template/service/pay/code2SessionWeixin',
+                'template/service/pay/code2SessionWeixinH5',
 								'template/service/pay/createPayment',
 								'template/service/pay/queryPayment',
 								'template/service/pay/queryRefund',

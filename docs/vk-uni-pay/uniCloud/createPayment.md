@@ -37,7 +37,7 @@ exports.main = async (event, context) => {
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
-| openid    |   用户openid，小程序支付时必传    | String  | -    | - |
+| openid    |   用户openid，小程序支付和微信公众号支付时必传    | String  | -    | - |
 | out_trade_no  |   必填项，商户支付订单号，需自行保证全局唯一    | String  | -    | -  |
 | total_fee  |   订单金额(单位分 100 = 1元)    | Number  | -    | -  |
 | subject  |   订单标题    | String  | -    | -  |
