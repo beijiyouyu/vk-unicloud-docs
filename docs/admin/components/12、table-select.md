@@ -41,11 +41,15 @@
 | cancelText      | 取消按钮的文字 | String  | 关闭 | -  |
 | submitText      | 确定按钮的文字 | String  | 确定 | -  |
 | pageSize  | 表格分页每页显示数量 | Number  | 5 | 5、10、20、50、100、500  |
-| valueFields  | 用于控制value的值由哪些字段组成 | Array  | - | - |
+| valueFields  | 用于控制value的值由哪些字段组成 [查看valueFields](#valueFields) | Array  | - | - |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 | rowHeight   | 表格行高，单位为px（特殊情况下，可能需要手动设置行高） | Number  | - | - |
 | leftFixed     | 序号、多选框是否固定在左侧 |Boolean  | true | false |
 | rightFixed     |  操作按钮是否固定在右侧 |Boolean  | true | false |
+| is-request    | 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
+| request-header    |  http请求头 | Object  | - | - |
+| props    | 动态模式 - 渲染数据的配置选项 [查看http请求模式](#http请求模式) | Object  | - | - |
+
 
 #### onChange 使用示例
 ```js
@@ -67,6 +71,7 @@
 }
 ```
 
+#### valueFields
 #### 不设置 `valueFields` 时 表单绑定的值为`字符串数组形式`
 ```js
 ["001","002"]
@@ -78,6 +83,46 @@
   {"_id":"001","nickname":"昵称1","mobile":"手机号1"}，
   {"_id":"002","nickname":"昵称2","mobile":"手机号2"}
 ]
+```
+
+#### http请求模式
+
+props 对象属性
+
+| 参数             | 说明                           | 类型    | 默认值  | 可选值 |
+|------------------|-------------------------------|---------|--------|-------|
+| rows           | 表格数据源的键名            | String | rows      | - |
+| total           | 总记录条数的键名           | String | total  | - |
+| pageIndex       | 查询时当前第几页的键名      | String | pageIndex  | - |
+| pageSize        | 查询时每页显示几条的键名    | String | pageSize  | - |
+| formData        | 查询表单的数据源的键名      | String | formData  | - |
+
+万能表单使用方式
+
+```js
+{
+  key: "user_id", title: "选择用户", type: "table-select", placeholder:"请选择用户",
+  action:"https://www.xxx.com/xxx/xxx",
+  isRequest:true,
+  requestHeader:{
+    "Content-Type":"application/x-www-form-urlencoded"
+  },
+  props:{ rows: 'rows', total: 'total', pageIndex: 'pageIndex', pageSize: 'pageSize', formData: 'formData' },
+  columns:[
+    { key:"id", title:"用户标识", type:"text", idKey:true, show:["none"] }, // idKey:true 代表此字段为主键字段，若设置show:["none"],则可以在表格中隐藏该字段的显示
+    { key:"avatar", title:"头像", type:"image", width:80 },
+    { key:"nickname", title:"用户昵称", type:"text", width:260, align:"left", nameKey:true  },
+    { key:"mobile", title:"手机号", type:"text", width:140 },
+  ],
+  queryColumns:[
+    { key: "nickname", title: "用户昵称", type: "text", width: 150, mode: "%%" },
+    { key: "mobile", title: "手机号", type: "text", width: 150, mode: "%%" }
+  ],
+  formData:{
+    nickname:"",
+    mobile:""
+  }
+}
 ```
 
 #### columns 参数详情

@@ -42,7 +42,8 @@ export default {
 | auto-action       | 动态模式 - 是否组件加载完毕后自动运行action | Boolean  | 无 | -  |
 | query-form-param   | 动态模式 - 请求参数（表格查询参数） | Object  | {} | -  |
 | data-preprocess          | 动态模式 - 云函数返回的数据进行预处理 [查看数据预处理](#数据预处理)  | function(list)  | - | -  |
-| is-request    | 动态模式 - 是否是http请求模式 | Boolean  | false | true |
+| is-request    | 动态模式 - 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
+| request-header    | 动态模式 - http请求头 | Object  | - | - |
 | props    | 动态模式 - 渲染数据的配置选项 [查看http请求模式](#http请求模式) | Object  | - | - |
 | data             | 静态模式 - 列表数据 | Array  | 无 | -  |
 | total            | 静态模式 - 总记录数 | Number  | 无 | -  |
