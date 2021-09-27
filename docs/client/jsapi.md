@@ -527,6 +527,48 @@ vk.pubfn.createOrderNo("NO");
 ```
 
 
+### vk.pubfn.snake2camelJson（对象内的属性名 - 蛇形转驼峰）
+
+```js
+/**
+ * 对象内的属性名 - 蛇形转驼峰
+ * @param {Object} obj
+ */
+vk.pubfn.snake2camelJson(obj);
+```
+
+### vk.pubfn.camel2snakeJson（对象内的属性名 - 驼峰转蛇形）
+
+```js
+/**
+ * 对象内的属性名 - 驼峰转蛇形
+ * @param {Object} obj
+ */
+vk.pubfn.camel2snakeJson(obj);
+```
+
+### vk.pubfn.snake2camel（字符串 - 蛇形转驼峰）
+
+```js
+/**
+ * 字符串 - 蛇形转驼峰
+ * @param {String} value
+ */
+vk.pubfn.snake2camel(value);
+```
+
+### vk.pubfn.camel2snake（字符串 - 驼峰转蛇形）
+
+```js
+/**
+ * 字符串 - 驼峰转蛇形
+ * @param {String} value
+ */
+vk.pubfn.camel2snake(value);
+```
+
+
+
 ## 前端专属
 
 ### vk.pubfn.dateDiff（将时间显示成1秒前、1天前）
