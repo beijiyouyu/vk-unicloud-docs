@@ -40,6 +40,7 @@
 | showCancel      | 是否显示取消按钮 | Boolean  | true | false  |
 | cancelText      | 取消按钮的文字 | String  | 关闭 | -  |
 | submitText      | 确定按钮的文字 | String  | 确定 | -  |
+| dialogWidth  | 弹窗的窗体宽度（单位px） | Number  | - | -  |
 | pageSize  | 表格分页每页显示数量 | Number  | 5 | 5、10、20、50、100、500  |
 | valueFields  | 用于控制value的值由哪些字段组成 [查看valueFields](#valueFields) | Array  | - | - |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
