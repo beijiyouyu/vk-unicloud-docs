@@ -80,7 +80,46 @@ uni.chooseImage({
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/b4a3a8b9-1132-4d63-a6d3-371612f6b9c8.png)
 
 
+## 4、公众号登录流程
 
+* 1、需要登录公众号后台，获取 `appid` 和 `appsecret` 并填写在 `uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json` 内
+```js
+"h5-weixin": {
+  "oauth": {
+    "weixin": {
+      "appid": "微信公众号appid",
+      "appsecret": "微信公众号appsecret"
+    }
+  }
+},
+```
+* 2、在公众号后台左侧菜单 - 设置与开发 - 公众号设置 - 功能设置 - 配置业务域名、网页授权域名、JS接口安全域名
+* 3、运行如下代码，访问授权页面
+```js
+let appid = "你的公众号appid";
+let redirect_uri = window.location.href.split("?")[0];
+let scope = "snsapi_userinfo";
+let url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${redirect_uri}&response_type=code&scope=${scope}&state=STATE#wechat_redirect`;
+window.location.href = url;
+```
+* 4、授权完后页面会重新返回到你自己的页面（但此时页面已经刷新了），此时在页面 `onLoad` 函数中可以获取到 `code`
+* 5、运行如下代码，进行微信公众号登录（其中 that = this，that.options 是 onLoad 获取的参数对象）
+```js
+if(!that.options.code){
+  vk.toast("请先获取code");
+  return false;
+}
+vk.userCenter.code2SessionWeixin({
+  data:{
+    code: that.options.code,
+    state: that.options.state,
+  },
+  success:function(data){
+    // 登录成功后执行的逻辑
+    vk.alert(JSON.stringify(data));
+  },
+});
+```
 
 
 

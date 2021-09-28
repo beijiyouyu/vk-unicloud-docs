@@ -35,8 +35,32 @@ module.exports = {
     "key": "",
     "pfx": fs.readFileSync(__dirname+'/wxpay/wxpay.p12')
   },
-  // 微信 - H5网站支付
+  // 微信 - H5网站二维码支付
   "wxConfigH5": {
+    "appId": "",
+    "secret": "",
+    "mchId": "",
+    "key": "",
+    "pfx": fs.readFileSync(__dirname+'/wxpay/wxpay.p12')
+  },
+  // 微信 - 手机外部浏览器H5支付
+  "wxConfigMweb": {
+    "appId": "",
+    "secret": "",
+    "mchId": "",
+    "key": "",
+    "pfx": fs.readFileSync(__dirname+'/wxpay/wxpay.p12'),
+    // 场景信息，必填
+    "sceneInfo":{
+      "h5_info":{
+        "type": "Wap",// 此值固定Wap
+        "wap_url": "https://www.xxxxxx.com",// 你的H5首页地址，必须和你发起支付的页面的域名一致。
+        "wap_name": "网站名称",// 你的H5网站名称
+      }
+    }
+  },
+  // 微信 - 公众号支付
+  "wxConfigH5Weixin": {
     "appId": "",
     "secret": "",
     "mchId": "",

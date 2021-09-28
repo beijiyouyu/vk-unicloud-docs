@@ -31,6 +31,15 @@
       }
     }
   },
+  "h5-weixin": {
+    "oauth": {
+      // 微信公众号登录所用的appid、appsecret
+      "weixin": {
+        "appid": "",
+        "appsecret": ""
+      }
+    }
+  },
   "mp-alipay": {
     "oauth" : {
       // 支付宝小程序登录用到的appid、privateKey请参考支付宝小程序的文档进行设置或者获取，https://opendocs.alipay.com/open/291/105971#LDsXr

@@ -59,6 +59,9 @@ module.exports = {
       "unicloud":{
         "maxLimit" : 500,         // 最大limit限制(目前腾讯云最大1000,阿里云最大500)
         "cancelAddTime" : false,  // 取消vk.baseDao.add 时自动生成_add_time和_add_time_str
+        "getTableData":{
+          "sortArr":[{"name":"_add_time","type":"desc"}], // vk.baseDao.getTableData 默认排序规则
+        }
       }
     },
     // 其他小程序的密钥 当需要多个小程序绑定同一服务空间,并调用小程序服务端API时需要填写 暂只支持微信小程序
