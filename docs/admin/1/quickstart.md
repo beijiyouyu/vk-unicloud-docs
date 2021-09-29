@@ -73,4 +73,22 @@ opendb-admin-menus 菜单表
 
 如果不一致，特别是`uni-id` 目录下没有这个文件`uni-id/node_modules/uni-config-center/uni-id/config.json`，则在`uni-id`目录执行 `npm i` 试试（如果有这个`uni-id/node_modules`目录，先删除目录，再执行npm i）
 
+### 若新建的用户登录提示用户不存在（数据库明明有数据），此时是因为不同端用户隔离导致的 
+
+* 1、先用admin账号登录后台，进入应用管理
+
+因为每个人的 `DCloud Appid`是不一样的，所以你需要在应用管理中添加自己的应用（或直接修改内置的2条数据的appid即可）
+
+DCloud Appid` 获取方法
+
+复制`uniapp`项目根目录的`manifest.json`文件内的`appid`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/e717232f-0f18-4dee-8437-5dec2c224920.png)
+
+* 2、再进入用户管理，对需要设置的用户点击编辑，设置该用户可以登录哪些端。
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/18cd54d5-bedc-4d4f-bda2-7c339c865257.png)
+
+
+
 #### 如有疑问，请加群：22466457 关于插件的问题包教包会！
