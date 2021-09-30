@@ -567,10 +567,25 @@ vk.pubfn.snake2camel(value);
 vk.pubfn.camel2snake(value);
 ```
 
+### vk.pubfn.string2Number 将能转成数字的字符串转数字（支持字符串、对象、数组）
+
+```js
+/**
+ * 将能转成数字的字符串转数字（支持字符串、对象、数组）
+ * @param {Any} obj
+ * @param {Object} option 哪些格式需要排除
+ * 默认排除
+ * mobile:true 手机号，如 15200000001
+ * idCard:true 身份证，如 330154202109301214
+ * startFrom0:true 第一位是0，且长度大于1的，同时第二位不是.的字符串  如 01，057189101254
+ */
+vk.pubfn.string2Number(obj, option);
+```
 
 
 ## 前端专属
 
+```
 ### vk.pubfn.dateDiff（将时间显示成1秒前、1天前）
 
 ```js
