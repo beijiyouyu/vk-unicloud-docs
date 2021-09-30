@@ -45,6 +45,8 @@ export default {
 | is-request    | 动态模式 - 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
 | request-header    | 动态模式 - http请求头 | Object  | - | - |
 | props    | 动态模式 - 渲染数据的配置选项 [查看http请求模式](#http请求模式) | Object  | - | - |
+| retry-count    | 动态模式 - 请求最大重试次数 [查看异常重试机制](#异常重试机制) | Number  | 0 | - |
+| retry-interval    | 动态模式 - 每次重试间隔，单位毫秒 | Number  | 0 | - |
 | data             | 静态模式 - 列表数据 | Array  | 无 | -  |
 | total            | 静态模式 - 总记录数 | Number  | 无 | -  |
 | columns          | 通用 - 字段显示规则 [查看columns](#columns)| Array  | [] | -   |
@@ -332,6 +334,24 @@ export default {
 
 同时还可以通过插槽编写展开后的样式 [查看插槽](#展开行插槽)
 
+
+### 异常重试机制
+
+异常重试机制可以有效解决当前阿里云空间偶尔会出现数据库连接超时导致的异常没有获取到数据的问题。
+
+```html
+<vk-data-table
+  ref="table1"
+  :action="table1.action"
+  :columns="table1.columns"
+  :query-form-param="queryForm1"
+  :retry-count="3"
+></vk-data-table>
+```
+
+注意：并非所有异常都会重试，框架会合理判断。（目前此判断逻辑也还在不断优化中）
+
+通过设置 `retry-interval` 属性，可以控制每次重试的间隔（单位为毫秒）
 
 ## 事件
 
