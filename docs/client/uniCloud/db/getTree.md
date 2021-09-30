@@ -24,11 +24,11 @@ res = await vk.baseDao.selects({
   }
 });
 ```
-### 注意：`treeProps`内的`whereJson` 若需要用到 `or` 和 `and` 则
+### 注意：`treeProps` 内的`whereJson` 若需要用到 `or` 和 `and` 则
 ####  `_.or` 需写成` _.$.or`
 #### `_.and` 需写成` _.$.and`
 
-#### `foreignDB`属性需写在主表下，无需写在`treeProps`内。（字表会继承主表的`foreignDB`属性)
+#### `foreignDB` 属性需写在主表下，无需写在 `treeProps` 内。（子表会继承主表的 `foreignDB` 属性)
 
 
 
