@@ -585,7 +585,6 @@ vk.pubfn.string2Number(obj, option);
 
 ## 前端专属
 
-```
 ### vk.pubfn.dateDiff（将时间显示成1秒前、1天前）
 
 ```js
