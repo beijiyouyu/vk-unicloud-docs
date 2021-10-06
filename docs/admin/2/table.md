@@ -142,6 +142,7 @@ table1:{
     },
     { key: "_add_time", title: "添加时间", type: "time", width: 160, valueFormat:"yyyy-MM-dd hh:mm:ss" },
     { key: "_add_time", title: "距离现在", type: "dateDiff", width: 120 },
+    { key:"exp_time", title:"到期剩", type:"dateDiff2", endText:"已到期", width:80, defaultValue: "永久", sortable:"custom" },
     { 
       key: "nickname", title: "html渲染", type: "html", defaultValue: "未设置",
       formatter: function(val, row, column, index) {
