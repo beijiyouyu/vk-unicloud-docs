@@ -612,6 +612,19 @@ columns:[
 | (]          | 范围 arr[0] <  x <= arr[1] |
 | ()          | 范围 arr[0] <  x <  arr[1] |
 
+### 特殊说明
+当 value 为以下值时，会有特殊效果。
+
+| value值         | 说明              
+|------------|-------------------|
+| `___empty-array___`         | 匹配空数组 |
+| `___empty-object___`          | 匹配空对象 |
+| `___non-existent___`          | 字段不存在 |
+| `___existent___`          | 字段存在 |
+
+___tips: 左右各 3 个下划线____
+
+
 ## vk.baseDao.getTableData
 
 用法与vk.baseDao.selects相似，区别是 vk.baseDao.getTableData  多了一个data参数
