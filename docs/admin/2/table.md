@@ -128,7 +128,7 @@ type（类型）
 table1:{
   columns:[
     { key: "nickname", title: "昵称", type: "text", width: 120, defaultValue:"未设置昵称", },
-    { key: "avatar", title: "头像", type: "avatar", width: 80 },
+    { key: "avatar", title: "头像", type: "avatar", width: 80, shape:"circle" }, // circle 圆形 square 方形
     { key: "images", title: "图片", type: "image", width: 120 },
     { key: "rate", title: "评分", type: "rate", width: 120 },
     { key: "switch", title: "开关", type: "switch", width: 120 },

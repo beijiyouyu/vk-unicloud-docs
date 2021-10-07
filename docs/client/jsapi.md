@@ -604,8 +604,9 @@ vk.pubfn.dateDiff(startTime, suffix);
  * 将时间显示成1秒、1天（计算方式为：endTime - 当前时间）
  * @description 主要用于 到期时间剩余 : 3天 这样的场景
  * @params {String || Number} endTime	需要计算的时间 如到期时间
+ * @params {String} endText	到期时显示的文字
  */
-vk.pubfn.dateDiff2(endTime);
+vk.pubfn.dateDiff2(endTime, endText);
 ```
 
 ### vk.pubfn.numStr（将大数字转中文）
