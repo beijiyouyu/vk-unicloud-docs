@@ -79,8 +79,8 @@ export default {
 | summary-method     | 通用 - 自定义合计的计算函数（详情见下方） [查看summary-method](#summary-method) |Function  | - |-  |
 | total-option     | 通用 - 需要自动统计的行（详情见下方） |Array  | - | - |
 | expand     | 通用 - 是否开启点击可以展开行 [查看展开行](#展开行)|Boolean  | false | true |
-| leftFixed     | 通用 - 序号、多选框是否固定在左侧 |Boolean  | true | false |
-| rightFixed     | 通用 - 操作按钮是否固定在右侧 |Boolean  | true | false |
+| left-fixed     | 通用 - 序号、多选框是否固定在左侧 |Boolean  | true | false |
+| right-fixed     | 通用 - 操作按钮是否固定在右侧 |Boolean  | true | false |
 
 ### default-sort
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
