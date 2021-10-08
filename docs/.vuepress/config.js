@@ -57,6 +57,7 @@ module.exports = {
 					]
 				},
 				'jsapi',
+        'vk.userCenter',
 				{
 					title: '前端（页面）',
 					collapsable: true,
