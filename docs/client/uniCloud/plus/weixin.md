@@ -134,23 +134,48 @@ let sendRes = await vk.openapi.weixin.subscribeMessage.send({
   touser : openid,
   template_id : "订阅模板ID",
   page : "pages/index/index",
-  data : { 
-    key1: {
-      value: ""
-    }, 
-    key2: {
-      value: "" 
-    } 
+  data : {
+    character_string1:{
+      value:"202103040830158485629163994677"
+    },
+    name2:{
+      value:"中通快递"
+    },
+    character_string3:{
+      value:"ZT2015215125352511"
+    },
+    thing6:{
+      value:"雪花秀滋盈生人生焕颜精华露"
+    },
+    thing8:{
+      value:"杭州市xxxxxxxxx号"
+    }
   },
   miniprogram_state : "formal",
 });
 
 // 注意
-// 发送订阅消息需要用户先在小程序前端点击订阅
+// 发送订阅消息需要用户先在小程序前端点击订阅，且订阅是一次性的，发第二次消息需要再次订阅。
 uni.requestSubscribeMessage({
   tmplIds: ['订阅模板ID'],
 });
 ```
+
+注意：订阅消息发送的每个字段值是有严格限制的，具体限制 [点击查看](https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/subscribe-message/subscribeMessage.send.html)
+并阅读其 `订阅消息参数值内容限制说明`
+
+如果发送失败，可以在云函数内打印下 `sendRes` 的值，并根据返回的 `code` 进行判断错在哪里。
+
+
+| 值   | 说明                                    |
+|------- |---------------------------------------|
+| 40003  |   touser字段openid为空或者不正确    | 
+| 40037  |   订阅模板id为空不正确    |
+| 43101  |   用户拒绝接受消息，如果用户之前曾经订阅过，则表示用户取消了订阅关系    |
+| 47003  |   模板参数不准确，可能为空或者不满足规则，errmsg会提示具体是哪个字段出错	    |
+| 41030  |   page路径不正确，需要保证在现网版本小程序中存在，与app.json保持一致    |
+
+
 ## 1.3、直播
 
 ### 获取直播间列表 
