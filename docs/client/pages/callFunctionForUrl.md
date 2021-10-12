@@ -44,3 +44,5 @@ Vue.prototype.vk.callFunctionUtil.setConfig({
 });
 
 ```
+
+### 使用axios等工具访问云函数方式(云函数url化外部访问) [点击查看](https://vkdoc.fsq.pub/client/question/q2.html)
