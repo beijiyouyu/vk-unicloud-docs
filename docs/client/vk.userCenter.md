@@ -39,7 +39,7 @@ vk.userCenter.register({
 });
 ```
 
-### vk.userCenter.register（登录）
+### vk.userCenter.login（登录）
 
 用户名+密码
 
