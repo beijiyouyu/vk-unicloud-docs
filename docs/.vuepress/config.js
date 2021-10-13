@@ -30,8 +30,8 @@ module.exports = {
 			{ text: 'DCloud插件市场', link: 'https://ext.dcloud.net.cn/publisher?id=164406' },
 			//{ text: '成品项目', link: '/product/' },
 			{
-				text: 'Gitte',
-				ariaLabel: 'Gitte',
+				text: 'Gitee',
+				ariaLabel: 'Gitee',
 				items: [
 					{ text: 'vk-unicloud-router（client端）', link: 'https://gitee.com/vk-uni/vk-uni-cloud-router' },
 					{ text: 'vk-unicloud-admin（admin端）', link: 'https://gitee.com/vk-uni/vk-unicloud-admin' }
