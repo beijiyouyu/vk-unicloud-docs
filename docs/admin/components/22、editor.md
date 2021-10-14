@@ -12,30 +12,18 @@
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
-### 组件属性
+### 注意
 
-##### 目前 `editor` 组件需要通过插槽的形式使用
+#### 需要在 `main.js` 中 `Vue.use(vkAdminUI);` 的下方添加如下代码
 
-```html
-<vk-data-form
-  v-model="form1.data"
-  :rules="form1.props.rules"
-  :action="form1.props.action"
-  :form-type="form1.props.formType"
-  :columns='form1.props.columns'
-  :loading.sync="form1.props.loading"
-  label-width="140px"
-  input-width="400px"
-  @success="onFormSuccess"
->
-  <!-- v-slot:editor 中的 editor 对应 columns中的 key, form对应 form1.data keyName 对应 columns中的 key -->
-  <template v-slot:editor="{ form, keyName }">
-    <vk-data-input-editor v-model="form[keyName]" placeholder="开始输入" width="750px"></vk-data-input-editor>
-  </template>
-</vk-data-form>
+```js
+// 引入 富文本编辑器 组件（必须加在Vue.use(vkAdminUI);的后面）
+import VkDataInputEditor from "@/components/vk-data-input-editor/vk-data-input-editor";
+Vue.component("vk-data-input-editor", VkDataInputEditor);
 ```
+
 #### 其中`vk-data-input-editor` 需要放到项目根目录的`components/vk-data-input-editor/vk-data-input-editor.vue`（没有则新建）
-#### `vk-data-input-editor`组件源码 (目前的editor的暂时替代，后面会有新的内置editor组件)
+#### `vk-data-input-editor`组件源码 
 ```html
 <template>
   <view class="vk-data-input-editor" :style="[style_obj,styleCom]" @tap="close_popup">
