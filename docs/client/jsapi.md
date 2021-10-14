@@ -582,6 +582,17 @@ vk.pubfn.camel2snake(value);
 vk.pubfn.string2Number(obj, option);
 ```
 
+### vk.pubfn.toDecimal 保留小数
+
+```js
+/**
+ * 保留小数
+ * @param {Number} val 原值
+ * @param {Number} precision 精度
+ * vk.pubfn.toDecimal(val, 2);
+ */
+```
+
 
 ## 前端专属
 
