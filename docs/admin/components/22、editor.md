@@ -14,7 +14,7 @@
 
 ### 注意
 
-#### 需要在 `main.js` 中 `Vue.use(vkAdminUI);` 的下方添加如下代码
+#### 需要在 `main.js` 中 `Vue.use(vkAdminUI);` 的下方添加如下代码（1.6.9及以上版本已内置，无需手动添加）
 
 ```js
 // 引入 富文本编辑器 组件（必须加在Vue.use(vkAdminUI);的后面）
