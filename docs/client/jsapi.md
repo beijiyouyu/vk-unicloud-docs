@@ -78,11 +78,11 @@ await vk.pubfn.sleep(1000);
 ```
 
 
-### vk.pubfn.timeFormat（日期格式化）
+### vk.pubfn.timeFormat（日期时间格式化）
 
 ```js
 /**
- * 日期格式化
+ * 日期时间格式化
  * @params {Date || Number} date 需要格式化的时间
  * @params {Number} targetTimezone 时区 默认东8区 正数代表东 负数代表西
  */
