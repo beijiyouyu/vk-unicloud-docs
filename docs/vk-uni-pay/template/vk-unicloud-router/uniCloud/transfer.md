@@ -60,3 +60,18 @@ if (res.code !== 0) {
 | platform  |  微信专用 - 平台类型：app-plus、mp-weixin，用于获取对应平台的支付配置信息     | String  | -    | app-plus、mp-weixin、h5  |
 | checkName  |  微信专用 - 是否需要检测真实姓名  | Boole  | true    | false  |
 
+
+
+### 同时需要在 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 添加 `uniPayConfig` 配置
+
+代码如下
+
+```js
+const uniPayConfig = require('../uni-pay/config.js');
+module.exports = {
+	"uni-pay": uniPayConfig,
+	"vk": {
+		。。。 之前的配置
+	}
+};
+```

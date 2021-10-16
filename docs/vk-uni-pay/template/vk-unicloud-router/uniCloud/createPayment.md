@@ -43,3 +43,19 @@ res = await vk.vkPay.createPayment({
  * 假设你的订单号是：2107151010101541001
  * 但如果你的订单分多次付款（如预付款，尾款等，则需要分别创建不同的支付订单号，如pre2107151010101541001、due2107151010101541001）
  * 对未支付的订单再次发起支付时，商户应该使用原单号发起，不要更换支付单号，避免用户重复支付。
+
+
+
+### 同时需要在 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 添加 `uniPayConfig` 配置
+
+代码如下
+
+```js
+const uniPayConfig = require('../uni-pay/config.js');
+module.exports = {
+	"uni-pay": uniPayConfig,
+	"vk": {
+		。。。 之前的配置
+	}
+};
+```
