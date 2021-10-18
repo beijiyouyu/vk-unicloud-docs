@@ -960,7 +960,11 @@ Vue.component("vk-data-input-editor", VkDataInputEditor);
 
 ### 万能表格使用方式
 
-### 无
+show:["detail"] 是为了控制只在点击详情时显示
+
+```js
+{ key: "editor", title: "富文本", type: "html", show:["detail"] },
+```
 
 
 ### template 使用方式
