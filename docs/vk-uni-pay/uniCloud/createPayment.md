@@ -16,7 +16,15 @@ exports.main = async (event, context) => {
       out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
       total_fee: 1, // 订单金额(单位分 100 = 1元)
       subject: "订单标题",
-      type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。"
+      type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。",
+      // 自定义数据，不可与外部重复（custom内的参数不会发送给微信、支付宝）
+      custom:{
+        
+      },
+      // 微信、支付宝文档上的其他选填参数（other内的参数会原样发送给微信、支付宝）
+      other:{
+      
+      }
     }
   });
 
@@ -42,7 +50,8 @@ exports.main = async (event, context) => {
 | total_fee  |   订单金额(单位分 100 = 1元)    | Number  | -    | -  |
 | subject  |   订单标题    | String  | -    | -  |
 | type  |   订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。    | String  | -    | -  |
-
+| custom  |   自定义数据，不可与外部重复（custom内的参数不会发送给微信、支付宝）    | Object  | -    | -  |
+| other  |   微信、支付宝文档上的其他选填参数（other内的参数会原样发送给微信、支付宝）    | Object  | -    | -  |
 
 
  * out_trade_no作用: 用于根据out_trade_no查订单状态、发起退款等接口需要。

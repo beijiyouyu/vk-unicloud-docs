@@ -44,10 +44,14 @@ module.exports = {
         subject: data.subject,
         body: data.body,
         type: data.type,
-        // 自定义数据，不可与外部重复
+        // 自定义数据，不可与外部重复（custom内的参数不会发送给微信、支付宝）
         custom:{
           user_id: "test_001",
           recharge_balance: Number(data.total_fee),
+        },
+        // 微信、支付宝文档上的其他选填参数（other内的参数会原样发送给微信、支付宝）
+        other:{
+
         }
       }
     });
