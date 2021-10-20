@@ -537,12 +537,12 @@ Vue.component("vk-data-input-editor", VkDataInputEditor);
 
     .ql-container {
       box-sizing: border-box;
-      padding: 12px 15px;
+      padding: 15px;
       width: 100%;
       min-height: 30vh;
       height: auto;
       background: #fff;
-      margin-top: 20px;
+      margin-top: 0px;
       font-size: 16px;
       line-height: 1.5;
     }
