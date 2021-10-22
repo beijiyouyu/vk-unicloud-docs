@@ -59,8 +59,20 @@ DCloud Appid` 获取方法
 * 同时一般插件还会有一个自己的 `db_init.json` 文件 如 `uni_modules/uni-upgrade-center/uniCloud/database/db_init.json` （也是右键上传）
 
 
+## 如何关闭当前打开的tabs页面
 
+```js
+vk.menuTabs.closeCurrent();
+```
 
+若提示 `menuTabs is undefined` 则请在 `windows/topWindow.vue` 页面 添加如下代码
+
+```js
+// 组件挂载完毕时
+mounted() {
+  this.vk.menuTabs = this.$refs.menuTabs;
+},
+```
 
 
 
