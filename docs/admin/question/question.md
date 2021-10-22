@@ -76,7 +76,13 @@ mounted() {
 
 同时需【升级】`vk-unicloud-admin-ui` 包升级至 `1.7.2` 或以上
 
+## 如何升级 `vk-unicloud-admin-ui` 包
 
+步骤:
+
+* 1、根目录的 `package.json` 文件打开，修改 `dependencies` 节点下的 `vk-unicloud-admin-ui` 的版本
+* 2、项目根目录执行 `npm i`
+* 3、重启项目
 
 
 
