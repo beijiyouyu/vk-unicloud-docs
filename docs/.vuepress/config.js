@@ -230,7 +230,9 @@ module.exports = {
 						'components/22、editor',
 						'components/23、json',
 						'components/24、array',
-						'components/25、file-select'
+						'components/25、file-select',
+            'components/26、icon',
+            'components/27、tree-select'
 					]
 				},
         {
