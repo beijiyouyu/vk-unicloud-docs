@@ -74,6 +74,7 @@ mounted() {
 },
 ```
 
+同时需【升级】`vk-unicloud-admin-ui` 包升级至 `1.7.2` 或以上
 
 
 
