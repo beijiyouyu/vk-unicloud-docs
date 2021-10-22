@@ -118,7 +118,7 @@ export default {
 | action   | vk框架云函数地址 | String  | 无 | -  |
 | before-action   | action请求前拦截器 [查看示例代码](#before-action) | Function  | 无 | -  |
 | is-request    | 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
-| form-type       | 表单类型，用于复用表单 | String  | 无 | -  |
+| form-type       | 表单类型，用于复用表单 [查看表单复用](#show) | String  | 无 | -  |
 | columns          | 通用 - 字段规则 [查看columns](#columns) | Array  | [] | - |
 | loading           | 表单是否在请求中 | Boolean  | false | true  |
 | label-width        | 左侧label宽度 | String,Number  | "80px" | -  |
@@ -152,6 +152,82 @@ columns是一个数组，数组内每个元素有以下属性，每个元素代�
 | tips  | 下方的提示 | String  | 无    | -  |
 | disabled  |  是否禁用 | Boolean  | false | true  |
 | showLabel  |  是否显示label | Boolean  | true    | false  |
+| show  | 表单复用时的显示规则 [查看show](#show)  | array | -  | - |
+| showRule  |  是否显示该字段 | String、Function  | -    | -  |
+
+
+### show
+
+表单组件的组件 `form-type` 可以动态复用同一个表单达到显示不同字段的功能。
+
+完整示例代码可以查看页面 `pages_template/components/form/form-dialog-2`
+
+show 是一个字符串数组，columns 数组内每一个元素都可以单独设置 show
+
+* 如果 show 字段不存在，代表显示。
+* 如果 show 的某元素中包含 `form-type`的值，则代表显示。
+* 如果 show 的某元素中不包含 `form-type`的值，则不显示。
+
+### showRule
+
+与 show 不同，showRule 更灵活。
+
+如 当 `login_appid_type` = 1 时，渲染 `mode` 字段，否则不渲染（支持符号 = == > >= < <= != in && || ）
+
+提示：= 和 == 效果一样
+
+```js
+{
+  key:"login_appid_type", title:"登录权限", type:"radio",
+  optionType:"button",
+  data:[
+    { value:1, label:"部分应用" },
+    { value:0, label:"全部应用" }
+  ]
+},
+{
+  key:"mode", title:"模式", type:"radio",
+  optionType:"button",
+  data:[
+    { value:1, label:"覆盖" },
+    { value:2, label:"新增" },
+    { value:3, label:"移除" }
+  ],
+  showRule:"login_appid_type==1",
+},
+```
+
+同时 showRule 还支持函数形式
+
+```js
+{
+  key:"login_appid_type", title:"登录权限", type:"radio",
+  optionType:"button",
+  data:[
+    { value:1, label:"部分应用" },
+    { value:0, label:"全部应用" }
+  ]
+},
+{
+  key:"mode", title:"模式", type:"radio",
+  optionType:"button",
+  data:[
+    { value:1, label:"覆盖" },
+    { value:2, label:"新增" },
+    { value:3, label:"移除" }
+  ],
+  showRule:function(formData){
+  	if(formData.login_appid_type == 1){
+  		return true;
+  	}else{
+  		return false;
+  	}
+  }
+},
+```
+
+
+
 
 ### type
 type类型（更多请见：`/pages_template/components/form/form-pro`）
