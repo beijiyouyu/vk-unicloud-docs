@@ -35,6 +35,11 @@
 }
 ```
 
+### 远程数据用法
+
+请直接查看 `remote-select` 远程下拉组件 [点击前往](https://vkdoc.fsq.pub/admin/components/10%E3%80%81remote-select.html)
+
+
 ### API
 
 ### 属性
