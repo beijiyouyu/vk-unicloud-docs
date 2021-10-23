@@ -2,7 +2,10 @@
 
 ### 万能表单使用方式
 #### 下拉选择方式
-#### 应用场景：数据量不大时使用。
+#### 应用场景：直接加载所有远程待选项（数据量不大时使用。）
+
+通过设置参数 `showAll:true` 可以直接将所有远程待选项直接加载完。
+
 ```js
 {
   key:"category_ids1", title:"远程select（单选）", type:"remote-select", placeholder:"请选择分类",
