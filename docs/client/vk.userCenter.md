@@ -1,5 +1,38 @@
 # vk.userCenter 用户中心 API
 
+## 公共请求参数
+
+| 参数   | 说明       | 类型    | 
+|------- |-----------|---------|
+| data    |  发送到云函数的参数数据  | Object  |
+| title    |  遮罩层提示语，为空或不传则代表不显示遮罩层。   | String  |
+| loading    |  自定义loading [查看详情](#loading) | Boolean、Object  |
+| needAlert     | 为true代表请求错误时，会有alert弹窗提示 | Boolean  | true | false |
+| success       | 请求成功时，执行的回调函数 | Function  | - | - |
+| fail          | 请求失败时，执行的回调函数 | Function  | - | - |
+| complete      | 无论请求成功与否，都会执行的回调函数 | Function  | - | - |
+
+### loading
+
+loading 参数详细说明
+
+* 若 `loading` 的值为 `false`，则不显示默认遮罩层提示语
+
+* 若 `loading` 的值为 `true` ，则不显示默认遮罩层提示语，同时在请求时，会自动设置页面变量 `loading=true` ，请求完成时，自动设置页面变量 `loading=false`
+
+* 若 `loading` 的值类型为 `Object`，如下方代码效果是：请求时，会自动执行 `that.loading2=true` ，请求完成时，会自动执行 `that.loading2=false`
+
+```js
+loading:{ that:that, name:"loading2"}
+```
+
+* name 支持. 如下方代码效果是：请求时，会自动执行 `that.page.loading=true` ，请求完成时，会自动执行 `that.page.loading=false`
+
+```js
+loading:{ that:that, name:"page.loading"}
+```
+
+
 ## 公共返回信息
 
 | 参数   | 说明       | 类型    | 
