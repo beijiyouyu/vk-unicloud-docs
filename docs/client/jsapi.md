@@ -1,4 +1,12 @@
 # JS API文档大全
+
+在 `vk.pubfn.` 不仅可以在 `js` 中使用，也可以直接在 `template` 模板中使用（在template中也可以用简写法$fn代替vk.pubfn）。如
+
+```html
+<view>{{ vk.pubfn.hidden("15200000001", 3, 4) }}</view>
+<view>{{ $fn.hidden("15200000001", 3, 4) }}</view>
+```
+
 ## 前后端通用
 ### vk.pubfn.debounce（防抖函数）
 
