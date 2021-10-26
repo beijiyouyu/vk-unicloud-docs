@@ -427,6 +427,15 @@ that.$refs.table1.exportExcel({
   ]
 });
 ```
+### 导出满足表格查询条件的数据库内所有数据
+```js
+that.$refs.table1.exportExcel({
+  fileName: "表格全部数据",
+  title: "正在导出数据...",
+  pageIndex: 1,
+  pageSize: -1, // 此值为-1，代表导出所有数据
+});
+```
 ### 导出自定义数据
 ```js
 that.$refs.table1.exportExcel({
