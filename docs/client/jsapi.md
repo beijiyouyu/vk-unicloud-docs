@@ -830,7 +830,7 @@ vk.hideLoading();
 
 ## 页面跳转
 
-### vk.navigateTo(url);
+### vk.navigateTo
 
 支持跳转到tab页
 
@@ -838,7 +838,7 @@ vk.hideLoading();
 vk.navigateTo(url);
 ```
 
-### vk.redirectTo(url);
+### vk.redirectTo
 
 关闭当前页面，跳转到应用内的某个页面。
 
@@ -846,7 +846,7 @@ vk.navigateTo(url);
 vk.redirectTo(url);
 ```
 
-### vk.reLaunch(url);
+### vk.reLaunch
 
 关闭所有页面，打开到应用内的某个页面。
 
@@ -854,7 +854,7 @@ vk.redirectTo(url);
 vk.reLaunch(url);
 ```
 
-### vk.switchTab(url);
+### vk.switchTab
 
 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
 
@@ -862,7 +862,7 @@ vk.reLaunch(url);
 vk.switchTab(url);
 ```
 
-### vk.navigateBack();
+### vk.navigateBack
 
 关闭当前页面，返回上一页面
 
