@@ -654,7 +654,7 @@ vk.pubfn.numStr(n);
 vk.pubfn.priceFilter(money);
 ```
 
-### vk.pubfn.getListData（手机端长列表分页加载数据）
+### vk.pubfn.getListData（手机长列表分页加载数据）
 
 ```js
 /**
