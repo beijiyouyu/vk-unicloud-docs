@@ -23,6 +23,9 @@ DCloud Appid` 获取方法
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/18cd54d5-bedc-4d4f-bda2-7c339c865257.png)
 
+## 为什么云函数URL化后，明明数据库里有该用户，登录提示用户不存在？
+
+[点击查看](https://vkdoc.fsq.pub/client/question/question.html#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BA%91%E5%87%BD%E6%95%B0url%E5%8C%96%E5%90%8E-%E6%98%8E%E6%98%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8C%E6%9C%89%E8%AF%A5%E7%94%A8%E6%88%B7-%E7%99%BB%E5%BD%95%E6%8F%90%E7%A4%BA%E7%94%A8%E6%88%B7%E4%B8%8D%E5%AD%98%E5%9C%A8)
 
 ## 如何使用官方 `unicloud-admin` 的插件，如 `APP升级中心`
 
