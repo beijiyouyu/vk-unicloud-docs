@@ -151,12 +151,32 @@ vk.userCenter.code2SessionWeixin({
 云厂商如果要将延迟降低，势必要增加服务器集群，增加机房，这些都是成本。所以云厂商会尽量让延迟控制在一个合理的范围内，成本和收益要对等。
 
 
+## 为什么云函数URL化后，明明数据库里有该用户，登录提示用户不存在？
 
+这是因为现在的 `uni-id` 模块强制不同端用户隔离导致的，你需要在URL化请求后多传2个参数
 
+分别为：
 
+* vk_appid    （你项目的manifest.json内的appid）
+* vk_platform （当前环境，比如h5）
 
+以jquery为例
 
-
+```js
+$.ajax({
+  type: 'POST',
+  url: "https://xxxxxx.com/http/router/user/pub/login",
+  data: JSON.stringify({
+    vk_appid: "__UNI__A8V6E8P",
+    vk_platform: "h5",
+    username: "test",
+    password: "123456"
+  }),
+  success:function(data){
+    console.log("data", data);
+  }
+})
+```
 
 
 <style scoped>
