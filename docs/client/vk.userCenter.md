@@ -507,6 +507,17 @@ vk.userCenter.sendEmailCode({
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
 
+注意：
+
+* 需要在config.json内使用微信登录的平台下配置appid和appsecret
+
+APP QQ登录详细配置流程：
+
+* 在manifest.json内配置微信登录用appid
+* 打包并使用自定义基座（注意一定要在manifest.json填写微信appid后再制作自定义基座）[自定义基座使用说明](https://ask.dcloud.net.cn/article/35115)
+* 在uni-id的config.json内app-plus对应的微信登录信息内配置appid和appsecret
+
+
 ```js
 /**
  * 用户登录(微信授权)
@@ -704,6 +715,10 @@ vk.userCenter.getWeixinMPscheme({
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
 
+注意：
+
+* 需要在config.json内支付宝平台下配置appid和privateKey（应用私钥）
+
 ```js
 /**
  * 支付宝登录
@@ -776,7 +791,19 @@ vk.userCenter.unbindAlipay({
 
 ### vk.userCenter.loginByQQ（QQ登录）
 
+目前仅支持app和小程序的qq登录
+
 ___框架会自动保存 `token`，无需你再手动去保存。___
+
+注意：
+
+* 需要在config.json内使用QQ登录的平台下配置appid和appsecret
+
+APP QQ登录详细配置流程：
+
+* 在manifest.json内配置QQ登录用appid
+* 打包并使用自定义基座（注意一定要在manifest.json填写QQ appid后再制作自定义基座）[自定义基座使用说明](https://ask.dcloud.net.cn/article/35115)
+* 在uni-id的config.json内app-plus对应的QQ登录信息内配置appid和appsecret
 
 ```js
 /**
