@@ -763,3 +763,110 @@ vk.pubfn.base64ToFile({
   }
 });
 ```
+
+## 弹窗
+
+### vk.alert
+```js
+// 简写
+vk.alert("内容");
+// 完整写法
+vk.alert("内容","提示","确定", function(){
+  // 点击确定按钮后的回调
+  
+});
+```
+
+### vk.confirm
+```js
+vk.confirm("内容","提示","确定","取消",function(res){
+  if(res.confirm){
+    // 点击确定按钮后的回调
+    
+  }
+});
+```
+
+### vk.prompt
+```js
+vk.prompt("请输入","提示","确定","取消",function(res){
+  if(res.confirm){
+    console.log(res.content);
+  }
+},"输入框内初始内容");
+```
+
+### vk.toast
+```js
+vk.toast("提示内容");
+```
+
+### vk.showActionSheet
+```js
+vk.showActionSheet({
+  title:"",
+  list:["位置","@好友"],
+  color:"rgb(0, 0, 0)",
+  success:function(res){
+    if(res.index==0){
+
+    }else if(res.index==1){
+
+    }
+  }
+ });
+```
+
+### vk.showLoading
+```js
+vk.showLoading("加载中...");
+```
+
+### vk.hideLoading
+```js
+vk.hideLoading();
+```
+
+
+## 页面跳转
+
+### vk.navigateTo(url);
+
+支持跳转到tab页
+
+```js
+vk.navigateTo(url);
+```
+
+### vk.redirectTo(url);
+
+关闭当前页面，跳转到应用内的某个页面。
+
+```js
+vk.redirectTo(url);
+```
+
+### vk.reLaunch(url);
+
+关闭所有页面，打开到应用内的某个页面。
+
+```js
+vk.reLaunch(url);
+```
+
+### vk.switchTab(url);
+
+跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
+
+```js
+vk.switchTab(url);
+```
+
+### vk.navigateBack();
+
+关闭当前页面，返回上一页面
+
+```js
+vk.navigateBack();
+```
+
