@@ -404,8 +404,8 @@ vk.pubfn.random(1,"123456789",["1","2","3"]);
 /**
  * 将手机号,账号等隐藏中间字段
  * @params {String} str   需要转换的字符串
- * @params {Number} first 前面显示的字符数量
- * @params {Number} last  后面显示的字符数量
+ * @params {Number} first 前面显示的字符数量，默认为0
+ * @params {Number} last  后面显示的字符数量，默认为0
  */
 vk.pubfn.hidden(str, first, last);
 ```
