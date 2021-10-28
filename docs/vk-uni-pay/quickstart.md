@@ -3,16 +3,24 @@
 ## 1、 下载安装
 * 1、从插件市场安装 `vk-uni-pay` 插件到你的项目中。
 * 2、在 `uniCloud/cloudfunctions/common/vk-uni-pay` 目录右键选择 `管理公共模块依赖` 菜单，引入这2个模块 `uni-config-center`、 `uni-pay`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/631a3863-8094-4901-bd7f-17322b96a536.png)
 * 3、在需要引入支付API的云函数右键选择 `管理公共模块依赖` 菜单，至少引入这4个模块 `uni-config-center`、 `uni-id`、 `uni-pay`、 `vk-uni-pay`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/2a66eeaf-f245-415e-babf-147b294c913e.png)
 * 4、配置支付参数文件地址: `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建)（注意这里是 `config.js` ) [查看支付参数](#支付参数)
-* 5、上传公共模块 `vk-uni-pay`
-* 6、上传云函数 `vk-pay`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/af8fb6fa-0c40-4202-8de3-20e9ac9fdfb1.png)
+* 5、上传公共模块 `vk-uni-pay`（右键，上传公共模块）
+* 6、上传云函数 `vk-pay`（右键，上传云函数）
 * 7、完成
 
 ## 2、 配置uni-id里的小程序参数
 因为小程序支付需要获取用户openid
 
 * 打开文件 `cloudfunctions/common/uni-config-center/uni-id/config.json`(没有则新建)（注意这里是`config.json`)
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/bc4c3c64-531c-4711-b32e-40679445fbdd.png)
 * 完整的uni-id配置代码如下
 ##### 注意：获取 `openId` 使用的 `uni-id` 接口，故 `uni-id` 和 `uni-pay` 都是要配置的
 ##### 微信小程序支付时需要获取 `openId`，故需要配置 `mp-weixin`
@@ -79,6 +87,8 @@
 
 ## 3、 配置uni-pay支付参数
 * 1、打开文件 `cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建)
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/af8fb6fa-0c40-4202-8de3-20e9ac9fdfb1.png)
 * 复制下方代码到 `uni-pay/config.js`
 ```js
 const fs = require('fs');
