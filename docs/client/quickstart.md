@@ -5,7 +5,7 @@
 ## 后端（云函数端）安装步骤
 打开 `uniCloud/cloudfunctions` 目录
 
-#### 前置工作：修改云函数全局配置文件（用到微信登录的必须要配置）
+#### 前置工作：修改云函数全局配置文件（用到微信登录的必须要配置）[微信小程序配置详细教程](https://vkdoc.fsq.pub/client/question/q12.html)
 #### 注意：
 * 1、开发微信小程序和APP微信登录需要额外配置 manifest.json 以及 uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json 这2个配置文件，且改动配置后需要重新上传 公共模块 和 router 函数。
 * 2、若你的电脑没有安装 Node.js，则无法使用 npm 命令。
@@ -14,7 +14,9 @@
 
 查看 `uni-id/config.json` 代码格式 [点击查看](https://vkdoc.fsq.pub/client/uniCloud/config/uni-id.html)
 
+
 #### 正式安装
+
 直接右键`uniCloud`目录 点击 `运行云服务空间初始化向导` 即可
 
 ## 前端（页面端）安装步骤
