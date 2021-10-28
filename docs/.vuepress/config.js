@@ -170,6 +170,7 @@ module.exports = {
 						'question/q9',
             'question/q10',
             'question/q11',
+            'question/q12',
 					]
 				},
         'question/question'
