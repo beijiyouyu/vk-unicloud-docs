@@ -71,7 +71,7 @@ export default {
 | stripe     | 通用 - 是否为斑马纹 | Boolean  | false | true |
 | size     | 通用 - Table 的尺寸 | String  | 无 | medium / small / mini |
 | show-header     | 通用 - 是否显示表头 | Boolean  | true | false |
-| highlight-current-row     | 通用 - 是否要高亮当前行 | Boolean  | true | false |
+| highlight-current-row     | 通用 - 是否要高亮当前行 [查看高亮行处理](#高亮行处理) | Boolean  | true | false |
 | detail-dialog-width     | 通用 - 详情弹窗的宽度 | Number,String  | "830px" | - |
 | multiple     | 通用 - 可多选 |Boolean  | true | false |
 | default-sort     | 默认排序规则 [查看default-sort](#default-sort)|Object  | - | -  |
@@ -267,6 +267,23 @@ methods: {
 }
 
 ```
+
+### 高亮行处理
+
+通过设置
+```html
+:highlight-current-row = "false"
+```
+可以关闭 `点击` 某行时的高亮，若想要关闭 `hover` 某行时的高亮，可以通过以下css样式覆盖达到效果。
+```css
+::v-deep .plTableBox .el-table__body tr.hover-row.current-row>td,
+::v-deep .plTableBox .el-table__body tr.hover-row.el-table__row--striped.current-row>td,
+::v-deep .plTableBox .el-table__body tr.hover-row.el-table__row--striped>td,
+::v-deep .plTableBox .el-table__body tr.hover-row>td {
+  background-color: #FFFFFF !important;
+}
+```
+
 
 ### http请求模式
 #### props 对象属性
