@@ -274,7 +274,7 @@ methods: {
 ```html
 :highlight-current-row = "false"
 ```
-可以关闭 `点击` 某行时的高亮，若想要关闭 `hover` 某行时的高亮，可以通过以下css样式覆盖达到效果。
+可以关闭 `点击` 某行时的高亮，若想要关闭 `hover` 某行时的高亮，可以通过以下css样式覆盖达到效果。(将下方css写在需要生效的页面的style标签内)
 ```css
 ::v-deep .plTableBox .el-table__body tr.hover-row.current-row>td,
 ::v-deep .plTableBox .el-table__body tr.hover-row.el-table__row--striped.current-row>td,
