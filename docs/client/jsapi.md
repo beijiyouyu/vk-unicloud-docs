@@ -830,6 +830,56 @@ vk.hideLoading();
 
 ## 页面跳转
 
+使用下方的页面跳转API，框架会自动判断目标页面是否需要登录才能访问。
+
+如果需要登录，会先到登录页面，登录成功后，再跳转到原本需要访问的页面。
+
+如何设置哪些页面需要登录？
+
+项目根目录 `app.config.js` 配置文件
+
+```js
+// 需要检查是否登录的页面列表
+checkTokenPages: {
+  /**
+   * 如果 mode = 0 则代表自动检测
+   * 如果 mode = 1 则代表list内的页面需要登录，不在list内的页面不需要登录
+   * 如果 mode = 2 则代表list内的页面不需要登录，不在list内的页面需要登录
+   * 注意1: list内是通配符表达式，非正则表达式
+   * 注意2: 需要使用 vk.navigateTo 代替 uni.navigateTo 进行页面跳转才会生效
+   */
+  mode: 2,
+  list: [
+    "/pages_template/*",
+    "/pages/login/*",
+    "/pages/error/*"
+  ]
+},
+```
+
+还可以设置哪些页面允许在小程序中分享
+
+```js
+// 需要检查是否可以分享的页面列表(仅小程序有效)
+checkSharePages: {
+  /**
+   * 如果 mode = 0 则不做处理
+   * 如果 mode = 1 则代表list内的页面可以被分享，不在list内的页面不可以被分享
+   * 如果 mode = 2 则代表list内的页面不可以被分享，不在list内的页面可以被分享
+   * 注意: list内是通配符表达式，非正则表达式
+   */
+  mode: 1,
+  // ['shareAppMessage', 'shareTimeline'],
+  menus: ['shareAppMessage'],
+  list: [
+    //"/pages/index/*",
+    //"/pages/goods/*",
+    "/pages/live-player/*",
+    "/pages_template/*",
+  ]
+},
+```
+
 ### vk.navigateTo
 
 支持跳转到tab页
