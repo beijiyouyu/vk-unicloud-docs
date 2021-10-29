@@ -90,7 +90,28 @@ mounted() {
 
 
 
+## 为什么 `npm i vk-unicloud-admin-ui` 提示版本不存在?
 
+那一定是你的npm使用了别的镜像源（如淘宝镜像源）导致的。
+
+解决方案：
+
+* 1、先运行命令 `npm config set registry https://registry.npmjs.org`
+* 2、再运行命令 `npm i vk-unicloud-admin-ui` 
+
+小知识：
+
+查看镜像源
+
+npm config get registry
+
+设置taobao镜像
+
+npm config set registry https://registry.npm.taobao.org
+
+恢复成原来的镜像
+
+npm config set registry https://registry.npmjs.org
 
 
 
