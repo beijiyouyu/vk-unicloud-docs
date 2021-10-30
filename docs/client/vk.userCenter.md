@@ -61,13 +61,13 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
  * @param {String} uid 用户ID
  */
 vk.userCenter.register({
-  data:{
-    username:"",
-    password:""
+  data: {
+    username: "",
+    password: ""
   },
-  success:function(data){
+  success: function(data) {
     // 注册成功后的逻辑
-    
+
   }
 });
 ```
@@ -91,13 +91,13 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
  * @param {String} uid 用户ID
  */
 vk.userCenter.login({
-  data:{
-    username:"",
-    password:""
+  data: {
+    username: "",
+    password: ""
   },
-  success:function(data){
+  success: function(data) {
     // 登录成功后的逻辑
-    
+
   }
 });
 ```
@@ -113,14 +113,14 @@ vk.userCenter.login({
  * @param {String} newPassword 新密码
  */
 vk.userCenter.updatePwd({
-  data:{
+  data: {
     oldPassword: "123456",
     newPassword: "654321",
     password_confirmation: "654321"
   },
-  success:function(data){
+  success: function(data) {
     // 修改成功后的逻辑
-    
+
   }
 });
 ```
@@ -132,9 +132,9 @@ vk.userCenter.updatePwd({
  * 登出(退出)
  */
 vk.userCenter.logout({
-  success:function(data){
+  success: function(data) {
     // 退出登录成功后的逻辑
-   
+
   }
 });
 ```
@@ -149,9 +149,9 @@ vk.userCenter.logout({
  * @param {String} password 重置后的密码
  */
 vk.userCenter.resetPwd({
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -166,12 +166,12 @@ vk.userCenter.resetPwd({
  * @param {Boolean} deleteOldFile 是否同时删除云储存内的头像文件
  */
 vk.userCenter.setAvatar({
-  data:{
-    avatar:"https://www.aa.com/1.jpg"
+  data: {
+    avatar: "https://www.aa.com/1.jpg"
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -187,12 +187,12 @@ vk.userCenter.setAvatar({
  * @param {Number} gender 性别
  */
 vk.userCenter.updateUser({
-  data:{
-    nickname:"剑圣李白",
+  data: {
+    nickname: "剑圣李白",
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -206,14 +206,14 @@ vk.userCenter.updateUser({
  * @param {Object} userInfo 用户信息
  */
 vk.userCenter.getCurrentUserInfo({
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
 
-### vk.userCenter.checkToken（token校验）
+### vk.userCenter.checkToken（token云端校验）
 
 ```js
 /**
@@ -225,12 +225,26 @@ vk.userCenter.getCurrentUserInfo({
  * @param {Array} permission 当前用户权限
  */
 vk.userCenter.checkToken({
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
 });
 ```
+
+### vk.checkToken（token本地校验）
+
+```js
+let valid = vk.checkToken();
+if (!valid) {
+  // token无效
+  
+} else {
+  // token有效
+  
+}
+```
+
 
 ## 手机号
 
@@ -244,13 +258,13 @@ vk.userCenter.checkToken({
  * @param {String} code 手机收到的验证码
  */
 vk.userCenter.bindMobile({
-  data:{
+  data: {
     mobile: '',
     code: '',
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -265,13 +279,13 @@ vk.userCenter.bindMobile({
  * @param {String} code 手机收到的验证码
  */
 vk.userCenter.unbindMobile({
-  data:{
+  data: {
     mobile: '',
     code: '',
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -291,13 +305,13 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
  * @param {String} tokenExpired token过期时间
  */
 vk.userCenter.loginBySms({
-  data:{
+  data: {
     mobile: '',
     code: '',
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -315,13 +329,13 @@ vk.userCenter.loginBySms({
  * @param {Object} requestParam 包含服务供应商和发送的手机号
  */
 vk.userCenter.sendSmsCode({
-  data:{
+  data: {
     mobile: '',
     type: 'login',
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -337,14 +351,14 @@ vk.userCenter.sendSmsCode({
  * @param {String} mobile 手机号
  */
 vk.userCenter.resetPasswordByMobile({
-  data:{
-    password:"123456",
-    code:"",
-    mobile:""
+  data: {
+    password: "123456",
+    code: "",
+    mobile: ""
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -378,30 +392,30 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 vk.userCenter.loginByUniverify({
   // 更多配置请查看 https://uniapp.dcloud.io/univerify
   univerifyStyle: {
-    "fullScreen": true,									// 是否全屏显示(hbx3.1.5起支持全屏)，true表示全屏模式，false表示非全屏模式，默认值为false。
-    "backgroundColor": "#f5f5f5",				// 授权页面背景颜色，默认值：#ffffff
+    "fullScreen": true, // 是否全屏显示(hbx3.1.5起支持全屏)，true表示全屏模式，false表示非全屏模式，默认值为false。
+    "backgroundColor": "#f5f5f5", // 授权页面背景颜色，默认值：#ffffff
     "authButton": {
-      "normalColor": "#19be6b",					// 授权按钮正常状态背景颜色 默认值：#3479f5
-      "highlightColor": "#18b566",			// 授权按钮按下状态背景颜色 默认值：#2861c5（仅ios支持）
-      "disabledColor": "#71d5a1",				// 授权按钮不可点击时背景颜色 默认值：#73aaf5（仅ios支持）
-      "textColor": "#ffffff",						// 授权按钮文字颜色 默认值：#ffffff
-      "title": "本机号码一键登录"					// 授权按钮文案 默认值：“本机号码一键登录”
+      "normalColor": "#19be6b", // 授权按钮正常状态背景颜色 默认值：#3479f5
+      "highlightColor": "#18b566", // 授权按钮按下状态背景颜色 默认值：#2861c5（仅ios支持）
+      "disabledColor": "#71d5a1", // 授权按钮不可点击时背景颜色 默认值：#73aaf5（仅ios支持）
+      "textColor": "#ffffff", // 授权按钮文字颜色 默认值：#ffffff
+      "title": "本机号码一键登录" // 授权按钮文案 默认值：“本机号码一键登录”
     },
-    "privacyTerms":{
-      "suffix": "使用本机号码登录", 		// 条款后的文案 默认值：“并使用本机号码登录”
-      "termsColor":"#555555"
+    "privacyTerms": {
+      "suffix": "使用本机号码登录", // 条款后的文案 默认值：“并使用本机号码登录”
+      "termsColor": "#555555"
     }
   },
-  data:{
+  data: {
 
   },
-  success:function(data){
+  success: function(data) {
     uni.closeAuthView();
-    setTimeout(function(){
+    setTimeout(function() {
       vk.alert(data.msg);
-    },300);
+    }, 300);
   },
-  fail:function(res){
+  fail: function(res) {
     uni.closeAuthView();
   }
 });
@@ -419,13 +433,13 @@ vk.userCenter.loginByUniverify({
  * @param {String} code  邮箱收到的验证码
  */
 vk.userCenter.bindEmail({
-  data:{
+  data: {
     email: '',
     code: '',
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -439,13 +453,13 @@ vk.userCenter.bindEmail({
  * @param {String} code  邮箱收到的验证码
  */
 vk.userCenter.unbindEmail({
-  data:{
+  data: {
     email: '',
     code: '',
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -466,13 +480,13 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
  * @param {String} tokenExpired token过期时间
  */
 vk.userCenter.loginByEmail({
-  data:{
+  data: {
     email: '',
     code: '',
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -490,13 +504,13 @@ vk.userCenter.loginByEmail({
  * @param {String} verifyCode 验证码
  */
 vk.userCenter.sendEmailCode({
-  data:{
+  data: {
     email: '',
     type: 'login',
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -529,12 +543,12 @@ APP QQ登录详细配置流程：
  * @param {String} tokenExpired token过期时间
  */
 vk.userCenter.loginByWeixin({
-  data:{
-    type:""
+  data: {
+    type: ""
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -553,9 +567,9 @@ vk.userCenter.loginByWeixin({
  * @param {String} refreshToken 客户端为APP时返回，用于刷新accessToken
  */
 vk.userCenter.code2SessionWeixin({
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -567,7 +581,7 @@ vk.userCenter.code2SessionWeixin({
  * 绑定微信
  */
 vk.userCenter.bindWeixin({
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -581,7 +595,7 @@ vk.userCenter.bindWeixin({
  * 解绑微信
  */
 vk.userCenter.unbindWeixin({
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -597,10 +611,10 @@ vk.userCenter.unbindWeixin({
 ```js
 // 需要先在onLoad内执行此函数
 vk.userCenter.code2SessionWeixin({
-  data:{
-    needCache:true
+  data: {
+    needCache: true
   },
-  success:function(data){
+  success: function(data) {
     that.sessionKey = data.sessionKey;
   }
 });
@@ -608,18 +622,18 @@ vk.userCenter.code2SessionWeixin({
         
 ```js
 // 获取微信绑定的手机号码
-getPhoneNumber(e){
+getPhoneNumber(e) {
   let { encryptedData, iv } = e.detail;
   if (!encryptedData || !iv) {
     return false;
   }
   vk.userCenter.getPhoneNumber({
-    data:{
+    data: {
       encryptedData,
       iv,
-      sessionKey:that.sessionKey
+      sessionKey: that.sessionKey
     },
-    success:function(data){
+    success: function(data) {
       vk.alert("手机号:" + data.phone);
     }
   });
@@ -635,10 +649,10 @@ getPhoneNumber(e){
 ```js
 // 需要先在onLoad内执行此函数
 vk.userCenter.code2SessionWeixin({
-  data:{
-    needCache:true
+  data: {
+    needCache: true
   },
-  success:function(data){
+  success: function(data) {
     that.sessionKey = data.sessionKey;
   }
 });
@@ -646,7 +660,7 @@ vk.userCenter.code2SessionWeixin({
         
 ```js
 // 使用微信绑定的手机号登录/注册
-loginByWeixinPhoneNumber(e){
+loginByWeixinPhoneNumber(e) {
   let { encryptedData, iv } = e.detail;
   if (!encryptedData || !iv) {
     return false;
@@ -655,11 +669,11 @@ loginByWeixinPhoneNumber(e){
     data: {
       encryptedData,
       iv,
-      sessionKey : that.sessionKey
+      sessionKey: that.sessionKey
     },
     success(data) {
       // 成功后的逻辑
-      
+
     }
   });
 },
@@ -683,7 +697,7 @@ vk.userCenter.getWeixinMPqrcode({
   },
   success(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -729,12 +743,12 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
  * @param {String} tokenExpired token过期时间
  */
 vk.userCenter.loginByAlipay({
-  data:{
-    type:""
+  data: {
+    type: ""
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
@@ -752,7 +766,7 @@ vk.userCenter.loginByAlipay({
  * @param {String} reExpiresIn refreshToken超时时间，单位（秒）
  */
 vk.userCenter.code2SessionAlipay({
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -766,7 +780,7 @@ vk.userCenter.code2SessionAlipay({
  * 绑定支付宝
  */
 vk.userCenter.bindAlipay({
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -780,7 +794,7 @@ vk.userCenter.bindAlipay({
  * 解绑支付宝
  */
 vk.userCenter.unbindAlipay({
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -815,10 +829,10 @@ APP QQ登录详细配置流程：
  * @param {String} tokenExpired token过期时间
  */
 vk.userCenter.loginByQQ({
-  data:{
-    type:""
+  data: {
+    type: ""
   },
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -832,7 +846,7 @@ vk.userCenter.loginByQQ({
  * 绑定QQ
  */
 vk.userCenter.bindQQ({
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -846,7 +860,7 @@ vk.userCenter.bindQQ({
  * 解绑QQ
  */
 vk.userCenter.unbindQQ({
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -866,7 +880,7 @@ vk.userCenter.unbindQQ({
  * @param {String} myInviteCode 最终设置的邀请码
  */
 vk.userCenter.setUserInviteCode({
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -883,10 +897,10 @@ vk.userCenter.setUserInviteCode({
  * @param {String} inviteCode 邀请人的邀请码
  */
 vk.userCenter.acceptInvite({
-  data:{
-    inviteCode:""
+  data: {
+    inviteCode :""
   },
-  success:function(data){
+  success: function(data){
     // 成功后的逻辑
     
   }
@@ -906,13 +920,13 @@ vk.userCenter.acceptInvite({
  * @param {Array<Object>}  columns   查询条件规则
  */
 vk.userCenter.getInvitedUser({
-  data:{
-    pageIndex:1,
-    pageSize:100
+  data: {
+    pageIndex: 1,
+    pageSize: 100
   },
-  success:function(data){
+  success: function(data) {
     // 成功后的逻辑
-    
+
   }
 });
 ```
