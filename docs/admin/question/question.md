@@ -13,9 +13,9 @@
 
 因为每个人的 `DCloud Appid`是不一样的，所以你需要在应用管理中添加自己的应用（或直接修改内置的2条数据的appid即可）
 
-DCloud Appid` 获取方法
+`DCloud Appid` 获取方法
 
-复制`uniapp`项目根目录的`manifest.json`文件内的`appid`
+复制 `uniapp` 项目根目录的 `manifest.json` 文件内的 `appid`
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/e717232f-0f18-4dee-8437-5dec2c224920.png)
 
@@ -23,9 +23,34 @@ DCloud Appid` 获取方法
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/18cd54d5-bedc-4d4f-bda2-7c339c865257.png)
 
+* 3、完成，可以登录了。
+
 ## 为什么云函数URL化后，明明数据库里有该用户，登录提示用户不存在？
 
-[点击查看](https://vkdoc.fsq.pub/client/question/question.html#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BA%91%E5%87%BD%E6%95%B0url%E5%8C%96%E5%90%8E-%E6%98%8E%E6%98%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8C%E6%9C%89%E8%AF%A5%E7%94%A8%E6%88%B7-%E7%99%BB%E5%BD%95%E6%8F%90%E7%A4%BA%E7%94%A8%E6%88%B7%E4%B8%8D%E5%AD%98%E5%9C%A8)
+这是因为现在的 `uni-id` 模块强制不同端用户隔离导致的，你需要在URL化请求后多传2个参数
+
+分别为：
+
+* vk_appid    （你项目的manifest.json内的appid）
+* vk_platform （当前环境，比如h5）
+
+以jquery为例
+
+```js
+$.ajax({
+  type: 'POST',
+  url: "https://xxxxxx.com/http/router/user/pub/login",
+  data: JSON.stringify({
+    vk_appid: "__UNI__A8V6E8P",
+    vk_platform: "h5",
+    username: "test",
+    password: "123456"
+  }),
+  success:function(data){
+    console.log("data", data);
+  }
+})
+```
 
 ## 如何使用官方 `unicloud-admin` 的插件，如 `APP升级中心`
 
