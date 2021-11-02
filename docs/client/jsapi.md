@@ -922,3 +922,19 @@ vk.switchTab(url);
 vk.navigateBack();
 ```
 
+### vk.navigateToHome
+
+跳转到首页 （app.config.js 的 index.url）
+
+```js
+vk.navigateToHome();
+```
+
+### vk.navigateToLogin
+
+跳转到登录页 （app.config.js 的 login.url）
+
+```js
+vk.navigateToLogin();
+```
+
