@@ -131,9 +131,26 @@ mounted() {
 * 恢复成原来的镜像 `npm config set registry https://registry.npmjs.org`
 
 
+## 如何美化默认滚动条?
 
+将下方的css样式复制到全局样式文件 `common/css/app.scss` 中
 
-
+```css
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+::-webkit-scrollbar-track {
+	background: rgba(135, 135, 135, 0.1);
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(135, 135, 135, 0.4);
+	border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(135, 135, 135, 0.8);
+}
+```
 
 
 
