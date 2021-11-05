@@ -67,27 +67,27 @@ ___该表为插件支付专用表，主要存放商户的支付配置___
       "mchId": "",
       "appId": "",
       "privateKey": "",
-      "alipayRootCertPath": "",
-      "appCertPath": "",
-      "alipayPublicCertPath": "",
+      "alipayPublicCertContent": "",
+      "alipayRootCertContent": "",
+      "appCertContent": "",
       "sandbox": false
     },
     "app-plus": {
       "mchId": "",
       "appId": "",
       "privateKey": "",
-      "alipayRootCertPath": "",
-      "appCertPath": "",
-      "alipayPublicCertPath": "",
+      "alipayPublicCertContent": "",
+      "alipayRootCertContent": "",
+      "appCertContent": "",
       "sandbox": false
     },
     "h5": {
       "appId": "",
       "mchId": "",
       "privateKey": "",
-      "alipayRootCertPath": "",
-      "appCertPath": "",
-      "alipayPublicCertPath": "",
+      "alipayPublicCertContent": "",
+      "alipayRootCertContent": "",
+      "appCertContent": "",
       "sandbox": false
     },
     "transfer": {
@@ -101,3 +101,10 @@ ___该表为插件支付专用表，主要存放商户的支付配置___
   }
 }
 ```
+
+### 特别说明
+
+* 微信的 `pfx` 的值是 `wxpay.p12` 证书文件转 `base64` 后的值
+* 支付宝的 `alipayPublicCertContent` 的值是 `alipayCertPublicKey_RSA2.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
+* 支付宝的 `alipayRootCertContent` 的值是 `alipayRootCert.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
+* 支付宝的 `appCertPublicKeyContent` 的值是 `appCertPublicKey.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）

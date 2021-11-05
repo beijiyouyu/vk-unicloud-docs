@@ -164,9 +164,9 @@ module.exports = {
       "mchId": "",
       "appId": "",
       "privateKey": "",
+      "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
       "alipayRootCertPath": path.join(__dirname, 'alipay/alipayRootCert.crt'),
       "appCertPath": path.join(__dirname, 'alipay/appCertPublicKey.crt'),
-      "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
       "sandbox": false
     },
     // 支付宝 - APP支付配置
@@ -174,9 +174,9 @@ module.exports = {
       "mchId": "",
       "appId": "",
       "privateKey": "",
+      "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
       "alipayRootCertPath": path.join(__dirname, 'alipay/alipayRootCert.crt'),
       "appCertPath": path.join(__dirname, 'alipay/appCertPublicKey.crt'),
-      "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
       "sandbox": false
     },
     // 支付宝 - H5支付配置（包含：网站二维码、手机H5，需申请支付宝当面付接口权限）
@@ -184,9 +184,9 @@ module.exports = {
       "appId": "",
       "mchId": "",
       "privateKey": "",
+      "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
       "alipayRootCertPath": path.join(__dirname, 'alipay/alipayRootCert.crt'),
       "appCertPath": path.join(__dirname, 'alipay/appCertPublicKey.crt'),
-      "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
       "sandbox": false
     },
     // 支付宝 - 转账到支付宝等资金转出接口，其中 appCertSn 和 alipayRootCertSn 通过工具获取
