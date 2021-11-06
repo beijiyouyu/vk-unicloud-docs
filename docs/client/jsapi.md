@@ -59,7 +59,7 @@ vk.pubfn.arrayToTree(arrayData,{
 });
 ```
 
-### vk.pubfn.treeToArra（树转数组）
+### vk.pubfn.treeToArray（树转数组）
 
 ```js
 /**
