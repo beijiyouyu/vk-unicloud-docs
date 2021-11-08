@@ -106,7 +106,15 @@ module.exports = {
     // 线上正式环境
     "a4f90532-ac60-4a43-81c1-xxxxxxxxxxx2": "https://a4f90532-ac60-4a43-81c1-xxxxxxxxxxx2.bspapp.com/http/vk-pay"
   },
-  // 微信
+  /**
+   * 微信
+   * 公共参数说明
+   * appId   微信后台的appId
+   * secret  微信后台的secret
+   * mchId   微信支付的商户id
+   * key     微信支付的api密钥（V2版本）
+   * pfx     微信支付的p12证书（退款需要）
+   */
   "wxpay": {
     // 微信 - 小程序支付
     "mp-weixin": {
@@ -157,7 +165,18 @@ module.exports = {
       }
     }
   },
-  // 支付宝（证书记得选java版本）
+  /**
+   * 支付宝（证书记得选java版本）
+   * 公共参数说明
+   * mchId                  支付宝商户id 2088开头的那个（此参数可以去除）
+   * appId                  支付宝开放平台的应用appId
+   * secret                 支付宝开放平台的应用secret
+   * privateKey             应用私钥
+   * alipayPublicCertPath   支付宝公钥证书路径地址  与之对应的 alipayPublicCertContent 为支付宝公钥证书内容（值可以是字符串也可以是Buffer）
+   * alipayRootCertPath     支付宝根证书路径地址   与之对应的 alipayRootCertContent 为支付宝根证书内容（值可以是字符串也可以是Buffer）
+   * appCertPath            应用证书路径地址      与之对应的 appCertPathContent 为应用证书内容（值可以是字符串也可以是Buffer）
+   * sandbox  是否沙箱模式 true 沙箱模式 false 正常模式
+   */
   "alipay": {
     // 支付宝 - 小程序支付配置
     "mp-alipay": {
@@ -181,8 +200,8 @@ module.exports = {
     },
     // 支付宝 - H5支付配置（包含：网站二维码、手机H5，需申请支付宝当面付接口权限）
     "h5": {
-      "appId": "",
       "mchId": "",
+      "appId": "",
       "privateKey": "",
       "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
       "alipayRootCertPath": path.join(__dirname, 'alipay/alipayRootCert.crt'),
@@ -194,8 +213,8 @@ module.exports = {
       "mchId": "",
       "appId": "",
       "privateKey": "",
-      "appCertSn": "",
-      "alipayRootCertSn": "",
+      "appCertSn": "", // 应用证书的序列号
+      "alipayRootCertSn": "", // 支付宝根证书的序列号
       "sandbox": false
     }
   }
