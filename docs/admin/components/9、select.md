@@ -1,7 +1,8 @@
 # 9、select 下拉选择
 
 ### 万能表单使用方式
-### 常规用法
+#### 静态数据方式1
+#### 应用场景：选项数据为静态数据的情况。
 ```js
 {
   key:"select1", title:"select类型1", type:"select",
@@ -11,6 +12,18 @@
   ]
 }
 ```
+#### 静态数据方式2
+#### 应用场景：选项数据需要通过函数计算
+```js
+{
+  key:"select1", title:"select类型1", type:"select",
+  data:function(){
+    let list = that.list;
+    return list;
+  }
+}
+```
+
 ### 分组用法
 ```js
 {
@@ -50,7 +63,7 @@
 
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
-| data            | 数据源 | Array  | - | -  |
+| data            | 数据源 | Array、Function  | - | -  |
 | props           | 数据源的属性匹配规则 | Object  | { value:'value', label:'label', children:'children' } | -  |
 | multiple        | 是否允许多选 | Boolean  | false | true  |
 | multipleLimit   | 最多可选数量 | Number  | - | -  |

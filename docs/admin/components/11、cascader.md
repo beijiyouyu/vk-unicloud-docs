@@ -26,6 +26,17 @@
   ]
 }
 ```
+#### 静态数据方式2
+#### 应用场景：选项数据需要通过函数计算
+```js
+{
+  key:"cascader1", title:"本地数据级联", type:"cascader",
+  data:function(){
+    let list = that.list;
+    return list;
+  }
+}
+```
 
 #### 远程数据方式
 #### 应用场景：需要从数据库中获取选项的情况。
@@ -72,7 +83,7 @@
 
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
-| data            | 静态模式数据源 | Array  | - | -  |
+| data            | 静态模式数据源 | Array、Function  | - | -  |
 | action          | 动态模式 - 远程请求的云函数地址 | String  | - | -  |
 | props          | 数据源的属性匹配规则 | Object  | [查看props](#props)  | -  |
 | showAllLevels      | 输入框中是否显示选中值的完整路径 | Boolean  | true | false  |

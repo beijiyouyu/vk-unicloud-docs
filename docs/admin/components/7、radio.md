@@ -1,7 +1,7 @@
 # 7、radio 单选
 
 ### 万能表单使用方式
-#### 静态数据方式
+#### 静态数据方式1
 #### 应用场景：选项数据为静态数据的情况。
 ```js
 {
@@ -11,6 +11,19 @@
     { value:1, label:"选项1" },
     { value:2, label:"选项2" }
   ]
+}
+```
+
+#### 静态数据方式2
+#### 应用场景：选项数据需要通过函数计算
+```js
+{
+  key:"radio1", title:"radio类型1", type:"radio",
+  itemWidth:80,
+  data:function(){
+    let list = that.list;
+    return list;
+  }
 }
 ```
 
@@ -82,7 +95,7 @@
 
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
-| data            | 静态模式数据源 | Array  | - | -  |
+| data            | 静态模式数据源 | Array、Function  | - | -  |
 | action          | 动态模式 - 远程请求的云函数地址 | String  | - | -  |
 | actionData          | 动态模式 - 远程请求的云函数时的额外参数 | Object、Function  | - | -  |
 | props          | 数据源的属性匹配规则 | Object  | { list:'list', value:'value', label:'label' } | -  |
