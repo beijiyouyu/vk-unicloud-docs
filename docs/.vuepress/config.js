@@ -49,6 +49,7 @@ module.exports = {
             'addQQGroup',
             'vk-unicloud-router',
             '',
+            'serverless',
             'quickstart',
             'changelog',
             'changeGuide',
