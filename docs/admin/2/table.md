@@ -224,28 +224,28 @@ right-btns-more（右侧更多按钮点击后显示的按钮列表）
 ```
 
 ```js
-data() {
-  return {
-    table1:{
-      
-      rightBtnsMore:[
-        {
-        title:'按钮1',
-          onClick:function(item){
-          
-          }
-        },
-        {
-          title:'按钮2',
-            onClick:function(item){
+  data() {
+    return {
+      table1:{
         
+        rightBtnsMore:[
+          {
+            title:'按钮1',
+            onClick:function(item){
+            
+            }
+          },
+          {
+            title:'按钮2',
+            onClick:function(item){
+          
+            }
           }
-        }
-      ]
-      
+        ]
+        
+      }
     }
   }
-}
 
 ```
 ### custom-right-btns
