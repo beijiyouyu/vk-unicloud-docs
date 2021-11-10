@@ -378,10 +378,12 @@ data: function() {
     form1: {
       // 表单属性
       props: {
+        
         beforeAction:function(formData){
           // 可在此处修改 formData 后返回 formData，若在此处return false，则表单不触发提交请求。
           return formData;
         },
+        
       }
     }
   }

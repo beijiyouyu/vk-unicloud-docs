@@ -227,6 +227,7 @@ right-btns-more（右侧更多按钮点击后显示的按钮列表）
 data() {
   return {
     table1:{
+      
       rightBtnsMore:[
         {
         title:'按钮1',
@@ -241,6 +242,7 @@ data() {
           }
         }
       ]
+      
     }
   }
 }
@@ -322,6 +324,7 @@ export default {
   data() {
     return {
       table1:{
+        
         dataPreprocess : function(list){
           // 这里写自己的处理逻辑，最终返回处理完的list即可。
           list.map((item, index) => {
@@ -329,6 +332,7 @@ export default {
           });
           return list;
         }
+        
       }
     }
   }
