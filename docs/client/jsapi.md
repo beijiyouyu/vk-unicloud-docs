@@ -123,6 +123,24 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss");
 vk.pubfn.getCommonTime(new Date());
 ```
 
+### vk.pubfn.getOffsetTime（获得指定时间偏移 year年 month月 day天 hours时 minutes分 seconds秒前或后的时间戳）
+
+```js
+/**
+ * 获得指定时间偏移 year年 month月 day天 hours时 minutes分 seconds秒前或后的时间戳
+ * 返回时间戳形式
+ */
+vk.pubfn.getOffsetTime(new Date(), {
+	year:0,
+	month:0,
+	day:0,
+	hours:0,
+	minutes:0,
+	seconds:0,
+	mode:"after", // after 之后 before 之前
+});
+```
+
 ### vk.pubfn.getDayOffsetStartAndEnd（获得相对当前时间的偏移 count 天的起止日期）
 
 ```js
@@ -430,6 +448,8 @@ vk.pubfn.checkArrayIntersection(arr1, arr2);
  */
 vk.pubfn.getWeekStartAndEnd(0);
 ```
+
+
 
 ### vk.pubfn.calcFreights（计算运费）
 
