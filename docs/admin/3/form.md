@@ -551,9 +551,32 @@ data: function() {
 
 | 方法名   | 说明                    |
 |----------|------------------------|
-| submitForm     | 提交表单 |
+| submitForm     | 提交表单（提交前会自动进行一次表单验证） |
 | resetForm     | 重置表单 |
 | clearValidate     | 移除整个表单的校验 |
+| validate     | 进行表单验证 |
+| validateField     | 对部分表单字段进行校验 |
+
+#### validate
+```js
+that.$refs.form1.validate((valid) => {
+  if (valid){
+    // 验证通过
+    
+  }
+});
+```
+
+#### validateField
+```js
+that.$refs.form1.validate("username",(errMsg, arr) => {
+  if (errMsg) {
+    // 未验证通过
+    
+  }
+});
+```
+
 
 ## 插槽
 columns中的每一个key都是插槽的名称 （详情见示例:`/pages_template/components/form/form-slot`)
