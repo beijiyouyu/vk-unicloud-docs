@@ -341,20 +341,40 @@ form1:{
     // 布局
     { key:"", title:"横向布局", type:"bar-title" },
     { key:"", title:"", type:"group", justify:"start",
-      columns:[
-        { key:"text1", title:"单行文本1", type:"text" },
-        { key:"text2", title:"单行文本2", type:"text" },
-        { key:"text3", title:"单行文本3", type:"text" },
-        { key:"text4", title:"单行文本4", type:"text" },
-      ]
+    	columns:[
+    		{ key:"text1", title:"单行文本1", type:"text" },
+    		{ key:"text2", title:"单行文本2", type:"text" },
+    		{ key:"text3", title:"单行文本3", type:"text" },
+    		{ key:"text4", title:"单行文本4", type:"text" },
+    	]
     },
     { key:"", title:"", type:"group", justify:"start",
-      columns:[
-        { key:"text5", title:"单行文本5", type:"text" },
-        { key:"text6", title:"单行文本6", type:"text" },
-        { key:"text7", title:"单行文本7", type:"text" },
-        { key:"text8", title:"单行文本8", type:"text" },
-      ]
+    	columns:[
+    		{ key:"text5", title:"单行文本5", type:"text" },
+    		{ key:"text6", title:"单行文本6", type:"text" },
+    		{ key:"text7", title:"单行文本7", type:"text" },
+    		{ key:"text8", title:"单行文本8", type:"text" },
+    	]
+    },
+    { key:"", title:"", type:"group", justify:"start",
+    	columns:[
+    		{ key:"text11", title:"单行文本11", type:"text" },
+    		{ key:"text12", title:"单行文本12", type:"text" },
+    	]
+    },
+    { key:"", title:"", type:"group", justify:"start",
+    	columns:[
+    		{ key:"text13", title:"单行文本13", type:"text" },
+    		{ key:"text14", title:"单行文本14", type:"text" },
+    	]
+    },
+    { key:"", title:"", type:"group", justify:"start",
+    	columns:[
+    		{ key:"text21", title:"单行文本21", type:"text", col:{ span:16 } },
+    		{ key:"text22", title:"单行文本22", type:"text", col:{ span:24 } },
+    		{ key:"text23", title:"单行文本23", type:"text", col:{ span:16 } },
+    		{ key:"text24", title:"单行文本24", type:"text", col:{ span:24 } },
+    	]
     },
     // 特殊类型
     { key:"", title:"特殊类型", type:"bar-title" },
