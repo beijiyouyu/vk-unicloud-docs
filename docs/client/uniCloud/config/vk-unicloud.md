@@ -1,7 +1,12 @@
 # vk-unicloud配置
 ### 配置文件所在文件位置：`uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js`
 ```js
-const uniIdConfig = require('../uni-id/config.json');
+var uniIdConfig;
+try {
+	uniIdConfig = require('../uni-id/config.json');
+} catch(err) {
+	throw new Error("配置文件：uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json \n编译错误，请检查！"+err.message);
+}
 module.exports = {
   "uni":uniIdConfig,
   "vk":{
