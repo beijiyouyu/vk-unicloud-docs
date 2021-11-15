@@ -53,7 +53,8 @@ module.exports = {
             'quickstart',
             'changelog',
             'changeGuide',
-            'codeTips'
+            'codeTips',
+            'codeAssist'
           ]
         },
         'jsapi',
