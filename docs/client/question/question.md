@@ -179,7 +179,42 @@ $.ajax({
 ```
 
 
+## 如何在非VK框架目录结构的云函数中使用VK框架的API？
 
+这里的非VK框架目录结构的云函数指的是：不是 `router` 目录结构的云函数。
+
+任意云函数其实都可以通过下面的方式去使用 `VK` 框架的API
+
+```js
+'use strict';
+// 通过 require 引入 vk 实例
+const vk = require('vk-unicloud');
+// 通过 vk.init 初始化 vk实例（只有初始化后才能使用）
+vk.init({
+	baseDir: __dirname,
+	requireFn: require
+});
+
+exports.main = async (event, context) => {
+	//event为客户端上传的参数
+  
+  // 调用 select API
+	let res = await vk.baseDao.select({
+		dbName:"uni-id-users",
+		pageIndex:1,
+		pageSize:20,
+		whereJson:{
+
+		},
+		fieldJson:{},
+		sortArr:[{ "name":"_id", "type":"desc" }],
+	});
+
+	//返回数据给客户端
+	return res
+};
+
+```
 
 
 
