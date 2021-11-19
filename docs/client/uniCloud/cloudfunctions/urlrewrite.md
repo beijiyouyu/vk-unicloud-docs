@@ -34,24 +34,22 @@
 #### 你的URL由你做主！
 
 ## 重写教程
-#### 1、编写`router/util/urlrewrite.js`（如果没有则新建）
+#### 1、编写 `router/util/urlrewrite.js`（如果没有则新建）
 ```js
 module.exports = {
   "rule": {
     "^findById/(.+)": "template/db_api/pub/findById?_id=$1",
     "^aaa$": "template/db_api/pub/select"
   },
-  "config":{
+  "config": {
     // 当设置为true时，只有符合url重写规则内的云函数才可以被url化访问。
     "accessOnlyInRule":false
   }
 };
 ```
-#### 注意：当config.accessOnlyInRule=true时，只有符合url重写规则内的云函数才可以被url化访问。（可以做到只暴露指定的API接口）
-#### 2、修改 `router/config.js`
-![输入图片说明](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/74c96f21-4ae6-446c-a88e-936b92846909.png "屏幕截图.png")
+#### 注意：当 `config.accessOnlyInRule=true` 时，只有符合url重写规则内的云函数才可以被url化访问。（可以做到只暴露指定的API接口）
 
-#### 3、上传云函数（完成）
+#### 2、上传云函数（完成）
 
 
  
