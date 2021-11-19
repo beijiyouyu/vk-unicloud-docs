@@ -21,6 +21,8 @@
 
 ## 前端（页面端）安装步骤
 
+### Vue2.0版本
+
 `main.js` 引入 `vk-unicloud-page` 库
 
 ```js
@@ -37,14 +39,9 @@ import App from './App'
 import store from './store'
 import config from '@/app.config.js'
 
-// 引入 uView UI
-import uView from 'uview-ui';
-Vue.use(uView);
-
 // 引入 vk框架前端
 import vk from 'uni_modules/vk-unicloud/vk_modules/vk-unicloud-page';
 Vue.use(vk);
-
 
 // 初始化 vk框架
 Vue.prototype.vk.init({
@@ -64,45 +61,167 @@ app.$mount();
 
 ```
 
+### Vue3.0版本
 
-#### 集成 `uview-ui` 安装步骤开始 （若不想集成`uview-ui`可跳过此处）
+`main.js` 引入 `vk-unicloud-page` 库
 
-```bash
-# npm方式安装
-npm i uview-ui
-```
-
-
-1. `main.js`引入uView库
-```js
-import uView from 'uview-ui';
-Vue.use(uView);
-```
-
-2. `App.vue`引入基础样式(注意style标签需声明scss属性支持)
-```css
-<style lang="scss">
-@import "uview-ui/index.scss";
-</style>
-```
-
-3. `uni.scss`引入全局scss变量文件
-```css
-@import "uview-ui/theme.scss";
-```
-
-4. `pages.json`配置easycom规则(按需引入)
+完整 `main.js` 示例
 
 ```js
-{
-  "easycom": {
-    "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
-  },
-  // 此为本身已有的内容
-  "pages": [
-    // ......
-  ]
+import App from './App'
+import store from './store'
+import config from '@/app.config.js'
+
+// 引入 vk框架前端
+import vk from 'uni_modules/vk-unicloud/vk_modules/vk-unicloud-page';
+
+import { createSSRApp } from 'vue'
+
+export function createApp() {
+  const app  = createSSRApp(App)
+  
+  // 使用 vuex
+  app.use(store)
+  
+  // 使用 vk框架前端
+  app.use(vk);
+  
+  // 初始化 vk框架
+  app.config.globalProperties.vk.init({
+    Vue: app,          // Vue实例
+    config,	           // 配置
+  });
+  
+  return { app }
 }
 ```
 
-#### 集成 `uview-ui` 安装步骤结束 （若不想集成`uview-ui`可跳过此处）
+### 自 client端框架 2.6.0 起，不再内置任何 UI 框架，你可以选择自己喜欢的 UI 组件库进行开发。
+
+### 集成 `vk-uview-ui`（vue2.0版）
+
+___若不想集成 `vk-uview-ui` 可跳过此处___
+
+> 插件市场导入 `vk-uview-ui` 框架：[点击前往](https://ext.dcloud.net.cn/plugin?id=6692)
+
+* 1、main.js 引入 vk-uview-ui 
+
+```js
+import uView from './uni_modules/vk-uview-ui';
+Vue.use(uView);
+```
+
+* 2、App.vue 引入基础样式（注意style标签需声明scss属性支持）
+
+```html
+<style lang="scss">
+	@import "./uni_modules/vk-uview-ui/index.scss";
+</style>
+```
+
+* 3、uni.scss 引入全局 scss 变量文件
+
+```css
+@import "@/uni_modules/vk-uview-ui/theme.scss";
+```
+
+
+### 集成 `vk-uview-ui`（vue3.0版）
+
+___若不想集成 `vk-uview-ui` 可跳过此处___
+
+> 插件市场导入 `vk-uview-ui` 框架：[点击前往](https://ext.dcloud.net.cn/plugin?id=6692)
+
+不建议把老项目 升级到 Vue3.0 (升级非常麻烦，建议新项目才考虑是否使用Vue3.0)
+
+___注意：目前（2020-11-18） `uniapp` 的 `Vue3.0` 版本只兼容：H5、App、微信小程序___
+
+* 1、前置步骤：修改 `manifest.json` 内的 `vue` 版本为 `vue3`
+* 2、项目根目录新增 `index.html` 文件，文件代码为
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+		<title></title>
+		<!--preload-links-->
+		<!--app-context-->
+		<!-- 配置H5的 web图标static/logo.png -->
+		<link rel="icon" href="./static/logo.png" />
+	</head>
+	<body>
+		<div id="app">
+			<!--app-html-->
+		</div>
+		<script type="module" src="/main.js"></script>
+	</body>
+</html>
+```
+
+* 3、main.js 引入 vk-uview-ui 
+
+```js
+// 引入 uView UI
+import uView from './uni_modules/vk-uview-ui';
+
+import { createSSRApp } from 'vue'
+
+export function createApp() {
+  const app  = createSSRApp(App)
+  
+  // 使用 uView UI
+  app.use(uView)
+  
+  return { app }
+}
+
+```
+
+* 4、App.vue 引入基础样式（注意style标签需声明scss属性支持）
+
+```html
+<style lang="scss">
+	@import "./uni_modules/vk-uview-ui/index.scss";
+</style>
+```
+
+* 5、uni.scss 引入全局 scss 变量文件
+
+```css
+@import "@/uni_modules/vk-uview-ui/theme.scss";
+```
+
+
+### 集成 `uview-ui`（nvue2.0版）
+
+___若不想集成 `uview-ui` 可跳过此处___
+
+> 插件市场导入 `uview-ui` 框架：[点击前往](https://ext.dcloud.net.cn/plugin?id=1593)
+
+* 1、main.js 引入 uview-ui 
+
+```js
+import uView from './uni_modules/uview-ui';
+Vue.use(uView);
+```
+
+* 2、App.vue 引入基础样式（注意style标签需声明scss属性支持）
+
+```html
+<style lang="scss">
+	@import "./uni_modules/uview-ui/index.scss";
+</style>
+```
+
+* 3、uni.scss 引入全局 scss 变量文件
+
+```css
+@import "@/uni_modules/uview-ui/theme.scss";
+```
+
+### 集成 `uview-ui`（nvue3.0版）
+
+别想了，uniapp官方也还没支持。
+
+### 组件库并不限制只能从以上选择，理论上支持任何UI组件库进行开发。
