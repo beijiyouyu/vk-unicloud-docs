@@ -231,3 +231,55 @@ Vue.use(uView);
 别想了，uniapp官方也还没支持。
 
 ### 组件库并不限制只能从以上选择，理论上支持任何UI组件库进行开发。
+
+### 卸载 `uView1` 的步骤
+
+* 1、main.js 删除 uView1
+
+```js
+import uView from 'uview-ui'
+Vue.use(uView);
+```
+
+* 2、App.vue 删除基础样式
+
+```html
+<style lang="scss">
+	@import "uview-ui/index.scss";
+</style>
+```
+
+* 3、uni.scss 删除全局 scss 变量文件
+
+```css
+@import "uview-ui/theme.scss";
+```
+
+* 4、pages.json 删除 easycom 规则
+
+```js
+"easycom": {
+	"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
+},
+```
+
+* 5、package.json 删除 uview-ui 依赖
+
+```js
+"dependencies": {
+  "uview-ui": "^1.8.3"
+},
+```
+
+* 6、package-lock.json 删除 uview-ui 依赖
+
+```js
+"dependencies": {
+  "uview-ui": {
+    "version": "1.8.3",
+    "resolved": "https://registry.npmjs.org/uview-ui/-/uview-ui-1.8.3.tgz",
+    "integrity": "sha512-DqKc+qRrOZLPcyfWv4b0HspSS9n1Cd6BbgKiYEv9rjTAnWoqJV7rXsvWqZdr5iKGP5EMNbNS741GLNw4sIHbpw=="
+  }
+}
+```
+
