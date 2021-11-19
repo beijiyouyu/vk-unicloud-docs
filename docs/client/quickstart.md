@@ -102,6 +102,8 @@ export function createApp() {
 
 ___若不想集成 `vk-uview-ui` 可跳过此处___
 
+适合开发：H5、App(vue版本)、微信小程序、支付宝小程序（其他小程序未验证）
+
 > 插件市场导入 `vk-uview-ui` 框架：[点击前往](https://ext.dcloud.net.cn/plugin?id=6692)
 
 * 1、main.js 引入 vk-uview-ui 
@@ -129,6 +131,8 @@ Vue.use(uView);
 ### 集成 `vk-uview-ui`（vue3.0版）
 
 ___若不想集成 `vk-uview-ui` 可跳过此处___
+
+适合开发：H5、App(vue版本)、微信小程序（其他小程序未验证）
 
 > 插件市场导入 `vk-uview-ui` 框架：[点击前往](https://ext.dcloud.net.cn/plugin?id=6692)
 
@@ -196,6 +200,8 @@ export function createApp() {
 ### 集成 `uview-ui`（nvue2.0版）
 
 ___若不想集成 `uview-ui` 可跳过此处___
+
+适合开发：App(nvue版本)，如果你只开发App，推荐用这个UI
 
 > 插件市场导入 `uview-ui` 框架：[点击前往](https://ext.dcloud.net.cn/plugin?id=1593)
 
