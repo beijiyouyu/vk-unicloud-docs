@@ -216,6 +216,11 @@ exports.main = async (event, context) => {
 
 ```
 
+___特别注意：___
+
+如果是在 `router` 云函数内的js，直接通过 `uniCloud.vk` 来调用
+
+如果是在 `前端js` 内，直接通过 `uni.vk` 来调用
 
 
 <style scoped>
