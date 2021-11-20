@@ -97,6 +97,7 @@ module.exports = {
                 'uniCloud/cloudfunctions/question',
                 'uniCloud/cloudfunctions/http',
                 'uniCloud/cloudfunctions/timer',
+                'uniCloud/cloudfunctions/cloudfunctionsForHttp',
                 'uniCloud/cloudfunctions/urlrewrite',
                 'uniCloud/cloudfunctions/beautifyCode',
                 'uniCloud/cloudfunctions/crypto',
