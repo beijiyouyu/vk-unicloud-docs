@@ -1,4 +1,4 @@
-# 9、云函数URL化之URL重写
+# 云函数URL化之URL重写
 ## 什么是URL化
 
 #### 云函数URL化 是 uniCloud 为开发者提供的 HTTP 访问服务，让开发者可以通过 HTTP URL 方式访问到云函数。

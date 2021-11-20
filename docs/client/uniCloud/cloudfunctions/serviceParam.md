@@ -1,4 +1,4 @@
-# 3、service模板内参数含义
+# service模板内参数含义
  
 ```js
 let { data = {}, userInfo, util, filterResponse, originalParam } = event;
