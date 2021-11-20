@@ -951,7 +951,7 @@
 	 "body": [
 			"res = await vk.baseDao.sum({",
 			"\tdbName:\"$0\",",
-			"\tfieldName:"",",
+			"\tfieldName:\"\",",
 			"\twhereJson:{",
 			"\t\t",
 			"\t}",
@@ -965,7 +965,7 @@
 	 "body": [
 			"res = await vk.baseDao.max({",
 			"\tdbName:\"$0\",",
-			"\tfieldName:"",",
+			"\tfieldName:\"\",",
 			"\twhereJson:{",
 			"\t\t",
 			"\t}",
@@ -979,7 +979,7 @@
 	 "body": [
 			"res = await vk.baseDao.min({",
 			"\tdbName:\"$0\",",
-			"\tfieldName:"",",
+			"\tfieldName:\"\",",
 			"\twhereJson:{",
 			"\t\t",
 			"\t}",
@@ -993,7 +993,7 @@
 	 "body": [
 			"res = await vk.baseDao.avg({",
 			"\tdbName:\"$0\",",
-			"\tfieldName:"",",
+			"\tfieldName:\"\",",
 			"\twhereJson:{",
 			"\t\t",
 			"\t}",
