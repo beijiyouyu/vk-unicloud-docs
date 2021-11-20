@@ -463,6 +463,22 @@
 		"triggerAssist": false,
 		"description": "时间过滤器,第二个参数支持yyyy-MM-dd HH:mm:ss"
 	},
+	"vk.pubfn.string2Number": {
+	 "prefix": "vk.pubfn.string2Number",
+	 "body": [
+			"vk.pubfn.string2Number(${0})"
+		],
+		"triggerAssist": false,
+		"description": "将对象字段中能转成字符串的值转Number类型"
+	},
+	"vk.pubfn.toDecimal": {
+	 "prefix": "vk.pubfn.toDecimal",
+	 "body": [
+			"vk.pubfn.toDecimal(${0}, 2)"
+		],
+		"triggerAssist": false,
+		"description": "保留小数"
+	},
 	"vk.pubfn.dateDiff": {
 	 "prefix": "vk.pubfn.dateDiff",
 	 "body": [
@@ -929,6 +945,62 @@
 		],
 		"triggerAssist": false,
 		"description": "分组统计查询"
+	},
+	"vk.baseDao.sum": {
+	 "prefix": "baseDao.sum",
+	 "body": [
+			"res = await vk.baseDao.sum({",
+			"\tdbName:\"$0\",",
+			"\tfieldName:"",",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据条件求和"
+	},
+	"vk.baseDao.max": {
+	 "prefix": "baseDao.max",
+	 "body": [
+			"res = await vk.baseDao.max({",
+			"\tdbName:\"$0\",",
+			"\tfieldName:"",",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据条件求最大值"
+	},
+	"vk.baseDao.min": {
+	 "prefix": "baseDao.min",
+	 "body": [
+			"res = await vk.baseDao.min({",
+			"\tdbName:\"$0\",",
+			"\tfieldName:"",",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据条件求最小值"
+	},
+	"vk.baseDao.avg": {
+	 "prefix": "baseDao.avg",
+	 "body": [
+			"res = await vk.baseDao.avg({",
+			"\tdbName:\"$0\",",
+			"\tfieldName:"",",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据条件求最平均值"
 	}
 }
 
