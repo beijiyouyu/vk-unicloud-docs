@@ -44,6 +44,15 @@ ___作者：`VK`___
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/29ead8cb-a775-43f1-a80e-1716b93e6f47.png)
 
+### 7、快速插入日志
+选中某变量名，右键，点击VK-插入日志
+
+### 8、一键删除所有log类型日志
+在编辑器文档内右键，点击VK-删除所有log类型日志
+
+### 9、一键删除所有类型日志
+在编辑器文档内右键，点击VK-删除所有类型日志
+
 ### 如何设置快捷键
 
 * 复制页面路径的命令是：extension.vk_copyPagePath
@@ -58,14 +67,32 @@ ___作者：`VK`___
 
 * schema2code（vk-admin版）的命令是：extension.vk_schema2code
 
+* 快速插入日志的命令是：extension.vk_insertLog
+
+* 一键删除所有log类型日志的命令是：extension.vk_deleteAllLog1
+
+* 一键删除所有类型日志的命令是：extension.vk_deleteAllLog2
+
 点击hbx菜单工具、自定义快捷键，将下方代码复制到右侧的[]内
 
 ```js
-{"key":"你自己的快捷键，如ctrl+shift+p","command":"extension.vk_copyPagePath"},
-{"key":"你自己的快捷键，如ctrl+shift+f","command":"extension.vk_copyFunctionPath"},
-{"key":"你自己的快捷键，如ctrl+shift+p","command":"extension.vk_createCloudfunctions"},
-{"key":"你自己的快捷键，如ctrl+shift+f","command":"extension.vk_createDao"},
-{"key":"你自己的快捷键，如ctrl+shift+p","command":"extension.vk_createEncryptConfig"}
-{"key":"你自己的快捷键，如ctrl+shift+f","command":"extension.vk_schema2code"}
-```
 
+{
+	"command": "extension.vk_insertLog",
+	"key": "shift+ctrl+l",
+	"mac": "shift+cmd+l",
+	"when": "editorTextFocus",
+	"override":true
+},
+{
+	"command": "extension.vk_deleteAllLog1",
+	"key": "shift+ctrl+d",
+	"mac": "shift+cmd+d"
+},
+{
+	"command": "extension.vk_deleteAllLog1",
+	"key": "ctrl+shift+alt+d",
+	"mac": "shift+cmd+d"
+}
+	
+```
