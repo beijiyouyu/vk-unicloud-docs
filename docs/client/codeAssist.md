@@ -34,6 +34,16 @@ ___作者：`VK`___
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/066fed7d-11fe-4c72-91a3-a8a0e6390be8.png)
 
+### 5、一键生成云函数加密配置
+右键需要加密的云函数根目录下的 `package.json` 文件，点击VK-一键生成云函数加密配置
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1ecf9272-0a67-4248-b8a5-216822d0bd40.png)
+
+### 6、schema2code（vk-admin版）
+右键需要生成 `.schema.json` 文件，点击VK-schema2code
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/29ead8cb-a775-43f1-a80e-1716b93e6f47.png)
+
 ### 如何设置快捷键
 
 * 复制页面路径的命令是：extension.vk_copyPagePath
@@ -44,7 +54,9 @@ ___作者：`VK`___
 
 * 新建Dao文件的命令是：extension.vk_createDao
 
-* 一键生成云函数加密配置的命令是：extension.vk_createEncryptConfig（敬请期待）
+* 一键生成云函数加密配置的命令是：extension.vk_createEncryptConfig
+
+* schema2code（vk-admin版）的命令是：extension.vk_schema2code
 
 点击hbx菜单工具、自定义快捷键，将下方代码复制到右侧的[]内
 
@@ -54,5 +66,6 @@ ___作者：`VK`___
 {"key":"你自己的快捷键，如ctrl+shift+p","command":"extension.vk_createCloudfunctions"},
 {"key":"你自己的快捷键，如ctrl+shift+f","command":"extension.vk_createDao"},
 {"key":"你自己的快捷键，如ctrl+shift+p","command":"extension.vk_createEncryptConfig"}
+{"key":"你自己的快捷键，如ctrl+shift+f","command":"extension.vk_schema2code"}
 ```
 
