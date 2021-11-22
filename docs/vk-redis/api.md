@@ -907,6 +907,154 @@ await redis.hgetall(key);
 |-----------|-----------------|---------|--------|-------|
 | key       | redis键名          | String  | 是     | - |
 
+### hdel
+
+删除一个或多个哈希表字段
+
+- 调用示例
+
+```js
+await redis.hdel(key, name1, name2);
+```
+- 参数说明
+
+| 参数      | 说明             | 类型    | 必填  | 说明 |
+|-----------|-----------------|---------|--------|-------|
+| key       | redis键名          | String  | 是     | - |
+| name1      | hash对象中的键名    | String  | 是     | - |
+| name2      | hash对象中的键名    | String  | 是     | - |
+
+### hexists
+
+查看哈希表 key 中，指定的字段是否存在。
+
+- 调用示例
+
+```js
+await redis.hexists(key, name);
+```
+- 参数说明
+
+| 参数      | 说明             | 类型    | 必填  | 说明 |
+|-----------|-----------------|---------|--------|-------|
+| key       | redis键名          | String  | 是     | - |
+| name      | hash对象中的键名    | String  | 是     | - |
+
+### hincrby
+
+为哈希表 key 中的指定字段的整数值加上增量 increment 。
+
+- 调用示例
+
+```js
+await redis.hincrby(key, name, increment);
+```
+- 参数说明
+
+| 参数      | 说明             | 类型    | 必填  | 说明 |
+|-----------|-----------------|---------|--------|-------|
+| key       | redis键名          | String  | 是     | - |
+| name      | hash对象中的键名    | String  | 是     | - |
+| increment      | 增量 increment    | Number  | 是     | - |
+
+### hincrbyfloat
+
+为哈希表 key 中的指定字段的浮点数值加上增量 increment 。
+
+- 调用示例
+
+```js
+await redis.hincrbyfloat(key, name, increment);
+```
+- 参数说明
+
+| 参数      | 说明             | 类型    | 必填  | 说明 |
+|-----------|-----------------|---------|--------|-------|
+| key       | redis键名          | String  | 是     | - |
+| name      | hash对象中的键名    | String  | 是     | - |
+| increment      | 增量 increment    | Number  | 是     | - |
+
+### hkeys
+
+获取所有哈希表中的字段
+
+- 调用示例
+
+```js
+await redis.hkeys(key);
+```
+- 参数说明
+
+| 参数      | 说明             | 类型    | 必填  | 说明 |
+|-----------|-----------------|---------|--------|-------|
+| key       | redis键名          | String  | 是     | - |
+
+### hlen
+
+获取哈希表中字段的数量
+
+- 调用示例
+
+```js
+await redis.hlen(key);
+```
+- 参数说明
+
+| 参数      | 说明             | 类型    | 必填  | 说明 |
+|-----------|-----------------|---------|--------|-------|
+| key       | redis键名          | String  | 是     | - |
+
+### hsetnx
+
+只有在字段 field 不存在时，设置哈希表字段的值。
+
+- 调用示例
+
+```js
+await redis.hset(key, json);
+await redis.hset(key, name, value);
+```
+- 参数说明
+
+| 参数      | 说明             | 类型    | 必填  | 说明 |
+|-----------|-----------------|---------|--------|-------|
+| key       | redis键名          | String  | 是     | - |
+| name      | hash对象中的键名    | String  | 是     | - |
+| json      | 在name不传的情况下，可以直接传整个json    | String  | 是     | - |
+| value      | hash对象中的键名对应的值    | String  | 是     | - |
+
+### hvals
+
+获取哈希表中所有值。
+
+- 调用示例
+
+```js
+await redis.hvals(key);
+```
+- 参数说明
+
+| 参数      | 说明             | 类型    | 必填  | 说明 |
+|-----------|-----------------|---------|--------|-------|
+| key       | redis键名          | String  | 是     | - |
+
+### hscan
+
+迭代集合中的元素
+
+- 调用示例
+
+```js
+await redis.hscan(key, cursor);
+await redis.hscan(key, 0, "match", "a*");
+```
+- 参数说明
+
+| 参数      | 说明             | 类型    | 必填  | 说明 |
+|-----------|-----------------|---------|--------|-------|
+| key       | 键名    | String  | 是     | - |
+| cursor       | 游标          | Number  | 是     | - |
+  
 ## 集合（set）
 
 set 类似 不可重复的 字符串数组
