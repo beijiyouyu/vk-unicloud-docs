@@ -10,10 +10,11 @@
 #### 7、[如判断字段是否存在](#如何判断字段是否存在)
 #### 8、[返回字段别名](#返回字段别名)
 #### 9、[查出表中字段a等于字段b的数据](#查出表中字段a等于字段b的数据)
-#### 10、[分组count](#分组count)
+#### 10、[如何查询数组字段内包含某个值的数据](如何查询数组字段内包含某个值的数据)
+#### 11、[分组count](#分组count)
 
 ### and
-### 1、`and` 、`or`、`in`、`nin`、`neq`的用法
+### `and` 、`or`、`in`、`nin`、`neq`的用法
 ### 针对同一个字段的 `and` 和 `or`
 ```js
 // num >=0 and num <= 10
@@ -316,8 +317,41 @@ let selectRes = await vk.baseDao.select({
 });
 
 ```
+
+### 如何查询数组字段内包含某个值的数据
+```js
+let selectRes = await vk.baseDao.select({
+  dbName:"表名",
+  pageIndex:1,
+  pageSize:20,
+  whereJson:{
+    role: roleId, // role 在数据库中是数组形式字段，如["roleid1","roleid2","roleid3"]  而 roleId = "roleid1" 代表查询数组内有包含roleid1的数据
+  }
+});
+
+```
+
+
+
 ### 分组count
-#### 最终返回的是每个日期登录的用户数量有多少个。 
+
+#### 最终返回的本月共有多少用户登录（去重后）。 
+```js
+let { monthStart, monthEnd } = vk.pubfn.getCommonTime(new Date());
+let selectRes = await vk.baseDao.count({
+  dbName: "登录日志表",
+  // where条件
+  whereJson: {
+    _add_time: _.gte(monthStart).lte(monthEnd),
+  },
+  groupJson: {
+    _id: "$user_id", // _id是分组id， $ 后面接字段名
+  },
+});
+```
+
+
+#### 最终返回的是每个日期登录的用户数量分别有多少个。 
 ```js
 let selectRes = await vk.baseDao.selects({
   dbName: "登录日志表",
@@ -329,12 +363,12 @@ let selectRes = await vk.baseDao.selects({
   },
   groupJson: {
     _id: "$date_str", // _id是分组id， $ 后面接字段名，如按date_str字段进行分组(date_str字段是2021-08-19这样的字符串)
-    count: _.$.addToSet("$user_id"), // $ 后面接字段名，如把user_id原样输出（去重）
+    count: _.$.addToSet("$user_id"), // $ 后面接字段名
   },
   sortArr: [{ name: "_id",type: "desc" }], // 对分组后的结果进行排序
   addFields:{
     count: _.$.size("$count")
   }
 });
-
 ```
+
