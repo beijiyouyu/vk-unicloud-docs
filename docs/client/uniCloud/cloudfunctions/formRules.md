@@ -3,21 +3,21 @@
 
 ### 当表单参数不多时，这样写并无不雅的地方。
 ```js
-if(!data.username) return { code:-1 msg:"用户名不能为空" }
-if(!data.password) return { code:-1 msg:"密码不能为空" }
+if(!data.username) return { code:-1, msg:"用户名不能为空" }
+if(!data.password) return { code:-1, msg:"密码不能为空" }
 ```
 
 ### 但是如果参数有10个以上呢？还这样写吗？
 ```js
-if(!data.param1) return { code:-1 msg:"XXX不能为空" }
-if(data.param2<=0) return { code:-1 msg:"XXX必须大于0" }
-if(data.param3>100) return { code:-1 msg:"XXX必须小于100" }
-if(!data.param4) return { code:-1 msg:"XXX不能为空" }
-if(!data.param5) return { code:-1 msg:"XXX不能为空" }
-if(!data.param6) return { code:-1 msg:"XXX不能为空" }
-if(!data.param7) return { code:-1 msg:"XXX不能为空" }
-if(!data.param8) return { code:-1 msg:"XXX不能为空" }
-if(!data.param9) return { code:-1 msg:"XXX不能为空" }
+if(!data.param1) return { code:-1, msg:"XXX不能为空" }
+if(data.param2<=0) return { code:-1, msg:"XXX必须大于0" }
+if(data.param3>100) return { code:-1, msg:"XXX必须小于100" }
+if(!data.param4) return { code:-1, msg:"XXX不能为空" }
+if(!data.param5) return { code:-1, msg:"XXX不能为空" }
+if(!data.param6) return { code:-1, msg:"XXX不能为空" }
+if(!data.param7) return { code:-1, msg:"XXX不能为空" }
+if(!data.param8) return { code:-1, msg:"XXX不能为空" }
+if(!data.param9) return { code:-1, msg:"XXX不能为空" }
 。。。
 ```
 #### 上面的代码是不是很lows？
@@ -29,8 +29,8 @@ if(!data.param9) return { code:-1 msg:"XXX不能为空" }
 #### 但是后端经验告诉我们，不可信任前端传过来的参数，因此后端也需要表单验证。
 #### 那么既然前端已经写好了，如果后端代码能直接复用前端代码是不是在一定程度上简化了后端工作量？
 
-#### 为此，VK框架云函数中实现了跟前端表单验证参数一模一样的功能函数`vk.pubfn.formValidate`。
-#### 接下来重点介绍`vk.pubfn.formValidate`
+#### 为此，VK框架云函数中实现了跟前端表单验证参数一模一样的功能函数 `vk.pubfn.formValidate`。
+#### 接下来重点介绍 `vk.pubfn.formValidate`
 ```js
 // 验证规则开始 -----------------------------------------------------------
 let rules = {
@@ -63,7 +63,7 @@ if (formRulesRes.code !== 0) {
 
 ```
 
-### 同时为了让表单验证和业务逻辑代码独立，可以参考`router/service/admin/system/role/sys/add.js`此云函数内的写法。
+### 同时为了让表单验证和业务逻辑代码独立，可以参考 `router/service/admin/system/role/sys/add.js` 此云函数内的写法。
 ### 最终代码效果
 ```js
 const formRules = require("../util/formRules.js");
