@@ -621,7 +621,6 @@ vk.pubfn.string2Number(obj, option);
  */
 ```
 
-
 ## 前端专属
 
 ### vk.pubfn.dateDiff（将时间显示成1秒前、1天前）
@@ -971,3 +970,37 @@ vk.navigateToHome();
 vk.navigateToLogin();
 ```
 
+## 云函数专属
+
+以下函数只能在云函数内调用
+
+### vk.pubfn.batchRun
+
+批量循环并发执行异步函数（使用场景: 批量发送短信、邮件、消息通知等。）
+
+注意：`concurrency` 并不是越大越好，太大可能会卡死（一次性并发太多请求可能反而会卡死，且大部分三方api其实是有并发限制的）。
+
+```js
+let batchRunRes = await vk.pubfn.batchRun({
+  // 主执行函数
+  main: async function(i) {
+    await vk.pubfn.sleep((Math.floor(Math.random() * (3 - 0)) + 0) * 100);
+    console.log(i);
+    return { i }
+  },
+  // 最大并发量,如果设置为1,则会按顺序执行
+  concurrency: 100, 
+  // 数据源
+  data: [
+    { a: 1 }, 
+    { a: 2 }, 
+    { a: 3 },
+    { a: 4 },
+    { a: 5 },
+    { a: 6 }, 
+    { a: 7 },
+    { a: 8 },
+    { a: 9 }
+  ],
+});
+```
