@@ -819,6 +819,19 @@ vk.prompt("请输入","提示","确定","取消",function(res){
 ### vk.toast
 ```js
 vk.toast("提示内容");
+vk.toast("提示内容", "success"); // 带成功的图标
+vk.toast("提示内容", "/static/1.png"); // 带自定义图片
+vk.toast("提示内容", "none", 1000); // 修改时间延迟
+// 带回调函数
+vk.toast("提示内容", "none", function(){
+  
+}); 
+// 去除遮罩
+vk.toast("提示内容", "none", false);
+// 全参数完整写法（最后3个参数的位置顺序没有要求）
+vk.toast("提示内容", "none", 1000, true, function(){
+  
+});
 ```
 
 ### vk.showActionSheet
