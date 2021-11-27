@@ -983,10 +983,10 @@ vk.navigateToLogin();
 ```js
 let batchRunRes = await vk.pubfn.batchRun({
   // 主执行函数
-  main: async function(i) {
+  main: async function(item, index) {
     await vk.pubfn.sleep((Math.floor(Math.random() * (3 - 0)) + 0) * 100);
-    console.log(i);
-    return { i }
+    console.log(index, item);
+    return { code:0, index }
   },
   // 最大并发量,如果设置为1,则会按顺序执行
   concurrency: 100, 
