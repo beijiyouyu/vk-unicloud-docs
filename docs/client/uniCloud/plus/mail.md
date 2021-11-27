@@ -24,12 +24,15 @@
   }
 }
 ```
-## 4.2、发送邮箱验证码示例代码
+## 4.2、发送邮箱验证码示例代码（router内版本）
 ```js
 var nodemailer;
 try {
   nodemailer = require('nodemailer');	
-} catch (err) {}
+} catch (err) {
+  // 由于 nodemailer 包比较大，不建议在router函数内安装，可以新建一个云函数专门用来发邮箱
+  console.error("请先安装npm包：nodemailer，安装方法：根目录执行npm i nodemailer");
+}
 module.exports = {
   /**
    * 发送邮箱验证码
@@ -58,7 +61,7 @@ module.exports = {
       email
     };
     // 发送验证码开始
-    var emailConfig = config.vk.service.email;
+    let emailConfig = config.vk.service.email;
     if(typeof nodemailer === "undefined"){
       return { code : -1, msg : '请先安装npm包"nodemailer": "^6.4.11"' };
     }
@@ -92,5 +95,62 @@ module.exports = {
     return res;
   }
 }
+
+```
+
+## 4.3、发送邮箱验证码示例代码（非router版本）
+```js
+'use strict';
+// 通过 require 引入 vk 实例
+const vk = require('vk-unicloud');
+// 通过 vk.init 初始化 vk实例（只有初始化后才能使用）
+vk.init({
+	baseDir: __dirname,
+	requireFn: require
+});
+
+var nodemailer;
+try {
+	nodemailer = require('nodemailer');
+} catch (err) {
+	console.error("请先安装npm包：nodemailer");
+}
+
+exports.main = async (event, context) => {
+	let res = { code: 0, msg: "" };
+	let { config = {} } = vk.unicloud;
+
+	let emailConfig = config.vk.service.email;
+  
+	let serviceType = "qq";
+	let email = "发送给谁，他的邮箱";
+	let subject = "标题";
+  let text = `验证码 123456`;
+
+
+	let emailService = nodemailer.createTransport({
+		"host": emailConfig[serviceType].host,
+		"port": emailConfig[serviceType].port,
+		"secure": emailConfig[serviceType].secure, // use SSL
+		"auth": emailConfig[serviceType].auth
+	});
+
+	try {
+		res.sendMailRes = await emailService.sendMail({
+			"from": emailConfig[serviceType].auth.user,
+			"to": email,
+			"subject": subject,
+			"text": text
+		});
+		res.code = 0;
+		res.msg = "ok";
+	} catch (err) {
+		res.code = -1;
+		res.msg = "邮件发送失败";
+		res.err = err;
+	}
+
+	return res;
+};
 
 ```
