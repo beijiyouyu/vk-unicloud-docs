@@ -48,6 +48,7 @@
 
 ### 自定义过滤器代码示例
 
+#### 单店版
 ```js
 /**
  * 店铺权限过滤器示例
@@ -77,6 +78,48 @@ module.exports = [
 
 
 ```
+
+#### 多店版（多商家版本）
+即用户A只能操作自己的店铺A，不可以操作店铺B
+```js
+/**
+ * 多店版（多商家版本）店铺权限过滤器示例，此仅为示例，实际需要修改成与你系统逻辑相符合才行。
+ */
+module.exports = [
+  {
+    id: "shopManage",
+    // 这里代表的是哪些云函数需要进行判断权限
+    regExp: [
+    	"^client/business/(.*)kh/",
+    	"^client/business/(.*)sys/"
+    ],
+    description: "需要判断用户是否有权限操作此店铺",
+    index: 210,// 此处必须>200 因为检测用户是否登录的过滤器的index是200（越小越先执行）
+    mode:"onActionExecuting", 
+    enable:true, // 通过设置enable=false可以关闭该中间件
+    main: async function(event) {
+      let { data = {}, util, filterResponse } = event;
+      let { vk , db, _ } = util;
+      let { userInfo = {} } = filterResponse;
+      let { shop_ids = [] } = userInfo;
+      // 此 shop_id 为用户前端传过来的，因此我们需要在此进行判断，此用户是否有权限可操作这个该店铺
+      let { shop_id } = data;
+      let res = { code : 0, msg : 'ok' };
+      if (vk.pubfn.isNull(shop_id)) {
+      	return { code : -1, msg : `店铺id不能为空` };
+      }
+      if (shop_ids.indexOf(shop_id) === -1) {
+      	return { code : -1, msg : `无权限操作店铺【${shop_id}】` };
+      }
+      return res;
+    }
+  }
+]
+
+
+```
+
+
 ### 过滤器可以有很多种用途，权限判断只是其中一种用途，还可以
 ```js
 1、权限校验
