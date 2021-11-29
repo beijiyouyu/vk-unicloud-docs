@@ -99,6 +99,7 @@ module.exports = {
       await emailService.sendMail({
         "from": emailConfig[data.serviceType].auth.user,
         "to": data.email,
+        "cc": emailConfig[data.serviceType].auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把右键抄送给自己一份，就不会被当成垃圾邮件。
         "subject": data.subject,
         "text": `您的验证码是${code},打死也不要告诉别人哦!`
       });
@@ -163,6 +164,7 @@ exports.main = async (event, context) => {
 		res.sendMailRes = await emailService.sendMail({
 			"from": emailConfig[serviceType].auth.user,
 			"to": email,
+      "cc": emailConfig[serviceType].auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把右键抄送给自己一份，就不会被当成垃圾邮件。
 			"subject": subject,
 			"text": text
 		});
