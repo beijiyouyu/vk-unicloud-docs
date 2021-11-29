@@ -59,7 +59,7 @@
   itemWidth:80,
   action:"admin/select/kh/categorys",
   actionData:function(){
-      return {
+    return {
       a:that.form1.data.a
     }
   },
