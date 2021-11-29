@@ -24,7 +24,31 @@
   }
 }
 ```
-## 4.2、发送邮箱验证码示例代码（router内版本）
+
+## 4.2、配置163邮箱教程
+* 1、登录163邮箱
+* 2、`邮箱首页` | `设置` 开启 `POP3/SMTP服务`
+* 3、复制授权码
+* 4、粘贴到`common`目录的`config`模块下的
+```js
+"vk":{
+  "service": {
+    "email": {
+      "163": {
+        "host": "smtp.163.com",
+        "port": 465,
+        "secure": true,
+        "auth": {
+          "user": "你的邮箱@163.com",
+          "pass": "邮箱授权码"
+        }
+      }
+    }
+  }
+}
+```
+
+## 4.3、发送邮箱验证码示例代码（router内版本）
 ```js
 var nodemailer;
 try {
@@ -98,7 +122,7 @@ module.exports = {
 
 ```
 
-## 4.3、发送邮箱验证码示例代码（非router版本）
+## 4.4、发送邮箱验证码示例代码（非router版本）
 ```js
 'use strict';
 // 通过 require 引入 vk 实例
