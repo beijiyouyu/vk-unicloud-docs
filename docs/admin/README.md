@@ -1,7 +1,7 @@
 # 关于vk-unicloud-admin框架
 
 ### 什么是 `vk-unicloud-admin` ？
-* `vk-unicloud-admin` 是基于 `unicloud` + `uni-id` +`element` + `vk-unicloud-router` 的一套快速`PC admin`完整开发框架
+* `vk-unicloud-admin` 是基于 `unicloud` + `uni-id` +`element` + `vk-unicloud-router` 的一套快速 `PC admin` 完整开发框架
 * （只兼容PC，只为PC admin而生）
 
 <img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/6deebd32-8075-4bdb-8e04-5839516ef4f4.png"/>
@@ -11,14 +11,14 @@
 
 ### 已经有了官方的 `unicloud-admin`，为什么还要出 `vk-unicloud-admin`，Ta的优势是什么 ？
 
-* 1、完美集成 `vk-unicloud-router`，拥有`vk-unicloud-router`的所有现成API功能。让你开发事半功倍。[点击查看](https://vkdoc.fsq.pub/client/)
-* 2、完美集成 `element` UI框架，并在 `element` 基础上进行了深度封装（支持原生`element`）[element官网](https://element.eleme.cn/#/zh-CN/component/button)
-* 3、`表单可视化拖拽工具`（可直接生成`vk框架代码`和`element`原生代码 [点击体验](https://vkunicloud.fsq.pub/vk-form-visualizer/)
-* 4、`万能表格组件`，通过少量代码即可完成`CRUD`，且同时还拥有较高的自由度。几分钟完成一个页面`CRUD`。
+* 1、完美集成 `vk-unicloud-router`，拥有 `vk-unicloud-router` 的所有现成API功能。让你开发事半功倍。[点击查看](https://vkdoc.fsq.pub/client/)
+* 2、完美集成 `element` UI框架，并在 `element` 基础上进行了深度封装（支持原生 `element`）[element官网](https://element.eleme.cn/#/zh-CN/component/button)
+* 3、`表单可视化拖拽工具`（可直接生成 `vk框架代码 `和 `element` 原生代码 [点击体验](https://vkunicloud.fsq.pub/vk-form-visualizer/)
+* 4、`万能表格组件`，通过少量代码即可完成 `CRUD`，同时还拥有较高的自由度。几分钟完成一个页面 `CRUD`。
 * 5、`万能表单组件`，通过少量代码即可完成表单渲染 + 表单请求。
 * 6、完善的用户角色权限，无需开发即可拥有（权限可精确到每一个云函数）。
-* 7、`pages-dev.json`机制，开发调试页面不会被发布到正式版中。
-* 8、只要你开发过传统`vue admin`项目，那么上手此框架的学习成本几乎为0
+* 7、`pages-dev.json` 机制，开发调试页面不会被发布到正式版中。
+* 8、只要你开发过传统 `vue admin` 项目，那么上手此框架的学习成本几乎为0
 * 9、众多示例代码，为你的云开发之路扫平障碍。
 * 10、群内众多开发者，关于框架使用问题几乎有问必答。Q群：22466457
 * 11、更多功能敬请体验。
@@ -38,4 +38,63 @@
 * 11、element静态功能演示
 * 12、素材管理（图片、视频、文件）
 * 13、持续完善中。。。
+
+### 核心功能
+
+#### 一、万能表格
+
+核心思想：通过 JSON 配置渲染页面（简单配置一下，表格就完成了）
+
+如下方JSON用于渲染头像和时间
+```js
+ [
+   { key: "avatar", title: "头像", type: "avatar", width: 80, shape:"circle" },
+   { key: "_add_time", title: "添加时间", type: "time", width: 160, valueFormat:"yyyy-MM-dd hh:mm:ss" },
+ ]
+```
+
+* 1、查询：包含分页、排序、多条件搜索、搜索项折叠、多表连表、数据源预处理、展开行、树状结构等等
+* 2、支持多选框（用于批量操作）
+* 3、自动生成详情页：点击详情按钮，自动显示详情页弹窗。
+* 4、修改：点击修改按钮，自动显示修改表单弹窗。
+* 5、删除：点击删除，显示气泡二次确认提示，再点击确定，则删除数据。
+* 6、自定义操作按钮：如发货、审核等自定义按钮。
+* 7、高自由度：每个字段都有插槽、在内置组件不满足需求的情况下，可以使用插槽自己编写该字段的显渲染规则。（内置组件基本上可满足90%以上的渲染需求）
+* 8、导出excel表格：通过内置api只需一行代码即可直接导出表格数据。
+* 9、导出满足表格查询条件的数据库内所有数据（unicloud的查询有限制每次500条记录，但万能表格解决了此问题，可以导出数据库内全部数据)
+* 10、异常重试机制：一般不需要此功能，但是由于unicloud-阿里云空间会偶尔查询失败，此次此功能就派上用场了（会自动重新再查询，用户体验上只是感觉这次查询慢了一点而已（因为第一次失败了，查了2次或2次以上））
+* 11、不仅仅支持unicloud云函数请求，还支持http请求。
+* 12、支持下方自动显示合计
+* 13、更多功能敬请体验 [万能表格文档地址](https://vkdoc.fsq.pub/admin/2/table.html)
+
+#### 二、万能表单
+
+核心思想：通过 JSON 配置渲染表单（简单配置一下，表单就完成了）
+
+如下方JSON用于渲染 一个昵称输入框 和 性别单选按钮组
+```js
+ [
+   { key:"nickname", title:"昵称", type:"text" },
+   {
+    key:"gender", title:"性别", type:"radio",
+    data:[
+      { value:1, label:"男" },
+      { value:2, label:"女" }
+    ]
+   }
+ ]
+```
+
+* 1、自动提交表单
+* 2、提交前自动表单验证
+* 3、防表单重复提交（提交后按钮自动进入loading状态，不可再点击）
+* 4、同一表单可复用（如一般添加和修改字段基本是一样的）
+* 5、表单复用时，支持字段显示规则（如添加时有A字段，修改时，无A字段等）
+* 6、拦截器：表单提交前拦截，执行自己逻辑，再放行或终止。
+* 7、高自由度：每个字段都有插槽、在内置组件不满足需求的情况下，可以使用插槽自己编写该字段的显渲染规则。（内置组件基本上可满足90%以上的渲染需求）
+* 8、重置表单：一键重置表单
+* 9、表单可视化拖拽工具 [点击查看](https://vkunicloud.fsq.pub/vk-form-visualizer/#/)
+* 10、更多功能敬请体验 [万能表单文档地址](https://vkdoc.fsq.pub/admin/3/form.html)
+
+`vk-unicloud-admin` 框架同时还包含 `vk-unicloud-router` 所有功能，[点击查看vk-unicloud-router功能列表](https://vkdoc.fsq.pub/client/)
 
