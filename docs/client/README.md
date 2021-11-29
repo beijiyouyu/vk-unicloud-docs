@@ -53,11 +53,11 @@
 
 #### 20、全局数据缓存API，现在可以很方便的在云函数中使用缓存。 [点击查看详情](https://vkdoc.fsq.pub/client/pages/localStorage.html)
 
-#### 21、【1.8.0 新增】微信小程序服务端API [点击查看文档](https://vkdoc.fsq.pub/client/uniCloud/plus/weixin.html)
+#### 21、微信小程序服务端API [点击查看文档](https://vkdoc.fsq.pub/client/uniCloud/plus/weixin.html)
 
-#### 22、【1.8.12 新增】百度开放平台服务端API [点击查看文档](https://vkdoc.fsq.pub/client/uniCloud/plus/baidu.html)
+#### 22、百度开放平台服务端API [点击查看文档](https://vkdoc.fsq.pub/client/uniCloud/plus/baidu.html)
 
-#### 23、【1.9.1 新增】【全网首家】云函数URL化之URL重写 [点击查看文档](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/urlrewrite.html)
+#### 23【全网首家】云函数URL化之URL重写 [点击查看文档](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/urlrewrite.html)
 
 #### 24、作者亲自在群内解答框架使用问题，让你轻松上手 `uniCloud云开发`。
 
