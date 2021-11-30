@@ -49,6 +49,8 @@ theme: {
 
 使用内置主题时，只需要修改 `theme.use` 内的值即可，如设置 `blackWhite`，代表使用黑白主题。
 
+注意：`1.8.0` 之前的版本，需要先替换项目根目录下的 `windows/leftWindow.vue` 和 `windows/topWindow.vue` 两个文件。（从最新版框架项目中复制）
+
 ## 如何使用自定义主题？
 
 方式一：将 `theme.use` 值设置为 `custom`，然后编写 `theme.custom` 的样式
