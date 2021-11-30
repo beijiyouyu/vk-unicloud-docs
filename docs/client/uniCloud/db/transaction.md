@@ -44,7 +44,7 @@ try {
       aaaAccount: endRes.account_balance
     }
   }else{
-    // 提交事物
+    // 提交事务
     await transaction.commit();
     console.log(`transaction succeeded`);
     return {

@@ -74,7 +74,7 @@
 
 #### 如何购买Redis服务器?
 
-[点击前往阿里云官网购买19年/年的Redis服务器(新账号19元)](https://www.aliyun.com/minisite/goods?userCode=eeg47b5x)
+[点击前往阿里云官网购买19元/年的Redis服务器(新账号19元)](https://www.aliyun.com/minisite/goods?userCode=eeg47b5x)
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/66697a9c-e993-4ab2-8110-d6337db0f38f.png)
 
