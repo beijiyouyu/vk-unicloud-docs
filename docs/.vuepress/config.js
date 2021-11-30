@@ -202,6 +202,7 @@ module.exports = {
             '1/changelog',
             '1/update',
             '1/codeTips',
+            '1/theme'
           ]
         },
         '2/table',
