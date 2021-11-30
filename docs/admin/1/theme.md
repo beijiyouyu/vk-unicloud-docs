@@ -80,7 +80,7 @@ export default {
 
 ## 如何分享自己的主题？
 
-1、直接将 `aaa.js` 文件发给你的好友。
+1、直接将 `aaa.js` 文件发给你的好友。（可以上传到群里，Q群：22466457）
 
 2、好友将 `aaa.js` 文件复制到 `项目根目录/common/theme/` 内，同时修改 `/common/theme/index.js` 文件，引入 `aaa` 主题
 
