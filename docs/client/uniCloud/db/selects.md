@@ -229,7 +229,7 @@ res = await vk.baseDao.selects({
   		then: 1,
   		else: 0,
   	})),
-    // count1是物理成绩大于化学成绩的人数
+    // count2是 物理成绩大于化学成绩的人数
   	count2: $.sum($.cond({
   		if: $.lt(['$物理成绩字段', '$化学成绩字段']),
   		then: 1,
