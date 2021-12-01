@@ -4,7 +4,7 @@
 * `vk-unicloud-admin` 是基于 `unicloud` + `uni-id` +`element` + `vk-unicloud-router` 的一套快速 `PC admin` 完整开发框架
 * （只兼容PC，只为PC admin而生）
 
-<img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/6deebd32-8075-4bdb-8e04-5839516ef4f4.png"/>
+<img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/ad18e7d6-ae0e-4424-bf3d-6e3dad1036a1.png"/>
 
 ### 与官方 `unicloud-admin` 的关系？
 没有太大关系，用户在此框架上的编码风格与 `unicloud-admin` 差别较大。但框架兼容 `unicloud-admin` 
