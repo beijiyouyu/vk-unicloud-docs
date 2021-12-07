@@ -113,7 +113,7 @@
      * val 双向绑定的表单值
      * formData 双向绑定的整个表单数据源
      * option val对应的对象
-     * val2 包含了父级的值
+     * val2 多选模式下包含了父级的值
      * option2 val2对应的对象
      */
     console.log(1,val, formData, column, index, option, val2, option2);
