@@ -27,7 +27,7 @@
 
 ```js
 // 引入 vk框架前端
-import vk from 'uni_modules/vk-unicloud/vk_modules/vk-unicloud-page';
+import vk from './uni_modules/vk-unicloud';
 Vue.use(vk);
 ```
 
@@ -40,7 +40,7 @@ import store from './store'
 import config from '@/app.config.js'
 
 // 引入 vk框架前端
-import vk from 'uni_modules/vk-unicloud/vk_modules/vk-unicloud-page';
+import vk from './uni_modules/vk-unicloud';
 Vue.use(vk);
 
 // 初始化 vk框架
@@ -73,7 +73,7 @@ import store from './store'
 import config from '@/app.config.js'
 
 // 引入 vk框架前端
-import vk from 'uni_modules/vk-unicloud/vk_modules/vk-unicloud-page';
+import vk from './uni_modules/vk-unicloud';
 
 import { createSSRApp } from 'vue'
 
