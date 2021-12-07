@@ -71,6 +71,8 @@
 | debounce          | 搜索关键词输入的去抖延迟，毫秒 | Number  | 300 | -  |
 | beforeFilter          | 筛选之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止筛选 | function(value)  | -| - |
 | multiple      | 是否可多选 | Boolean  | false | true  |
+| checkStrictly      | 在显示复选框的情况下，是否严格的遵循父子不互相关联的做法 | Boolean  | false | true  |
+
 
 
 #### props
@@ -106,8 +108,15 @@
       ]
     }
   ],
-  onChange:function(val, formData, column, index, option){
-    console.log(1,val, formData, column, index, option);
+  onChange:function(val, formData, column, index, option, val2, option2){
+    /**
+     * val 双向绑定的表单值
+     * formData 双向绑定的整个表单数据源
+     * option val对应的对象
+     * val2 包含了父级的值
+     * option2 val2对应的对象
+     */
+    console.log(1,val, formData, column, index, option, val2, option2);
   }
 }
 ```
