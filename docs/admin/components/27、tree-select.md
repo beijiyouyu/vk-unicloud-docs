@@ -70,6 +70,8 @@
 | filterMethod          | 自定义搜索逻辑 | function(node, keyword)  | -| - |
 | debounce          | 搜索关键词输入的去抖延迟，毫秒 | Number  | 300 | -  |
 | beforeFilter          | 筛选之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止筛选 | function(value)  | -| - |
+| multiple      | 是否可多选 | Boolean  | false | true  |
+
 
 #### props
 
