@@ -747,13 +747,14 @@ vk.baseDao.getTableData({
   ...其他属性
   :show-summary="true"
   :total-option=" [
-     { label: '标题1（此为table1.columns中title的值）', 'unit': '单位' }
+     { key: '（此为table1.columns中key的值）', 'unit': '单位', type:'number' },
+     { key: 'balance', 'unit': '元', type:'money' }
   ]"
 ></vk-data-table>
 ```
 #### summary-method
 ### 自定义模式
-#### 自定义函数方法，如果涉及到金额，则需要使用summary-method属性进行自定义，代码如下
+#### 自定义函数方法，如果想要自定义合计规则和样式，则需要使用summary-method属性进行自定义，代码如下
 ```html
 <vk-data-table
   ...其他属性
