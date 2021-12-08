@@ -970,6 +970,20 @@ vk.navigateToHome();
 vk.navigateToLogin();
 ```
 
+### vk.pubfn.checkLogin
+
+检测是否需要登录，根据 `app.config.js` 配置文件的 `checkTokenPages` 参数判断
+
+当前不支持首页检测，故首页可以添加以下代码检测是否登录。
+
+```js
+// 在首页的 onLoad 函数中新增下方代码
+setTimeout(function(){
+  vk.pubfn.checkLogin(); // 检测是否需要登录
+},0);
+```
+
+
 ## 云函数专属
 
 以下函数只能在云函数内调用

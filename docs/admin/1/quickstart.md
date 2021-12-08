@@ -80,7 +80,7 @@ opendb-admin-menus 菜单表
 
 * 1、先用admin账号登录后台，进入应用管理
 
-因为每个人的 `DCloud Appid` 是不一样的，所以你需要在应用管理中添加自己的应用（或直接修改内置的2条数据的appid即可）
+因为每个人的 `DCloud Appid`是不一样的，所以你需要在应用管理中添加自己的应用（或直接修改内置的2条数据的appid即可）
 
 `DCloud Appid` 获取方法
 
@@ -92,6 +92,7 @@ opendb-admin-menus 菜单表
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/18cd54d5-bedc-4d4f-bda2-7c339c865257.png)
 
+* 3、完成，可以登录了。
 
 
 #### 如有疑问，请加群：22466457 关于插件的问题包教包会！
