@@ -223,6 +223,15 @@ ___特别注意：___
 如果是在 `前端js` 内，直接通过 `uni.vk` 来调用
 
 
+
+
+
+## 小程序加载 `uViewUI` 后，运行提示代码超2M，无法预览？
+
+只需要下图所示: 运行 - 运行到小程序模拟器 - 运行时是否压缩代码（此处打钩即可）
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/2082eebd-2c42-4987-a633-20c7f865cba0.png)
+
 <style scoped>
 h1{
   font-size:1.4em;
