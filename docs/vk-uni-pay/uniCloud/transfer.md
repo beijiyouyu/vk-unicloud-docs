@@ -59,7 +59,7 @@ if (transferRes.code === 0) {
 |------- |-----------|---------|-------|-------|
 | account  |  支付宝专用 - 对方支付宝账号或支付宝的会员ID   | String  | -    | -  |
 | real_name  |  对方真实姓名   | String  | -    | -  |
-| amount  |  转账金额 100=1元(单位分)   | Number  | -    | -  |
+| amount  |  转账金额 100=1元(单位分)，金额最低0.1元，也就是 amount >= 10  | Number  | -    | -  |
 | title  |  转账标题   | String  | -    | -  |
 | pay_type  |  wxpay：微信支付 alipay：支付宝支付     | String  | -    | wxpay、alipay  |
 | remark  |  转账备注  | String  | -    | -  |
