@@ -38,6 +38,7 @@ theme: {
       hoverTextColor: "", // 菜单hover时的文字颜色
       hoverBackgroundColor: "",  // 菜单hover时的背景颜色
       boxShadow: "", // 菜单右边框的阴影
+      borderTop: "", // 菜单顶部的边框
     },
     // 顶部菜单样式
     topMenu: {
@@ -72,7 +73,7 @@ export default {
 		activeBackgroundColor: "#2d8cf0", // 菜单被选中时的背景颜色
 		hoverTextColor: "#ffffff", // 菜单hover时的文字颜色
 		hoverBackgroundColor: "#545f6c",  // 菜单hover时的背景颜色
-    boxShadow: "2px 0 6px rgba(0,21,4,0.25)",  // 菜单右边框的阴影
+    boxShadow: "2px 0 4px rgba(0,21,4,0.25)",
 	},
 	// 顶部菜单样式
 	topMenu: {
