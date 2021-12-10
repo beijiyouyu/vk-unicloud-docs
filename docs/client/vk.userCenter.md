@@ -523,14 +523,20 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 
 注意：
 
-* 需要在config.json内使用微信登录的平台下配置appid和appsecret
+微信小程序登录配置
 
-APP QQ登录详细配置流程：
+* 配置 `common/uni-config-center/uni-id/config.json` 内 `mp-weixin` 的 `appid` 和 `appsecret`
+* 在 `manifest.json` 内配置微信小程序的 `appid`
 
-* 在manifest.json内配置微信登录用appid
-* 打包并使用自定义基座（注意一定要在manifest.json填写微信appid后再制作自定义基座）[自定义基座使用说明](https://ask.dcloud.net.cn/article/35115)
-* 在uni-id的config.json内app-plus对应的微信登录信息内配置appid和appsecret
+APP登录配置
 
+* 在 `manifest.json` 的APP模块配置微信登录用 `appid`
+* 打包并使用自定义基座（注意一定要在 `manifest.json` 填写微信 `appid` 后再制作自定义基座）[自定义基座使用说明](https://ask.dcloud.net.cn/article/35115)
+* 配置 `common/uni-config-center/uni-id/config.json` 内 `app-plus` 的 `appid` 和 `appsecret`
+
+公众号H5登录配置
+
+* 配置 `common/uni-config-center/uni-id/config.json` 内 `h5-weixin` 的 `appid` 和 `appsecret`
 
 ```js
 /**
