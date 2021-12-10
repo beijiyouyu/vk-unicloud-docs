@@ -258,7 +258,7 @@ let avg = await vk.baseDao.avg({
 ```
 ### 随机取N条数据
 `vk.baseDao.sample`
-随机取N条数据 对应的传统sql语句: `select sum(money) from vk-test`
+随机取N条数据
 ```js
 let list = await vk.baseDao.sample({
   dbName:"vk-test", // 表名
