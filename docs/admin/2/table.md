@@ -49,7 +49,7 @@ export default {
 | retry-interval    | 动态模式 - 每次重试间隔，单位毫秒 | Number  | 0 | - |
 | data             | 静态模式 - 列表数据 | Array  | 无 | -  |
 | total            | 静态模式 - 总记录数 | Number  | 无 | -  |
-| columns          | 通用 - 字段显示规则 [查看columns](#columns)| Array  | [] | -   |
+| columns          | 通用 - 字段显示规则 [查看columns](#columns-字段列表)| Array  | [] | -   |
 | height           | 通用 - table的高度 | Number  | 无 | -  |
 | max-height        | 通用 - table的最大高度 | Number  | 无 | -  |
 | row-height        | 通用 - 行高 | Number  | 无 | -  |
@@ -59,10 +59,10 @@ export default {
 | pagination     | 通用 - 显示分页器 | Boolean  | false | true |
 | page-size       | 通用 - 每页显示数量 | Number  | 10 | - |
 | page-sizes      | 通用 - 每页显示数量选择列表 | Array  | [1, 5, 10, 20, 50, 100, 1000] | - |
-| right-btns      | 通用 - 右侧显示的按钮列表 [查看right-btns](#right-btns) | Array  | [] | - |
+| right-btns      | 通用 - 右侧显示的按钮列表 [查看right-btns](#right-btns-右侧固定按钮列表) | Array  | [] | - |
 | right-btns-type      | 通用 - 右侧显示的按钮类型 | String  | "button" | "text" |
-| right-btns-more      | 通用 - 右侧更多按钮 [查看right-btns-more](#right-btns-more)| Array  | [] | - |
-| custom-right-btns      | 通用 - 自定义右侧按钮 [查看custom-right-btns](#custom-right-btns)| Array  | [] | - |
+| right-btns-more      | 通用 - 右侧更多按钮 [查看right-btns-more](#right-btns-more-更多按钮列表)| Array  | [] | - |
+| custom-right-btns      | 通用 - 自定义右侧按钮 [查看custom-right-btns](#custom-right-btns-自定义右侧固定按钮)| Array  | [] | - |
 | row-key      | 通用 - 行数据的 Key | Function,String  | "_id" | - |
 | empty-text      | 通用 - 空数据时显示的文本内容 | String  | "暂无数据" | - |
 | default-expand-all      | 通用 - 是否默认展开所有行，当 Table 包含展开行存在或者为树形表格时有效 | Boolean  | false | true |
@@ -74,7 +74,7 @@ export default {
 | highlight-current-row     | 通用 - 是否要高亮当前行 [查看高亮行处理](#高亮行处理) | Boolean  | true | false |
 | detail-dialog-width     | 通用 - 详情弹窗的宽度 | Number,String  | "830px" | - |
 | multiple     | 通用 - 可多选 |Boolean  | true | false |
-| default-sort     | 默认排序规则 [查看default-sort](#default-sort)|Object  | - | -  |
+| default-sort     | 默认排序规则 [查看default-sort](#default-sort-默认排序)|Object  | - | -  |
 | show-summary     | 通用 - 是否需要显示合计行 |Boolean  | false | true |
 | summary-method     | 通用 - 自定义合计的计算函数（详情见下方） [查看summary-method](#summary-method) |Function  | - |-  |
 | total-option     | 通用 - 需要自动统计的行（详情见下方） |Array  | - | - |
@@ -82,178 +82,34 @@ export default {
 | left-fixed     | 通用 - 序号、多选框是否固定在左侧 |Boolean  | true | false |
 | right-fixed     | 通用 - 操作按钮是否固定在右侧 |Boolean  | true | false |
 
-### default-sort
-| 参数             | 说明                           | 类型    | 默认值  | 可选值 |
-|------------------|-------------------------------|---------|--------|-------|
-| name           | 需要排序的字段名            | String | -      | - |
-| type           | 排序类型            | String | asc（升序）  | desc（降序） |
-
-### columns
+### columns（字段列表）
 columns 是一个数组，数组内每个元素有以下属性
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
 | key    |   键名    | String  | 无    | - |
 | title  |   标题    | String  | 无    | -  |
-| type   |   类型    | String  | 无    | [查看type](#type)   |
+| type   |   类型    | String  | 无    | [查看type](#type-字段类型)   |
 | width  |   宽度    | Number  | 无    | -  |
 | minWidth  | 最小宽度（设置此值会自动填充宽度） | Number  | 无    | -  |
 | align  |  对其方式 | String  | center    | left 、right  |
 | headerAlign  |  表头对其方式 | String  | center    | left 、right  |
 | sortable  |  是否是排序字段 | String  | custom  | true 、false  |
 | fixed  | 列是否固定在左侧或者右侧，true 表示固定在左侧 | string, boolean  | 无  | true、left、right  |
-| show  | 显示规则，[查看show](#show)  | string 、 array | ["detail","row","expand"]  | "detail"、"row"、"expand"、 "none"  |
+| show  | 显示规则，[查看show](#show-字段显示规则)  | string 、 array | ["detail","row","expand"]  | "detail"、"row"、"expand"、 "none"  |
 | defaultValue  |   默认值  | String  | 无  | -  |
 | formatter  | 自定义格式化函数 | function(val, row, column, index)  | -  | -  |
-| buttons  | 扩展按钮列表 [查看buttons](#buttons)| Array<Object>  | -  | -  |
+| buttons  | 扩展按钮列表 [查看buttons](#buttons-字段扩展按钮列表)| Array | -  | -  |
 
-### show
-
-show是一个字符串数组，columns 数组内每一个元素都可以单独设置 show
-
-* 如果 columns 的某元素中不存在 show 参数，则代表全部显示（行内、详情弹窗、行展开时）
-
-* 如果数组中有包含 "detail" ，则代表会在详情弹窗时显示
-
-* 如果数组中有包含 "row" ，则代表会在表格行内显示
-
-* 如果数组中有包含 "expand" ，则代表会在表格行展开时显示
-
-* 如果数组只有 ["none"] ，则代表都不显示
-
-[返回展开行](#展开行)
-
-### type
-type（类型）
-```js
-table1:{
-  columns:[
-    { key: "nickname", title: "昵称", type: "text", width: 120, defaultValue:"未设置昵称", },
-    { key: "avatar", title: "头像", type: "avatar", width: 80, shape:"circle" }, // circle 圆形 square 方形
-    { key: "images", title: "图片", type: "image", width: 120 },
-    { key: "rate", title: "评分", type: "rate", width: 120 },
-    { key: "switch", title: "开关", type: "switch", width: 120 },
-    { key: "icon", title: "图标", type: "icon", width: 120 },
-    { 
-      key: "type", title: "类型", type: "tag", width: 120, size: "mini",
-      data:[
-        { value:1, label:"收入", tagType:"success" },
-        { value:2, label:"支出", tagType:"danger" }
-      ]
-    },
-    { key: "_add_time", title: "添加时间", type: "time", width: 160, valueFormat:"yyyy-MM-dd hh:mm:ss" },
-    { key: "_add_time", title: "距离现在", type: "dateDiff", width: 120 },
-    { key:"exp_time", title:"到期剩", type:"dateDiff2", endText:"已到期", width:80, defaultValue: "永久", sortable:"custom" },
-    { 
-      key: "nickname", title: "html渲染", type: "html", defaultValue: "未设置",
-      formatter: function(val, row, column, index) {
-        let str = `<text>${val}</text>（审核通过）`;
-        return str;
-      }
-    },
-    { key: "balance", title: "余额", type: "money", width: 120 },
-    { key: "percentage", title: "占比", type: "percentage", width: 120 },
-    { key: "address", title: "地址", type: "address", width: 120 },
-    { key: "userInfo", title: "用户", type: "userInfo", width: 120 },
-    { 
-      key: "", title: "分组显示", type: "group", minWidth: 290, align:"left",
-      columns:[
-        { key: "_id", title: "ID", type: "text" },
-        { key: "avatar", title: "头像", type: "avatar" },
-        { key: "nickname", title: "昵称", type: "text" },
-      ],
-    },
-    { 
-      key: "object1", title: "对象字段", type: "object", width: 180, align:"left",
-      columns:[
-        { key: "key1", title: "对象内字段1", type: "text" },
-        { key: "key2", title: "对象内字段2", type: "text" },
-      ],
-    },
-    { 
-      key: "gender", title: "性别", type: "radio", width: 120, defaultValue:0,
-      data:[
-        { value:1, label:"男" },
-        { value:2, label:"女" },
-        { value:0, label:"保密" },
-      ]
-    },
-    { 
-      key: "gender", title: "性别", type: "select", width: 120, defaultValue:0,
-      data:[
-        { value:1, label:"男" },
-        { value:2, label:"女" },
-        { value:0, label:"保密" },
-      ]
-    },
-    { 
-      key: "checkbox", title: "多选字段", type: "checkbox", width: 120, defaultValue:1,
-      data:[
-        { value: 1, label: "选项1" },
-        { value: 2, label: "选项2" },
-      ]
-    }
-  ]
-}
-```
-
-### buttons
-每个字段的扩展按钮列表
-
-效果图：
-
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/ff651c6a-5478-4479-859f-0cb6898a14bd.png)
+### default-sort（默认排序）
+| 参数             | 说明                           | 类型    | 默认值  | 可选值 |
+|------------------|-------------------------------|---------|--------|-------|
+| name           | 需要排序的字段名            | String | -      | - |
+| type           | 排序类型            | String | asc（升序）  | desc（降序） |
 
 
-主要使用场景：
+### right-btns（右侧固定按钮列表）
 
-* 1、点击修改该字段（如修改商品名称，点击后自动在字段右侧显示修改商品名称的弹窗，输入新商品名称，点击确定，自动修改）
-* 2、点击后查看详细信息（针对该字段的详细信息）
-* 3、余额字段，点击后给用户加余额
-* 4、等等
-
-原先我们实现此功能需要使用插槽来写，而现在只需要写一个 `buttons` 属性即可
-
-___如果扩展按钮列表无法满足你的需求，则可以用插槽来完全自定义该字段的实现。___ [查看插槽](#插槽)
-
-```js
-{ 
-  key:"key1", title:"标题", type:"text", width:200,
-  buttons:[
-    {
-    	title:"修改",
-    	type:"text",
-    	mode:"update", // 是否为通用修改模式
-    	show:["row"], // 只在表格行内展示此按钮
-    	click:function(obj){
-    		console.log(1,obj.value, obj.formData);
-    		vk.callFunction({
-    			url: 'template/test/pub/test',
-    			data:obj.formData,
-    			success:function(data){
-    				obj.success({
-    					msg:"修改成功"
-    				});
-    			}
-    		});
-    	}
-    },
-    {
-    	title:"查看",
-    	type:"text",
-    	show:["detail","row"], // 在表格行内和详情页弹窗内展示此按钮
-    	click:function(obj){
-    		console.log(2,obj.value, obj.formData);
-    		uni.vk.toast("你点击了查看");
-    	}
-    }
-  ]
-},
-```
-
-
-### right-btns
-right-btns（右侧按钮列表）
 ```html
 <vk-data-table
   :right-btns="['detail_auto','update','delete','more']"
@@ -268,7 +124,7 @@ right-btns（右侧按钮列表）
 | delete     | 点击后触发delete事件 |
 | more     | 与 rightBtnsMore 搭配使用|
 
-### right-btns-more 
+### right-btns-more（更多按钮列表）
 right-btns-more（右侧更多按钮点击后显示的按钮列表）
 ```html
 <vk-data-table
@@ -303,8 +159,8 @@ right-btns-more（右侧更多按钮点击后显示的按钮列表）
   }
 
 ```
-### custom-right-btns
-custom-right-btns（右侧自定义按钮）
+### custom-right-btns（自定义右侧固定按钮）
+
 ```html
 <vk-data-table
   :custom-right-btns="[
@@ -430,6 +286,151 @@ export default {
 ```
 
 注意：并非所有异常都会重试，框架会合理判断。（目前此判断逻辑也还在不断优化中）
+
+## columns（属性详细说明）
+
+### show（字段显示规则）
+
+show是一个字符串数组，columns 数组内每一个元素都可以单独设置 show
+
+* 如果 columns 的某元素中不存在 show 参数，则代表全部显示（行内、详情弹窗、行展开时）
+
+* 如果数组中有包含 "detail" ，则代表会在详情弹窗时显示
+
+* 如果数组中有包含 "row" ，则代表会在表格行内显示
+
+* 如果数组中有包含 "expand" ，则代表会在表格行展开时显示
+
+* 如果数组只有 ["none"] ，则代表都不显示
+
+[返回展开行](#展开行)
+
+### type（字段类型）
+```js
+table1:{
+  columns:[
+    { key: "nickname", title: "昵称", type: "text", width: 120, defaultValue:"未设置昵称", },
+    { key: "avatar", title: "头像", type: "avatar", width: 80, shape:"circle" }, // circle 圆形 square 方形
+    { key: "images", title: "图片", type: "image", width: 120 },
+    { key: "rate", title: "评分", type: "rate", width: 120 },
+    { key: "switch", title: "开关", type: "switch", width: 120 },
+    { key: "icon", title: "图标", type: "icon", width: 120 },
+    { 
+      key: "type", title: "类型", type: "tag", width: 120, size: "mini",
+      data:[
+        { value:1, label:"收入", tagType:"success" },
+        { value:2, label:"支出", tagType:"danger" }
+      ]
+    },
+    { key: "_add_time", title: "添加时间", type: "time", width: 160, valueFormat:"yyyy-MM-dd hh:mm:ss" },
+    { key: "_add_time", title: "距离现在", type: "dateDiff", width: 120 },
+    { key:"exp_time", title:"到期剩", type:"dateDiff2", endText:"已到期", width:80, defaultValue: "永久", sortable:"custom" },
+    { 
+      key: "nickname", title: "html渲染", type: "html", defaultValue: "未设置",
+      formatter: function(val, row, column, index) {
+        let str = `<text>${val}</text>（审核通过）`;
+        return str;
+      }
+    },
+    { key: "balance", title: "余额", type: "money", width: 120 },
+    { key: "percentage", title: "占比", type: "percentage", width: 120 },
+    { key: "address", title: "地址", type: "address", width: 120 },
+    { key: "userInfo", title: "用户", type: "userInfo", width: 120 },
+    { 
+      key: "", title: "分组显示", type: "group", minWidth: 290, align:"left",
+      columns:[
+        { key: "_id", title: "ID", type: "text" },
+        { key: "avatar", title: "头像", type: "avatar" },
+        { key: "nickname", title: "昵称", type: "text" },
+      ],
+    },
+    { 
+      key: "object1", title: "对象字段", type: "object", width: 180, align:"left",
+      columns:[
+        { key: "key1", title: "对象内字段1", type: "text" },
+        { key: "key2", title: "对象内字段2", type: "text" },
+      ],
+    },
+    { 
+      key: "gender", title: "性别", type: "radio", width: 120, defaultValue:0,
+      data:[
+        { value:1, label:"男" },
+        { value:2, label:"女" },
+        { value:0, label:"保密" },
+      ]
+    },
+    { 
+      key: "gender", title: "性别", type: "select", width: 120, defaultValue:0,
+      data:[
+        { value:1, label:"男" },
+        { value:2, label:"女" },
+        { value:0, label:"保密" },
+      ]
+    },
+    { 
+      key: "checkbox", title: "多选字段", type: "checkbox", width: 120, defaultValue:1,
+      data:[
+        { value: 1, label: "选项1" },
+        { value: 2, label: "选项2" },
+      ]
+    }
+  ]
+}
+```
+
+### buttons（字段扩展按钮列表）
+每个字段的扩展按钮列表
+
+效果图：
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/ff651c6a-5478-4479-859f-0cb6898a14bd.png)
+
+
+主要使用场景：
+
+* 1、点击修改该字段（如修改商品名称，点击后自动在字段右侧显示修改商品名称的弹窗，输入新商品名称，点击确定，自动修改）
+* 2、点击后查看详细信息（针对该字段的详细信息）
+* 3、余额字段，点击后给用户加余额
+* 4、等等
+
+原先我们实现此功能需要使用插槽来写，而现在只需要写一个 `buttons` 属性即可
+
+___如果扩展按钮列表无法满足你的需求，则可以用插槽来完全自定义该字段的实现。___ [查看插槽](#插槽)
+
+```js
+{ 
+  key:"key1", title:"标题", type:"text", width:200,
+  buttons:[
+    {
+    	title:"修改",
+    	type:"text",
+    	mode:"update", // 是否为通用修改模式
+    	show:["row"], // 只在表格行内展示此按钮
+    	click:function(obj){
+    		console.log(1,obj.value, obj.formData);
+    		vk.callFunction({
+    			url: 'template/test/pub/test',
+    			data:obj.formData,
+    			success:function(data){
+    				obj.success({
+    					msg:"修改成功"
+    				});
+    			}
+    		});
+    	}
+    },
+    {
+    	title:"查看",
+    	type:"text",
+    	show:["detail","row"], // 在表格行内和详情页弹窗内展示此按钮
+    	click:function(obj){
+    		console.log(2,obj.value, obj.formData);
+    		uni.vk.toast("你点击了查看");
+    	}
+    }
+  ]
+},
+```
 
 
 ## 事件
