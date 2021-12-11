@@ -105,6 +105,7 @@ columns 是一个数组，数组内每个元素有以下属性
 | show  | 显示规则，[查看show](#show)  | string 、 array | ["detail","row","expand"]  | "detail"、"row"、"expand"、 "none"  |
 | defaultValue  |   默认值  | String  | 无  | -  |
 | formatter  | 自定义格式化函数 | function(val, row, column, index)  | -  | -  |
+| buttons  | 扩展按钮列表 [查看buttons](#buttons)| Array<Object>  | -  | -  |
 
 ### show
 
@@ -196,6 +197,53 @@ table1:{
 }
 ```
 
+### buttons
+每个字段的扩展按钮列表
+
+主要使用场景：
+
+* 1、点击修改该字段（如修改商品名称，点击后自动在字段右侧显示修改商品名称的弹窗，输入新商品名称，点击确定，自动修改）
+* 2、点击后查看详细信息（针对该字段的详细信息）
+* 3、余额字段，点击后给用户加余额
+* 4、等等
+
+___如果扩展按钮列表无法满足你的需求，则可以用插槽来完全自定义该字段的实现。___ [查看插槽](#插槽)
+
+```js
+{ 
+  key:"key1", title:"标题", type:"text", width:200,
+  buttons:[
+    {
+    	title:"修改",
+    	type:"text",
+    	mode:"update", // 是否为通用修改模式
+    	show:["row"], // 只在表格行内展示此按钮
+    	click:function(obj){
+    		console.log(1,obj.value, obj.formData);
+    		vk.callFunction({
+    			url: 'template/test/pub/test',
+    			data:obj.formData,
+    			success:function(data){
+    				obj.success({
+    					msg:"修改成功"
+    				});
+    			}
+    		});
+    	}
+    },
+    {
+    	title:"查看",
+    	type:"text",
+    	show:["detail","row"], // 在表格行内和详情页弹窗内展示此按钮
+    	click:function(obj){
+    		console.log(2,obj.value, obj.formData);
+    		uni.vk.toast("你点击了查看");
+    	}
+    }
+  ]
+},
+```
+
 
 ### right-btns
 right-btns（右侧按钮列表）
@@ -269,6 +317,7 @@ methods: {
 }
 
 ```
+
 
 ### 高亮行处理
 

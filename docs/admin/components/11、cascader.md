@@ -54,6 +54,43 @@
 }
 ```
 
+#### 远程搜索带参数方式1
+```js
+{
+  key:"cascader2", title:"云端数据级联", type:"cascader",
+  action:"admin/system/permission/sys/getAll",
+  actionData:{
+    a:1
+  },
+  props:{
+    list:"rows",
+    value:"permission_id",
+    label:"label",
+    children:"children",
+    // multiple:true
+  }
+}
+```
+#### 远程搜索带参数方式2
+```js
+{
+  key:"cascader2", title:"云端数据级联", type:"cascader",
+  action:"admin/system/permission/sys/getAll",
+  actionData:function(){
+    return {
+      a:that.form1.data.a
+    }
+  },
+  props:{
+    list:"rows",
+    value:"permission_id",
+    label:"label",
+    children:"children",
+    // multiple:true
+  }
+}
+```
+
 #### 远程懒加载方式
 #### 应用场景：数据量很大，一次性获取数据库容易超时时。
 #### 云函数代码见本页面最下方。
@@ -71,6 +108,8 @@
 }
 
 ```
+
+
 
 
 ### API
