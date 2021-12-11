@@ -58,7 +58,7 @@ module.exports = [
     id: "shopManage",
     regExp: "^client/shop/manage/(.*)",
     description: "店铺操作接口需要检测用户是否有权限",
-    index: 210,// 此处必须>200 因为检测用户是否登录的过滤器的index是200（越小越先执行）
+    index: 310,// 此处必须>300 因为检测用户是否登录的过滤器的index是200（sys是300，因此为了能通用，建议填大于300的值）（越小越先执行）
     mode:"onActionExecuting", 
     enable:true, // 通过设置enable=false可以关闭该中间件
     main: async function(event) {
@@ -94,7 +94,7 @@ module.exports = [
     	"^client/business/(.*)sys/"
     ],
     description: "需要判断用户是否有权限操作此店铺",
-    index: 210,// 此处必须>200 因为检测用户是否登录的过滤器的index是200（越小越先执行）
+    index: 310,// 此处必须>300 因为检测用户是否登录的过滤器的index是200（sys是300，因此为了能通用，建议填大于300的值）（越小越先执行）
     mode:"onActionExecuting", 
     enable:true, // 通过设置enable=false可以关闭该中间件
     main: async function(event) {
