@@ -324,7 +324,7 @@ table1:{
       ]
     },
     { 
-      key: "type", title: "类型", type: "tag", width: 120, size: "mini",
+      key: "type", title: "类型", type: "tag", width: 120, size: "small",
       data:[
         { value:1, label:"收入", tagType:"success" },
         { value:2, label:"支出", tagType:"danger" }
