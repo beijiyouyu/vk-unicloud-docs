@@ -411,35 +411,35 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
   key:"key1", title:"标题", type:"text", width:200,
   buttons:[
     {
-    	title:"修改",
-    	type:"text",
-    	mode:"update", // 是否为通用修改模式
-    	show:["row"], // 只在表格行内展示此按钮
+      title:"修改",
+      type:"text",
+      mode:"update", // 是否为通用修改模式
+      show:["row"], // 只在表格行内展示此按钮
       showRule:function(formData){
         // 此为演示只有字段 key2 不等于 1时，才会显示此按钮。
-      	return (formData.key2 != 1) ? true : false;
+        return (formData.key2 != 1) ? true : false;
       },
-    	click:function(obj){
-    		console.log(1,obj.value, obj.formData);
-    		vk.callFunction({
-    			url: 'template/test/pub/test',
-    			data:obj.formData,
-    			success:function(data){
-    				obj.success({
-    					msg:"修改成功"
-    				});
-    			}
-    		});
-    	}
+      click:function(obj){
+        console.log(1,obj.value, obj.formData);
+        vk.callFunction({
+          url: 'template/test/pub/test',
+          data:obj.formData,
+          success:function(data){
+            obj.success({
+              msg:"修改成功"
+            });
+          }
+        });
+      }
     },
     {
-    	title:"查看",
-    	type:"text",
-    	show:["detail","row"], // 在表格行内和详情页弹窗内展示此按钮
-    	click:function(obj){
-    		console.log(2,obj.value, obj.formData);
-    		uni.vk.toast("你点击了查看");
-    	}
+      title:"查看",
+      type:"text",
+      show:["detail","row"], // 在表格行内和详情页弹窗内展示此按钮
+      click:function(obj){
+        console.log(2,obj.value, obj.formData);
+        uni.vk.toast("你点击了查看");
+      }
     }
   ]
 },
