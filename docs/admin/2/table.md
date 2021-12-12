@@ -310,11 +310,19 @@ show是一个字符串数组，columns 数组内每一个元素都可以单独�
 table1:{
   columns:[
     { key: "nickname", title: "昵称", type: "text", width: 120, defaultValue:"未设置昵称", },
-    { key: "avatar", title: "头像", type: "avatar", width: 80, shape:"circle" }, // circle 圆形 square 方形
-    { key: "images", title: "图片", type: "image", width: 120 },
+    { key: "avatar", title: "头像", type: "avatar", width: 80, imageWidth:80, shape:"circle" }, // circle 圆形 square 方形
+    { key: "images", title: "图片", type: "image", width: 120, imageWidth:80 },
     { key: "rate", title: "评分", type: "rate", width: 120 },
-    { key: "switch", title: "开关", type: "switch", width: 120 },
-    { key: "icon", title: "图标", type: "icon", width: 120 },
+    { key: "switch", title: "开关", type: "switch", width: 120, activeValue:true, inactiveValue:false },
+    { key: "icon1", title: "图标", type: "icon", width: 120 },
+    { 
+      key: "icon2", title: "图标", type: "icon", width: 120,
+      // 当 icon2 值为1时，显示vk-icon-activityfill图标，2时，显示vk-icon-crownfill图标
+      data:[
+      	{ value:1, icon:"vk-icon-activityfill"},
+        { value:2, icon:"vk-icon-crownfill"}
+      ]
+    },
     { 
       key: "type", title: "类型", type: "tag", width: 120, size: "mini",
       data:[
@@ -373,7 +381,8 @@ table1:{
         { value: 1, label: "选项1" },
         { value: 2, label: "选项2" },
       ]
-    }
+    },
+    { key: "json", title: "json字段", type: "json", width: 120, maxHeight:300 }
   ]
 }
 ```
@@ -406,6 +415,10 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
     	type:"text",
     	mode:"update", // 是否为通用修改模式
     	show:["row"], // 只在表格行内展示此按钮
+      showRule:function(formData){
+        // 此为演示只有字段 key2 不等于 1时，才会显示此按钮。
+      	return (formData.key2 != 1) ? true : false;
+      },
     	click:function(obj){
     		console.log(1,obj.value, obj.formData);
     		vk.callFunction({
