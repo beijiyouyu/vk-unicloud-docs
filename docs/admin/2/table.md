@@ -388,56 +388,58 @@ table1:{
 ```
 
 ### buttons（字段扩展按钮列表）
-每个字段的扩展按钮列表
 
-效果图：
+每个字段的扩展按钮列表（支持每行记录显示不同的按钮）
+
+效果图：（此效果图为场景1的样式）
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/ff651c6a-5478-4479-859f-0cb6898a14bd.png)
 
-
 主要使用场景：
 
-* 1、点击修改该字段（如修改商品名称，点击后自动在字段右侧显示修改商品名称的弹窗，输入新商品名称，点击确定，自动修改）
-* 2、点击后查看详细信息（针对该字段的详细信息）
-* 3、余额字段，点击后给用户加余额
-* 4、等等
+* 1、点击修改该字段（如修改商品名称，点击后自动在字段右侧显示修改商品名称的弹窗，输入新商品名称，点击确定，自动修改）;
+* 2、点击后查看字段扩展信息（如：审核未通过旁边加个 `原因` 按钮，点击后查看未通过的审核的原因）;
+* 3、余额字段，点击后给用户加余额;
+* 4、点击后给待发货的订单发货;
+* 5、等等;
 
 原先我们实现此功能需要使用插槽来写，而现在只需要写一个 `buttons` 属性即可
 
 ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完全自定义该字段的实现。___ [查看插槽](#插槽)
 
 ```js
-{ 
-  key:"key1", title:"标题", type:"text", width:200,
-  buttons:[
+{
+  key: "key1", title: "标题", type: "text", width: 200,
+  buttons: [
     {
-      title:"修改",
-      type:"text",
-      mode:"update", // 是否为通用修改模式
-      show:["row"], // 只在表格行内展示此按钮
-      showRule:function(formData){
+      title: "修改",
+      type: "text", // 文字形式按钮 可选：primary / success / warning / danger / info / text
+      mode: "update", // 模式 可选：update（通用修改模式） / default（自定义模式）
+      show: ["row"], // 在哪些场景显示按钮 多选：row（在行内显示） / detail（在详情页显示）
+      showRule: function(formData) {
         // 此为演示只有字段 key2 不等于 1时，才会显示此按钮。
         return (formData.key2 != 1) ? true : false;
       },
-      click:function(obj){
-        console.log(1,obj.value, obj.formData);
+      click: function(options) {
+        console.log(1, options.value, options.formData);
         vk.callFunction({
           url: 'template/test/pub/test',
-          data:obj.formData,
-          success:function(data){
-            obj.success({
-              msg:"修改成功"
+          data: options.formData,
+          success: function(data) {
+            // 通知组件操作成功（否则组件按钮会一直处于loading状态）
+            options.success({
+              msg: "修改成功"
             });
           }
         });
       }
     },
     {
-      title:"查看",
-      type:"text",
-      show:["detail","row"], // 在表格行内和详情页弹窗内展示此按钮
-      click:function(obj){
-        console.log(2,obj.value, obj.formData);
+      title: "查看",
+      type: "text",
+      show: ["detail", "row"],
+      click: function(options) {
+        console.log(2, options.value, options.formData);
         uni.vk.toast("你点击了查看");
       }
     }
