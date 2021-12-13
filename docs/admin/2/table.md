@@ -344,6 +344,7 @@ table1:{
     { key: "percentage", title: "占比", type: "percentage", width: 120 },
     { key: "address", title: "地址", type: "address", width: 120 },
     { key: "userInfo", title: "用户", type: "userInfo", width: 120 },
+    // group 是将多个字段显示在一个单元格内
     { 
       key: "", title: "分组显示", type: "group", minWidth: 290, align:"left",
       columns:[
@@ -352,6 +353,7 @@ table1:{
         { key: "nickname", title: "昵称", type: "text" },
       ],
     },
+    // object 是解析对象类型的字段
     { 
       key: "object1", title: "对象字段", type: "object", width: 180, align:"left",
       columns:[
