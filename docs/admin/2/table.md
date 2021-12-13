@@ -310,8 +310,8 @@ show是一个字符串数组，columns 数组内每一个元素都可以单独�
 table1:{
   columns:[
     { key: "nickname", title: "昵称", type: "text", width: 120, defaultValue:"未设置昵称", },
-    { key: "avatar", title: "头像", type: "avatar", width: 80, imageWidth:80, shape:"circle" }, // circle 圆形 square 方形
-    { key: "images", title: "图片", type: "image", width: 120, imageWidth:80 },
+    { key: "avatar", title: "头像", type: "avatar", width: 80, imageWidth:40, shape:"circle" }, // circle 圆形 square 方形
+    { key: "images", title: "图片", type: "image", width: 120, imageWidth:60 },
     { key: "rate", title: "评分", type: "rate", width: 120 },
     { key: "switch", title: "开关", type: "switch", width: 120, activeValue:true, inactiveValue:false },
     { key: "icon1", title: "图标", type: "icon", width: 120 },
