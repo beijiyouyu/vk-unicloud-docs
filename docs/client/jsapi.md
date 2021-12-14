@@ -687,7 +687,7 @@ vk.pubfn.percentageFilter(value, needShowSymbol, defaultValue);
 ```
 
 
-### vk.pubfn.discountFilter（百分比显示过滤器）
+### vk.pubfn.discountFilter（折扣显示过滤器）
 折扣过滤器 将 0.1 显示成 1折 1 显示成 原价 0 显示成免费
 ```js
 /**
