@@ -664,7 +664,7 @@ vk.pubfn.numStr(n);
 ```
 
 ### vk.pubfn.priceFilter（金额显示过滤器）
-金额显示过滤器（已分为单位，将100 转成 1）
+金额显示过滤器（以分为单位，将 100 转成 1）
 ```js
 /**
  * 金额显示过滤器（已分为单位，将100 转成 1
@@ -672,6 +672,34 @@ vk.pubfn.numStr(n);
  */
 vk.pubfn.priceFilter(money);
 ```
+
+### vk.pubfn.percentageFilter（百分比显示过滤器）
+百分比过滤器 将 0.01 显示成 1%  1 显示成 100%
+```js
+/**
+ * 金额显示过滤器（已分为单位，将100 转成 1
+ * @param {Number} value 百分比值
+ * @param {Boolean} needShowSymbol 显示 % 这个符号
+ * @param {String | Number} defaultValue value为空时的默认值
+ */
+vk.pubfn.percentageFilter(value);
+vk.pubfn.percentageFilter(value, needShowSymbol, defaultValue);
+```
+
+
+### vk.pubfn.discountFilter（百分比显示过滤器）
+折扣过滤器 将 0.1 显示成 1折 1 显示成 原价 0 显示成免费
+```js
+/**
+ * 金额显示过滤器（已分为单位，将100 转成 1
+ * @param {Number} value 折扣值
+ * @param {Boolean} needShowSymbol 显示 折 这个中文字符
+ * @param {String | Number} defaultValue value为空时的默认值
+ */
+vk.pubfn.discountFilter(value);
+vk.pubfn.discountFilter(value, needShowSymbol, defaultValue);
+```
+
 
 ### vk.pubfn.getListData（手机长列表分页加载数据）
 
