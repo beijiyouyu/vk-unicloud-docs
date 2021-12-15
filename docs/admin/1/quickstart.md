@@ -4,7 +4,7 @@
 
 下载地址：[https://ext.dcloud.net.cn/plugin?id=5043](https://ext.dcloud.net.cn/plugin?id=5043)
 
-#### 2、`项目根目录` 执行 `npm i` 命令
+#### 2、`项目根目录` 执行 `npm i` 命令 （必须先执行此npm命令，安装必要的依赖，否则会无法启动。）
 
 #### 接下来是后端（云函数端）安装步骤
 
