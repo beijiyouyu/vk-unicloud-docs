@@ -72,7 +72,8 @@ opendb-admin-menus 菜单表
 删除 `pages.json` 内的 `pages_template/components` 和 `pages_template/element` 分包（此为发布演示版本需要而加，你的项目可以删除，删除后开发模式下依然存在（因为在`pages-dev.json`中配置了），发布到线上环境时自动屏蔽）
 
 ### 若提示上传云函数失败，请仔细对比下你的项目 `uniCloud/common` 目录是否跟下图完全一致
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/da1c3ccc-b6bf-4792-b3a7-7208b1020c7d.png)
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/7ae174db-7666-4301-b017-725edc73e3a3.png)
 
 如果不一致，特别是 `uni-id` 目录下没有这个文件 `uni-id/node_modules/uni-config-center/uni-id/config.json`，则在 `uni-id` 目录执行 `npm i` 试试（如果有这个`uni-id/node_modules`目录，先删除目录，再执行npm i）
 
