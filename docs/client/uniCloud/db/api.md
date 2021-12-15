@@ -150,12 +150,17 @@ let info = await vk.baseDao.findByWhereJson({
 ```
 
 ### 查多条记录(具有分页功能)
+
 `vk.baseDao.select`
+
 查多条记录(具有分页功能) 对应的传统sql语句: `select * from vk-test where money>=0 limit 1,20
+
+特别注意：此分页功能会随着 `pageIndex` 的值越大，效率越低（传统mysql也有此问题），pageIndex * pageSize 的值最好不要超过 400万（如每页显示10条，则建议最多让用户查看到第40万页）
+
 ```js
 let res = await vk.baseDao.select({
   dbName:"vk-test", // 表名
-  getMain:true,// 是否只返回rows数据
+  getMain:false,// 是否只返回rows数据
   pageIndex:1, // 当前第几页
   pageSize:20, // 每页条数
   whereJson:{ // 条件
