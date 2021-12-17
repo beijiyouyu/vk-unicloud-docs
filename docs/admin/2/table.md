@@ -53,6 +53,7 @@ export default {
 | height           | 通用 - table的高度 | Number  | 无 | -  |
 | max-height        | 通用 - table的最大高度 | Number  | 无 | -  |
 | row-height        | 通用 - 行高 | Number  | 无 | -  |
+| row-key      | 通用 - 行数据的 Key （重要：值必须唯一，默认是_id） | Function,String  | "_id" | - |
 | top          | 通用 - margin-top的高度 | Number  | 10 | -  |
 | selection          | 通用 - 显示多选框 | Boolean  | false | true |
 | rowNo          | 通用 - 显示序号 | Boolean  | false | true |
@@ -63,7 +64,6 @@ export default {
 | right-btns-type      | 通用 - 右侧显示的按钮类型 | String  | "button" | "text" |
 | right-btns-more      | 通用 - 右侧更多按钮 [查看right-btns-more](#right-btns-more-更多按钮列表)| Array  | [] | - |
 | custom-right-btns      | 通用 - 自定义右侧按钮 [查看custom-right-btns](#custom-right-btns-自定义右侧固定按钮)| Array  | [] | - |
-| row-key      | 通用 - 行数据的 Key | Function,String  | "_id" | - |
 | empty-text      | 通用 - 空数据时显示的文本内容 | String  | "暂无数据" | - |
 | default-expand-all      | 通用 - 是否默认展开所有行，当 Table 包含展开行存在或者为树形表格时有效 | Boolean  | false | true |
 | tree-props      | 通用 - 渲染嵌套数据的配置选项 | Object  | {children: 'children', hasChildren: 'hasChildren'} | - |
