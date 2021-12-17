@@ -583,6 +583,14 @@
 		"triggerAssist": false,
 		"description": "百分比过滤器"
 	},
+	"折扣过滤器": {
+	 "prefix": "qw",
+	 "body": [
+			"vk.pubfn.discountFilter(${0})"
+		],
+		"triggerAssist": false,
+		"description": "折扣过滤器"
+	},
 	"计量单位过滤器": {
 	 "prefix": "qw",
 	 "body": [
