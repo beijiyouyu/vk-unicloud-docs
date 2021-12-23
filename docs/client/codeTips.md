@@ -109,6 +109,22 @@
 		"triggerAssist": false,
 		"description": "页面返回"
 	},
+	"vk.redirectTo": {
+	 "prefix": "vk.redirectTo",
+	 "body": [
+			"vk.redirectTo('$0');"
+		],
+		"triggerAssist": false,
+		"description": "关闭当前页面，跳转到应用内的某个页面。"
+	},
+	"vk.switchTab": {
+	 "prefix": "vk.switchTab",
+	 "body": [
+			"vk.switchTab('$0');"
+		],
+		"triggerAssist": false,
+		"description": "跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。"
+	},
 	"vk.reLaunch": {
 	 "prefix": "vk.reLaunch",
 	 "body": [
@@ -116,6 +132,22 @@
 		],
 		"triggerAssist": false,
 		"description": "关闭所有页面，打开到应用内的某个页面。"
+	},
+	"vk.navigateToHome": {
+	 "prefix": "vk.navigateToHome",
+	 "body": [
+			"vk.navigateToHome('$0');"
+		],
+		"triggerAssist": false,
+		"description": "关闭所有页面，并跳转到首页 （app.config.js 的 index.url）"
+	},
+	"vk.navigateToLogin": {
+	 "prefix": "vk.navigateToLogin",
+	 "body": [
+			"vk.navigateToLogin('$0');"
+		],
+		"triggerAssist": false,
+		"description": "关闭所有页面，并跳转到登录页 （app.config.js 的 login.url）"
 	},
 	"vk.getStorageSync": {
 	 "prefix": "vk.getStorageSync",
@@ -1011,6 +1043,7 @@
 		"description": "根据条件求最平均值"
 	}
 }
+
 
 ```
 
