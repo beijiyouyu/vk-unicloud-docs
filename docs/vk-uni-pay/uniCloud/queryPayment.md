@@ -11,6 +11,7 @@ exports.main = async (event, context) => {
   let res = await vkPay.queryPayment({
     out_trade_no: "商户支付订单号", 
     await_notify: false, // 是否需要等待异步通知执行完成，若为了响应速度，可以设置为false，若需要等待异步回调执行完成，则设置为true
+    pay_order_info: false, // 是否需要返回支付订单信息，默认为false
   });
 
   return res;
@@ -23,7 +24,7 @@ exports.main = async (event, context) => {
 |------- |-----------|---------|-------|-------|
 | out_trade_no  |   必填项，商户支付订单号，需自行保证全局唯一    | String  | -    | -  |
 | await_notify  |   是否需要等待异步通知执行完成后才返回给前端支付结果   | Boolean  | false  | true  |
-
+| pay_order_info  |   是否需要返回支付订单信息  | Boolean  | false  | true  |
  
 ### await_notify
 
