@@ -1,6 +1,6 @@
 # 云函数url化方式调用云函数
 
-开启URL化方法为：打开 `router/package.json` 文件，在 `path` 里填写 `http/router`，最后重新上传云函数。
+开启URL化方法为：打开 `router/package.json` 文件，在 `path` 里填写 `/http/router`，最后重新上传云函数。
 
 ```js
 cloudfunction-config": {
