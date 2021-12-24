@@ -283,3 +283,29 @@ Vue.use(uView);
 }
 ```
 
+
+### 卸载 `vk-uview-ui` 的步骤
+
+* 1、main.js 删除vk-uview-ui
+
+```js
+import uView from './uni_modules/vk-uview-ui';
+Vue.use(uView);
+```
+
+* 2、App.vue 删除基础样式
+
+```html
+<style lang="scss">
+	@import "./uni_modules/vk-uview-ui/index.scss";
+</style>
+```
+
+* 3、uni.scss 删除全局 scss 变量文件
+
+```css
+@import "@/uni_modules/vk-uview-ui/theme.scss";
+```
+
+* 4、删除 uni_modules/vk-uview-ui 整个目录
+
