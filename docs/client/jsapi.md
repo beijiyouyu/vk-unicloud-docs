@@ -1012,6 +1012,45 @@ setTimeout(function(){
 },0);
 ```
 
+### vk.navigateTo（页面通信）
+A 页面跳转 B 页面
+
+```js
+vk.navigateTo({
+  url: "页面地址",
+  events: {
+    // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+    select: function(data) {
+      // 当B页面运行时，会运行这里的代码逻辑。
+      
+    }
+  },
+  success: function(res) {
+    // 通过eventChannel向被打开页面传送数据
+    res.eventChannel.emit('data', { a:1 })
+  }
+})
+```
+
+B页面接收值
+```js
+// 监听 - 页面每次【加载时】执行(如：前进)
+onLoad(options = {}) {
+  const eventChannel = that.getOpenerEventChannel();
+  // 监听data事件，获取上一页面通过eventChannel传送到当前页面的数据
+  eventChannel.on('data', function(data) {
+  
+  });
+},
+```
+
+B页面返回时触发A页面逻辑
+```js
+const eventChannel = that.getOpenerEventChannel();
+eventChannel.emit('select', { a:1 });
+vk.navigateBack();
+```
+
 
 ## 云函数专属
 
