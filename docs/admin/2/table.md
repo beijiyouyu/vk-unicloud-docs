@@ -361,6 +361,15 @@ table1:{
         { key: "key2", title: "对象内字段2", type: "text" },
       ],
     },
+    // table 是解析对象数组类型的字段，建议只在详情页内展示.
+    { 
+      key: "arr1", title: "对象数组字段", type: "table", width: 200, show: ["detail"],
+    	rowHeight:50, // 行高
+    	columns: [
+    		{ key: "key1",title: "对象的字段1",type: "text",width: 120 },
+    		{ key: "key2",title: "对象内字段2",type: "text",width: 120 }
+    	]
+    },
     { 
       key: "gender", title: "性别", type: "radio", width: 120, defaultValue:0,
       data:[
