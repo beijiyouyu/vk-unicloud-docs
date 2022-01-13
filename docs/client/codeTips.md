@@ -7,9 +7,6 @@
 #### 在 `云函数` 内输入dao.
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/fe965ad9-e9ed-44fc-ad0b-5bc286988e09.png)
 
-#### 在 `template` 内输入vk
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/7a8db184-f842-4576-baa5-bbae0f5cb52f.png)
-
 
 ### 安装代码快捷提示步骤
 
@@ -1048,7 +1045,11 @@
 ```
 
 ### 以下为 `vk-admin` 专用代码提示
-* 2、将下方代码 复制到 hbx 工具 - 代码块设置 - vue代码块 
+
+#### 在 `template` 内输入vk
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/7a8db184-f842-4576-baa5-bbae0f5cb52f.png)
+
+* 将下方代码 复制到 hbx 工具 - 代码块设置 - vue代码块 
 ```js
 // 将下方代码复制到 hbx 工具 - 代码块设置 - vue代码块
 {
