@@ -1012,7 +1012,7 @@ setTimeout(function(){
 },0);
 ```
 
-### vk.navigateTo（页面通信）
+### vk.navigateTo（页面间通信）
 A 页面跳转 B 页面
 
 ```js
@@ -1021,7 +1021,7 @@ vk.navigateTo({
   events: {
     // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
     select: function(data) {
-      // 当B页面运行时，会运行这里的代码逻辑。
+      // 当B页面运行 eventChannel.emit('select', { a:1 }); 时，会运行这里的代码逻辑。
       
     }
   },
@@ -1032,7 +1032,7 @@ vk.navigateTo({
 })
 ```
 
-B页面接收值
+B页面接收A页面传过来的数据
 ```js
 // 监听 - 页面每次【加载时】执行(如：前进)
 onLoad(options = {}) {
@@ -1044,10 +1044,10 @@ onLoad(options = {}) {
 },
 ```
 
-B页面返回时触发A页面逻辑
+B页面返回时，触发A页面逻辑（如刷新A页面数据）
 ```js
 const eventChannel = that.getOpenerEventChannel();
-eventChannel.emit('select', { a:1 });
+eventChannel.emit('select', { a:1 }); // 触发A页面的 select 监听事件
 vk.navigateBack();
 ```
 
