@@ -996,7 +996,10 @@ vk.navigateToHome();
 关闭所有页面，并跳转到登录页 （app.config.js 的 login.url）
 
 ```js
+// 关闭所有页面，并跳转到登录页 
 vk.navigateToLogin();
+// 不关闭页面，直接跳转到登录页，登录成功自动返回当前页面
+vk.navigateToLogin({ mode:"navigateTo" });
 ```
 
 ### vk.pubfn.checkLogin
