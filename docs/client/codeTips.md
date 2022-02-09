@@ -712,6 +712,46 @@
 		"triggerAssist": false,
 		"description": "try-catch"
 	},
+	"throw new Error": {
+	 "prefix": "try-throw",
+	 "body": [
+			"throw new Error(\"msg:${0}\");"
+		],
+		"triggerAssist": false,
+		"description": "主动抛出异常"
+	},
+	"获取当前时间戳": {
+	 "prefix": "time",
+	 "body": [
+			"let time = new Date().getTime();"
+		],
+		"triggerAssist": false,
+		"description": "获取当前时间戳"
+	},
+	"获取今日0点-24点时间戳": {
+	 "prefix": "time",
+	 "body": [
+			"let { todayStart, todayEnd } = vk.pubfn.getCommonTime();"
+		],
+		"triggerAssist": false,
+		"description": "获取今日0点-24点时间戳"
+	},
+	"获取指定时间偏移": {
+	 "prefix": "time",
+	 "body": [
+			"vk.pubfn.getOffsetTime(new Date(), {",
+			"\tyear:0,",
+			"\tmonth:0,",
+			"\tday:0,",
+			"\thours:0,",
+			"\tminutes:0,",
+			"\tseconds:0,",
+			"\tmode:\"after\" // after 之后 before 之前",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "获取指定时间偏移"
+	},
 	"vk.baseDao.findById": {
 	 "prefix": "baseDao.findById",
 	 "body": [
