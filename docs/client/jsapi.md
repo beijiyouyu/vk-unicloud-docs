@@ -1023,8 +1023,8 @@ vk.navigateTo({
   url: "页面地址",
   events: {
     // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-    select: function(data) {
-      // 当B页面运行 eventChannel.emit('select', { a:1 }); 时，会运行这里的代码逻辑。
+    update: function(data) {
+      // 当B页面运行 eventChannel.emit('update', { a:1 }); 时，会运行这里的代码逻辑。
       
     }
   },
@@ -1050,7 +1050,7 @@ onLoad(options = {}) {
 B页面返回时，触发A页面逻辑（如刷新A页面数据）
 ```js
 const eventChannel = that.getOpenerEventChannel(); // that 需指向 this
-eventChannel.emit('select', { a:1 }); // 触发A页面的 select 监听事件
+eventChannel.emit('update', { a:1 }); // 触发A页面的 update 监听事件
 vk.navigateBack();
 ```
 
