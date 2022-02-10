@@ -1015,7 +1015,7 @@
 			"\t\tlocalKey: \"user_id\",",
 			"\t\tforeignKey: \"_id\",",
 			"\t\tas: \"userInfo\",",
-			"\t\tlimit: 1",
+			"\t\tlimit: 1,",
 			"\t\tfieldJson:{ token:false, password:false },",
 			"\t}]",
 			"});"
