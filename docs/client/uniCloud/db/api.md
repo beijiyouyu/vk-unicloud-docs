@@ -169,6 +169,8 @@ let res = await vk.baseDao.select({
 });
 ```
 
+___若 pageSize 设置成-1，则默认查全部数据，但由于云数据库本身有最大每次只能查500条的限制。（使用VK框架可以突破到1万条以上，联表查询时，依然为500条限制）___
+
 ### 获取记录总条数
 `vk.baseDao.count`
 获取记录总条数 对应的传统sql语句: `select count(*) from vk-test`
