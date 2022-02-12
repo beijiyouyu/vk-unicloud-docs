@@ -19,7 +19,8 @@
 
 res = await vk.baseDao.selects({
   dbName: "uni-id-users",// 主表名
-  getCount: false, // 是否需要同时查询满足条件的记录总数量
+  getCount: false, // 是否需要同时查询满足条件的记录总数量，默认false
+  getMain:false,// 是否只返回rows数据，默认false
   pageIndex: 1, // 查询第几页
   pageSize: 10, // 每页多少条数据
   // 主表where条件

@@ -160,7 +160,8 @@ let info = await vk.baseDao.findByWhereJson({
 ```js
 let res = await vk.baseDao.select({
   dbName:"vk-test", // 表名
-  getMain:false,// 是否只返回rows数据
+  getCount:false, // 是否需要同时查询满足条件的记录总数量，默认false
+  getMain:false,// 是否只返回rows数据，默认false
   pageIndex:1, // 当前第几页
   pageSize:20, // 每页条数
   whereJson:{ // 条件
