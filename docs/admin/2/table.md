@@ -56,6 +56,7 @@ export default {
 | row-key      | 通用 - 行数据的 Key （重要：值必须唯一，默认是_id） | Function,String  | "_id" | - |
 | top          | 通用 - margin-top的高度 | Number  | 10 | -  |
 | selection          | 通用 - 显示多选框 | Boolean  | false | true |
+| selectable          | 通用 - 搭配selection=true时使用，返回值用来决定这一行的 CheckBox 是否可以勾选 [查看用法](#表格自带的多选框禁用规则)  | Function(row,index)  | - | - |
 | rowNo          | 通用 - 显示序号 | Boolean  | false | true |
 | pagination     | 通用 - 显示分页器 | Boolean  | false | true |
 | page-size       | 通用 - 每页显示数量 | Number  | 10 | - |
@@ -268,6 +269,35 @@ export default {
 
 同时还可以通过插槽编写展开后的样式 [查看插槽](#展开行插槽)
 
+### 表格自带的多选框禁用规则
+```html
+<vk-data-table
+  :selection="true"
+  :selectable="table1.selectable"
+></vk-data-table>
+```
+
+```js
+export default {
+  data() {
+    return {
+      table1:{
+        
+        selectable:function(row,index){
+          // 返回true,代表可以多选,返回false代表改行的多选框禁用。
+          if (index == 1) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+        
+      }
+    }
+  }
+}
+  
+```
 
 ### 异常重试机制
 
