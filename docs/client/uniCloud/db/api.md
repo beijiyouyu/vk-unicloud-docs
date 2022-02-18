@@ -29,6 +29,23 @@ let ids = await vk.baseDao.adds({
 });
 ```
 
+___注意: `add` 和 `adds` 默认会自动加上 `_add_time`字段，该字段表示该条记录的添加时间___
+
+可以通过参数 `cancelAddTime:true` 来取消 `_add_time` 字段的添加，如下
+```js
+let id = await vk.baseDao.add({
+  dbName:"vk-test",
+  cancelAddTime: true, // 通过设置 cancelAddTime:true 可以取消 _add_time 字段的添加
+  dataJson:{ 
+    money: Math.floor(Math.random() * 9 + 1)
+  }
+});
+```
+也可以通过配置 `/common/uni-config-center/vk-unicloud/index.js` 内的 `vk.db.unicloud.cancelAddTime = true` 来全局取消
+
+提示：正常情况下，没有必要特意取消该字段，该字段记录了本条记录的实际添加时间，且该字段可以用于按时间排序（默认 `vk.baseDao.getTableData` 的排序规则就是按 `_add_time` 降序。）
+
+
 ## 删
 ### 批量删除
 `vk.baseDao.del`
