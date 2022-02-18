@@ -140,7 +140,7 @@ let newInfo = await vk.baseDao.updateAndReturn({
 #### vk.baseDao.updateAndReturn 可以实现什么功能？
 
 * 1、实现id自增
-* 2、实现阅读数自增
+* 2、实现阅读数自增（同时返回自增后的商品或文章详细信息等）
 * 3、实现跟数值有关的自增和自减（同时需要实时获取自增或自减后的值）
 
 ## 查
