@@ -707,7 +707,7 @@ columns属性的写法与万能表单相似(但部分表单组件搜索不支持
 | mode   |  查询模式    | String  | = | [查看mode](#mode)  |
 | fieldName   |  数据库字段名称，默认=key的值    | String  | key的值  | -  |
 | lastWhereJson   |  是否是连表后的where条件 | Boolean  | false | true  |
-| hidden   |  是否隐藏该字段 | Boolean  | false | true  |
+| hidden   |  是否隐藏该字段（规则依然生效，但不在页面中渲染此组件） | Boolean  | false | true  |
 | show     | 显示规则,page代表显示在页面上，drawer代表显示在高级搜索中 | Array  | ["page"] |  ["page","drawer"] |
 
 
