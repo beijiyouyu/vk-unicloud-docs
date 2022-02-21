@@ -33,7 +33,8 @@ const vkPay = require("vk-uni-pay");
 
 let transferRes = await vkPay.transfer({
   openid: "对方的openid",
-  real_name: "对方真实姓名",
+  real_name: "对方真实姓名", // 若check_name=true,则real_name必填
+  check_name: false, // 是否需要检测真实姓名
   amount: 10, // 100=1元(单位分)
   title: "提现到微信零钱",
   pay_type: "wxpay",
