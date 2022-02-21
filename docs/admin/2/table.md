@@ -525,6 +525,11 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
 | updateRows     | 更新指定的行数据（不更新据库数据） |
 
 
+### showDetail（显示详情页）
+```js
+that.$refs.table1.showDetail(item); // item是该条记录的数据源
+```
+
 ### 删除指定的行（不删数据库数据）
 ```js
 that.$refs.table1.deleteRows({
