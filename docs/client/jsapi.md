@@ -1010,9 +1010,9 @@ vk.navigateToLogin({ mode:"navigateTo" });
 
 ```js
 // 在首页的 onLoad 函数中新增下方代码
-setTimeout(function(){
+setTimeout(() => {
   vk.pubfn.checkLogin(); // 检测是否需要登录
-},0);
+}, 0);
 ```
 
 ### vk.navigateTo（页面间通信）
@@ -1041,8 +1041,8 @@ B页面接收A页面传过来的数据
 onLoad(options = {}) {
   const eventChannel = that.getOpenerEventChannel(); // that 需指向 this
   // 监听data事件，获取上一页面通过eventChannel.emit传送到当前页面的数据
-  eventChannel.on('data', function(data) {
-  
+  eventChannel.on('data', (data) => {
+    
   });
 },
 ```
