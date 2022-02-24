@@ -1041,16 +1041,18 @@ B页面接收A页面传过来的数据
 onLoad(options = {}) {
   const eventChannel = that.getOpenerEventChannel(); // that 需指向 this
   // 监听data事件，获取上一页面通过eventChannel.emit传送到当前页面的数据
-  eventChannel.on('data', (data) => {
-    
-  });
+  if (eventChannel.on) {
+    eventChannel.on('data', (data) => {
+      
+    });
+  }
 },
 ```
 
 B页面返回时，触发A页面逻辑（如刷新A页面数据）
 ```js
 const eventChannel = that.getOpenerEventChannel(); // that 需指向 this
-eventChannel.emit('update', { a:1 }); // 触发A页面的 update 监听事件
+if (eventChannel.emit) eventChannel.emit('update', { a:1 }); // 触发A页面的 update 监听事件
 vk.navigateBack();
 ```
 
