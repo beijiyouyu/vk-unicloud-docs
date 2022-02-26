@@ -68,7 +68,7 @@ if (transferRes.code === 0) {
 | check_name  |  是否需要检测真实姓名  | Boole  | true    | false  |
 | openid  |  微信专用 - 用户的openid   | String  | -    | -  |
 | platform  |  微信专用 - 平台类型：app-plus、mp-weixin，用于获取对应平台的支付配置信息     | String  | -    | app-plus、mp-weixin、h5  |
-| pid  |  多商户模式下的自定义商户id（等于uni-pay-config表的_id） [查看uni-pay-config表](https://vkdoc.fsq.pub/vk-uni-pay/db/uni-pay-config.html)   | String  | -    | -  |
+| pid  |  多商户模式下的自定义商户id（等于vk-pay-config表的_id） [查看vk-pay-config表](https://vkdoc.fsq.pub/vk-uni-pay/db/vk-pay-config.html)   | String  | -    | -  |
 
 #### 注意：
 * 新注册的企业支付宝账号，单笔转账接口的申请直接在支付宝官网申请可能会无法申请，此时可以联系支付宝商务人员，进行人工申请。

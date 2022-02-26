@@ -1,4 +1,4 @@
-# uni-pay-config
+# vk-pay-config
 
 #### 统一支付配置表
 

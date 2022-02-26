@@ -48,7 +48,7 @@ module.exports = {
 }
 ```
 
-## 文件上传成功后如何自动保存到uni-id-files表里？
+## 文件上传成功后如何自动保存到vk-files表里？
 
 `vk.callFunctionUtil.uploadFile` 的参数 `needSave` 设置为 true 如：
 ```js

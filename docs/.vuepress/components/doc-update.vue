@@ -222,7 +222,7 @@ export default {
             {
               label: "修复",
               content:
-                'db_init.json `opendb-global-data`表`expired_at`索引设置错误 "MgoIsUnique": true 改为 "MgoIsUnique": false（需要把索引删除后重新创建，选择非唯一索引）'
+                'db_init.json `vk-global-data`表`expired_at`索引设置错误 "MgoIsUnique": true 改为 "MgoIsUnique": false（需要把索引删除后重新创建，选择非唯一索引）'
             },
             { label: "优化", content: "`vk.pubfn.timeFormat` 若参数不符合规则，则原值显示。" },
             {

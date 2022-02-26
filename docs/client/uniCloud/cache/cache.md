@@ -104,7 +104,7 @@ await vk.globalDataCache.deleteExpired();
 #### 注意：目前数据是储存在数据库中的
 ### 数据库
 
-#### 表名：`opendb-global-data`
+#### 表名：`vk-global-data`
 
 
 | 字段名             | 字段类型                           | 必填    | 默认值  | 说明 |

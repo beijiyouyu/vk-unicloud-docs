@@ -298,8 +298,8 @@ module.exports = {
           title: '通用-数据库表',
           collapsable: false,
           children: [
-            'db/uni-pay-orders',
-            'db/uni-pay-config'
+            'db/vk-pay-orders',
+            'db/vk-pay-config'
           ]
         },
         {

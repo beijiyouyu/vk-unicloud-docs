@@ -36,27 +36,27 @@
 
 ### 注意：
 ### 需确保有以下云函数（如没有，则从新版本中拷贝）
-* 1、admin/system_uni/uni-id-files/files/kh/delete
+* 1、admin/system_uni/vk-files/files/kh/delete
 
-* 2、admin/system_uni/uni-id-files/files/kh/getList
+* 2、admin/system_uni/vk-files/files/kh/getList
 
-* 3、admin/system_uni/uni-id-files/files/kh/update
+* 3、admin/system_uni/vk-files/files/kh/update
 
-* 4、admin/system_uni/uni-id-files/categories/kh/getList
+* 4、admin/system_uni/vk-files/categories/kh/getList
 
-* 5、admin/system_uni/uni-id-files/categories/sys/add
+* 5、admin/system_uni/vk-files/categories/sys/add
 
-* 6、admin/system_uni/uni-id-files/categories/sys/delete
+* 6、admin/system_uni/vk-files/categories/sys/delete
 
-* 7、admin/system_uni/uni-id-files/categories/sys/update
+* 7、admin/system_uni/vk-files/categories/sys/update
 
 * 8、user/kh/addUploadRecord
 
 
 ### 若需要使用 `素材管理`，则还需要进行以下操作
-#### 1、拷贝目录 `/pages_plugs/system_uni/uni-id-files/`（如果没有，则从新版本中拷贝）
+#### 1、拷贝目录 `/pages_plugs/system_uni/vk-files/`（如果没有，则从新版本中拷贝）
 
-#### 2、在`pages.json` 中的子包 `pages_plugs` 添加 `{ "path": "system_uni/uni-id-files/list" }`
+#### 2、在`pages.json` 中的子包 `pages_plugs` 添加 `{ "path": "system_uni/vk-files/list" }`
 
 #### 3、`导入` 动态菜单
 
@@ -74,10 +74,10 @@
     "icon": "el-icon-s-tools",
     "sort": 110,
     "children": [{
-        "menu_id": "system-uni-uni-id-files",
+        "menu_id": "system-uni-vk-files",
         "name": "素材管理",
         "icon": "el-icon-folder-opened",
-        "url": "/pages_plugs/system_uni/uni-id-files/list",
+        "url": "/pages_plugs/system_uni/vk-files/list",
         "sort": 0
       }
     ]
