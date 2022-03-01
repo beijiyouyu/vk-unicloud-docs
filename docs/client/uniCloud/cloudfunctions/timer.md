@@ -49,6 +49,25 @@ exports.main = async (event, context) => {
 }
 
 ```
+
+#### `cloudfunction-config` 的子参数含义
+```js
+{
+  "concurrency": 1, // 阿里云专属,固定为1即可。
+  "memorySize": 256, // 函数的最大可用内存，单位MB，可选值： 128|256|512|1024|2048，默认值256 （想省钱就填128）
+  "path": "", // 云函数Url化path部分，阿里云需要以/http/开头 (定时器不需要填)
+  "timeout": 600, // 函数的超时时间，单位秒，阿里云最长600秒 腾讯云900秒
+  // triggers 字段是触发器数组，目前仅支持一个触发器，即数组只能填写一个，不可添加多个
+  "triggers": [{
+     // config: 触发器配置，在定时触发器下，config 格式为 cron 表达式，规则见https://uniapp.dcloud.net.cn/uniCloud/trigger。使用阿里云时会自动忽略最后一位，即代表年份的一位在阿里云不生效
+     // 阿里云填6位 腾讯云填7位 且阿里云最快是每1小时执行一次 (阿里云设置每1分钟执行一次会报错)
+    "config": "0 0 2 1 * * *", 
+    "name": "z_timer1",// name: 触发器的名字，规则见https://uniapp.dcloud.net.cn/uniCloud/trigger，name不对阿里云生效
+    "type": "timer", // 触发器类型 目前固定 timer
+  }]
+}
+```
+
 ### 5、右键 `z_timer1` 上传部署
 
 ### 6、完成
