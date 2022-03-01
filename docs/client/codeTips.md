@@ -684,7 +684,7 @@
 		"triggerAssist": false,
 		"description": "数组遍历"
 	},
-	"splice": {
+	"Array.splice": {
 	 "prefix": "qq.",
 	 "body": [
 			"list.splice(index,1);"
@@ -692,6 +692,17 @@
 		"triggerAssist": false,
 		"description": "数组删除"
 	},
+	"Array.filter": {
+	 "prefix": "qq.",
+	 "body": [
+			"let newList = list.filter((item,index,arr) => {",
+			"\treturn index % 2 == 1;$0",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "数组过滤"
+	},
+	
 	"保留两位小数": {
 	 "prefix": "qq.",
 	 "body": [
@@ -1080,7 +1091,6 @@
 		"description": "根据条件求最平均值"
 	}
 }
-
 
 ```
 
