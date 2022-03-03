@@ -1,0 +1,134 @@
+module.exports = [{
+    title: '起步',
+    collapsable: false,
+    children: [
+      'addQQGroup',
+      'vk-unicloud-router',
+      '',
+      'serverless',
+      'quickstart',
+      'changelog',
+      'changeGuide',
+      'codeTips',
+      'codeAssist'
+    ]
+  },
+  'jsapi',
+  'vk.userCenter',
+  {
+    title: '前端（页面）',
+    collapsable: true,
+    children: [
+      'pages/callFunction',
+      'pages/callFunctionForUrl',
+      'pages/interceptor1',
+      'pages/interceptor2',
+      'pages/list',
+      'pages/updateRequestGlobalParam',
+      'pages/vuex',
+      'pages/uploadFile',
+      'pages/config',
+      'pages/localStorage',
+      'pages/isQingming',
+      {
+        title: '组件',
+        children: [
+          'pages/components/vk-data-goods-sku-popup'
+        ]
+      },
+    ]
+  },
+  {
+    title: '后端（云函数）',
+    collapsable: false,
+    initialOpenGroupIndex: -1,
+    children: [{
+        title: '云函数',
+        collapsable: true,
+        children: [
+          'uniCloud/cloudfunctions/catalogue',
+          'uniCloud/cloudfunctions/template',
+          'uniCloud/cloudfunctions/serviceParam',
+          'uniCloud/cloudfunctions/userInfo',
+          'uniCloud/cloudfunctions/question',
+          'uniCloud/cloudfunctions/http',
+          'uniCloud/cloudfunctions/timer',
+          'uniCloud/cloudfunctions/cloudfunctionsForHttp',
+          'uniCloud/cloudfunctions/urlrewrite',
+          'uniCloud/cloudfunctions/beautifyCode',
+          'uniCloud/cloudfunctions/crypto',
+          'uniCloud/cloudfunctions/formRules',
+          'uniCloud/cloudfunctions/originalParam',
+          'uniCloud/cloudfunctions/urlOriginalParam'
+        ]
+      },
+      {
+        title: '数据库',
+        collapsable: true,
+        children: [
+          'uniCloud/db/api',
+          'uniCloud/db/selects',
+          'uniCloud/db/getOne',
+          'uniCloud/db/getTree',
+          'uniCloud/db/dao',
+          'uniCloud/db/userDao',
+          'uniCloud/db/transaction',
+          'uniCloud/db/question'
+        ]
+      },
+      {
+        title: '缓存',
+        collapsable: true,
+        children: [
+          'uniCloud/cache/cache'
+        ]
+      },
+      {
+        title: '中间件',
+        collapsable: true,
+        children: [
+          'uniCloud/middleware/filter'
+        ]
+      },
+      {
+        title: '扩展',
+        collapsable: true,
+        children: [
+          'uniCloud/plus/weixin',
+          'uniCloud/plus/baidu',
+          'uniCloud/plus/sms',
+          'uniCloud/plus/mail',
+        ]
+      },
+      {
+        title: '全局配置',
+        collapsable: true,
+        children: [
+          'uniCloud/config/uni-id',
+          'uniCloud/config/vk-unicloud',
+          'uniCloud/config/uni-pay',
+        ]
+      },
+      'uniCloud/redis/redis',
+    ]
+  },
+  {
+    title: '常见问题',
+    collapsable: true,
+    children: [
+      'question/q1',
+      'question/q2',
+      'question/q3',
+      'question/q4',
+      'question/q5',
+      'question/q6',
+      'question/q7',
+      'question/q8',
+      'question/q9',
+      'question/q10',
+      'question/q11',
+      'question/q12',
+    ]
+  },
+  'question/question'
+]
