@@ -1,5 +1,5 @@
 {
-  "name": "vuepress",
+  "name": "vk-unicloud-docs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "build": "vuepress build docs"
   },
   "keywords": [],
-  "author": "",
+  "author": "VK",
   "license": "ISC",
   "devDependencies": {
     "vuepress": "^1.8.2"
