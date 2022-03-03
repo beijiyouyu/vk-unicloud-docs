@@ -32,7 +32,12 @@ module.exports = {
       alias: {
         '@alias': 'path/to/some/dir'
       }
-    }
+    },
+    editLinks: true,
+    editLinkText: '在 Gitee 上编辑此页（一起来纠错与优化）',
+    docsRepo: 'https://gitee.com/vk-uni/vk-unicloud-docs.git', // 文档源文件的仓库 URL 。
+    docsBranch: 'master', // 文档源文件的仓库分支。
+    docsDir:"docs", // 文档源文件存放在仓库中的目录名。
   },
   markdown: {
     lineNumbers: true, // 是否在每个代码块的左侧显示行号。
