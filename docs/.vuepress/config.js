@@ -33,7 +33,7 @@ module.exports = {
         '@alias': 'path/to/some/dir'
       }
     },
-    editLinks: true,
+    editLinks: false,
     editLinkText: '在 Gitee 上编辑此页（一起来纠错与优化）',
     docsRepo: 'https://gitee.com/vk-uni/vk-unicloud-docs.git', // 文档源文件的仓库 URL 。
     docsBranch: 'master', // 文档源文件的仓库分支。

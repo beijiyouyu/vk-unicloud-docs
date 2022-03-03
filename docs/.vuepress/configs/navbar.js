@@ -28,7 +28,7 @@ module.exports = [
     items: [
       { text: 'vk-unicloud-router（client端）', link: 'https://gitee.com/vk-uni/vk-uni-cloud-router' },
       { text: 'vk-unicloud-admin（admin端）', link: 'https://gitee.com/vk-uni/vk-unicloud-admin' },
-      { text: 'vk-unicloud-docs（文档仓库）', link: 'https://gitee.com/vk-uni/vk-unicloud-docs.git' }
+     // { text: 'vk-unicloud-docs（文档仓库）', link: 'https://gitee.com/vk-uni/vk-unicloud-docs.git' }
     ]
   }
 ]
