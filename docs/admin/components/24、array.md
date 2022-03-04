@@ -42,7 +42,7 @@
       rules:[
         { required:true, message:"该项不能为空", trigger:["change","blur"] },
       ],
-      onChange:function(val, row, column, index){
+      onChange:function(val, row, column, index, option){
         // 此处演示根据选择的值动态改变text1的值
         row.text1 = "昵称" + val;
       }
