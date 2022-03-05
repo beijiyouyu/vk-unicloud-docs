@@ -356,10 +356,10 @@ form1:{
     		{ key:"text8", title:"单行文本8", type:"text" },
     	]
     },
-    { key:"", title:"", type:"group", justify:"start",
+    { key:"", title:"", type:"group", justify:"end",
     	columns:[
-    		{ key:"text11", title:"单行文本11", type:"text" },
-    		{ key:"text12", title:"单行文本12", type:"text" },
+    		{ key:"text11", title:"单行文本11", type:"text", col:{ span: 6 } },
+    		{ key:"text12", title:"单行文本12", type:"text", col:{ span: 6 } },
     	]
     },
     { key:"", title:"", type:"group", justify:"start",
