@@ -138,6 +138,8 @@ export default {
 | disabled      | 禁用表单 | Boolean  | false | true |
 | clearable      | 表单内的组件有清空效果 | Boolean  | true | false |
 | success-msg      | 表单提交成功后右上角的提示 | String  | 操作成功！ | - |
+| inline      | 是否为横向表单 | Boolean  | false | true |
+| columns-number      | 横向表单每行显示数量 | Number  | 2 | - |
 
 
 ### columns
