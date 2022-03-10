@@ -867,7 +867,7 @@ vk.toast("提示内容", "none", 1000, true, function(){
 vk.showActionSheet({
   title:"",
   list:["位置","@好友"],
-  color:"rgb(0, 0, 0)",
+  color:"#000000",
   success:function(res){
     if(res.index==0){
 
