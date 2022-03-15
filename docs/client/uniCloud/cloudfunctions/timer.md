@@ -2,9 +2,12 @@
  
 #### 以实现1小时自动请求一次指定的云函数为例
 
-### 1、编写`client/timedTask/pub/autoCancelOrder`的云函数，写定时任务的业务逻辑。（没有则新建）
-### 2、右键`cloudfunctions`目录 新建云函数，取名为`z_timer1`（名字任意，这里以`z_timer1`为定时器1号的名称）
-### 3、复制定时器模板代码到`z_timer1`的`index.js`
+- 1、编写 `client/timedTask/pub/autoCancelOrder` 的云函数，写定时任务的业务逻辑。（没有则新建）
+
+- 2、右键 `cloudfunctions` 目录 新建云函数，取名为 `z_timer1`（名字任意，这里以 `z_timer1` 为定时器1号的名称）
+
+- 3、复制定时器模板代码到 `z_timer1` 的 `index.js`
+
 ```js
 'use strict';
 exports.main = async (event, context) => {
@@ -28,7 +31,8 @@ exports.main = async (event, context) => {
 
 ```
 
-### 4、编写 `z_timer1/package.json`的代码
+- 4、编写 `z_timer1/package.json` 的代码
+
 ```json
 {
   "name": "z_timer1",
@@ -68,9 +72,9 @@ exports.main = async (event, context) => {
 }
 ```
 
-### 5、右键 `z_timer1` 上传部署
+- 5、右键 `z_timer1` 上传部署
 
-### 6、完成
+- 6、完成
 
 ### Cron 表达式
 

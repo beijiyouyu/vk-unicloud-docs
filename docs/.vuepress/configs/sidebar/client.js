@@ -50,7 +50,6 @@ module.exports = [{
           'uniCloud/cloudfunctions/template',
           'uniCloud/cloudfunctions/serviceParam',
           'uniCloud/cloudfunctions/userInfo',
-          'uniCloud/cloudfunctions/question',
           'uniCloud/cloudfunctions/http',
           'uniCloud/cloudfunctions/timer',
           'uniCloud/cloudfunctions/cloudfunctionsForHttp',
@@ -59,7 +58,8 @@ module.exports = [{
           'uniCloud/cloudfunctions/crypto',
           'uniCloud/cloudfunctions/formRules',
           'uniCloud/cloudfunctions/originalParam',
-          'uniCloud/cloudfunctions/urlOriginalParam'
+          'uniCloud/cloudfunctions/urlOriginalParam',
+          'uniCloud/cloudfunctions/question',
         ]
       },
       {
