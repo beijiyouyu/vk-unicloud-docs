@@ -76,6 +76,9 @@ scope = snsapi_userinfo时，是用来获取用户的基本信息的。但这种
 
 #### 注意：
 * 1、微信公众号支付的域名需要在微信支付商户后台进行配置
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/76a353e8-eb7f-4a83-8005-d3fa60ee9e46.png)
+
 * 2、微信公众号支付的unicloud配置在 `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` 的
 ```js
 // 微信 - 公众号支付
