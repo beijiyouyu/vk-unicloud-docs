@@ -1,7 +1,7 @@
 # 配置支付参数文件
 
-* 1、打开 `cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建)
-* 复制下方代码到`uni-pay/config.js`
+* 1、打开 `cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建)
+* 复制下方代码到 `uni-pay/config.js`
 
 ```js
 const fs = require('fs');
@@ -15,9 +15,9 @@ module.exports = {
    */
   "notifyUrl": {
     // 本地开发环境，如果你本地开发和线上环境共用同一个服务空间则只需要填线上环境的即可
-    "a4f90532-ac60-4a43-81c1-xxxxxxxxxxx1": "https://a4f90532-ac60-4a43-81c1-xxxxxxxxxxx1.bspapp.com/http/vk-pay",
+    "a4f90532-ac60-4a43-81c1-a5c4s3fbs66": "https://a4f90532-ac60-4a43-81c1-a5c4s3fbs66.bspapp.com/http/vk-pay",
     // 线上正式环境
-    "a4f90532-ac60-4a43-81c1-xxxxxxxxxxx2": "https://a4f90532-ac60-4a43-81c1-xxxxxxxxxxx2.bspapp.com/http/vk-pay"
+    "b5a9s861-ba20-dca5-56a2-bd3fbsasxz6": "https://b5a9s861-ba20-dca5-56a2-bd3fbsasxz6.bspapp.com/http/vk-pay"
   },
   /**
    * 微信
@@ -133,15 +133,15 @@ module.exports = {
   }
 }
 ```
-* 2、打开`cloudfunctions/common/uni-config-center/uni-pay/alipay/`目录(没有则新建)
-* 3、将`appCertPublicKey.crt`、`alipayRootCert.crt`、`alipayCertPublicKey_RSA2.crt` 3个证书放在此目录下(这里用的是最新最安全的公钥证书模式，且使用的java版的证书)
-* 4、打开`cloudfunctions/common/uni-config-center/uni-pay/wxpay/`目录(没有则新建)
-* 5、将`wxpay.p12` 1个证书放在此目录下
+* 2、打开 `cloudfunctions/common/uni-config-center/uni-pay/alipay/` 目录 (没有则新建)
+* 3、将 `appCertPublicKey.crt`、`alipayRootCert.crt`、`alipayCertPublicKey_RSA2.crt` 3个证书放在此目录下(这里用的是最新最安全的公钥证书模式，且使用的java版的证书)
+* 4、打开 `cloudfunctions/common/uni-config-center/uni-pay/wxpay/` 目录 (没有则新建)
+* 5、将 `wxpay.p12` 1个证书放在此目录下
 
 #### 支付宝证书生成指南：[点击查看](https://opendocs.alipay.com/open/291/105971)
 
 #### 注意：因支付宝转账接口需要用到 `appCertSn` 和 `alipayRootCertSn`
-* `appCertSn` 和 `alipayRootCertSn` 可以通过`gitee`导入下方的项目，将你的 `alipayRootCert.crt` 和 `appCertPublicKey.crt` 放在`test1/alipay` 目录下，本地运行test1云函数获取
+* `appCertSn` 和 `alipayRootCertSn` 可以通过 `gitee` 导入下方的项目，将你的 `alipayRootCert.crt` 和 `appCertPublicKey.crt` 放在 `test1/alipay` 目录下，本地运行test1云函数获取
 * gitee地址：[https://gitee.com/vk-uni/getAlipayAppCertSn.git](https://gitee.com/vk-uni/getAlipayAppCertSn.git)
 
 ##### 这么做是为了不导入第三方npm包（因为从证书中解析序列号需要导入额外一些npm包，增大代码体积）
