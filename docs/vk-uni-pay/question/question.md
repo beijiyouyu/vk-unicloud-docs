@@ -91,8 +91,44 @@ scope = snsapi_userinfo时，是用来获取用户的基本信息的。但这种
 
 
 
+## 3、H5支付浏览器报跨域错误
+
+* 进入 `unicloud` 控制台 [https://unicloud.dcloud.net.cn/home](https://unicloud.dcloud.net.cn/home)
+* 点击跨域配置
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/045bbc8d-363e-4e1b-99e5-028b39e89eeb.png)
+
+* 将你浏览器访问的域名加入安全域名中
+
+如 将 `localhost:8080` `localhost:8081` `localhost:8082` `www.aaaa.com` 等加入安全域名
+
+___你浏览器中访问的域名是什么，就加什么域名___
 
 
+## 4、小程序体验版和正式版无法请求云函数
+
+将以下域名加入小程序 `request` 合法域名（为了省事，可以两个都加了）
+
+阿里云：https://api.bspapp.com;
+
+腾讯云：https://tcb-api.tencentcloudapi.com;
+
+
+- 1、 进入小程序后台 `https://mp.weixin.qq.com/wxamp/devprofile/get_profile` [点击前往](https://mp.weixin.qq.com/wxamp/devprofile/get_profile)
+
+- 2、 点击 `开发管理` - `开发设置` - 服务器域名 点击 `修改`
+
+- 3、 在 `request` 合法域名中添加域名。
+
+___添加域名后还是无法请求?___
+
+- 1、可能是缓存问题，删除微信APP里对应的小程序（清空缓存），微信开发者工具点下清空全部缓存，并重启微信开发者工具（点重新打开项目），最后重新上传体验版。
+
+- 2、如果上面的清空缓存还是不行，则点击微信开发者工具右上角【详情】，把不校验合法域名前的勾去掉，尝试在微信开发者工具里访问云函数，此时会提示还有哪个域名没有加入白名单。
+
+## 5、APP支付签名失败？
+
+APP支付必须打自定义基座，包名和签名等必须和开放平台上填写的一致，且开放平台上申请的应用必须已通过审核。
 
 
 
