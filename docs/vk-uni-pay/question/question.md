@@ -146,7 +146,20 @@ APP支付必须打自定义基座，包名和签名等必须和开放平台上�
 
 [查看完整配置文件](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 
+___如何获取服务空间SpaceID?___
 
+* 进入 `unicloud` 控制台 [https://unicloud.dcloud.net.cn/home](https://unicloud.dcloud.net.cn/home)
+* 这个就是
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/42a14023-1a36-4920-af40-89e8aef05d87.png)
+
+
+___如何获取URL化完整地址___
+
+* 进入 `unicloud` 控制台 [https://unicloud.dcloud.net.cn/home](https://unicloud.dcloud.net.cn/home)
+* 进入对应的服务空间，点击左侧【云函数】-【函数列表】- 点击云函数 vk-pay 右边的 【详情】，在详情页即可看到url地址。
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/5722777d-d636-4b8e-9db5-f9c5ceac6ee0.png)
 
 
 
