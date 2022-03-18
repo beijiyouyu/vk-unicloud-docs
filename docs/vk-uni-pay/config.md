@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 module.exports = {
   /**
-   * 统一支付回调地址，格式为 "服务空间ID":"URL化地址"
+   * 统一支付回调地址，格式为 "服务空间SpaceID":"URL化完整地址"
    * 这里的本地开发并不是指 http://localhost:8080/ 的地址，而是另外一个服务空间的ULR化地址（如果你本地开发和线上环境共用同一个服务空间则只需要填线上环境的即可）
    * 回调的云函数地址，建议填 /http/vk-pay，因为vk-pay云函数已经写好了回调处理的逻辑，否则你需要自己写全部的回调逻辑。
    * 其中vk-pay是可以改名的，只需要修改 uniCloud/cloudfunctions/vk-pay/package.json 文件中的 "path": "/http/vk-pay", 把 /http/vk-pay 改成 /http/xxxx 即可(需要重新上传云函数vk-pay)。

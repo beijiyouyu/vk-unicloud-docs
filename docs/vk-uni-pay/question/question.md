@@ -131,6 +131,20 @@ ___添加域名后还是无法请求?___
 APP支付必须打自定义基座，包名和签名等必须和开放平台上填写的一致，且开放平台上申请的应用必须已通过审核。
 
 
+## 6、发起支付时提示：请先配置正确的异步回调URL
+
+配置文件在 `cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建)
+
+配置属性 `notifyUrl` 格式为 "服务空间SpaceID":"URL化完整地址"
+
+如： 
+```json
+"notifyUrl": {
+   "a4f90532-ac60-4a43-81c1-a5c4s3fbs66": "https://a4f90532-ac60-4a43-81c1-a5c4s3fbs66.bspapp.com/http/vk-pay",
+}
+```
+
+[查看完整配置文件](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 
 
 
