@@ -290,6 +290,34 @@ vk.userCenter.unbindMobile({
 });
 ```
 
+### vk.userCenter.bindNewMobile（换绑手机号）
+
+```js
+/**
+ * 绑定新的手机号（换绑手机号）
+ * data 请求参数 说明
+ * @param {String} oldMobile 旧手机号码
+ * @param {String} oldMobileCode 旧手机收到的验证码
+ * @param {String} mobile 新手机号码
+ * @param {String} code 新手机收到的验证码
+ * res 返回参数说明
+ * @param {Number} code 错误码，0表示成功
+ * @param {String} msg 详细信息
+ */
+vk.userCenter.bindNewMobile({
+  data: {
+    oldMobileCode: '',
+    oldMobileCode: '',
+    mobile: '',
+    code: '',
+  },
+  success: function(data) {
+    // 成功后的逻辑
+
+  }
+});
+```
+
 ### vk.userCenter.loginBySms（手机号登录）
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
@@ -464,6 +492,29 @@ vk.userCenter.unbindEmail({
 });
 ```
 
+### vk.userCenter.bindNewEmail（解绑邮箱）
+
+```js
+/**
+ * 绑定新的邮箱（换绑邮箱）
+ * @param {String} oldEmail 旧邮箱码
+ * @param {String} oldEmailCode 旧邮箱收到的验证码
+ * @param {String} email 新邮箱码
+ * @param {String} code 新邮箱收到的验证码
+ */
+vk.userCenter.bindNewEmail({
+  data: {
+    oldEmail: '',
+    oldEmailCode: '',
+    email: '',
+    code: '',
+  },
+  success: function(data) {
+    // 成功后的逻辑
+
+  }
+});
+```
 
 ### vk.userCenter.loginByEmail（邮箱登录）
 
