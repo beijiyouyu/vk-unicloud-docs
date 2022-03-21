@@ -143,7 +143,7 @@ try {
 
 exports.main = async (event, context) => {
 	let res = { code: 0, msg: "" };
-	let { config = {} } = vk.unicloud;
+	let { config = {} } = vk.getUnicloud();
 
 	let emailConfig = config.vk.service.email;
   
