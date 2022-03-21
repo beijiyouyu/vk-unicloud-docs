@@ -46,7 +46,9 @@
 
 ## 2、微信公众号支付注意事项
 
-* 1、微信公众号支付时，openid为必传参数，需要先获取用户的openid（网页授权）（一般你微信公众号登录的时候已经取到了）
+* 1、h5的路由模式建议配置为 `history`，因为回调地址不支持 `hash` 模式。
+
+* 2、微信公众号支付时，openid为必传参数，需要先获取用户的openid（网页授权）（一般你微信公众号登录的时候已经取到了）
 
 获取openid的方法 [点击查看微信公众号文档](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)
 
