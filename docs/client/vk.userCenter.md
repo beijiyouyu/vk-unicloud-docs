@@ -492,7 +492,7 @@ vk.userCenter.unbindEmail({
 });
 ```
 
-### vk.userCenter.bindNewEmail（解绑邮箱）
+### vk.userCenter.bindNewEmail（换绑邮箱）
 
 ```js
 /**
