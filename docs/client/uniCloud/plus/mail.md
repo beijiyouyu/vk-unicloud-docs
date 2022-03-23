@@ -48,14 +48,16 @@
 }
 ```
 
-## 4.3、发送邮箱验证码示例代码（router内版本）
+## 4.3、添加 vk-mail 公共模块依赖
+插件地址：[点击前往](https://ext.dcloud.net.cn/plugin?id=7688)
+
+## 4.4、发送邮箱验证码示例代码（router内版本）
 ```js
-var nodemailer;
+var vkmail;
 try {
-  nodemailer = require('nodemailer');	
+	vkmail = require('vk-mail');
 } catch (err) {
-  // 由于 nodemailer 包比较大，不建议在router函数内安装，可以新建一个云函数专门用来发邮箱
-  console.error("请先安装npm包：nodemailer，安装方法：根目录执行npm i nodemailer");
+	console.error("请先添加公共模块：vk-mail");
 }
 module.exports = {
   /**
@@ -86,22 +88,21 @@ module.exports = {
     };
     // 发送验证码开始
     let emailConfig = config.vk.service.email;
-    if(typeof nodemailer === "undefined"){
-      return { code : -1, msg : '请先安装npm包"nodemailer": "^6.4.11"' };
-    }
-    let emailService = nodemailer.createTransport({
+    // 创建邮箱服务实例
+    let emailService = vkmail.createTransport({
       "host": emailConfig[data.serviceType].host,
       "port": emailConfig[data.serviceType].port,
       "secure": emailConfig[data.serviceType].secure, // use SSL
       "auth": emailConfig[data.serviceType].auth
     });
     try{
+     	// 发送邮件
       await emailService.sendMail({
-        "from": emailConfig[data.serviceType].auth.user,
-        "to": data.email,
+        "from": emailConfig[data.serviceType].auth.user, // 邮件的发送者
+        "to": data.email, // 邮件的接收者
         "cc": emailConfig[data.serviceType].auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把右键抄送给自己一份，就不会被当成垃圾邮件。
-        "subject": data.subject,
-        "text": `您的验证码是${code},打死也不要告诉别人哦!`
+        "subject": data.subject, // 邮件的标题
+        "text": `您的验证码是${code},打死也不要告诉别人哦!`, // 邮件的内容
       });
       res.code = 0;
       res.msg = "ok";
@@ -123,7 +124,7 @@ module.exports = {
 
 ```
 
-## 4.4、发送邮箱验证码示例代码（非router版本）
+## 4.5、发送邮箱验证码示例代码（非router版本）
 ```js
 'use strict';
 // 通过 require 引入 vk 实例
@@ -134,11 +135,11 @@ vk.init({
 	requireFn: require
 });
 
-var nodemailer;
+var vkmail;
 try {
-	nodemailer = require('nodemailer');
+	vkmail = require('vk-mail');
 } catch (err) {
-	console.error("请先安装npm包：nodemailer");
+	console.error("请先添加公共模块：vk-mail");
 }
 
 exports.main = async (event, context) => {
@@ -152,8 +153,8 @@ exports.main = async (event, context) => {
 	let subject = "标题";
   let text = `验证码 123456`;
 
-
-	let emailService = nodemailer.createTransport({
+  // 创建邮箱服务实例
+	let emailService = vkmail.createTransport({
 		"host": emailConfig[serviceType].host,
 		"port": emailConfig[serviceType].port,
 		"secure": emailConfig[serviceType].secure, // use SSL
@@ -161,12 +162,13 @@ exports.main = async (event, context) => {
 	});
 
 	try {
+    // 发送邮件
 		res.sendMailRes = await emailService.sendMail({
-			"from": emailConfig[serviceType].auth.user,
-			"to": email,
+			"from": emailConfig[serviceType].auth.user, // 邮件的发送者
+			"to": email, // 邮件的接收者
       "cc": emailConfig[serviceType].auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把右键抄送给自己一份，就不会被当成垃圾邮件。
-			"subject": subject,
-			"text": text
+			"subject": subject, // 邮件的标题
+			"text": text, // 邮件的内容
 		});
 		res.code = 0;
 		res.msg = "ok";
@@ -176,6 +178,77 @@ exports.main = async (event, context) => {
 		res.err = err;
 	}
 
+	return res;
+};
+
+```
+
+
+## 4.6、发送邮箱验证码示例代码（uniCloud通用版本，也是 node.js 通用版本）
+```js
+'use strict';
+
+var vkmail;
+try {
+	vkmail = require('vk-mail');
+} catch (err) {
+	console.error("请先添加公共模块：vk-mail");
+}
+
+exports.main = async (event, context) => {
+	let res = { code: 0, msg: "" };
+
+	let {
+		email, // 前端接收邮箱
+		type = "bind", // 前端接收验证码类型（如: login register bind unbind）
+	} = event;
+
+	// 支持QQ 163 等主流邮箱
+
+	let emailConfig = {
+		"host": "smtp.163.com",
+		"port": 465,
+		"secure": true,
+		"auth": {
+			"user": "xxxx@163.com", // 发件人邮箱账号
+			"pass": "xxxxxxxxxxxx", // 账号授权码
+		}
+	};
+
+	if (!email) return { code: -1, msg: "email不能为空" };
+	if (!type) return { code: -1, msg: "type不能为空" };
+
+	let code = Math.floor(Math.random() * 100000) + 100000;
+	let subject = `验证码 ${code}`;
+	let text = `验证码 ${code}，打死也不要告诉别人！`;
+
+	// 创建邮箱服务实例
+	let emailService = vkmail.createTransport({
+		"host": emailConfig.host,
+		"port": emailConfig.port,
+		"secure": emailConfig.secure, // use SSL
+		"auth": emailConfig.auth
+	});
+
+	try {
+		// 发送邮件
+		res.sendMailRes = await emailService.sendMail({
+			"from": emailConfig.auth.user, // 邮件的发送者
+			"to": email, // 邮件的接收者
+			"cc": emailConfig.auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把右键抄送给自己一份，就不会被当成垃圾邮件。
+			"subject": subject, // 邮件的标题
+			"text": text, // 邮件的内容
+		});
+		// 标记发送成功
+		res.code = 0;
+		res.msg = "ok";
+		// 发送验证码成功后，通常需要设置验证码（写入数据库）
+		// await uniID.setVerifyCode({ code, email, type });
+	} catch (err) {
+		res.code = -1;
+		res.msg = "邮件发送失败";
+		res.err = err;
+	}
 	return res;
 };
 
