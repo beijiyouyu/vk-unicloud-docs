@@ -541,6 +541,7 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
 | exportExcel     | 导出xls表格文件 |
 | deleteRows     | 删除指定的行（不删数据库数据） |
 | updateRows     | 更新指定的行数据（不更新据库数据） |
+| setTableData | 手动给表格重新赋值数据 |
 
 
 ### showDetail（显示详情页）
@@ -607,6 +608,16 @@ that.$refs.table1.exportExcel({
     { key:"b", title:"标题b", type:"text" },
   ]
 });
+```
+### 获取当前选中的行的数据（原始数据）
+```js
+let info = that.$refs.table1.getCurrentRow();
+console.log(info);
+```
+### 获取整个表格数据（原始数据）
+```js
+let info = that.$refs.table1.getTableData();
+console.log(info);
 ```
 ### 获取整个表格数据（格式化后的数据）
 ```js
