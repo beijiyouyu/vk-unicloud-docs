@@ -138,6 +138,20 @@ module.exports = {
 * 4、打开 `cloudfunctions/common/uni-config-center/uni-pay/wxpay/` 目录 (没有则新建)
 * 5、将 `wxpay.p12` 1个证书放在此目录下
 
+### notifyUrl 设置异步回调URL
+
+复制服务空间ID
+
+<img class="preview" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/4948f2d1-1a6e-414f-88eb-93642c92debf.png"/>
+
+进入服务空间详情
+
+<img class="preview" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/3aa0ccbf-8f53-45ad-ac4e-bb861fd0fb42.png"/>
+
+复制vk-pay支付回调函数的URL路径
+
+<img class="preview" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0a3398cd-a3aa-40fa-9078-622951a697de.png"/>
+
 #### 支付宝证书生成指南：[点击查看](https://opendocs.alipay.com/open/291/105971)
 
 #### 注意：因支付宝转账接口需要用到 `appCertSn` 和 `alipayRootCertSn`

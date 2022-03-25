@@ -95,16 +95,16 @@ const fs = require('fs');
 const path = require('path');
 module.exports = {
   /**
-   * 统一支付回调地址，格式为 "服务空间ID":"URL化地址"
+   * 统一支付回调地址，格式为 "服务空间SpaceID":"URL化完整地址"
    * 这里的本地开发并不是指 http://localhost:8080/ 的地址，而是另外一个服务空间的ULR化地址（如果你本地开发和线上环境共用同一个服务空间则只需要填线上环境的即可）
    * 回调的云函数地址，建议填 /http/vk-pay，因为vk-pay云函数已经写好了回调处理的逻辑，否则你需要自己写全部的回调逻辑。
    * 其中vk-pay是可以改名的，只需要修改 uniCloud/cloudfunctions/vk-pay/package.json 文件中的 "path": "/http/vk-pay", 把 /http/vk-pay 改成 /http/xxxx 即可(需要重新上传云函数vk-pay)。
    */
   "notifyUrl": {
     // 本地开发环境，如果你本地开发和线上环境共用同一个服务空间则只需要填线上环境的即可
-    "a4f90532-ac60-4a43-81c1-xxxxxxxxxxx1": "https://a4f90532-ac60-4a43-81c1-xxxxxxxxxxx1.bspapp.com/http/vk-pay",
+    "a4f90532-ac60-4a43-81c1-a5c4s3fbs66": "https://a4f90532-ac60-4a43-81c1-a5c4s3fbs66.bspapp.com/http/vk-pay",
     // 线上正式环境
-    "a4f90532-ac60-4a43-81c1-xxxxxxxxxxx2": "https://a4f90532-ac60-4a43-81c1-xxxxxxxxxxx2.bspapp.com/http/vk-pay"
+    "b5a9s861-ba20-dca5-56a2-bd3fbsasxz6": "https://b5a9s861-ba20-dca5-56a2-bd3fbsasxz6.bspapp.com/http/vk-pay"
   },
   /**
    * 微信
@@ -225,12 +225,18 @@ module.exports = {
 * 4、打开 `cloudfunctions/common/uni-config-center/uni-pay/wxpay/` 目录(没有则新建)
 * 5、将 `wxpay.p12` 1个证书放在此目录下
 
-* notifyUrl参数来源
+### notifyUrl 设置异步回调URL
+
 复制服务空间ID
+
 <img class="preview" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/4948f2d1-1a6e-414f-88eb-93642c92debf.png"/>
+
 进入服务空间详情
+
 <img class="preview" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/3aa0ccbf-8f53-45ad-ac4e-bb861fd0fb42.png"/>
+
 复制vk-pay支付回调函数的URL路径
+
 <img class="preview" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0a3398cd-a3aa-40fa-9078-622951a697de.png"/>
 
 ## 4、支付宝证书生成指南
