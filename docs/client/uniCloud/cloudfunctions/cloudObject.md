@@ -6,7 +6,7 @@
 
 云对象是云函数的集合，即N个函数写在同一个xx.js文件里。
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1d43d8fe-03f8-4536-b48f-22bb3aece202.png)
+<img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1d43d8fe-03f8-4536-b48f-22bb3aece202.png"/>
 
 ___在VK框架中，可以做到云对象和云函数同时存在。___
 
