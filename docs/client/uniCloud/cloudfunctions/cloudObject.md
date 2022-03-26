@@ -6,11 +6,11 @@
 
 云对象是云函数的集合，即N个函数写在同一个xx.js文件里。
 
-<img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1d43d8fe-03f8-4536-b48f-22bb3aece202.png"/>
-
 ___在VK框架中，可以做到云对象和云函数同时存在。___
 
 ___即在VK框架中，同时支持云对象路由模式和云函数路由模式。___
+
+<img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1d43d8fe-03f8-4536-b48f-22bb3aece202.png"/>
 
 ## 云对象能带来什么？与之前的单文件云函数模式相比有什么优势？
 
