@@ -38,8 +38,25 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
 
 ```
 
-## 3.2、配置阿里云短信
-#### 定位到公共模块`config`的`vk.service.sms`
+## 3.2、配置unicloud短信
+#### 定位到文件 `common/uni-config-center/uni-id/config.json` 的 `service.sms`
+```js
+"sms": {
+  "name": "重要",
+  "codeExpiresIn": 180,         // 验证码过期时间，单位为秒，注意一定要是60的整数倍
+  "smsKey": "你的smsKey",       // 短信密钥key，开通短信服务处可以看到 https://dev.dcloud.net.cn/uniSms
+  "smsSecret": "你的smsSecret", // 短信密钥secret，开通短信服务处可以看到 https://dev.dcloud.net.cn/uniSms
+  "templateId": "你的短信模板ID" // 发送验证码的短信模板ID
+},
+
+
+```
+
+## 3.3、配置阿里云短信
+
+___这里的阿里云短信指的是阿里云官方买的短信接口，非 unicloud短信接口___
+
+#### 定位到文件 `common/uni-config-center/vk-unicloud/index.js` 的 `vk.service.sms`
 ```js
 // 短信服务
 "sms": {
@@ -54,19 +71,5 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
     }
   }
 },
-
-```
-
-## 3.3、配置unicloud短信
-#### 定位到公共模块`config`的`uni.service.sms`
-```js
-"sms": {
-  "name": "重要",
-  "codeExpiresIn": 180,         // 验证码过期时间，单位为秒，注意一定要是60的整数倍
-  "smsKey": "你的smsKey",       // 短信密钥key，开通短信服务处可以看到 https://dev.dcloud.net.cn/uniSms
-  "smsSecret": "你的smsSecret", // 短信密钥secret，开通短信服务处可以看到 https://dev.dcloud.net.cn/uniSms
-  "templateId": "你的短信模板ID" // 发送验证码的短信模板ID
-},
-
 
 ```
