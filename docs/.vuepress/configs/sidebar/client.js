@@ -62,6 +62,7 @@ module.exports = [{
           'uniCloud/cloudfunctions/question',
         ]
       },
+      'uniCloud/cloudfunctions/cloudObject',
       {
         title: '数据库',
         collapsable: true,
