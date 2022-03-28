@@ -10,7 +10,7 @@ ___在VK框架中，可以做到云对象和云函数同时存在。___
 
 ___即在VK框架中，同时支持云对象路由模式和云函数路由模式。___
 
-<img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1d43d8fe-03f8-4536-b48f-22bb3aece202.png"/>
+<img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/16b7382b-9f27-4c16-8b04-9098f60c6b05.png"/>
 
 ## 云对象能带来什么？与之前的单文件云函数模式相比有什么优势？
 
