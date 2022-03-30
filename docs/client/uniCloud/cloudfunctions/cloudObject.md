@@ -266,7 +266,7 @@ module.exports = {
 
 **注意**
 
-判断用户是否登录框架已经内置，无需再写代码判断用户是否登录。
+判断用户是否登录框架已经内置，无需再写代码判断用户是否登录。[查看内置权限](#内置权限)
 
 ### _after（后处理）
 
@@ -297,7 +297,7 @@ module.exports = {
 
 ## 内置权限
 
-
+云对象已内置以下权限类型。
 
 ### pub（无需登录即可访问的函数类型）
 
@@ -324,6 +324,18 @@ module.exports = {
 - 2、云对象以 `sys.js` 命名 或以 `sys.xxx.js` 命名（xxx可以是任意字符串，如：`sys.user.js`）（权重2）
 - 3、云对象写在 `sys` 目录下，如：`sys/user.js`（权重1）
 
+sys类型的函数通常用于admin端，如商城系统角色分为 
+
+- 管理员：可以进行所有操作。
+- 财务：只能执行财务相关的操作，如：查看报表、提现等。
+- 仓储：只能执行订单相关的操作，如：订单查看、发货等。
+- 客服：只能执行客户、订单相关的查询操作，如：查看客户信息，查看订单信息。
+- 老板：可以查看所有数据，但不可以修改和删除。如：查看报表、查看商城统计数据等。
+
+**框架会通过用户拥有的角色权限，自动判断拦截请求。**
+
+**拦截原理：通过admin端权限管理（设置某权限可以执行哪些云函数）、角色管理（角色赋予权限）、用户管理（用户赋予角色）完成。**
+
 ### _（禁止访问，私有函数类型）
 
 **满足以下任意一条规则，即为 `私有` 类型函数**
@@ -344,28 +356,299 @@ module.exports = {
 
 ### 如何编写云对象？
 
-文档整理中。。。
+以创建 client 端 用户业务为例。
 
-敬请期待！
+**手动版**
+
+- 1、在 `router/service/client/` 目录新建 `user.js` 文件
+- 2、复制 [云对象模板代码](#云对象模板代码) 覆盖 `user.js` 文件内容
+- 3、完成
+
+**自动版（敬请期待）**
+
+- 1、在 `router/service/client/` 目录右键，依次点击VK - 新建云对象
+- 2、输入云对象名称，点击创建
+- 3、完成
+
+### 云对象模板代码
+
+以下是一个完整的云对象代码，里面包含了 `getInfo` 、 `getList` 两个函数，以及 两个内置函数 `_before` 和 `_after`
+
+```js
+'use strict';
+var vk; // 全局vk实例
+// 涉及的表名
+const dbName = {
+	//test: "vk-test", // 测试表
+};
+
+var db = uniCloud.database(); // 全局数据库引用
+var _ = db.command; // 数据库操作符
+var $ = _.aggregate; // 聚合查询操作符
+/**
+ * 权限注意：访问以下链接查看
+ * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#内置权限
+ */
+var cloudObject = {
+	isCloudObject: true, // 标记为云对象模式
+	/**
+	 * 请求前处理，主要用于调用方法之前进行预处理，一般用于拦截器、统一的身份验证、参数校验、定义全局对象等。
+	 * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#before-预处理
+	 */
+	_before: async function() {
+		vk = this.vk; // 将vk定义为全局对象
+		// let { customUtil, uniID, config, pubFun } = this.getUtil(); // 获取工具包
+	},
+	/**
+	 * 请求后处理，主要用于处理本次调用方法的返回结果或者抛出的错误
+	 * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#after-后处理
+	 */
+	_after: async function(obj) {
+		let { err, res } = obj;
+		if (err) {
+			return; // 如果方法抛出错误，直接return;不处理
+		}
+		return res;
+	},
+	/**
+	 * 模板函数
+	 * @url client/muban.getInfo 前端调用的url参数地址
+	 */
+	getInfo: async function(data) {
+		let { uid } = this.getClientInfo(); // 获取客户端信息
+		let userInfo = await this.getUserInfo(); // 获取当前登录的用户信息
+		let res = { code: 0, msg: '' };
+		// 业务逻辑开始-----------------------------------------------------------
+		console.log("请求参数", data);
+		res.userInfo = userInfo; // 返回前端当前登录的用户信息
+		
+		// 业务逻辑结束-----------------------------------------------------------
+		return res;
+	},
+	/**
+	 * 模板函数
+	 * @url client/muban.getList 前端调用的url参数地址
+	 */
+	getList: async function(data) {
+		let { uid, filterResponse, originalParam } = this.getClientInfo(); // 获取客户端信息
+		let res = { code: 0, msg: '' };
+		// 业务逻辑开始-----------------------------------------------------------
+		console.log("请求参数", data);
+
+
+		// 业务逻辑结束-----------------------------------------------------------
+		return res;
+	}
+};
+
+module.exports = cloudObject;
+```
 
 ### 前端如何调用云对象？
 
-文档整理中。。。
+调用云对象有两种方式。
 
-敬请期待！
+___注意: vk = this.vk 或 vk = uni.vk___
+
+**方式一：使用 vk.callFunction**
+
+**回调形式**
+
+```js
+// 回调形式 success fail complete
+vk.callFunction({
+  url: '云对象函数路径',
+  title:'请求中...',
+  data:{
+    // 请求参数
+    a:1,
+    b:"2"
+  },
+  success(data) => {
+    // 成功后的逻辑
+  }
+});
+```
+
+**promise形式**
+```js
+// promise方式
+vk.callFunction({
+  url: '云对象函数路径',
+  title:'请求中...',
+  data:{
+    // 请求参数
+    a:1,
+    b:"2"
+  }
+}).then((data) => {
+   // 成功后的逻辑
+}).catch((err) => {
+   
+});
+```
+**async/await形式**
+
+此方式只能在声明了 async 的函数中运行。
+
+```js
+// async/await方式
+let data = await vk.callFunction({
+  url: '云对象函数路径',
+  title:'请求中...',
+  data:{
+    // 请求参数
+    a:1,
+    b:"2"
+  }
+});
+```
+
+
+**云对象函数路径获取方式**
+
+云对象函数路径 = service内的目录名+对象名+函数名
+
+如：`client/user.getInfo` 代表调用 client 目录下的 user 对象内的 getInfo 函数。
+
+
+**方式二：使用 uni.vk.importObject**
+
+方式二分两步
+
+第一步：导入云对象。
+
+```js
+const userObject = uni.vk.importObject("client/user"); // 这段代码可以写在外层顶部，也可以直接写在对应函数内部。
+
+```
+
+第二步：调用云对象内的函数。
+
+**回调形式**
+
+```js
+// 回调形式 success fail complete
+userObject.getInfo({
+  title:'请求中...',
+  data:{
+    // 请求参数
+    a:1,
+    b:"2"
+  },
+  success(data) => {
+    // 成功后的逻辑
+  }
+});
+```
+
+**promise形式**
+```js
+// promise方式
+userObject.getInfo({
+  title:'请求中...',
+  data:{
+    // 请求参数
+    a:1,
+    b:"2"
+  }
+}).then((data) => {
+   // 成功后的逻辑
+}).catch((err) => {
+   
+});
+```
+**async/await形式**
+
+此方式只能在声明了 async 的函数中运行。
+
+```js
+// async/await方式
+let data = await userObject.getInfo({
+  title:'请求中...',
+  data:{
+    // 请求参数
+    a:1,
+    b:"2"
+  }
+});
+```
+
+
 
 
 ## 本地运行
 
-文档整理中。。。
+**VK框架下的云对象是支持本地运行的（官方的云对象目前不支持）**
 
-敬请期待！
+本地运行方式跟云函数一致，
+
+**具体操作步骤：**
+
+- 1、右键 router 目录，点击 【配置运行测试参数】，会在 router 根目录生成一个 `router.param.json` 文件
+- 2、复制下方代码到 `router.param.json` 文件内覆盖原本内容
+```json
+{
+	"uni_id_token":"",
+	"$url":"client/user.getInfo",
+	"data":{
+		"a":1,
+    "b":"2"
+	}
+}
+```
+- 3、右键 router 目录，点击【运行-本地云函数】，完成。
 
 ## 云对象URL化
 
-文档整理中。。。
+与云函数基本一致
 
-敬请期待！
+[点击查看](https://vkdoc.fsq.pub/client/question/q2.html)
 
+## 云对象URL化之URL重写
 
+云对象的URL会带. 如：`https://www.aaa.com/http/router/client/user.getInfo`
 
+如果你的URL尾部不想要带. 则可以使用 `URL重写` 来达到效果。
+
+你可以将 `https://www.aaa.com/http/router/client/user.getInfo` 重写为 `https://www.aaa.com/http/router/client/user/getInfo`
+
+重写规则为：
+
+```js
+module.exports = {
+  "rule": {
+    "^client/user/(.+)": "client/user.$1"
+  },
+  "config": {
+    // 当设置为true时，只有符合url重写规则内的云函数才可以被url化访问。
+    "accessOnlyInRule":false
+  }
+};
+```
+
+[点击查看详细说明](https://vkdoc.fsq.pub/client/question/q2.html)
+
+## 访问HTTP服务
+
+与云函数一致
+
+[点击查看](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/http.html)
+
+## 定时器
+
+与云函数一致，定时器是需要额外创建传统云函数的。
+
+[点击查看](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/timer.html)
+
+## 使用crypto进行加密解密
+
+___与云函数一致，crypto 是 Nodejs 的内置模块，提供了加密功能，包括对 OpenSSL 的哈希、HMAC、加密、解密、签名、以及验证功能的一整套封装。___
+
+[点击查看](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/crypto.html)
+
+## 云对象操作常见问题
+
+与云函数一致
+
+[点击查看](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/question.html)
