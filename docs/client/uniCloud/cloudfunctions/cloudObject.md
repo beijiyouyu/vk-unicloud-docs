@@ -645,7 +645,7 @@ module.exports = {
 
 ## 使用crypto进行加密解密
 
-___与云函数一致，crypto 是 Nodejs 的内置模块，提供了加密功能，包括对 OpenSSL 的哈希、HMAC、加密、解密、签名、以及验证功能的一整套封装。___
+与云函数一致，crypto 是 Nodejs 的内置模块，提供了加密功能，包括对 OpenSSL 的哈希、HMAC、加密、解密、签名、以及验证功能的一整套封装。
 
 [点击查看](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/crypto.html)
 
