@@ -17,7 +17,7 @@ exports.main = async (event, context) => {
       total_fee: 1, // 订单金额(单位分 100 = 1元)
       subject: "订单标题",
       type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。",
-      // 自定义数据，不可与外部重复（custom内的参数不会发送给微信、支付宝）
+      // 自定义回调数据，能在回调事件获取到以下数据，回调函数中通过 let { out_trade_no, user_id, recharge_balance } = data;方式获取（不可与data内的一级属性名重复）
       custom:{
         
       },
