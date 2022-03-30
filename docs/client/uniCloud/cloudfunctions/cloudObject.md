@@ -77,7 +77,7 @@ module.exports = {
 |uniIdToken	|string	|是		|客户端用户token								|
 |uid	|string	|否		| 框架通过token解析出来的uid（可信任）	|
 |filterResponse	|object	|否		| 框架中间件返回值（middleware/modules内的中间件）[查看详情](https://vkdoc.fsq.pub/client/uniCloud/middleware/filter.html)	|
-|originalParam	|object	|是		| 原始请求参数，与云函数一致 [查看详情](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/originalParam.html)	|
+|originalParam	|object	|是		| 原始请求参数，特殊情况下需要	|
 
 
 ### this.getUserInfo（获取当前登录用户信息）
