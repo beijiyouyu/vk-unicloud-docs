@@ -115,7 +115,7 @@ export default {
 |------------------|-----------------------|---------|--------|-------|
 | v-model           | 表单数据源            | Object | {}      | - |
 | rules       | 表单验证规则 [查看规则](#rules)| Object  | 无 | -  |
-| action   | vk框架云函数地址 | String  | 无 | -  |
+| action   | vk框架云函数地址(表单提交地址：表单点击确定按钮后请求的云函数地址) | String  | 无 | -  |
 | before-action   | action请求前拦截器 [查看示例代码](#before-action) | Function  | 无 | -  |
 | is-request    | 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
 | form-type       | 表单类型，用于复用表单 [查看表单复用](#show) | String  | 无 | -  |
