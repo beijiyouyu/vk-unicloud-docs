@@ -19,9 +19,9 @@ module.exports = {
       (function() {
         var hm = document.createElement("script");
         hm.src = "https://hm.baidu.com/hm.js?5610a25d9f3fb54501186ba76a46f720";
-        var s = document.getElementsByTagName("script")[0]; 
+        var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
-      })();
+      })(); 
       `
     ]
   ],
