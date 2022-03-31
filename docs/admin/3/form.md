@@ -381,6 +381,12 @@ form1:{
     // 特殊类型
     { key:"", title:"特殊类型", type:"bar-title" },
     { key:"editor", title:"富文本类型", type:"editor" },
+    // 纯展示类型
+    { key:"", title:"纯展示类型", type:"bar-title" },
+    { key:"text100", title:"文本展示类型", type:"text-view" },
+    { key:"text101", title:"金额展示类型", type:"money-view" },
+    { key:"html102", title:"html展示类型", type:"html" },
+    
   ]
 }
 ```
