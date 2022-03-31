@@ -659,11 +659,11 @@ module.exports = {
 
 [点击查看](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/crypto.html)
 
-## 云对象内A函数调用B函数
+## 同一个云对象内A函数调用B函数
 
 在同一个云对象内，可以通过 `await this.xxx()` 来调用其他函数，xxx为函数名。
 
-## 云对象内A函数调用另外一个云对象的B函数
+## A云对象内的函数调用B云对象的函数
 
 **不支持**
 
