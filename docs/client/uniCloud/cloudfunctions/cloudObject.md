@@ -1,6 +1,6 @@
 # 云对象
 
-> 新增于 vk-unicloud 2.8.0
+> 新增于 vk-unicloud 2.8.0（于 2022-04-01 发布）
 
 ## 云对象是什么？
 
@@ -10,7 +10,13 @@ ___在VK框架中，可以做到云对象和云函数同时存在。___
 
 ___即在VK框架中，同时支持云对象路由模式和云函数路由模式。___
 
-<img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/16b7382b-9f27-4c16-8b04-9098f60c6b05.png"/>
+- 1、VK框架使用云对象前的目录结构
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/ff8f0028-9a9c-464c-9c92-f900ac5354ba.png)
+
+- 2、VK框架使用云对象后的目录结构
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1f4c0851-99e9-4fe1-8ab9-cbedee407002.png)
 
 ## 云对象能带来什么，优势是？
 
