@@ -415,8 +415,8 @@ var cloudObject = {
 	 * 请求后处理，主要用于处理本次调用方法的返回结果或者抛出的错误
 	 * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#after-后处理
 	 */
-	_after: async function(obj) {
-		let { err, res } = obj;
+	_after: async function(options) {
+		let { err, res } = options;
 		if (err) {
 			return; // 如果方法抛出错误，直接return;不处理
 		}
