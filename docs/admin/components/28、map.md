@@ -58,3 +58,40 @@ key的申请地址：[点击查看](https://lbs.qq.com/)
 ```html
 <vk-data-input-map v-model="value" placeholder="请选择地图" :width="600" :height="300"></vk-data-input-map>
 ```
+
+### 组件双向绑定的值格式
+
+**示例**
+
+```json
+{
+  "name": "西湖风景名胜区",
+  "address": "龙井路1号",
+  "latitude": 30.224781,
+  "longitude": 120.12438,
+  "formatted_address": "浙江省杭州市西湖区龙井路1号",
+  "province": {
+    "code": "330000",
+    "name": "浙江省"
+  },
+  "city": {
+    "code": "330100",
+    "name": "杭州市"
+  },
+  "area": {
+    "code": "330106",
+    "name": "西湖区"
+  }
+}
+```
+
+| 参数             | 说明                           | 类型    | 
+|------------------|-------------------------------|---------|
+| name    | 地图上的名称，如：西湖风景名胜区 | String  | 
+| address   | 街道地址，如：龙井路1号 | String  | 
+| latitude   | 纬度，如：30.224781 | Number  | 
+| longitude   | 经度，如：120.12438 | Number  | 
+| formatted_address   | 完整地址，如：浙江省杭州市西湖区龙井路1号| String  | 
+| province   | 省份 | Object {"code": "330000","name": "浙江省"} |
+| city   | 地级市 | Object  {"code": "330100","name": "杭州市"} |
+| area   | 县级市 | Object  {"code": "330106","name": "西湖区"} |
