@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"position", title:"地图位置", type:"map", width:600, height:300, defaultLocation:{ latitude: 30.224781, longitude: 120.12438 } },
+{ key:"position", title:"地图位置", type:"map", width:600, height:300, defaultLocation:{ latitude: 30.224781, longitude: 120.12438 } }
 ```
 
 **注意**

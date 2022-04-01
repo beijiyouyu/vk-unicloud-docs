@@ -55,7 +55,8 @@ module.exports = [{
       'components/24、array',
       'components/25、file-select',
       'components/26、icon',
-      'components/27、tree-select'
+      'components/27、tree-select',
+      'components/28、map'
     ]
   },
   {
