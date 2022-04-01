@@ -154,7 +154,7 @@ mounted() {
 
 ## 如何发布admin系统到unicloud前端网页托管?
 
-依次点击HBX的 发行 - 上传网站到服务器
+依次点击HBX的 发行 - 上传网站到服务器（注意，目前只有阿里云的云空间支持在HBX上直接上传）
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/b7996a5b-6b2c-41e6-8820-a790fabfc091.png)
 
