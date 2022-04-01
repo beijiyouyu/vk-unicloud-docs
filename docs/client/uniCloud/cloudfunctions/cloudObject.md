@@ -460,7 +460,7 @@ module.exports = cloudObject;
 
 调用云对象有两种方式。
 
-___注意: vk = this.vk 或 vk = uni.vk___
+___注意： vk = this.vk 或 vk = uni.vk___
 
 **方式一：使用 vk.callFunction**
 
@@ -526,13 +526,13 @@ let data = await vk.callFunction({
 
 **方式二：使用 uni.vk.importObject**
 
+
 方式二分两步
 
 第一步：导入云对象。
 
 ```js
 const userObject = uni.vk.importObject("client/user"); // 这段代码可以写在外层顶部，也可以直接写在对应函数内部。
-
 ```
 
 第二步：调用云对象内的函数。
