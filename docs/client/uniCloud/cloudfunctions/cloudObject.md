@@ -377,7 +377,7 @@ sys类型的函数通常用于admin端，如商城系统角色分为
 **自动版需要下载 [VK框架快速开发辅助工具](https://ext.dcloud.net.cn/plugin?id=6663)**
 
 - 1、在 `router/service/client/` 目录右键，依次点击VK - 新建云对象
-- 2、输入云对象名称，点击创建
+- 2、输入云对象名称 `user`，并点击确定
 - 3、完成
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/613e4fb9-c562-46b4-8426-411797d218a6.png)
