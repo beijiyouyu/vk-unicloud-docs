@@ -517,9 +517,9 @@ let data = await vk.callFunction({
 ```
 
 
-**云对象函数路径获取方式**
+**云对象函数路径url获取方式**
 
-云对象函数路径 = service内的目录名+对象名+函数名
+云对象函数路径url = service内的目录名+对象名+函数名
 
 如：`client/user.getInfo` 代表调用 client 目录下的 user 对象内的 getInfo 函数。
 
