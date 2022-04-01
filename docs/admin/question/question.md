@@ -152,8 +152,19 @@ mounted() {
 }
 ```
 
+## 如何发布admin系统到unicloud前端网页托管?
 
+依次点击HBX的 发行 - 上传网站到服务器
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/b7996a5b-6b2c-41e6-8820-a790fabfc091.png)
+
+## 如何发布admin系统到自己的web服务器?
+
+依次点击HBX的 发行 - 网站-PC-Web - 输入你的网站域名
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/3fd36d06-e901-4a77-8489-01dfe5cfc492.png)
+
+打包完成 HBX控制台会提示源码文件位置，将源码上传到你自己的web服务器对应目录即可。
 
 <style scoped>
 h1{
