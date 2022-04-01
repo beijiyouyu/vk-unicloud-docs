@@ -611,14 +611,14 @@ let data = await userObject.getInfo({
 	}
 }
 ```
-- 3、右键 router 目录，点击【运行-本地云函数】，完成。
+- 3、右键 router 目录，点击【运行-本地云函数】（也可以按快捷键 ctrl + r，再按回车）
 
 **自动版**
 
 **自动版需要下载 [VK框架快速开发辅助工具](https://ext.dcloud.net.cn/plugin?id=6663)**
 
 - 1、先选中云对象内的某个函数名，再右键依次点击 VK-本地运行云函数（此时页面会跳到 `router.param.json` 文件内且自动修改$url的值）
-- 2、再右键 router 目录，点击【运行-本地云函数】，完成。
+- 2、再右键 router 目录，点击【运行-本地云函数】（也可以按快捷键 ctrl + r，再按回车）
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/e647fdbb-dedb-433e-b5c9-1f15b9349a1c.png)
 
