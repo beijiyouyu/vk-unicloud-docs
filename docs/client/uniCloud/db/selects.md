@@ -226,6 +226,7 @@ res = await vk.baseDao.selects({
     _id: "$user_id", // _id是分组id，这里指按user_id字段进行分组
     user_id: _.$.first("$user_id"), // 这里是为了把user_id原样输出
     payment_amount: _.$.sum("$payment_amount"), // sum求和支付金额
+    count: _.$.sum(1), // count记录条数
   },
   sortArr: [{ name: "payment_amount",type: "desc" }], // 对分组后的结果进行排序
   // 副表列表
@@ -236,7 +237,7 @@ res = await vk.baseDao.selects({
     as: "userInfo",
     limit: 1
   }],
-  // 最后的where，主要用于对分组后的结果再进行筛选 如：筛选金额大于1000才能上榜
+  // 最后的where，主要用于对分组后的结果再进行筛选 如：筛选金额大于1000才能上榜（这里的lastWhereJson在数据量大的情况下是有性能问题的，（建议主表的where条件中先进行筛选，如只查本季度数据，只要主表过滤完后数据量不大，则没有性能问题。）
   lastWhereJson:{
     payment_amount:_.gt(1000)
   }
