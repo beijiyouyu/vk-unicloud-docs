@@ -59,7 +59,7 @@ module.exports = [{
           'uniCloud/cloudfunctions/formRules',
           'uniCloud/cloudfunctions/originalParam',
           'uniCloud/cloudfunctions/urlOriginalParam',
-          'uniCloud/cloudfunctions/question',
+          'uniCloud/cloudfunctions/question'
         ]
       },
       'uniCloud/cloudfunctions/cloudObject',
