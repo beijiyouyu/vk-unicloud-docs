@@ -37,7 +37,8 @@ try {
     id:"001"
   });
   if (endRes.account_balance < 0) {
-    transaction.rollback(-100);
+    // 事务回滚
+    await transaction.rollback();
     return {
       code:-1,
       msg:"用户001账户余额不足",
