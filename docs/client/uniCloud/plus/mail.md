@@ -6,7 +6,7 @@
 * 3、点击`常规` `帐户` `换肤` 中的 `帐户`
 * 4、POP3/SMTP服务 点击开启
 * 5、复制授权码
-* 6、粘贴到`common`目录的`config`模块下的
+* 6、粘贴到 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 配置文件中
 ```js
 "vk":{
   "service": {
@@ -29,7 +29,7 @@
 * 1、登录163邮箱
 * 2、`邮箱首页` | `设置` - `POP3/SMTP服务` - 开启 `POP3/SMTP服务`
 * 3、复制授权码
-* 4、粘贴到`common`目录的`config`模块下的
+* 4、粘贴到 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 配置文件中
 ```js
 "vk":{
   "service": {
