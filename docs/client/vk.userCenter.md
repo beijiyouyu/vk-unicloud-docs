@@ -566,6 +566,29 @@ vk.userCenter.sendEmailCode({
 });
 ```
 
+### vk.userCenter.resetPasswordByEmail（根据邮箱证码重置账号密码）
+
+```js
+/**
+ * 根据邮箱证码重置账号密码
+ * data 请求参数 说明
+ * @param {String} password 重置后的密码
+ * @param {String} code 验证码
+ * @param {String} email 邮箱号码
+ */
+vk.userCenter.resetPasswordByEmail({
+  data: {
+    password: "123456",
+    code: "",
+    email: ""
+  },
+  success: function(data) {
+    // 成功后的逻辑
+
+  }
+});
+```
+
 ## 微信
 
 ### vk.userCenter.loginByWeixin（微信登录）
