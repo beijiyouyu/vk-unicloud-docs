@@ -7,6 +7,7 @@
   "tokenSecret": "tokenSecret-demo",      // 生成token所用的密钥，修改会导致所有用户之前的token失效。
   "tokenExpiresIn": 604800,               // 全平台token过期时间，未指定过期时间的平台会使用此值，604800代表7天
   "tokenExpiresThreshold": 3600,          // 新增于uni-id 1.1.7版本，checkToken时如果token有效期小于此值则自动获取新token，如果不配置此参数则不开启自动获取新token功能
+  "tokenMaxLimit":0,                      // 每个账户的最大token数量，0为不限，淘汰策略：新的淘汰旧的（注意，即使设置为0，框架也会自动淘汰已过期的token）
   "passwordErrorLimit": 6,                // 密码错误最大重试次数
   "bindTokenToDevice": false,             // 是否将token和设备绑定，设置为true会进行ua校验
   "passwordErrorRetryTime": 3600,         // 密码错误重试次数超限之后的冻结时间
