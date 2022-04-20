@@ -17,6 +17,8 @@ export default {
   error: {
     url: '/pages/error/404/404'
   },
+  // 前端默认时区（中国为8）
+  targetTimezone:8, 
   // 日志风格
   logger:{
     colorArr:[

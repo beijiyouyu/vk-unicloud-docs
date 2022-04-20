@@ -14,7 +14,9 @@ module.exports = {
       // 若serviceShutdow:true，则所有云函数无法访问（适用于需要临时关闭后端服务的情况，如迁移数据）
       // 注意：本地调试时，需要重新启动本地服务才能生效。
       "serviceShutdown":false,
-      "serviceShutdownDescription":"系统维护中，预计2小时恢复!"
+      "serviceShutdownDescription":"系统维护中，预计2小时恢复!",
+      // 云函数默认时区（中国为8）
+      "targetTimezone": 8
     },
     "service": {
       // 邮箱发送服务
