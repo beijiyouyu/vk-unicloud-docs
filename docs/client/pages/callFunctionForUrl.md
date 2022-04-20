@@ -34,18 +34,15 @@ this.vk.callFunction({
 
 ___如果 `云函数url化` 是给外部访问（不在uniapp内访问），则不需要以下配置。___
 
-`main.js` 在代码`Vue.use(vk); `的下方添加
+**以下配置是让你的项目默认使用URL化方式调用云函数**
+在根目录的全局配置文件 `app.config.js` 的 `functionName: "router",` 下方新增以下配置
 ```js
-// 自定义云函数路由配置
-Vue.prototype.vk.callFunctionUtil.setConfig({
-  functionNameToUrl:{
-    // 云函数路由（主函数url化地址）
-    "router":"https://xxxxxxx.bspapp.com/http/router",
-    // 云函数路由（开发测试函数url化地址）
-    "router-test":"https://xxxxxxx.bspapp.com/http/router-test"
-  }
-});
-
+// 云函数对应的url化地址
+functionNameToUrl:{
+  "router":"https://fa72b138-15f6-47c4-994e-8bdc2353fc98.bspapp.com/http/router",
+},
+// vk.callFunction的isRequest的默认值，
+isRequestDefault: true,
 ```
 
 ### 使用axios、jquery等工具访问云函数方式(云函数url化外部访问) [点击查看](https://vkdoc.fsq.pub/client/question/q2.html)
