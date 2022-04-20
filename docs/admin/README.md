@@ -1,13 +1,15 @@
 # 关于vk-unicloud-admin框架
 
 ### 什么是 `vk-unicloud-admin` ？
-* `vk-unicloud-admin` 是基于 `unicloud` + `uni-id` +`element` + `vk-unicloud-router` 的一套快速 `PC admin` 完整开发框架
+
+* `vk-unicloud-admin` 是基于 `uniapp` + `unicloud` + `uni-id` + `vk-unicloud-router` + `element` 的一套快速 `PC admin` 完整开发框架
 * （只兼容PC，只为PC admin而生）
 
 <img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/ad18e7d6-ae0e-4424-bf3d-6e3dad1036a1.png"/>
 
 ### 与官方 `unicloud-admin` 的关系？
-没有太大关系，用户在此框架上的编码风格与 `unicloud-admin` 差别较大。但框架兼容 `unicloud-admin` 
+
+没有太大关系，用户在此框架上的编码风格与 `unicloud-admin` 差别较大。但框架兼容 `unicloud-admin`（官方的admin插件可以直接用在 `vk-unicloud-admin` 中）如：[APP升级中心](https://vkdoc.fsq.pub/admin/question/question.html#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9-unicloud-admin-%E7%9A%84%E6%8F%92%E4%BB%B6-%E5%A6%82-app%E5%8D%87%E7%BA%A7%E4%B8%AD%E5%BF%83)
 
 ### 已经有了官方的 `unicloud-admin`，为什么还要出 `vk-unicloud-admin`，Ta的优势是什么 ？
 
@@ -23,6 +25,8 @@
 * 10、内置3个主题（纯黑，纯白，黑白）且支持自定义主题。[点击查看主题](https://vkdoc.fsq.pub/admin/1/theme.html)
 * 11、群内众多开发者，关于框架使用问题几乎有问必答。Q群：22466457
 * 12、更多功能敬请体验。
+
+**使用 `vk-unicloud-admin` 后，即使你是一个纯后端，不会写任何css，照样可以写出功能强大且页面好看的admin管理系统。**
 
 
 ### 核心功能
