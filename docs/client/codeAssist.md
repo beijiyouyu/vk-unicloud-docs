@@ -12,6 +12,20 @@ ___作者：`VK`___
 
 > [插件安装地址](https://ext.dcloud.net.cn/plugin?id=6663)
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/13d1526d-f3c1-4626-8e4e-fe13066af7f9.png)
+
+## 更新
+
+点击HBX上方菜单【工具】- 【插件安装】找到插件，点击【升级】
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/4bbd16a1-6978-42c0-8cc0-043440698dca.png)
+
+## 卸载
+
+点击HBX上方菜单【工具】- 【插件安装】找到插件，点击【卸载】
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/efe3d294-9a11-4495-aa4c-ebacc999c694.png)
+
 ## 功能列表
 
 ### 1、复制页面路径
