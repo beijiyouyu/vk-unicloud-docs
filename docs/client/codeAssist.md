@@ -89,25 +89,23 @@ ___作者：`VK`___
 
 ### 如何设置快捷键
 
-* 复制页面路径的命令是：extension.vk_copyPagePath
+| 快捷键命令                           | 说明                           |
+|-------------------------------------|-------------------------------|
+| extension.vk_copyPagePath           | 复制页面路径                   |
+| extension.vk_copyFunctionPath       | 复制云函数路径                 |
+| extension.vk_copyFunctionPathRunCloudfunctions | 本地运行云函数      |
+| extension.vk_createCloudfunctions   | 新建云函数                     |
+| extension.vk_createDao              | 新建Dao文件                    |
+| extension.vk_createEncryptConfig    | 一键生成云函数加密配置          |
+| extension.vk_schema2code            | schema2code（vk-admin版）     |
+| extension.vk_insertLog              | 快速插入日志                   |
+| extension.vk_deleteAllLog1          | 一键删除所有log类型日志         |
+| extension.vk_deleteAllLog2          | 一键删除所有类型日志            |
+| extension.vk_createCloudObject      | 新建云对象                     |
 
-* 复制云函数路径的命令是：extension.vk_copyFunctionPath
-
-* 新建云函数的命令是：extension.vk_createCloudfunctions
-
-* 新建Dao文件的命令是：extension.vk_createDao
-
-* 一键生成云函数加密配置的命令是：extension.vk_createEncryptConfig
-
-* schema2code（vk-admin版）的命令是：extension.vk_schema2code
-
-* 快速插入日志的命令是：extension.vk_insertLog
-
-* 一键删除所有log类型日志的命令是：extension.vk_deleteAllLog1
-
-* 一键删除所有类型日志的命令是：extension.vk_deleteAllLog2
 
 点击hbx菜单工具、自定义快捷键，将下方代码复制到右侧的[]内
+
 
 ```js
 
