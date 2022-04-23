@@ -34,37 +34,57 @@ ___作者：`VK`___
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/a55536a0-583b-495d-9cf0-7913c50332c9.png)
 
 ### 2、复制VK云函数路由框架内的云函数路径
-在云函数文件右键，点击VK-制云函数路径（同时支持在打开的文件代码编辑器中右键）
+在云函数文件右键，点击VK-复制云函数路径（同时支持在打开的文件代码编辑器中右键）
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/6c5262f5-2ed3-43da-95cf-dd558c86dfa8.png)
 
-### 3、新建云函数
-在需要新建的云函数目录右键，点击VK-新建云函数
+### 3、复制VK云函数路由框架内的云对象下的云函数路径
+需要先选中云对象内的某个函数名，再右键-VK-本地运行云函数
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/e647fdbb-dedb-433e-b5c9-1f15b9349a1c.png)
+
+### 4、新建云函数
+在需要新建云函数的目录右键，点击VK-新建云函数
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/32c0b56e-1e71-4c2c-8bb6-1dfc966f8342.png)
 
-### 4、新建Dao
+### 5、新建云对象
+在需要新建云对象的目录右键，点击VK-新建云对象
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/613e4fb9-c562-46b4-8426-411797d218a6.png)
+
+### 6、新建Dao
 在dao/modules/目录右键，点击VK-新建Dao
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/066fed7d-11fe-4c72-91a3-a8a0e6390be8.png)
 
-### 5、一键生成云函数加密配置
+### 7、本地运行云函数
+右键云函数，点击VK-本地运行云函数
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/f0e2ff43-8e54-45b3-bc93-3cd5f461f38f.png)
+
+### 8、本地运行云对象
+需要先选中云对象内的某个函数名，再右键-VK-本地运行云函数
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/e647fdbb-dedb-433e-b5c9-1f15b9349a1c.png)
+
+### 9、一键生成云函数加密配置
 右键需要加密的云函数根目录下的 `package.json` 文件，点击VK-一键生成云函数加密配置
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1ecf9272-0a67-4248-b8a5-216822d0bd40.png)
 
-### 6、schema2code（vk-admin版）
+### 10、schema2code（vk-admin版）
 右键需要生成 `.schema.json` 文件，点击VK-schema2code
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/29ead8cb-a775-43f1-a80e-1716b93e6f47.png)
 
-### 7、快速插入日志
+### 11、快速插入日志
 选中某变量名，右键，点击VK-插入日志
 
-### 8、一键删除所有log类型日志
+### 12、一键删除所有log类型日志
 在编辑器文档内右键，点击VK-删除所有log类型日志
 
-### 9、一键删除所有类型日志
+### 13、一键删除所有类型日志
 在编辑器文档内右键，点击VK-删除所有类型日志
 
 ### 如何设置快捷键
