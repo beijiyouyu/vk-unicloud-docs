@@ -868,6 +868,7 @@
 	 "body": [
 			"res = await vk.baseDao.select({",
 			"\tdbName:\"$0\",",
+			"\tgetCount: false,",
 			"\tpageIndex:1,",
 			"\tpageSize:20,",
 			"\twhereJson:{",
