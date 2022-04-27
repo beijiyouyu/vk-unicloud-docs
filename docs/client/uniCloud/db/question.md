@@ -12,6 +12,7 @@
 #### 9、[查出表中字段a等于字段b的数据](#查出表中字段a等于字段b的数据)
 #### 10、[如何查询数组字段内包含某个值的数据](如何查询数组字段内包含某个值的数据)
 #### 11、[分组count](#分组count)
+#### 12、[删除某个字段](#删除某个字段)
 
 ### and
 ### `and` 、`or`、`in`、`nin`、`neq`的用法
@@ -372,3 +373,17 @@ let selectRes = await vk.baseDao.selects({
 });
 ```
 
+
+### 删除某个字段
+
+```js
+await vk.baseDao.update({
+  dbName: "vk-test", // 表名
+  whereJson: { // 条件
+    _id: "5f3a14823d11c6000106ff5c"
+  },
+  dataJson: { 
+    money: _.remove(), // 代表删除money字段
+  }
+});
+```
