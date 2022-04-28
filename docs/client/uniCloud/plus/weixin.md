@@ -175,6 +175,73 @@ uni.requestSubscribeMessage({
 | 47003  |   模板参数不准确，可能为空或者不满足规则，errmsg会提示具体是哪个字段出错	    |
 | 41030  |   page路径不正确，需要保证在现网版本小程序中存在，与app.json保持一致    |
 
+### 发送公众号模板消息
+`vk.openapi.weixin.uniformMessage.send`
+```js
+/**
+ * 发送公众号模板消息
+ * @param {String} touser             接收者（用户）的 openid（可以是小程序下的openid，也可以是公众号下的openid）
+ * @param {String} template_id        所需下发的消息模板id
+ * @param {String} page               跳转网页时填写
+ * @param {Object} data               模板内容
+ * @param {Object} miniprogram  			跳转小程序时填写
+ */
+let sendRes = await vk.openapi.weixin.uniformMessage.send({
+  touser: "", // 接收者（用户）的 openid（可以是小程序下的openid，也可以是公众号下的openid）
+  template_id: "", // 所需下发的订阅模板id
+  url: "https://www.baidu.com", // 跳转网页时填写（如填了miniprogram参数则自动忽略url参数）
+  miniprogram: {
+    appid: "", // 需要跳转的小程序appid
+    pagepath: "pages/order/order?id=aaa", // 需要跳转的小程序页面
+  },
+  data: {
+    "first": {
+      "value": "您购买的订单已经发货啦，正快马加鞭向您飞奔而去。",
+      "color": "#173177"
+    },
+    "keyword1": {
+      "value": "D201803111235825",
+      "color": "#173177"
+    },
+    "keyword2": {
+      "value": "2018-03-11 19:56",
+      "color": "#173177"
+    },
+    "keyword3": {
+      "value": "顺丰快递",
+      "color": "#173177"
+    },
+    "keyword4": {
+      "value": "980456952123",
+      "color": "#173177"
+    },
+    "keyword5": {
+      "value": "王先生 135xxxxxxxx 广东省深圳市龙华区建设东路",
+      "color": "#173177"
+    },
+    "remark": {
+      "value": "欢迎再次购买！",
+      "color": "#173177"
+    }
+  }
+});
+
+```
+
+**注意：公众号和小程序无需绑定在同一个开放平台下，但需要同时满足下面的3个要求。**
+
+* 1、公众号必须和小程序是同主体。
+* 2、小程序关联了公众号。
+* 3、该用户关注了公众号。
+
+如果发送失败，可以在云函数内打印下 `sendRes` 的值，并根据返回的 `code` 进行判断错在哪里。
+
+| 值   | 说明                                    |
+|------- |---------------------------------------|
+| 40003  |   touser字段openid为空或者不正确    | 
+| 40037  |   模板id不正确   |
+| 45009  |   接口调用超过限额  |
+| 40013  |   不符合绑定关系要求   |
 
 ## 1.3、直播
 
