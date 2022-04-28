@@ -177,14 +177,25 @@ uni.requestSubscribeMessage({
 
 ### 发送公众号模板消息
 `vk.openapi.weixin.uniformMessage.send`
+
+**请求参数**
+
+| 参数   | 类型    |说明                                    |
+|------- |--------|------------------------------------|
+| touser  | String |  接收者（用户）的 openid（可以是小程序下的openid，也可以是公众号下的openid）   | 
+| template_id  |String |    所需下发的消息模板id    |
+| url  |  String |  跳转网页时填写 |
+| miniprogram  |Object |    跳转小程序时填写	    |
+| data  | Object |  模板内容    |
+
 ```js
 /**
  * 发送公众号模板消息
  * @param {String} touser             接收者（用户）的 openid（可以是小程序下的openid，也可以是公众号下的openid）
  * @param {String} template_id        所需下发的消息模板id
- * @param {String} page               跳转网页时填写
- * @param {Object} data               模板内容
+ * @param {String} url                跳转网页时填写
  * @param {Object} miniprogram  			跳转小程序时填写
+ * @param {Object} data               模板内容
  */
 let sendRes = await vk.openapi.weixin.uniformMessage.send({
   touser: "", // 接收者（用户）的 openid（可以是小程序下的openid，也可以是公众号下的openid）
