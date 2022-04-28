@@ -180,6 +180,8 @@ uni.requestSubscribeMessage({
 ### 发送公众号模板消息
 `vk.openapi.weixin.uniformMessage.send`
 
+**该接口亮点：可以用小程序的 openid 来发送公众号的模板消息（用户只需关注公众号，无需点击订阅消息）**
+
 **请求参数**
 
 | 参数   | 类型    |说明                                    |
