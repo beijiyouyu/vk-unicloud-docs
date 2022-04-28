@@ -24,12 +24,13 @@ if(!data.param9) return { code:-1, msg:"XXX不能为空" }
 
 ### 如何优化？
 
-#### 优化思路：
-#### 首先，前端一般都会写一下vue表单验证，毕竟前端的验证是没有网络请求，及时响应的
-#### 但是后端经验告诉我们，不可信任前端传过来的参数，因此后端也需要表单验证。
-#### 那么既然前端已经写好了，如果后端代码能直接复用前端代码是不是在一定程度上简化了后端工作量？
+**优化思路：**
+* 首先，前端一般都会写一下vue表单验证，毕竟前端的验证是没有网络请求，及时响应的
+* 但是后端经验告诉我们，不可信任前端传过来的参数，因此后端也需要表单验证。
+* 那么既然前端已经写好了，如果后端代码能直接复用前端代码是不是在一定程度上简化了后端工作量？
 
-#### 为此，VK框架云函数中实现了跟前端表单验证参数一模一样的功能函数 `vk.pubfn.formValidate`。
+* 为此，VK框架云函数中实现了跟前端表单验证参数一模一样的功能函数 `vk.pubfn.formValidate`。
+
 #### 接下来重点介绍 `vk.pubfn.formValidate`
 ```js
 // 验证规则开始 -----------------------------------------------------------
@@ -63,8 +64,8 @@ if (formRulesRes.code !== 0) {
 
 ```
 
-### 同时为了让表单验证和业务逻辑代码独立，可以参考 `router/service/admin/system/role/sys/add.js` 此云函数内的写法。
-### 最终代码效果
+**同时为了让表单验证和业务逻辑代码独立，可以参考 `router/service/admin/system/role/sys/add.js` 此云函数内的写法。**
+**最终代码效果**
 ```js
 const formRules = require("../util/formRules.js");
 let formRulesRes = await formRules.add(event);
@@ -76,4 +77,80 @@ if (formRulesRes.code !== 0) {
 
 ```
 
+### rules详解
+
+**rules跟前端vue表单验证写法是完全一样的**
+
+以下是常用的几个表单验证示例。
+
+注意：trigger 属性不写也可以，trigger只在前端生效。（不过一般都是先把前端验证写完，云函数直接复制前端的验证）
+
+```js
+{
+  user_id: [
+    // 必填
+    { required: true, message: "用户ID不能为空", trigger: ['blur','change'] }
+  ],
+  nickname: [
+    { required: true, message: '昵称为必填字段', trigger: 'blur' },
+    { min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
+  ],
+  money: [
+    // 必填
+    { required: true, message: "金额不能为空", trigger: ['blur','change'] },
+    // 必须是数字
+    { type: "number", message: "金额必须是数字", trigger: ['blur','change'] }
+  ],
+   mobile: [
+    // 必填
+    { required:true,  message: '手机号不能为空', trigger: 'blur' },
+    // 必须是手机号格式
+    { validator: vk.pubfn.validator("mobile"),  message: '手机号格式错误', trigger: 'blur' }
+  ],
+  card: [
+    // 身份证
+    { validator: vk.pubfn.validator("card"),  message: '身份证格式错误', trigger: 'blur' }
+  ],
+  QQ: [
+    // qq
+    { validator: vk.pubfn.validator("QQ"),  message: 'QQ号格式错误', trigger: 'blur' }
+  ],
+  URL: [
+    // URL
+    { validator: vk.pubfn.validator("URL"),  message: 'URL格式错误', trigger: 'blur' }
+  ],
+  IP: [
+    // IP
+    { validator: vk.pubfn.validator("IP"),  message: 'IP格式错误', trigger: 'blur' }
+  ],
+  english: [
+    // 英文
+    { validator: vk.pubfn.validator("english"),  message: '只能输入英文', trigger: 'blur' }
+  ],
+  englishnumber: [
+    // 只能是英文或数字
+    { validator: vk.pubfn.validator("english+number"),  message: '只能输入英文或数字', trigger: 'blur' }
+  ],
+  englishnumber2: [
+    // 只能是英文、数字、下划线
+    { validator: vk.pubfn.validator("english+number+_"),  message: '只能输入英文、数字、下划线', trigger: 'blur' }
+  ],
+  chinese: [
+    // 中文
+    { validator: vk.pubfn.validator("chinese"),  message: '只能输入中文', trigger: 'blur' }
+  ],
+  lower: [
+    // 小写字母
+    { validator: vk.pubfn.validator("lower"),  message: '只能输入小写字母', trigger: 'blur' }
+  ],
+  upper: [
+    // 大写字母
+    { validator: vk.pubfn.validator("upper"),  message: '只能输入大写字母', trigger: 'blur' }
+  ],
+  HTML: [
+    // HTML
+    { validator: vk.pubfn.validator("HTML"),  message: 'html格式错误', trigger: 'blur' }
+  ]
+}
+```
  
