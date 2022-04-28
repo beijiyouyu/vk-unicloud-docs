@@ -264,7 +264,7 @@ let sendRes = await vk.openapi.weixin.uniformMessage.send({
 
 该接口与 `vk.openapi.weixin.uniformMessage.send` 的区别是
 
-* 1、templateMessage 只需配置公众号的配置，而 uniformMessage 需要同时配置小程序+公众号的配置。
+* 1、templateMessage 只需配置公众号的配置，而 uniformMessage 需要同时配置小程序+公众号的配置。（在uni-id的配置文件中配置）
 * 2、templateMessage 的 touser 参数只能是公众号下的openid，而 uniformMessage 可以是小程序下的openid，也可以是公众号下的openid）
 
 **请求参数**
