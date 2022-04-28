@@ -119,6 +119,8 @@ let imgSecCheckRes = await vk.openapi.weixin.security.imgSecCheck({
   base64:base64
 });
 ```
+## 1.3、发送消息
+
 ### 发送订阅消息 
 `vk.openapi.weixin.subscribeMessage.send`
 ```js
@@ -254,7 +256,7 @@ let sendRes = await vk.openapi.weixin.uniformMessage.send({
 | 45009  |   接口调用超过限额  |
 | 40013  |   不符合绑定关系要求   |
 
-## 1.3、直播
+## 1.4、直播
 
 ### 获取直播间列表 
 `vk.openapi.weixin.livebroadcast.getLiveInfo`
