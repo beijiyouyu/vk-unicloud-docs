@@ -535,6 +535,16 @@ let data = await vk.callFunction({
 const userObject = uni.vk.importObject("client/user"); // 这段代码可以写在外层顶部，也可以直接写在对应函数内部。
 ```
 
+**特别注意：目前vue3的app模式下，不可直接写在页面生命周期外，如果非要写在生命周期外（外层顶部）则需要这样写**
+```js
+var userObject;
+setTimeout(() => {
+  userObject = uni.vk.importObject('client/user'); // 导入云对象
+}, 10);
+```
+
+因为目前vue3的app模式下，页面生命周期外的js代码执行顺序比 `main.js` 先执行，所以需要手动延迟执行。
+
 第二步：调用云对象内的函数。
 
 **回调形式**
