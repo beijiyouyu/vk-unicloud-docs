@@ -9,6 +9,7 @@
 #### 6、[连表查询，副表外键是数组（只要数组内任意元素与主表外键匹配即可）](#场景6)
 #### 7、[分组查询](#场景7)
 #### 8、[分组统计带if(查询每个班级中,数学成绩大于语文成绩的学生人数)](#场景8)
+#### 9、[连表查询，并获取满足条件的第一条记录，以对象形式返回](#场景9)
 
 ### 场景1
 #### 1张主表多张副表
@@ -274,3 +275,27 @@ res = await vk.baseDao.selects({
   sortArr: [{ "name": "count1", "type": "desc" }]
 });
 ```
+### 场景9
+#### 连表查询，并获取满足条件的第一条记录，以对象形式返回
+```js
+let info = await vk.baseDao.selects({
+  dbName: "用户表",
+  getOne: true,
+  getMain: true,
+  // 主表where条件
+  whereJson: {
+    _id: "001"
+  },
+  foreignDB: [
+    {
+      dbName: "vip", // 副表名
+      localKey:"vip_id", // 主表外键字段名
+      foreignKey: "user_id", // 副表外键字段名
+      as: "vipInfo",
+      limit: 1, // 当limit = 1时，以对象形式返回，否则以数组形式返回
+    }
+  ]
+});
+```
+
+
