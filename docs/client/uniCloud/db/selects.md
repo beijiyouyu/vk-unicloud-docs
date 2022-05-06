@@ -298,4 +298,46 @@ let info = await vk.baseDao.selects({
 });
 ```
 
+**参数解析**
+
+* getOne:true 代表只获取满足条件的第一条数据，并以对象形式返回。
+* getMain:true 代表返回的数据不包含code:0
+
+**即原本selects返回的数据格式是这样的。**
+
+```json
+{
+  "code": 0,
+  "msg": "查询成功",
+  "total": 1,
+  "hasMore": false,
+  "rows": [{"_id":"001","name":"xxx"}]
+}
+```
+
+**getOne:true 后 返回的数据格式是这样的（rows从数组变成了对象）**
+
+```json
+{
+  "code": 0,
+  "msg": "查询成功",
+  "total": 1,
+  "hasMore": false,
+  "rows": {"_id":"001","name":"xxx"}
+}
+```
+
+**getMain:true 后 返回的数据格式是这样的（直接返回rows的值）**
+
+```json
+[{"_id":"001","name":"xxx"}]
+```
+
+**getMain:true + getOne:true 后 返回的数据格式是这样的（等于findByWhereJson的效果，但具有连表功能）**
+
+```json
+{"_id":"001","name":"xxx"}
+```
+
+
 

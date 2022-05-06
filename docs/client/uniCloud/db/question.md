@@ -13,6 +13,7 @@
 #### 10、[如何查询数组字段内包含某个值的数据](如何查询数组字段内包含某个值的数据)
 #### 11、[分组count](#分组count)
 #### 12、[删除某个字段](#删除某个字段)
+#### 13、[vk.baseDao.findById和vk.baseDao.findByWhereJson如何连表](#findById如何连表)
 
 ### and
 ### `and` 、`or`、`in`、`nin`、`neq`的用法
@@ -386,4 +387,72 @@ await vk.baseDao.update({
     money: _.remove(), // 代表删除money字段
   }
 });
+```
+
+### findById如何连表
+
+`findById` 和 `findByWhereJson` 不支持连表，可以用 `selects + getOne + getMain` 代替
+
+**完整代码**
+
+```js
+let info = await vk.baseDao.selects({
+  dbName: "用户表",
+  getOne: true,
+  getMain: true,
+  // 主表where条件
+  whereJson: {
+    _id: "001"
+  },
+  foreignDB: [
+    {
+      dbName: "vip", // 副表名
+      localKey:"vip_id", // 主表外键字段名
+      foreignKey: "user_id", // 副表外键字段名
+      as: "vipInfo",
+      limit: 1, // 当limit = 1时，以对象形式返回，否则以数组形式返回
+    }
+  ]
+});
+```
+
+**参数解析**
+
+* getOne:true 代表只获取满足条件的第一条数据，并以对象形式返回。
+* getMain:true 代表返回的数据不包含code:0
+
+**即原本selects返回的数据格式是这样的。**
+
+```json
+{
+  "code": 0,
+  "msg": "查询成功",
+  "total": 1,
+  "hasMore": false,
+  "rows": [{"_id":"001","name":"xxx"}]
+}
+```
+
+**getOne:true 后 返回的数据格式是这样的（rows从数组变成了对象）**
+
+```json
+{
+  "code": 0,
+  "msg": "查询成功",
+  "total": 1,
+  "hasMore": false,
+  "rows": {"_id":"001","name":"xxx"}
+}
+```
+
+**getMain:true 后 返回的数据格式是这样的（直接返回rows的值）**
+
+```json
+[{"_id":"001","name":"xxx"}]
+```
+
+**getMain:true + getOne:true 后 返回的数据格式是这样的（等于findByWhereJson的效果，但具有连表功能）**
+
+```json
+{"_id":"001","name":"xxx"}
 ```
