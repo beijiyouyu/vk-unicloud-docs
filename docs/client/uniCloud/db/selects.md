@@ -10,6 +10,7 @@
 #### 7、[分组查询](#场景7)
 #### 8、[分组统计带if(查询每个班级中,数学成绩大于语文成绩的学生人数)](#场景8)
 #### 9、[连表查询，并获取满足条件的第一条记录，以对象形式返回](#场景9)
+#### 10、[利用分组查询实现以指定字段去重复查询](#场景10)
 
 ### 场景1
 #### 1张主表多张副表
@@ -340,4 +341,52 @@ let info = await vk.baseDao.selects({
 ```
 
 
+### 场景10
+#### 利用分组查询实现以指定字段去重复查询
 
+```js
+res = await vk.baseDao.selects({
+  dbName: "表名",
+  pageIndex: 1,
+  pageSize: 10,
+  // 主表where条件
+  whereJson: {
+    
+  },
+  groupJson: {
+    _id: "$key1", // _id是分组id， $ 后面接字段名，如user_id字段进行分组
+    key1: _.$.first("$key1"), // $ 后面接字段名，如把user_id原样输出
+    key2: _.$.first("$key2"), // $ 后面接字段名，如把user_id原样输出
+    key3: _.$.first("$key3"), // $ 后面接字段名，如把user_id原样输出
+    key4: _.$.first("$key4"), // $ 后面接字段名，如把user_id原样输出
+    count: _.$.sum(1), // 代表每组各有多少条记录总量
+  },
+  sortArr: [{ name: "count",type: "desc" }], // 对分组后的结果进行排序
+});
+```
+
+**还可以多字段组合去重复**
+
+```js
+res = await vk.baseDao.selects({
+  dbName: "表名",
+  pageIndex: 1,
+  pageSize: 10,
+  // 主表where条件
+  whereJson: {
+    
+  },
+  groupJson: {
+    _id: {
+      key1:"$key1",
+      key2:"$key2",
+    }, // _id是分组id， $ 后面接字段名，如user_id字段进行分组
+    key1: _.$.first("$key1"), // $ 后面接字段名，如把user_id原样输出
+    key2: _.$.first("$key2"), // $ 后面接字段名，如把user_id原样输出
+    key3: _.$.first("$key3"), // $ 后面接字段名，如把user_id原样输出
+    key4: _.$.first("$key4"), // $ 后面接字段名，如把user_id原样输出
+    count: _.$.sum(1), // 代表每组各有多少条记录总量
+  },
+  sortArr: [{ name: "count",type: "desc" }], // 对分组后的结果进行排序
+});
+```
