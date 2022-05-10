@@ -344,6 +344,10 @@ let info = await vk.baseDao.selects({
 ### 场景10
 #### 利用分组查询实现以指定字段去重复查询
 
+**注意：分组后，显示其他字段需要通过`_.$.first("$key1"),`形式**
+
+first代表分组后，显示该组第一条数据的该字段值。
+
 ```js
 res = await vk.baseDao.selects({
   dbName: "表名",
