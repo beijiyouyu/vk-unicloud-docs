@@ -367,9 +367,9 @@ res = await vk.baseDao.selects({
   },
   sortArr: [{ name: "count",type: "desc" }], // 对分组后的结果进行排序
   // 最后的where，（分组后的筛选）主要用于对分组后的结果再进行筛选 如：筛选金额大于1000才能上榜（这里的lastWhereJson在数据量大的情况下是有性能问题的，（建议主表的where条件中先进行筛选，如只查本季度数据，只要主表过滤完后数据量不大，则没有性能问题。）
-  lastWhereJson:{
-    count:_.gte(10)
-  }
+  // lastWhereJson:{
+  //   count:_.gte(10)
+  // }
 });
 ```
 
@@ -397,8 +397,8 @@ res = await vk.baseDao.selects({
   },
   sortArr: [{ name: "count",type: "desc" }], // 对分组后的结果进行排序
   // 最后的where，（分组后的筛选）主要用于对分组后的结果再进行筛选 如：筛选金额大于1000才能上榜（这里的lastWhereJson在数据量大的情况下是有性能问题的，（建议主表的where条件中先进行筛选，如只查本季度数据，只要主表过滤完后数据量不大，则没有性能问题。）
-  lastWhereJson:{
-    count:_.gte(10)
-  }
+  // lastWhereJson:{
+  //   count:_.gte(10)
+  // }
 });
 ```
