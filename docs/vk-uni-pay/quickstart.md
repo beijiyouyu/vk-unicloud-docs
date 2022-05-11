@@ -1,5 +1,13 @@
 # 快速上手 - 安装步骤
 
+**友情提醒：**
+
+在对接自己的项目之前，建议先下载 `vk-uni-pay` 的示例项目，先将示例项目跑通之后再来对接你自己的项目。
+
+[点击查看示例项目运行教程](https://vkdoc.fsq.pub/vk-uni-pay/example.html)
+
+**如果你已经跑通了示例项目，则继续往下看！**
+
 ## 1、 下载安装
 * 1、从插件市场安装 `vk-uni-pay` 插件到你的项目中。
 * 2、在 `uniCloud/cloudfunctions/common/vk-uni-pay` 目录右键选择 `管理公共模块依赖` 菜单，引入这2个模块 `uni-config-center`、 `uni-pay`
