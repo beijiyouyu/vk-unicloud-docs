@@ -9,7 +9,7 @@
 **如果你已经跑通了示例项目，则继续往下看！**
 
 ## 1、 下载安装
-* 1、从插件市场安装 `vk-uni-pay` 插件到你的项目中。[点击前往插件市场](https://ext.dcloud.net.cn/plugin?id=5642)
+* 1、从插件市场安装 `vk-uni-pay` 插件到你的项目中。[插件市场传送门](https://ext.dcloud.net.cn/plugin?id=5642)
 * 2、在 `uniCloud/cloudfunctions/common/vk-uni-pay` 目录右键选择 `管理公共模块依赖` 菜单，引入这2个模块 `uni-config-center`、 `uni-pay`
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/631a3863-8094-4901-bd7f-17322b96a536.png)
