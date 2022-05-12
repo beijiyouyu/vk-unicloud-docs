@@ -76,20 +76,32 @@ window.location.href = url;
 
 scope = snsapi_userinfo时，是用来获取用户的基本信息的。但这种授权需要用户手动同意，并且由于用户同意过，所以无须关注，就可在授权后获取该用户的基本信息。
 
+#### 如何通过code换取openid?
+
+**vkUtil在 `uni_modules/vk-uni-pay/js_sdk/vk-util.js`**
+
+```js
+vkUtil.getH5Openid(code).then((res) => {
+  console.log("res", res);
+});
+```
+
+
+
 #### 注意：
 * 1、微信公众号支付的域名需要在微信支付商户后台进行配置
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/76a353e8-eb7f-4a83-8005-d3fa60ee9e46.png)
 
-* 2、微信公众号支付的unicloud配置在 `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` 的
+* 2、微信公众号支付的unicloud配置在 `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` 的 `wxpay` 节点的 `h5-weixin`
 ```js
-// 微信 - 公众号支付
-"wxConfigH5Weixin": {
+// 微信 - 公众号支付（微信支付申请JSAPI支付）
+"h5-weixin": {
   "appId": "",
-  "secret": "", 
-  "mchId": "", // 商户id
-  "key": "", // 商户key
-  "pfx": fs.readFileSync(__dirname+'/wxpay/wxpay.p12')
+  "secret": "",
+  "mchId": "",
+  "key": "",
+  "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12')
 },
 ```
 * 3、微信公众号支付只能在微信浏览器中支付（非微信APP的浏览器中无法发起支付，非微信APP的浏览器请使用H5支付）
