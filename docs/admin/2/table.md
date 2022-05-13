@@ -111,11 +111,59 @@ columns 是一个数组，数组内每个元素有以下属性
 
 ### right-btns（右侧固定按钮列表）
 
+**高效用法**
+
+效果图
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/bb64b55a-9f94-4b40-a1d5-d4ad93513e83.png)
+
 ```html
 <vk-data-table
   :right-btns="['detail_auto','update','delete','more']"
 ></vk-data-table>
 ```
+
+**自定义显示规则用法**
+
+效果图
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/97b70681-214b-49bb-a96c-835f8876aec7.png)
+
+```html
+<vk-data-table
+  :right-btns="table1.rightBtns"
+></vk-data-table>
+```
+
+```js
+data() {
+  return {
+    table1:{
+      
+      rightBtns:[
+      	'detail_auto',
+      	{
+      		mode:"update",
+      		title:"编辑",
+      		disabled: function(item){
+      			return item._id == '002'
+      		}
+      	},
+      	{
+      		mode:"delete",
+      		title:"删除",
+      		show: function(item){
+      			return item._id != '002'
+      		}
+      	},
+      	'more'
+      ],
+      
+    }
+  }
+}
+```
+
 ##### right-btns数组内的可选值有
 | 可选值   | 说明                    |
 |----------|------------------------|
@@ -127,6 +175,11 @@ columns 是一个数组，数组内每个元素有以下属性
 
 ### right-btns-more（更多按钮列表）
 right-btns-more（右侧更多按钮点击后显示的按钮列表）
+
+**效果图**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/04d7bad0-87d3-4e54-b275-3c89cb833d11.png)
+
 ```html
 <vk-data-table
   right-btns="['detail_auto','update','delete','more']"
@@ -136,51 +189,107 @@ right-btns-more（右侧更多按钮点击后显示的按钮列表）
 ```
 
 ```js
-  data() {
-    return {
-      table1:{
-        
-        rightBtnsMore:[
-          {
-            title:'按钮1',
-            onClick:function(item){
-            
-            }
+data() {
+  return {
+    table1:{
+      
+      rightBtnsMore:[
+        {
+          title: '按钮1',
+          disabled: function(item){
+            return item._id == '002'
           },
-          {
-            title:'按钮2',
-            onClick:function(item){
-          
-            }
+          onClick: function(item){
+            vk.toast(`${item._id}-按钮1`);
           }
-        ]
-        
-      }
+        },
+        {
+          title: '按钮2',
+          show: function(item){
+            return item._id != '002'
+          },
+          onClick: function(item){
+            vk.toast(`${item._id}-按钮2`);
+          }
+        },
+        {
+          title: '按钮3',
+          disabled: "_id==002",
+          onClick: function(item){
+            vk.toast(`${item._id}-按钮3`);
+          }
+        },
+        {
+          title: '按钮4',
+          disabled: "_id!=002",
+          onClick: function(item){
+            vk.toast(`${item._id}-按钮4`);
+          }
+        }
+      ]
+      
     }
   }
-
+}
 ```
+
 ### custom-right-btns（自定义右侧固定按钮）
+
+**效果图**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/3d559376-73af-4749-9516-f9c33149d74f.png)
 
 ```html
 <vk-data-table
-  :custom-right-btns="[
-     { title: '按钮1', type: 'primary', icon: 'el-icon-edit' },
-     { title: '按钮2', type: 'success', icon: 'el-icon-edit' },
-     { title: '按钮3', type: 'warning', icon: 'el-icon-edit' },
-     { title: '按钮4', type: 'danger', icon: 'el-icon-edit' }
-  ]"
-  @custom-right-btns="customRightBtns"
+  :custom-right-btns="table1.customRightBtns"
 ></vk-data-table>
 ```
+
 ```js
-methods: {
-  customRightBtns(item, btn){
-		
+data() {
+  return {
+    table1: {
+      
+      customRightBtns: [
+      	{
+      		title: '按钮1', type: 'primary', icon: 'el-icon-edit',
+      		disabled: function(item){
+      			return item._id == '002'
+      		},
+      		onClick: function(item){
+      			vk.toast(`${item._id}-按钮1`);
+      		}
+      	},
+      	{
+      		title: '按钮2', type: 'success', icon: 'el-icon-edit',
+      		show: function(item){
+      			return item._id != '002'
+      		},
+      		onClick: function(item){
+      			vk.toast(`${item._id}-按钮2`);
+      		}
+      	},
+      	{
+      		title: '按钮3', type: 'warning', icon: 'el-icon-edit',
+      		disabled: "_id==002",
+      		onClick: function(item){
+      			vk.toast(`${item._id}-按钮3`);
+      		}
+      	},
+      	{
+      		title: '按钮4', type: 'danger', icon: 'el-icon-edit',
+      		disabled: "_id!=002",
+      		onClick: function(item){
+      			vk.toast(`${item._id}-按钮4`);
+      		}
+      	}
+      ],
+      
+    }
   }
 }
-
 ```
+
 
 
 ### 高亮行处理
