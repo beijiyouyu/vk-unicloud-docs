@@ -62,7 +62,8 @@ export default {
 | page-size       | 通用 - 每页显示数量 | Number  | 10 | - |
 | page-sizes      | 通用 - 每页显示数量选择列表 | Array  | [1, 5, 10, 20, 50, 100, 1000] | - |
 | right-btns      | 通用 - 右侧显示的按钮列表 [查看right-btns](#right-btns-右侧固定按钮列表) | Array  | [] | - |
-| right-btns-type      | 通用 - 右侧显示的按钮类型 | String  | "button" | "text" |
+| right-btns-type      | 通用 - 右侧显示的按钮类型 | String  | button | text |
+| right-btns-align     | 通用 - 右侧显示的按钮对齐方式 | String  | center | left right |
 | right-btns-more      | 通用 - 右侧更多按钮 [查看right-btns-more](#right-btns-more-更多按钮列表)| Array  | [] | - |
 | custom-right-btns      | 通用 - 自定义右侧按钮 [查看custom-right-btns](#custom-right-btns-自定义右侧固定按钮)| Array  | [] | - |
 | empty-text      | 通用 - 空数据时显示的文本内容 | String  | "暂无数据" | - |
@@ -132,6 +133,7 @@ columns 是一个数组，数组内每个元素有以下属性
 ```html
 <vk-data-table
   :right-btns="table1.rightBtns"
+  right-btns-align="right"
 ></vk-data-table>
 ```
 
@@ -242,6 +244,7 @@ data() {
 ```html
 <vk-data-table
   :custom-right-btns="table1.customRightBtns"
+  right-btns-align="right"
 ></vk-data-table>
 ```
 
