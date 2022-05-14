@@ -152,7 +152,7 @@ columns是一个数组，数组内每个元素有以下属性，每个元素代�
 | type   |   类型    | String  | 无    |  [查看type](#type)  |
 | width  |   宽度    | Number  | 无    | -  |
 | tips  | 下方的提示 | String  | 无    | -  |
-| disabled  |  是否禁用 | Boolean、String、Function   | false | true  |
+| disabled  |  是否禁用 | Boolean、String、Function [查看disabled](#disabled)   | false | true  |
 | showLabel  |  是否显示label | Boolean  | true    | false  |
 | show  | 表单复用时的显示规则 [查看show](#show)  | array | -  | - |
 | showRule  |  是否显示该字段 | String、Function  | -    | -  |
