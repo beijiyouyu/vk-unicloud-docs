@@ -152,7 +152,7 @@ columns是一个数组，数组内每个元素有以下属性，每个元素代�
 | type   |   类型    | String  | 无    |  [查看type](#type)  |
 | width  |   宽度    | Number  | 无    | -  |
 | tips  | 下方的提示 | String  | 无    | -  |
-| disabled  |  是否禁用 | Boolean  | false | true  |
+| disabled  |  是否禁用 | Boolean、String、Function   | false | true  |
 | showLabel  |  是否显示label | Boolean  | true    | false  |
 | show  | 表单复用时的显示规则 [查看show](#show)  | array | -  | - |
 | showRule  |  是否显示该字段 | String、Function  | -    | -  |
@@ -229,6 +229,63 @@ show 是一个字符串数组，columns 数组内每一个元素都可以单独�
 ```
 
 
+### disabled
+
+`disabled` 和 `showRule` 基本写法一致，功能区别是，`showRule` 是满足条件则显示，`disabled` 是满足条件则禁用。
+
+如 当 `login_appid_type` = 0 时，禁用 `mode` 字段（支持符号 = == > >= < <= != in && || ）
+
+提示：= 和 == 效果一样
+
+```js
+{
+  key:"login_appid_type", title:"登录权限", type:"radio",
+  optionType:"button",
+  data:[
+    { value:1, label:"部分应用" },
+    { value:0, label:"全部应用" }
+  ]
+},
+{
+  key:"mode", title:"模式", type:"radio",
+  optionType:"button",
+  data:[
+    { value:1, label:"覆盖" },
+    { value:2, label:"新增" },
+    { value:3, label:"移除" }
+  ],
+  disabled:"login_appid_type==0",
+},
+```
+
+同时 disabled 还支持函数形式
+
+```js
+{
+  key:"login_appid_type", title:"登录权限", type:"radio",
+  optionType:"button",
+  data:[
+    { value:1, label:"部分应用" },
+    { value:0, label:"全部应用" }
+  ]
+},
+{
+  key:"mode", title:"模式", type:"radio",
+  optionType:"button",
+  data:[
+    { value:1, label:"覆盖" },
+    { value:2, label:"新增" },
+    { value:3, label:"移除" }
+  ],
+  disabled:function(formData){
+  	if(formData.login_appid_type === 0){
+  		return true;
+  	}else{
+  		return false;
+  	}
+  }
+},
+```
 
 
 ### type
