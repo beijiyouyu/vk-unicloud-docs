@@ -20,6 +20,18 @@ return {
 }
 ```
 
+
+如果return的code不为0，则当错误处理，框架会自动alert(msg) 如：
+
+```js
+return { code: -1, msg: "积分不足" };
+```
+
+```js
+return { code: -1, msg: "参数错误" };
+```
+
+
 建议使用以下云函数模板
 
 ```js
