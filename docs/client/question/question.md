@@ -20,6 +20,14 @@ return {
 }
 ```
 
+```js
+let res = { code: 0, msg: "" };
+
+res.orderInfo = xxxxx1;
+res.userInfo = xxxxx2
+
+return res;
+```
 
 如果return的code不为0，则当错误处理，框架会自动alert(msg) 如：
 
