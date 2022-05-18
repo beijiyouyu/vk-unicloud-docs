@@ -912,6 +912,46 @@
 		"triggerAssist": false,
 		"description": "根据条件获取数据库数据(连表查询)"
 	},
+	"vk.baseDao.getTableData": {
+	 "prefix": "baseDao.getTableData",
+	 "body": [
+			"res = await vk.baseDao.getTableData({",
+			"\tdbName:\"$0\",",
+			"\tdata,",
+			"\t// 强制where条件",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "获取表格数据(连表查询)"
+	},
+	"vk.baseDao.getTableData(连表查询)": {
+	 "prefix": "baseDao.getTableData",
+	 "body": [
+			"res = await vk.baseDao.getTableData({",
+			"\tdbName:\"$0\",",
+			"\tdata,",
+			"\t// 主表强制where条件",
+			"\twhereJson:{",
+			"\t\t",
+			"\t},",
+			"\t// 副表列表",
+			"\tforeignDB:[",
+			"\t\t{",
+			"\t\t\tdbName:\"副表表名\",",
+			"\t\t\tlocalKey:\"主表外键名\",",
+			"\t\t\tforeignKey:\"副表外键名\",",
+			"\t\t\tas:\"副表as字段\",",
+			"\t\t\tlimit:1",
+			"\t\t}",
+			"\t]",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "获取表格数据(连表查询)"
+	},
 	"vk.baseDao.del": {
 	 "prefix": "baseDao.del",
 	 "body": [
