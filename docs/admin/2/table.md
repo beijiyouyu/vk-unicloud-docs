@@ -145,15 +145,15 @@ data() {
       rightBtns:[
       	'detail_auto',
       	{
-      		mode:"update",
-      		title:"编辑",
+      		mode:'update',
+      		title:'编辑',
       		disabled: function(item){
       			return item._id == '002'
       		}
       	},
       	{
-      		mode:"delete",
-      		title:"删除",
+      		mode:'delete',
+      		title:'删除',
       		show: function(item){
       			return item._id != '002'
       		}
@@ -216,14 +216,14 @@ data() {
         },
         {
           title: '按钮3',
-          disabled: "_id==002",
+          disabled: '_id==002',
           onClick: function(item){
             vk.toast(`${item._id}-按钮3`);
           }
         },
         {
           title: '按钮4',
-          disabled: "_id!=002",
+          disabled: '_id!=002',
           onClick: function(item){
             vk.toast(`${item._id}-按钮4`);
           }
@@ -274,14 +274,14 @@ data() {
       	},
       	{
       		title: '按钮3', type: 'warning', icon: 'el-icon-edit',
-      		disabled: "_id==002",
+      		disabled: '_id==002',
       		onClick: function(item){
       			vk.toast(`${item._id}-按钮3`);
       		}
       	},
       	{
       		title: '按钮4', type: 'danger', icon: 'el-icon-edit',
-      		disabled: "_id!=002",
+      		disabled: '_id!=002',
       		onClick: function(item){
       			vk.toast(`${item._id}-按钮4`);
       		}
