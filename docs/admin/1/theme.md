@@ -64,22 +64,22 @@ aaa.js 代码模板
 ```js
 // 黑白主题（左侧菜单黑，顶部白）
 export default {
-	// 左侧菜单样式
-	leftMenu: {
-		backgroundColor: "#191a23", // 背景色
-		subBackgroundColor:"#101117", // 子菜单背景色
-		textColor: "#f0f0f0", // 菜单文字颜色
-		activeTextColor: "#ffffff", // 菜单被选中时的文字颜色
-		activeBackgroundColor: "#2d8cf0", // 菜单被选中时的背景颜色
-		hoverTextColor: "#ffffff", // 菜单hover时的文字颜色
-		hoverBackgroundColor: "#545f6c",  // 菜单hover时的背景颜色
+  // 左侧菜单样式
+  leftMenu: {
+    backgroundColor: "#191a23", // 背景色
+    subBackgroundColor:"#101117", // 子菜单背景色
+    textColor: "#f0f0f0", // 菜单文字颜色
+    activeTextColor: "#ffffff", // 菜单被选中时的文字颜色
+    activeBackgroundColor: "#2d8cf0", // 菜单被选中时的背景颜色
+    hoverTextColor: "#ffffff", // 菜单hover时的文字颜色
+    hoverBackgroundColor: "#545f6c",  // 菜单hover时的背景颜色
     boxShadow: "2px 0 4px rgba(0,21,4,0.25)",
-	},
-	// 顶部菜单样式
-	topMenu: {
-		backgroundColor: "#ffffff", // 顶部背景颜色
-		textColor: "#999999", // 顶部文字颜色
-	}
+  },
+  // 顶部菜单样式
+  topMenu: {
+    backgroundColor: "#ffffff", // 顶部背景颜色
+    textColor: "#999999", // 顶部文字颜色
+  }
 }
 ```
 
