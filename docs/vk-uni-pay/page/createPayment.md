@@ -36,7 +36,7 @@ export default {
           actionKey:"action", // 路由模式下云函数地址的识别key
           dataKey:"data" // 路由模式下云函数请求参数的识别key
         },
-        // PC支付的付款二维码地址
+        // PC支付的付款二维码地址 渲染二维码需要自己写，可以参考示例中的二维码组件 vk-uni-qrcode
         codeUrl:"",
         // 当前支付状态 0:等待发起支付 1:支付中 2:已支付
         status:0,
