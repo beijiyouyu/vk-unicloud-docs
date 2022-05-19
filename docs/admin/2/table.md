@@ -687,6 +687,12 @@ that.$refs.table1.updateRows({
 ```js
 that.$refs.table1.exportExcel();
 ```
+### 导出表格显示的数据（不显示序号）
+```js
+that.$refs.table1.exportExcel({
+  showNo: false
+});
+```
 ### 自定义导出表格数据
 ```js
 that.$refs.table1.exportExcel({
