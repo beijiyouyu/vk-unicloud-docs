@@ -19,9 +19,11 @@
 * 4、配置支付参数文件地址: `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建)（注意这里是 `config.js` ) [查看支付参数](#支付参数)
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/af8fb6fa-0c40-4202-8de3-20e9ac9fdfb1.png)
-* 5、上传公共模块 `vk-uni-pay`（右键，上传公共模块）
-* 6、上传云函数 `vk-pay`（右键，上传云函数）
-* 7、完成
+
+* 5、从支付示例项目中 复制 `使用帮助/vk-pay云函数示例代码/service/` 目录内的所有文件粘贴到 你的项目的 `uniCloud/cloudfunctions/vk-pay/service/` 目录（没有目录则新建）
+* 6、上传公共模块 `vk-uni-pay`（右键，上传公共模块）
+* 7、上传云函数 `vk-pay`（右键，上传云函数）
+* 8、完成
 
 ## 2、 配置uni-id里的小程序参数
 因为小程序支付需要获取用户openid
