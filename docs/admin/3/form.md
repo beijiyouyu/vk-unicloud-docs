@@ -287,6 +287,25 @@ show 是一个字符串数组，columns 数组内每一个元素都可以单独�
 },
 ```
 
+### inline（行内表单）
+
+```html
+<vk-data-form
+  ...其他组件
+  :inline="true"
+  :columnsNumber="2"
+></vk-data-form>
+```
+
+**行内表单中columns若设置oneLine:true可强制单独一行**
+
+```js
+columns:[
+  { key: "text1", title:"text类型字段", type:"text" },
+  { key: "text2", title:"text类型字段", type:"text" },
+  { key: "text3", title:"text类型字段", type:"text", oneLine:true }, // 单独一行
+]
+```
 
 ### type
 type类型（更多请见：`/pages_template/components/form/form-pro`）
