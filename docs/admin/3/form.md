@@ -304,6 +304,7 @@ columns:[
   { key: "text1", title:"text类型字段", type:"text" },
   { key: "text2", title:"text类型字段", type:"text" },
   { key: "text3", title:"text类型字段", type:"text", oneLine:true }, // 单独一行
+  { key: "text4", title:"text类型字段", type:"text", oneLine:true, width: 500 }, // 单独一行，并设置input的宽度
 ]
 ```
 
