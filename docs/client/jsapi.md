@@ -20,7 +20,7 @@
  * @param {String} timeoutName 定时器ID
  * @return null
  */
-vk.pubfn.debounce(function() {
+vk.pubfn.debounce(() => {
 	
 }, 1000);
 ```
@@ -38,7 +38,7 @@ vk.pubfn.debounce(function() {
  * @param {String} timeoutName 定时器ID
  * @return null
  */
-vk.pubfn.throttle(function() {
+vk.pubfn.throttle(() => {
 	
 }, 1000);
 ```
@@ -724,7 +724,7 @@ vk.pubfn.getListData({
     data : {
       a : 1
     },
-    dataPreprocess : function(list){
+    dataPreprocess: (list) => {
       return list;
     }
 });
@@ -792,7 +792,7 @@ vk.pubfn.getCurrentPage();
  */
 vk.pubfn.fileToBase64({
   file:res.tempFiles[0],
-  success:function(base64){
+  success: (base64) => {
 
   }
 });
@@ -805,8 +805,8 @@ vk.pubfn.fileToBase64({
  * base64转文件
  */
 vk.pubfn.base64ToFile({
-  base64:base64,
-  success:function(file){
+  base64: base64,
+  success: (file) => {
 
   }
 });
@@ -819,7 +819,7 @@ vk.pubfn.base64ToFile({
 // 简写
 vk.alert("内容");
 // 完整写法
-vk.alert("内容","提示","确定", function(){
+vk.alert("内容", "提示", "确定", () => {
   // 点击确定按钮后的回调
   
 });
@@ -827,8 +827,8 @@ vk.alert("内容","提示","确定", function(){
 
 ### vk.confirm
 ```js
-vk.confirm("内容","提示","确定","取消",function(res){
-  if(res.confirm){
+vk.confirm("内容", "提示", "确定", "取消", (res) => {
+  if (res.confirm) {
     // 点击确定按钮后的回调
     
   }
@@ -837,8 +837,8 @@ vk.confirm("内容","提示","确定","取消",function(res){
 
 ### vk.prompt
 ```js
-vk.prompt("请输入","提示","确定","取消",function(res){
-  if(res.confirm){
+vk.prompt("请输入", "提示", "确定", "取消", (res) => {
+  if (res.confirm){
     console.log(res.content);
   }
 },"输入框内初始内容");
@@ -851,13 +851,13 @@ vk.toast("提示内容", "success"); // 带成功的图标
 vk.toast("提示内容", "/static/1.png"); // 带自定义图片
 vk.toast("提示内容", "none", 1000); // 修改时间延迟
 // 带回调函数
-vk.toast("提示内容", "none", function(){
+vk.toast("提示内容", "none", () => {
   
 }); 
 // 去除遮罩
 vk.toast("提示内容", "none", false);
 // 全参数完整写法（最后3个参数的位置顺序没有要求）
-vk.toast("提示内容", "none", 1000, true, function(){
+vk.toast("提示内容", "none", 1000, true, () => {
   
 });
 ```
@@ -865,17 +865,17 @@ vk.toast("提示内容", "none", 1000, true, function(){
 ### vk.showActionSheet
 ```js
 vk.showActionSheet({
-  title:"",
-  list:["位置","@好友"],
-  color:"#000000",
-  success:function(res){
-    if(res.index==0){
-
-    }else if(res.index==1){
-
+  title: "",
+  list: ["位置", "@好友"],
+  color: "#000000",
+  success: res => {
+    if (res.index == 0) {
+      
+    } else if (res.index == 1) {
+      
     }
   }
- });
+});
 ```
 
 ### vk.showLoading
@@ -1023,12 +1023,12 @@ vk.navigateTo({
   url: "页面地址",
   events: {
     // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-    update: function(data) {
+    update: (data) => {
       // 当B页面运行 eventChannel.emit('update', { a:1 }); 时，会运行这里的代码逻辑。
       
     }
   },
-  success: function(res) {
+  success: (res) => {
     // 通过eventChannel向被打开页面传送数据
     res.eventChannel.emit('data', { b:2 })
   }
@@ -1070,7 +1070,7 @@ vk.navigateBack();
 ```js
 let batchRunRes = await vk.pubfn.batchRun({
   // 主执行函数
-  main: async function(item, index) {
+  main: async (item, index) => {
     await vk.pubfn.sleep((Math.floor(Math.random() * (3 - 0)) + 0) * 100);
     console.log(index, item);
     return { code:0, index }

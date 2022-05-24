@@ -46,7 +46,7 @@ $.ajax({
     username: "test",
     password: "123456"
   }),
-  success:function(data){
+  success: (data) => {
     console.log("data", data);
   }
 })

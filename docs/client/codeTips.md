@@ -20,11 +20,11 @@
 	 "body": [
 			 "vk.callFunction({",
 			 "\turl: '云函数路径',",
-			 "\ttitle:'请求中...',",
-			 "\tdata:{",
+			 "\ttitle: '请求中...',",
+			 "\tdata: {",
 			 "\t\t",
 			 "\t},",
-			 "\tsuccess:function(data){",
+			 "\tsuccess: (data) => {",
 			 "\t\t$0",
 			 "\t}",
 			 "});"
@@ -37,8 +37,8 @@
 	 "body": [
 			 "vk.callFunction({",
 			 "\turl: '云函数路径',",
-			 "\ttitle:'请求中...',",
-			 "\tdata:{",
+			 "\ttitle: '请求中...',",
+			 "\tdata: {",
 			 "\t\t",
 			 "\t},",
 			 "}).then((data) => {",
@@ -53,8 +53,8 @@
 	 "body": [
 			 "let data = await vk.callFunction({",
 			 "\turl: '云函数路径',",
-			 "\ttitle:'请求中...',",
-			 "\tdata:{",
+			 "\ttitle: '请求中...',",
+			 "\tdata: {",
 			 "\t\t",
 			 "\t},",
 			 "});"
@@ -71,16 +71,28 @@
 		"description": "弹出提示框"
 	},
 	"vk.confirm": {
-	 "prefix": "k.confirm",
+	 "prefix": "vk.confirm",
 	 "body": [
-			"vk.confirm('内容','提示','确定','取消',function(res){",
-			"\tif(res.confirm){",
+			"vk.confirm('内容', '提示', '确定', '取消', res => {",
+			"\tif (res.confirm) {",
 			"\t\t$0",
 			"\t}",
 			"});"
 		],
 		"triggerAssist": false,
 		"description": "弹出二次确认框"
+	},
+	"vk.prompt": {
+	 "prefix": "vk.prompt",
+	 "body": [
+			"vk.prompt('请输入', '提示', '确定', '取消', res => {",
+			"\tif (res.confirm) {",
+			"\t\t$0console.log(res.content)",
+			"\t}",
+			"},'输入框内初始内容');"
+		],
+		"triggerAssist": false,
+		"description": "弹出输入框"
 	},
 	"vk.toast": {
 	 "prefix": "vk.toast",
@@ -89,6 +101,118 @@
 		],
 		"triggerAssist": false,
 		"description": "弹出toast提示"
+	},
+	"vk.showActionSheet": {
+	 "prefix": "vk.showActionSheet",
+	 "body": [
+			"let sheetList = ['$0位置', '@好友'];",
+			"vk.showActionSheet({",
+			"\ttitle: '',",
+			"\tlist: sheetList,",
+			"\tcolor: '#000000',",
+			"\tsuccess: res => {",
+			"\t\tif (sheetList[res.index] == '位置') {",
+			"\t\t\t",
+			"\t\t} else if (sheetList[res.index] == '@好友') {",
+			"\t\t\t",
+			"\t\t}",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "弹出操作面板"
+	},
+	"vk.showLoading": {
+	 "prefix": "vk.showLoading",
+	 "body": [
+			"vk.showLoading('$0加载中...');"
+		],
+		"triggerAssist": false,
+		"description": "显示加载提示"
+	},
+	"vk.hideLoading": {
+	 "prefix": "vk.hideLoading",
+	 "body": [
+			"vk.hideLoading();"
+		],
+		"triggerAssist": false,
+		"description": "关闭加载提示"
+	},
+	"弹窗-alert": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.alert('$0');"
+		],
+		"triggerAssist": false,
+		"description": "弹出提示框"
+	},
+	"弹窗-confirm": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.confirm('内容', '提示', '确定', '取消', res => {",
+			"\tif (res.confirm) {",
+			"\t\t$0",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "弹出二次确认框"
+	},
+	"弹窗-prompt": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.prompt('请输入', '提示', '确定', '取消', res => {",
+			"\tif (res.confirm) {",
+			"\t\t$0console.log(res.content)",
+			"\t}",
+			"},'输入框内初始内容');"
+		],
+		"triggerAssist": false,
+		"description": "弹出输入框"
+	},
+	"弹窗-toast": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.toast('$0','none');"
+		],
+		"triggerAssist": false,
+		"description": "弹出toast提示"
+	},
+	"弹窗-showActionSheet": {
+	 "prefix": "tc",
+	 "body": [
+			"let sheetList = ['$0位置', '@好友'];",
+			"vk.showActionSheet({",
+			"\ttitle: '',",
+			"\tlist: sheetList,",
+			"\tcolor: '#000000',",
+			"\tsuccess: res => {",
+			"\t\tif (sheetList[res.index] == '位置') {",
+			"\t\t\t",
+			"\t\t} else if (sheetList[res.index] == '@好友') {",
+			"\t\t\t",
+			"\t\t}",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "弹出操作面板"
+	},
+	"弹窗-showLoading": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.showLoading('$0加载中...');"
+		],
+		"triggerAssist": false,
+		"description": "显示加载提示"
+	},
+	"弹窗-hideLoading": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.hideLoading();"
+		],
+		"triggerAssist": false,
+		"description": "关闭加载提示"
 	},
 	"vk.navigateTo": {
 	 "prefix": "vk.navigateTo",

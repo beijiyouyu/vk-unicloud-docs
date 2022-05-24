@@ -76,7 +76,7 @@ module.exports = {
 uni.chooseImage({
   count: 1,
   sizeType: ['compressed'],
-  success: function (res) {
+  success: (res) => {
     vk.callFunctionUtil.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
@@ -134,7 +134,7 @@ vk.userCenter.code2SessionWeixin({
     code: that.options.code,
     state: that.options.state,
   },
-  success:function(data){
+  success: (data) => {
     // 登录成功后执行的逻辑
     vk.alert(JSON.stringify(data));
   },
@@ -192,7 +192,7 @@ $.ajax({
     username: "test",
     password: "123456"
   }),
-  success:function(data){
+  success: (data) => {
     console.log("data", data);
   }
 })
