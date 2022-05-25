@@ -649,6 +649,21 @@ data: function() {
 | complete | 表单提交结束 |   data, formType |
 | cancel  | 表单点击取消按钮 |    -     |
 
+如监听表单提交成功事件
+```html
+<vk-data-form
+  ...其他属性
+  @success="onFormSuccess"
+></vk-data-form>
+```
+
+```js
+methods: {
+  onFormSuccess(data, formType){
+    console.log("表单提交成功", data);
+  }
+},
+```
 
 ## 方法
 
