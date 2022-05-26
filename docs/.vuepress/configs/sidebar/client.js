@@ -10,7 +10,8 @@ module.exports = [{
       'changelog',
       'changeGuide',
       'codeTips',
-      'codeAssist'
+      'codeAssist',
+      'i18n'
     ]
   },
   'jsapi',
