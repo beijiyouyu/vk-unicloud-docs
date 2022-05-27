@@ -141,14 +141,14 @@
 | multiple         | 是否多选 | Boolean  | false | true |
 | checkStrictly    | 是否严格的遵守父子节点不互相关联 | Boolean  | false | true |
 | emitPath         | 在选中节点改变时，是否返回由该节点所在的各级菜单的值所组成的数组，若设置 false，则只返回该节点的值 | Boolean  | true | false |
-| lazy             | 是否多选 | Boolean  | false | true |
-| multiple         | 是否动态加载子节点，需与 lazyLoad 方法结合使用 | Boolean  | false | true |
+| multiple         | 是否多选 | Boolean  | false | true |
+| lazy             | 是否动态加载子节点，需与 lazyLoad 方法结合使用  | Boolean  | false | true |
 | lazyLoad         | 加载动态数据的方法，仅在 lazy 为 true 时有效 function(node, resolve)，node为当前点击的节点，resolve为数据加载完成的回调(必须调用) | function(node, resolve)  | - | - |
 | value            | 指定选项的值为选项对象的某个属性值 | String  | value | - |
 | label            | 指定选项标签为选项对象的某个属性值 | String  | label | - |
 | children         | 指定选项的子选项为选项对象的某个属性值 | String  | children | - |
 | disabled         | 指定选项的禁用为选项对象的某个属性值 | String  | disabled | - |
-| leaf             | 指定选项的叶子节点的标志位为选项对象的某个属性值 | String  | leaf | - |
+| leaf             | 指定选项的叶子节点的标志位为选项对象的某个属性值，当 lazy = true 时生效  | String  | leaf | - |
 
 
 #### onChange 使用示例
