@@ -818,6 +818,7 @@ vk.pubfn.base64ToFile({
 ```js
 // 简写
 vk.alert("内容");
+
 // 完整写法
 vk.alert("内容", "提示", "确定", () => {
   // 点击确定按钮后的回调
@@ -827,6 +828,15 @@ vk.alert("内容", "提示", "确定", () => {
 
 ### vk.confirm
 ```js
+// 简写
+vk.confirm("内容", (res) => {
+  if (res.confirm) {
+    // 点击确定按钮后的回调
+    
+  }
+});
+
+// 完整写法
 vk.confirm("内容", "提示", "确定", "取消", (res) => {
   if (res.confirm) {
     // 点击确定按钮后的回调
@@ -837,6 +847,14 @@ vk.confirm("内容", "提示", "确定", "取消", (res) => {
 
 ### vk.prompt
 ```js
+// 简写
+vk.prompt("请输入", (res) => {
+  if (res.confirm){
+    console.log(res.content);
+  }
+});
+
+// 完整写法
 vk.prompt("请输入", "提示", "确定", "取消", (res) => {
   if (res.confirm){
     console.log(res.content);
@@ -846,7 +864,9 @@ vk.prompt("请输入", "提示", "确定", "取消", (res) => {
 
 ### vk.toast
 ```js
+// 简写
 vk.toast("提示内容");
+// 带图标
 vk.toast("提示内容", "success"); // 带成功的图标
 vk.toast("提示内容", "/static/1.png"); // 带自定义图片
 vk.toast("提示内容", "none", 1000); // 修改时间延迟
