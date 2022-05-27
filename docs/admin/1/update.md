@@ -4,7 +4,7 @@
 
 ## 方式一：升级整个框架(包含模块) 
 
-#### HBX编译器版本需 `3.1.4` 或更高
+#### HBX编译器版本需 `3.1.6` 或更高
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/80fd47c9-686f-4237-ae71-7170008f3102.png)
 
@@ -43,7 +43,7 @@
 
 ## 注意
 
-* 更新 `vk-unicloud` 后,需要在 `common/vk-unicloud` 右键上传公共模块才会生效
+* 更新 `vk-unicloud` 后，需要在 `common/vk-unicloud` 右键上传公共模块才会生效
 
 * 若是本地调试模式，则需要重启本地服务才会生效。
 
