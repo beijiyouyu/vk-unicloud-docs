@@ -57,7 +57,7 @@ var vkmail;
 try {
 	vkmail = require('vk-mail');
 } catch (err) {
-	console.error("请先添加公共模块：vk-mail");
+	console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
 }
 module.exports = {
   /**
@@ -139,7 +139,7 @@ var vkmail;
 try {
 	vkmail = require('vk-mail');
 } catch (err) {
-	console.error("请先添加公共模块：vk-mail");
+	console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
 }
 
 exports.main = async (event, context) => {
@@ -192,7 +192,7 @@ var vkmail;
 try {
 	vkmail = require('vk-mail');
 } catch (err) {
-	console.error("请先添加公共模块：vk-mail");
+	console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
 }
 
 exports.main = async (event, context) => {
