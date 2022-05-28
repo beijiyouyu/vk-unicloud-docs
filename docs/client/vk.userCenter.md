@@ -20,16 +20,16 @@ loading 参数详细说明
 
 * 若 `loading` 的值为 `true` ，则不显示默认遮罩层提示语，同时在请求时，会自动设置页面变量 `loading=true` ，请求完成时，自动设置页面变量 `loading=false`
 
-* 若 `loading` 的值类型为 `Object`，如下方代码效果是：请求时，会自动执行 `that.loading2=true` ，请求完成时，会自动执行 `that.loading2=false`
+* 若 `loading` 的值类型为 `Object`，如下方代码效果是：请求时，会自动执行 `this.loading2=true` ，请求完成时，会自动执行 `this.loading2=false`
 
 ```js
-loading:{ that:that, name:"loading2"}
+loading:{ that:this, name:"loading2"}
 ```
 
-* name 支持. 如下方代码效果是：请求时，会自动执行 `that.page.loading=true` ，请求完成时，会自动执行 `that.page.loading=false`
+* name 支持. 如下方代码效果是：请求时，会自动执行 `this.page.loading=true` ，请求完成时，会自动执行 `this.page.loading=false`
 
 ```js
-loading:{ that:that, name:"page.loading"}
+loading:{ that:this, name:"page.loading"}
 ```
 
 
@@ -65,7 +65,7 @@ vk.userCenter.register({
     username: "",
     password: ""
   },
-  success: function(data) {
+  success: (data) => {
     // 注册成功后的逻辑
 
   }
@@ -95,7 +95,7 @@ vk.userCenter.login({
     username: "",
     password: ""
   },
-  success: function(data) {
+  success: (data) => {
     // 登录成功后的逻辑
 
   }
@@ -118,7 +118,7 @@ vk.userCenter.updatePwd({
     newPassword: "654321",
     password_confirmation: "654321"
   },
-  success: function(data) {
+  success: (data) => {
     // 修改成功后的逻辑
 
   }
@@ -132,7 +132,7 @@ vk.userCenter.updatePwd({
  * 登出(退出)
  */
 vk.userCenter.logout({
-  success: function(data) {
+  success: (data) => {
     // 退出登录成功后的逻辑
 
   }
@@ -149,7 +149,7 @@ vk.userCenter.logout({
  * @param {String} password 重置后的密码
  */
 vk.userCenter.resetPwd({
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -169,7 +169,7 @@ vk.userCenter.setAvatar({
   data: {
     avatar: "https://www.aa.com/1.jpg"
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -190,7 +190,7 @@ vk.userCenter.updateUser({
   data: {
     nickname: "剑圣李白",
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -206,7 +206,7 @@ vk.userCenter.updateUser({
  * @param {Object} userInfo 用户信息
  */
 vk.userCenter.getCurrentUserInfo({
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -225,7 +225,7 @@ vk.userCenter.getCurrentUserInfo({
  * @param {Array} permission 当前用户权限
  */
 vk.userCenter.checkToken({
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -262,7 +262,7 @@ vk.userCenter.bindMobile({
     mobile: '',
     code: '',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -283,7 +283,7 @@ vk.userCenter.unbindMobile({
     mobile: '',
     code: '',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -311,7 +311,7 @@ vk.userCenter.bindNewMobile({
     mobile: '',
     code: '',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -337,7 +337,7 @@ vk.userCenter.loginBySms({
     mobile: '',
     code: '',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -361,7 +361,7 @@ vk.userCenter.sendSmsCode({
     mobile: '',
     type: 'login',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -384,7 +384,7 @@ vk.userCenter.resetPasswordByMobile({
     code: "",
     mobile: ""
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -437,13 +437,13 @@ vk.userCenter.loginByUniverify({
   data: {
 
   },
-  success: function(data) {
+  success: (data) => {
     uni.closeAuthView();
-    setTimeout(function() {
+    setTimeout(() => {
       vk.alert(data.msg);
     }, 300);
   },
-  fail: function(res) {
+  fail: (res) => {
     uni.closeAuthView();
   }
 });
@@ -465,7 +465,7 @@ vk.userCenter.bindEmail({
     email: '',
     code: '',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -485,7 +485,7 @@ vk.userCenter.unbindEmail({
     email: '',
     code: '',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -509,7 +509,7 @@ vk.userCenter.bindNewEmail({
     email: '',
     code: '',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -535,7 +535,7 @@ vk.userCenter.loginByEmail({
     email: '',
     code: '',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -559,7 +559,7 @@ vk.userCenter.sendEmailCode({
     email: '',
     type: 'login',
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -582,7 +582,7 @@ vk.userCenter.resetPasswordByEmail({
     code: "",
     email: ""
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -626,7 +626,7 @@ vk.userCenter.loginByWeixin({
   data: {
     type: ""
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -647,7 +647,7 @@ vk.userCenter.loginByWeixin({
  * @param {String} refreshToken 客户端为APP时返回，用于刷新accessToken
  */
 vk.userCenter.code2SessionWeixin({
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -661,7 +661,7 @@ vk.userCenter.code2SessionWeixin({
  * 绑定微信
  */
 vk.userCenter.bindWeixin({
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -675,7 +675,7 @@ vk.userCenter.bindWeixin({
  * 解绑微信
  */
 vk.userCenter.unbindWeixin({
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -694,8 +694,8 @@ vk.userCenter.code2SessionWeixin({
   data: {
     needCache: true
   },
-  success: function(data) {
-    that.sessionKey = data.sessionKey;
+  success: (data) => {
+    this.sessionKey = data.sessionKey;
   }
 });
 ```
@@ -711,9 +711,9 @@ getPhoneNumber(e) {
     data: {
       encryptedData,
       iv,
-      sessionKey: that.sessionKey
+      sessionKey: this.sessionKey
     },
-    success: function(data) {
+    success: (data) => {
       vk.alert("手机号:" + data.phone);
     }
   });
@@ -732,8 +732,8 @@ vk.userCenter.code2SessionWeixin({
   data: {
     needCache: true
   },
-  success: function(data) {
-    that.sessionKey = data.sessionKey;
+  success: (data) => {
+    this.sessionKey = data.sessionKey;
   }
 });
 ```
@@ -749,7 +749,7 @@ loginByWeixinPhoneNumber(e) {
     data: {
       encryptedData,
       iv,
-      sessionKey: that.sessionKey
+      sessionKey: this.sessionKey
     },
     success(data) {
       // 成功后的逻辑
@@ -826,7 +826,7 @@ vk.userCenter.loginByAlipay({
   data: {
     type: ""
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -846,7 +846,7 @@ vk.userCenter.loginByAlipay({
  * @param {String} reExpiresIn refreshToken超时时间，单位（秒）
  */
 vk.userCenter.code2SessionAlipay({
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -860,7 +860,7 @@ vk.userCenter.code2SessionAlipay({
  * 绑定支付宝
  */
 vk.userCenter.bindAlipay({
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -874,7 +874,7 @@ vk.userCenter.bindAlipay({
  * 解绑支付宝
  */
 vk.userCenter.unbindAlipay({
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -915,7 +915,7 @@ vk.userCenter.loginByQQ({
   data: {
     type: ""
   },
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -929,7 +929,7 @@ vk.userCenter.loginByQQ({
  * 绑定QQ
  */
 vk.userCenter.bindQQ({
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -943,7 +943,7 @@ vk.userCenter.bindQQ({
  * 解绑QQ
  */
 vk.userCenter.unbindQQ({
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -963,7 +963,7 @@ vk.userCenter.unbindQQ({
  * @param {String} myInviteCode 最终设置的邀请码
  */
 vk.userCenter.setUserInviteCode({
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -983,7 +983,7 @@ vk.userCenter.acceptInvite({
   data: {
     inviteCode :""
   },
-  success: function(data){
+  success: (data) => {
     // 成功后的逻辑
     
   }
@@ -1007,7 +1007,7 @@ vk.userCenter.getInvitedUser({
     pageIndex: 1,
     pageSize: 100
   },
-  success: function(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }

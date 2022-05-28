@@ -59,7 +59,7 @@ vk.openapi.baidu.request({
     image:base64
   },
   success: (data) => {
-    that.data = data;
+    this.data = data;
   },
 });
 ```
@@ -94,7 +94,7 @@ vk.openapi.baidu.open.ocr.business_license({
     file: res.tempFiles[0]
   },
   success: (res) = >{
-    that.data = res.data;
+    this.data = res.data;
   },
 });
 
@@ -111,7 +111,7 @@ vk.openapi.baidu.open.ocr.idcard({
     image: base64
   },
   success: (res) = >{
-    that.data = res.data;
+    this.data = res.data;
   },
 });
 ```

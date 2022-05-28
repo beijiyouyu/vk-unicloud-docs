@@ -163,7 +163,6 @@ alert(content, title = "提示") {
 </template>
 
 <script>
-var that; // 当前页面对象
 export default {
   data() {
     // 页面数据变量
@@ -202,7 +201,7 @@ export default {
   },
   // 监听 - 页面每次【加载时】执行(如：前进)
   onLoad(options = {}) {
-    that = this;
+   
   },
   // 监听 - 页面每次【显示时】执行(如：前进和返回) (页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面)
   onShow() {
@@ -216,6 +215,7 @@ export default {
   methods: {
     // 发起支付
     createPayment() {
+      let that = this;
       let { form1 } = that;
       // 这里的订单号\金额等数据应该是从数据库里获取的,这里为演示需要,故直接本地生成.
       form1.out_trade_no = "test_" + new Date().getTime();
@@ -269,6 +269,7 @@ export default {
     },
     // 支付状态查询
     queryPayment() {
+      let that = this;
       // 支付状态查询你可以直接查你的订单表，看订单是否已支付（因为最终判定用户是否支付成功应该以你的订单表为准）
       // 如果vkPay.queryPayment接口返回支付成功，但你的订单表查询到未支付，代表你的异步回调函数写的有问题。
       that.$refs.vkPay.queryPayment({
@@ -284,6 +285,7 @@ export default {
     },
     // 退款，此为演示，实际业务开发不应该写在前端，而是写在云函数中。
     refund() {
+      let that = this;
       that.callFunction({
         title: "退款中...",
         name: "vk-pay",
@@ -301,6 +303,7 @@ export default {
     },
     // 退款查询
     queryRefund() {
+      let that = this;
       that.callFunction({
         title: "查询中...",
         name: "vk-pay",
@@ -317,6 +320,7 @@ export default {
     },
     // 转账到支付宝，此为演示，实际业务开发不应该写在前端，而是写在云函数中。
     transferAlipay() {
+      let that = this;
       that.callFunction({
         title: "请求中...",
         name: "vk-pay",
@@ -335,6 +339,7 @@ export default {
     },
     // 转账到微信零钱，此为演示，实际业务开发不应该写在前端，而是写在云函数中。
     transferWxpay() {
+      let that = this;
       that.callFunction({
         title: "请求中...",
         name: "vk-pay",
@@ -354,6 +359,7 @@ export default {
     },
     // 云函数调用简易封装，你可以用你原本框架的云函数请求封装方法来调用云函数。
     callFunction(obj) {
+      let that = this;
       let { needAlert = true } = obj;
       if (obj.title) uni.showLoading({ title: obj.title });
       uniCloud.callFunction({
@@ -376,7 +382,7 @@ export default {
       });
     },
     radioChange(e) {
-      that.form1.provider = e.detail.value;
+      this.form1.provider = e.detail.value;
     },
     toast(title, icon = "none", mask = false) {
       uni.showToast({
@@ -394,8 +400,6 @@ export default {
       });
     }
   },
-  // 过滤器
-  filters: {},
   // 计算属性
   computed: {}
 };

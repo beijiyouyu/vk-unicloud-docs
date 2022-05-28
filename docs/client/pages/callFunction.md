@@ -72,16 +72,16 @@ loading 参数说明
 
 * 若 `loading` 的值为 `true` ，则不显示默认遮罩层提示语，同时在请求时，会自动设置页面变量 `loading=true` ，请求完成时，自动设置页面变量 `loading=false`
 
-* 若 `loading` 的值类型为 `Object`，如下方代码效果是：请求时，会自动执行 `that.loading2=true` ，请求完成时，会自动执行 `that.loading2=false`
+* 若 `loading` 的值类型为 `Object`，如下方代码效果是：请求时，会自动执行 `this.loading2=true` ，请求完成时，会自动执行 `this.loading2=false`
 
 ```js
-loading:{ that:that, name:"loading2"}
+loading:{ that:this, name:"loading2"}
 ```
 
-* name 支持. 如下方代码效果是：请求时，会自动执行 `that.page.loading=true` ，请求完成时，会自动执行 `that.page.loading=false`
+* name 支持. 如下方代码效果是：请求时，会自动执行 `this.page.loading=true` ，请求完成时，会自动执行 `this.page.loading=false`
 
 ```js
-loading:{ that:that, name:"page.loading"}
+loading:{ that:this, name:"page.loading"}
 ```
 
 
