@@ -134,12 +134,33 @@ props 对象属性
 | type      | 字段渲染的组件类型 | String  |  -  |  -  |
 | nameKey      | 是否将此字段的值定义为lable（类似单选框的lable和value的关系） | Boolean  | false | true  |
 | idKey  | 是否将此字段的值定义为value（类似单选框的lable和value的关系） | Boolean  | false |  true  |
+| summaryKey  | 是否将此字段的值定义为求和字段 | Boolean  | false |  true  |
 | 其他  | 其他参数参考万能表格（和万能表格参数一致）| -  | - |  -  |
 
 ### 注意：
 1、`idKey` 和 `nameKey` 只能各设置1个。
 2、 设置了`idKey:true`的字段，必须在列表中非空唯一(如主键_id)，默认`idKey`为`_id`
 3、 设置了`nameKey:true`的字段，用于展示在已选择的列表中（如用户昵称字段）默认`nameKey`为`name`
+
+### summaryKey 用法
+
+```js
+{
+  key: "role", title: "通过表格选择(单选)", type: "table-select", placeholder:"请选择",
+  action:"云函数请求地址",
+  multiple:true,
+  columns:[
+    { key:"_id", title:"id", type:"text", width:220, idKey:true },
+    { key:"name", title:"昵称", type:"text", width:120, nameKey:true },
+    { key:"money", title:"金额", type:"money", width:80, sortable:"custom", summaryKey:true, summaryUnit:"元" }, // summaryKey开启该字段为统计字段， summaryUnit：单位
+  ],
+  queryColumns:[
+    { key: "name", title: "昵称", type: "text", width: 150, mode: "%%" },
+    { key: "_id", title: "标识", type: "text", width: 150, mode: "%%" }
+  ]
+}
+
+```
 
 #### queryColumns 参数详情
 | 参数             | 说明               | 类型    | 默认值  | 可选值 |
