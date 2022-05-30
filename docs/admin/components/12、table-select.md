@@ -142,7 +142,7 @@ props 对象属性
 2、 设置了`idKey:true`的字段，必须在列表中非空唯一(如主键_id)，默认`idKey`为`_id`
 3、 设置了`nameKey:true`的字段，用于展示在已选择的列表中（如用户昵称字段）默认`nameKey`为`name`
 
-### summaryKey 用法
+### summaryKey 求和
 
 ```js
 {
@@ -152,7 +152,7 @@ props 对象属性
   columns:[
     { key:"_id", title:"id", type:"text", width:220, idKey:true },
     { key:"name", title:"昵称", type:"text", width:120, nameKey:true },
-    { key:"money", title:"金额", type:"money", width:80, sortable:"custom", summaryKey:true, summaryUnit:"元" }, // summaryKey开启该字段为统计字段， summaryUnit：单位
+    { key:"money", title:"金额", type:"money", width:80, sortable:"custom", summaryKey:true, summaryUnit:"元" }, // summaryKey开启该字段为求和字段， summaryUnit：单位
   ],
   queryColumns:[
     { key: "name", title: "昵称", type: "text", width: 150, mode: "%%" },
