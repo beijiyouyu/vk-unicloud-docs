@@ -150,9 +150,9 @@ props 对象属性
   action:"云函数请求地址",
   multiple:true,
   columns:[
-    { key:"_id", title:"id", type:"text", width:220, idKey:true },
-    { key:"name", title:"昵称", type:"text", width:120, nameKey:true },
-    { key:"money", title:"金额", type:"money", width:80, sortable:"custom", summaryKey:true, summaryUnit:"元" }, // summaryKey开启该字段为求和字段， summaryUnit：单位
+    { key:"_id", title:"id", type:"text", width:260, idKey:true },
+    { key:"name", title:"昵称", type:"text", width:260, nameKey:true },
+    { key:"money", title:"金额", type:"money", width:100, sortable:"custom", summaryKey:true, summaryUnit:"元" }, // summaryKey开启该字段为求和字段， summaryUnit：单位
   ],
   queryColumns:[
     { key: "name", title: "昵称", type: "text", width: 150, mode: "%%" },
