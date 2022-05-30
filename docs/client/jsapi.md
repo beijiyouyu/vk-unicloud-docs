@@ -1111,3 +1111,11 @@ let batchRunRes = await vk.pubfn.batchRun({
   ],
 });
 ```
+
+### vk.pubfn.getUniCloudRequestId
+
+获取本次云函数请求id（只有云端云函数才有，本地云函数无法获取请求id）
+
+```js
+let request_id = vk.pubfn.getUniCloudRequestId();
+```
