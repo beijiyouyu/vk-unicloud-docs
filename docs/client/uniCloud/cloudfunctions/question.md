@@ -55,7 +55,7 @@ let base64 = "data:image/png;base64," + imageBuffer.toString('base64');
 ```
 
 ## 7、云函数中如何调用另一个云函数
-#### 方式一 （该方式只能调用云端云函数）
+#### 方式一
 ```js
 let callFunctionResult = await uniCloud.callFunction({
   name: "router",
@@ -68,7 +68,7 @@ let callFunctionResult = await uniCloud.callFunction({
   }
 });
 ```
-#### 方式二 （跟随运行环境（本地调本地，云端调云端））
+#### 方式二 （此方式需要单独写成公共函数，如 `service/user/util/login_log.js`）
 ```js
 // 下方代码是演示调用 service/user/util/login_log 文件内的 add函数
 let loginLogService = vk.require("service/user/util/login_log");
