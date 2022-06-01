@@ -21,6 +21,8 @@
 | multiple            | 是否可多选 | Number  | - | -  |
 | multipleLimit            | 最大多选数量 | Number  | 9 | -  |
 | defaultCategory            | 默认显示哪个分类下的素材（分类ID） | String  | - | - |
+| upload            | 是否允许上传 | Boolean  | true | false |
+| updateCategory    | 是否允许编辑分类 | Boolean  | true | false  |
 
 ### 万能表格使用方式
 
