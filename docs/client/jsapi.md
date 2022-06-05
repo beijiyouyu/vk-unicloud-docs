@@ -1,10 +1,30 @@
 # JS API文档大全
 
-在 `vk.pubfn.` 不仅可以在 `js` 中使用，也可以直接在 `template` 模板中使用（在template中也可以用简写法$fn代替vk.pubfn）。如
+`vk.pubfn.` 不仅可以在 `js` 中使用，也可以直接在 `template` 模板中使用（在template中也可以用简写法$fn代替vk.pubfn）。如
 
+**以下两种写法都可用**
 ```html
 <view>{{ vk.pubfn.hidden("15200000001", 3, 4) }}</view>
 <view>{{ $fn.hidden("15200000001", 3, 4) }}</view>
+```
+
+**NVUE特别注意**
+
+如果你的页面是 `nvue` 页面，则无法直接使用 `vk`，在 `js` 中需用 `uni.vk` 代替，而在 `template` 模板中，需要先将 `vk` 对象初始化在 `data` 数据中。
+
+如：（非nvue可用直接使用，无需写下面的代码）
+```js
+export default {
+  data() {
+    // 页面数据变量
+    return {
+      vk: uni.vk, // 此时不一定有值，故 onLoad 需要再赋值一遍
+    }
+  },
+  onLoad(options) {
+  	this.vk = uni.vk;
+  }
+}
 ```
 
 ## 前后端通用
