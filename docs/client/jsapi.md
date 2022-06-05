@@ -12,7 +12,7 @@
 
 如果你的页面是 `nvue` 页面，则无法直接使用 `vk`，在 `js` 中需用 `uni.vk` 代替，而在 `template` 模板中，需要先将 `vk` 对象初始化在 `data` 数据中。
 
-如：（非nvue可用直接使用，无需写下面的代码）
+如下：（非nvue可直接使用，无需写下面的代码）
 ```js
 export default {
   data() {
