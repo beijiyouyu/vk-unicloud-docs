@@ -251,7 +251,7 @@ let sum = await vk.baseDao.sum({
 ```js
 let max = await vk.baseDao.max({
   dbName:"vk-test", // 表名
-  fieldName:"money", // 需要求和的字段名
+  fieldName:"money", // 需要取最大值的字段名
   whereJson:{ // 条件
     
   }
@@ -263,7 +263,7 @@ let max = await vk.baseDao.max({
 ```js
 let min = await vk.baseDao.min({
   dbName:"vk-test", // 表名
-  fieldName:"money", // 需要求和的字段名
+  fieldName:"money", // 需要取最小值的字段名
   whereJson:{ // 条件
     
   }
@@ -275,7 +275,7 @@ let min = await vk.baseDao.min({
 ```js
 let avg = await vk.baseDao.avg({
   dbName:"vk-test", // 表名
-  fieldName:"money", // 需要求和的字段名
+  fieldName:"money", // 需要取平均值的字段名
   whereJson:{ // 条件
     
   }
@@ -284,6 +284,7 @@ let avg = await vk.baseDao.avg({
 ### 随机取N条数据
 `vk.baseDao.sample`
 随机取N条数据
+**注意：暂不支持连表查询**
 ```js
 let list = await vk.baseDao.sample({
   dbName:"vk-test", // 表名
