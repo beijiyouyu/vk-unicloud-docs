@@ -125,7 +125,7 @@ let imageBuffer = await vk.request({
 let base64 = "data:image/png;base64," + imageBuffer.toString('base64');
 ```
 
-## 云函数中如何调用另一个云函数
+## 云函数（云对象）中如何调用另一个云函数（云对象）
 
 #### 方式一（推荐，vk-unicloud版本需>=2.9.0）
 **注意：方式一只支持符合VK框架路由规则的云函数或云对象**
