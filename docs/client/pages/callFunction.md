@@ -57,7 +57,7 @@ let data = await vk.callFunction({
 | url              | 请求路径，该路径实为router大云函数的service目录下的路径（此时的router大函数=name参数的值） | String | - | - |
 | data             | 请求参数 | Object  | - | -  |
 | title            | 遮罩层提示语，为空或不传则代表不显示遮罩层。 | String  | - | -  |
-| loading          |  自定义loading [查看详情](#loading) | Boolean、Object  |
+| loading          | 自定义loading [查看详情](#loading) | Boolean、Object  |
 | isRequest        | 是否使用云函数url化地址访问云函数 | Boolean  | false | true |
 | needAlert        | 为true代表请求错误时，会有alert弹窗提示 | Boolean  | true | false |
 | globalParamName  | 全局请求参数的名称， 如果设置了正则规则，则不需要此参数  [查看详情](#globalparamname)  | String  | - | - |
