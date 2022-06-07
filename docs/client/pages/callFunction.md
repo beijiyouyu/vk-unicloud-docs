@@ -51,19 +51,19 @@ let data = await vk.callFunction({
 
 ### api
 
-| 参数          | 说明                           | 类型    | 默认值  | 可选值 |
-|---------------|-------------------------------|---------|--------|-------|
-| name          | 符合VK框架路由规则的router大函数名，默认为app.config.js内的functionName属性的值 | String  | router | -  |
-| url           | 请求路径，该路径实为router大云函数的service目录下的路径（此时的router大函数=name参数的值） | String | - | - |
-| data          | 请求参数 | Object  | - | -  |
-| title         | 遮罩层提示语，为空或不传则代表不显示遮罩层。 | String  | - | -  |
-| loading    |  自定义loading [查看详情](#loading) | Boolean、Object  |
-| isRequest     | 是否使用云函数url化地址访问云函数 | Boolean  | false | true |
-| needAlert     | 为true代表请求错误时，会有alert弹窗提示 | Boolean  | true | false |
-| globalParamName  | 全局请求参数的名称， 如果设置了正则规则,则不需要此参数  [查看详情](#globalparamname)  | String  | - | - |
-| success       | 请求成功时，执行的回调函数 | Function  | - | - |
-| fail          | 请求失败时，执行的回调函数 | Function  | - | - |
-| complete      | 无论请求成功与否，都会执行的回调函数 | Function  | - | - |
+| 参数             | 说明                           | 类型    | 默认值  | 可选值 |
+|------------------|-------------------------------|---------|--------|-------|
+| name             | 符合VK框架路由规则的router大函数名，默认为app.config.js内的functionName属性的值 | String  | router | -  |
+| url              | 请求路径，该路径实为router大云函数的service目录下的路径（此时的router大函数=name参数的值） | String | - | - |
+| data             | 请求参数 | Object  | - | -  |
+| title            | 遮罩层提示语，为空或不传则代表不显示遮罩层。 | String  | - | -  |
+| loading          |  自定义loading [查看详情](#loading) | Boolean、Object  |
+| isRequest        | 是否使用云函数url化地址访问云函数 | Boolean  | false | true |
+| needAlert        | 为true代表请求错误时，会有alert弹窗提示 | Boolean  | true | false |
+| globalParamName  | 全局请求参数的名称， 如果设置了正则规则，则不需要此参数  [查看详情](#globalparamname)  | String  | - | - |
+| success          | 请求成功时，执行的回调函数 | Function  | - | - |
+| fail             | 请求失败时，执行的回调函数 | Function  | - | - |
+| complete         | 无论请求成功与否，都会执行的回调函数 | Function  | - | - |
 
 #### loading
 
