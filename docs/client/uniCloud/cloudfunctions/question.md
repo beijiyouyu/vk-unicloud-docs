@@ -55,9 +55,37 @@ let base64 = "data:image/png;base64," + imageBuffer.toString('base64');
 ```
 
 ## 7、云函数中如何调用另一个云函数
-#### 方式一
+
+#### 方式一（推荐，vk-unicloud版本需>=2.9.0）
+**注意：方式一只支持符合VK框架路由规则的云函数**
 ```js
-let callFunctionResult = await uniCloud.callFunction({
+// 云函数内调用其他云函数或云对象内的函数，在同一个router函数下，name参数可不传
+let callRes = await vk.callFunction({
+  name: "router",
+  url: 'client/user/pub/test',
+  event,
+  data: {
+    a:1
+  },
+});
+console.log(callRes)
+
+// 云对象内调用其他云函数或云对象内的函数，在同一个router函数下，name参数可不传
+let callRes = await vk.callFunction({
+  name: "router",
+  url: 'client/user.test',
+  clientInfo: this.getClientInfo(),
+  data: {
+    a:1
+  },
+});
+console.log(callRes)
+```
+
+#### 方式二（此方式适用任何场景）
+
+```js
+let callFunctionRes = await uniCloud.callFunction({
   name: "router",
   data: {
     $url: "client/user/pub/test",
@@ -67,8 +95,11 @@ let callFunctionResult = await uniCloud.callFunction({
     }
   }
 });
+console.log(callFunctionRes.result)
 ```
-#### 方式二 （此方式需要单独写成公共函数，如 `service/user/util/login_log.js`）
+
+#### 方式三 （此方式需要单独写成公共函数，如 `service/user/util/login_log.js`）
+
 ```js
 // 下方代码是演示调用 service/user/util/login_log 文件内的 add函数
 let loginLogService = vk.require("service/user/util/login_log");
