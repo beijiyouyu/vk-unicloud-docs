@@ -53,7 +53,8 @@ let data = await vk.callFunction({
 
 | 参数          | 说明                           | 类型    | 默认值  | 可选值 |
 |---------------|-------------------------------|---------|--------|-------|
-| url           | 请求路径，该路径实为router云函数的service目录下的路径   | String | - | - |
+| name          | 符合VK框架路由规则的router大函数名，默认为app.config.js内的functionName属性的值 | String  | router | -  |
+| url           | 请求路径，该路径实为router大云函数的service目录下的路径（此时的router大函数=name参数的值） | String | - | - |
 | data          | 请求参数 | Object  | - | -  |
 | title         | 遮罩层提示语，为空或不传则代表不显示遮罩层。 | String  | - | -  |
 | loading    |  自定义loading [查看详情](#loading) | Boolean、Object  |
