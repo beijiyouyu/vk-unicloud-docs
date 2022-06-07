@@ -129,6 +129,9 @@ let base64 = "data:image/png;base64," + imageBuffer.toString('base64');
 
 #### 方式一（推荐，vk-unicloud版本需>=2.9.0）
 **注意：方式一只支持符合VK框架路由规则的云函数或云对象**
+
+优势：完美契合VK框架，且拥有继承当前用户token、ip等功能。
+
 ```js
 // 云函数内调用其他云函数或云对象内的函数，在同一个router大函数下，name参数可不传
 let callRes = await vk.callFunction({
@@ -155,6 +158,8 @@ console.log(callRes)
 
 #### 方式二（此方式适用任何场景）
 
+优势：可以请求不是vk框架下的云函数
+
 ```js
 let callFunctionRes = await uniCloud.callFunction({
   name: "router",
@@ -169,7 +174,9 @@ let callFunctionRes = await uniCloud.callFunction({
 console.log(callFunctionRes.result)
 ```
 
-#### 方式三 （此方式需要单独写成公共函数，如 `service/user/util/login_log.js`）
+#### 方式三 （此方式需要单独写成公共函数，如 `service/user/util/login_log.js`）、
+
+优势：减少一次网络请求，性能高
 
 ```js
 // 下方代码是演示调用 service/user/util/login_log 文件内的 add函数
