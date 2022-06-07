@@ -57,9 +57,9 @@ let base64 = "data:image/png;base64," + imageBuffer.toString('base64');
 ## 7、云函数中如何调用另一个云函数
 
 #### 方式一（推荐，vk-unicloud版本需>=2.9.0）
-**注意：方式一只支持符合VK框架路由规则的云函数**
+**注意：方式一只支持符合VK框架路由规则的云函数或云对象**
 ```js
-// 云函数内调用其他云函数或云对象内的函数，在同一个router函数下，name参数可不传
+// 云函数内调用其他云函数或云对象内的函数，在同一个router大函数下，name参数可不传
 let callRes = await vk.callFunction({
   name: "router",
   url: 'client/user/pub/test',
@@ -70,7 +70,7 @@ let callRes = await vk.callFunction({
 });
 console.log(callRes)
 
-// 云对象内调用其他云函数或云对象内的函数，在同一个router函数下，name参数可不传
+// 云对象内调用其他云函数或云对象内的函数，在同一个router大函数下，name参数可不传
 let callRes = await vk.callFunction({
   name: "router",
   url: 'client/user.test',

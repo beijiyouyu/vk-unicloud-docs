@@ -686,7 +686,7 @@ module.exports = {
 
 ## A云对象内的函数调用B云对象的函数
 
-**不支持**
+**不建议**
 
 每个云对象之间业务逻辑隔离，建议不要有A云对象调用B云对象的想法，不然业务逻辑耦合度太高，不容易维护。
 
@@ -704,6 +704,39 @@ module.exports = {
 ```js
 let { pubFun } = this.getUtil();
 let xxxRes = await pubFun.xxx();
+```
+
+**我就要互相调用，应该怎么写？**
+
+#### 方式一（推荐，vk-unicloud版本需>=2.9.0）
+**注意：方式一只支持符合VK框架路由规则的云函数或云对象**
+```js
+// 云对象内调用其他云函数或云对象内的函数，在同一个router大函数下，name参数可不传
+let callRes = await vk.callFunction({
+  name: "router",
+  url: 'client/user.test',
+  clientInfo: this.getClientInfo(),
+  data: {
+    a:1
+  },
+});
+console.log(callRes)
+```
+
+#### 方式二（此方式适用任何场景）
+
+```js
+let callFunctionRes = await uniCloud.callFunction({
+  name: "router",
+  data: {
+    $url: "client/user.test",
+    data: {
+      a:1,
+      b:2
+    }
+  }
+});
+console.log(callFunctionRes.result)
 ```
 
 ## 云对象操作常见问题
