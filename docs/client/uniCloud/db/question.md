@@ -14,7 +14,7 @@
 #### 11、[如何查询数组字段内包含某个值的数据](#如何查询数组字段内包含某个值的数据)
 #### 12、[分组count](#分组count)
 #### 13、[删除某个字段](#删除某个字段)
-#### 14、[vk.baseDao.findById和vk.baseDao.findByWhereJson如何连表](#findById如何连表)
+#### 14、[vk.baseDao.findById和vk.baseDao.findByWhereJson如何连表](#findbyid如何连表)
 
 ### and
 ### `and` 、`or`、`in`、`nin`、`neq`的用法
