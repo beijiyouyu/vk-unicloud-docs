@@ -235,6 +235,12 @@ module.exports = {
 
 <img class="preview" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0a3398cd-a3aa-40fa-9078-622951a697de.png"/>
 
+将复制的路径粘贴到配置文件 `cloudfunctions/common/uni-config-center/uni-pay/config.js` 的 `notifyUrl` 属性中，格式为 "服务空间SpaceID":"粘贴的URL路径"
+
+配置完记得上传公共模块 `uni-config-center` （每当修改配置后都要上传一次）
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/8612eddc-c799-4baa-a4ab-9b734b5bebcb.png)
+
 ## 4、支付宝证书生成指南
 [点击查看](https://opendocs.alipay.com/open/291/105971)
 
@@ -260,3 +266,4 @@ module.exports = {
 * 2、在 `uniCloud/cloudfunctions/vk-pay` 目录右键选择 `管理公共模块依赖` 菜单，至少引入这4个模块 `uni-config-center`、 `uni-id`、 `uni-pay`、 `vk-uni-pay`
 * 3、重新上传公共模块 `vk-uni-pay`
 * 4、重新上传云函数 `vk-pay`
+
