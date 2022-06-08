@@ -80,10 +80,43 @@ module.exports = {
 |userAgent	|string	|是		|客户端ua										|
 |platform	|string	|是		|客户端平台，h5，mp-weixin等					|
 |deviceId	|string	|是		|客户端deviceId，目前同getSystemInfo内的deviceId|
-|uniIdToken	|string	|是		|客户端用户token								|
+|uniIdToken	|string	|否		|客户端用户token								|
 |uid	|string	|否		| 框架通过token解析出来的uid（可信任）	|
 |filterResponse	|object	|否		| 框架中间件返回值（middleware/modules内的中间件）[查看详情](https://vkdoc.fsq.pub/client/uniCloud/middleware/filter.html)	|
 |originalParam	|object	|是		| 原始请求参数，特殊情况下需要	|
+
+**2.9.1版本新增以下返回值**
+|参数名		|说明	|平台差异说明	|
+|--			|--		|--		|
+|SDKVersion			|客户端基础库版本	| 支付宝小程序和H5不支持		|
+|appLanguage		|应用设置的语言	|-		|
+|appName		|`manifest.json`中应用名称	|-		|
+|appVersion		| `manifest.json` 中应用版本名称	|-		|
+|appVersionCode		| `manifest.json` 中应用版本名号	|-		|
+|browserName		|浏览器名称或App的webview名称	|-|
+|browserVersion		|浏览器版本、webview 版本	|-|
+|deviceModel		|设备型号	| h5平台中部分设备可能会无法获取 |
+|deviceOrientation		|设备方向	| 竖屏 portrait、横屏 landscape |
+|devicePixelRatio		|设备像素比	|-|
+|deviceType		|设备类型。如phone、pad、pc、unknow	|-|
+|hostLanguage		|宿主语言	| app：仅 UniMPSDK 支持，h5：不支持，小程序：小程序宿主语言 |
+|hostName		|宿主主题	light、dark。app平台中仅 UniMPSDK 支持，h5不支持，小程序：light、dark。前提是微信小程序全局配置"darkmode":true时才能获取 |-|
+|hostVersion		|宿主版本。如：微信版本号	|app：仅 UniMPSDK 支持，h5：不支持，小程序：小程序宿主版本|
+|osName		|系统名称，如ios、android、windows、macos、linux	|-|
+|osVersion		|操作系统版本。如 ios 版本，andriod 版本	|-|
+|safeArea		|在竖屏正方向下的安全区域。由于此属性理解和使用比较困难，更推荐使用 safeAreaInsets 属性 [详见](https://uniapp.dcloud.net.cn/api/system/info.html#safearea)	|-|
+|safeAreaInsets		|在竖屏正方向下的安全区域插入位置。与小程序定义的 safeArea 用途相同，但是规范参考 iOS 平台的 safeAreaInsets (opens new window)更利于理解和使用。[详见](https://uniapp.dcloud.net.cn/api/system/info.html#safearea)	|-|
+|ua		|userAgent标识，小程序：不支持	|-|
+|uniCompileVersion		|uni 编译器版本号[详见](https://uniapp.dcloud.net.cn/api/system/info.html#uniplatform)	|-|
+|uniPlatform		|uni-app 运行平台，与条件编译平台相同。[详见](https://uniapp.dcloud.net.cn/api/system/info.html#uniplatform)	|-|
+|uniRuntimeVersion		|uni 运行时版本	|-|
+|screenHeight		|	屏幕高度	|-|
+|screenWidth		|屏幕宽度	|-|
+|statusBarHeight		|手机状态栏的高度		|-|
+|windowBottom		|可使用窗口的底部位置	|-|
+|windowHeight		|可使用窗口高度	|-|
+|windowTop		|可使用窗口的顶部位置	|-|
+|windowWidth		|可使用窗口宽度		|-|
 
 
 ### this.getUserInfo（获取当前登录用户信息）
