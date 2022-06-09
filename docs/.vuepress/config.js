@@ -21,7 +21,7 @@ module.exports = {
         hm.src = "https://hm.baidu.com/hm.js?5610a25d9f3fb54501186ba76a46f720";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
-      })(); 
+      })();
       `
     ]
   ],
@@ -46,7 +46,7 @@ module.exports = {
       }
     },
     editLinks: true,
-    editLinkText: '在 Gitee 上编辑此页（一起来纠错与优化）',
+    editLinkText: '编辑此页（一起来纠错与优化，方便你我Ta）',
     docsRepo: 'https://gitee.com/vk-uni/vk-unicloud-docs.git', // 文档源文件的仓库 URL 。
     docsBranch: 'master', // 文档源文件的仓库分支。
     docsDir:"docs", // 文档源文件存放在仓库中的目录名。
