@@ -1,14 +1,10 @@
 ![](https://vkdoc.fsq.pub/image/logo.png)
 
-# vk-unicloud-router - 云开发路由模式企业级快速开发框架
+# vk-unicloud系列云开发路由模式企业级快速开发框架
 
 **无需转变开发习惯，0成本上手云开发。**
 
 ## 官方Q群：[22466457](https://jq.qq.com/?_wv=1027&k=RTeqPXCZ) 
-
-> 快速上手 →下载地址：https://ext.dcloud.net.cn/plugin?id=2204
-
-> 快速上手 →文档地址：[https://vkdoc.fsq.pub/client/](https://vkdoc.fsq.pub/client/)
 
 ## 框架优势
 
@@ -21,16 +17,42 @@
 * 7、哪些页面需要登录，或哪些页面不需要登录，可以直接通过全局配置搞定。（支持通配符）
 * 8、其他更多功能点可下载体验。关于框架使用问题，可加Q群 `22466457` 提问，只要是框架问题，在群内一定可以得到解决。
 
+## client端开发框架
 
-## 文档大全
-* `client端` 框架地址：`https://ext.dcloud.net.cn/plugin?id=2204` [点击查看](https://ext.dcloud.net.cn/plugin?id=2204)
-* `admin端` 框架地址：`https://ext.dcloud.net.cn/plugin?id=5043` [点击查看](https://ext.dcloud.net.cn/plugin?id=5043)
-* `VK框架快速开发辅助工具` 下载地址 `https://ext.dcloud.net.cn/plugin?id=6663` [点击查看](https://ext.dcloud.net.cn/plugin?id=6663)
-* `client端` 框架文档：`https://vkdoc.fsq.pub/client/` [点击查看](https://vkdoc.fsq.pub/client/)
-* `admin端` 框架文档：`https://vkdoc.fsq.pub/admin/` [点击查看](https://vkdoc.fsq.pub/admin/)
-* `统一支付` 文档：`https://vkdoc.fsq.pub/vk-uni-pay/` [点击查看](https://vkdoc.fsq.pub/vk-uni-pay/)
-* `Redis` 最全API中文文档：`https://vkdoc.fsq.pub/vk-redis/` [点击查看](https://vkdoc.fsq.pub/vk-redis/)
-* `unicloud数据库一键搬家工具` 文档 `https://vkdoc.fsq.pub/db-migration/` [点击查看](https://vkdoc.fsq.pub/db-migration/)
+> 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=2204](https://ext.dcloud.net.cn/plugin?id=2204)
+
+> 快速上手 →文档地址：[https://vkdoc.fsq.pub/client/](https://vkdoc.fsq.pub/client/)
+
+## admin端开发框架
+
+> 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=5043](https://ext.dcloud.net.cn/plugin?id=5043)
+
+> 快速上手 →文档地址：[https://vkdoc.fsq.pub/admin/](https://vkdoc.fsq.pub/admin/)
+
+## VK框架快速开发辅助工具
+
+> 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=6663](https://ext.dcloud.net.cn/plugin?id=6663)
+
+> 快速上手 →文档地址：[https://vkdoc.fsq.pub/client/codeAssist.html](https://vkdoc.fsq.pub/client/codeAssist.html)
+
+## 统一支付插件
+
+> 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=5642](https://ext.dcloud.net.cn/plugin?id=6158)
+
+> 快速上手 →文档地址：[https://vkdoc.fsq.pub/vk-uni-pay/](https://vkdoc.fsq.pub/vk-uni-pay/)
+
+
+## Redis插件
+
+> 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=6158](https://ext.dcloud.net.cn/plugin?id=6158)
+
+> 快速上手 →文档地址：[https://vkdoc.fsq.pub/vk-redis/](https://vkdoc.fsq.pub/vk-redis/)
+
+## unicloud数据库一键搬家工具
+
+> 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=6089](https://ext.dcloud.net.cn/plugin?id=6089)
+
+> 快速上手 →文档地址：[https://vkdoc.fsq.pub/db-migration/](https://vkdoc.fsq.pub/db-migration/)
 
 
 
