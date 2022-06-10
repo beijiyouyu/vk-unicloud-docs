@@ -35,6 +35,8 @@ theme: {
       textColor: "", // 菜单文字颜色
       activeTextColor: "", // 菜单被选中时的文字颜色
       activeBackgroundColor: "", // 菜单被选中时的背景颜色
+      collapseActiveTextColor:"", // 菜单折叠时选中时的文字颜色
+      collapseActiveBackgroundColor: "", // 菜单折叠时选中时的背景颜色
       hoverTextColor: "", // 菜单hover时的文字颜色
       hoverBackgroundColor: "",  // 菜单hover时的背景颜色
       boxShadow: "", // 菜单右边框的阴影
@@ -66,13 +68,15 @@ aaa.js 代码模板
 export default {
   // 左侧菜单样式
   leftMenu: {
-    backgroundColor: "#191a23", // 背景色
-    subBackgroundColor:"#101117", // 子菜单背景色
-    textColor: "#f0f0f0", // 菜单文字颜色
-    activeTextColor: "#ffffff", // 菜单被选中时的文字颜色
-    activeBackgroundColor: "#2d8cf0", // 菜单被选中时的背景颜色
-    hoverTextColor: "#ffffff", // 菜单hover时的文字颜色
-    hoverBackgroundColor: "#545f6c",  // 菜单hover时的背景颜色
+    backgroundColor: "#191a23",
+    subBackgroundColor:"#101117",
+    textColor: "rgba(255,255,255,0.8)",
+    activeTextColor: "#ffffff",
+    activeBackgroundColor: "#2d8cf0",
+    collapseActiveTextColor:"#2d8cf0",
+    collapseActiveBackgroundColor: "#2c3239",
+    hoverTextColor: "#ffffff",
+    hoverBackgroundColor: "#545f6c",
     boxShadow: "2px 0 4px rgba(0,21,4,0.25)",
   },
   // 顶部菜单样式
