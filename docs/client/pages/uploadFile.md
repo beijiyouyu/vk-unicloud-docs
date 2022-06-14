@@ -103,3 +103,28 @@ uni.chooseImage({
 
 ```
 
+## 自定义云端图片保存路径
+
+通过 cloudPath 参数可直接指定路径（需包含文件后缀名）
+
+```js
+// 选择图片
+uni.chooseImage({
+  count: 1,
+  sizeType: ['compressed'],
+  success: function (res) {
+    // 上传至 unicloud云储存
+    vk.callFunctionUtil.uploadFile({
+      title:"上传中...",
+      filePath: res.tempFilePaths[0],
+      cloudPath: "myPath/aa.png",
+      success(res) {
+       // 上传成功
+
+      }
+    });
+  }
+});
+
+```
+
