@@ -54,6 +54,8 @@ loading:{ that:this, name:"page.loading"}
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
 
+[查看token介绍](#token介绍) 
+
 ```js
 /**
  * 用户注册(用户名+密码)
@@ -83,6 +85,8 @@ vk.userCenter.register({
 用户名+密码
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
+
+[查看token介绍](#token介绍) 
 
 ```js
 /**
@@ -328,6 +332,8 @@ vk.userCenter.bindNewMobile({
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
 
+[查看token介绍](#token介绍) 
+
 ```js
 /**
  * 手机号登录(手机号+手机验证码)
@@ -402,6 +408,8 @@ vk.userCenter.resetPasswordByMobile({
 只有 `APP` 端可以用
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
+
+[查看token介绍](#token介绍) 
 
 ```js
 /**
@@ -526,6 +534,8 @@ vk.userCenter.bindNewEmail({
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
 
+[查看token介绍](#token介绍) 
+
 ```js
 /**
  * 邮箱登录(邮箱+邮箱验证码)
@@ -600,6 +610,8 @@ vk.userCenter.resetPasswordByEmail({
 ### vk.userCenter.loginByWeixin（微信登录）
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
+
+[查看token介绍](#token介绍) 
 
 注意：
 
@@ -815,6 +827,8 @@ vk.userCenter.getWeixinMPscheme({
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
 
+[查看token介绍](#token介绍) 
+
 注意：
 
 * 需要在 `common/uni-config-center/uni-id/config.json` 内支付宝平台下配置 `appid`和 `privateKey`（应用私钥）
@@ -894,6 +908,8 @@ vk.userCenter.unbindAlipay({
 目前仅支持app和小程序的qq登录
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
+
+[查看token介绍](#token介绍) 
 
 注意：
 
@@ -1019,3 +1035,23 @@ vk.userCenter.getInvitedUser({
   }
 });
 ```
+
+### token介绍
+
+以下仅为介绍 `token`，实际开发过程中，即使你不了解 `token` 的实现逻辑，也不影响你开发项目（框架已经处理完token的逻辑）。
+
+* 云函数通过 `token` 作为识别用户的令牌
+
+* 当用户登录成功后，云函数会返回 `token` 给前端，前端会自动将 `token` 保存到本地缓存。
+
+* 在客户端，`token的值` 存在 `localStorage` 的 `uni_id_token` 键值中，`token的过期时间` 存在 `uni_id_token_expired` 键值中。
+
+* 在云函数端，`token` 存在 `uni-id-users` 表的 `token` 字段中，云函数端解密 `token` 可以获得 `用户ID` 和 `过期时间`
+
+* 当你访问需要登录的函数时，框架会自动检测token是否有效，有效则放行，无效则拦截。
+
+* `uni-id配置` 中的 `tokenExpiresIn` 参数，代表产生 `新token` 时，该 `token` 的有效期，单位为秒
+
+* 当你在 `uni-id配置` 中设置了 `tokenExpiresThreshold` 时，`token` 在满足条件的情况下，会自动续期，前端也会自动更新 `token` 到本地缓存
+
+* 当你在 `uni-id配置` 中设置了 `tokenMaxLimit`（单一用户最大token数量） 时，当该用户 `token` 数量达到此值时，会直接淘汰旧的 `token`（即使未过期也会淘汰）
