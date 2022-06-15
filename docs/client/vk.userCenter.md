@@ -415,15 +415,15 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 /**
  * APP端 手机一键登录
  * data 请求参数 说明
- * @param {String} access_token 			uni.login登录成功后，返回的access_token参数
- * @param {String} openid 						uni.login登录成功后，返回的openid参数
  * @param {String} type 							指定操作类型，可选值为login、register，不传此参数时表现为手机号已注册则登录，手机号未注册则进行注册
  * @param {String} password 					密码，type为register时生效
  * @param {String} inviteCode 				邀请人的邀请码，type为register时生效
- * @param {String} myInviteCode 			设置当前注册用户自己的邀请码，type为register时生效
+ * @param {String} access_token 			uni.login登录成功后，返回的access_token参数（此参数自动获取，无需填写）
+ * @param {String} openid 						uni.login登录成功后，返回的openid参数（此参数自动获取，无需填写）
+ * @param {String} myInviteCode 			设置当前注册用户自己的邀请码，type为register时生效（此参数自动生成，无需填写）
  * res 返回参数说明
  * @param {Number} code			错误码，0表示成功
- * @param {String} msg				详细信息
+ * @param {String} msg			详细信息
  * @param {String} uid 			当前token对应的用户uid
  * @param {String} type			操作类型，login为登录、register为注册
  * @param {String} mobile		登录者手机号
