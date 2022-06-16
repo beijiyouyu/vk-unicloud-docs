@@ -245,8 +245,7 @@ vk.userCenter.checkToken({
 ### vk.checkToken（token本地校验）
 
 ```js
-let valid = vk.checkToken();
-if (!valid) {
+if (!vk.checkToken()) {
   // token无效
   
 } else {
