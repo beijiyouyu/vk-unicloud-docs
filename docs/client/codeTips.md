@@ -22,6 +22,10 @@
 
 * 1、将下方代码 复制到 hbx 工具 - 代码块设置 - javascript代码块（复制到右侧的自定义代码块）
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/77e9e29a-03d7-4984-93e2-31370e5f8ba6.png)
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/a63e6d5a-0a90-4b0e-ba78-c018f29ae279.png)
+
 ```js
 // 将下方代码复制到 hbx 工具 - 代码块设置 - javascript代码块（复制到右侧的自定义代码块）
 {
@@ -1274,9 +1278,14 @@
 #### 在 `template` 内输入vk
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/7a8db184-f842-4576-baa5-bbae0f5cb52f.png)
 
-* 将下方代码 复制到 hbx 工具 - 代码块设置 - vue代码块 
+* 将下方代码 复制到 hbx 工具 - 代码块设置 - vue代码块 （复制到右侧的自定义代码块）
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/6f5b8b85-8812-45ad-aad1-3bc9855878c9.png)
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/8ab6139b-f26b-4fc9-8e76-b642723d0ce6.png)
+
 ```js
-// 将下方代码复制到 hbx 工具 - 代码块设置 - vue代码块
+// 将下方代码复制到 hbx 工具 - 代码块设置 - vue代码块（复制到右侧的自定义代码块）
 {
 	"$getData(data,key,defaultValue)": {
 	 "prefix": "$getData",
