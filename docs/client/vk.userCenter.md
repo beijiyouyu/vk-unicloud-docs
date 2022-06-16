@@ -254,6 +254,22 @@ if (!vk.checkToken()) {
 }
 ```
 
+```js
+if (vk.checkToken()) {
+  // token有效
+  
+}
+```
+
+```js
+if (!vk.checkToken()) {
+  // token无效
+  return false;
+}
+// token有效
+
+```
+
 
 ## 手机号
 
