@@ -10,19 +10,18 @@
 
 **NVUE特别注意**
 
-如果你的页面是 `nvue` 页面，则无法直接使用 `vk`，在 `js` 中需用 `uni.vk` 代替，而在 `template` 模板中，需要先将 `vk` 对象初始化在 `data` 数据中。
+如果你的页面是 `nvue` 页面，则无法直接使用 `vk`，在 `js` 中需用 `uni.vk` 代替。
 
-如下：（非nvue可直接使用，无需写下面的代码）
+同时因为 `nvue` 在 `template` 模板中，无法直接调用 `uni` 对象，故 `nvue` 想在 `template` 模板中调用 `vk的api`，则还需要写如下代码
+
+（以下代码非nvue无需写，只有nvue且需要在 `template` 模板中调用 `vk的api` 时才需要写下面的代码）
 ```js
 export default {
   data() {
     // 页面数据变量
     return {
-      vk: uni.vk, // 此时不一定有值，故 onLoad 需要再赋值一遍
+      vk: uni.vk, // 将vk变量赋值给 nvue 实例
     }
-  },
-  onLoad(options) {
-  	this.vk = uni.vk;
   }
 }
 ```
