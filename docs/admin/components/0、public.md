@@ -13,6 +13,7 @@
 |---------------|------------------|--------|-------|-------|
 | placeholder   | 占位符   [查看](#placeholder-占位符)               | String | -    | -      |
 | tips          | 下方的提示   [查看](#tips-下方的固定提示)            | String | - | -  |
+| showLabel  |  是否显示label  [查看](#showLabel-是否显示label)  | Boolean  | true    | false  |
 | show  | 复用时的显示规则 [查看](#show-复用时的显示规则)  | array | -  | - |
 | showRule  |  自定义显示规则 [查看](#showrule-自定义显示规则)  | String、Function  | -    | -  |
 | disabled      | 自定义禁用规则 [查看](#disabled-自定义禁用规则)    | Boolean、String、Function | - | -  |
@@ -64,13 +65,17 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/82fe7344-1aa0-4e31-9c33-8232099b700f.png)
 
+## showLabel（是否显示label）
+
+默认为true，当设置为false时，对应的title不显示。
+
 ## show（复用时的显示规则）
 
 表单组件的组件 `form-type` 可以动态复用同一个表单达到显示不同字段的功能。
 
 完整示例代码可以查看页面 `pages_template/components/form/form-dialog-2`
 
-show 是一个字符串数组，columns 数组内每一个元素都可以单独设置 show
+`show` 是一个字符串数组，`columns` 数组内每一个元素都可以单独设置 `show`
 
 * 如果 show 字段不存在，代表显示。
 * 如果 show 的某元素中包含 `form-type`的值，则代表显示。
