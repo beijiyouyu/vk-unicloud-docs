@@ -147,14 +147,14 @@ data() {
       	{
       		mode:'update',
       		title:'编辑',
-      		disabled: function(item){
+      		disabled: (item)=>{
       			return item._id == '002'
       		}
       	},
       	{
       		mode:'delete',
       		title:'删除',
-      		show: function(item){
+      		show: (item)=>{
       			return item._id != '002'
       		}
       	},
@@ -198,33 +198,33 @@ data() {
       rightBtnsMore:[
         {
           title: '按钮1',
-          disabled: function(item){
+          disabled: (item)=>{
             return item._id == '002'
           },
-          onClick: function(item){
+          onClick: (item)=>{
             vk.toast(`${item._id}-按钮1`);
           }
         },
         {
           title: '按钮2',
-          show: function(item){
+          show: (item)=>{
             return item._id != '002'
           },
-          onClick: function(item){
+          onClick: (item)=>{
             vk.toast(`${item._id}-按钮2`);
           }
         },
         {
           title: '按钮3',
           disabled: '_id==002',
-          onClick: function(item){
+          onClick: (item)=>{
             vk.toast(`${item._id}-按钮3`);
           }
         },
         {
           title: '按钮4',
           disabled: '_id!=002',
-          onClick: function(item){
+          onClick: (item)=>{
             vk.toast(`${item._id}-按钮4`);
           }
         }
@@ -256,33 +256,33 @@ data() {
       customRightBtns: [
       	{
       		title: '按钮1', type: 'primary', icon: 'el-icon-edit',
-      		disabled: function(item){
+      		disabled:(item)=>{
       			return item._id == '002'
       		},
-      		onClick: function(item){
+      		onClick:(item)=>{
       			vk.toast(`${item._id}-按钮1`);
       		}
       	},
       	{
       		title: '按钮2', type: 'success', icon: 'el-icon-edit',
-      		show: function(item){
+      		show:(item)=>{
       			return item._id != '002'
       		},
-      		onClick: function(item){
+      		onClick:(item)=>{
       			vk.toast(`${item._id}-按钮2`);
       		}
       	},
       	{
       		title: '按钮3', type: 'warning', icon: 'el-icon-edit',
       		disabled: '_id==002',
-      		onClick: function(item){
+      		onClick:(item)=>{
       			vk.toast(`${item._id}-按钮3`);
       		}
       	},
       	{
       		title: '按钮4', type: 'danger', icon: 'el-icon-edit',
       		disabled: '_id!=002',
-      		onClick: function(item){
+      		onClick:(item)=>{
       			vk.toast(`${item._id}-按钮4`);
       		}
       	}
@@ -350,7 +350,7 @@ export default {
     return {
       table1:{
         
-        dataPreprocess : function(list){
+        dataPreprocess : (list) => {
           // 这里写自己的处理逻辑，最终返回处理完的list即可。
           list.map((item, index) => {
           	item.a = 1;
@@ -395,7 +395,7 @@ export default {
     return {
       table1:{
         
-        selectable:function(row,index){
+        selectable:(row,index)=>{
           // 返回true,代表可以多选,返回false代表改行的多选框禁用。
           if (index == 1) {
             return false;
@@ -477,7 +477,7 @@ table1:{
     { key:"exp_time", title:"到期剩", type:"dateDiff2", endText:"已到期", width:80, defaultValue: "永久", sortable:"custom" },
     { 
       key: "nickname", title: "html渲染", type: "html", defaultValue: "未设置",
-      formatter: function(val, row, column, index) {
+      formatter: (val, row, column, index) => {
         let str = `<text>${val}</text>（审核通过）`;
         return str;
       }
@@ -569,16 +569,16 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
       type: "text", // 文字形式按钮 可选：primary / success / warning / danger / info / text
       mode: "update", // 模式 可选：update（通用修改模式） / default（自定义模式）
       show: ["row"], // 在哪些场景显示按钮 多选：row（在行内显示） / detail（在详情页显示）
-      showRule: function(formData) {
+      showRule: (formData) => {
         // 此为演示只有字段 key2 不等于 1时，才会显示此按钮。
         return (formData.key2 != 1) ? true : false;
       },
-      click: function(options) {
+      click: (options) => {
         console.log(1, options.value, options.formData);
         vk.callFunction({
           url: 'template/test/pub/test',
           data: options.formData,
-          success: function(data) {
+          success: (data) => {
             // 通知组件操作成功（否则组件按钮会一直处于loading状态）
             options.success({
               msg: "修改成功"
@@ -591,7 +591,7 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
       title: "查看",
       type: "text",
       show: ["detail", "row"],
-      click: function(options) {
+      click: (options) => {
         console.log(2, options.value, options.formData);
         uni.vk.toast("你点击了查看");
       }
@@ -610,7 +610,7 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
       { text: '备注2', value:'备注2' },
     ],
     multiple:true, // 是否可多选
-    method:function(value, row, column){
+    method:(value, row, column)=>{
       return value === row.remark;
     },
     defaultValue:[], // 过滤器默认值 如：["备注1"]
@@ -665,7 +665,7 @@ that.$refs.table1.showDetail(item); // item是该条记录的数据源
 ```js
 that.$refs.table1.deleteRows({
   ids:["60acf6248a69dc00018d8520"],
-  success:function(){
+  success:()=>{
     
   }
 });
@@ -677,7 +677,7 @@ that.$refs.table1.updateRows({
   rows:[
     { _id:"60acf6248a69dc00018d8520", remark:"被修改了", money:10000 }
   ],
-  success:function(){
+  success:()=>{
     
   }
 });

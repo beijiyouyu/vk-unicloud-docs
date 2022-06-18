@@ -218,7 +218,7 @@ show 是一个字符串数组，columns 数组内每一个元素都可以单独�
     { value:2, label:"新增" },
     { value:3, label:"移除" }
   ],
-  showRule:function(formData){
+  showRule:(formData)=>{
   	if(formData.login_appid_type == 1){
   		return true;
   	}else{
@@ -277,7 +277,7 @@ show 是一个字符串数组，columns 数组内每一个元素都可以单独�
     { value:2, label:"新增" },
     { value:3, label:"移除" }
   ],
-  disabled:function(formData){
+  disabled:(formData)=>{
   	if(formData.login_appid_type === 0){
   		return true;
   	}else{
@@ -484,7 +484,7 @@ data: function() {
       // 表单属性
       props: {
         
-        beforeAction:function(formData){
+        beforeAction:(formData)=>{
           // 可在此处修改 formData 后返回 formData，若在此处return false，则表单不触发提交请求。
           return formData;
         },
@@ -621,7 +621,7 @@ data: function() {
           ],
           pwd2: [
             // 自定义
-            { validator: function(rule, value, callback){
+            { validator: (rule, value, callback)=>{
               if (value === '') {
                 callback(new Error('请再次输入密码'));
               } else if (value !== that.form1.data.pwd) {
