@@ -1177,7 +1177,7 @@ let request_id = vk.pubfn.getUniCloudRequestId();
 
 ### vk.pubfn.randomAsync
 
-（异步）产生指定位数的随机数（支持任意字符，s默认纯数字）
+（异步）产生指定位数的不重复随机数（支持任意字符，s默认纯数字）
 
 ```js
 /**
