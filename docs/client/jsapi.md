@@ -452,15 +452,17 @@ vk.pubfn.arrayObjectGetArray(list, "_id");
 ```
 
 ### vk.pubfn.random（随机数）
-支持任意字符,默认纯数字
+支持任意字符，默认纯数字
 
 ```js
 /**
- * 产生指定位数的随机数(支持任意字符,默认纯数字)
- * @param	{Number} 第1个参数 length 数据源
- * @param	{String} 第2个参数 str 指定的字符串中随机范围
+ * 产生指定位数的随机数(支持任意字符，默认纯数字)
+ * @param	{Number} 第1个参数 length 随机数固定位数
+ * @param	{String} 第2个参数 range 指定的字符串中随机范围
  * @param	{Array}  第3个参数 arr 产生的随机数不会和此数组的任意一项重复
  */
+vk.pubfn.random(length, range, arr);
+
 vk.pubfn.random(6);
 vk.pubfn.random(6, "abcdefghijklmnopqrstuvwxyz0123456789");
 vk.pubfn.random(1,"123456789",["1","2","3"]);
@@ -1170,4 +1172,33 @@ let batchRunRes = await vk.pubfn.batchRun({
 
 ```js
 let request_id = vk.pubfn.getUniCloudRequestId();
+```
+
+
+### vk.pubfn.randomAsync
+
+（异步）产生指定位数的随机数（支持任意字符，s默认纯数字）
+
+```js
+/**
+ * （异步）产生指定位数的随机数（支持任意字符，range默认纯数字）
+ * @param	{Number} length 随机数固定位数
+ * @param	{String} range 指定的字符串中随机范围
+ * @param	{Function} fn 产生的随机数判断重复的自定义函数
+ */
+await vk.pubfn.randomAsync(length, range, fn);
+```
+
+**以下是产生用户6位数分享码的具体代码**
+
+```js
+let randomStr = await vk.pubfn.randomAsync(6, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", async (val)=>{
+	let num = await vk.baseDao.count({
+		dbName:"uni-id-users",
+		whereJson:{
+			my_invite_code: val
+		}
+	});
+	return num === 0 ? true : false;
+});
 ```
