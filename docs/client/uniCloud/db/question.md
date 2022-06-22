@@ -15,6 +15,7 @@
 #### 12、[分组count](#分组count)
 #### 13、[删除某个字段](#删除某个字段)
 #### 14、[vk.baseDao.findById和vk.baseDao.findByWhereJson如何连表](#findbyid如何连表)
+#### 15、[如何更改字段名](#如何更改字段名)
 
 ### and
 ### `and` 、`or`、`in`、`nin`、`neq`的用法
@@ -471,4 +472,44 @@ let info = await vk.baseDao.selects({
 
 ```json
 {"_id":"001","name":"xxx"}
+```
+
+### 如何更改字段名
+
+`rename` 是字段重命名操作符。如果需要对嵌套深层的字段做重命名，需要用点路径表示法。不能对嵌套在数组里的对象的字段进行重命名。
+
+示例 1：重命名顶层字段
+
+以下是将 `vk-test` 表的 `money` 字段改成 `money2` 字段示例
+
+```js
+await vk.baseDao.update({
+  dbName:"vk-test",
+  dataJson:{
+    money: _.rename('money2')
+  }
+});
+```
+
+示例 2：重命名嵌套字段
+
+```js
+await vk.baseDao.update({
+  dbName:"vk-test",
+  dataJson:{
+    'someObject.someField': _.rename('someObject.renamedField')
+  }
+});
+```
+
+示例 3：重命名多个字段
+
+```js
+await vk.baseDao.update({
+  dbName:"vk-test",
+  dataJson:{
+     money: _.rename('money2'),
+    'someObject.someField': _.rename('someObject.renamedField')
+  }
+});
 ```
