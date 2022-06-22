@@ -26,6 +26,10 @@ export default {
 }
 ```
 
+**支付宝、抖音 小程序特别注意**
+
+在 `js` 中需用 `uni.vk` 代替 `vk`。
+
 ## 前后端通用
 ### vk.pubfn.debounce（防抖函数）
 
