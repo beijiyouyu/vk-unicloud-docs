@@ -78,3 +78,24 @@ return res;
 * 3、`vk.baseDao.updateById`
 * 4、`vk.baseDao.deleteById`
 * 5、`vk.baseDao.updateAndReturn`
+
+
+#### 简易模板
+
+```js
+// 开启事务
+const transaction = await vk.baseDao.startTransaction();
+try {
+  // 这里写数据库语句
+
+  // 提交事务
+  await transaction.commit();
+  console.log(`transaction succeeded`);
+} catch (err) {
+  // 事务回滚
+  return await vk.baseDao.rollbackTransaction({
+    db: transaction,
+    err
+  });
+}
+```
