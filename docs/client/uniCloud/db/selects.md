@@ -11,6 +11,7 @@
 #### 8、[分组统计带if(查询每个班级中,数学成绩大于语文成绩的学生人数)](#场景8)
 #### 9、[连表查询，并获取满足条件的第一条记录，以对象形式返回](#场景9)
 #### 10、[利用分组查询实现以指定字段去重复查询](#场景10)
+#### 10、[连表查询，使用数组下标对应的值进行连表](#场景11)
 
 ### 场景1
 #### 1张主表多张副表
@@ -402,3 +403,37 @@ res = await vk.baseDao.selects({
   // }
 });
 ```
+
+
+### 场景11
+#### 使用数组下标对应的值进行连表
+
+**核心：localKey: $.arrayElemAt(['$inviter_uid', 0]),**
+
+**注意：$ = db.command.aggregate**
+
+```js
+res = await vk.baseDao.selects({
+  dbName: "uni-id-users",
+  getCount: false,
+  pageIndex: 1,
+  pageSize: 5,
+  fieldJson:{
+    token: false,
+    password: false
+  },
+  // 副表列表
+  foreignDB: [{
+    dbName: "uni-id-users",
+    localKey: $.arrayElemAt(['$inviter_uid', 0]),
+    foreignKey: "_id",
+    as: "inviterUserInfo",
+    limit: 1,
+    fieldJson:{
+      token: false,
+      password: false
+    },
+  }]
+});
+```
+
