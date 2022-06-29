@@ -788,7 +788,7 @@ loginByWeixinPhoneNumber(e) {
       iv,
       sessionKey: this.sessionKey
     },
-    success(data) {
+    success: (data) => {
       // 成功后的逻辑
 
     }
@@ -812,7 +812,7 @@ vk.userCenter.getWeixinMPqrcode({
   data: {
     scene: "a=1"
   },
-  success(data) {
+  success: (data) => {
     // 成功后的逻辑
 
   }
@@ -833,7 +833,7 @@ vk.userCenter.getWeixinMPscheme({
     query: "a=1&b=2",
     path: "pages/index/index"
   },
-  success(data) {
+  success: (data) => {
     // 成功后的逻辑
     
   }

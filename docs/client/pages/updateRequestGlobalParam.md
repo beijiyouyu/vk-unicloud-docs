@@ -31,6 +31,8 @@ vk.callFunction({
   data: {
 
   },
-  success(data) {}
+  success: (data) => {
+		
+	}
 });
 ```

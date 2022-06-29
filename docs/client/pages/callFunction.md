@@ -111,7 +111,7 @@ vk.callFunction({
   title: '请求中...',
   globalParamName:"shop-manage",// 如果设置了正则规则,则不需要此参数
   data: {},
-  success(data) {
+  success: (data) => {
     
   }
 });

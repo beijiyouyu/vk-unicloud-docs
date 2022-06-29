@@ -509,7 +509,7 @@ vk.callFunction({
     a:1,
     b:"2"
   },
-  success(data) => {
+  success: (data) => {
     // 成功后的逻辑
   }
 });
@@ -591,7 +591,7 @@ userObject.getInfo({
     a:1,
     b:"2"
   },
-  success(data) => {
+  success: (data) => {
     // 成功后的逻辑
   }
 });

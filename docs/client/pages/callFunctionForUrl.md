@@ -24,7 +24,7 @@ this.vk.callFunction({
   data:{
     avatar: "https://xxxxxxx.jpg"
   },
-  success(data) {
+  success: (data) => {
     // 修改成功
   }
 });

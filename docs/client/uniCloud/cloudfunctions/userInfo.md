@@ -22,7 +22,7 @@ vk.callFunction({
     a:1, 
     b:2
   },
-  success(data) {
+  success: (data) => {
 
   }
 });
@@ -43,7 +43,7 @@ vk.callFunction({
     a:1, 
     b:2
   },
-  success(data) {
+  success: (data) => {
 
   }
 });
