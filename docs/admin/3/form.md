@@ -594,7 +594,7 @@ data: function() {
           ],
           mobile: [
             // 必填
-            { required:true,  message: '提现人手机号不能为空', trigger: 'blur' },
+            { required:true,  message: '提现人手机号不能为空', trigger: ['blur','change'] },
             // 必须是手机号格式
             { validator: vk.pubfn.validator("mobile"),  message: '手机号格式错误', trigger: 'blur' }
           ],
@@ -609,7 +609,7 @@ data: function() {
           ],
           nickname: [
             // 必填
-            { required: true, message: '昵称为必填字段', trigger: 'blur' },
+            { required: true, message: '昵称为必填字段', trigger: ['blur','change'] },
             // 长度在 2-20 个字
             { min: 2, max: 20, message: '昵称长度在 2 到 20 之间', trigger: 'blur' }
           ],
@@ -695,7 +695,7 @@ data: function() {
               } else {
                 callback();
               }
-            }, trigger: 'blur' }
+            }, trigger: ['blur','change'] }
           ]
         }
       }
