@@ -205,6 +205,17 @@ columns是一个数组，数组内每个元素有以下属性，每个元素代�
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/82fe7344-1aa0-4e31-9c33-8232099b700f.png)
 
+**同时tips支持解析html字符串，如下所示**
+
+```js
+// 增加详情按钮 跳新窗口打开新页面
+{ key: "text1", title:"text类型字段", type:"text", tips:`<text>这里使其他文字介绍</text><a href="#/pages/order/list" target="_blank">详情</a>`, width:600 },
+// 增加详情按钮 关闭当前页面，跳新页面
+{ key: "text2", title:"text类型字段", type:"text", tips:`<text>这里使其他文字介绍</text><a href="javascript:void(0);" onClick="vk.navigateTo('/pages_template/components/form/form-basic');">详情</a>`, width:600 },
+// 增加详情按钮 跳https外部页面
+{ key: "text3", title:"text类型字段", type:"text", tips:`<text>这里使其他文字介绍</text><a href="https://www.baidu.com" target="_blank">跳百度</a>`, width:600 },
+```
+
 ### showLabel（是否显示label）
 
 默认为true，当设置为false时，对应的title不显示。
