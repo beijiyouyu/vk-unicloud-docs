@@ -229,6 +229,10 @@ vk.userCenter.getCurrentUserInfo({
 
 ### vk.userCenter.checkToken（token云端校验）
 
+**注意：实际开发过程中，无需你主动执行这个api来判断用户tokne是否有效**
+
+[查看token介绍](#token介绍) 
+
 ```js
 /**
  * token校验
@@ -247,6 +251,10 @@ vk.userCenter.checkToken({
 ```
 
 ### vk.checkToken（token本地校验）
+
+**此api无网络请求，无延迟，你无需担心本地校验用户会伪造的可能，因为如果用户请求云函数，云端最终还会再校验一遍的**
+
+[查看token介绍](#token介绍) 
 
 ```js
 if (!vk.checkToken()) {
@@ -1067,7 +1075,7 @@ vk.userCenter.getInvitedUser({
 
 * 在云函数端，`token` 存在 `uni-id-users` 表的 `token` 字段中，云函数端解密 `token` 可以获得 `用户ID` 和 `过期时间`
 
-* 当你访问需要登录的函数时，框架会自动检测token是否有效，有效则放行，无效则拦截。
+* 当你访问需要登录的函数时，框架会自动检测token是否有效，有效则放行，无效则拦截。（无需你手动传token和验证token）
 
 * `uni-id配置` 中的 `tokenExpiresIn` 参数，代表产生 `新token` 时，该 `token` 的有效期，单位为秒
 
