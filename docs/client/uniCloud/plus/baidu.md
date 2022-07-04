@@ -1,6 +1,5 @@
 # 百度开放平台API
 
-
 ## 配置文件
 
 打开 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 文件，配置里面的 
@@ -18,14 +17,14 @@
 }
 ```
 
-### API Key申请地址：https://cloud.baidu.com/doc/OCR/s/rk3h7xzck 点击右上角注册
-#### 目前百度云是有免费版本的，基本也够用了。
+**API Key申请地址：**[传送门](https://cloud.baidu.com/doc/OCR/s/rk3h7xzck) 
 
-### 百度开放平台API
+目前百度云是有免费版本的，基本也够用了。
 
-### 【云函数】调用百度开放平台API
+## 【云函数】调用百度开放平台API
 
-#### API通用接口
+**API通用接口**
+
 ```js
 /**
  * 百度开放平台API通用接口
@@ -45,8 +44,10 @@ let requestRes = await vk.openapi.baidu.open.request({
 });
 ```
 
-### 【前端】直接调用百度开放平台API
-#### API通用接口
+## 【前端】直接调用百度开放平台API
+
+**API通用接口**
+
 ```js
 /**
  * 百度开放平台通用请求接口
@@ -70,22 +71,24 @@ vk.openapi.baidu.request({
   },
 });
 ```
-###  更多接口（action名称）请查看: [点击前往百度开放平台API](https://cloud.baidu.com/doc/OCR/s/rk3h7xzck)
 
-### 注意：前端直接调用的
-#### 优势
-```js
-1. 请求速度更快
-2. 使用方便
-3. 无需再写云函数
-4. 省流量（省钱）云函数是按量扣费的
-```
-#### 劣势
-```js
-1. 有token泄露风险，但此token并不会造成多大的危害。
-```
+**更多接口（action名称）请查看: ** [点击前往百度开放平台API](https://cloud.baidu.com/doc/OCR/s/rk3h7xzck)
 
-### 以下是前端使用的更快捷的API形式
+**注意：前端直接调用的**
+
+**优势**
+
+* 1、请求速度更快
+* 2、使用方便
+* 3、无需再写云函数
+* 4、省流量（省钱）云函数是按量扣费的
+
+**劣势**
+
+* 1、有token泄露风险，但此token并不会造成多大的危害。
+
+**以下是前端使用的更快捷的API形式**
+
 ```js
 /**
  * 营业执照识别

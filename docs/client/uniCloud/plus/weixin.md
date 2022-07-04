@@ -6,9 +6,9 @@
 
 "mp-weixin" 微信小程序
 
-app-plus" APP
+app-plus" APP（需要用到APP登录才需要配置）
 
-"h5-weixin" 微信公众号
+"h5-weixin" （需要用到公众号登录才需要配置）
 
 ```js
 "app-plus": {
