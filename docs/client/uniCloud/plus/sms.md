@@ -39,7 +39,7 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
 ```
 
 ## 2、配置unicloud短信
-#### 定位到文件 `common/uni-config-center/uni-id/config.json` 的 `service.sms`
+#### 定位到文件 `uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json` 的 `service.sms`
 ```js
 "sms": {
   "name": "重要",
@@ -56,7 +56,7 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
 
 ___这里的阿里云短信指的是阿里云官方买的短信接口，非 unicloud短信接口___
 
-#### 定位到文件 `common/uni-config-center/vk-unicloud/index.js` 的 `vk.service.sms`
+#### 定位到文件 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 的 `vk.service.sms`
 ```js
 // 短信服务
 "sms": {

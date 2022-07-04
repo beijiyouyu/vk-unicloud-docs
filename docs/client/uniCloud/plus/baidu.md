@@ -1,6 +1,12 @@
 # 百度开放平台API
- 
-### 配置`config`公共模块`vk.service.openapi`
+
+
+## 配置文件
+
+打开 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 文件，配置里面的 
+
+"openapi.baidu" 百度开放平台
+
 ```js
 // 开放平台api
 "openapi":{
@@ -11,6 +17,7 @@
   }
 }
 ```
+
 ### API Key申请地址：https://cloud.baidu.com/doc/OCR/s/rk3h7xzck 点击右上角注册
 #### 目前百度云是有免费版本的，基本也够用了。
 
