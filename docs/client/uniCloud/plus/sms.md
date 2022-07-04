@@ -1,8 +1,8 @@
-# 3、短信发送（聚合版）
+# 短信发送（聚合版）
  
 #### 支持 aliyun、unicloud
 #### 阿里云短信的实现不依赖阿里云SDK核心库，无需`npm install @alicloud/pop-core`，大大减少代码体积。
-## 3.1、调用示例
+## 1、调用示例
 ```js
 /**
  * 发送短信(聚合版)
@@ -38,7 +38,7 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
 
 ```
 
-## 3.2、配置unicloud短信
+## 2、配置unicloud短信
 #### 定位到文件 `common/uni-config-center/uni-id/config.json` 的 `service.sms`
 ```js
 "sms": {
@@ -52,7 +52,7 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
 
 ```
 
-## 3.3、配置阿里云短信
+## 3、配置阿里云短信
 
 ___这里的阿里云短信指的是阿里云官方买的短信接口，非 unicloud短信接口___
 

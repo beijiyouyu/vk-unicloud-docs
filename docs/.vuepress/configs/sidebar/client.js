@@ -97,6 +97,7 @@ module.exports = [{
         collapsable: true,
         children: [
           'uniCloud/plus/weixin',
+          'uniCloud/plus/weixin-h5',
           'uniCloud/plus/baidu',
           'uniCloud/plus/sms',
           'uniCloud/plus/mail',

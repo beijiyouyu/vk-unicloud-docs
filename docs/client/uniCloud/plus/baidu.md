@@ -1,4 +1,4 @@
-# 2、百度开放平台API
+# 百度开放平台API
  
 ### 配置`config`公共模块`vk.service.openapi`
 ```js
