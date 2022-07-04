@@ -1,5 +1,45 @@
 # 微信小程序API
- 
+
+## 配置文件
+
+打开 `uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json` 文件，配置里面的 
+
+"mp-weixin" 微信小程序
+
+app-plus" APP
+
+"h5-weixin" 微信公众号
+
+```js
+"app-plus": {
+  "tokenExpiresIn": 604800,
+  "oauth": {
+    "weixin": {
+      "appid": "",
+      "appsecret": ""
+    }
+  }
+},
+"mp-weixin": {
+  "oauth": {
+    "weixin": {
+      "appid": "",
+      "appsecret": ""
+    }
+  }
+},
+"h5-weixin": {
+  "oauth": {
+    "weixin": {
+      "appid": "",
+      "appsecret": ""
+    }
+  }
+},
+```
+
+配置完需要上传 `uni-config-center` 这个公共模块
+
 ## 1.1、授权相关API
 
 ### 获取token 
