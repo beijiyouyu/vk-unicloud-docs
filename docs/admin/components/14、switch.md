@@ -37,7 +37,7 @@
 { key: "switch", title: "switch类型", type: "switch", activeValue:true, inactiveValue:false, width: 100 }
 ```
 
-### 动态编辑模式
+### 表格行内动态编辑模式
 ```js
 {
   key: "is_on_sale", title:"是否上架", type:"switch", activeValue:true, inactiveValue:false, width:80,
