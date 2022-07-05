@@ -560,9 +560,46 @@ table1:{
 
 ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完全自定义该字段的实现。___ [查看插槽](#插槽)
 
+**单个修改按钮示例**
+
 ```js
 {
   key: "key1", title: "标题", type: "text", width: 200,
+  buttonsPosition:"right", // 支持 left right bottom top
+  buttons: [
+    {
+      title: "修改",
+      type: "text", // 文字形式按钮 可选：primary / success / warning / danger / info / text
+      mode: "update", // 模式 可选：update（通用修改模式） / default（自定义模式）
+      show: ["row"], // 在哪些场景显示按钮 多选：row（在行内显示） / detail（在详情页显示）
+      showRule: (formData) => {
+        // 此为演示只有字段 key2 不等于 1时，才会显示此按钮。
+        return (formData.key2 != 1) ? true : false;
+      },
+      click: (options) => {
+        console.log(1, options.value, options.formData);
+        vk.callFunction({
+          url: 'template/test/pub/test',
+          data: options.formData,
+          success: (data) => {
+            // 通知组件操作成功（否则组件按钮会一直处于loading状态）
+            options.success({
+              msg: "修改成功"
+            });
+          }
+        });
+      }
+    }
+  ]
+},
+```
+
+**多个修改按钮示例**
+
+```js
+{
+  key: "key1", title: "标题", type: "text", width: 200,
+  buttonsPosition:"right", // 支持 left right bottom top
   buttons: [
     {
       title: "修改",
