@@ -37,6 +37,27 @@
 { key: "switch", title: "switch类型", type: "switch", activeValue:true, inactiveValue:false, width: 100 }
 ```
 
+### 动态编辑模式
+```js
+{
+  key: "is_on_sale", title:"是否上架", type:"switch", activeValue:true, inactiveValue:false, width:80,
+  watch: (res) => {
+    let { value, row, change } = res;
+    vk.callFunction({
+      url: "上架的云函数地址",
+      title: value ? "上架中..." : "下架中...",
+      data: {
+        _id: row._id,
+        is_on_sale: value
+      },
+      success: data => {
+        change(value); // 这一步是让表格行内的开关改变显示状态
+      }
+    });
+  }
+}
+```
+
 
 ### template 使用方式
 ### 开关形式
