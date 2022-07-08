@@ -32,12 +32,45 @@ httpRequest(obj){
   // 上传成功后，需要执行 onSuccess(res);
   // 上传失败时，需要执行 onError(res);
   // 正在上传时，可以监听上传过程，同时执行下方代码，达到显示上传过程进度条的功能 
- /* onProgress({
+ /* 
+ onProgress({
     percent:progress,
     isTrusted:progress >= 100 ? true:false,
     returnValue:progress >= 100 ? true:false,
     total:progressEvent.total
-  }); */
+  }); 
+  */
+  // 例如
+  uni.uploadFile({
+    url: 'https://www.example.com/upload', //仅为示例，非真实的接口地址
+    file: file,
+    name: filename,
+    header:{
+      
+    },
+    formData: {
+      
+    },
+    onProgressUpdate: (res) => {
+      let { progress, totalBytesExpectedToWrite } = res;
+      onProgress({
+        percent: progress,
+        isTrusted: progress >= 100 ? true:false,
+        returnValue: progress >= 100 ? true:false,
+        total: totalBytesExpectedToWrite
+      }); 
+    },
+    success: (res) => {
+      if (res.statusCode == 200) {
+        onSuccess(res.data);
+      } else {
+        onError(res);
+      }
+    },
+    fail: (res) => {
+    	onError(res);
+    }
+  });
 },
 ```
 ### 万能表格使用方式
