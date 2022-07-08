@@ -994,7 +994,7 @@ data参数的作用是让前端可以直接传查询条件和排序条件。同�
 | pageSize         | 每页查询数量 | Number  | - | -  |
 | sortRule         | 排序规则 | Array  | - | -  |
 | formData         | 查询条件数据源 | Object  | - | -  |
-| columns          | 静态模式 - 总记录数 | Array  | - | -  |
+| columns          | 查询条件字段规则 | Array  | - | -  |
 
 ### 云函数代码示例
 ```js
