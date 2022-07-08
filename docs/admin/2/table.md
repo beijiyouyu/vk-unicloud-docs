@@ -958,33 +958,18 @@ columns:[
 
 ___tips: 左右各 3 个下划线____
 
-
 ## vk.baseDao.getTableData
 
-用法与vk.baseDao.selects相似，区别是 vk.baseDao.getTableData  多了一个data参数
-
-### 设置全局默认排序规则
-
-在 `common/uni-config-center/vk-unicloud/index.js` 中
-
-配置 `vk.db.unicloud.getTableData.sortArr`，可以设置 `vk.baseDao.getTableData` 全局默认排序规则
-```js
-"vk":{
-  "db":{
-    "unicloud":{
-      "getTableData":{
-        "sortArr":[{"name":"_add_time","type":"desc"}], // vk.baseDao.getTableData 默认排序规则
-      }
-    }
-  }
-}
-```
+用法与 `vk.baseDao.selects` 相似，区别是 `vk.baseDao.getTableData` 多了一个 `data` 参数
 
 [vk.baseDao.selects万能连表文档](https://vkdoc.fsq.pub/client/uniCloud/db/selects.html)
 
 ### data 参数介绍
-data参数的作用是让前端可以直接传查询条件和排序条件。同时为了控制安全性，getTableData的whereJson参数可以设置强制where条件
-#### Ta的优势是：
+
+`data` 参数的作用是让前端可以直接传查询条件和排序条件。同时为了控制安全性，`getTableData` 的 `whereJson` 参数可以设置强制where条件
+
+**Ta的优势是：**
+
 * 1、条件查询很方便，且减少了很多代码量。
 * 2、在云函数端写强制条件，不用担心用户看到不该看的数据。
 * 3、代码结构比较清晰，容易阅读与理解。
@@ -993,27 +978,29 @@ data参数的作用是让前端可以直接传查询条件和排序条件。同�
 |------------------|-------------------------------|---------|--------|-------|
 | pageIndex        | 第几页            | Number | 1      | - |
 | pageSize         | 每页查询数量 | Number  | - | -  |
-| sortRule         | 排序规则 | Array  | - | -  |
 | formData         | 查询条件数据源 | Object  | - | -  |
 | columns          | 查询条件字段规则 | Array  | - | -  |
+| sortRule         | 排序规则 | Array  | - | -  |
 
 ### 云函数代码示例
 ```js
 // 通常data是前端传过来的数据
 let data = {
-  pageIndex:1,
-  pageSize:20,
-  sortRule:[
-    { name:"_add_time", type:"desc" }
-  ],
-  formData:{
-    
+  pageIndex: 1,
+  pageSize: 20,
+  formData: {
+    nickname: "张飞"
   },
-  columns:[
-    { key:"nickname", title:"昵称", type:"text", width:160, mode:"%%" },
-    { key:"_add_time", title:"添加时间", type:"datetimerange", width:400, mode:"[]" },
+  columns: [
+    { key: "nickname", title: "昵称", type: "text", width: 160, mode: "%%" },
+    { key: "_add_time", title: "添加时间", type: "datetimerange", width: 400, mode: "[]" },
+  ],
+  sortRule: [
+    { name: "_add_time", type: "desc" }
   ]
 };
+// 上面的formData.nickname = "张飞"，且columns中的nickname的 mode为 "%%"，代表模糊搜索nickname字段包含张飞的数据
+
 let dbName = "表名";
 vk.baseDao.getTableData({
   dbName,
@@ -1042,6 +1029,22 @@ vk.baseDao.getTableData({
 
 ```
 
+### 设置全局默认排序规则
+
+在 `common/uni-config-center/vk-unicloud/index.js` 中
+
+配置 `vk.db.unicloud.getTableData.sortArr`，可以设置 `vk.baseDao.getTableData` 全局默认排序规则
+```js
+"vk":{
+  "db":{
+    "unicloud":{
+      "getTableData":{
+        "sortArr":[{"name":"_add_time","type":"desc"}], // vk.baseDao.getTableData 默认排序规则
+      }
+    }
+  }
+}
+```
 
 
 ## 万能表格合计列的示例
