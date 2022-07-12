@@ -396,7 +396,7 @@ ___注意：如果这么做后还是超大小，那么你需要将非底部 `tab
 
 **阿里云**
 
-因为阿里云单各函数的代码体积（含node_modules和公共模块）只有10MB，因此不建议使用太大的第三方npm包，如果必须使用，可以新建1个router2，前端请求可以通过vk.callFunction指定name参数来请求router2内的子函数
+因为阿里云单个函数的代码体积（含node_modules和公共模块）只有10MB，因此不建议使用太大的第三方npm包，如果必须使用，可以新建1个router2，前端请求可以通过vk.callFunction指定name参数来请求router2内的子函数
 
 **腾讯云**
 
