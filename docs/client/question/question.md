@@ -191,14 +191,14 @@ await loginLogService.add({
 
 ## 文件上传成功后如何自动保存到vk-files表里？
 
-`vk.callFunctionUtil.uploadFile` 的参数 `needSave` 设置为 true 如：
+`vk.uploadFile` 的参数 `needSave` 设置为 true 如：
 ```js
 // 选择图片
 uni.chooseImage({
   count: 1,
   sizeType: ['compressed'],
   success: (res) => {
-    vk.callFunctionUtil.uploadFile({
+    vk.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
       file: res.tempFiles[0],

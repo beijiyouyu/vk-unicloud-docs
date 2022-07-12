@@ -317,7 +317,7 @@ Vue.component("vk-data-input-editor", VkDataInputEditor);
           count: 1,
           success: (res) => {
             // 上传图片到云储存
-            vk.callFunctionUtil.uploadFile({
+            vk.uploadFile({
               title:"上传中...",
               filePath: res.tempFilePaths[0],
               fileType: "image",

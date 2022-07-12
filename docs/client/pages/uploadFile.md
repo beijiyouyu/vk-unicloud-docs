@@ -9,7 +9,7 @@ uni.chooseImage({
   sizeType: ['compressed'],
   success: function (res) {
     // 上传至 unicloud云储存
-    vk.callFunctionUtil.uploadFile({
+    vk.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
       suffix:"png", // 不传suffix会自动获取，但H5环境下获取不到后缀，但可以通过file.name 获取
@@ -33,7 +33,7 @@ uni.chooseImage({
   sizeType: ['compressed'],
   success: function (res) {
     // 上传至 阿里云oss
-    vk.callFunctionUtil.uploadFile({
+    vk.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
       suffix:"png", // 不传suffix会自动获取，但H5环境下获取不到后缀，但可以通过file.name 获取
@@ -69,7 +69,7 @@ service:{
     host:"https://xxx.xxx.com",
     // 上传时,是否按用户id进行分组储存
     groupUserId:false,
-    // vk.callFunctionUtil.uploadFile 是否默认上传到阿里云OSS
+    // vk.uploadFile 是否默认上传到阿里云OSS
     isDefault:false
   }
 }
@@ -88,7 +88,7 @@ uni.chooseImage({
   count: 1,
   sizeType: ['compressed'],
   success: function (res) {
-    vk.callFunctionUtil.uploadFile({
+    vk.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
       file: res.tempFiles[0],
@@ -114,7 +114,7 @@ uni.chooseImage({
   sizeType: ['compressed'],
   success: function (res) {
     // 上传至 unicloud云储存
-    vk.callFunctionUtil.uploadFile({
+    vk.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
       cloudPath: "myPath/aa.png",

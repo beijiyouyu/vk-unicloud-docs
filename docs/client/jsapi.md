@@ -1134,6 +1134,19 @@ if (eventChannel.emit) eventChannel.emit('update', { a:1 }); // 触发A页面的
 vk.navigateBack();
 ```
 
+## 全局配置
+
+### vk.getConfig
+
+获取 `app.config.js` 内的配置信息（不包含函数）
+
+```js
+// 获取所有配置
+let config = vk.getConfig();
+// 获取指定配置
+let url = vk.getConfig("login.url");
+```
+
 
 ## 云函数专属
 
