@@ -243,6 +243,9 @@ let scope = "snsapi_userinfo";
 let url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${redirect_uri}&response_type=code&scope=${scope}&state=STATE#wechat_redirect`;
 window.location.href = url;
 ```
+
+**注意：h5的路由模式必须配置为 `history`，因为微信公众号登录的回调地址不支持 `hash` 模式。**
+
 * 4、授权完后页面会重新返回到你自己的页面（但此时页面已经刷新了），此时在页面 `onLoad` 函数中可以获取到 `code`
 * 5、运行如下代码，进行微信公众号登录（其中 this.options 是 onLoad 获取的参数对象）
 ```js
@@ -261,6 +264,7 @@ vk.userCenter.code2SessionWeixin({
   },
 });
 ```
+
 
 
 

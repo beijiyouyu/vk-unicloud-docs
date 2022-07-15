@@ -659,9 +659,11 @@ APP登录配置
 * 打包并使用自定义基座（注意一定要在 `manifest.json` 填写微信 `appid` 后再制作自定义基座）[自定义基座使用说明](https://ask.dcloud.net.cn/article/35115)
 * 配置 `common/uni-config-center/uni-id/config.json` 内 `app-plus.oauth.weixin` 的 `appid` 和 `appsecret`
 
-公众号H5登录配置
+微信公众号H5登录配置
 
 * 配置 `common/uni-config-center/uni-id/config.json` 内 `h5-weixin` 的 `appid` 和 `appsecret`
+
+**注意：h5的路由模式必须配置为 `history`，因为微信公众号登录的回调地址不支持 `hash` 模式。**
 
 ```js
 /**
