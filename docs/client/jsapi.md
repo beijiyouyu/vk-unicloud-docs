@@ -1158,6 +1158,10 @@ let url = vk.getConfig("login.url");
 
 注意：`concurrency` 并不是越大越好，太大可能会卡死（一次性并发太多请求可能反而会卡死，且大部分三方api其实是有并发限制的）。
 
+**有数据源形式**
+
+一般用于：批量发短信、邮件、消息通知等等
+
 ```js
 let batchRunRes = await vk.pubfn.batchRun({
   // 主执行函数
@@ -1181,6 +1185,53 @@ let batchRunRes = await vk.pubfn.batchRun({
     { a: 9 }
   ],
 });
+```
+
+
+**无数据源形式**
+
+一般用于：将多个不一样的异步函数并发执行。
+
+```js
+let res = { code: 0, msg: '' };
+// 业务逻辑开始-----------------------------------------------------------
+let batchRunRes = await vk.pubfn.batchRun({
+  // 主执行函数
+  main: [
+    // 已上架的商品数量
+    async () => {
+      return await vk.daoCenter.goodsDao.count({
+        status: 1,
+        is_on_sale: true
+      });
+    },
+    // 已下架的商品数量
+    async () => {
+      return await vk.daoCenter.goodsDao.count({
+        status: 1,
+        is_on_sale: false
+      });
+    },
+    // 回收站内的商品数量
+    async () => {
+      return await vk.daoCenter.goodsDao.count({
+        status: 2
+      });
+    },
+    // 已售罄的商品数量
+    async () => {
+      return await vk.daoCenter.goodsDao.count({
+        status: 1,
+        stock: _.lte(0)
+      });
+    },
+  ],
+  // 最大并发量,如果设置为1,则会按顺序执行
+  concurrency: 10
+});
+res.group = batchRunRes.stack;
+// 业务逻辑结束-----------------------------------------------------------
+return res;
 ```
 
 ### vk.pubfn.getUniCloudRequestId
