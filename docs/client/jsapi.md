@@ -1170,9 +1170,9 @@ let batchRunRes = await vk.pubfn.batchRun({
     console.log(index, item);
     return { code:0, index }
   },
-  // 最大并发量,如果设置为1,则会按顺序执行
+  // 最大并发量，如果设置为1，则会按顺序执行
   concurrency: 100, 
-  // 数据源
+  // 数据源，这些数据会依次跑一遍main函数
   data: [
     { a: 1 }, 
     { a: 2 }, 
@@ -1226,7 +1226,7 @@ let batchRunRes = await vk.pubfn.batchRun({
       });
     },
   ],
-  // 最大并发量,如果设置为1,则会按顺序执行
+  // 最大并发量，如果设置为1，则会按顺序执行
   concurrency: 10
 });
 res.group = batchRunRes.stack;
