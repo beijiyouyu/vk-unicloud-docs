@@ -42,7 +42,7 @@
 | submitText      | 确定按钮的文字 | String  | 确定 | -  |
 | dialogWidth  | 弹窗的窗体宽度（单位px） | Number  | - | -  |
 | pageSize  | 表格分页每页显示数量 | Number  | 5 | 5、10、20、50、100、500  |
-| valueFields  | 用于控制value的值由哪些字段组成 [查看valueFields](#valueFields) | Array  | - | - |
+| valueFields  | 用于控制value的值由哪些字段组成 [查看valueFields](#valuefields) | Array  | - | - |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 | rowHeight   | 表格行高，单位为px（特殊情况下，可能需要手动设置行高） | Number  | - | - |
 | leftFixed     | 序号、多选框是否固定在左侧 |Boolean  | true | false |
