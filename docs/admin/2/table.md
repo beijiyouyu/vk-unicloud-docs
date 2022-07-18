@@ -660,18 +660,30 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
 
 | 事件名   | 说明                    | 回调参数 |
 |----------|------------------------|------|
+| table-mounted     | 表格组件挂载完毕时（此时还没有数据） |  -  |
 | success     | 表格数据查询成功时   |  res  |
-| selection-change     | 多选框状态发生变化时   |  rows  |
+| fail     | 表格数据查询失败时   |  err  |
+| complete     | 表格数据查询无论成功和失败都会触发   |  res  |
+| detail     | 点击详情按钮（手动版）时 item和row值一样，区别在于修改row的值会影响表格实际显示 |  { item, row, open }  |
+| update     | 点击修改按钮时 item和row值一样，区别在于修改row的值会影响表格实际显示 | { item, row }  |
+| delete     | 点击删除按钮时   |  { item, deleteFn }  |
+| custom-right-btns | 自定义右侧按钮点击事件 |    column, event     |
+| right-btns-more | 自定义右侧更多按钮点击事件 |  res, item    |
 | current-change    | 点击(高亮)某一行          |  row    |
 | row-click | 单击某一行 |   row, column, event  |
 | row-dblclick  | 双击某一行 |    row, column, event     |
 | row-contextmenu | 鼠标右键某一行 |   row, column, event  |
+| cell-mouse-enter | 当单元格 hover 进入时会触发该事件 |   row, column, cell, eventt  |
+| cell-mouse-leave | 当单元格 hover 退出时会触发该事件 |   row, column, cell, eventt  |
 | cell-click | 单击某一个单元格 |    row, column, cell, event     |
 | cell-dblclick | 双击某一个单元格 |    row, column, cell, event     |
 | header-click | 某一列的表头被点击时 |    column, event     |
 | header-contextmenu | 某一列的表头被鼠标右键点击时 |    row, btn    |
-| custom-right-btns | 自定义右侧按钮点击事件 |    column, event     |
+| header-dragend | 当拖动表头改变了列的宽度的时候会触发该事件 |    newWidth, oldWidth, column, event   |
 | pagination-change | 点击分页按钮事件（手动模式下使用） | paginationData |
+| select     | 当用户手动勾选数据行的 Checkbox 时触发的事件   |  selection, row  |
+| select-all     | 当用户手动勾选全选的 Checkbox 时触发的事件   |  selection  |
+| selection-change     | 多选框状态发生变化时   |  rows  |
 | 其他 | 其他element自带的事件大部分也支持 |    -     |
 
 
