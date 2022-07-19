@@ -209,11 +209,23 @@
 
 使用示例如下：
 
+
+```js
+{
+  key: "text", title:"text类型字段", type:"text",
+  watch: ({ value, formData, column, index, $set }) => {
+    // 此处演示根据选择的值动态改变text1的值
+    $set("text1", `昵称${value}`);
+  }
+}
+```
+
+
 ```js
 {
   key: "text", title:"text类型字段", type:"text",
   watch: (res) => {
-    console.log("watch", res)
+    console.log('res: ', res)
   }
 }
 ```

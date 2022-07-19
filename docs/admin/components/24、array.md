@@ -184,7 +184,7 @@
     { value:1, label:"选项1" },
     { value:2, label:"选项2" }
   ],
-  watch: ({ column, formData:row, index, value, $set }) => {
+  watch: ({ value, formData, column, index, $set }) => {
     // 此处演示根据选择的值动态改变text1的值
     $set("text1", `昵称${value}`);
   }
