@@ -1,10 +1,14 @@
 # 24、array 可变数组子表单
 
+**该组件可以很方便的操作数组字段的增删改查**
+
 ### 效果图
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/67cda695-e3f9-469f-9870-9f248b415400.png)
+
 ### 万能表单使用方式
 #### 数组<对象>类型
-#### 应用场景：数组内的元素是对象类型。如`[{a:1,b:true},{a:2,b:false}]`
+#### 应用场景：数组内的元素是对象类型。如`[{ a:1, b:true },{ a:2, b:false }]`
+
 ```js
 {
   key:"array", title:"数组<对象>类型", type:"array<object>", itemWidth:260,
@@ -42,9 +46,9 @@
       rules:[
         { required:true, message:"该项不能为空", trigger:["change","blur"] },
       ],
-      onChange:function(val, row, column, index, option){
-        // 此处演示根据选择的值动态改变text1的值
-        row.text1 = "昵称" + val;
+      watch: ({ column, formData:row, index, value, $set }) => {
+      	// 此处演示根据选择的值动态改变text1的值
+      	$set("text1", `昵称${value}`);
       }
     },
     { key:"switch", title:"switch类型", type:"switch", width:160 },
@@ -65,9 +69,7 @@
 ```
 
 
-#### array<object>嵌套array<object>
-
-需要 `vk-unicloud-admin-ui` 包升级至 `1.12.13` 或以上
+#### array嵌套array
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/2b2f8736-254e-43fd-a403-9e5e91efabe3.png)
 
@@ -170,13 +172,15 @@
 | allowRepeat            | 唯一值需要排除的，如[""] 排除空值 | Array  | - | -  |
 | rules            | 该项的表单验证规则 | Array  | - | -  |
 | defaultValue            | 该项的默认值 | any  | - | -  |
-| onChange            | 监听如select选项改变时触发的函数，部分组件不支持 | function(val, row, column, index)  | - | -  |
+| onChange            | 监听如select选项改变时触发的函数，部分组件不支持，推荐使用watch代替 | function(val, row, column, index)  | - | -  |
+| watch            | 监听值改变时触发的函数 | function(res)  | - | -  |
+
 
 #### incMode
 
 每行数据递增规则（只对数值类型有效）0 无规则 1递增[>] 2 递增[>=] -1 递减[<]  -2 递减[<=] 
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/23c0c0dd-fc7e-4ce0-a28d-3639342b432f.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/49d344e6-28a8-4db9-84bf-39fd30a39ce5.png)
 
 ```js
 {
