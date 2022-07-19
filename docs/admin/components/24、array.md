@@ -67,7 +67,7 @@
 
 #### array<object>嵌套array<object>
 
-需要 `vk-unicloud-admin-ui` 包升级至 `1.12.12` 或以上
+需要 `vk-unicloud-admin-ui` 包升级至 `1.12.13` 或以上
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/2b2f8736-254e-43fd-a403-9e5e91efabe3.png)
 
@@ -100,7 +100,7 @@
     },
     { key:"switch", title:"switch类型", type:"switch", width:160 },
     {
-      key:"array", title:"数组<对象>类型", type:"array<object>", dialog:true, width:140, dialogWidth:1000,
+      key:"array", title:"数组<对象>类型", type:"array<object>", buttonText: "设置", dialog:true, width:140, dialogWidth:1000,
       showAdd:true,
       showClear:true,
       showSort:true,
@@ -129,6 +129,8 @@
   ]
 },
 ```
+
+
 
 ### API
 
@@ -164,10 +166,28 @@
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
 | isUnique            | 是否在数组中唯一 | Boolean  | false | true |
+| incMode            | 每行数据递增规则（只对数值类型有效）0 无规则 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=] | Number  | - | - |
 | allowRepeat            | 唯一值需要排除的，如[""] 排除空值 | Array  | - | -  |
 | rules            | 该项的表单验证规则 | Array  | - | -  |
 | defaultValue            | 该项的默认值 | any  | - | -  |
 | onChange            | 监听如select选项改变时触发的函数，部分组件不支持 | function(val, row, column, index)  | - | -  |
+
+#### incMode
+
+每行数据递增规则（只对数值类型有效）0 无规则 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=] 
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/23c0c0dd-fc7e-4ce0-a28d-3639342b432f.png)
+
+```js
+{
+  key:"number1", title:"数字", type:"number",
+  incMode: 1, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
+  rules:[
+    { required:true, message:"该项不能为空", trigger:["change","blur"] },
+  ]
+},
+```
+
 
 ### 万能表格使用方式
 
