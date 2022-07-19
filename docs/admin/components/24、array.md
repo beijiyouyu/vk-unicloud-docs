@@ -175,6 +175,21 @@
 | onChange            | 监听如select选项改变时触发的函数，部分组件不支持，推荐使用watch代替 | function(val, row, column, index)  | - | -  |
 | watch            | 监听值改变时触发的函数 | function(res)  | - | -  |
 
+#### watch
+
+```js
+{
+  key:"select1", title:"select类型", type:"select",
+  data:[
+    { value:1, label:"选项1" },
+    { value:2, label:"选项2" }
+  ],
+  watch: ({ column, formData:row, index, value, $set }) => {
+    // 此处演示根据选择的值动态改变text1的值
+    $set("text1", `昵称${value}`);
+  }
+},
+```
 
 #### incMode
 
