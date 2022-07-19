@@ -2,12 +2,14 @@
 
 **该组件可以很方便的操作数组字段的增删改查**
 
-### 效果图
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/67cda695-e3f9-469f-9870-9f248b415400.png)
-
 ### 万能表单使用方式
+
 #### 数组<对象>类型
 #### 应用场景：数组内的元素是对象类型。如`[{ a:1, b:true },{ a:2, b:false }]`
+
+**效果图**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/67cda695-e3f9-469f-9870-9f248b415400.png)
 
 ```js
 {
@@ -58,18 +60,30 @@
 
 #### 数组<字符串>类型
 #### 应用场景：数组内的元素是字符串类型，如`["1","2","3"]`
+
+**效果图**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/b63d52ba-cf9c-4053-ba2d-1a772118a526.png)
+
 ```js
 { key:"array1", title:"数组<字符串>类型", type:"array<string>" },
 ```
 
 #### 数组<数字>类型
 #### 应用场景：数组内的元素是字符串类型，如`[1,2,3]`
+
+**效果图**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/e0664a4e-16ea-453c-839b-89992d6fe90e.png)
+
 ```js
 { key:"array2", title:"数组<数字>类型", type:"array<number>" },
 ```
 
 
 #### array嵌套array
+
+**效果图**
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/2b2f8736-254e-43fd-a403-9e5e91efabe3.png)
 
@@ -195,14 +209,52 @@
 
 每行数据递增规则（只对数值类型有效）0 无规则 1递增[>] 2 递增[>=] -1 递减[<]  -2 递减[<=] 
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/49d344e6-28a8-4db9-84bf-39fd30a39ce5.png)
+**效果图**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0751635c-5909-4003-8f66-158555114bfd.png)
 
 ```js
 {
-  key:"number1", title:"数字", type:"number",
-  incMode: 1, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
-  rules:[
-    { required:true, message:"该项不能为空", trigger:["change","blur"] },
+  key:"array2", title:"数组<对象>类型", type:"array<object>", itemWidth:260,
+  showAdd:true,
+  showClear:true,
+  showSort:true,
+  // 新增一行时,该行的默认值
+  defaultValue:{
+    switch:true,
+    text1:""
+  },
+  rightBtns:['copy','delete'],
+  // 每行每个字段对应的渲染规则
+  columns:[
+    {
+      key:"number1", title:"递增[>]", type:"number", placeholder:"输入数字",
+      incMode: 1, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
+      rules:[
+        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      ]
+    },
+    {
+      key:"number2", title:"递增[>=]", type:"number", placeholder:"输入数字",
+      incMode: 2, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
+      rules:[
+        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      ]
+    },
+    {
+      key:"number3", title:"递减[<]", type:"number", placeholder:"输入数字",
+      incMode: -1, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
+      rules:[
+        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      ]
+    },
+    {
+      key:"number4", title:"递减[<=]", type:"number", placeholder:"输入数字",
+      incMode: -2, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
+      rules:[
+        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      ]
+    },
   ]
 },
 ```
