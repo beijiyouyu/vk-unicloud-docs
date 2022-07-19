@@ -65,6 +65,71 @@
 ```
 
 
+#### array<object>嵌套array<object>
+
+需要 `vk-unicloud-admin-ui` 包升级至 `1.12.12` 或以上
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/2b2f8736-254e-43fd-a403-9e5e91efabe3.png)
+
+```js
+{
+  key:"array", title:"数组<对象>类型", type:"array<object>", itemWidth:260,
+  showAdd:true,
+  showClear:true,
+  showSort:true,
+  // 新增一行时,该行的默认值
+  defaultValue:{
+    switch:true,
+    array:[]
+  },
+  rightBtns:['copy','delete'],
+  // 每行每个字段对应的渲染规则
+  columns:[
+    {
+      key:"text1", title:"昵称", type:"text",
+      isUnique:true,
+      rules:[
+        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      ]
+    },
+    {
+      key:"number1", title:"数字", type:"number",
+      rules:[
+        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      ]
+    },
+    { key:"switch", title:"switch类型", type:"switch", width:160 },
+    {
+      key:"array", title:"数组<对象>类型", type:"array<object>", dialog:true, width:140, dialogWidth:1000,
+      showAdd:true,
+      showClear:true,
+      showSort:true,
+      // 新增一行时,该行的默认值
+      defaultValue:{
+
+      },
+      rightBtns:['delete'],
+      // 每行每个字段对应的渲染规则
+      columns:[
+        {
+          key:"text1", title:"昵称", type:"text", minWidth:160,
+          isUnique:true,
+          rules:[
+            { required:true, message:"该项不能为空", trigger:["change","blur"] },
+          ]
+        },
+        {
+          key:"number1", title:"数字", type:"number", minWidth:160,
+          rules:[
+            { required:true, message:"该项不能为空", trigger:["change","blur"] },
+          ]
+        }
+      ]
+    },
+  ]
+},
+```
+
 ### API
 
 ### 属性
