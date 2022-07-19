@@ -777,6 +777,8 @@ methods: {
 | clearValidate     | 移除整个表单的校验 |
 | validate     | 进行表单验证 |
 | validateField     | 对部分表单字段进行校验 |
+| setResetFormData     | 设置重置表单函数执行后，数据重置的数据源 |
+
 
 #### validate
 ```js
@@ -798,6 +800,13 @@ that.$refs.form1.validate("username",(errMsg, arr) => {
 });
 ```
 
+#### setResetFormData
+```js
+// 执行了这个setResetFormData方法后
+this.$refs.form1.setResetFormData(data);
+// 后面再执行 resetForm时，表单数据会变成 data 的值
+this.$refs.form1.resetForm();
+```
 
 ## 插槽
 columns中的每一个key都是插槽的名称 （详情见示例:`/pages_template/components/form/form-slot`)
