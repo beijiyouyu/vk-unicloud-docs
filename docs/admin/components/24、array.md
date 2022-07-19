@@ -270,6 +270,39 @@
 ```
 
 
+#### 右侧按钮显示规则
+
+可以动态控制右侧 【复制】【删除】按钮的显示和隐藏
+
+**代码**
+
+**一直显示**
+```js
+rightBtns:['copy','delete']
+```
+
+**动态显示和隐藏**
+```js
+rightBtns:[
+  {
+    mode:'copy',
+    title:'复制',
+    show: (item,index)=>{
+      // 第一1个不显示
+      return index > 0;
+    }
+  },
+  {
+    mode:'delete',
+    title:'删除',
+    show: (item,index)=>{
+      // 第一1个不显示
+      return index > 0;
+    }
+  }
+]
+```
+
 ### 万能表格使用方式
 
 ### 不支持
