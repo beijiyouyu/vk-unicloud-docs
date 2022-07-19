@@ -11,6 +11,8 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/67cda695-e3f9-469f-9870-9f248b415400.png)
 
+**代码**
+
 ```js
 {
   key:"array", title:"数组<对象>类型", type:"array<object>", itemWidth:260,
@@ -65,6 +67,8 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/b63d52ba-cf9c-4053-ba2d-1a772118a526.png)
 
+**代码**
+
 ```js
 { key:"array1", title:"数组<字符串>类型", type:"array<string>" },
 ```
@@ -76,6 +80,8 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/e0664a4e-16ea-453c-839b-89992d6fe90e.png)
 
+**代码**
+
 ```js
 { key:"array2", title:"数组<数字>类型", type:"array<number>" },
 ```
@@ -86,6 +92,8 @@
 **效果图**
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/2b2f8736-254e-43fd-a403-9e5e91efabe3.png)
+
+**代码**
 
 ```js
 {
@@ -212,6 +220,8 @@
 **效果图**
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0751635c-5909-4003-8f66-158555114bfd.png)
+
+**代码**
 
 ```js
 {
