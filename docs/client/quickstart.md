@@ -232,6 +232,122 @@ Vue.use(uView);
 
 ### 组件库并不限制只能从以上选择，理论上支持任何uniapp的UI组件库进行开发。
 
+### 集成 `tmui`（nvue3.0版）
+
+* 1、前往插件市场下载，记得直接点【下载插件ZIP】 [传送门](https://ext.dcloud.net.cn/plugin?id=8372)
+
+* 2、解压ZIP文件，可以看到里面还有1个 `tmui.zip`，你没看错，继续解压里面这个 `tmui.zip`（点解压到当前文件夹） 得到 `tmui` 目录（这个目录才是插件真正代码）
+
+* 3、将上一步解压得到的 `tmui` 目录复制到你的VK框架项目（client端）根目录（与App.vue同级目录）
+
+* 4、在根目录新建 `theme` 目录，并在 `theme` 目录新建 `index.ts` 文件，注意是 `ts` 文件，文件内容为
+```js
+export const theme = {
+ 	// 这里输入你定义的主题主色
+	//比如："primary": "#FF0000"
+	//名称如果与自带主题相同，将会覆盖。
+	
+}
+```
+
+* 5、在项目根目录执行npm命令 `npm i pinia`
+
+该组件库依赖这个库
+
+* 6、配置 `main.js`
+
+```js
+// 引入tmui组件库
+import * as Pinia from 'pinia';
+import tmui from "./tmui/index.ts"
+
+import { createSSRApp } from 'vue'
+
+export function createApp() {
+  const app  = createSSRApp(App)
+  
+  // 在 vue3的 createApp 内引入 tmui 组件库
+  app.use(Pinia.createPinia());
+  app.use(tmui);
+  
+  return { app }
+}
+
+
+```
+
+完整 `main.js` 代码
+
+```js
+import App from './App'
+import store from './store'
+import config from '@/app.config.js'
+
+// 引入tmui组件库
+import * as Pinia from 'pinia';
+import tmui from "./tmui/index.ts"
+
+// 引入 vk框架前端
+import vk from './uni_modules/vk-unicloud';
+
+// #ifdef VUE3
+import { createSSRApp } from 'vue'
+
+export function createApp() {
+  const app  = createSSRApp(App)
+  
+  // 引入vuex
+  app.use(store)
+  
+	// 引入 tmui 组件库
+	app.use(Pinia.createPinia());
+	app.use(tmui);
+  
+  // 引入 vk框架前端
+  app.use(vk);
+  
+  // 初始化 vk框架
+  app.config.globalProperties.vk.init({
+    Vue: app,          // Vue实例
+    config,	           // 配置
+  });
+  
+  return { app }
+}
+// #endif
+```
+
+* 7、`App.vue` 配置样式
+
+```html
+<style lang="scss">
+	/* #ifdef APP-NVUE */
+	@import './tmui/scss/nvue.css';
+	/* #endif */
+	/* #ifndef APP-NVUE */
+	@import './tmui/scss/noNvue.css';
+	/* #endif */
+  @import "./common/css/app.scss";
+</style>
+```
+
+* 8、配置 `pages.json` 内的 `easycom` 规则
+
+```js
+{
+	"easycom":{
+	 	"autoscan": true,
+	 	"custom":{
+	 		"^tm-(.*)": "@/tmui/components/tm-$1/tm-$1.vue"
+	 	}
+	 },
+	"pages": [
+		...
+}
+```
+
+* 9、完成，启动项目。
+
 ### 卸载 `uView1` 的步骤
 
 * 1、main.js 删除 uView1
