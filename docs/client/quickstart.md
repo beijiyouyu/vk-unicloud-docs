@@ -228,7 +228,7 @@ Vue.use(uView);
 
 ### 集成 `uview-ui`（nvue3.0版）
 
-别想了，还没有出。
+别想了，还没出生。
 
 
 ### 集成 `tmui`（nvue3.0版）
