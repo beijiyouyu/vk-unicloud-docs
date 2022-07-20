@@ -22,6 +22,18 @@ module.exports = [
       { text: '查看更多', link: 'https://ext.dcloud.net.cn/publisher?id=164406' }
     ]
   },
+  {
+    text: '关联技术文档',
+    link: '',
+    ariaLabel: 'DCloud插件市场',
+    items: [
+      { text: 'uni-app', link: 'https://uniapp.dcloud.io/' },
+      { text: 'uniCloud', link: 'https://uniapp.dcloud.io/uniCloud/' },
+      { text: 'Vue2', link: 'https://cn.vuejs.org/index.html' },
+      { text: 'Vue3', link: 'https://staging-cn.vuejs.org/' },
+      { text: 'vk-uview', link: 'https://vkuviewdoc.fsq.pub' }
+    ]
+  },
   //{ text: '成品项目', link: '/product/' },
   {
     text: 'Gitee',
