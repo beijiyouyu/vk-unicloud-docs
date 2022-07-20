@@ -228,7 +228,7 @@ Vue.use(uView);
 
 ### 集成 `uview-ui`（nvue3.0版）
 
-别想了，uniapp官方也还没支持。
+别想了，还没有出。
 
 
 ### 集成 `tmui`（nvue3.0版）
