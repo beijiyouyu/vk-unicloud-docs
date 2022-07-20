@@ -2,7 +2,11 @@
 
 ### 万能表单使用方式
 #### 静态数据方式
-#### 应用场景：选项数据为静态数据的情况。
+
+应用场景：选项数据为静态数据的情况。
+
+**示例**
+
 ```js
 {
   key:"cascader1", title:"本地数据级联", type:"cascader",
@@ -27,7 +31,11 @@
 }
 ```
 #### 静态数据方式2
-#### 应用场景：选项数据需要通过函数计算
+
+应用场景：选项数据需要通过函数计算
+
+**示例**
+
 ```js
 {
   key:"cascader1", title:"本地数据级联", type:"cascader",
@@ -39,7 +47,11 @@
 ```
 
 #### 远程数据方式
-#### 应用场景：需要从数据库中获取选项的情况。
+
+应用场景：需要从数据库中获取选项的情况。
+
+**示例**
+
 ```js
 {
   key:"cascader2", title:"云端数据级联", type:"cascader",
@@ -55,6 +67,9 @@
 ```
 
 #### 远程搜索带参数方式1
+
+**示例**
+
 ```js
 {
   key:"cascader2", title:"云端数据级联", type:"cascader",
@@ -71,7 +86,11 @@
   }
 }
 ```
+
 #### 远程搜索带参数方式2
+
+**示例**
+
 ```js
 {
   key:"cascader2", title:"云端数据级联", type:"cascader",
@@ -92,8 +111,13 @@
 ```
 
 #### 远程懒加载方式
-#### 应用场景：数据量很大，一次性获取数据库容易超时时。
-#### 云函数代码见本页面最下方。
+
+应用场景：数据量很大，一次性获取数据库容易超时时。
+
+**示例**
+
+云函数代码见本页面最下方。
+
 ```js
 {
   key:"cascader2", title:"云端数据级联", type:"cascader",
@@ -110,6 +134,35 @@
 ```
 
 
+#### 遵守父子节点不互相关联
+
+应用场景：选商品分类的时候，可以选择子分类，也可以直接选父分类
+
+**参数**
+
+`checkStrictly:true`（设置为true让所有节点都可以被直接选择）
+
+`emitPath:false`（设置为false只返回被选中节点的值）
+
+**示例**
+
+云函数代码见本页面最下方。
+
+```js
+{
+  key:"cascader2", title:"云端数据级联", type:"cascader",
+  action:"admin/system/menu/sys/getCascader",
+  props:{
+    list:"rows",
+    value:"menu_id",
+    label:"label",
+    children:"children",
+    checkStrictly:true,
+    emitPath:false
+  }
+}
+
+```
 
 
 ### API
@@ -186,7 +239,11 @@
 
 ### template 使用方式
 #### 静态数据方式
-#### 应用场景：选项数据为静态数据的情况。
+
+应用场景：选项数据为静态数据的情况。
+
+**示例**
+
 ```html
 <vk-data-input-cascader
   v-model="form1.value"
@@ -212,7 +269,11 @@
 ></vk-data-input-cascader>
 ```
 #### 远程数据方式
-#### 应用场景：需要从数据库中获取选项的情况。
+
+应用场景：需要从数据库中获取选项的情况。
+
+**示例**
+
 ```html
 <vk-data-input-cascader
   v-model="form1.value"
@@ -222,11 +283,10 @@
 ></vk-data-input-cascader>
 ```
 
-
-
-
-
 #### 远程懒加载方式云函数代码示例
+
+**示例**
+
 ```js
 'use strict';
 module.exports = {
