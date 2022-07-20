@@ -223,7 +223,6 @@ module.exports = {
 }
 ```
 
-
 ### this.getParams（获取当前参数列表）
 
 在云对象的普通方法里，参数可以直接获取。本方法主要用于在 `_before` 等拦截器方法里，判断客户端上传的信息进行处理。详见下文
@@ -238,6 +237,24 @@ module.exports = {
 module.exports = {
 	_before: function() { // _before的用法请看后续章节
 		let { a, b, c } = this.getParams(); 
+	}
+}
+```
+
+### this.getHttpInfo（获取url化时的http信息）
+
+仅可在云对象url化时使用，如何使用云对象的url化请参考：[云对象url化](https://vkdoc.fsq.pub/client/question/q2.html)
+
+**接口形式**
+
+`this.getHttpInfo()`
+
+**示例**
+
+```js
+module.exports = {
+	_before: function() { // _before的用法请看后续章节
+		const httpInfo = this.getHttpInfo(); // 返回值和云函数url化时的event一致
 	}
 }
 ```
