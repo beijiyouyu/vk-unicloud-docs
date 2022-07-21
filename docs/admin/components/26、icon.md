@@ -31,3 +31,14 @@
 ```html
 <vk-data-input-icon v-model="icon" placeholder="请选择图标"></vk-data-input-icon>
 ```
+
+
+### 图标列表
+
+### vk-icon
+
+<iframe src="https://vkunicloud.fsq.pub/admin/#/pages_template/components/icons/vk-icons-page" width="100%" height="800px" style="margin-top: 20px;"></iframe>
+
+### el-icon
+
+<iframe src="https://vkunicloud.fsq.pub/admin/#/pages_template/components/icons/element-icons-page" width="100%" height="800px" style="margin-top: 20px;"></iframe>
