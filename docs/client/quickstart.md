@@ -201,7 +201,9 @@ export function createApp() {
 
 ___若不想集成 `uview-ui` 可跳过此处___
 
-适合开发：App(nvue版本)，如果你只开发App，推荐用这个UI
+适合开发：App(nvue版本)，如果你只开发App的vue2版本，推荐用这个UI
+
+**安装步骤**
 
 > 插件市场导入 `uview-ui` 框架：[点击前往](https://ext.dcloud.net.cn/plugin?id=1593)
 
@@ -231,11 +233,131 @@ Vue.use(uView);
 别想了，还没出生。
 
 
+### 集成 `tmui`（vue2.0版）
+
+___若不想集成 `tmui` 可跳过此处___
+
+适合开发：App(非nvue版本)、H5、微信小程序、支付宝小程序、头条小程序等
+
+**UI亮点**
+
+* 1、高颜值
+
+* 2、支持暗黑模式
+
+**安装步骤**
+
+* 1、前往插件市场下载，记得直接点【下载插件ZIP】 [传送门](https://ext.dcloud.net.cn/plugin?id=5949)
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/3e303b10-b5a2-447a-b734-c2dbfcada792.png)
+
+* 2、解压刚下载的ZIP文件，可以看到里面还有1个 `tm-vuetify.zip`，你没看错，继续解压里面这个 `tm-vuetify.zip`（点解压到 `tm-vuetify\`） 得到 `tm-vuetify` 目录（这个目录才是插件真正代码）
+
+* 3、将上一步解压得到的 `tm-vuetify` 目录复制到你的VK框架项目（client端）根目录（与App.vue同级目录）
+
+* 4、配置 `main.js`
+
+```js
+// 引入tmui组件库
+import tmVuetify from "./tm-vuetify";
+Vue.use(tmVuetify)
+```
+
+完整 `main.js` 代码
+
+```js
+import Vue from 'vue'
+import App from './App'
+import store from './store'
+import config from '@/app.config.js'
+
+// 引入tmui组件库
+import tmVuetify from "./tm-vuetify";
+Vue.use(tmVuetify)
+
+// 引入 vk框架前端
+import vk from './uni_modules/vk-unicloud';
+Vue.use(vk);
+
+// 初始化 vk框架
+Vue.prototype.vk.init({
+  Vue,               // Vue实例
+  config,	           // 配置
+});
+
+Vue.config.productionTip = false
+
+App.mpType = 'app'
+
+const app = new Vue({
+  store,
+  ...App
+});
+
+app.$mount();
+```
+
+* 5、`App.vue` 配置样式
+
+```html
+<style lang="scss">
+	/*每个页面公共css */
+	@import "./tm-vuetify/mian.min.css";
+	@import "./tm-vuetify/scss/theme.css";
+	@import "./common/css/app.scss";
+</style>
+```
+
+* 6、配置 `pages.json` 内的 `easycom` 规则
+
+```js
+{
+	"easycom":{
+		"autoscan": true,
+		"custom":{
+			"^tm-(.*)": "@/tm-vuetify/components/tm-$1/tm-$1.vue"
+		}
+	},
+	"pages": [
+		...
+}
+```
+
+* 7、完成，启动项目。
+
+注意：如果启动项目报错 `Uncaught Error: [vuex] getters should be function but "getters.$user/getUserInfo" in module "index"`
+
+则删除项目根目录下的 `store/modules/$user.js` 内 `getters` 内的所有方法，如删除getUserInfo方法
+
+或者
+
+修改 `tm-vuetify/tool/store/tm-vuetify.js` 文件内
+
+```js
+const modulesList = require.context('@/store', true, /\.js$/);
+```
+改成
+```js
+const modulesList = require.context('@/store/modules', true, /\.js$/);
+```
+
 ### 集成 `tmui`（nvue3.0版）
+
+___若不想集成 `tmui` 可跳过此处___
+
+适合开发：App(nvue版本)，如果你只开发App的vue3版本，推荐用这个UI
+
+**UI亮点**
+
+* 1、高颜值
+
+* 2、支持暗黑模式
+
+**安装步骤**
 
 * 1、前往插件市场下载，记得直接点【下载插件ZIP】 [传送门](https://ext.dcloud.net.cn/plugin?id=8372)
 
-* 2、解压ZIP文件，可以看到里面还有1个 `tmui.zip`，你没看错，继续解压里面这个 `tmui.zip`（点解压到当前文件夹） 得到 `tmui` 目录（这个目录才是插件真正代码）
+* 2、解压刚下载的ZIP文件，可以看到里面还有1个 `tmui.zip`，你没看错，继续解压里面这个 `tmui.zip`（点解压到当前文件夹） 得到 `tmui` 目录（这个目录才是插件真正代码）
 
 * 3、将上一步解压得到的 `tmui` 目录复制到你的VK框架项目（client端）根目录（与App.vue同级目录）
 
@@ -289,7 +411,6 @@ import tmui from "./tmui/index.ts"
 // 引入 vk框架前端
 import vk from './uni_modules/vk-unicloud';
 
-// #ifdef VUE3
 import { createSSRApp } from 'vue'
 
 export function createApp() {
@@ -313,7 +434,6 @@ export function createApp() {
   
   return { app }
 }
-// #endif
 ```
 
 * 7、`App.vue` 配置样式
@@ -339,7 +459,7 @@ export function createApp() {
 	 	"custom":{
 	 		"^tm-(.*)": "@/tmui/components/tm-$1/tm-$1.vue"
 	 	}
-	 },
+	},
 	"pages": [
 		...
 }
