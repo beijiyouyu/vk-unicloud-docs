@@ -340,7 +340,7 @@ const modulesList = require.context('@/store/modules', true, /\.js$/);
 
 ___若不想集成 `tmui` 可跳过此处___
 
-适合开发：App(nvue版本)，如果你只开发App的vue3版本，推荐用这个UI
+适合开发：App(nvue版本)，目前为数不多的 `nvue3.0` 组件库。H5、微信小程序、支付宝小程序等
 
 **安装步骤**
 
