@@ -505,6 +505,33 @@ Y = R / B * P = 1000000 / 1000 * 0.5 = 500秒，即500秒后，所有人都会�
 有1000人秒到，其他99万9千人会报错，然后前端拦截报错后提示：当前活动太过火爆，请稍后再试！（当然你也可以直接提示：已秒完）当商品库存为0时。提示：已秒完，然后前端把按钮变灰，防止用户一直点，占用云函数并发量
 
 
+## 更新插件提示No END header found错误
+
+如下图所示
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1a151b6c-3ea7-42b6-97d2-835da7d81c7f.png)
+
+___这个错误是HBX目前一直存在的问题，手动解决方案：___
+
+**win系统**
+
+* 1、进入CMD命令窗口，输入 `node` 按回车
+
+* 2、再输入 `os.tmpdir()` 按回车
+
+* 3、可以看到一个目录，比如 `C:\Users\NING MEI\AppData\Local\Temp`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/36f4f68a-b3f2-4b56-9980-a239341b77b6.png)
+
+* 4、打开我的电脑，进入这个目录，再此目录找到 `uni_modules` 目录，进入，删除里面所有目录和文件。
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/54d9cc19-846f-4a51-8f00-e1c845fbbb24.png)
+
+* 5、重启HBX，完成。
+
+**mac系统**
+
+也是大概这个逻辑，找到HBX的 `uni_modules` 缓存目录，删除里面的缓存文件即可。
 
 
 
