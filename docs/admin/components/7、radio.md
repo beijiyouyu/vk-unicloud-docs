@@ -19,7 +19,6 @@
 ```js
 {
   key:"radio1", title:"radio类型1", type:"radio",
-  //itemWidth:80,
   optionType:"button",
   data:[
     { value:1, label:"选项1" },
