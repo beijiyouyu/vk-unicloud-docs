@@ -14,6 +14,21 @@
 }
 ```
 
+**按钮形式**
+
+```js
+{
+  key:"radio1", title:"radio类型1", type:"radio",
+  //itemWidth:80,
+  optionType:"button",
+  data:[
+    { value:1, label:"选项1" },
+    { value:2, label:"选项2" }
+  ]
+}
+```
+
+
 #### 静态数据方式2
 #### 应用场景：选项数据需要通过函数计算
 ```js
