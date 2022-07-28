@@ -103,8 +103,10 @@ let getPhoneNumberRes = await vk.openapi.weixin.decrypt.getPhoneNumber({
  * @param {boolean} is_hyaline  是否需要透明底色，为 true 时，生成透明底色的小程序 默认false
  */
 let getUnlimitedRes = await vk.openapi.weixin.wxacode.getUnlimited({
-  scene:"",
-  page:""
+  page: "pages/index/index",
+  scene: "",
+  check_path: false,
+  env_version: "develop", 要打开的小程序版本。正式版为 "release"，体验版为 "trial"，开发版为 "develop"。默认是正式版。
 });
 
 ```
@@ -129,9 +131,9 @@ let getUnlimitedRes = await vk.openapi.weixin.wxacode.getUnlimited({
  */
 let generateRes = await vk.openapi.weixin.urlscheme.generate({
   jump_wxa:{
-    path,
-    query,
-    env_version
+    path: "pages/index/index",
+    query: "a=1",
+    env_version: "develop", 要打开的小程序版本。正式版为 "release"，体验版为 "trial"，开发版为 "develop"。默认是正式版。
   },
   is_expire: true,
   iexpire_type: 1,
