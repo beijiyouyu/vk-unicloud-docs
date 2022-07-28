@@ -819,6 +819,8 @@ loginByWeixinPhoneNumber(e) {
  * 生成微信小程序码
  * @param {String} scene        自定义参数最大32个可见字符 只支持数字，大小写英文以及部分特殊字符：!#$&'()*+,/:;=?@-._~
  * @param {String} page         必须是已经发布的小程序存在的页面（否则报错），例如 pages/index/index, 根路径前不要填加 /,不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面
+ * @param {boolean} check_path  默认是true，检查page 是否存在，为 true 时 page 必须是已经发布的小程序存在的页面（否则报错）；为 false 时允许小程序未发布或者 page 不存在， 但page 有数量上限（60000个）请勿滥用。
+ * @param {String} env_version  要打开的小程序版本。正式版为 "release"，体验版为 "trial"，开发版为 "develop"。默认是正式版。
  * @param {number} width        二维码的宽度，单位 px，最小 280px，最大 1280px
  * @param {boolean} auto_color  自动配置线条颜色，如果颜色依然是黑色，则说明不建议配置主色调，默认 false
  * @param {Object} line_color   auto_color 为 false 时生效，使用 rgb 设置颜色 例如 {"r":"xxx","g":"xxx","b":"xxx"} 十进制表示
@@ -826,11 +828,13 @@ loginByWeixinPhoneNumber(e) {
  */
 vk.userCenter.getWeixinMPqrcode({
   data: {
-    scene: "a=1"
+    page: "pages/index/index",
+    scene: "a=1&b=2",
+    check_path: false,
+    env_version: "release", // 默认值"release"。要打开的小程序版本。正式版为 "release"，体验版为"trial"，开发版为"develop"，仅在微信外打开时生效。
   },
-  success: (data) => {
-    // 成功后的逻辑
-
+  success:(data) =>{
+    console.log("imageUrl", data.base64)
   }
 });
 ```
@@ -847,11 +851,33 @@ vk.userCenter.getWeixinMPqrcode({
 vk.userCenter.getWeixinMPscheme({
   data: {
     query: "a=1&b=2",
-    path: "pages/index/index"
+    path: "pages/index/index",
+    env_version: "release", // 默认值"release"。要打开的小程序版本。正式版为 "release"，体验版为"trial"，开发版为"develop"，仅在微信外打开时生效。
   },
   success: (data) => {
-    // 成功后的逻辑
-    
+    console.log("url", data.openlink)
+  }
+});
+```
+
+
+### vk.userCenter.getWeixinMPurl（生成微信小程序url链接）
+
+```js
+/**
+ * 生成微信小程序scheme码
+ * data 请求参数 说明
+ * @param {String} path    小程序页面路径
+ * @param {String} query   小程序页面参数
+ */
+vk.userCenter.getWeixinMPurl({
+  data: {
+    path: "pages/index/index",
+    query: "a=1&b=2",
+    env_version: "release", // 默认值"release"。要打开的小程序版本。正式版为 "release"，体验版为"trial"，开发版为"develop"，仅在微信外打开时生效。
+  },
+  success:(data) =>{
+    console.log("url", data.url_link)
   }
 });
 ```

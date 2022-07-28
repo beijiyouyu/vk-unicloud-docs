@@ -117,6 +117,42 @@
      * option2 val2对应的对象
      */
     console.log(1,val, formData, column, index, option, val2, option2);
+   
+  }
+}
+```
+
+
+#### 多选模式下，获取选中的树状结构的数据
+```js
+{
+  key:"tree1", title:"本地数据", type:"tree-select",
+  data:[
+    {
+      value:1,
+      label:"数学",
+      children:[
+        { value:11,label:"奥数" },
+        { value:12,label:"微积分" }
+      ]
+    },
+    {
+      value:2,
+      label:"语文",
+      children:[
+        { value:21, label:"文言文" },
+        { value:22, label:"古诗" }
+      ]
+    }
+  ],
+  onChange:function(val, formData, column, index, option, val2, option2){
+    /**
+     * val 双向绑定的表单值
+     * formData 双向绑定的整个表单数据源
+     * option val对应的对象
+     * val2 多选模式下包含了父级的值
+     * option2 val2对应的对象
+     */
     // 在多选模式下想获取树状结构的数据，可以参考下面写法
     let newObj = vk.pubfn.copyObject(option2); //拷贝
     let arr = []
@@ -133,6 +169,7 @@
   }
 }
 ```
+
 
 ### 万能表格使用方式
 
