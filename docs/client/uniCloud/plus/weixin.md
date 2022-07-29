@@ -111,6 +111,39 @@ let getUnlimitedRes = await vk.openapi.weixin.wxacode.getUnlimited({
 
 ```
 
+**注意：getUnlimited在执行成功后返回的是二进制，故在云函数中需要转换，完整代码如下**
+
+```js
+let getUnlimitedRes = await vk.openapi.weixin.wxacode.getUnlimited({
+  page: "pages/index/index",
+  scene: "",
+  check_path: false,
+  env_version: "develop", // 要打开的小程序版本。正式版为 "release"，体验版为 "trial"，开发版为 "develop"。默认是正式版。
+});
+if (typeof getUnlimitedRes === "object" && getUnlimitedRes.code) {
+  return getUnlimitedRes;
+}
+try {
+  // 二进制转base64
+  let base64 = Buffer.from(getUnlimitedRes, 'binary').toString('base64')
+  return {
+    code: 0,
+    base64: `data:image/png;base64,${base64}`
+  };
+} catch (err) {
+  // 转base64失败
+  return {
+    code: -1,
+    msg: "生成小程序码失败",
+    err: {
+      message: err.message,
+      stack: err.stack
+    }
+  };
+}
+```
+
+
 ### 获取scheme码
 `vk.openapi.weixin.urlscheme.generate`
 ```js
