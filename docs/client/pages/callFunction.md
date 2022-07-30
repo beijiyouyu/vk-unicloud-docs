@@ -8,11 +8,11 @@
 // 回调形式 success fail complete
 vk.callFunction({
   url: '云函数路径',
-  title:'请求中...',
-  data:{
+  title: '请求中...',
+  data: {
     
   },
-  success:function(data){
+  success: (data) => {
     
   }
 });

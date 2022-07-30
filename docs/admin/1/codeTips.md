@@ -13,6 +13,12 @@
 
 ### 安装代码快捷提示步骤
 
+### 自动安装
+
+直接安装VK框架快速开发辅助工具 [传送门](https://ext.dcloud.net.cn/plugin?id=6663)
+ 
+### 手动安装
+
 * 1、将下方代码 复制到 hbx 工具 - 代码块设置 - javascript代码块
 
 ```js
@@ -23,11 +29,11 @@
 	 "body": [
 			 "vk.callFunction({",
 			 "\turl: '云函数路径',",
-			 "\ttitle:'请求中...',",
-			 "\tdata:{",
+			 "\ttitle: '请求中...',",
+			 "\tdata: {",
 			 "\t\t",
 			 "\t},",
-			 "\tsuccess:function(data){",
+			 "\tsuccess: (data) => {",
 			 "\t\t$0",
 			 "\t}",
 			 "});"
@@ -40,8 +46,8 @@
 	 "body": [
 			 "vk.callFunction({",
 			 "\turl: '云函数路径',",
-			 "\ttitle:'请求中...',",
-			 "\tdata:{",
+			 "\ttitle: '请求中...',",
+			 "\tdata: {",
 			 "\t\t",
 			 "\t},",
 			 "}).then((data) => {",
@@ -56,8 +62,8 @@
 	 "body": [
 			 "let data = await vk.callFunction({",
 			 "\turl: '云函数路径',",
-			 "\ttitle:'请求中...',",
-			 "\tdata:{",
+			 "\ttitle: '请求中...',",
+			 "\tdata: {",
 			 "\t\t",
 			 "\t},",
 			 "});"
@@ -74,10 +80,10 @@
 		"description": "弹出提示框"
 	},
 	"vk.confirm": {
-	 "prefix": "k.confirm",
+	 "prefix": "vk.confirm",
 	 "body": [
-			"vk.confirm('内容','提示','确定','取消',function(res){",
-			"\tif(res.confirm){",
+			"vk.confirm('内容', '提示', '确定', '取消', res => {",
+			"\tif (res.confirm) {",
 			"\t\t$0",
 			"\t}",
 			"});"
@@ -85,13 +91,137 @@
 		"triggerAssist": false,
 		"description": "弹出二次确认框"
 	},
+	"vk.prompt": {
+	 "prefix": "vk.prompt",
+	 "body": [
+			"vk.prompt('请输入', '提示', '确定', '取消', res => {",
+			"\tif (res.confirm) {",
+			"\t\t$0console.log(res.content)",
+			"\t}",
+			"},'输入框内初始内容');"
+		],
+		"triggerAssist": false,
+		"description": "弹出输入框"
+	},
 	"vk.toast": {
 	 "prefix": "vk.toast",
 	 "body": [
-			"vk.toast('$0','none');"
+			"vk.toast('$0');"
 		],
 		"triggerAssist": false,
 		"description": "弹出toast提示"
+	},
+	"vk.showActionSheet": {
+	 "prefix": "vk.showActionSheet",
+	 "body": [
+			"let sheetList = ['$0位置', '@好友'];",
+			"vk.showActionSheet({",
+			"\ttitle: '',",
+			"\tlist: sheetList,",
+			"\tcolor: '#000000',",
+			"\tsuccess: res => {",
+			"\t\tif (sheetList[res.index] == '位置') {",
+			"\t\t\t",
+			"\t\t} else if (sheetList[res.index] == '@好友') {",
+			"\t\t\t",
+			"\t\t}",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "弹出操作面板"
+	},
+	"vk.showLoading": {
+	 "prefix": "vk.showLoading",
+	 "body": [
+			"vk.showLoading('$0加载中...');"
+		],
+		"triggerAssist": false,
+		"description": "显示加载提示"
+	},
+	"vk.hideLoading": {
+	 "prefix": "vk.hideLoading",
+	 "body": [
+			"vk.hideLoading();"
+		],
+		"triggerAssist": false,
+		"description": "关闭加载提示"
+	},
+	"弹窗-alert": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.alert('$0');"
+		],
+		"triggerAssist": false,
+		"description": "弹出提示框"
+	},
+	"弹窗-confirm": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.confirm('内容', '提示', '确定', '取消', res => {",
+			"\tif (res.confirm) {",
+			"\t\t$0",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "弹出二次确认框"
+	},
+	"弹窗-prompt": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.prompt('请输入', '提示', '确定', '取消', res => {",
+			"\tif (res.confirm) {",
+			"\t\t$0console.log(res.content)",
+			"\t}",
+			"},'输入框内初始内容');"
+		],
+		"triggerAssist": false,
+		"description": "弹出输入框"
+	},
+	"弹窗-toast": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.toast('$0');"
+		],
+		"triggerAssist": false,
+		"description": "弹出toast提示"
+	},
+	"弹窗-showActionSheet": {
+	 "prefix": "tc",
+	 "body": [
+			"let sheetList = ['$0位置', '@好友'];",
+			"vk.showActionSheet({",
+			"\ttitle: '',",
+			"\tlist: sheetList,",
+			"\tcolor: '#000000',",
+			"\tsuccess: res => {",
+			"\t\tif (sheetList[res.index] == '位置') {",
+			"\t\t\t",
+			"\t\t} else if (sheetList[res.index] == '@好友') {",
+			"\t\t\t",
+			"\t\t}",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "弹出操作面板"
+	},
+	"弹窗-showLoading": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.showLoading('$0加载中...');"
+		],
+		"triggerAssist": false,
+		"description": "显示加载提示"
+	},
+	"弹窗-hideLoading": {
+	 "prefix": "tc",
+	 "body": [
+			"vk.hideLoading();"
+		],
+		"triggerAssist": false,
+		"description": "关闭加载提示"
 	},
 	"vk.navigateTo": {
 	 "prefix": "vk.navigateTo",
@@ -109,6 +239,22 @@
 		"triggerAssist": false,
 		"description": "页面返回"
 	},
+	"vk.redirectTo": {
+	 "prefix": "vk.redirectTo",
+	 "body": [
+			"vk.redirectTo('$0');"
+		],
+		"triggerAssist": false,
+		"description": "关闭当前页面，跳转到应用内的某个页面。"
+	},
+	"vk.switchTab": {
+	 "prefix": "vk.switchTab",
+	 "body": [
+			"vk.switchTab('$0');"
+		],
+		"triggerAssist": false,
+		"description": "跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。"
+	},
 	"vk.reLaunch": {
 	 "prefix": "vk.reLaunch",
 	 "body": [
@@ -116,6 +262,22 @@
 		],
 		"triggerAssist": false,
 		"description": "关闭所有页面，打开到应用内的某个页面。"
+	},
+	"vk.navigateToHome": {
+	 "prefix": "vk.navigateToHome",
+	 "body": [
+			"vk.navigateToHome($0);"
+		],
+		"triggerAssist": false,
+		"description": "关闭所有页面，并跳转到首页 （app.config.js 的 index.url）"
+	},
+	"vk.navigateToLogin": {
+	 "prefix": "vk.navigateToLogin",
+	 "body": [
+			"vk.navigateToLogin($0);"
+		],
+		"triggerAssist": false,
+		"description": "关闭所有页面，并跳转到登录页 （app.config.js 的 login.url）"
 	},
 	"vk.getStorageSync": {
 	 "prefix": "vk.getStorageSync",
@@ -303,6 +465,42 @@
 		"triggerAssist": false,
 		"description": "检测所有参数 - 是否全部都不为空"
 	},
+	"if (isNull()) {}": {
+	 "prefix": "ifIsNull",
+	 "body": [
+			"if (vk.pubfn.isNull($0)) {",
+			"\t",
+			"}"
+		],
+		"triggerAssist": false,
+		"description": "检测参数是否为空"
+	},
+	"if (isNull()) return": {
+	 "prefix": "ifIsNullReturn",
+	 "body": [
+			"if (vk.pubfn.isNull($0)) return { code:-1, msg:\"\" };"
+		],
+		"triggerAssist": false,
+		"description": "检测参数是否为空"
+	},
+	"if (isNull(_id)) return id不能为空": {
+	 "prefix": "ifIsNullReturn",
+	 "body": [
+			"if (vk.pubfn.isNull(_id$0)) return { code:-1, msg:\"id不能为空\" };"
+		],
+		"triggerAssist": false,
+		"description": "检测参数是否为空"
+	},
+	"if (isNotNull()) {}": {
+	 "prefix": "ifIsNotNull",
+	 "body": [
+		 "if (vk.pubfn.isNotNull($0)) {",
+		 "\t",
+		 "}"
+		],
+		"triggerAssist": false,
+		"description": "检测参数是否不为空"
+	},
 	"vk.pubfn.isArray": {
 	 "prefix": "vk.pubfn.isArray",
 	 "body": [
@@ -463,6 +661,22 @@
 		"triggerAssist": false,
 		"description": "时间过滤器,第二个参数支持yyyy-MM-dd HH:mm:ss"
 	},
+	"vk.pubfn.string2Number": {
+	 "prefix": "vk.pubfn.string2Number",
+	 "body": [
+			"vk.pubfn.string2Number(${0})"
+		],
+		"triggerAssist": false,
+		"description": "将对象字段中能转成字符串的值转Number类型"
+	},
+	"vk.pubfn.toDecimal": {
+	 "prefix": "vk.pubfn.toDecimal",
+	 "body": [
+			"vk.pubfn.toDecimal(${0}, 2)"
+		],
+		"triggerAssist": false,
+		"description": "保留小数"
+	},
 	"vk.pubfn.dateDiff": {
 	 "prefix": "vk.pubfn.dateDiff",
 	 "body": [
@@ -567,6 +781,14 @@
 		"triggerAssist": false,
 		"description": "百分比过滤器"
 	},
+	"折扣过滤器": {
+	 "prefix": "qw",
+	 "body": [
+			"vk.pubfn.discountFilter(${0})"
+		],
+		"triggerAssist": false,
+		"description": "折扣过滤器"
+	},
 	"计量单位过滤器": {
 	 "prefix": "qw",
 	 "body": [
@@ -590,6 +812,14 @@
 		],
 		"triggerAssist": false,
 		"description": "金额过滤器 - 只显示小数点右边"
+	},
+	"return vk router error": {
+	 "prefix": "returnerror",
+	 "body": [
+			"return { code:-1, msg:\"${0}\" };"
+		],
+		"triggerAssist": false,
+		"description": "云函数返回错误信息"
 	},
 	"userDao.findById": {
 	 "prefix": "dao.",
@@ -631,7 +861,7 @@
 		"triggerAssist": false,
 		"description": "数组遍历"
 	},
-	"splice": {
+	"Array.splice": {
 	 "prefix": "qq.",
 	 "body": [
 			"list.splice(index,1);"
@@ -639,6 +869,17 @@
 		"triggerAssist": false,
 		"description": "数组删除"
 	},
+	"Array.filter": {
+	 "prefix": "qq.",
+	 "body": [
+			"let newList = list.filter((item,index,arr) => {",
+			"\treturn index % 2 == 1;$0",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "数组过滤"
+	},
+	
 	"保留两位小数": {
 	 "prefix": "qq.",
 	 "body": [
@@ -658,6 +899,70 @@
 		],
 		"triggerAssist": false,
 		"description": "try-catch"
+	},
+	"throw new Error": {
+	 "prefix": "try-throw",
+	 "body": [
+			"throw new Error(\"msg:${0}\");"
+		],
+		"triggerAssist": false,
+		"description": "主动抛出异常"
+	},
+	"获取当前时间戳": {
+	 "prefix": "time",
+	 "body": [
+			"let time = Date.now();"
+		],
+		"triggerAssist": false,
+		"description": "获取当前时间戳"
+	},
+	"获取今日0点-24点时间戳": {
+	 "prefix": "time",
+	 "body": [
+			"let { todayStart, todayEnd } = vk.pubfn.getCommonTime();"
+		],
+		"triggerAssist": false,
+		"description": "获取今日0点-24点时间戳"
+	},
+	"获取指定时间偏移": {
+	 "prefix": "time",
+	 "body": [
+			"vk.pubfn.getOffsetTime(new Date(), {",
+			"\tyear:0,",
+			"\tmonth:0,",
+			"\tday:0,",
+			"\thours:0,",
+			"\tminutes:0,",
+			"\tseconds:0,",
+			"\tmode:\"after\" // after 之后 before 之前",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "获取指定时间偏移"
+	},
+	"let { uid } = this.getClientInfo();": {
+	 "prefix": "uiduserinfo",
+	 "body": [
+			"let { uid } = this.getClientInfo();"
+		],
+		"triggerAssist": false,
+		"description": "云对象中获取uid"
+	},
+	"let userInfo = await this.getUserInfo();": {
+	 "prefix": "uiduserinfo",
+	 "body": [
+			"let userInfo = await this.getUserInfo();"
+		],
+		"triggerAssist": false,
+		"description": "云对象中获取userInfo"
+	},
+	"let { } = this.getUtil();": {
+	 "prefix": "getutil",
+	 "body": [
+			"let { customUtil, uniID, config, pubFun } = this.getUtil();"
+		],
+		"triggerAssist": false,
+		"description": "云对象中获取util"
 	},
 	"vk.baseDao.findById": {
 	 "prefix": "baseDao.findById",
@@ -729,18 +1034,49 @@
 		"triggerAssist": false,
 		"description": "根据id修改数据库数据"
 	},
+	"vk.baseDao.updateAndReturn": {
+	 "prefix": "baseDao.updateAndReturn",
+	 "body": [
+			"let newInfo = await vk.baseDao.updateAndReturn({",
+			"\tdbName:\"$0\",",
+			"\twhereJson:{",
+			"\t\t_id: _id",
+			"\t},",
+			"\tdataJson:{",
+			"\t\t",
+			"\t},",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "修改符合条件的首条数据，并返回修改后的结果。"
+	},
+	"vk.baseDao.updateAndReturnById": {
+	 "prefix": "baseDao.updateAndReturnById",
+	 "body": [
+			"let newInfo = await vk.baseDao.updateAndReturn({",
+			"\tdbName:\"$0\",",
+			"\tid:_id,",
+			"\tdataJson:{",
+			"\t\t",
+			"\t},",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据id修改数据库数据，并返回修改后的结果。"
+	},
 	"vk.baseDao.select": {
 	 "prefix": "baseDao.select",
 	 "body": [
 			"res = await vk.baseDao.select({",
 			"\tdbName:\"$0\",",
+			"\tgetCount: false,",
 			"\tpageIndex:1,",
 			"\tpageSize:20,",
 			"\twhereJson:{",
 			"\t\t",
 			"\t},",
 			"\tfieldJson:{},",
-			"\tsortArr:[{ \"name\":\"_id\", \"type\":\"desc\" }],",
+			"\tsortArr:[{ name:\"_id\", type:\"desc\" }],",
 			"});"
 		],
 		"triggerAssist": false,
@@ -761,7 +1097,7 @@
 			"\t// 主表字段显示规则",
 			"\tfieldJson:{},",
 			"\t// 主表排序规则",
-			"\tsortArr:[{ \"name\":\"_id\", \"type\":\"desc\" }],",
+			"\tsortArr:[{ name:\"_id\", type:\"desc\" }],",
 			"\t// 副表列表",
 			"\tforeignDB:[",
 			"\t\t{",
@@ -776,6 +1112,46 @@
 		],
 		"triggerAssist": false,
 		"description": "根据条件获取数据库数据(连表查询)"
+	},
+	"vk.baseDao.getTableData": {
+	 "prefix": "baseDao.getTableData",
+	 "body": [
+			"res = await vk.baseDao.getTableData({",
+			"\tdbName:\"$0\",",
+			"\tdata,",
+			"\t// 强制where条件",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "获取表格数据(连表查询)"
+	},
+	"vk.baseDao.getTableData(连表查询)": {
+	 "prefix": "baseDao.getTableData",
+	 "body": [
+			"res = await vk.baseDao.getTableData({",
+			"\tdbName:\"$0\",",
+			"\tdata,",
+			"\t// 主表强制where条件",
+			"\twhereJson:{",
+			"\t\t",
+			"\t},",
+			"\t// 副表列表",
+			"\tforeignDB:[",
+			"\t\t{",
+			"\t\t\tdbName:\"副表表名\",",
+			"\t\t\tlocalKey:\"主表外键名\",",
+			"\t\t\tforeignKey:\"副表外键名\",",
+			"\t\t\tas:\"副表as字段\",",
+			"\t\t\tlimit:1",
+			"\t\t}",
+			"\t]",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "获取表格数据(连表查询)"
 	},
 	"vk.baseDao.del": {
 	 "prefix": "baseDao.del",
@@ -884,6 +1260,7 @@
 			"\t\t_id: \"$\", // _id是分组id， $ 后面接字段名，如user_id字段进行分组",
 			"\t\tuser_id: _.$.first(\"$\"), // $ 后面接字段名，如把user_id原样输出",
 			"\t\tmoney: _.$.sum(\"$\"), // $ 后面接字段名，sum求和该字段",
+			"\t\tcount: _.$.sum(1), // $ 后面接字段名，sum(1)代表求记录数量",
 			"\t},",
 			"\tsortArr: [{ name: \"money\",type: \"desc\" }], // 对分组后的结果进行排序",
 			"\t// 副表列表",
@@ -892,14 +1269,329 @@
 			"\t\tlocalKey: \"user_id\",",
 			"\t\tforeignKey: \"_id\",",
 			"\t\tas: \"userInfo\",",
-			"\t\tlimit: 1",
+			"\t\tlimit: 1,",
 			"\t\tfieldJson:{ token:false, password:false },",
 			"\t}]",
 			"});"
 		],
 		"triggerAssist": false,
 		"description": "分组统计查询"
+	},
+	"vk.baseDao.sum": {
+	 "prefix": "baseDao.sum",
+	 "body": [
+			"res = await vk.baseDao.sum({",
+			"\tdbName:\"$0\",",
+			"\tfieldName:\"\",",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据条件求和"
+	},
+	"vk.baseDao.max": {
+	 "prefix": "baseDao.max",
+	 "body": [
+			"res = await vk.baseDao.max({",
+			"\tdbName:\"$0\",",
+			"\tfieldName:\"\",",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据条件求最大值"
+	},
+	"vk.baseDao.min": {
+	 "prefix": "baseDao.min",
+	 "body": [
+			"res = await vk.baseDao.min({",
+			"\tdbName:\"$0\",",
+			"\tfieldName:\"\",",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据条件求最小值"
+	},
+	"vk.baseDao.avg": {
+	 "prefix": "baseDao.avg",
+	 "body": [
+			"res = await vk.baseDao.avg({",
+			"\tdbName:\"$0\",",
+			"\tfieldName:\"\",",
+			"\twhereJson:{",
+			"\t\t",
+			"\t}",
+			"});"
+		],
+		"triggerAssist": false,
+		"description": "根据条件求最平均值"
+	},
+	"sortArr:[{...}]": {
+		"prefix": "db",
+		"body": [
+			"sortArr: [{ name: \"$0_add_time\", type: \"desc\" }],"
+		],
+		"triggerAssist": false,
+		"description": "排序"
+	},
+	"fieldJson:{}": {
+		"prefix": "db",
+		"body": [
+			"fieldJson: {",
+			"\t$0",
+			"}"
+		],
+		"triggerAssist": false,
+		"description": "字段显示规则"
+	},
+	"whereJson:{}": {
+		"prefix": "db",
+		"body": [
+			"whereJson: {",
+			"\t$0",
+			"}"
+		],
+		"triggerAssist": false,
+		"description": "筛选条件"
+	},
+	"groupJson:{}": {
+		"prefix": "db",
+		"body": [
+			"groupJson: {",
+			"\t_id: \"$\", // _id是分组id， $ 后面接字段名，如user_id字段进行分组",
+			"\tuser_id: _.$.first(\"$\"), // $ 后面接字段名，如把user_id原样输出",
+			"\tmoney: _.$.sum(\"$\"), // $ 后面接字段名，sum求和该字段",
+			"\tcount: _.$.sum(1), // $ 后面接字段名，sum(1)代表求记录数量",
+			"},"
+		],
+		"triggerAssist": false,
+		"description": "分组"
+	},
+	"foreignDB:[]": {
+		"prefix": "db",
+		"body": [
+			"// 副表列表",
+			"foreignDB: [{",
+			"\tdbName: \"uni-id-users\",",
+			"\tlocalKey: \"user_id\",",
+			"\tforeignKey: \"_id\",",
+			"\tas: \"userInfo\",",
+			"\tlimit: 1,",
+			"\tfieldJson: { token:false, password:false },",
+			"}]"
+		],
+		"triggerAssist": false,
+		"description": "连表"
 	}
+	
+}
+
+```
+
+* 2、将下方代码  复制到 hbx 工具 - 代码块设置 - vue代码块
+
+```js
+// 将下方代码复制到 hbx 工具 - 代码块设置 - vue代码块
+{
+	"$getData(data,key,defaultValue)": {
+	 "prefix": "$getData",
+	 "body": [
+			"$getData(data, 'aa.aa', defaultValue)"
+		],
+		"triggerAssist": false,
+		"description": "智能获取对象属性数据"
+	},
+	"vk-data-table（万能表格）": {
+		"body": [
+			"<!-- 表格组件开始 -->",
+			"<vk-data-table",
+			"\tref=\"table1\"",
+			"\t:action=\"table1.action\"",
+			"\t:columns=\"table1.columns\"",
+			"\t:query-form-param=\"queryForm1\"",
+			"\t:right-btns=\"['detail_auto','update','delete']\"",
+			"\t:selection=\"true\"",
+			"\t:row-no=\"true\"",
+			"\t:pagination=\"true\"",
+			"\t@update=\"updateBtn\"",
+			"\t@delete=\"deleteBtn\"",
+			"\t@current-change=\"currentChange\"",
+			"\t@selection-change=\"selectionChange\"",
+			"></vk-data-table>",
+			"<!-- 表格组件结束 -->"
+		],
+		"prefix": "vk-data-table",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-dialog（弹窗表单）": {
+		"body": [
+			"<!-- 弹窗开始 -->",
+			"<vk-data-dialog",
+			"\tv-model=\"form1.props.show\"",
+			"\ttitle=\"表单标题\"",
+			"\twidth=\"600px\"",
+			"\tmode=\"form\"",
+			">",
+			"\t<vk-data-form",
+			"\t\tref=\"form1\"",
+			"\t\tv-model=\"form1.data\"",
+			"\t\t:action=\"form1.props.action\"",
+			"\t\t:columns=\"form1.props.columns\"",
+			"\t\t:rules=\"form1.props.rules\"",
+			"\t\t:form-type=\"form1.props.formType\"",
+			"\t\t:loading.sync=\"form1.props.loading\"",
+			"\t\t:auto-close=\"true\"",
+			"\t\tlabel-width=\"140px\"",
+			"\t\t@success=\"onFormSuccess\"",
+			"\t></vk-data-form>",
+			"</vk-data-dialog>",
+			"<!-- 弹窗结束 -->"
+		],
+		"prefix": "vk-data-dialog",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-dialog（普通弹窗）": {
+		"body": [
+			"<!-- 弹窗开始 -->",
+			"<vk-data-dialog",
+			"\tv-model=\"dialog.show\"",
+			"\ttitle=\"标题\"",
+			"\twidth=\"500px\"",
+			"\ttop=\"14vh\"",
+			"\t:close-on-click-modal=\"true\"",
+			">",
+			"\t这里是自定义内容${0}",
+			"\t<template v-slot:footer=\"{ close }\">",
+			"\t\t<el-button @click=\"close\">取 消</el-button>",
+			"\t\t<el-button type=\"primary\" @click=\"close\">确 定</el-button>",
+			"\t</template>",
+			"</vk-data-dialog>",
+			"<!-- 弹窗结束 -->"
+		],
+		"prefix": "vk-data-dialog",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-icon（图标）": {
+		"body": [
+			"<vk-data-icon name=\"${0}vk-icon-text\" size=\"30\"></vk-data-icon>"
+		],
+		"prefix": "vk-data-icon",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input（数字输入框）": {
+		"body": [
+			"<vk-data-input type=\"number\" v-model=\"form1.value\" width=\"300px\" placeholder=\"请输入数字\" :precision=\"0\"></vk-data-input>"
+		],
+		"prefix": "vk-data-input",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input（金额输入框）": {
+		"body": [
+			"<vk-data-input type=\"money\" v-model=\"form1.value\" width=\"300px\" placeholder=\"请输入金额\" :precision=\"2\"></vk-data-input>"
+		],
+		"prefix": "vk-data-input",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input（百分比输入框）": {
+		"body": [
+			"<vk-data-input type=\"percentage\" v-model=\"form1.value\" width=\"300px\" placeholder=\"请输入\" :precision=\"0\"></vk-data-input>"
+		],
+		"prefix": "vk-data-input",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input（折扣输入框）": {
+		"body": [
+			"<vk-data-input type=\"discount\" v-model=\"form1.value\" width=\"300px\" placeholder=\"请输入\" :precision=\"0\"></vk-data-input>"
+		],
+		"prefix": "vk-data-input",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input（步进器）": {
+		"body": [
+			"<vk-data-input type=\"number-box\" v-model=\"form1.value\" width=\"300px\" placeholder=\"请输入\" :precision=\"0\"></vk-data-input>"
+		],
+		"prefix": "vk-data-input",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input（多行文本）": {
+		"body": [
+			"<vk-data-input type=\"textarea\" v-model=\"form1.value\" width=\"300px\" placeholder=\"请输入\"></vk-data-input>"
+		],
+		"prefix": "vk-data-input",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input（单行文本）": {
+		"body": [
+			"<vk-data-input type=\"text\" v-model=\"form1.value\" width=\"300px\" placeholder=\"请输入\"></vk-data-input>"
+		],
+		"prefix": "vk-data-input",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input-address（地址）": {
+		"body": [
+			"<vk-data-input-address v-model=\"form1.address1\" placeholder=\"请选择省市区\" :level=\"3\"></vk-data-input-address>"
+		],
+		"prefix": "vk-data-input-address",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input-select（下拉选择）": {
+		"body": [
+			"<vk-data-input-select",
+			"\tv-model=\"form1.value\"",
+			"\t:localdata='[",
+			"\t\t{ value:1, label:\"选项1\" },",
+			"\t\t{ value:2, label:\"选项2\" }",
+			"\t]'",
+			"\tsize=\"small\"",
+			"\tclearable",
+			"\tplaceholder=\"请选择\"",
+			"></vk-data-input-select>"
+		],
+		"prefix": "vk-data-input-select",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-input-remote-select（远程选择）": {
+		"body": [
+			"<vk-data-input-remote-select",
+			"\tv-model=\"form1.user_id\"",
+			"\tplaceholder=\"请输入用户名\"",
+			"\taction=\"admin/select/kh/user\"",
+			"\twidth=\"300px\"",
+			"></vk-data-input-remote-select>"
+		],
+		"prefix": "vk-data-input-remote-select",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	},
+	"vk-data-upload（图片上传）": {
+		"body": [
+			"<vk-data-upload v-model=\"form1.images\" :limit=\"6\"></vk-data-upload>"
+		],
+		"prefix": "vk-data-upload",
+		"project": "uni-app",
+		"scope": "source.vue.html"
+	}
+
 }
 
 ```
