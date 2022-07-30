@@ -80,10 +80,24 @@ module.exports = {
 |userAgent	|string	|是		|客户端ua										|
 |platform	|string	|是		|客户端平台，h5，mp-weixin等					|
 |deviceId	|string	|是		|客户端deviceId，目前同getSystemInfo内的deviceId|
+|source	|string	|是		|调用来源，返回值见下。新增于HBuilderX 3.5.1|
 |uniIdToken	|string	|否		|客户端用户token								|
 |uid	|string	|否		| 框架通过token解析出来的uid（可信任）	|
 |filterResponse	|object	|否		| 框架中间件返回值（middleware/modules内的中间件）[查看详情](https://vkdoc.fsq.pub/client/uniCloud/middleware/filter.html)	|
 |originalParam	|object	|是		| 原始请求参数，特殊情况下需要	|
+
+getClientInfo().source，返回云函数调用来源，它的值域为：
+
+|取值		|说明								|
+|--			|--									|
+|client		|uni-app客户端导入云对象调用			|
+|function	|由其他云函数或云对象调用		|
+|http	|url化调用	（后面支持）	|
+|timing	| 定时器调用（后面支持）		|
+
+
+**注意事项**
+- source值是客户端提交的，理论上是可以被篡改的，因此不能单纯的通过if (source == 'function') 就无条件信任所有参数，该做的判断依然要做。
 
 **2.9.1版本新增以下返回值**
 |参数名		|说明	|平台差异说明	|
@@ -187,6 +201,8 @@ module.exports = {
 |--			|--		|--		|--				|
 |provider	|string	|是		|服务空间供应商	|
 |spaceId	|string	|是		|服务空间Id		|
+|functionName	|string	|是		|云对象名称，新增于`HBuilderX 3.5.1`		|
+|functionType	|string	|是		|云对象此值固定为`cloudobject`，新增于`HBuilderX 3.5.1`	|
 
 ### this.getUniIdToken（获取客户端token）
 
