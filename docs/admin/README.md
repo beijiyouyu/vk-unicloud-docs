@@ -3,7 +3,10 @@
 ### 什么是 `vk-unicloud-admin` ？
 
 * `vk-unicloud-admin` 是基于 `uniapp` + `unicloud` + `uni-id` + `vk-unicloud-router` + `element` 的一套快速 `PC admin` 完整开发框架
-* （只兼容PC，只为PC admin而生）
+* （只兼容PC，只为PC admin而生，但Ta也是uniapp+unicloud项目，非传统vue-admin项目）
+
+
+**注意：TA是uniapp项目，支持uniapp所有H5的API和插件市场所有uni-admin插件**
 
 <img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/ad18e7d6-ae0e-4424-bf3d-6e3dad1036a1.png"/>
 
