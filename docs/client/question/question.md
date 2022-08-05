@@ -249,19 +249,19 @@ window.location.href = url;
 * 4、授权完后页面会重新返回到你自己的页面（但此时页面已经刷新了），此时在页面 `onLoad` 函数中可以获取到 `code`
 * 5、运行如下代码，进行微信公众号登录（其中 this.options 是 onLoad 获取的参数对象）
 ```js
-if(!this.options.code){
+if (!this.options.code){
   vk.toast("请先获取code");
   return false;
 }
-vk.userCenter.code2SessionWeixin({
+vk.userCenter.loginByWeixin({
   data:{
     code: this.options.code,
-    state: this.options.state,
+    state: this.options.state
   },
   success: (data) => {
     // 登录成功后执行的逻辑
     vk.alert(JSON.stringify(data));
-  },
+  }
 });
 ```
 
