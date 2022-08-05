@@ -86,6 +86,13 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/af8fb6fa-0c40-4202-8de3-20e9ac9fdfb1.png)
 * 复制下方代码到 `uni-pay/config.js`
+
+**注意**
+
+**配置文件是 `.js` 文件，不是 `.json` 文件**
+**配置文件是 `.js` 文件，不是 `.json` 文件**
+**配置文件是 `.js` 文件，不是 `.json` 文件**
+
 ```js
 const fs = require('fs');
 const path = require('path');

@@ -3,6 +3,12 @@
 * 1、打开 `cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建)
 * 复制下方代码到 `uni-pay/config.js`
 
+**注意**
+
+**配置文件是 `.js` 文件，不是 `.json` 文件**
+**配置文件是 `.js` 文件，不是 `.json` 文件**
+**配置文件是 `.js` 文件，不是 `.json` 文件**
+
 ```js
 const fs = require('fs');
 const path = require('path');
