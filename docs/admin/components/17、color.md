@@ -17,8 +17,24 @@
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
 | showAlpha            | 是否支持透明度选择 | Boolean  | false | true  |
-| colorFormat            | 写入 v-model 的颜色的格式 | String  | hex（show-alpha 为 false）/ rgb（show-alpha 为 true） | hsl / hsv / hex / rgb  |
+| colorFormat            | 写入 v-model 的颜色的格式 | String  | hex（show-alpha 为 false）/ rgb（show-alpha 为 true） | hsl / hex / rgb  |
 | predefine            | 预定义颜色 | Array  | - | -  |
+
+**colorFormat介绍**
+
+
+colorFormat 的作用是将你选择的颜色以什么样的字符串存到 v-model 绑定的变量中。
+
+如你选的是白色，则
+
+hsl：hsl(0, 0%, 100%)  [关于hsl的介绍](https://www.w3school.com.cn/css/css_colors_hsl.asp)
+
+hex：#FFFFFF [关于hex的介绍](https://www.w3school.com.cn/css/css_colors_hex.asp)
+
+rgb：不带透明度 rgb(255,255,255)  带透明度 rgba(255,255,255,0.8)
+
+通常我们常用的表示颜色的方式是 hex：#FFFFFF，如果带透明度，则用rgb：rgba(255,255,255,0.8)
+
 
 ### 万能表格使用方式
 
