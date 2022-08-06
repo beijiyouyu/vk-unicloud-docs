@@ -31,9 +31,9 @@ hsl：hsl(0, 0%, 100%)  [关于hsl的介绍](https://www.w3school.com.cn/css/css
 
 hex：#FFFFFF [关于hex的介绍](https://www.w3school.com.cn/css/css_colors_hex.asp)
 
-rgb：不带透明度 rgb(255,255,255)  带透明度 rgba(255,255,255,0.8)
+rgb：不带透明度 rgb(255,255,255)  带透明度 rgba(255,255,255,0.8) [关于rgb的介绍](https://www.w3school.com.cn/css/css_colors_rgb.asp)
 
-通常我们常用的表示颜色的方式是 hex：#FFFFFF，如果带透明度，则用rgb：rgba(255,255,255,0.8)
+___通常我们常用的表示颜色的方式是 hex：#FFFFFF，如果带透明度，则用rgb：rgba(255,255,255,0.8)___
 
 
 ### 万能表格使用方式
