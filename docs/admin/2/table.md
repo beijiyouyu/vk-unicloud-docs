@@ -729,6 +729,8 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
 | deleteRows     | 删除指定的行（不删数据库数据） |
 | updateRows     | 更新指定的行数据（不更新据库数据） |
 | setTableData | 手动给表格重新赋值数据 |
+| toggleRowSelection | 批量修改表格内的多选框选中状态 |
+
 
 
 ### showDetail（显示详情页）
@@ -823,6 +825,20 @@ let info = that.$refs.table1.getTableFormatterData({
   key:"title"
 });
 console.log(info);
+```
+### 批量修改表格内的多选框选中状态
+```js
+let arr = [];
+let uTreeData = that.$refs.table1.getUTreeData(); // 这一步很重要，row只接收 uTreeData 内的元素
+arr.push({
+  row: uTreeData[0],
+  selected: true
+});
+arr.push({
+  row: uTreeData[1],
+  selected: false
+});
+that.$refs.table1.toggleRowSelection(arr);
 ```
 
         
