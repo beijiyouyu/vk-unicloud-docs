@@ -128,22 +128,33 @@ if (transferRes.code === 0) {
 
 #### 参数的获取方式
 
-* 1、appCertSn 可以直接在微信支付后台查看到证书的序列号
+* 1、appId 微信appId：去微信后台查看。
 
-* 2、privateKey 商家私钥：apiclient_key.pem 这个证书的内容复制过来即可。需保持一行。
+* 2、mchId 微信支付商户id：去微信支付后台查看。
 
-* 3、wxpayPublicCertSn 微信支付公钥证书的序列号
+* 3、appCertSn 商家应用证书的序列号：可以直接在微信支付后台查看到证书的序列号
 
-下载[dependencies.jar](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-3fbab731-e993-47e6-882f-a74e444709a3/3af5267f-2b69-474d-88ef-9741ba766403.jar)或者从[git仓库](https://github.com/wechatpay-apiv3/CertificateDownloader)下载，必须填入apiv3秘钥，serial号码，企业号，私钥，序列号，生成目录（./ 当前目录）  
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c87b06a2-64f2-4c6e-9bfd-2ceba8e3cd0d.png)
+
+* 4、privateKey 商家私钥：从 `apiclient_key.pem` 这个证书的内容复制过来即可。需保持一行。（下方有小技巧）
+
+* 5、wxpayPublicCertSn 微信支付公钥证书的序列号
+
+下载[dependencies.jar](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-3fbab731-e993-47e6-882f-a74e444709a3/3af5267f-2b69-474d-88ef-9741ba766403.jar)
 
 将下载的 `dependencies.jar` 文件放在和微信支付证书所在目录，然后执行以下代码即可获取到序列号（必要安装软件：Jdk1.8以上，需要执行jar文件）
+
+[Jdk1.8安装教程-传送门](https://blog.csdn.net/qq_42393720/article/details/125070939)
+
+安装完Jdk且配置环境变量完成后，进入 `cmd` 命令，进入微信支付证书所在目录，运行下方java命令（注意将命令内的v3的密钥等替换成你自己的）
 
 ```
 java -jar certificatedownloader-1.2.0-jar-with-dependencies.jar  -k v3的密钥 -m 商户号 -f apiclient_key.pem -s 证书序列号 -o ./
 
 ```
 
-如：
+完整java命令如下：
+
 ```
 java -jar certificatedownloader-1.2.0-jar-with-dependencies.jar  -k 92fc67db1ff923456d356f5a32087490 -m 1015875945 -f apiclient_key.pem -s 13232141BC5115C3FE6BAD2D857422346CECA44E -o ./
 
@@ -151,9 +162,11 @@ java -jar certificatedownloader-1.2.0-jar-with-dependencies.jar  -k 92fc67db1ff9
 
 执行后，可以在当前目录看到 wechatpay_1C9FA130*****5EDE16ABBF8D5808 文件，  
 
-1C9FA130*****5EDE16ABBF8D5808 就是 wxpayPublicCertSn
+1C9FA130*****5EDE16ABBF8D5808 就是 `wxpayPublicCertSn`
 
-而这个文件的内容就是 wxpayPublicCertContent 参数的值（需保持一行）
+* 6、wxpayPublicCertContent 微信支付公钥内容
+
+而这个文件的内容就是 `wxpayPublicCertContent` 参数的值（需保持一行）（下方有小技巧）
 
 **秘钥文件内容转换为一行小技巧，高手可忽略**
 
