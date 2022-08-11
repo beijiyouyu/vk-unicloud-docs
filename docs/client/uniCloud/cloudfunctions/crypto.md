@@ -46,3 +46,13 @@ function aesDecrypt(encrypted, key) {
 }
 ```
 
+## 5、RSA-SHA256加密
+
+```js
+const crypto = require('crypto');
+// 加密
+let data = "aaa"; // 要加密的文本
+let privateKey = ""; // 私钥内容
+let sign = crypto.createSign('RSA-SHA256').update(data).sign(privateKey, 'base64');
+
+```
