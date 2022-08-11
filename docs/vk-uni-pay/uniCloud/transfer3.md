@@ -9,7 +9,7 @@
 const vkPay = require("vk-uni-pay");
 
 let transferRes = await vkPay.transfer({
-  real_name: "真实姓名", // 真实姓名 大于2000元的转账需要填写真实姓名
+  //real_name: "真实姓名", // 真实姓名 大于2000元的转账需要填写真实姓名
   amount: 1, // 100=1元(单位分)
   title: "转账",
   pay_type: "wxpay",
@@ -53,12 +53,14 @@ let transfer_detail_list = [{
     transfer_amount: 50, // 该用户的转账金额 单位为分 100 = 1元
     transfer_remark: "关羽的报销单", // 该用户的转账备注
     openid: "xxxxxxxx", // 该用户的openid
+    //user_name: "关羽",
   },
   {
     out_detail_no: out_biz_no + "2",  // 该用户的转账子单号
     transfer_amount: 50, // 该用户的转账金额 单位为分 100 = 1元
     transfer_remark: "张飞的报销单", // 该用户的转账备注
     openid: "xxxxxxxx", // 该用户的openid
+    //user_name: "张飞",
   }
 ]
 let transferRes = await vkPay.transfer({
