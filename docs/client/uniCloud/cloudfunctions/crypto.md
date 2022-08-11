@@ -48,7 +48,7 @@ function aesDecrypt(encrypted, key) {
 
 ## 5、RSA-SHA256签名
 
-一般用于对传输的http文本内容进行签名，防止伪造。接收方需要密钥解密后才能看到真实数据内容。
+一般用于对传输的http文本内容进行签名，防止伪造。
 
 ```js
 const crypto = require('crypto');
