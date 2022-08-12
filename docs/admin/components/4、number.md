@@ -18,7 +18,7 @@
 |------------------|-------------------------------|---------|--------|-------|
 | min            | 最小输入 | Number  | - | -  |
 | max            | 最大输入 | Number  | - | -  |
-| rightText          | 右侧文字后缀 | String  | 元 | - |
+| rightText          | 右侧文字后缀，如个 | String  | - | - |
 | precision            | 精度（小数点位数） | Number  | 2 | -  |
 | controls            |是否使用步进器模式 | boolean  |  false | true |
 | controlsPosition            |控制按钮位置| String  |  - | right |
