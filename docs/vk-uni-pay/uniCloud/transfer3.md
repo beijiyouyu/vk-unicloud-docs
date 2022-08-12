@@ -117,6 +117,7 @@ if (transferRes.code === 0) {
     "transfer": {
       "appId": "",
       "mchId": "",
+      "apiV3key": "", // api v3密钥
       "appCertSn":"", // 商家应用证书的序列号
       "privateKey":"", // 商家私钥
       "wxpayPublicCertSn":"", // 微信支付公钥证书的序列号
@@ -132,13 +133,15 @@ if (transferRes.code === 0) {
 
 * 2、mchId 微信支付商户id：去微信支付后台查看。
 
-* 3、appCertSn 商家应用证书的序列号：可以直接在微信支付后台查看到证书的序列号
+* 3、apiV3key api v3的密钥：去微信支付后台查看。
+
+* 4、appCertSn 商家应用证书的序列号：可以直接在微信支付后台查看到证书的序列号
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c87b06a2-64f2-4c6e-9bfd-2ceba8e3cd0d.png)
 
-* 4、privateKey 商家私钥：从 `apiclient_key.pem` 这个证书的内容复制过来即可。需保持一行。（下方有小技巧）
+* 5、privateKey 商家私钥：从 `apiclient_key.pem` 这个证书的内容复制过来即可。需保持一行。（下方有小技巧）
 
-* 5、wxpayPublicCertSn 微信支付公钥证书的序列号
+* 6、wxpayPublicCertSn 微信支付公钥证书的序列号
 
 下载[dependencies.jar](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-3fbab731-e993-47e6-882f-a74e444709a3/3af5267f-2b69-474d-88ef-9741ba766403.jar)
 
@@ -164,7 +167,7 @@ java -jar certificatedownloader-1.2.0-jar-with-dependencies.jar  -k 92fc67db1ff9
 
 1C9FA130*****5EDE16ABBF8D5808 就是 `wxpayPublicCertSn`
 
-* 6、wxpayPublicCertContent 微信支付公钥内容
+* 7、wxpayPublicCertContent 微信支付公钥内容
 
 而这个文件的内容就是 `wxpayPublicCertContent` 参数的值（需保持一行）（下方有小技巧）
 

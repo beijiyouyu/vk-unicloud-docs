@@ -166,7 +166,17 @@ module.exports = {
           "wap_name": "网站名称", // 你的H5网站名称
         }
       }
-    }
+    },
+    // 微信 - 转账到零钱 v3版本
+    "transfer": {
+      "appId": "",
+      "mchId": "",
+      "apiV3key": "", // api v3密钥
+      "appCertSn":"", // 商家应用证书的序列号
+      "privateKey":"", // 商家私钥
+      "wxpayPublicCertSn":"", // 微信支付公钥证书的序列号
+      "wxpayPublicCertContent": "", // 微信支付公钥内容
+    },
   },
   /**
    * 支付宝（证书记得选java版本）
