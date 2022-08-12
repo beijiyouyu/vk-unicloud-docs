@@ -143,6 +143,12 @@ if (transferRes.code === 0) {
 
 * 6、wxpayPublicCertSn 微信支付公钥证书的序列号
 
+**方式一（推荐）**
+
+启动1-5的参数先填完，然后运行vk-uni-pay示例项目，将项目根目录 `使用帮助/7、vk-pay云函数示例代码/service/pay/getWxpayPublicCert.js` 文件复制到 `uniCloud/cloudfunctions/vk-pay/service/pay/` 目录中，然后启动项目，点击【获取微信支付v3平台证书】按钮，在浏览器控制台可看到证书信息。
+
+**方式二（需安装Jdk1.8）**
+
 下载[dependencies.jar](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-3fbab731-e993-47e6-882f-a74e444709a3/3af5267f-2b69-474d-88ef-9741ba766403.jar)
 
 将下载的 `dependencies.jar` 文件放在和微信支付证书所在目录，然后执行以下代码即可获取到序列号（必要安装软件：Jdk1.8以上，需要执行jar文件）
