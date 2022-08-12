@@ -161,8 +161,8 @@ module.exports = {
 #### 支付宝证书生成指南：[点击查看](https://opendocs.alipay.com/open/291/105971)
 
 #### 注意：因支付宝转账接口需要用到 `appCertSn` 和 `alipayRootCertSn`
-* `appCertSn` 和 `alipayRootCertSn` 可以通过 `gitee` 导入下方的项目，将你的 `alipayRootCert.crt` 和 `appCertPublicKey.crt` 放在 `test1/alipay` 目录下，本地运行test1云函数获取
-* gitee地址：[https://gitee.com/vk-uni/getAlipayAppCertSn.git](https://gitee.com/vk-uni/getAlipayAppCertSn.git)
+
+* `appCertSn` 和 `alipayRootCertSn` 可以通过 [快速获取](https://vkunicloud.fsq.pub/getCertSn/#/) 或通过[插件市场导入getSN项目](https://ext.dcloud.net.cn/plugin?name=vk-get-cert-sn)
 
 ##### 这么做是为了不导入第三方npm包（因为从证书中解析序列号需要导入额外一些npm包，增大代码体积）
 
