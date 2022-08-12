@@ -436,6 +436,10 @@ vk.userCenter.resetPasswordByMobile({
 });
 ```
 
+**注意**
+
+* 对应发送短信验证码接口 `type` 为 `reset`
+
 ### vk.userCenter.loginByUniverify（手机一键登录）
 
 只有 `APP` 端可以用
