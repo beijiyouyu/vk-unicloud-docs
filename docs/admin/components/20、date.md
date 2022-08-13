@@ -53,5 +53,12 @@
 
 ### template 使用方式
 ```html
+<!-- 选择日期 -->
 <vk-data-input-date-time v-model="value1" type="date"></vk-data-input-date-time>
+<!-- 选择日期+时间 -->
+<vk-data-input-date-time v-model="value1" type="datetime"></vk-data-input-date-time>
+<!-- 选择日期范围-->
+<vk-data-input-date-time v-model="value1" type="daterange"></vk-data-input-date-time>
+<!-- 选择日期时间范围-->
+<vk-data-input-date-time v-model="value1" type="datetimerange"></vk-data-input-date-time>
 ```
