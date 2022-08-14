@@ -47,8 +47,8 @@
 | rowHeight   | 表格行高，单位为px（特殊情况下，可能需要手动设置行高） | Number  | - | - |
 | leftFixed     | 序号、多选框是否固定在左侧 |Boolean  | true | false |
 | rightFixed     |  操作按钮是否固定在右侧 |Boolean  | true | false |
-| is-request    | 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
-| request-header    |  http请求头 | Object  | - | - |
+| isRequest    | 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
+| requestHeader    |  http请求头 | Object  | - | - |
 | props    | 动态模式 - 渲染数据的配置选项 [查看http请求模式](#http请求模式) | Object  | - | - |
 
 
