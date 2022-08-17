@@ -39,6 +39,7 @@ exports.main = async (event, context) => {
 |------- |-----------|---------|-------|-------|
 | context    |   云函数的context  | Object  | -    | - |
 | provider  |   wxpay：微信支付 alipay：支付宝支付  | String  | -    | wxpay、alipay  |
+| isPC  |  如果是PC扫码支付，则设为true（使用支付组件时，组件会自动上传isPC的参数）| Boolean  | false  | true  |
 | data  |  订单数据  | Object  | -   | [见下方](#data参数)  |
 
 ### data 参数
