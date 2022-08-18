@@ -361,6 +361,11 @@ exports.main = async (event, context) => {
 
 ```
 
+**同时右键云函数添加依赖，必须勾上的依赖是 `uni-config-center` 和 `vk-unicloud`**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/91b28a9f-cf6c-4cdd-ae69-24ddff279941.png)
+
+
 ___特别注意：___
 
 如果是在 `router` 云函数内的js，直接通过 `uniCloud.vk` 来调用
