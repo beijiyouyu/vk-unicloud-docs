@@ -669,6 +669,10 @@ APP登录配置
 
 **注意：h5的路由模式必须配置为 `history`，因为微信公众号登录的回调地址不支持 `hash` 模式。**
 
+注意：自 2.11.0（2022-08-22）版本起，不再返回 sessionKey 和 accessToken 取而代之的是返回 `encryptedKey`（加密后的数据，云函数解密后可获得 `sessionKey`）
+ 
+不要将 sessionKey 和 accessToken 暴露给前端，否则会有安全隐患
+
 ```js
 /**
  * 用户登录(微信授权)
@@ -690,7 +694,21 @@ vk.userCenter.loginByWeixin({
 });
 ```
 
+云函数端解密 `encryptedKey` 
+```js
+// 解密 sessionKey 示例
+let decryptedRes = vk.crypto.aes.decrypt({
+	data: encryptedKey, // 待解密的原文
+});
+let sessionKey = decryptedRes.sessionKey;
+```
+
+
 ### vk.userCenter.code2SessionWeixin（获取微信openid）
+
+注意：自 2.11.0（2022-08-22）版本起，不再返回 sessionKey 和 accessToken 取而代之的是返回 `encryptedKey`（加密后的数据，云函数解密后可获得 `sessionKey`）
+ 
+不要将 sessionKey 和 accessToken 暴露给前端，否则会有安全隐患
 
 ```js
 /**
@@ -702,6 +720,8 @@ vk.userCenter.loginByWeixin({
  * @param {String} accessToken 客户端为APP时返回
  * @param {String} expiresIn 客户端为APP时返回，accessToken 接口调用凭证超时时间，单位（秒）
  * @param {String} refreshToken 客户端为APP时返回，用于刷新accessToken
+ * @param {String} encryptedKey 密钥的加密数据
+ * 
  */
 vk.userCenter.code2SessionWeixin({
   success: (data) => {
@@ -709,6 +729,15 @@ vk.userCenter.code2SessionWeixin({
 
   }
 });
+```
+
+云函数端解密 `encryptedKey` 
+```js
+// 解密 sessionKey 示例
+let decryptedRes = vk.crypto.aes.decrypt({
+	data: encryptedKey, // 待解密的原文
+});
+let sessionKey = decryptedRes.sessionKey;
 ```
 
 ### vk.userCenter.bindWeixin（绑定微信）
@@ -752,7 +781,7 @@ vk.userCenter.code2SessionWeixin({
     needCache: true
   },
   success: (data) => {
-    this.sessionKey = data.sessionKey;
+    this.encryptedKey = data.encryptedKey;
   }
 });
 ```
@@ -768,7 +797,7 @@ getPhoneNumber(e) {
     data: {
       encryptedData,
       iv,
-      sessionKey: this.sessionKey
+      encryptedKey: this.encryptedKey
     },
     success: (data) => {
       vk.alert("手机号:" + data.phone);
@@ -790,7 +819,7 @@ vk.userCenter.code2SessionWeixin({
     needCache: true
   },
   success: (data) => {
-    this.sessionKey = data.sessionKey;
+    this.encryptedKey = data.encryptedKey;
   }
 });
 ```
@@ -806,7 +835,7 @@ loginByWeixinPhoneNumber(e) {
     data: {
       encryptedData,
       iv,
-      sessionKey: this.sessionKey
+      encryptedKey: this.encryptedKey
     },
     success: (data) => {
       // 成功后的逻辑
@@ -898,6 +927,10 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 
 * 需要在 `common/uni-config-center/uni-id/config.json` 内支付宝平台下配置 `appid`和 `privateKey`（应用私钥）
 
+注意：自 2.11.0（2022-08-22）版本起，不再返回 sessionKey 和 accessToken 取而代之的是返回 `encryptedKey`（加密后的数据，云函数解密后可获得 `sessionKey`）
+ 
+不要将 sessionKey 和 accessToken 暴露给前端，否则会有安全隐患
+
 ```js
 /**
  * 支付宝登录
@@ -918,7 +951,22 @@ vk.userCenter.loginByAlipay({
 });
 ```
 
+
+云函数端解密 `encryptedKey` 
+```js
+// 解密 sessionKey 示例
+let decryptedRes = vk.crypto.aes.decrypt({
+	data: encryptedKey, // 待解密的原文
+});
+let sessionKey = decryptedRes.sessionKey;
+```
+
+
 ### vk.userCenter.code2SessionAlipay（获取支付宝openid）
+
+注意：自 2.11.0（2022-08-22）版本起，不再返回 sessionKey 和 accessToken 取而代之的是返回 `encryptedKey`（加密后的数据，云函数解密后可获得 `sessionKey`）
+ 
+不要将 sessionKey 和 accessToken 暴露给前端，否则会有安全隐患
 
 ```js
 /**
@@ -937,6 +985,16 @@ vk.userCenter.code2SessionAlipay({
   }
 });
 ```
+
+云函数端解密 `encryptedKey` 
+```js
+// 解密 sessionKey 示例
+let decryptedRes = vk.crypto.aes.decrypt({
+	data: encryptedKey, // 待解密的原文
+});
+let sessionKey = decryptedRes.sessionKey;
+```
+
 
 ### vk.userCenter.bindAlipay（绑定支付宝）
 

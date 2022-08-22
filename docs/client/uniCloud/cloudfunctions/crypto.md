@@ -58,6 +58,30 @@ console.log('decrypted: ', decrypted)
 
 ```
 
+**AES加解密（VK简易版）**
+
+注意：需要配置 `vk.crypto.aes` 用于返回给前端加密数据时的加密密钥
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/a4ca3d72-358e-4437-8766-d0b14e269697.png)
+
+```js
+// 加密数据
+let encryptedKey = vk.crypto.aes.encrypt({
+	data: {
+		sessionKey: "XXXXX"
+	}
+});
+console.log('encryptedKey: ', encryptedKey)
+
+// 解密 sessionKey 示例
+let decryptedRes = vk.crypto.aes.decrypt({
+	data: encryptedKey, // 待解密的原文
+});
+console.log('decryptedRes: ', decryptedRes)
+let sessionKey = decryptedRes.sessionKey;
+console.log('sessionKey: ', sessionKey)
+```
+
 ## 5、RSA-SHA256签名
 
 一般用于对传输的http文本内容进行签名，防止伪造。
