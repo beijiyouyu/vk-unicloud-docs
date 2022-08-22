@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"editor", title:"富文本类型", type:"editor", width:"750px" },
+{ key:"editor", title:"富文本类型", type:"editor", width:750 },
 ```
 
 ### API
