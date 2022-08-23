@@ -564,6 +564,21 @@ form1:{
     		{ key:"text24", title:"单行文本24", type:"text", col:{ span:24 } },
     	]
     },
+    // 对象类型
+    { key:"", title:"对象类型", type:"bar-title" },
+    { key:"object1", title:"对象类型1", type:"object",
+      columns:[
+      	{ key:"a", title:"对象内属性a", type:"text" },
+      	{ key:"b", title:"对象内属性b", type:"text" },
+      ]
+    },
+    // 可以通过设置showLabel:false, 隐藏左侧的label
+    { key:"object2", title:"对象类型2", type:"object", showLabel:false,
+      columns:[
+      	{ key:"a", title:"对象内属性a", type:"text" },
+      	{ key:"b", title:"对象内属性b", type:"text" },
+      ]
+    },
     // 特殊类型
     { key:"", title:"特殊类型", type:"bar-title" },
     { key:"editor", title:"富文本类型", type:"editor" },
