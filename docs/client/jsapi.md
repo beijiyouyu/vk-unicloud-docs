@@ -147,15 +147,20 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss");
  * 返回的是时间戳(防止时区问题)
  * 返回数据如下：
  {
-   todayStart 今日开始时间
-   todayEnd   今日结束时间
-   today12End 今日上午结束时间
-   monthStart 本月开始时间
-   monthEnd   本月结束时间
-   yearStart  本年开始时间
-   yearEnd    本年结束时间
-   weekStart  本周开始时间
-   weekEnd    本周结束时间
+   todayStart     今日开始时间
+   todayEnd       今日结束时间
+   today12End     今日上午结束时间
+   monthStart     本月开始时间
+   monthEnd       本月结束时间
+   yearStart      本年开始时间
+   yearEnd        本年结束时间
+   weekStart      本周开始时间
+   weekEnd        本周结束时间
+ 	 yesterdayStart 昨天开始时间
+ 	 yesterday12End 昨天上午结束时间
+ 	 yesterdayEnd   昨天结束时间
+ 	 lastMonthStart 上月开始时间
+ 	 lastMonthEnd   上月结束时间
    now        现在的时间点(含月年日时分秒)
    months     本年度每月的开始和结束时间 months[1] 代表1月
  }
