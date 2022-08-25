@@ -139,6 +139,8 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss");
 
 ### vk.pubfn.getCommonTime（获取时间范围）
 
+使用 vk.pubfn.getCommonTime 可以很方便获取时间
+
 ```js
 /**
  * 获取时间范围
@@ -171,9 +173,37 @@ vk.pubfn.getCommonTime(new Date());
 
 vk.pubfn.getCommonTime(new Date(), 8); // 东8区
 
+// 获取今日00:00:00和23:59:59
 let { todayStart, todayEnd } = vk.pubfn.getCommonTime(new Date());
 
 ```
+
+**同时该API可以配合vk.pubfn.getOffsetTime使用**
+
+如：获取从今天开始向前推31天每天的时间戳的开始和结束
+
+```js
+let { todayStart, todayEnd } = vk.pubfn.getCommonTime();
+// 在今日的时间上往前推
+let timeStart = [];
+for (let i = 0; i < 31; i++) {
+  let start = vk.pubfn.getOffsetTime(todayStart, {
+    day: i,
+    mode: "before", // after 之后 before 之前
+  });
+  let end = vk.pubfn.getOffsetTime(todayEnd, {
+    day: i,
+    mode: "before", // after 之后 before 之前
+  });
+  timeStart.push({
+    start,
+    end
+  });
+}
+console.log('timeStart: ', timeStart)
+```
+
+
 
 ### vk.pubfn.getOffsetTime（获得指定时间偏移 year年 month月 day天 hours时 minutes分 seconds秒前或后的时间戳）
 
