@@ -156,18 +156,23 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss");
    yearEnd        本年结束时间
    weekStart      本周开始时间
    weekEnd        本周结束时间
- 	 yesterdayStart 昨天开始时间
- 	 yesterday12End 昨天上午结束时间
- 	 yesterdayEnd   昨天结束时间
- 	 lastMonthStart 上月开始时间
- 	 lastMonthEnd   上月结束时间
-   now        现在的时间点(含月年日时分秒)
-   months     本年度每月的开始和结束时间 months[1] 代表1月
+   hourStart      当前小时开始时间
+   hourEnd        当前小时结束时间
+   yesterdayStart 昨天开始时间
+   yesterday12End 昨天上午结束时间
+   yesterdayEnd   昨天结束时间
+   lastMonthStart 上月开始时间
+   lastMonthEnd   上月结束时间
+   now            现在的时间点(含月年日时分秒)
+   months         本年度每月的开始和结束时间 months[1] 代表1月
  }
  */
 vk.pubfn.getCommonTime(new Date());
 
 vk.pubfn.getCommonTime(new Date(), 8); // 东8区
+
+let { todayStart, todayEnd } = vk.pubfn.getCommonTime(new Date());
+
 ```
 
 ### vk.pubfn.getOffsetTime（获得指定时间偏移 year年 month月 day天 hours时 minutes分 seconds秒前或后的时间戳）
