@@ -257,6 +257,27 @@ module.exports = {
 }
 ```
 
+### this.getUniCloudRequestId（获取当前请求id）
+
+**接口形式**
+
+`this.getUniCloudRequestId()`
+
+注意：HBX版本大于3.5.5后，更新框架到最新版，当请求错误时，返回数据会自动带上requestId，无需你自己写过滤器
+
+**示例**
+
+```js
+module.exports = {
+	_after: function(error, result) {
+		if(error) {
+			const requestId = this.getUniCloudRequestId()
+		}
+	}
+}
+```
+
+
 ### this.getHttpInfo（获取url化时的http信息）
 
 仅可在云对象url化时使用，如何使用云对象的url化请参考：[云对象url化](https://vkdoc.fsq.pub/client/question/q2.html)
