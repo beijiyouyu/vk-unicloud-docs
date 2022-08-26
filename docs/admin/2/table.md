@@ -1107,8 +1107,8 @@ vk.baseDao.getTableData({
   ...其他属性
   :show-summary="true"
   :total-option=" [
-     { key: '（此为table1.columns中key的值）', 'unit': '单位', type:'number' },
-     { key: 'balance', 'unit': '元', type:'money' }
+     { key: '（此为table1.columns中key的值）', 'unit': '单位', type:'number', precision:2 },
+     { key: 'balance', 'unit': '元', type:'money', precision:2 }
   ]"
 ></vk-data-table>
 ```
@@ -1139,6 +1139,9 @@ summaryMethod({ columns, data }) {
       if(!columnItem){
         continue;
       }
+      let {
+      	precision = 2
+      } = columnItem;
       const values = data.map(dataItem => Number(dataItem[column.property]));
       // 合计
       if (!values.every(value => isNaN(value))) {
@@ -1150,6 +1153,7 @@ summaryMethod({ columns, data }) {
             return prev;
           }
         }, 0);
+        means[columnIndex] = vk.pubfn.toDecimal(means[columnIndex], precision);
         if(columnItem.type === "money"){
           // 金额字段的特殊处理
           let money = vk.pubfn.priceFilter(means[columnIndex]);
