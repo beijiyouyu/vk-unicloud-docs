@@ -5,8 +5,9 @@
 * `vk-unicloud-admin` 是基于 `uniapp` + `unicloud` + `uni-id` + `vk-unicloud-router` + `element` 的一套快速 `PC admin` 完整开发框架
 * （只兼容PC，只为PC admin而生，但Ta也是uniapp+unicloud项目，非传统vue-admin项目）
 
-
 **注意：TA是uniapp项目，支持uniapp所有H5的API和插件市场所有uni-admin插件**
+
+**最大亮点：使用 `vk-unicloud-admin` 后，即使你是一个纯后端，不会写任何css，照样可以写出功能强大且页面好看的admin管理系统。**
 
 <img class="preview"  src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/ad18e7d6-ae0e-4424-bf3d-6e3dad1036a1.png"/>
 
@@ -21,16 +22,16 @@
 * 3、`表单可视化拖拽工具`（可直接生成 `vk框架代码 `和 `element` 原生代码 [点击体验](https://vkunicloud.fsq.pub/vk-form-visualizer/)
 * 4、`万能表格组件`，通过少量代码即可完成 `CRUD`，同时还拥有较高的自由度。几分钟完成一个页面 `CRUD`。
 * 5、`万能表单组件`，通过少量代码即可完成表单渲染 + 表单请求。
-* 6、完善的用户角色权限，无需开发即可拥有（权限可精确到每一个云函数）。
-* 7、`pages-dev.json` 机制，开发调试页面不会被发布到正式版中。
-* 8、只要你开发过传统 `vue admin` 项目，那么上手此框架的学习成本几乎为0
-* 9、众多示例代码，为你的云开发之路扫平障碍。
-* 10、内置3个主题（纯黑，纯白，黑白）且支持自定义主题。[点击查看主题](https://vkdoc.fsq.pub/admin/1/theme.html)
-* 11、群内众多开发者，关于框架使用问题几乎有问必答。Q群：22466457
-* 12、更多功能敬请体验。
+* 6、超高自由度，支持使用插槽的形式自定义已有的功能和渲染方式，也支持直接使用 `element` 原生代码来写页面。
+* 7、完善的用户角色权限，无需开发即可拥有（权限可精确到每一个云函数）。
+* 8、`pages-dev.json` 机制，开发调试页面不会被发布到正式版中。
+* 9、只要你开发过传统 `vue admin` 项目，那么上手此框架的学习成本几乎为0
+* 10、众多示例代码，为你的云开发之路扫平障碍。
+* 11、内置3个主题（纯黑，纯白，黑白）且支持自定义主题。[点击查看主题](https://vkdoc.fsq.pub/admin/1/theme.html)
+* 12、群内众多开发者，关于框架使用问题几乎有问必答。Q群：22466457
+* 13、更多功能敬请体验。
 
-**使用 `vk-unicloud-admin` 后，即使你是一个纯后端，不会写任何css，照样可以写出功能强大且页面好看的admin管理系统。**
-
+**最大亮点：使用 `vk-unicloud-admin` 后，即使你是一个纯后端，不会写任何css，照样可以写出功能强大且页面好看的admin管理系统。**
 
 ### 核心功能
 
