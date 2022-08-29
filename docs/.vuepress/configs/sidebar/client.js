@@ -80,14 +80,14 @@ module.exports = [{
       },
       {
         title: '缓存',
-        collapsable: true,
+        collapsable: false,
         children: [
           'uniCloud/cache/cache'
         ]
       },
       {
         title: '中间件',
-        collapsable: true,
+        collapsable: false,
         children: [
           'uniCloud/middleware/filter'
         ]
@@ -105,7 +105,7 @@ module.exports = [{
       },
       {
         title: '全局配置',
-        collapsable: true,
+        collapsable: false,
         children: [
           'uniCloud/config/uni-id',
           'uniCloud/config/vk-unicloud',

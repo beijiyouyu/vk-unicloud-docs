@@ -50,6 +50,93 @@ loading:{ that:this, name:"page.loading"}
 | code    |  错误码    | Number  |
 | msg  |   错误提示    | String  |
 
+## 监听
+
+### vk.onRefreshToken（监听token更新事件）
+
+**在App.vue里全局监听示例：**
+
+```js
+onLaunch: function() {
+  // 监听token的更新
+  vk.onRefreshToken((data)=>{
+    if (data.token) {
+      // 有新的token
+      console.log('token更新监听：', data);
+    } else {
+      // token失效或过期
+      console.log('token失效监听：', data);
+    }
+  });
+},
+
+```
+
+**在某个页面里局部监听示例：**
+
+在 `onLoad` 时写监听，在 `onUnload` 时移除监听，在 `methods` 内写监听的回调函数。
+
+```js
+export default {
+  // 监听 - 页面每次【加载时】执行(如：前进)
+  onLoad(options = {}) {
+    // 监听token的更新
+    uni.vk.onRefreshToken(this.onRefreshToken);
+  },
+  // 监听 - 页面每次【卸载时】（一般用于取消页面上的监听器）
+  onUnload(){
+    // 页面卸载时需要手动移除监听
+    uni.vk.offRefreshToken(this.onRefreshToken);
+  },
+  // 函数
+  methods: {
+    onRefreshToken(data){
+      if (data.token) {
+        // 有新的token
+        console.log('token更新监听：', data);
+      } else {
+        // token失效或过期
+        console.log('token失效监听：', data);
+      }
+    }
+  }
+}
+```
+
+### vk.offRefreshToken（移除监听token更新事件）
+
+**一般只有在某个页面里局部监听时才需要用到**
+
+在 `onLoad` 时写监听，在 `onUnload` 时移除监听，在 `methods` 内写监听的回调函数。
+
+```js
+export default {
+  // 监听 - 页面每次【加载时】执行(如：前进)
+  onLoad(options = {}) {
+    // 监听token的更新
+    uni.vk.onRefreshToken(this.onRefreshToken);
+  },
+  // 监听 - 页面每次【卸载时】（一般用于取消页面上的监听器）
+  onUnload(){
+    // 页面卸载时需要手动移除监听
+    uni.vk.offRefreshToken(this.onRefreshToken);
+  },
+  // 函数
+  methods: {
+    onRefreshToken(data){
+      if (data.token) {
+        // 有新的token
+        console.log('token更新监听：', data);
+      } else {
+        // token失效或过期
+        console.log('token失效监听：', data);
+      }
+    }
+  }
+}
+```
+
+
 ## 通用
 
 ### vk.userCenter.register（注册）
