@@ -122,7 +122,7 @@ module.exports = async (obj, originalParam) => {
 
 ##### 方式一：直接写数据库操作（原生数据库语句）
 
-优势：无需鉴权（插件已帮你验证签名，能进到这里，就是已经通过签名验证）
+优势：无需鉴权，无需加密解密（插件已帮你验证签名，能进到这里，就是已经通过签名验证）
 
 ##### 方式二：使用 await uniCloud.callFunction 调用其他云函数
 
@@ -163,3 +163,5 @@ let {
 
 **注意**
 如果是java和php，需要自己实现类似 `vkPay.crypto.aes.decrypt` 解密功能。[node.js加密源码](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/crypto.html#_4%E3%80%81aes%E5%8A%A0%E8%A7%A3%E5%AF%86)
+
+**当然加密方式不仅限此方案，如果你有自己的加密方案，则可以使用自己的方案来解决。**
