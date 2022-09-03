@@ -136,7 +136,7 @@ module.exports = async (obj, originalParam) => {
 
 其中，方式二和方式三因为跨云函数或跨服务端运行，所以涉及到请求过程中的数据防篡改问题。
 
-这里插件提供了 aes 加密API
+这里插件提供了 aes 加密API（需要配置 `uni-config-center/uni-pay/config.js` 内的 `notifyKey`
 
 ```js
 // 对数据进行加密
