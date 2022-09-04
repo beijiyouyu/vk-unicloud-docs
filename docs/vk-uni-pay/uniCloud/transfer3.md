@@ -182,3 +182,7 @@ java -jar certificatedownloader-1.2.0-jar-with-dependencies.jar  -k 92fc67db1ff9
 1. 打开谷歌浏览器，打开任意页面，再按F12
 2. 找到Console选项卡，这里可以执行简单的js
 3. `-----BEGIN PRIVATE KEY....不管换行不换行，都是字符串` 一定要用这个反单引号（就是键盘Tab上面那个键）框住apiclient_key.pem内的内容，按一下回车，自动把换行转化为\n
+
+**你也可以直接访问下面的链接快速转换并复制证书内容**
+
+[证书转换传送门](https://vkunicloud.fsq.pub/admin/?t=20220904#/pages_template/components/form/form-cert)
