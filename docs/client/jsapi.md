@@ -132,9 +132,20 @@ await vk.pubfn.sleep(1000);
 /**
  * 日期时间格式化
  * @param {Date || Number} 第1个参数 date 需要格式化的时间，支持时间对象和时间戳
- * @param {Number} 第2个参数 targetTimezone 时区 默认东8区 正数代表东 负数代表西
+ * @param {String} 第2个参数 format 时间格式 默认 "yyyy-MM-dd hh:mm:ss"
+ * @param {Number} 第3个参数 targetTimezone 时区 默认东8区 正数代表东 负数代表西
  */
+vk.pubfn.timeFormat(new Date(),format, targetTimezone);
+// 不带毫秒简写（标准时间格式）
+vk.pubfn.timeFormat(new Date());
+// 不带毫秒（标准时间格式）
 vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss");
+// 不带毫秒（自定义时间格式）
+vk.pubfn.timeFormat(new Date(),"yyyy年MM月dd日 hh时mm分ss秒");
+// 带毫秒
+vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss.S");
+// 带时区
+vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss", 8); // 东8区
 ```
 
 ### vk.pubfn.getCommonTime（获取时间范围）
