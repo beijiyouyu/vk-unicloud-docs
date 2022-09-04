@@ -134,7 +134,9 @@ ___若不想集成 `vk-uview-ui` 可跳过此处___
 
 适合开发：H5、App(vue版本)、微信小程序（其他小程序未验证）
 
-> 插件市场导入 `vk-uview-ui` 框架：[点击前往](https://ext.dcloud.net.cn/plugin?id=6692)
+> 插件市场导入 `vk-uview-ui` 框架：[传送门](https://ext.dcloud.net.cn/plugin?id=6692)
+
+> 插件市场导入 `vue3的scss编译` 插件：[传送门](https://ext.dcloud.net.cn/plugin?id=5701)
 
 不建议把老项目 升级到 Vue3.0 (升级非常麻烦，建议新项目才考虑是否使用Vue3.0)
 
@@ -341,6 +343,8 @@ const modulesList = require.context('@/store/modules', true, /\.js$/);
 ___若不想集成 `tmui` 可跳过此处___
 
 适合开发：App(nvue版本)，目前为数不多的 `nvue3.0` 组件库。H5、微信小程序、支付宝小程序等
+
+> 插件市场导入 `vue3的scss编译` 插件：[传送门](https://ext.dcloud.net.cn/plugin?id=5701)
 
 **安装步骤**
 
