@@ -3,6 +3,8 @@
 * 1、打开 `cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建)
 * 复制下方代码到 `uni-pay/config.js`
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/720f095f-85ac-44b8-9aa2-9c69f90a48b8.png)
+
 **注意**
 
 * 配置文件是 `.js` 文件，不是 `.json` 文件
@@ -150,7 +152,8 @@ module.exports = {
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/30ecaeaa-0adc-434e-94b1-733300479c6e.png)
 
-上图蓝色框内是支付宝证书（3个），红色框内是微信支付证书（1个）
+* 蓝色框内是支付宝证书（3个）
+* 红色框内是微信支付证书（1个）
 
 ## 设置异步回调notifyUrl
 
@@ -173,11 +176,11 @@ module.exports = {
 },
 ```
 
-服务空间SpaceID获取方式（即：的左边部分）
+**服务空间SpaceID获取方式（即：的左边部分）**
 
 <img class="preview" src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/4948f2d1-1a6e-414f-88eb-93642c92debf.png"/>
 
-URL化完整地址获取方式（即：的右边部分）
+**URL化完整地址获取方式（即：的右边部分）**
 
 进入服务空间详情
 
@@ -194,24 +197,43 @@ URL化完整地址获取方式（即：的右边部分）
 #### 支付宝证书生成指南：[点击查看](https://opendocs.alipay.com/open/291/105971)
 
 ## 特别注意
-#### 注意一
-* 因支付宝转账接口需要用到 `appCertSn` 和 `alipayRootCertSn`
-* `appCertSn` 和 `alipayRootCertSn` 可以通过 `gitee` 导入下方的项目，将你的 `alipayRootCert.crt` 和 `appCertPublicKey.crt` 放在 `test1/alipay` 目录下，本地运行test1云函数获取
-* gitee地址：[https://gitee.com/vk-uni/getAlipayAppCertSn.git](https://gitee.com/vk-uni/getAlipayAppCertSn.git)
 
-##### 这么做是为了不导入第三方npm包（因为从证书中解析序列号需要导入额外一些npm包，增大代码体积）
+#### 注意一
+
+因支付宝转账接口需要用到参数 `appCertSn` 和 `alipayRootCertSn` 
+
+> [传送门-获取证书序列号在线工具](https://vkunicloud.fsq.pub/getCertSn/#/)
+
+__这么做是为了不导入第三方npm包（因为从证书中解析序列号需要导入额外一些npm包，增大代码体积）__
 
 #### 注意二
+
 * 支付宝H5网站扫码支付需签约 支付宝当面付（非PC网站支付）
 * 支付宝H5移动支付需签约 支付宝当面付（非移动网站支付）
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/4b40e4ab-b507-43a1-9fbb-1cc3364d67c7.png)
+
 #### 注意三
+
 * 每次修改了支付参数后，需要重新上传公共模块 `uni-config-center`
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/5bb008ac-3032-4374-88fa-1cd66e72984f.png)
+
 #### 注意四
-* 如果提示找不到 xxx 模块，如 `uni-id` 模块，则
+
+* 如果提示找不到 `xxx` 模块，如 `uni-id` 模块，则
 * 1、在 `uniCloud/cloudfunctions/common/vk-uni-pay` 目录右键选择 `管理公共模块依赖` 菜单，引入这2个模块 `uni-config-center`、 `uni-pay`
-* 2、在需要引入支付API的云函数右键选择 `管理公共模块依赖` 菜单，至少引入这4个模块 `uni-config-center`、 `uni-id`、 `uni-pay`、 `vk-uni-pay`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/7a907421-c1e3-422a-ac6c-aa4016a33b2b.png)
+
+* 2、在需要引入支付API的云函数（如：vk-pay）右键选择 `管理公共模块依赖` 菜单，至少引入这4个模块 `uni-config-center`、 `uni-id`、 `uni-pay`、 `vk-uni-pay`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/575f8b33-cfb6-4055-b41a-afddcdc6be0c.png)
+
 * 3、重新上传公共模块 `vk-uni-pay`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/3505280b-dea1-4d17-a25f-b0b6bd1315c4.png)
+
 * 4、重新上传云函数 `vk-pay`
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/627737c7-0677-4f18-88c1-1f3ea087477c.png)
