@@ -72,6 +72,8 @@ App升级中心 uni-upgrade-center，提供了 App 的版本更新服务。包�
 
 ## 升级中心App前台检测更新client端
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/76ebfe4d-e3a6-4d89-a9d3-9381de9a9d21.png)
+
 可以直接使用官方的 `升级中心 uni-upgrade-center - App` [传送门](https://ext.dcloud.net.cn/plugin?id=4542) 
 
 ### 代码需要更改的地方
