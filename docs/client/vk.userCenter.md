@@ -375,6 +375,15 @@ if (!vk.checkToken()) {
 
 ```
 
+### vk.getToken（获取本地token）
+
+注意：token会自动传给云函数，云函数也会自动解析token，故一般情况下，无需调用此api，如真需要，可使用此api获取。
+
+[查看token介绍](#token介绍) 
+
+```js
+let uni_id_token = vk.getToken();
+```
 
 ## 手机号
 
