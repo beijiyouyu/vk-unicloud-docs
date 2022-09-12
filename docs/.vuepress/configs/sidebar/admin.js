@@ -70,5 +70,21 @@ module.exports = [{
       'components2/4、vk-data-drawer',
     ]
   },
+  {
+    title: '内置功能',
+    collapsable: false,
+    children: [
+      '6/user',
+      '6/role',
+      '6/permission',
+      '6/menu',
+      '6/app',
+      '6/app-upgrade-center',
+      '6/uni-id-files',
+      '6/vk-global-data',
+      '6/uni-id-log',
+      '6/opendb-admin-log'
+    ]
+  },
   'question/question'
 ]
