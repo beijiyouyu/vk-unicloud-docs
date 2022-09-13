@@ -54,6 +54,8 @@ $.ajax({
 
 ## 如何使用官方 `unicloud-admin` 的插件，如 `APP升级中心`
 
+注意：自 `vk-admin` `1.14.0` 版本起，已内置 `APP升级中心`（功能与官方的一致，同时在此基础上进行了拓展），无需再手动集成，下面只是介绍以下如果手动集成官方的 `APP升级中心`，需要的操作步骤。
+
 插件根目录下的 `common/unicloud-admin` 目录为官方模板的一些样式文件
 
 * 如果你需要引入 `unicloud-admin` 官方的一些插件，如[升级中心](https://ext.dcloud.net.cn/plugin?id=4470)
