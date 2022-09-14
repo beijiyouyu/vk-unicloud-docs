@@ -66,7 +66,7 @@
     { key: "role_name", title: "角色昵称", type: "text", width: 150, mode: "%%" },
     { key: "role_id", title: "角色标识", type: "text", width: 150, mode: "%%" }
   ],
-  onChange:function(val, formData, column, index, option){
+  onChange:(val, formData, column, index, option)=>{
     console.log(1,val, formData, column, index, option);
   }
 }

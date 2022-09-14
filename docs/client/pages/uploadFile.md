@@ -7,14 +7,14 @@
 uni.chooseImage({
   count: 1,
   sizeType: ['compressed'],
-  success: function (res) {
+  success: (res) => {
     // 上传至 unicloud云储存
     vk.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
       suffix:"png", // 不传suffix会自动获取，但H5环境下获取不到后缀，但可以通过file.name 获取
       provider:"unicloud",
-      success(res) {
+      success:(res) => {
        // 上传成功
 
       }
@@ -31,14 +31,14 @@ uni.chooseImage({
 uni.chooseImage({
   count: 1,
   sizeType: ['compressed'],
-  success: function (res) {
+  success: (res) => {
     // 上传至 阿里云oss
     vk.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
       suffix:"png", // 不传suffix会自动获取，但H5环境下获取不到后缀，但可以通过file.name 获取
       provider:"aliyun",
-      success(res) {
+      success:(res) => {
        // 上传成功
 
       }
@@ -87,13 +87,13 @@ service:{
 uni.chooseImage({
   count: 1,
   sizeType: ['compressed'],
-  success: function (res) {
+  success: (res) => {
     vk.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
       file: res.tempFiles[0],
       needSave:true,
-      success(res) {
+      success:(res) => {
        // 上传成功
 
       }
@@ -112,13 +112,13 @@ uni.chooseImage({
 uni.chooseImage({
   count: 1,
   sizeType: ['compressed'],
-  success: function (res) {
+  success: (res) => {
     // 上传至 unicloud云储存
     vk.uploadFile({
       title:"上传中...",
       filePath: res.tempFilePaths[0],
       cloudPath: "myPath/aa.png",
-      success(res) {
+      success:(res) => {
        // 上传成功
 
       }

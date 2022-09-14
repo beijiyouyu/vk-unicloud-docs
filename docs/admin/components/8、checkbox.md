@@ -20,7 +20,7 @@
 {
   key:"checkbox1", title:"多选类型", type:"checkbox",
   itemWidth:80,
-  data:function(){
+  data:()=>{
     let list = that.list;
     return list;
   }
@@ -60,7 +60,7 @@
   border:true,
   itemWidth:80,
   action:"admin/select/kh/categorys",
-  actionData:function(){
+  actionData:()=>{
     return {
       a:that.form1.data.a
     }
@@ -77,7 +77,7 @@
   itemWidth:80,
   action:"admin/select/kh/categorys",
   props:{ list:"rows", value:"_id", label:"name" },
-  dataPreprocess:function(list){
+  dataPreprocess:(list)=>{
     list.map((item, index) => {
       item.name = `${item.name}(${item._id})`
     });
@@ -117,7 +117,7 @@
   itemWidth:80,
   action:"admin/select/kh/categorys",
   props:{ list:"rows", value:"_id", label:"name" },
-  onChange:function(val, formData, column, index, option){
+  onChange:(val, formData, column, index, option)=>{
     console.log(1,val, formData, column, index, option);
   }
 }

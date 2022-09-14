@@ -203,7 +203,7 @@ uni.chooseImage({
       filePath: res.tempFilePaths[0],
       file: res.tempFiles[0],
       needSave:true,
-      success(res) {
+      success:(res) => {
        // 上传成功
 
       }

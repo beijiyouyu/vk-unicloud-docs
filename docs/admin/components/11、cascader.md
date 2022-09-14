@@ -39,7 +39,7 @@
 ```js
 {
   key:"cascader1", title:"本地数据级联", type:"cascader",
-  data:function(){
+  data:()=>{
     let list = that.list;
     return list;
   }
@@ -95,7 +95,7 @@
 {
   key:"cascader2", title:"云端数据级联", type:"cascader",
   action:"admin/system/permission/sys/getAll",
-  actionData:function(){
+  actionData:()=>{
     return {
       a:that.form1.data.a
     }
@@ -225,7 +225,7 @@
       ]
     }
   ],
-  onChange:function(val, formData, column, index, option){
+  onChange:(val, formData, column, index, option)=>{
     console.log(1,val, formData, column, index, option);
   }
 }

@@ -3,14 +3,14 @@
 #### 在`app.config.js`的 `interceptor`属性新增
 ```js
 interceptor:{
-  login:function(obj){
+  login:(obj)=>{
     let { vk, params, res } = obj;
-    setTimeout(function(){
+    setTimeout(()=>{
       uni.navigateTo({
         url:"/pages/login/index/index",
         events:{
           // 监听登录成功后的事件
-          loginSuccess: function(data) {
+          loginSuccess: (data) => {
             // 重新执行一次云函数调用
             if(params) Vue.prototype.vk.callFunction(params);
           },

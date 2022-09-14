@@ -40,7 +40,7 @@
 {
   key:"user_id", title:"用户选择器", type:"remote-select", placeholder:"请输入用户账号/昵称",
   action:"admin/select/kh/user",
-  actionData:function(){
+  actionData:()=>{
     return {
       a:that.form1.data.a
     }
@@ -53,7 +53,7 @@
   key:"user_id", title:"用户选择器", type:"remote-select", placeholder:"请输入用户账号/昵称",
   action:"你的云函数",
   props:{ list:"rows", value:"_id", label:"name" },
-  dataPreprocess:function(list){
+  dataPreprocess:(list)=>{
     list.map((item, index) => {
       item.name = `${item.name}(${item._id})`
     });
@@ -90,7 +90,7 @@
 {
   key:"user_id", title:"用户选择器", type:"remote-select", placeholder:"请输入用户账号/昵称",
   action:"admin/select/kh/user",
-  onChange:function(val, formData, column, index, option){
+  onChange:(val, formData, column, index, option)=>{
     console.log(1,val, formData, column, index, option);
   }
 }

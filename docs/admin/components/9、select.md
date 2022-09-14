@@ -17,7 +17,7 @@
 ```js
 {
   key:"select1", title:"select类型1", type:"select",
-  data:function(){
+  data:()=>{
     let list = that.list;
     return list;
   }
@@ -78,7 +78,7 @@
     { value:1, label:"选项1" },
     { value:2, label:"选项2" }
   ],
-  onChange:function(val, formData, column, index, option){
+  onChange:(val, formData, column, index, option)=>{
     console.log(1,val, formData, column, index, option);
   }
 }

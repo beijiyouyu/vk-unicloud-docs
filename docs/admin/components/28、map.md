@@ -38,7 +38,7 @@ key的申请地址：[点击查看](https://lbs.qq.com/)
 ```js
 { 
   key:"position", title:"地图位置", type:"map", width:600, height:300,
-  onChange:function(val, formData, column, index){
+  onChange:(val, formData, column, index)=>{
     /**
      * val 双向绑定的表单值
      * formData 双向绑定的整个表单数据源

@@ -32,7 +32,7 @@
 ```js
 {
   key:"tree1", title:"本地数据", type:"tree-select",
-  data:function(){
+  data:()=>{
     let list = that.list;
     return list;
   }
@@ -108,7 +108,7 @@
       ]
     }
   ],
-  onChange:function(val, formData, column, index, option, val2, option2){
+  onChange:(val, formData, column, index, option, val2, option2)=>{
     /**
      * val 双向绑定的表单值
      * formData 双向绑定的整个表单数据源
@@ -145,7 +145,7 @@
       ]
     }
   ],
-  onChange:function(val, formData, column, index, option, val2, option2){
+  onChange:(val, formData, column, index, option, val2, option2)=>{
     /**
      * val 双向绑定的表单值
      * formData 双向绑定的整个表单数据源

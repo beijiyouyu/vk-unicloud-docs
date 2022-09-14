@@ -27,7 +27,7 @@
 			 "\tdata:{",
 			 "\t\t",
 			 "\t},",
-			 "\tsuccess:function(data){",
+			 "\tsuccess:(data) => {",
 			 "\t\t$0",
 			 "\t}",
 			 "});"

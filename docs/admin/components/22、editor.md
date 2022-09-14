@@ -277,7 +277,7 @@ Vue.component("vk-data-input-editor", VkDataInputEditor);
       },
       insertDivider() {
         this.editorCtx.insertDivider({
-          success: function() {
+          success: () => {
             // console.log('insert divider success')
           }
         })
@@ -287,7 +287,7 @@ Vue.component("vk-data-input-editor", VkDataInputEditor);
         let disabled = that.disabledFn();
         if(disabled) return false;
         that.editorCtx.clear({
-          success: function(res) {
+          success: (res) => {
             // console.log("clear success")
           }
         })
@@ -321,13 +321,13 @@ Vue.component("vk-data-input-editor", VkDataInputEditor);
               title:"上传中...",
               filePath: res.tempFilePaths[0],
               fileType: "image",
-              success(res) {
+              success:(res) => {
                 // 执行绑定头像
                 let imageUrl = res.fileID;
                 that.editorCtx.insertImage({
                   src: imageUrl,
                   alt: "image",
-                  success: function() {
+                  success: () => {
                     // console.log('insert image success')
                   }
                 });
