@@ -94,7 +94,7 @@ module.exports = [{
       },
       {
         title: '扩展',
-        collapsable: true,
+        collapsable: false,
         children: [
           'uniCloud/plus/weixin',
           'uniCloud/plus/weixin-h5',
