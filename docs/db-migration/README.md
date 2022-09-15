@@ -86,5 +86,13 @@ ___注意：运行前先确认下，旧空间和新空间没有填错，否则�
 
 - 10、完成。
 
+#### 问题
+
+##### 如你已付费购买，缺还提示[vk-database-one-click-migration]：不能在当前云服务空间使用
+
+如果使用数据库搬家项目的时候遇到 `data undefined` 同时提示 `[vk-database-one-click-migration]：不能在当前云服务空间使用​`
+则去项目根目录下的 `package.json` 文件内查看看是否有名为 `sn` 的属性，把Ta删除后再试试。
+
+
 
 
