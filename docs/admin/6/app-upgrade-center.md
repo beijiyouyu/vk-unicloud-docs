@@ -174,3 +174,8 @@ uniCloud.callFunction({
 
 ```
 
+### 如果碰到只弹窗不显示更新按钮
+
+那是因为你没有在应用管理里编辑该应用的App信息，IOS和Android至少填写一个
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/36fa44cb-0aa9-41c8-a2c1-46be27e53dbc.png)
