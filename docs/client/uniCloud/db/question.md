@@ -46,6 +46,8 @@ num : _.lte(0).or(_.gt(10).and(_.lt(20)))
 ```
 ### 跨字段
 ### 跨字段的and和or
+
+**and**
 ```js
 // num >50 and name = 'test'
 whereJson: _.and([
@@ -56,7 +58,10 @@ whereJson: _.and([
     name: 'test'
   }
 ])
+```
 
+**or**
+```js
 // num >50 or name = 'test'
 whereJson: _.or([
   {
@@ -66,8 +71,11 @@ whereJson: _.or([
     name: 'test'
   }
 ])
+```
 
+**and嵌套or**
 
+```js
 // num >50 and (name = 'test' or sex = 1)
 whereJson: _.and([
   {
@@ -82,8 +90,88 @@ whereJson: _.and([
     }
   ])
 ])
-
 ```
+
+**or嵌套and**
+
+```js
+// num >50 or (name = 'test' and sex = 1)
+whereJson: _.or([
+  {
+    num: _.gt(50)
+  },
+  _.and([
+    {
+      name: 'test'
+    },
+    {
+      sex: 1
+    }
+  ])
+])
+```
+
+
+**多个嵌套**
+
+```js
+// num >50 and (name = 'test' or sex = 1) and (name2 = 'test' or sex2 = 1)
+whereJson: _.and([
+  {
+    num: _.gt(50)
+  },
+  _.or([
+    {
+      name: 'test'
+    },
+    {
+      sex: 1
+    }
+  ]),
+  _.or([
+    {
+      name2: 'test'
+    },
+    {
+      sex2: 1
+    }
+  ])
+])
+```
+
+**多层嵌套**
+
+```js
+// num >50 and (num>50 and (name = 'test' or sex = 1)) and (name2 = 'test' or sex2 = 1)
+whereJson: _.and([
+  {
+    num: _.gt(50)
+  },
+  _.and([
+    {
+      num: _.gt(50)
+    },
+    _.or([
+      {
+        name: 'test'
+      },
+      {
+        sex: 1
+      }
+    ])
+  ]),
+  _.or([
+    {
+      name2: 'test'
+    },
+    {
+      sex2: 1
+    }
+  ])
+])
+```
+
+
 ### 多字段模糊搜索or
 ### 一个搜索value对应多个字段模糊搜索
 ```js
