@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"file", title:"文件类型", type:"file", limit:9, accept:".txt,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf" }
+{ key:"file", title:"文件类型", type:"file", buttonText:"点击上传", limit:9, accept:".txt,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf" }
 ```
 
 ### API
@@ -21,12 +21,13 @@
 | needSave          | 是否需要保存图片url到admin后台 | Boolean  | false | true  |
 | httpRequest       | 覆盖默认的上传行为，可以自定义上传的实现（下方有详细说明） | function  | - | -  |
 | listType          | 文件列表的类型  | String  | picture-card | text/picture/picture-card |
+| buttonText        | 上传按钮的文本  | String  | 点击上传 | - |
 | 其他       | 其他参数请查看element Upload 上传组件 https://element.eleme.cn/#/zh-CN/component/upload | -  | - | -  |
 
 #### httpRequest 用法
 #### 注意：如果是上传到unicloud云储存或阿里云OSS，无需写httpRequest，框架已集成。
 ```js
-{ key:"file", title:"文件类型", type:"file", limit:9, accept:".txt,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf",
+{ key:"file", title:"文件类型", type:"file", buttonText:"点击上传", limit:9, accept:".txt,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf",
   // 此时的 onSuccess 需要自己实现
   onSuccess(data){
     // 此处写上传成功后，把数据赋值到你的表单变量中，如下
@@ -88,5 +89,5 @@
 
 ### template 使用方式
 ```html
-<vk-data-upload v-model="image1" :limit="9" upload-type="file" list-type="text"></vk-data-upload>
+<vk-data-upload v-model="image1" :limit="9" upload-type="file" list-type="text" button-text="点击上传"></vk-data-upload>
 ```
