@@ -8,8 +8,8 @@
   key:"checkbox1", title:"多选类型", type:"checkbox",
   itemWidth:80,
   data:[
-    { value:1, label:"选项1" },
-    { value:2, label:"选项2" }
+    { value:1, label:"选项一" },
+    { value:2, label:"选项二" }
   ]
 }
 ```
@@ -129,8 +129,8 @@
 { 
   key: "checkbox", title: "多选字段", type: "checkbox", width: 120, defaultValue:1,
   data:[
-    { value:1, label:"选项1" },
-    { value:2, label:"选项2" }
+    { value:1, label:"选项一" },
+    { value:2, label:"选项二" }
   ]
 }
 ```
@@ -143,9 +143,8 @@
 <vk-data-input-checkbox
   v-model="form1.value"
   :localdata="[
-    { value:1, label:'选项1' },
-    { value:2, label:'选项2' },
-    { value:3, label:'选项3' }
+    { value:1, label:'选项一' },
+    { value:2, label:'选项二' },
   ]"
 ></vk-data-input-checkbox>
 ```

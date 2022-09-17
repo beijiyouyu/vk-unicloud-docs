@@ -5,11 +5,11 @@
 #### 应用场景：选项数据为静态数据的情况。
 ```js
 {
-  key:"radio1", title:"radio类型1", type:"radio",
+  key:"radio1", title:"radio类型", type:"radio",
   itemWidth:80,
   data:[
-    { value:1, label:"选项1" },
-    { value:2, label:"选项2" }
+    { value:1, label:"选项一" },
+    { value:2, label:"选项二" }
   ]
 }
 ```
@@ -18,11 +18,11 @@
 
 ```js
 {
-  key:"radio1", title:"radio类型1", type:"radio",
+  key:"radio1", title:"radio类型", type:"radio",
   optionType:"button",
   data:[
-    { value:1, label:"选项1" },
-    { value:2, label:"选项2" }
+    { value:1, label:"选项一" },
+    { value:2, label:"选项二" }
   ]
 }
 ```
@@ -32,7 +32,7 @@
 #### 应用场景：选项数据需要通过函数计算
 ```js
 {
-  key:"radio1", title:"radio类型1", type:"radio",
+  key:"radio1", title:"radio类型", type:"radio",
   itemWidth:80,
   data:()=>{
     let list = that.list;

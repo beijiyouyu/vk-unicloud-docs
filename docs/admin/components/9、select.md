@@ -5,10 +5,10 @@
 #### 应用场景：选项数据为静态数据的情况。
 ```js
 {
-  key:"select1", title:"select类型1", type:"select",
+  key:"select1", title:"select类型", type:"select",
   data:[
-    { value:1, label:"选项1" },
-    { value:2, label:"选项2" }
+    { value:1, label:"选项一" },
+    { value:2, label:"选项二" }
   ]
 }
 ```
@@ -16,7 +16,7 @@
 #### 应用场景：选项数据需要通过函数计算
 ```js
 {
-  key:"select1", title:"select类型1", type:"select",
+  key:"select1", title:"select类型", type:"select",
   data:()=>{
     let list = that.list;
     return list;
@@ -33,15 +33,15 @@
     {
       label: "分组1",
       children:[
-        { value:1, label:"选项1" },
-        { value:2, label:"选项2" }
+        { value:1, label:"选项一" },
+        { value:2, label:"选项二" }
       ]
     },
     {
       label: "分组2",
       children:[
-        { value:3, label:"选项3" },
-        { value:4, label:"选项4" }
+        { value:3, label:"选项三" },
+        { value:4, label:"选项四" }
       ]
     }
   ]
@@ -73,10 +73,10 @@
 #### onChange 使用示例
 ```js
 {
-  key:"select1", title:"select类型1", type:"select",
+  key:"select1", title:"select类型", type:"select",
   data:[
-    { value:1, label:"选项1" },
-    { value:2, label:"选项2" }
+    { value:1, label:"选项一" },
+    { value:2, label:"选项二" }
   ],
   onChange:(val, formData, column, index, option)=>{
     console.log(1,val, formData, column, index, option);
@@ -104,8 +104,8 @@
 <vk-data-input-select
   v-model="form1.value1"
   :localdata='[
-    { value:1, label:"选项1" },
-    { value:2, label:"选项2" }
+    { value:1, label:"选项一" },
+    { value:2, label:"选项二" }
   ]'
   placeholder="请选择"
 ></vk-data-input-select>
@@ -119,15 +119,15 @@
     {
       label: "分组1",
       children:[
-        { value:1, label:"选项1" },
-        { value:2, label:"选项2" }
+        { value:1, label:"选项一" },
+        { value:2, label:"选项二" }
       ]
     },
     {
       label: "分组2",
       children:[
-        { value:3, label:"选项3" },
-        { value:4, label:"选项4" }
+        { value:3, label:"选项三" },
+        { value:4, label:"选项四" }
       ]
     }
   ]'

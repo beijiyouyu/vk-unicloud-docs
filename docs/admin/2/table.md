@@ -531,8 +531,8 @@ table1:{
     { 
       key: "checkbox", title: "多选字段", type: "checkbox", width: 120, defaultValue:1,
       data:[
-        { value: 1, label: "选项1" },
-        { value: 2, label: "选项2" },
+        { value: 1, label: "选项一" },
+        { value: 2, label: "选项二" },
       ]
     },
     { key: "json", title: "json字段", type: "json", width: 120, maxHeight:300 }

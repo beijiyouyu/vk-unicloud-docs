@@ -70,15 +70,15 @@ export default {
             { 
               key: "radio", title: "radio类型字段", type: "radio",
               data: [
-                { value: 1, label: "选项1" },
-                { value: 2, label: "选项2" },
+                { value: 1, label: "选项一" },
+                { value: 2, label: "选项二" },
               ]
             },
             { 
               key: "checkbox", title: "checkbox类型字段", type: "checkbox",
               data: [
-                { value: 1, label: "选项1" },
-                { value: 2, label: "选项2" },
+                { value: 1, label: "选项一" },
+                { value: 2, label: "选项二" },
               ]
             },
             { key: "switch", title: "switch类型字段", type: "switch" }
@@ -447,22 +447,22 @@ form1:{
     {
       key:"radio1", title:"radio类型1", type:"radio",
       data:[
-        { value:1, label:"选项1" },
-        { value:2, label:"选项2" }
+        { value:1, label:"选项一" },
+        { value:2, label:"选项二" }
       ]
     },
     {
       key:"checkbox1", title:"checkbox类型1", type:"checkbox",
       data:[
-        { value:1, label:"选项1" },
-        { value:2, label:"选项2" }
+        { value:1, label:"选项一" },
+        { value:2, label:"选项二" }
       ]
     },
     {
       key:"select1", title:"select类型1", type:"select",
       data:[
-        { value:1, label:"选项1" },
-        { value:2, label:"选项2" }
+        { value:1, label:"选项一" },
+        { value:2, label:"选项二" }
       ]
     },
     { key:"address", title:"address类型", type:"address" },

@@ -28,7 +28,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key:"balance" , title:"用户余额" , type:"money" , width:100 }
+{ key:"balance" , title:"金额类型" , type:"money" , width:100 }
 ```
 
 
