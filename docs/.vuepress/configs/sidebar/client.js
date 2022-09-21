@@ -7,6 +7,7 @@ module.exports = [{
       '',
       'serverless',
       'quickstart',
+      'quickstartExample',
       'changelog',
       'changeGuide',
       'codeTips',
