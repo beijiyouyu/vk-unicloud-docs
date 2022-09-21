@@ -19,6 +19,8 @@ module.exports = [
       { text: 'vk-unicloud数据库一键搬家工具', link: 'https://ext.dcloud.net.cn/plugin?id=6089' },
       { text: 'vk-hbx插件（开发辅助工具）', link: 'https://ext.dcloud.net.cn/plugin?id=6663' },
       { text: 'vk-mail（邮件发送公共模块）', link: 'https://ext.dcloud.net.cn/plugin?id=7688' },
+      { text: 'vk-mall（vk商城client端）', link: 'https://ext.dcloud.net.cn/plugin?id=9502' },
+      { text: 'vk-mall-admin（vk商城admin端）', link: 'https://ext.dcloud.net.cn/plugin?id=9504' },
       { text: '查看更多', link: 'https://ext.dcloud.net.cn/publisher?id=164406' }
     ]
   },
