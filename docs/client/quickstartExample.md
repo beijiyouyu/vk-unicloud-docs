@@ -15,15 +15,15 @@ ___首先建议导入下VK框架快速开发辅助工具，Ta能方便你很多_
 
 **云对象必须写在service目录下，即这个目录下面。**
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0c399592-c26b-4414-99bf-934501dc7c62.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/e0135e14-8057-4ce8-9e51-7268aa237ce4.png)
 
 service目录下面有几个基本目录，如下图介绍
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/862a6d33-d2b9-4bbb-ae2c-c82a13f27e9d.png)
 
-现在我们新建一个客户端的接口，即需要写在client目录下。
+现在我们新建一个客户端的接口，即需要写在 `client` 目录下。
 
-* 1、在client目录右键，依次点击vk - 新建云对象 - 输入pub.user 即可创建1个云对象。
+* 1、在 `client` 目录右键，依次点击vk - 新建云对象 - 输入 `pub.user` 即可创建1个云对象。
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/dda3de07-9b70-405a-87c2-f0c48bd5798a.png)
 
@@ -33,11 +33,11 @@ ___如果不以pub. 开头，则这个云对象内的接口前端需要先登录
 
 > [传送门 - 云对象内置权限说明](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#%E5%86%85%E7%BD%AE%E6%9D%83%E9%99%90)
 
-在刚创建的pub.user云对象内可以看到有几个内置方法，其中_before是请求前处理的过滤器，_after是请求后处理的过滤器，而下面的getList和test都是对外的接口
+在刚创建的 `pub.user` 云对象内可以看到有几个内置方法，其中 `_before` 是请求前处理的过滤器，`_after` 是请求后处理的过滤器，而下面的 `getList` 和 `test` 都是对外的接口
 
 * 2、新建1个接口，名为calc
 
-这里演示加法加法接口，不涉及数据库（一般接口都会涉及到数据库，这里只是演示怎么写接口，同时给前端调用）
+这里演示简易加法计算接口，不涉及数据库（一般接口都会涉及到数据库，这里只是演示怎么写接口，同时给前端怎么调用）
 
 ```js
 /**
@@ -61,7 +61,7 @@ calc: async function(data) {
 },
 ```
 
-* 3、写完后，选中calc接口名，然后右键，vk - 复制前端调用代码
+* 3、写完后，保存，然后选中calc接口名，右键，vk - 复制前端调用代码
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/5e1b9a53-7969-4059-a795-8d47fe66c65a.png)
 
@@ -71,18 +71,16 @@ calc: async function(data) {
 如
 
 ```js
-let x = 1;
-let y = 2;
 vk.callFunction({
-	url: 'client/pub.user.calc',
-	title: '请求中...',
-	data: {
-		x,
-    y
-	},
-	success: (data) => {
-		vk.alert(`云端返回的计算结果是：${data.z}`);
-	}
+  url: 'client/pub.user.calc',
+  title: '请求中...',
+  data: {
+    x: 1,
+    y: 2
+  },
+  success: (data) => {
+    vk.alert(`云端返回的计算结果是：${data.z}`);
+  }
 });
 ```
 
@@ -95,11 +93,11 @@ vk.callFunction({
 
 以java为例
 
-相当于你之前是先写 `java接口`，然后uniapp前端用 `uni.request` 请求 `java接口`
+相当于你之前是先写 `java接口`，然后 `uniapp前端` 用 `uni.request` 请求 `java接口`
 
-而现在是，先写 `云函数或云对象接口`，然后uniapp前端用 `vk.callFunction` 请求 `云函数或云对象` 即可。
+而现在是，先写 `云函数或云对象接口`，然后 `uniapp前端` 用 `vk.callFunction` 请求 `云函数或云对象` 即可。
 
-道理是一样的，无非就是从 `java语言` 变成了 `node.js语言`，而 `node.js` 基本上跟前端的`js（javascript）` 是一样的语法，因此前后端就是统一的js语言，学习成本大大降低。
+道理是一样的，无非就是从 `java语言` 变成了 `node.js语言`，而 `node.js` 基本上跟前端的`js（javascript）` 是一样的语法，因此前后端就是统一的 `js语言`，学习成本大大降低。开发效率大大提升。
 
 ## 新手必看文档
 
