@@ -33,7 +33,8 @@ module.exports = [
       { text: 'uniCloud', link: 'https://uniapp.dcloud.io/uniCloud/' },
       { text: 'Vue2', link: 'https://cn.vuejs.org/index.html' },
       { text: 'Vue3', link: 'https://staging-cn.vuejs.org/' },
-      { text: 'vk-uview', link: 'https://vkuviewdoc.fsq.pub' }
+      { text: 'vk-uview', link: 'https://vkuviewdoc.fsq.pub' },
+      { text: 'vkmall', link: ' http://vkmalldocs.fsq.pub' }
     ]
   },
   //{ text: '成品项目', link: '/product/' },
