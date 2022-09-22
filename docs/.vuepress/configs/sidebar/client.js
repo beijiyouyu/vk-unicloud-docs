@@ -12,7 +12,8 @@ module.exports = [{
       'changeGuide',
       'codeTips',
       'codeAssist',
-      'i18n'
+      'i18n',
+      'product'
     ]
   },
   'jsapi',

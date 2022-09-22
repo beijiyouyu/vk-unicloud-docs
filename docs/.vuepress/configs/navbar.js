@@ -21,6 +21,7 @@ module.exports = [
       { text: 'vk-mail（邮件发送公共模块）', link: 'https://ext.dcloud.net.cn/plugin?id=7688' },
       { text: 'vk-mall（vk商城client端）', link: 'https://ext.dcloud.net.cn/plugin?id=9502' },
       { text: 'vk-mall-admin（vk商城admin端）', link: 'https://ext.dcloud.net.cn/plugin?id=9504' },
+      { text: 'vk框架成品项目（含群内成员作品）', link: 'https://ext.dcloud.net.cn/search?q=vk&orderBy=HotList&cat1=7&cat2=72' },
       { text: '查看更多', link: 'https://ext.dcloud.net.cn/publisher?id=164406' }
     ]
   },
