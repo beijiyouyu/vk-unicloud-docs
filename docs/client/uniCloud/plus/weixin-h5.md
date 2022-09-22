@@ -21,19 +21,16 @@
 
 ## 微信公众号万能API调用接口
 
+
 **特别注意**
 
 微信公众号调用api需要白名单授权，[传送门](https://mp.weixin.qq.com/)
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/20c44c60-7794-4edd-a1ef-957004458afb.png)
 
-如何获取我本地电脑的IP？[传送门](https://www.baidu.com/s?wd=%E6%88%91%E7%9A%84ip)
+[如何获取我本地电脑的IP](https://www.baidu.com/s?wd=%E6%88%91%E7%9A%84ip)
 
-unicloud如何获取固定IP?
-
-**阿里云空间不支持固定IP，只能用腾讯云付费空间！**
-
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0c2634e7-b26a-4e6f-ae8b-ecdeed0772d2.png)
+[unicloud如何获取固定IP](#获取固定IP)
 
 ```js
 let requestRes = await vk.openapi.weixin.h5.request({
@@ -93,3 +90,23 @@ let requestRes = await vk.openapi.weixin.h5.request({
 | msg           | 失败时的提示内容           | String | 
 
 其他返回参数参考微信公众号服务端API文档 [传送门](https://developers.weixin.qq.com/doc/offiaccount/Account_Management/Generating_a_Parametric_QR_Code.html)
+
+## 获取固定IP
+
+**unicloud如何获取固定IP？**
+
+### 腾讯云空间
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0c2634e7-b26a-4e6f-ae8b-ecdeed0772d2.png)
+
+### 阿里云空间
+
+直接把下面的ip都加进去即可。
+
+```js
+39.100.3.155
+47.92.39.39
+47.92.67.205
+47.92.25.106
+47.92.68.159
+```
