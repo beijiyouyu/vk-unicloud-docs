@@ -51,3 +51,28 @@
 |----------|------------------------|
 | close()     | 关闭 Drawer，会触发before-close  |
 | close({ beforeClose:false })     | 关闭 Drawer，不触发before-close  |
+
+### 插槽
+
+| name       | 说明                    |
+|------------|------------------------|
+| default    | Drawer 主内容 |
+| title      | Drawer 标题区的内容 |
+
+**插槽示例**
+
+```html
+<vk-data-drawer v-model="showDrawer" width="500px">
+  <template v-slot:title>
+    <view>
+      这是标题的插槽
+    </view>
+  </template>
+  <template v-slot:default>
+    <view>
+      这里是主内容插槽
+    </view>
+  </template>
+</vk-data-drawer>
+```
+

@@ -91,3 +91,40 @@
 | changeFullscreen     | 全屏切换 |
 | close()     | 关闭弹窗，会触发beforeClose |
 | close({ beforeClose:false })     | 关闭弹窗，不触发beforeClose |
+
+### 插槽
+
+| name       | 说明                    |
+|------------|------------------------|
+| default    | Dialog 主内容 |
+| title      | Dialog 标题区的内容 |
+| footer     | Dialog 按钮操作区的内容 |
+
+**插槽示例**
+
+```html
+<vk-data-dialog
+	v-model="showDialog"
+	width="500px"
+	top="14vh"
+	:close-on-click-modal="true"
+>
+	<template v-slot:title>
+		<view>
+			这是标题的插槽
+		</view>
+	</template>
+	<template v-slot:default>
+		<view>
+			这里是主内容插槽
+		</view>
+	</template>
+	<template v-slot:footer="{ close }">
+		<!--这里是底部插槽-->
+		<el-button @click="close">取 消</el-button>
+		<el-button type="primary" @click="close">确 定</el-button>
+	</template>
+</vk-data-dialog>
+```
+
+
