@@ -1,23 +1,23 @@
-# 云函数内如何优雅的写表单验证
+# 云函数/云对象内如何优雅的写表单验证
 
 
 ### 当表单参数不多时，这样写并无不雅的地方。
 ```js
-if(!data.username) return { code:-1, msg:"用户名不能为空" }
-if(!data.password) return { code:-1, msg:"密码不能为空" }
+if (!data.username) return { code:-1, msg:"用户名不能为空" }
+if (!data.password) return { code:-1, msg:"密码不能为空" }
 ```
 
 ### 但是如果参数有10个以上呢？还这样写吗？
 ```js
-if(!data.param1) return { code:-1, msg:"XXX不能为空" }
-if(data.param2<=0) return { code:-1, msg:"XXX必须大于0" }
-if(data.param3>100) return { code:-1, msg:"XXX必须小于100" }
-if(!data.param4) return { code:-1, msg:"XXX不能为空" }
-if(!data.param5) return { code:-1, msg:"XXX不能为空" }
-if(!data.param6) return { code:-1, msg:"XXX不能为空" }
-if(!data.param7) return { code:-1, msg:"XXX不能为空" }
-if(!data.param8) return { code:-1, msg:"XXX不能为空" }
-if(!data.param9) return { code:-1, msg:"XXX不能为空" }
+if (!data.param1) return { code:-1, msg:"XXX不能为空" }
+if (data.param2<=0) return { code:-1, msg:"XXX必须大于0" }
+if (data.param3>100) return { code:-1, msg:"XXX必须小于100" }
+if (!data.param4) return { code:-1, msg:"XXX不能为空" }
+if (!data.param5) return { code:-1, msg:"XXX不能为空" }
+if (!data.param6) return { code:-1, msg:"XXX不能为空" }
+if (!data.param7) return { code:-1, msg:"XXX不能为空" }
+if (!data.param8) return { code:-1, msg:"XXX不能为空" }
+if (!data.param9) return { code:-1, msg:"XXX不能为空" }
 。。。
 ```
 #### 上面的代码是不是很lows？
@@ -31,37 +31,60 @@ if(!data.param9) return { code:-1, msg:"XXX不能为空" }
 
 * 为此，VK框架云函数中实现了跟前端表单验证参数一模一样的功能函数 `vk.pubfn.formValidate`。
 
-#### 接下来重点介绍 `vk.pubfn.formValidate`
+**接下来重点介绍 `vk.pubfn.formValidate`**
+
+### 云函数
+
 ```js
-// 验证规则开始 -----------------------------------------------------------
-let rules = {
-  username: [
-    { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
-  ],
-  nickname: [
-    { required: true, message: '昵称为必填字段', trigger: 'blur' },
-    { min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
-  ],
-  password: [
-    { validator:vk.pubfn.validator("password"), message: '密码长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
-  ],
-  mobile: [
-    { validator: vk.pubfn.validator("mobile"), message: '手机号格式错误', trigger: 'blur' }
-  ]
-};
-// 验证规则结束 -----------------------------------------------------------
+'use strict';
+module.exports = {
+	/**
+	 * 此函数名称
+	 * @url user/pub/test1 前端调用的url参数地址
+	 * data 请求参数
+	 * @param {String} params1  参数1
+	 */
+	main: async (event) => {
+		let { data = {}, userInfo, util, originalParam } = event;
+		let { customUtil, config, pubFun, vk, db, _ } = util;
+		let { uid } = data;
+		let res = { code: 0, msg: "" };
+		// 业务逻辑开始-----------------------------------------------------------
+		
+		// 验证规则开始 -----------------------------------------------------------
+		let rules = {
+		  username: [
+		    { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+		  ],
+		  nickname: [
+		    { required: true, message: '昵称为必填字段', trigger: 'blur' },
+		    { min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
+		  ],
+		  password: [
+		    { validator:vk.pubfn.validator("password"), message: '密码长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+		  ],
+		  mobile: [
+		    { validator: vk.pubfn.validator("mobile"), message: '手机号格式错误', trigger: 'blur' }
+		  ]
+		};
+		// 验证规则结束 -----------------------------------------------------------
+    // 开始进行验证
+    let formRulesRes = vk.pubfn.formValidate({
+      data: data,
+      rules: rules
+    });
+    if (formRulesRes.code !== 0) {
+      // 表单验证未通过
+      return formRulesRes;
+    }
+    // 表单验证通过，下面写自己的业务逻辑
 
-// 开始进行验证
-let formRulesRes = vk.pubfn.formValidate({
-  data: data,
-  rules: rules
-});
-if (formRulesRes.code !== 0) {
-  // 表单验证未通过
-  return formRulesRes;
+
+
+		// 业务逻辑结束-----------------------------------------------------------
+		return res;
+	}
 }
-// 表单验证通过，下面写自己的业务逻辑
-
 ```
 
 **同时为了让表单验证和业务逻辑代码独立，可以参考 `router/service/admin/system/role/sys/add.js` 此云函数内的写法。**
@@ -76,6 +99,159 @@ if (formRulesRes.code !== 0) {
 // 表单验证通过，下面写自己的业务逻辑
 
 ```
+
+### 云对象
+
+```js
+'use strict';
+var vk; // 全局vk实例
+// 涉及的表名
+const dbName = {
+	//test: "vk-test", // 测试表
+};
+
+var db = uniCloud.database(); // 全局数据库引用
+var _ = db.command; // 数据库操作符
+var $ = _.aggregate; // 聚合查询操作符
+
+var cloudObject = {
+	isCloudObject: true, // 标记为云对象模式
+	/**
+	 * 模板函数
+	 * @url client/muban.test 前端调用的url参数地址
+	 */
+	test: async function(data) {
+		let { uid } = this.getClientInfo(); // 获取客户端信息
+		let res = { code: 0, msg: '' };
+		// 业务逻辑开始-----------------------------------------------------------
+		
+    // 验证规则开始 -----------------------------------------------------------
+    let rules = {
+      username: [
+        { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+      ],
+      nickname: [
+        { required: true, message: '昵称为必填字段', trigger: 'blur' },
+        { min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
+      ],
+      password: [
+        { validator:vk.pubfn.validator("password"), message: '密码长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+      ],
+      mobile: [
+        { validator: vk.pubfn.validator("mobile"), message: '手机号格式错误', trigger: 'blur' }
+      ]
+    };
+    // 验证规则结束 -----------------------------------------------------------
+    // 开始进行验证
+    let formRulesRes = vk.pubfn.formValidate({
+      data: data,
+      rules: rules
+    });
+    if (formRulesRes.code !== 0) {
+      // 表单验证未通过
+      return formRulesRes;
+    }
+    // 表单验证通过，下面写自己的业务逻辑
+    
+		
+		// 业务逻辑结束-----------------------------------------------------------
+		return res;
+	}
+};
+
+module.exports = cloudObject;
+```
+
+**表单验证和业务逻辑代码独立版**
+```js
+'use strict';
+var vk; // 全局vk实例
+// 涉及的表名
+const dbName = {
+	//test: "vk-test", // 测试表
+};
+
+var db = uniCloud.database(); // 全局数据库引用
+var _ = db.command; // 数据库操作符
+var $ = _.aggregate; // 聚合查询操作符
+
+var cloudObject = {
+	isCloudObject: true, // 标记为云对象模式
+	/**
+	 * 模板函数
+	 * @url client/muban.test 前端调用的url参数地址
+	 */
+	test: async function(data) {
+		let { uid } = this.getClientInfo(); // 获取客户端信息
+		let res = { code: 0, msg: '' };
+		// 业务逻辑开始-----------------------------------------------------------
+    const formRules = require("./util/formRules.js"); // 基于该云对象文件所在路径的相对路径
+    let formRulesRes = await formRules.add(data);
+    if (formRulesRes.code !== 0) {
+      // 表单验证未通过
+      return formRulesRes;
+    }
+    // 表单验证通过，下面写自己的业务逻辑
+    
+		
+		// 业务逻辑结束-----------------------------------------------------------
+		return res;
+	}
+};
+
+module.exports = cloudObject;
+```
+
+**./util/formRules.js**
+
+```js
+'use strict';
+/**
+ * 表单验证
+ */
+class Util {
+	constructor() {}
+	/**
+	 * 添加
+	 */
+	async add(data={}) {
+		let res = { code: 0, msg: '' };
+		// 验证规则开始 -----------------------------------------------------------
+		let rules = {
+			username: [
+				{ required: true, validator: vk.pubfn.validator("username"),
+					message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+			],
+			nickname: [
+				{ required: true, message: '昵称为必填字段', trigger: 'blur' },
+				{ min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
+			],
+			password: [
+				{ validator:vk.pubfn.validator("password"), message: '密码长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+			],
+			mobile: [
+				{ validator: vk.pubfn.validator("mobile"), message: '手机号格式错误', trigger: 'blur' }
+			],
+			email: [
+				{ validator: vk.pubfn.validator("email"), message: '邮箱格式错误', trigger: 'blur' }
+			],
+		};
+		// 验证规则结束 -----------------------------------------------------------
+
+		// 开始进行验证
+		res = vk.pubfn.formValidate({
+			data: data,
+			rules: rules
+		});
+		// 返回验证结果
+		return res;
+	}
+}
+module.exports = new Util
+```
+
+
+
 
 ### rules详解
 
