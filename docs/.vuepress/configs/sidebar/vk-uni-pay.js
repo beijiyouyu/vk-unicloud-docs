@@ -5,7 +5,8 @@ module.exports = [{
       '',
       'quickstart',
       'config',
-      'example'
+      'example',
+      'question/question'
     ]
   },
   {
@@ -67,7 +68,6 @@ module.exports = [{
       }
     ]
   },
-  'question/question',
   {
     title: 'vk-unicloud-router 框架对接示例',
     children: [{

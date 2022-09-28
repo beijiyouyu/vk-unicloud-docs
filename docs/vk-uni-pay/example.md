@@ -1,6 +1,6 @@
 # 示例项目运行教程
 
-## 1、 下载安装
+## 1、下载安装
 
 * 1、从插件市场下载 `vk-uni-pay` 插件示例项目到你的hbx中。[插件市场传送门](https://ext.dcloud.net.cn/plugin?id=5642)
 * 2、配置支付参数文件地址: `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js`(没有则新建) [查看支付参数](#支付参数)
@@ -11,7 +11,7 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/5be98077-d85c-4392-9a70-3b6941a0af00.png)
 
-## 2、 配置uni-id里的小程序参数
+## 2、配置uni-id里的小程序参数
 
 因为小程序支付需要获取用户openid（故需要配置uni-id）
 
@@ -87,7 +87,7 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/193905eb-6840-43fb-a5db-d3cfde6a9a3d.png)
 
-## 3、 配置uni-pay支付参数
+## 3、配置uni-pay支付参数
 
 [传送门](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 

@@ -1,4 +1,18 @@
 # 常见问题
+## 运行示例项目报错
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c92a0b26-0745-4e0f-a138-73bd1e11d9d0.png)
+
+如果报上面这个错误，则分别在下图2个目录执行 npm i命令
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/3ea7c826-8f63-4fd4-824a-e642f73a212a.png)
+
+## 运行示例项目提示不能本地运行
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/32f459fb-c7f5-4a61-b88e-1944c44523c1.png)
+
+因为加密了，只能云端运行，不可以本地运行，如果要本地运行，则需要购买源码版。
+
 ## 微信H5外部浏览器支付流程
 
 * 1、用户点击发起支付
