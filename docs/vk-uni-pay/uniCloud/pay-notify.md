@@ -1,5 +1,13 @@
 # 2、接收付款成功异步通知
 
+在你发起支付的api中，有个 `type` 属性，这个 `type` 属性的值你填了什么，最终回调的时候就会执行什么。
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/9b5b186c-f37b-4b0d-bd28-3be9feb3a659.png)
+
+如 `type` 填了 `goods`，则回调的时候会执行这里的 `goods.js` 内的代码。
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/92da4249-8250-4a79-960d-611cefadc6d8.png)
+
 ### 在云函数 `vk-pay` 的 `service/pay-notify` 目录创建以下3个文件，用于编写异步回调后自己的业务逻辑
 ```js
 1、goods.js

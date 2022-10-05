@@ -1,5 +1,7 @@
 # service/pay-notify/vip.js
 
+[传送门 - 异步回调说明](https://vkdoc.fsq.pub/vk-uni-pay/uniCloud/pay-notify.html)
+
 ```js
 'use strict';
 /**
