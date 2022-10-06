@@ -330,6 +330,41 @@ $.ajax({
 
 任意云函数其实都可以通过下面的方式去使用 `VK` 框架的API
 
+**vk核心库版本>=2.12.0**
+
+```js
+'use strict';
+// 引入 vk-unicloud
+const vkCloud = require('vk-unicloud');
+// 通过 vkCloud.createInstance 创建 vk 实例
+const vk = vkCloud.createInstance({
+	baseDir: __dirname,
+	requireFn: require
+});
+
+exports.main = async (event, context) => {
+	//event为客户端上传的参数
+  
+  // 调用 select API
+	let res = await vk.baseDao.select({
+		dbName:"uni-id-users",
+		pageIndex:1,
+		pageSize:20,
+		whereJson:{
+
+		},
+		fieldJson:{},
+		sortArr:[{ "name":"_id", "type":"desc" }],
+	});
+
+	//返回数据给客户端
+	return res
+};
+
+```
+
+**vk核心库版本<2.12.0**
+
 ```js
 'use strict';
 // 通过 require 引入 vk 实例
@@ -371,9 +406,6 @@ ___特别注意：___
 如果是在 `router` 云函数内的js，直接通过 `uniCloud.vk` 来调用
 
 如果是在 `前端js` 内，直接通过 `uni.vk` 来调用
-
-
-
 
 
 ## 小程序加载 `uViewUI` 后，运行提示代码超2M，无法预览？
