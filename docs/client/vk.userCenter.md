@@ -794,7 +794,7 @@ vk.userCenter.loginByWeixin({
 ```js
 // 解密 sessionKey 示例
 let decryptedRes = vk.crypto.aes.decrypt({
-	data: encryptedKey, // 待解密的原文
+  data: encryptedKey, // 待解密的原文
 });
 let sessionKey = decryptedRes.sessionKey;
 ```
@@ -831,7 +831,7 @@ vk.userCenter.code2SessionWeixin({
 ```js
 // 解密 sessionKey 示例
 let decryptedRes = vk.crypto.aes.decrypt({
-	data: encryptedKey, // 待解密的原文
+  data: encryptedKey, // 待解密的原文
 });
 let sessionKey = decryptedRes.sessionKey;
 ```
@@ -1052,7 +1052,7 @@ vk.userCenter.loginByAlipay({
 ```js
 // 解密 sessionKey 示例
 let decryptedRes = vk.crypto.aes.decrypt({
-	data: encryptedKey, // 待解密的原文
+  data: encryptedKey, // 待解密的原文
 });
 let sessionKey = decryptedRes.sessionKey;
 ```
@@ -1086,7 +1086,7 @@ vk.userCenter.code2SessionAlipay({
 ```js
 // 解密 sessionKey 示例
 let decryptedRes = vk.crypto.aes.decrypt({
-	data: encryptedKey, // 待解密的原文
+  data: encryptedKey, // 待解密的原文
 });
 let sessionKey = decryptedRes.sessionKey;
 ```

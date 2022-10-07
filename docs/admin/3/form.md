@@ -222,19 +222,19 @@ columns是一个数组，数组内每个元素有以下属性，每个元素代�
 { 
   key:"text1", title:"选择快递公司", type:"text",
   tips:[
-  	{ text:"查不到快递公司？" },
-  	{
-  		text:"点击添加",
-  		click:()=>{
-  			console.log(1)
-  		},
-  	},
-  	{
-  		text:"刷新",
-  		click:()=>{
-  			console.log(1)
-  		},
-  	}
+    { text:"查不到快递公司？" },
+    {
+      text:"点击添加",
+      click:()=>{
+        console.log(1)
+      },
+    },
+    {
+      text:"刷新",
+      click:()=>{
+        console.log(1)
+      },
+    }
   ]
 },
 ```
@@ -313,11 +313,11 @@ columns是一个数组，数组内每个元素有以下属性，每个元素代�
     { value:3, label:"移除" }
   ],
   showRule:(formData)=>{
-  	if(formData.login_appid_type == 1){
-  		return true;
-  	}else{
-  		return false;
-  	}
+    if(formData.login_appid_type == 1){
+      return true;
+    }else{
+      return false;
+    }
   }
 },
 ```
@@ -371,11 +371,11 @@ columns是一个数组，数组内每个元素有以下属性，每个元素代�
     { value:3, label:"移除" }
   ],
   disabled:(formData)=>{
-  	if(formData.login_appid_type === 0){
-  		return true;
-  	}else{
-  		return false;
-  	}
+    if(formData.login_appid_type === 0){
+      return true;
+    }else{
+      return false;
+    }
   }
 },
 ```
@@ -529,54 +529,54 @@ form1:{
     // 布局
     { key:"", title:"横向布局", type:"bar-title" },
     { key:"", title:"", type:"group", justify:"start",
-    	columns:[
-    		{ key:"text1", title:"单行文本1", type:"text" },
-    		{ key:"text2", title:"单行文本2", type:"text" },
-    		{ key:"text3", title:"单行文本3", type:"text" },
-    		{ key:"text4", title:"单行文本4", type:"text" },
-    	]
+      columns:[
+        { key:"text1", title:"单行文本1", type:"text" },
+        { key:"text2", title:"单行文本2", type:"text" },
+        { key:"text3", title:"单行文本3", type:"text" },
+        { key:"text4", title:"单行文本4", type:"text" },
+      ]
     },
     { key:"", title:"", type:"group", justify:"start",
-    	columns:[
-    		{ key:"text5", title:"单行文本5", type:"text" },
-    		{ key:"text6", title:"单行文本6", type:"text" },
-    		{ key:"text7", title:"单行文本7", type:"text" },
-    		{ key:"text8", title:"单行文本8", type:"text" },
-    	]
+      columns:[
+        { key:"text5", title:"单行文本5", type:"text" },
+        { key:"text6", title:"单行文本6", type:"text" },
+        { key:"text7", title:"单行文本7", type:"text" },
+        { key:"text8", title:"单行文本8", type:"text" },
+      ]
     },
     { key:"", title:"", type:"group", justify:"end",
-    	columns:[
-    		{ key:"text11", title:"单行文本11", type:"text", col:{ span: 6 } },
-    		{ key:"text12", title:"单行文本12", type:"text", col:{ span: 6 } },
-    	]
+      columns:[
+        { key:"text11", title:"单行文本11", type:"text", col:{ span: 6 } },
+        { key:"text12", title:"单行文本12", type:"text", col:{ span: 6 } },
+      ]
     },
     { key:"", title:"", type:"group", justify:"start",
-    	columns:[
-    		{ key:"text13", title:"单行文本13", type:"text" },
-    		{ key:"text14", title:"单行文本14", type:"text" },
-    	]
+      columns:[
+        { key:"text13", title:"单行文本13", type:"text" },
+        { key:"text14", title:"单行文本14", type:"text" },
+      ]
     },
     { key:"", title:"", type:"group", justify:"start",
-    	columns:[
-    		{ key:"text21", title:"单行文本21", type:"text", col:{ span:16 } },
-    		{ key:"text22", title:"单行文本22", type:"text", col:{ span:24 } },
-    		{ key:"text23", title:"单行文本23", type:"text", col:{ span:16 } },
-    		{ key:"text24", title:"单行文本24", type:"text", col:{ span:24 } },
-    	]
+      columns:[
+        { key:"text21", title:"单行文本21", type:"text", col:{ span:16 } },
+        { key:"text22", title:"单行文本22", type:"text", col:{ span:24 } },
+        { key:"text23", title:"单行文本23", type:"text", col:{ span:16 } },
+        { key:"text24", title:"单行文本24", type:"text", col:{ span:24 } },
+      ]
     },
     // 对象类型
     { key:"", title:"对象类型", type:"bar-title" },
     { key:"object1", title:"对象类型1", type:"object",
       columns:[
-      	{ key:"a", title:"对象内属性a", type:"text" },
-      	{ key:"b", title:"对象内属性b", type:"text" },
+        { key:"a", title:"对象内属性a", type:"text" },
+        { key:"b", title:"对象内属性b", type:"text" },
       ]
     },
     // 可以通过设置showLabel:false, 隐藏左侧的label
     { key:"object2", title:"对象类型2", type:"object", showLabel:false,
       columns:[
-      	{ key:"a", title:"对象内属性a", type:"text" },
-      	{ key:"b", title:"对象内属性b", type:"text" },
+        { key:"a", title:"对象内属性a", type:"text" },
+        { key:"b", title:"对象内属性b", type:"text" },
       ]
     },
     // 特殊类型
@@ -871,10 +871,10 @@ columns中的每一个key都是插槽的名称 （详情见示例:`/pages_templa
   @success="onFormSuccess"
 >
   <template v-slot:footer="{ loading }">
-  	<view style="text-align: center;" >
-  		<el-button :loading="loading" type="danger"  size="small" style="padding: 10px 40px;margin-right: 30px; " @click="adopt(-1)"> 拒绝 </el-button>
-  		<el-button :loading="loading" type="success" size="small" style="padding: 10px 40px; " @click="adopt(1)"> 通过 </el-button>
-  	</view>
+    <view style="text-align: center;" >
+      <el-button :loading="loading" type="danger"  size="small" style="padding: 10px 40px;margin-right: 30px; " @click="adopt(-1)"> 拒绝 </el-button>
+      <el-button :loading="loading" type="success" size="small" style="padding: 10px 40px; " @click="adopt(1)"> 通过 </el-button>
+    </view>
   </template>
 </vk-data-form>
 ```

@@ -143,22 +143,22 @@ data() {
     table1:{
       
       rightBtns:[
-      	'detail_auto',
-      	{
-      		mode:'update',
-      		title:'编辑',
-      		disabled: (item)=>{
-      			return item._id == '002'
-      		}
-      	},
-      	{
-      		mode:'delete',
-      		title:'删除',
-      		show: (item)=>{
-      			return item._id != '002'
-      		}
-      	},
-      	'more'
+        'detail_auto',
+        {
+          mode:'update',
+          title:'编辑',
+          disabled: (item)=>{
+            return item._id == '002'
+          }
+        },
+        {
+          mode:'delete',
+          title:'删除',
+          show: (item)=>{
+            return item._id != '002'
+          }
+        },
+        'more'
       ],
       
     }
@@ -254,38 +254,38 @@ data() {
     table1: {
       
       customRightBtns: [
-      	{
-      		title: '按钮1', type: 'primary', icon: 'el-icon-edit',
-      		disabled:(item)=>{
-      			return item._id == '002'
-      		},
-      		onClick:(item)=>{
-      			vk.toast(`${item._id}-按钮1`);
-      		}
-      	},
-      	{
-      		title: '按钮2', type: 'success', icon: 'el-icon-edit',
-      		show:(item)=>{
-      			return item._id != '002'
-      		},
-      		onClick:(item)=>{
-      			vk.toast(`${item._id}-按钮2`);
-      		}
-      	},
-      	{
-      		title: '按钮3', type: 'warning', icon: 'el-icon-edit',
-      		disabled: '_id==002',
-      		onClick:(item)=>{
-      			vk.toast(`${item._id}-按钮3`);
-      		}
-      	},
-      	{
-      		title: '按钮4', type: 'danger', icon: 'el-icon-edit',
-      		disabled: '_id!=002',
-      		onClick:(item)=>{
-      			vk.toast(`${item._id}-按钮4`);
-      		}
-      	}
+        {
+          title: '按钮1', type: 'primary', icon: 'el-icon-edit',
+          disabled:(item)=>{
+            return item._id == '002'
+          },
+          onClick:(item)=>{
+            vk.toast(`${item._id}-按钮1`);
+          }
+        },
+        {
+          title: '按钮2', type: 'success', icon: 'el-icon-edit',
+          show:(item)=>{
+            return item._id != '002'
+          },
+          onClick:(item)=>{
+            vk.toast(`${item._id}-按钮2`);
+          }
+        },
+        {
+          title: '按钮3', type: 'warning', icon: 'el-icon-edit',
+          disabled: '_id==002',
+          onClick:(item)=>{
+            vk.toast(`${item._id}-按钮3`);
+          }
+        },
+        {
+          title: '按钮4', type: 'danger', icon: 'el-icon-edit',
+          disabled: '_id!=002',
+          onClick:(item)=>{
+            vk.toast(`${item._id}-按钮4`);
+          }
+        }
       ],
       
     }
@@ -353,7 +353,7 @@ export default {
         dataPreprocess : (list) => {
           // 这里写自己的处理逻辑，最终返回处理完的list即可。
           list.map((item, index) => {
-          	item.a = 1;
+            item.a = 1;
           });
           return list;
         }
@@ -461,7 +461,7 @@ table1:{
       key: "icon2", title: "图标", type: "icon", width: 120,
       // 当 icon2 值为1时，显示vk-icon-activityfill图标，2时，显示vk-icon-crownfill图标
       data:[
-      	{ value:1, icon:"vk-icon-activityfill"},
+        { value:1, icon:"vk-icon-activityfill"},
         { value:2, icon:"vk-icon-crownfill"}
       ]
     },
@@ -506,11 +506,11 @@ table1:{
     // table 是解析对象数组类型的字段，建议只在详情页内展示.
     { 
       key: "arr1", title: "对象数组字段", type: "table", width: 200, show: ["detail"],
-    	rowHeight:50, // 行高
-    	columns: [
-    		{ key: "key1",title: "对象的字段1",type: "text",width: 120 },
-    		{ key: "key2",title: "对象内字段2",type: "text",width: 120 }
-    	]
+      rowHeight:50, // 行高
+      columns: [
+        { key: "key1",title: "对象的字段1",type: "text",width: 120 },
+        { key: "key2",title: "对象内字段2",type: "text",width: 120 }
+      ]
     },
     { 
       key: "gender", title: "性别", type: "radio", width: 120, defaultValue:0,
@@ -1140,7 +1140,7 @@ summaryMethod({ columns, data }) {
         continue;
       }
       let {
-      	precision = 2
+        precision = 2
       } = columnItem;
       const values = data.map(dataItem => Number(dataItem[column.property]));
       // 合计

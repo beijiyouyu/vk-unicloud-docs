@@ -90,8 +90,8 @@ module.exports = [
     id: "shopManage",
     // 这里代表的是哪些云函数需要进行判断权限
     regExp: [
-    	"^client/business/(.*)kh/",
-    	"^client/business/(.*)sys/"
+      "^client/business/(.*)kh/",
+      "^client/business/(.*)sys/"
     ],
     description: "需要判断用户是否有权限操作此店铺",
     index: 310,// 此处必须>300 因为检测用户是否登录的过滤器的index是200（sys是300，因此为了能通用，建议填大于300的值）（越小越先执行）
@@ -106,10 +106,10 @@ module.exports = [
       let { shop_id } = data;
       let res = { code : 0, msg : 'ok' };
       if (vk.pubfn.isNull(shop_id)) {
-      	return { code : -1, msg : `店铺id不能为空` };
+        return { code : -1, msg : `店铺id不能为空` };
       }
       if (shop_ids.indexOf(shop_id) === -1) {
-      	return { code : -1, msg : `无权限操作店铺【${shop_id}】` };
+        return { code : -1, msg : `无权限操作店铺【${shop_id}】` };
       }
       return res;
     }

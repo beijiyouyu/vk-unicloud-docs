@@ -12,5 +12,4 @@
  vk.clearStorageSync(key);
  // 获取缓存信息
  vk.getStorageInfoSync();
-
 ```

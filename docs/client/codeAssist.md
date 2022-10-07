@@ -110,21 +110,21 @@ ___作者：`VK`___
 ```js
 
 {
-	"command": "extension.vk_insertLog",
-	"key": "shift+ctrl+l",
-	"mac": "shift+cmd+l",
-	"when": "editorTextFocus",
-	"override":true
+  "command": "extension.vk_insertLog",
+  "key": "shift+ctrl+l",
+  "mac": "shift+cmd+l",
+  "when": "editorTextFocus",
+  "override":true
 },
 {
-	"command": "extension.vk_deleteAllLog1",
-	"key": "shift+ctrl+d",
-	"mac": "shift+cmd+d"
+  "command": "extension.vk_deleteAllLog1",
+  "key": "shift+ctrl+d",
+  "mac": "shift+cmd+d"
 },
 {
-	"command": "extension.vk_deleteAllLog1",
-	"key": "ctrl+shift+alt+d",
-	"mac": "shift+cmd+d"
+  "command": "extension.vk_deleteAllLog1",
+  "key": "ctrl+shift+alt+d",
+  "mac": "shift+cmd+d"
 }
-	
+  
 ```

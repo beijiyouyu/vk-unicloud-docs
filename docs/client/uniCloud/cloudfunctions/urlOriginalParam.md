@@ -5,16 +5,16 @@
 ```js
 'use strict';
 module.exports = {
-	/**
-	 * 此函数名称
-	 * @url user/pub/test1 前端调用的url参数地址
-	 */
-	main: async (event) => {
-		let { originalParam } = event;
-		let res = { code: 0, msg: "" };
+  /**
+   * 此函数名称
+   * @url user/pub/test1 前端调用的url参数地址
+   */
+  main: async (event) => {
+    let { originalParam } = event;
+    let res = { code: 0, msg: "" };
     
-		return res;
-	}
+    return res;
+  }
 }
 
 ```

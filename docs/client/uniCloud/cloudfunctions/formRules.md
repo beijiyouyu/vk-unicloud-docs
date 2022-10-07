@@ -38,36 +38,36 @@ if (!data.param9) return { code:-1, msg:"XXX不能为空" }
 ```js
 'use strict';
 module.exports = {
-	/**
-	 * 此函数名称
-	 * @url user/pub/test1 前端调用的url参数地址
-	 * data 请求参数
-	 * @param {String} params1  参数1
-	 */
-	main: async (event) => {
-		let { data = {}, userInfo, util, originalParam } = event;
-		let { customUtil, config, pubFun, vk, db, _ } = util;
-		let { uid } = data;
-		let res = { code: 0, msg: "" };
-		// 业务逻辑开始-----------------------------------------------------------
-		
-		// 验证规则开始 -----------------------------------------------------------
-		let rules = {
-		  username: [
-		    { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
-		  ],
-		  nickname: [
-		    { required: true, message: '昵称为必填字段', trigger: 'blur' },
-		    { min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
-		  ],
-		  password: [
-		    { validator:vk.pubfn.validator("password"), message: '密码长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
-		  ],
-		  mobile: [
-		    { validator: vk.pubfn.validator("mobile"), message: '手机号格式错误', trigger: 'blur' }
-		  ]
-		};
-		// 验证规则结束 -----------------------------------------------------------
+  /**
+   * 此函数名称
+   * @url user/pub/test1 前端调用的url参数地址
+   * data 请求参数
+   * @param {String} params1  参数1
+   */
+  main: async (event) => {
+    let { data = {}, userInfo, util, originalParam } = event;
+    let { customUtil, config, pubFun, vk, db, _ } = util;
+    let { uid } = data;
+    let res = { code: 0, msg: "" };
+    // 业务逻辑开始-----------------------------------------------------------
+    
+    // 验证规则开始 -----------------------------------------------------------
+    let rules = {
+      username: [
+        { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+      ],
+      nickname: [
+        { required: true, message: '昵称为必填字段', trigger: 'blur' },
+        { min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
+      ],
+      password: [
+        { validator:vk.pubfn.validator("password"), message: '密码长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+      ],
+      mobile: [
+        { validator: vk.pubfn.validator("mobile"), message: '手机号格式错误', trigger: 'blur' }
+      ]
+    };
+    // 验证规则结束 -----------------------------------------------------------
     // 开始进行验证
     let formRulesRes = vk.pubfn.formValidate({
       data: data,
@@ -81,9 +81,9 @@ module.exports = {
 
 
 
-		// 业务逻辑结束-----------------------------------------------------------
-		return res;
-	}
+    // 业务逻辑结束-----------------------------------------------------------
+    return res;
+  }
 }
 ```
 

@@ -45,26 +45,26 @@ return { code: -1, msg: "参数错误" };
 ```js
 'use strict';
 module.exports = {
-	/**
-	 * 此函数名称
-	 * @url user/pub/test1 前端调用的url参数地址
-	 * data 请求参数
-	 * @param {String} params1  参数1
-	 */
-	main: async (event) => {
-		let { data = {}, userInfo, util, filterResponse, originalParam } = event;
-		let { customUtil, uniID, config, pubFun, vk, db, _ } = util;
-		let { uid } = data;
-		let res = { code: 0, msg: "" };
-		// 业务逻辑开始-----------------------------------------------------------
+  /**
+   * 此函数名称
+   * @url user/pub/test1 前端调用的url参数地址
+   * data 请求参数
+   * @param {String} params1  参数1
+   */
+  main: async (event) => {
+    let { data = {}, userInfo, util, filterResponse, originalParam } = event;
+    let { customUtil, uniID, config, pubFun, vk, db, _ } = util;
+    let { uid } = data;
+    let res = { code: 0, msg: "" };
+    // 业务逻辑开始-----------------------------------------------------------
 
-		res.orderInfo = xxxxxxx;
+    res.orderInfo = xxxxxxx;
     
-		res.userInfo = userInfo;
+    res.userInfo = userInfo;
     
-		// 业务逻辑结束-----------------------------------------------------------
-		return res;
-	}
+    // 业务逻辑结束-----------------------------------------------------------
+    return res;
+  }
 }
 ```
 
@@ -338,27 +338,27 @@ $.ajax({
 const vkCloud = require('vk-unicloud');
 // 通过 vkCloud.createInstance 创建 vk 实例
 const vk = vkCloud.createInstance({
-	baseDir: __dirname,
-	requireFn: require
+  baseDir: __dirname,
+  requireFn: require
 });
 
 exports.main = async (event, context) => {
-	//event为客户端上传的参数
+  //event为客户端上传的参数
   
   // 调用 select API
-	let res = await vk.baseDao.select({
-		dbName:"uni-id-users",
-		pageIndex:1,
-		pageSize:20,
-		whereJson:{
+  let res = await vk.baseDao.select({
+    dbName:"uni-id-users",
+    pageIndex:1,
+    pageSize:20,
+    whereJson:{
 
-		},
-		fieldJson:{},
-		sortArr:[{ "name":"_id", "type":"desc" }],
-	});
+    },
+    fieldJson:{},
+    sortArr:[{ "name":"_id", "type":"desc" }],
+  });
 
-	//返回数据给客户端
-	return res
+  //返回数据给客户端
+  return res
 };
 
 ```
@@ -371,27 +371,27 @@ exports.main = async (event, context) => {
 const vk = require('vk-unicloud');
 // 通过 vk.init 初始化 vk实例（只有初始化后才能使用）
 vk.init({
-	baseDir: __dirname,
-	requireFn: require
+  baseDir: __dirname,
+  requireFn: require
 });
 
 exports.main = async (event, context) => {
-	//event为客户端上传的参数
+  //event为客户端上传的参数
   
   // 调用 select API
-	let res = await vk.baseDao.select({
-		dbName:"uni-id-users",
-		pageIndex:1,
-		pageSize:20,
-		whereJson:{
+  let res = await vk.baseDao.select({
+    dbName:"uni-id-users",
+    pageIndex:1,
+    pageSize:20,
+    whereJson:{
 
-		},
-		fieldJson:{},
-		sortArr:[{ "name":"_id", "type":"desc" }],
-	});
+    },
+    fieldJson:{},
+    sortArr:[{ "name":"_id", "type":"desc" }],
+  });
 
-	//返回数据给客户端
-	return res
+  //返回数据给客户端
+  return res
 };
 
 ```
@@ -431,17 +431,17 @@ ___注意：如果这么做后还是超大小，那么你需要将非底部 `tab
 ```js
 'use strict';
 module.exports = {
-	/**
-	 * 此函数名称
-	 * @url user/pub/test1 前端调用的url参数地址
-	 * data 请求参数
-	 * @param {String} params1  参数1
-	 */
-	main: async (event) => {
-		let { data = {}, userInfo, util, originalParam } = event;
-		let { customUtil, config, pubFun, vk, db, _ } = util;
-		let { uid } = data;
-		// 业务逻辑开始-----------------------------------------------------------
+  /**
+   * 此函数名称
+   * @url user/pub/test1 前端调用的url参数地址
+   * data 请求参数
+   * @param {String} params1  参数1
+   */
+  main: async (event) => {
+    let { data = {}, userInfo, util, originalParam } = event;
+    let { customUtil, config, pubFun, vk, db, _ } = util;
+    let { uid } = data;
+    // 业务逻辑开始-----------------------------------------------------------
     // 执行发短信的逻辑
     
     // 整个逻辑能实现递归要靠id排序来实现，也就是假设我要给10万人要发短信，每次只能发100人，那么要递归调用1000次
@@ -464,12 +464,12 @@ module.exports = {
     
     // 等待500毫秒，给一个请求发出去的时间
     return await new Promise((resolve, reject) => {
-    	setTimeout(() => {
-    		resolve(res)
-    	}, 500)
+      setTimeout(() => {
+        resolve(res)
+      }, 500)
     })
-		// 业务逻辑结束-----------------------------------------------------------
-	}
+    // 业务逻辑结束-----------------------------------------------------------
+  }
 }
 
 ```

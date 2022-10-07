@@ -66,8 +66,8 @@ $.ajax({
 
 ```html
 <style lang="scss">
-	@import '@/common/unicloud-admin/css/uni.css';
-	@import '@/common/unicloud-admin/css/uni-icons.css';
+  @import '@/common/unicloud-admin/css/uni.css';
+  @import '@/common/unicloud-admin/css/uni-icons.css';
 </style>
 
 ```
@@ -139,18 +139,18 @@ mounted() {
 
 ```css
 ::-webkit-scrollbar {
-	width: 6px;
-	height: 6px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-	background: rgba(135, 135, 135, 0.1);
+  background: rgba(135, 135, 135, 0.1);
 }
 ::-webkit-scrollbar-thumb {
-	background: rgba(135, 135, 135, 0.4);
-	border-radius: 6px;
+  background: rgba(135, 135, 135, 0.4);
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-	background: rgba(135, 135, 135, 0.8);
+  background: rgba(135, 135, 135, 0.8);
 }
 ```
 

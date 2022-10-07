@@ -131,11 +131,11 @@
     { value:3, label:"移除" }
   ],
   showRule:(formData)=>{
-  	if (formData.login_appid_type == 1){
-  		return true;
-  	} else{
-  		return false;
-  	}
+    if (formData.login_appid_type == 1){
+      return true;
+    } else{
+      return false;
+    }
   }
 },
 ```
@@ -190,11 +190,11 @@
     { value:3, label:"移除" }
   ],
   disabled:(formData)=>{
-  	if (formData.login_appid_type === 0){
-  		return true;
-  	} else {
-  		return false;
-  	}
+    if (formData.login_appid_type === 0){
+      return true;
+    } else {
+      return false;
+    }
   }
 },
 ```

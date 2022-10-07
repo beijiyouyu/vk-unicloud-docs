@@ -101,9 +101,9 @@ import blackWhite from './blackWhite.js'
 import aaa from './aaa.js'
 
 export default {
-	white,
-	black,
-	blackWhite,
+  white,
+  black,
+  blackWhite,
   
   aaa
 };

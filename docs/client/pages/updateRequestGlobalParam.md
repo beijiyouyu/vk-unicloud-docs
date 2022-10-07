@@ -32,7 +32,7 @@ vk.callFunction({
 
   },
   success: (data) => {
-		
-	}
+    
+  }
 });
 ```

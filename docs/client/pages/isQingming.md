@@ -8,9 +8,9 @@
 <template>
   <view class="app" :class="classCom">
     <!-- 页面内容开始 -->
-		
+    
     这里是页面内容。。。
-		
+    
     <!-- 页面内容结束 -->
   </view>
 </template>
@@ -20,7 +20,7 @@
     data() {
       // 页面数据变量
       return {
-				
+        
       }
     },
     // 计算属性

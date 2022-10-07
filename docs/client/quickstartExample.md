@@ -74,20 +74,20 @@ calc: async function(data) {
 
 ```html
 <template>
-	<view class="content">
-		<button @click="test()">请求云对象的方法</button>
-	</view>
+  <view class="content">
+    <button @click="test()">请求云对象的方法</button>
+  </view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
+  export default {
+    data() {
+      return {
         
-			}
-		},
-		methods: {
-			test() { 
+      }
+    },
+    methods: {
+      test() { 
         vk.callFunction({
           url: 'client/pub.user.calc',
           title: '请求中...',
@@ -99,9 +99,9 @@ calc: async function(data) {
             vk.alert(`云端返回的计算结果是：${data.z}`); // 结果是3
           }
         });
-			}
-		}
-	}
+      }
+    }
+  }
 </script>
 ```
 * 5、这样前端和云端的调用就完成了
@@ -112,25 +112,25 @@ calc: async function(data) {
 
 ```html
 <template>
-	<view class="content">
-		<button @click="test()">请求云对象的方法</button>
-	</view>
+  <view class="content">
+    <button @click="test()">请求云对象的方法</button>
+  </view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
+  export default {
+    data() {
+      return {
         
-			}
-		},
-		methods: {
-			async test() { // 注意异步
+      }
+    },
+    methods: {
+      async test() { // 注意异步
         // 导入云对象
-				const userObject = uni.vk.importObject("client/pub.user"); // 这段代码可以写在外层顶部，也可以直接写在对应函数内部。
-				try {
+        const userObject = uni.vk.importObject("client/pub.user"); // 这段代码可以写在外层顶部，也可以直接写在对应函数内部。
+        try {
           // 导入云对象后就可以直接调用该对象的calc方法了，注意使用异步await
-					let res = await userObject.calc({
+          let res = await userObject.calc({
             title: '请求中...',
             data: {
               x: 1,
@@ -138,12 +138,12 @@ calc: async function(data) {
             }
           });
           vk.alert(`云端返回的计算结果是：${data.z}`); // 结果是3
-				} catch (e) {
-					console.log(e)
-				}
-			}
-		}
-	}
+        } catch (e) {
+          console.log(e)
+        }
+      }
+    }
+  }
 </script>
 ```
 

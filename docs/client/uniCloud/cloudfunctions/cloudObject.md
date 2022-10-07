@@ -51,9 +51,9 @@ ___在VK框架中，可以做到云对象和云函数同时存在。___
 
 ```js
 module.exports = {
-	add: function() {
-		const clientInfo = this.getClientInfo();
-	}
+  add: function() {
+    const clientInfo = this.getClientInfo();
+  }
 }
 ```
 
@@ -61,9 +61,9 @@ module.exports = {
 
 ```js
 module.exports = {
-	add: function() {
-		let { uid } = this.getClientInfo();
-	}
+  add: function() {
+    let { uid } = this.getClientInfo();
+  }
 }
 ```
 
@@ -145,9 +145,9 @@ ___注意：此接口需要加 await___
 
 ```js
 module.exports = {
-	add: function() {
-		let userInfo = await this.getUserInfo(); // 获取当前登录的用户信息
-	}
+  add: function() {
+    let userInfo = await this.getUserInfo(); // 获取当前登录的用户信息
+  }
 }
 ```
 
@@ -189,9 +189,9 @@ let newUserInfo = await vk.baseDao.updateAndReturn({
 
 ```js
 module.exports = {
-	add: function(){
-		const cloudInfo = this.getCloudInfo();
-	}
+  add: function(){
+    const cloudInfo = this.getCloudInfo();
+  }
 }
 ```
 
@@ -214,9 +214,9 @@ module.exports = {
 
 ```js
 module.exports = {
-	add: function(){
-		const token = this.getUniIdToken();
-	}
+  add: function(){
+    const token = this.getUniIdToken();
+  }
 }
 ```
 
@@ -233,9 +233,9 @@ module.exports = {
 
 ```js
 module.exports = {
-	_before: function() { // _before的用法请看后续章节
-		const methodName = this.getMethodName(); // add
-	}
+  _before: function() { // _before的用法请看后续章节
+    const methodName = this.getMethodName(); // add
+  }
 }
 ```
 
@@ -251,9 +251,9 @@ module.exports = {
 
 ```js
 module.exports = {
-	_before: function() { // _before的用法请看后续章节
-		let { a, b, c } = this.getParams(); 
-	}
+  _before: function() { // _before的用法请看后续章节
+    let { a, b, c } = this.getParams(); 
+  }
 }
 ```
 
@@ -269,11 +269,11 @@ module.exports = {
 
 ```js
 module.exports = {
-	_after: function(error, result) {
-		if(error) {
-			const requestId = this.getUniCloudRequestId()
-		}
-	}
+  _after: function(error, result) {
+    if(error) {
+      const requestId = this.getUniCloudRequestId()
+    }
+  }
 }
 ```
 
@@ -290,9 +290,9 @@ module.exports = {
 
 ```js
 module.exports = {
-	_before: function() { // _before的用法请看后续章节
-		const httpInfo = this.getHttpInfo(); // 返回值和云函数url化时的event一致
-	}
+  _before: function() { // _before的用法请看后续章节
+    const httpInfo = this.getHttpInfo(); // 返回值和云函数url化时的event一致
+  }
 }
 ```
 
@@ -306,9 +306,9 @@ module.exports = {
 
 ```js
 module.exports = {
-	add: function() {
-		let { customUtil, uniID, config, pubFun } = this.getUtil(); // 获取工具包
-	}
+  add: function() {
+    let { customUtil, uniID, config, pubFun } = this.getUtil(); // 获取工具包
+  }
 }
 ```
 
@@ -481,7 +481,7 @@ sys类型的函数通常用于admin端，如商城系统角色分为
 var vk; // 全局vk实例
 // 涉及的表名
 const dbName = {
-	//test: "vk-test", // 测试表
+  //test: "vk-test", // 测试表
 };
 
 var db = uniCloud.database(); // 全局数据库引用
@@ -492,55 +492,55 @@ var $ = _.aggregate; // 聚合查询操作符
  * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#内置权限
  */
 var cloudObject = {
-	isCloudObject: true, // 标记为云对象模式
-	/**
-	 * 请求前处理，主要用于调用方法之前进行预处理，一般用于拦截器、统一的身份验证、参数校验、定义全局对象等。
-	 * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#before-预处理
-	 */
-	_before: async function() {
-		vk = this.vk; // 将vk定义为全局对象
-		// let { customUtil, uniID, config, pubFun } = this.getUtil(); // 获取工具包
-	},
-	/**
-	 * 请求后处理，主要用于处理本次调用方法的返回结果或者抛出的错误
-	 * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#after-后处理
-	 */
-	_after: async function(options) {
-		let { err, res } = options;
-		if (err) {
-			return; // 如果方法抛出错误，直接return;不处理
-		}
-		return res;
-	},
-	/**
-	 * 模板函数
-	 * @url client/muban.getInfo 前端调用的url参数地址
-	 */
-	getInfo: async function(data) {
-		let { uid } = this.getClientInfo(); // 获取客户端信息
-		let userInfo = await this.getUserInfo(); // 获取当前登录的用户信息
-		let res = { code: 0, msg: '' };
-		// 业务逻辑开始-----------------------------------------------------------
-		console.log("请求参数", data);
-		res.userInfo = userInfo; // 返回前端当前登录的用户信息
-		
-		// 业务逻辑结束-----------------------------------------------------------
-		return res;
-	},
-	/**
-	 * 模板函数
-	 * @url client/muban.getList 前端调用的url参数地址
-	 */
-	getList: async function(data) {
-		let { uid, filterResponse, originalParam } = this.getClientInfo(); // 获取客户端信息
-		let res = { code: 0, msg: '' };
-		// 业务逻辑开始-----------------------------------------------------------
-		console.log("请求参数", data);
+  isCloudObject: true, // 标记为云对象模式
+  /**
+   * 请求前处理，主要用于调用方法之前进行预处理，一般用于拦截器、统一的身份验证、参数校验、定义全局对象等。
+   * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#before-预处理
+   */
+  _before: async function() {
+    vk = this.vk; // 将vk定义为全局对象
+    // let { customUtil, uniID, config, pubFun } = this.getUtil(); // 获取工具包
+  },
+  /**
+   * 请求后处理，主要用于处理本次调用方法的返回结果或者抛出的错误
+   * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#after-后处理
+   */
+  _after: async function(options) {
+    let { err, res } = options;
+    if (err) {
+      return; // 如果方法抛出错误，直接return;不处理
+    }
+    return res;
+  },
+  /**
+   * 模板函数
+   * @url client/muban.getInfo 前端调用的url参数地址
+   */
+  getInfo: async function(data) {
+    let { uid } = this.getClientInfo(); // 获取客户端信息
+    let userInfo = await this.getUserInfo(); // 获取当前登录的用户信息
+    let res = { code: 0, msg: '' };
+    // 业务逻辑开始-----------------------------------------------------------
+    console.log("请求参数", data);
+    res.userInfo = userInfo; // 返回前端当前登录的用户信息
+    
+    // 业务逻辑结束-----------------------------------------------------------
+    return res;
+  },
+  /**
+   * 模板函数
+   * @url client/muban.getList 前端调用的url参数地址
+   */
+  getList: async function(data) {
+    let { uid, filterResponse, originalParam } = this.getClientInfo(); // 获取客户端信息
+    let res = { code: 0, msg: '' };
+    // 业务逻辑开始-----------------------------------------------------------
+    console.log("请求参数", data);
 
 
-		// 业务逻辑结束-----------------------------------------------------------
-		return res;
-	}
+    // 业务逻辑结束-----------------------------------------------------------
+    return res;
+  }
 };
 
 module.exports = cloudObject;
@@ -703,12 +703,12 @@ let data = await userObject.getInfo({
 - 2、复制下方代码到 `router.param.json` 文件内覆盖原本内容
 ```json
 {
-	"uni_id_token":"",
-	"$url":"client/user.getInfo",
-	"data":{
-		"a":1,
+  "uni_id_token":"",
+  "$url":"client/user.getInfo",
+  "data":{
+    "a":1,
     "b":"2"
-	}
+  }
 }
 ```
 - 3、右键 router 目录，点击【运行-本地云函数】（也可以按快捷键 ctrl + r，再按回车）

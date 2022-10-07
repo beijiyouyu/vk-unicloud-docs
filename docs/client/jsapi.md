@@ -47,13 +47,13 @@ export default {
 // 简写
 vk.pubfn.debounce(() => {
   // 这里写你自己的逻辑
-	console.log(1);
+  console.log(1);
 }, 1000);
 
 // 完整写法
 vk.pubfn.debounce(() => {
   // 这里写你自己的逻辑
-	console.log(1);
+  console.log(1);
 }, 1000, true, "id1");
 ```
 
@@ -73,13 +73,13 @@ vk.pubfn.debounce(() => {
 
 // 简写
 vk.pubfn.throttle(() => {
-	
+  
 }, 1000);
 
 // 完整写法
 vk.pubfn.throttle(() => {
   // 这里写你自己的逻辑
-	console.log(1);
+  console.log(1);
 }, 1000, true, "id1");
 ```
 
@@ -226,13 +226,13 @@ console.log('timeStart: ', timeStart)
  * 返回时间戳形式
  */
 vk.pubfn.getOffsetTime(new Date(), {
-	year:0,
-	month:0,
-	day:0,
-	hours:0,
-	minutes:0,
-	seconds:0,
-	mode:"after", // after 之后 before 之前
+  year:0,
+  month:0,
+  day:0,
+  hours:0,
+  minutes:0,
+  seconds:0,
+  mode:"after", // after 之后 before 之前
 });
 ```
 
@@ -1312,12 +1312,12 @@ await vk.pubfn.randomAsync(length, range, fn);
 
 ```js
 let randomStr = await vk.pubfn.randomAsync(6, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", async (val)=>{
-	let num = await vk.baseDao.count({
-		dbName:"uni-id-users",
-		whereJson:{
-			my_invite_code: val
-		}
-	});
-	return num === 0 ? true : false;
+  let num = await vk.baseDao.count({
+    dbName:"uni-id-users",
+    whereJson:{
+      my_invite_code: val
+    }
+  });
+  return num === 0 ? true : false;
 });
 ```

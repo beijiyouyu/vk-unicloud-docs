@@ -67,15 +67,15 @@ console.log('decrypted: ', decrypted)
 ```js
 // 加密数据
 let encryptedKey = vk.crypto.aes.encrypt({
-	data: {
-		sessionKey: "XXXXX"
-	}
+  data: {
+    sessionKey: "XXXXX"
+  }
 });
 console.log('encryptedKey: ', encryptedKey)
 
 // 解密 sessionKey 示例
 let decryptedRes = vk.crypto.aes.decrypt({
-	data: encryptedKey, // 待解密的原文
+  data: encryptedKey, // 待解密的原文
 });
 console.log('decryptedRes: ', decryptedRes)
 let sessionKey = decryptedRes.sessionKey;

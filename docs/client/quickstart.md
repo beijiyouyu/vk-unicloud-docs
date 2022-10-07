@@ -117,7 +117,7 @@ Vue.use(uView);
 
 ```html
 <style lang="scss">
-	@import "./uni_modules/vk-uview-ui/index.scss";
+  @import "./uni_modules/vk-uview-ui/index.scss";
 </style>
 ```
 
@@ -147,21 +147,21 @@ ___注意：目前（2020-11-18） `uniapp` 的 `Vue3.0` 版本只兼容：H5、
 ```html
 <!DOCTYPE html>
 <html lang="zh-CN">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-		<title></title>
-		<!--preload-links-->
-		<!--app-context-->
-		<!-- 配置H5的 web图标static/logo.png -->
-		<link rel="icon" href="./static/logo.png" />
-	</head>
-	<body>
-		<div id="app">
-			<!--app-html-->
-		</div>
-		<script type="module" src="/main.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <title></title>
+    <!--preload-links-->
+    <!--app-context-->
+    <!-- 配置H5的 web图标static/logo.png -->
+    <link rel="icon" href="./static/logo.png" />
+  </head>
+  <body>
+    <div id="app">
+      <!--app-html-->
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>
 ```
 
@@ -188,7 +188,7 @@ export function createApp() {
 
 ```html
 <style lang="scss">
-	@import "./uni_modules/vk-uview-ui/index.scss";
+  @import "./uni_modules/vk-uview-ui/index.scss";
 </style>
 ```
 
@@ -220,7 +220,7 @@ Vue.use(uView);
 
 ```html
 <style lang="scss">
-	@import "./uni_modules/uview-ui/index.scss";
+  @import "./uni_modules/uview-ui/index.scss";
 </style>
 ```
 
@@ -298,10 +298,10 @@ app.$mount();
 
 ```html
 <style lang="scss">
-	/*每个页面公共css */
-	@import "./tm-vuetify/mian.min.css";
-	@import "./tm-vuetify/scss/theme.css";
-	@import "./common/css/app.scss";
+  /*每个页面公共css */
+  @import "./tm-vuetify/mian.min.css";
+  @import "./tm-vuetify/scss/theme.css";
+  @import "./common/css/app.scss";
 </style>
 ```
 
@@ -309,14 +309,14 @@ app.$mount();
 
 ```js
 {
-	"easycom":{
-		"autoscan": true,
-		"custom":{
-			"^tm-(.*)": "@/tm-vuetify/components/tm-$1/tm-$1.vue"
-		}
-	},
-	"pages": [
-		...
+  "easycom":{
+    "autoscan": true,
+    "custom":{
+      "^tm-(.*)": "@/tm-vuetify/components/tm-$1/tm-$1.vue"
+    }
+  },
+  "pages": [
+    ...
 }
 ```
 
@@ -357,10 +357,10 @@ ___若不想集成 `tmui` 可跳过此处___
 * 4、在根目录新建 `theme` 目录，并在 `theme` 目录新建 `index.ts` 文件，注意是 `ts` 文件，文件内容为
 ```js
 export const theme = {
- 	// 这里输入你定义的主题主色
-	//比如："primary": "#FF0000"
-	//名称如果与自带主题相同，将会覆盖。
-	
+  // 这里输入你定义的主题主色
+  //比如："primary": "#FF0000"
+  //名称如果与自带主题相同，将会覆盖。
+  
 }
 ```
 
@@ -412,9 +412,9 @@ export function createApp() {
   // 引入vuex
   app.use(store)
   
-	// 引入 tmui 组件库
-	app.use(Pinia.createPinia());
-	app.use(tmui);
+  // 引入 tmui 组件库
+  app.use(Pinia.createPinia());
+  app.use(tmui);
   
   // 引入 vk框架前端
   app.use(vk);
@@ -433,12 +433,12 @@ export function createApp() {
 
 ```html
 <style lang="scss">
-	/* #ifdef APP-NVUE */
-	@import './tmui/scss/nvue.css';
-	/* #endif */
-	/* #ifndef APP-NVUE */
-	@import './tmui/scss/noNvue.css';
-	/* #endif */
+  /* #ifdef APP-NVUE */
+  @import './tmui/scss/nvue.css';
+  /* #endif */
+  /* #ifndef APP-NVUE */
+  @import './tmui/scss/noNvue.css';
+  /* #endif */
   @import "./common/css/app.scss";
 </style>
 ```
@@ -447,14 +447,14 @@ export function createApp() {
 
 ```js
 {
-	"easycom":{
-	 	"autoscan": true,
-	 	"custom":{
-	 		"^tm-(.*)": "@/tmui/components/tm-$1/tm-$1.vue"
-	 	}
-	},
-	"pages": [
-		...
+  "easycom":{
+    "autoscan": true,
+    "custom":{
+      "^tm-(.*)": "@/tmui/components/tm-$1/tm-$1.vue"
+    }
+  },
+  "pages": [
+    ...
 }
 ```
 
@@ -475,7 +475,7 @@ Vue.use(uView);
 
 ```html
 <style lang="scss">
-	@import "uview-ui/index.scss";
+  @import "uview-ui/index.scss";
 </style>
 ```
 
@@ -489,7 +489,7 @@ Vue.use(uView);
 
 ```js
 "easycom": {
-	"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
+  "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
 },
 ```
 
@@ -527,7 +527,7 @@ Vue.use(uView);
 
 ```html
 <style lang="scss">
-	@import "./uni_modules/vk-uview-ui/index.scss";
+  @import "./uni_modules/vk-uview-ui/index.scss";
 </style>
 ```
 

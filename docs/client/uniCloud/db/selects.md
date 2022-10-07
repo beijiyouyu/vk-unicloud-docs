@@ -156,14 +156,14 @@ res = await vk.baseDao.selects({
 ```
 ##### 提示:使用地理位置经纬度查询前，数据表内需要事先准备好地理位置经纬度数据，例如：
 ```js
-	let longitude = 120.12792 
-	let latitude = 30.228932
-	res.id = await vk.baseDao.add({
-		dbName:"vk-test",
-		dataJson:{
-			"location":new db.Geo.Point(longitude, latitude) // 使用new db.Geo.Point(longitude，latitude)方法写入
-		}
-	});
+  let longitude = 120.12792 
+  let latitude = 30.228932
+  res.id = await vk.baseDao.add({
+    dbName:"vk-test",
+    dataJson:{
+      "location":new db.Geo.Point(longitude, latitude) // 使用new db.Geo.Point(longitude，latitude)方法写入
+    }
+  });
 ```
 ### 场景5
 #### 连表查询，主表外键是数组（id数组），查询出数组内的每个记录详情
@@ -270,19 +270,19 @@ res = await vk.baseDao.selects({
     no:"20211201", // 本期考试编号
   },
   groupJson: {
-  	_id: "$班级id字段", // 以 班级id 作为分组字段
+    _id: "$班级id字段", // 以 班级id 作为分组字段
     // count1是 数学成绩大于语文成绩的人数
-  	count1: $.sum($.cond({
-  		if: $.gte(['$数学成绩字段', '$语文成绩字段']),
-  		then: 1,
-  		else: 0,
-  	})),
+    count1: $.sum($.cond({
+      if: $.gte(['$数学成绩字段', '$语文成绩字段']),
+      then: 1,
+      else: 0,
+    })),
     // count2是 物理成绩大于化学成绩的人数
-  	count2: $.sum($.cond({
-  		if: $.lt(['$物理成绩字段', '$化学成绩字段']),
-  		then: 1,
-  		else: 0,
-  	})),
+    count2: $.sum($.cond({
+      if: $.lt(['$物理成绩字段', '$化学成绩字段']),
+      then: 1,
+      else: 0,
+    })),
   },
   // 数学成绩大于语文成绩的人数越多,越显示在前面.
   sortArr: [{ "name": "count1", "type": "desc" }]

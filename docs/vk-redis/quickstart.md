@@ -29,13 +29,13 @@
 ## 配置文件
 ```json
 {
-	"enable": true,
-	"config": {
-		"port": 6379,
-		"host": "你的Redis外网访问地址",
-		"password": "用户名:密码",
-		"db": 0
-	}
+  "enable": true,
+  "config": {
+    "port": 6379,
+    "host": "你的Redis外网访问地址",
+    "password": "用户名:密码",
+    "db": 0
+  }
 }
 ```
 
@@ -53,13 +53,13 @@
 
 ```json
 {
-	"enable": true,
-	"config": {
-		"port": 6379,
-		"host": "redistest.fsq.pub",
-		"password": "redis123456",
-		"db": 0
-	}
+  "enable": true,
+  "config": {
+    "port": 6379,
+    "host": "redistest.fsq.pub",
+    "password": "redis123456",
+    "db": 0
+  }
 }
 ```
 * 测试的Redis是阿里云杭州机房服务器，故延迟可能较高
@@ -98,13 +98,13 @@ let redisRes = await redis.get('a');
 
 ```js
 {
-	"cloudfunction-config": {
-		"concurrency": 1,
-		"memorySize": 256,
-		"path": "",
-		"timeout": 60,
-		"triggers": [],
-		"runtime": "Nodejs8"
-	}
+  "cloudfunction-config": {
+    "concurrency": 1,
+    "memorySize": 256,
+    "path": "",
+    "timeout": 60,
+    "triggers": [],
+    "runtime": "Nodejs8"
+  }
 }
 ```

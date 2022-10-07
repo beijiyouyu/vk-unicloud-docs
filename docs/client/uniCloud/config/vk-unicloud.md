@@ -3,9 +3,9 @@
 ```js
 var uniIdConfig;
 try {
-	uniIdConfig = require('../uni-id/config.json');
+  uniIdConfig = require('../uni-id/config.json');
 } catch(err) {
-	throw new Error("配置文件：uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json \n编译错误，请检查！"+err.message);
+  throw new Error("配置文件：uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json \n编译错误，请检查！"+err.message);
 }
 module.exports = {
   "uni":uniIdConfig,

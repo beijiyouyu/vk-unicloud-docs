@@ -55,9 +55,9 @@
 ```js
 var vkmail;
 try {
-	vkmail = require('vk-mail');
+  vkmail = require('vk-mail');
 } catch (err) {
-	console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
+  console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
 }
 module.exports = {
   /**
@@ -96,7 +96,7 @@ module.exports = {
       "auth": emailConfig[data.serviceType].auth
     });
     try{
-     	// 发送邮件
+      // 发送邮件
       await emailService.sendMail({
         "from": emailConfig[data.serviceType].auth.user, // 邮件的发送者
         "to": data.email, // 邮件的接收者
@@ -131,54 +131,54 @@ module.exports = {
 const vk = require('vk-unicloud');
 // 通过 vk.init 初始化 vk实例（只有初始化后才能使用）
 vk.init({
-	baseDir: __dirname,
-	requireFn: require
+  baseDir: __dirname,
+  requireFn: require
 });
 
 var vkmail;
 try {
-	vkmail = require('vk-mail');
+  vkmail = require('vk-mail');
 } catch (err) {
-	console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
+  console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
 }
 
 exports.main = async (event, context) => {
-	let res = { code: 0, msg: "" };
-	let { config = {} } = vk.getUnicloud();
+  let res = { code: 0, msg: "" };
+  let { config = {} } = vk.getUnicloud();
 
-	let emailConfig = config.vk.service.email;
+  let emailConfig = config.vk.service.email;
   
-	let serviceType = "qq";
-	let email = "发送给谁，他的邮箱";
-	let subject = "标题";
+  let serviceType = "qq";
+  let email = "发送给谁，他的邮箱";
+  let subject = "标题";
   let text = `验证码 123456`;
 
   // 创建邮箱服务实例
-	let emailService = vkmail.createTransport({
-		"host": emailConfig[serviceType].host,
-		"port": emailConfig[serviceType].port,
-		"secure": emailConfig[serviceType].secure, // use SSL
-		"auth": emailConfig[serviceType].auth
-	});
+  let emailService = vkmail.createTransport({
+    "host": emailConfig[serviceType].host,
+    "port": emailConfig[serviceType].port,
+    "secure": emailConfig[serviceType].secure, // use SSL
+    "auth": emailConfig[serviceType].auth
+  });
 
-	try {
+  try {
     // 发送邮件
-		res.sendMailRes = await emailService.sendMail({
-			"from": emailConfig[serviceType].auth.user, // 邮件的发送者
-			"to": email, // 邮件的接收者
+    res.sendMailRes = await emailService.sendMail({
+      "from": emailConfig[serviceType].auth.user, // 邮件的发送者
+      "to": email, // 邮件的接收者
       "cc": emailConfig[serviceType].auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把右键抄送给自己一份，就不会被当成垃圾邮件。
-			"subject": subject, // 邮件的标题
-			"text": text, // 邮件的内容
-		});
-		res.code = 0;
-		res.msg = "ok";
-	} catch (err) {
-		res.code = -1;
-		res.msg = "邮件发送失败";
-		res.err = err;
-	}
+      "subject": subject, // 邮件的标题
+      "text": text, // 邮件的内容
+    });
+    res.code = 0;
+    res.msg = "ok";
+  } catch (err) {
+    res.code = -1;
+    res.msg = "邮件发送失败";
+    res.err = err;
+  }
 
-	return res;
+  return res;
 };
 
 ```
@@ -190,66 +190,66 @@ exports.main = async (event, context) => {
 
 var vkmail;
 try {
-	vkmail = require('vk-mail');
+  vkmail = require('vk-mail');
 } catch (err) {
-	console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
+  console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
 }
 
 exports.main = async (event, context) => {
-	let res = { code: 0, msg: "" };
+  let res = { code: 0, msg: "" };
 
-	let {
-		email, // 前端接收邮箱
-		type = "bind", // 前端接收验证码类型（如: login register bind unbind）
-	} = event;
+  let {
+    email, // 前端接收邮箱
+    type = "bind", // 前端接收验证码类型（如: login register bind unbind）
+  } = event;
 
-	// 支持QQ 163 等主流邮箱
+  // 支持QQ 163 等主流邮箱
 
-	let emailConfig = {
-		"host": "smtp.163.com",
-		"port": 465,
-		"secure": true,
-		"auth": {
-			"user": "xxxx@163.com", // 发件人邮箱账号
-			"pass": "xxxxxxxxxxxx", // 账号授权码
-		}
-	};
+  let emailConfig = {
+    "host": "smtp.163.com",
+    "port": 465,
+    "secure": true,
+    "auth": {
+      "user": "xxxx@163.com", // 发件人邮箱账号
+      "pass": "xxxxxxxxxxxx", // 账号授权码
+    }
+  };
 
-	if (!email) return { code: -1, msg: "email不能为空" };
-	if (!type) return { code: -1, msg: "type不能为空" };
+  if (!email) return { code: -1, msg: "email不能为空" };
+  if (!type) return { code: -1, msg: "type不能为空" };
 
-	let code = Math.floor(Math.random() * 100000) + 100000;
-	let subject = `验证码 ${code}`;
-	let text = `验证码 ${code}，打死也不要告诉别人！`;
+  let code = Math.floor(Math.random() * 100000) + 100000;
+  let subject = `验证码 ${code}`;
+  let text = `验证码 ${code}，打死也不要告诉别人！`;
 
-	// 创建邮箱服务实例
-	let emailService = vkmail.createTransport({
-		"host": emailConfig.host,
-		"port": emailConfig.port,
-		"secure": emailConfig.secure, // use SSL
-		"auth": emailConfig.auth
-	});
+  // 创建邮箱服务实例
+  let emailService = vkmail.createTransport({
+    "host": emailConfig.host,
+    "port": emailConfig.port,
+    "secure": emailConfig.secure, // use SSL
+    "auth": emailConfig.auth
+  });
 
-	try {
-		// 发送邮件
-		res.sendMailRes = await emailService.sendMail({
-			"from": emailConfig.auth.user, // 邮件的发送者
-			"to": email, // 邮件的接收者
-			"cc": emailConfig.auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把右键抄送给自己一份，就不会被当成垃圾邮件。
-			"subject": subject, // 邮件的标题
-			"text": text, // 邮件的内容
-		});
-		// 标记发送成功
-		res.code = 0;
-		res.msg = "ok";
-		// 发送验证码成功后，通常需要设置验证码（写入数据库）
-		// await uniID.setVerifyCode({ code, email, type });
-	} catch (err) {
-		res.code = -1;
-		res.msg = "邮件发送失败";
-		res.err = err;
-	}
-	return res;
+  try {
+    // 发送邮件
+    res.sendMailRes = await emailService.sendMail({
+      "from": emailConfig.auth.user, // 邮件的发送者
+      "to": email, // 邮件的接收者
+      "cc": emailConfig.auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把右键抄送给自己一份，就不会被当成垃圾邮件。
+      "subject": subject, // 邮件的标题
+      "text": text, // 邮件的内容
+    });
+    // 标记发送成功
+    res.code = 0;
+    res.msg = "ok";
+    // 发送验证码成功后，通常需要设置验证码（写入数据库）
+    // await uniID.setVerifyCode({ code, email, type });
+  } catch (err) {
+    res.code = -1;
+    res.msg = "邮件发送失败";
+    res.err = err;
+  }
+  return res;
 };
 
 ```

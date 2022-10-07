@@ -170,7 +170,7 @@ let generateRes = await vk.openapi.weixin.urlscheme.generate({
   },
   is_expire: true,
   iexpire_type: 1,
-	expire_interval: 30, // 有效期30天
+  expire_interval: 30, // 有效期30天
 });
 ```
 
@@ -193,12 +193,12 @@ let generateRes = await vk.openapi.weixin.urlscheme.generate({
  * @return {String} url_link 
  */
 let generateRes = await vk.openapi.weixin.urllink.generate({
-	path: "pages/index/index",
-	query: "a=1&b=2",
-	is_expire: true,
-	expire_type: 1,
-	expire_interval: 90, // 有效期90天
-	env_version: "develop", // 要打开的小程序版本。正式版为 "release"，体验版为 "trial"，开发版为 "develop"。默认是正式版。
+  path: "pages/index/index",
+  query: "a=1&b=2",
+  is_expire: true,
+  expire_type: 1,
+  expire_interval: 90, // 有效期90天
+  env_version: "develop", // 要打开的小程序版本。正式版为 "release"，体验版为 "trial"，开发版为 "develop"。默认是正式版。
 });
 ```
 
