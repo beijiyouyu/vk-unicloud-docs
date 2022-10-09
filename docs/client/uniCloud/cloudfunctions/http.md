@@ -26,4 +26,5 @@ let requestRes = await vk.request({
 | enableProxy   | Boolean  | -     | false | 是否启用代理         
 | proxy| String| -     | null| 代理地址        
 | trace| Boolean| -     | false| 是否启用捕获堆栈                                                                                    |                                                                                             |
+| needOriginalRes| Boolean| -     | false| 若为true，则请求的返回值是原始数据（即有请求头等数据）若为false，则只返回响应的data数据，默认为false                                                                                 |                                                                                             |
 
