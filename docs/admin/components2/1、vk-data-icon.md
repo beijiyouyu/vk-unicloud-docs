@@ -56,6 +56,20 @@
 <vk-data-icon name="vk-custom-icon-update" size="16" color="#000000"></vk-data-icon>
 ```
 
+#### 额外拓展client端
+
+**如果你 `client端` 也需要自定义图标，也是按上面方式操作即可。操作完后，如下代码即可显示自定义图标**
+
+```html
+<text class="vk-custom-icon vk-custom-icon-update" style=" font-size: 16px;color: #000000;"></text>
+```
+    
+**如果你 `client端` 使用了 `vk-uview-ui` 组件库，则可以这样显示图标**
+
+```html
+<u-icon name="vk-custom-icon-update" size="16" color="#000000"></u-icon>
+```
+
 ### 如何在万能表单的图标选择组件中拓展图标库?
 
 在上面的操作基础上，再进行如下操作即可。
@@ -75,7 +89,7 @@
 // 引入图标数据，主要用于图标选择组件的数据源
 import customIcon from '@/static/vk-custom-icon.json'
 export default {
-	customIcon: customIcon,
+  customIcon: customIcon,
 }
 ```
 
