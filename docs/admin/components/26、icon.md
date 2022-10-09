@@ -50,6 +50,9 @@
 <vk-data-input-icon v-model="icon" placeholder="请选择图标"></vk-data-input-icon>
 ```
 
+### 如何扩展图标库？
+
+[传送门 - 扩展图标库](https://vkdoc.fsq.pub/admin/components2/1%E3%80%81vk-data-icon.html#%E5%A6%82%E4%BD%95%E6%89%A9%E5%B1%95%E5%9B%BE%E6%A0%87%E5%BA%93)
 
 ### 图标列表
 
