@@ -22,6 +22,12 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/ca866fc7-2c61-4fac-95c2-66416ab01394.png)
 
+**按钮是灰色的？**
+
+点击【编辑】->【开启App升级中心】->【填写相关信息】->【保存】 即 `生成统一发布页` 需要先填写相关信息。
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/d8b3d370-9990-4e70-8e4b-3857be5042c1.png)
+
 ## 问题
 
 ### 如何开启App升级中心版本管理？
@@ -29,4 +35,5 @@
 点击【编辑】->【开启App升级中心】->【填写相关信息】->【保存】
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/d8b3d370-9990-4e70-8e4b-3857be5042c1.png)
+
 
