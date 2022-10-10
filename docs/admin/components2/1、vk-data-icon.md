@@ -82,14 +82,14 @@
 
 * 2、在 `app.config.js` 内新增如下代码
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/06e2ac64-7e30-488b-8a6a-e64008d51839.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/09dfc10a-830a-4a34-a91d-5e4c181dae41.png)
 
 便于复制，代码如下
 ```js
 // 引入图标数据，主要用于图标选择组件的数据源
-import customIcon from '@/static/vk-custom-icon.json'
+import myIcon from '@/static/vk-custom-icon.json'
 export default {
-  customIcon: customIcon,
+  customIcon: myIcon,
 }
 ```
 
