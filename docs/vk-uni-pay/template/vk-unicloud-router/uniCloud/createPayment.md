@@ -23,19 +23,23 @@ res = await vk.vkPay.createPayment({
 |------- |-----------|---------|-------|-------|
 | context    |   云函数的context  | Object  | -    | - |
 | provider  |   wxpay：微信支付 alipay：支付宝支付  | String  | -    | wxpay、alipay  |
+| isPC  |  如果是PC扫码支付，则设为true（使用支付组件时，组件会自动上传isPC的参数）| Boolean  | false  | true  |
+| needQRcode | 是否强制使用二维码支付（让顾客扫码支付，一般用于物联网，如按摩椅上的扫码支付） | Boolean  | false  | true  |
 | data  |  订单数据  | Object  | -   | [见下方](#data参数)  |
+
 
 ### data 参数
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
-| openid    |   用户openid，小程序支付时必传    | String  | -    | - |
+| openid    |   用户openid，小程序支付和微信公众号支付时必传    | String  | -    | - |
 | out_trade_no  |   必填项，商户支付订单号，需自行保证全局唯一    | String  | -    | -  |
 | total_fee  |   订单金额(单位分 100 = 1元)    | Number  | -    | -  |
 | subject  |   订单标题    | String  | -    | -  |
 | type  |   订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。    | String  | -    | -  |
-
-
+| custom  |   自定义数据，不可与外部重复（custom内的参数不会发送给微信、支付宝）    | Object  | -    | -  |
+| other  |   微信、支付宝文档上的其他选填参数（other内的参数会原样发送给微信、支付宝）    | Object  | -    | -  |
+| pid  |  多商户模式下的自定义商户id（等于vk-pay-config表的_id）[查看vk-pay-config表](https://vkdoc.fsq.pub/vk-uni-pay/db/vk-pay-config.html)   | String  | -    | -  |
 
  * out_trade_no作用: 用于根据out_trade_no查订单状态、发起退款等接口需要。
  * 同时该订单号需保证全局唯一。
