@@ -63,3 +63,39 @@ module.exports = {
 	}
 };
 ```
+
+
+### pid（多商户模式）
+
+```js
+res = await vk.vkPay.createPayment({
+  context: originalParam.context,
+  provider: "alipay",
+  data: {
+    pid: "001", // 使用_id为001的商户配置
+    openid: "用户openid，小程序支付时必传",
+    out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
+    total_fee: 1, // 订单金额(单位分 100 = 1元)
+    subject: "订单标题",
+    type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。"
+  }
+});
+```
+ 
+
+### needQRcode（强制使用二维码支付模式）
+```js
+res = await vk.vkPay.createPayment({
+  context: originalParam.context,
+  provider: "alipay",
+  needQRcode: true, // 设置为true，代表强制使用二维码支付模式
+  data: {
+    openid: "用户openid，小程序支付时必传",
+    out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
+    total_fee: 1, // 订单金额(单位分 100 = 1元)
+    subject: "订单标题",
+    type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。"
+  }
+});
+```
+ 
