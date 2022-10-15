@@ -80,6 +80,26 @@ service:{
 #### 如下图所示
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1a02b98c-ac0e-4662-95d9-e170f5f246d3.png)
 
+#### 上传阿里云OSS注意：
+
+需要在oss上配置允许跨域
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/d11222f6-5397-433f-b272-941ac6f4e953.png)
+
+**允许 Headers**
+
+```js
+*
+access-control-allow-origin
+```
+
+**暴露 Headers**
+
+```js
+Etag
+x-oss-request-id
+```
+
 
 ## 上传图片，并将图片记录保存到admin后台
 ```js
