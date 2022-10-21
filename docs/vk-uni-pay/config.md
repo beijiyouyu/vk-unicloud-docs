@@ -95,7 +95,6 @@ module.exports = {
    * 公共参数说明
    * mchId                  支付宝商户id 2088开头的那个（此参数可以去除）
    * appId                  支付宝开放平台的应用appId
-   * secret                 支付宝开放平台的应用secret
    * privateKey             应用私钥
    * alipayPublicCertPath   支付宝公钥证书路径地址  与之对应的 alipayPublicCertContent 为支付宝公钥证书内容（值可以是字符串也可以是Buffer）
    * alipayRootCertPath     支付宝根证书路径地址   与之对应的 alipayRootCertContent 为支付宝根证书内容（值可以是字符串也可以是Buffer）
