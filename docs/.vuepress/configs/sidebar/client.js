@@ -8,6 +8,7 @@ module.exports = [{
       'serverless',
       'quickstart',
       'quickstartExample',
+      'catalogue',
       'changelog',
       'changeGuide',
       'codeTips',

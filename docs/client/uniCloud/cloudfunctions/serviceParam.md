@@ -9,13 +9,40 @@ let { uid } = data;
 | 参数             | 说明                   | 
 |------------------|-----------------------|
 | data          | 前端传过来的请求参数            |
-| userInfo          | 当前登录用户的用户信息（kh目录下的云函数才有，pub目录下需要多传一个参数`need_user_info:true`）            |
-| uid          | 当前登录用户的用户的id（kh目录下的云函数才有，pub目录下需要多传一个参数`need_user_info:true`）            |
+| userInfo          | 当前登录用户的用户信息（kh目录下的云函数才有，pub目录下需要多传一个参数`need_user_info:true`） [点击查看示例](#need-user-info示例)      |
+| uid          | 当前登录用户的用户的id（kh目录下的云函数才有，pub目录下需要多传一个参数`need_user_info:true`）[点击查看示例](#need-user-info示例)     |
 | vk          | vk实例对象            |
 | pubFun          | 你自己的公共函数（函数文件在 `router/util/pubFunction.js`）            |
 | db          | 数据库对象            |
 | _          | 等价于 db.command            |
 
+#### need_user_info示例
+
+**正确示例**
+```js
+vk.callFunction({
+  url: 'template/db_api/pub/add',
+  title: '请求中...',
+  data: {
+    need_user_info:true, // 注意，need_user_info是加在 data 的属性里，而不是与data同级
+  },
+  success: (data) => {
+    
+  }
+});
+```
+
+**错误示例**
+```js
+vk.callFunction({
+  url: 'template/db_api/pub/add',
+  title: '请求中...',
+  need_user_info:true, // 注意，此为错误示例，写在这里是无效的
+  success: (data) => {
+    
+  }
+});
+```
 
 ### 特殊
 
