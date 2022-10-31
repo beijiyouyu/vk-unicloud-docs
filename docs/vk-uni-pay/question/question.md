@@ -100,14 +100,14 @@ vkUtil.getH5Openid(code).then((res) => {
 });
 ```
 
-
-
 #### 注意：
+
 * 1、微信公众号支付的域名需要在微信支付商户后台进行配置
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/76a353e8-eb7f-4a83-8005-d3fa60ee9e46.png)
 
 * 2、微信公众号支付的unicloud配置在 `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` 的 `wxpay` 节点的 `h5-weixin`
+
 ```js
 // 微信 - 公众号支付（微信支付申请JSAPI支付）
 "h5-weixin": {
@@ -118,9 +118,8 @@ vkUtil.getH5Openid(code).then((res) => {
   "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12')
 },
 ```
+
 * 3、微信公众号支付只能在微信浏览器中支付（非微信APP的浏览器中无法发起支付，非微信APP的浏览器请使用H5支付）
-
-
 
 ## H5支付浏览器报跨域错误
 
@@ -160,7 +159,6 @@ ___添加域名后还是无法请求?___
 ## APP支付签名失败？
 
 APP支付必须打自定义基座，包名和签名等必须和开放平台上填写的一致，且开放平台上申请的应用必须已通过审核。
-
 
 ## 发起支付时提示：请先配置正确的异步回调URL
 
