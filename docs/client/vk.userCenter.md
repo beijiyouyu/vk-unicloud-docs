@@ -751,19 +751,33 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 微信小程序登录配置
 
 * 配置 `common/uni-config-center/uni-id/config.json` 内 `mp-weixin` 的 `appid` 和 `appsecret`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/abf6f55a-7262-47d7-91ef-9a8958b9aeb0.png)
+
 * 在 `manifest.json` 内配置微信小程序的 `appid`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/3f52a650-759d-4c21-a526-7041d4bcbca7.png)
 
 APP登录配置
 
 * 在 `manifest.json` 的APP模块配置微信登录用 `appid`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/65e17cdf-006e-462e-b471-cee8df59d11c.png)
+
 * 打包并使用自定义基座（注意一定要在 `manifest.json` 填写微信 `appid` 后再制作自定义基座）[自定义基座使用说明](https://ask.dcloud.net.cn/article/35115)
 * 配置 `common/uni-config-center/uni-id/config.json` 内 `app-plus.oauth.weixin` 的 `appid` 和 `appsecret`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/9464eee0-cfd8-4517-acbd-dfa07763aef0.png)
 
 微信公众号H5登录配置
 
 * 配置 `common/uni-config-center/uni-id/config.json` 内 `h5-weixin` 的 `appid` 和 `appsecret`
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1944c923-65d7-47ed-a34c-0f8862225ac3.png)
+
 **注意：h5的路由模式必须配置为 `history`，因为微信公众号登录的回调地址不支持 `hash` 模式。**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/5e7cc610-e36c-47a2-a8ac-ea091f9bd04c.png)
 
 注意：自 2.11.0（2022-08-22）版本起，不再返回 sessionKey 和 accessToken 取而代之的是返回 `encryptedKey`（加密后的数据，云函数解密后可获得 `sessionKey`）
  
