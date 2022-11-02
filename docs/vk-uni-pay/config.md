@@ -34,11 +34,15 @@ module.exports = {
   /**
    * 微信
    * 公共参数说明
-   * appId   微信后台的appId
-   * secret  微信后台的secret
-   * mchId   微信支付的商户id
-   * key     微信支付的api密钥（V2版本）
-   * pfx     微信支付的p12证书（退款需要）
+   * appId              微信后台的appId
+   * secret             微信后台的secret
+   * mchId              微信支付的商户id
+   * key                微信支付V2版本的api密钥
+   * pfx                微信支付V2版本的p12证书（wxpay.p12）（退款需要）
+   * v3Key              微信支付V3版本的api密钥
+   * appCertPath        微信支付V3版本需要用到的证书（apiclient_cert.pem）（退款需要）
+   * appPrivateKeyPath  微信支付V3版本需要用到的证书（apiclient_key.pem）（退款需要）
+   * version            启用支付的版本 2代表v2版本 3 代表v3版本，默认是2
    */
   "wxpay": {
     // 微信 - 小程序支付
@@ -47,7 +51,8 @@ module.exports = {
       "secret": "",
       "mchId": "",
       "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12')
+      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12'),
+      "version": 2
     },
     // 微信 - APP支付
     "app-plus": {
@@ -55,7 +60,8 @@ module.exports = {
       "secret": "",
       "mchId": "",
       "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12')
+      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12'),
+      "version": 2
     },
     // 微信 - H5网站二维码支付
     "h5": {
@@ -63,7 +69,8 @@ module.exports = {
       "secret": "",
       "mchId": "",
       "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12')
+      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12'),
+      "version": 2
     },
     // 微信 - 公众号支付
     "h5-weixin": {
@@ -71,7 +78,8 @@ module.exports = {
       "secret": "84119e740cc4e98b84e088c5051d05bb",
       "mchId": "",
       "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12')
+      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12'),
+      "version": 2
     },
     // 微信 - 手机外部浏览器H5支付
     "mweb": {
@@ -87,7 +95,8 @@ module.exports = {
           "wap_url": "https://www.xxxxxx.com", // 你的H5首页地址，必须和你发起支付的页面的域名一致。
           "wap_name": "网站名称", // 你的H5网站名称
         }
-      }
+      },
+      "version": 2
     }
   },
   /**
