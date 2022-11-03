@@ -492,7 +492,8 @@ let requestRes = await vk.openapi.weixin.request({
 | method           | 请求模式，分为GET和POST（不区分大小写）  | String | POST   | GET |
 | url           | 微信接口路径         | String | -   | - |
 | data           | 请求数据         | Object | -   | - |
-
+| appid           | 可不填，不填会自动从uni-id配置的mp-weixin节点里获取appid   | String | -   | - |
+| appsecret       | 可不填，不填会自动从uni-id配置的mp-weixin节点里获取appsecret    | String | -   | - |
 
 **url参数详解**
 
