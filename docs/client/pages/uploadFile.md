@@ -1,7 +1,7 @@
 # 上传 云储存或阿里云OSS
 
 ### 上传至`unicloud云储存`
-#### 注意，记得小程序需要加域名白名单 [点击查看](https://uniapp.dcloud.io/uniCloud/quickstart?id=%e5%b0%8f%e7%a8%8b%e5%ba%8f%e4%b8%ad%e4%bd%bf%e7%94%a8unicloud%e7%9a%84%e7%99%bd%e5%90%8d%e5%8d%95%e9%85%8d%e7%bd%ae)
+#### 注意，记得小程序需要加域名白名单 [点击查看](https://uniapp.dcloud.net.cn/uniCloud/publish.html#useinmp)
 ```js
 // 选择图片
 uni.chooseImage({
