@@ -37,12 +37,14 @@ export default {
 /**
  * 防抖函数
  * 防抖原理：一定时间内，只有最后一次或第一次调用,回调函数才会执行
- * @param {Function}  第1个参数 fn 要执行的回调函数 
- * @param {Number}    第2个参数 time 延时的时间
- * @param {Boolean}   第3个参数 isImmediate 是否立即执行 默认true
- * @param {String}    第4个参数 timeoutName 定时器ID
+ * @param {Function}  fn 要执行的回调函数 
+ * @param {Number}    time 延时的时间
+ * @param {Boolean}   isImmediate 是否立即执行 默认true
+ * @param {String}    timeoutName 定时器ID
  * @return null
  */
+
+vk.pubfn.debounce(fn, time, isImmediate, timeoutName);
 
 // 简写
 vk.pubfn.debounce(() => {
@@ -64,12 +66,13 @@ vk.pubfn.debounce(() => {
 /**
  * 节流函数
  * 节流原理：在一定时间内，只能触发一次
- * @param {Function} 第1个参数 fn 要执行的回调函数 
- * @param {Number} 第2个参数 time 延时的时间
- * @param {Boolean} 第3个参数 isImmediate 是否立即执行
- * @param {String} 第4个参数 timeoutName 定时器ID
+ * @param {Function} fn 要执行的回调函数 
+ * @param {Number} time 延时的时间
+ * @param {Boolean} isImmediate 是否立即执行
+ * @param {String} timeoutName 定时器ID
  * @return null
  */
+vk.pubfn.throttle(fn, time, isImmediate, timeoutName);
 
 // 简写
 vk.pubfn.throttle(() => {
@@ -88,10 +91,12 @@ vk.pubfn.throttle(() => {
 ```js
 /**
  * 数组结构转树形结构
- * @param {Array} 第1个参数 arrayData  数据源
- * @param {Object} 第2个参数 treeProps 树结构配置
+ * @param {Array} arrayData  数据源
+ * @param {Object} treeProps 树结构配置
  * { id:"_id", parent_id:"parent_id", children:"children",need_field:["_id","name"],deleteParentId:true }
  */
+vk.pubfn.arrayToTree(arrayData, treeProps);
+
 vk.pubfn.arrayToTree(arrayData,{
   id:"_id", 
   parent_id:"parent_id", 
@@ -104,10 +109,12 @@ vk.pubfn.arrayToTree(arrayData,{
 ```js
 /**
  * 树形结构转数组结构
- * @param {Array} 第1个参数 treeData  数据源
- * @param {Object} 第2个参数 treeProps 树结构配置 
+ * @param {Array} treeData  数据源
+ * @param {Object} treeProps 树结构配置 
  * { id:"_id", parent_id:"parent_id", children:"children", deleteChildren:true }
  */
+vk.pubfn.treeToArray(treeData, treeProps);
+
 vk.pubfn.treeToArray(treeData,{
   id:"_id",
   parent_id:"parent_id",
@@ -131,11 +138,11 @@ await vk.pubfn.sleep(1000);
 ```js
 /**
  * 日期时间格式化
- * @param {Date || Number} 第1个参数 date 需要格式化的时间，支持时间对象和时间戳
- * @param {String} 第2个参数 format 时间格式 默认 "yyyy-MM-dd hh:mm:ss"
- * @param {Number} 第3个参数 targetTimezone 时区 默认东8区 正数代表东 负数代表西
+ * @param {Date || Number} date 需要格式化的时间，支持时间对象和时间戳
+ * @param {String} format 时间格式 默认 "yyyy-MM-dd hh:mm:ss"
+ * @param {Number} targetTimezone 时区 默认东8区 正数代表东 负数代表西
  */
-vk.pubfn.timeFormat(new Date(),format, targetTimezone);
+vk.pubfn.timeFormat(date, format, targetTimezone);
 // 不带毫秒简写（标准时间格式）
 vk.pubfn.timeFormat(new Date());
 // 不带毫秒（标准时间格式）
@@ -144,8 +151,36 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss");
 vk.pubfn.timeFormat(new Date(),"yyyy年MM月dd日 hh时mm分ss秒");
 // 带毫秒
 vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss.S");
+// 带季度
+vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss（第q季度）");
 // 带时区
 vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss", 8); // 东8区
+```
+
+### vk.pubfn.getDateInfo（解析日期对象属性）
+
+```js
+/**
+ * 解析日期对象属性
+ * @param {Date || Number} date 需要转换的时间
+ */
+vk.pubfn.getDateInfo(new Date());
+```
+
+返回
+
+```js
+{
+  "year": 2022, // 年
+  "month": 11, // 月
+  "day": 11, // 日
+  "hour": 19, // 时
+  "minute": 52, // 分
+  "second": 28, // 秒
+  "millisecond": 282, // 毫秒
+  "week": 5, // 星期几（0代表星期日 1代表星期一）
+  "quarter": 4, // 季度
+}
 ```
 
 ### vk.pubfn.getCommonTime（获取时间范围）
@@ -155,8 +190,8 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss", 8); // 东8区
 ```js
 /**
  * 获取时间范围
- * @param {Date} 第1个参数 date 日期对象 可以指定时间计算节点，默认使用当前时间进行计算
- * @param {Number} 第2个参数 targetTimezone 时区 默认东8区 正数代表东 负数代表西
+ * @param {Date} date 日期对象 可以指定时间计算节点，默认使用当前时间进行计算
+ * @param {Number} targetTimezone 时区 默认东8区 正数代表东 负数代表西
  * 返回的是时间戳(防止时区问题)
  * 返回数据如下：
  {
@@ -176,10 +211,12 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss", 8); // 东8区
    yesterdayEnd   昨天结束时间
    lastMonthStart 上月开始时间
    lastMonthEnd   上月结束时间
-   now            现在的时间点(含月年日时分秒)
+   now            现在的时间点(含年、月、日、时、分、秒、毫秒、星期几、季度)
    months         本年度每月的开始和结束时间 months[1] 代表1月
  }
  */
+vk.pubfn.getCommonTime(date, targetTimezone);
+
 vk.pubfn.getCommonTime(new Date());
 
 vk.pubfn.getCommonTime(new Date(), 8); // 东8区
@@ -214,17 +251,31 @@ for (let i = 0; i < 31; i++) {
 console.log('timeStart: ', timeStart)
 ```
 
-
-
 ### vk.pubfn.getOffsetTime（获得指定时间偏移 year年 month月 day天 hours时 minutes分 seconds秒前或后的时间戳）
 
 ```js
 /**
  * 获得指定时间偏移 year年 month月 day天 hours时 minutes分 seconds秒前或后的时间戳
- * @param {Date} 第1个参数 date 日期对象 可以指定时间计算节点，默认使用当前时间进行计算
- * @param {Object} 第2个参数 偏移参数
+ * @param {Date} date 日期对象 可以指定时间计算节点，默认使用当前时间进行计算
+ * @param {Object} offsetObj 偏移参数
  * 返回时间戳形式
  */
+vk.pubfn.getOffsetTime(date, offsetObj);
+
+// 获取当前时间1小时之后的时间
+vk.pubfn.getOffsetTime(new Date(), {
+  day:1,
+  mode:"after", // after 之后 before 之前
+});
+
+// 获取当前时间1小时30分钟之前的时间
+vk.pubfn.getOffsetTime(new Date(), {
+  day:1,
+  minutes:30,
+  mode:"before", // after 之后 before 之前
+});
+
+// 完整参数
 vk.pubfn.getOffsetTime(new Date(), {
   year:0,
   month:0,
@@ -236,40 +287,92 @@ vk.pubfn.getOffsetTime(new Date(), {
 });
 ```
 
+### vk.pubfn.getHourOffsetStartAndEnd（获得相对当前时间的偏移 count 小时的起止日期）
+
+```js
+/**
+ * 获得相对当前时间的偏移 count 小时的起止日期（返回小时的开始和结束时间戳）
+ * @param {Number} count 默认0（0代表当前小时 -1代表上一个小时 1代表下一个小时以此类推）
+ * @param {Date || Number} date 指定从哪个时间节点开始计算
+ */
+vk.pubfn.getHourOffsetStartAndEnd(count, date);
+
+vk.pubfn.getHourOffsetStartAndEnd(0);
+
+vk.pubfn.getHourOffsetStartAndEnd(0, new Date());
+```
+
 ### vk.pubfn.getDayOffsetStartAndEnd（获得相对当前时间的偏移 count 天的起止日期）
 
 ```js
 /**
- * 获得相对当前时间的偏移 count 天的起止日期(日的开始和结束)
- * @param {Number} 第1个参数 count  默认0 (0代表今日 为-1代表昨日 为1代表明日以此类推)
- * @param {Date || Number} 第2个参数 date 指定从那天开始计算
+ * 获得相对当前时间的偏移 count 天的起止日期（返回日的开始和结束时间戳）
+ * @param {Number} count  默认0（0代表今日 -1代表昨日 1代表明日以此类推）
+ * @param {Date || Number} date 指定从哪个时间节点开始计算
  */
+vk.pubfn.getDayOffsetStartAndEnd(count, date);
+
 vk.pubfn.getDayOffsetStartAndEnd(0);
 
 vk.pubfn.getDayOffsetStartAndEnd(0, new Date());
 ```
 
+### vk.pubfn.getWeekOffsetStartAndEnd（获得相对当前时间的偏移 count 周的起止日期）
+
+```js
+/**
+ * 获得相对当前时间的偏移 count 个周的起止日期（返回周的开始和结束）
+ * @param {Number} count 默认0（0代表本周 -1代表上周 1代表下周以此类推）
+ * @param {Date || Number} date 指定从哪个时间节点开始计算
+ */
+vk.pubfn.getWeekOffsetStartAndEnd(count, date);
+
+vk.pubfn.getWeekOffsetStartAndEnd(0);
+
+vk.pubfn.getWeekOffsetStartAndEnd(0, new Date());
+```
+
+
 ### vk.pubfn.getMonthOffsetStartAndEnd（获得相对当前时间的偏移 count 月的起止日期）
 
 ```js
 /**
- * 获得相对当前时间的偏移 count 月的起止日期(月的开始和结束)
- * @param {Number} 第1个参数 count  默认0 (0代表本月 为-1代表上月 为1代表下月以此类推)
- * @param {Date || Number} 第2个参数 date 指定从那天开始计算
+ * 获得相对当前时间的偏移 count 月的起止日期（返回月的开始和结束时间戳）
+ * @param {Number} count  默认0（0代表本月 -1代表上月 1代表下月以此类推）
+ * @param {Date || Number} date 指定从哪个时间节点开始计算
  */
+vk.pubfn.getMonthOffsetStartAndEnd(count, date);
+
 vk.pubfn.getMonthOffsetStartAndEnd(0);
 
 vk.pubfn.getMonthOffsetStartAndEnd(0, new Date());
+```
+
+### vk.pubfn.getQuarterOffsetStartAndEnd（获得相对当前时间的偏移 count 季度的起止日期）
+
+```js
+/**
+ * 获得相对当前时间的偏移 count 季度的起止日期（返回季度的开始和结束时间戳）
+ * @param {Number} count  默认0（0代表本季度 -1代表上个季度 1代表下个季度以此类推）
+ * @param {Date || Number} date 指定从哪个时间节点开始计算
+ */
+vk.pubfn.getQuarterOffsetStartAndEnd(count, date);
+
+vk.pubfn.getQuarterOffsetStartAndEnd(0);
+
+vk.pubfn.getQuarterOffsetStartAndEnd(0, new Date());
 ```
 
 ### vk.pubfn.getYearOffsetStartAndEnd（获得相对当前时间的偏移 count 年的起止日期）
 
 ```js
 /**
- * 获得相对当前时间的偏移 count 年的起止日期(年的开始和结束)
- * @param {Number} 第1个参数 count  默认0 (0代表今年 为-1代表去年 为1代表明年以此类推)
- * @param {Date || Number} 第2个参数 date 指定从那天开始计算
+ * 获得相对当前时间的偏移 count 年的起止日期（返回年的开始和结束时间戳）
+ * @param {Number} count  默认0（0代表今年 -1代表去年 1代表明年以此类推）
+ * @param {Date || Number} date 指定从哪个时间节点开始计算
  */
+vk.pubfn.getYearOffsetStartAndEnd(count, date);
+
 vk.pubfn.getYearOffsetStartAndEnd(0);
 
 vk.pubfn.getYearOffsetStartAndEnd(0, new Date());
@@ -280,8 +383,8 @@ vk.pubfn.getYearOffsetStartAndEnd(0, new Date());
 ```js
 /**
  * 检测文本是否满足指定格式
- * @param {String} 第1个参数 str 需要检测的文本
- * @param {String} 第2个参数 type 检测类型
+ * @param {String} str 需要检测的文本
+ * @param {String} type 检测类型
  * 包含 
  * mobile 手机号码
  * tel 座机
@@ -312,8 +415,8 @@ vk.pubfn.test(str, type);
 /**
  * 对象属性拷贝(浅拷贝)
  * @description 将 obj2 的属性赋值给 obj1 (如果obj1中有对应的属性,则会被obj2的属性值覆盖)
- * @param {Object} 	第1个参数 obj1
- * @param {Object} 	第2个参数 obj2
+ * @param {Object} obj1
+ * @param {Object} obj2
  */
 vk.pubfn.objectAssign(obj1, obj2);
 ```
@@ -345,10 +448,12 @@ let newObj = vk.pubfn.deepClone(obj);
 ```js
 /**
  * 两个(元素为对象)的数组合并,并去除重复的数据
- * @param	{Array} 	第1个参数 arr1 	第一个数组(arr1和aar2没有顺序要求)
- * @param	{Array} 	第2个参数 arr2 	第二个数组
- * @param	{String} 	第3个参数 flag 	判断标识,默认用id来判断,若flag传-1,代表不去除重复数据
+ * @param	{Array}  arr1 	第一个数组(arr1和aar2没有顺序要求)
+ * @param	{Array}  arr2 	第二个数组
+ * @param	{String} flag 	判断标识,默认用id来判断,若flag传-1,代表不去除重复数据
  */
+let arr = vk.pubfn.arr_concat(arr1, arr2, flag);
+
 let arr = vk.pubfn.arr_concat(arr1, arr2, "_id");
 ```
 
@@ -358,9 +463,9 @@ let arr = vk.pubfn.arr_concat(arr1, arr2, "_id");
 ```js
 /**
  * 自动根据字符串路径获取对象中的值支持.和[] , 且任意一个值为undefined时,不会报错,会直接返回undefined
- * @param	{Object} 第1个参数 dataObj 数据源
- * @param	{String} 第2个参数 name 支持a.b 和 a[b]
- * @param	{String} 第3个参数 defaultValue undefined时的默认值
+ * @param	{Object} dataObj 数据源
+ * @param	{String} name 支持a.b 和 a[b]
+ * @param	{String} defaultValue undefined时的默认值
  */
 let data = vk.pubfn.getData(dataObj, name, defaultValue);
 
@@ -373,9 +478,9 @@ let data = vk.pubfn.getData(dataObj, name, defaultValue);
 ```js
 /**
  * 自动根据字符串路径设置对象中的值 支持.和[]
- * @param	{Object} 第1个参数 dataObj 数据源
- * @param	{String} 第2个参数 name 支持a.b 和 a[b]
- * @param	{String} 第3个参数 value 值
+ * @param	{Object} dataObj 数据源
+ * @param	{String} name 支持a.b 和 a[b]
+ * @param	{String} value 值
  */
 vk.pubfn.setData(dataObj, name, value);
 ```
@@ -445,9 +550,9 @@ if (nullKey) return { code: -1, msg: `${nullKey}不能为空` };
 /**
  * 获取对象数组中的某一个item,根据指定的键名和键值
  * @description 主要用于在一个对象数组中快速获取 _id = 1 的对象
- * @param	{Array}  第1个参数 list 数据源
- * @param	{String} 第2个参数 key 键名
- * @param	{String} 第3个参数 value 键值
+ * @param	{Array}  list 数据源
+ * @param	{String} key 键名
+ * @param	{String} value 键值
  */
 vk.pubfn.getListItem(list, key, value);
 ```
@@ -458,9 +563,9 @@ vk.pubfn.getListItem(list, key, value);
 /**
  * 获取对象数组中某个元素的index,根据指定的键名和键值
  * @description 主要用于在一个对象数组中快速获取 _id = 1 的index
- * @param	{Array}  第1个参数 list 数据源
- * @param	{String} 第2个参数 key 键名
- * @param	{String} 第3个参数 value 键值
+ * @param	{Array}  list 数据源
+ * @param	{String} key 键名
+ * @param	{String} value 键值
  */
 vk.pubfn.getListIndex(list, key, value);
 ```
@@ -471,9 +576,9 @@ vk.pubfn.getListIndex(list, key, value);
 /**
  * 获取对象数组中某个元素的index,根据指定的键名和键值
  * @description 主要用于在一个对象数组中快速获取 _id = 1 的index
- * @param	{Array}  第1个参数 list 数据源
- * @param	{String} 第2个参数 key 键名
- * @param	{String} 第3个参数 value 键值
+ * @param	{Array}  list 数据源
+ * @param	{String} key 键名
+ * @param	{String} value 键值
  */
 vk.pubfn.getListItemIndex(list, key, value);
 ```
@@ -486,9 +591,11 @@ vk.pubfn.getListItemIndex(list, key, value);
  * 如[{"_id":"001","name":"name1","sex":1},{"_id":"002","name":"name2","sex":2}]
  * 转成
  * {"001",{"_id":"001","name":"name1","sex":1},"002":{"_id":"002","name":"name2","sex":2}}
- * @param	{Array}  第1个参数 list 数据源
- * @param	{String} 第2个参数 key 键名
+ * @param	{Array}  list 数据源
+ * @param	{String} key 键名
  */
+vk.pubfn.arrayToJson(list, key);
+
 vk.pubfn.arrayToJson(list, "_id");
 ```
 
@@ -500,9 +607,11 @@ vk.pubfn.arrayToJson(list, "_id");
  * 如[{"_id":"001","name":"name1","sex":1},{"_id":"002","name":"name2","sex":2}]
  * 提取_id字段转成
  * ["001","002"]
- * @param	{Array}  第1个参数 list 数据源
- * @param	{String} 第2个参数 key 键名
+ * @param	{Array}  list 数据源
+ * @param	{String} key 键名
  */
+vk.pubfn.arrayObjectGetArray(list, key);
+
 vk.pubfn.arrayObjectGetArray(list, "_id");
 ```
 
@@ -512,9 +621,9 @@ vk.pubfn.arrayObjectGetArray(list, "_id");
 ```js
 /**
  * 产生指定位数的随机数(支持任意字符，默认纯数字)
- * @param	{Number} 第1个参数 length 随机数固定位数
- * @param	{String} 第2个参数 range 指定的字符串中随机范围
- * @param	{Array}  第3个参数 arr 产生的随机数不会和此数组的任意一项重复
+ * @param	{Number} length 随机数固定位数
+ * @param	{String} range 指定的字符串中随机范围
+ * @param	{Array}  arr 产生的随机数不会和此数组的任意一项重复
  */
 vk.pubfn.random(length, range, arr);
 
@@ -528,11 +637,13 @@ vk.pubfn.random(1,"123456789",["1","2","3"]);
 ```js
 /**
  * 将手机号,账号等隐藏中间字段
- * @param {String} 第1个参数 str   需要转换的字符串
- * @param {Number} 第2个参数 first 前面显示的字符数量，默认为0
- * @param {Number} 第3个参数 last  后面显示的字符数量，默认为0
+ * @param {String} str   需要转换的字符串
+ * @param {Number} first 前面显示的字符数量，默认为0
+ * @param {Number} last  后面显示的字符数量，默认为0
  */
 vk.pubfn.hidden(str, first, last);
+
+vk.pubfn.hidden("15200000001", 3, 4);
 ```
 
 ### vk.pubfn.checkArrayIntersection（两数组是否有交集)
@@ -540,30 +651,20 @@ vk.pubfn.hidden(str, first, last);
 ```js
 /**
  * 判断常量数组A是否至少有一个元素在常量数组B中存在(两数组有交集)
- * @param {Array} 第1个参数 arr1 数组A
- * @param {Array} 第2个参数 arr2 数组B
+ * @param {Array} arr1 数组A
+ * @param {Array} arr2 数组B
  */
 vk.pubfn.checkArrayIntersection(arr1, arr2);
+
+vk.pubfn.checkArrayIntersection([1,2,3], [3,4,5]);
 ```
-
-### vk.pubfn.getWeekStartAndEnd（获得相对当前周addWeekCount个周的起止日期）
-
-```js
-/**
- * 获得相对当前周addWeekCount个周的起止日期
- * @param {Number} addWeekCount  默认0 (0代表本周 为-1代表上周 为1代表下周以此类推 为2代表下下周)
- */
-vk.pubfn.getWeekStartAndEnd(0);
-```
-
-
 
 ### vk.pubfn.calcFreights（计算运费）
 
 ```js
 /**
  * 计算运费
- *  @param {Object} 第1个参数 freightsItem 运费模板
+ *  @param {Object} freightsItem 运费模板
  {
    first_weight             Number 首重 单位KG,
    first_weight_price       Number 首重 首重价格
@@ -571,9 +672,16 @@ vk.pubfn.getWeekStartAndEnd(0);
    continuous_weight_price  Number 续重价格
    max_weight               Number 重量达到此值时,会多计算首重的价格,并少一次续重的价格 倍乘(相当于拆分多个包裹)
  }
- * @param {Number} 第2个参数 weight 运费重量
+ * @param {Number} weight 运费重量
  */
 vk.pubfn.calcFreights(freightsItem, weight);
+
+let freights = vk.pubfn.calcFreights({
+  first_weight: 1,
+  first_weight_price: 6,
+  continuous_weight: 1,
+  continuous_weight_price: 2
+}, 10);
 ```
 
 ### vk.pubfn.getNewObject（从一个对象中取多个属性，并生成一个全新的对象）
@@ -581,8 +689,8 @@ vk.pubfn.calcFreights(freightsItem, weight);
 ```js
 /**
  * 从一个对象中取多个属性,并生成一个全新的对象
- * @param {Object} 第1个参数 obj 对象
- * @param {Array<String>} 第2个参数 keys 键名数组
+ * @param {Object} obj 对象
+ * @param {Array<String>} keys 键名数组
  */
 vk.pubfn.getNewObject(obj, keys);
 ```
@@ -592,8 +700,8 @@ vk.pubfn.getNewObject(obj, keys);
 ```js
 /**
  * 对象删除指定的字段,返回新的对象
- * @param {Object} 第1个参数 data  操作对象
- * @param {Array<String>} 第2个参数 deleteKeys 需要删除的键名(数组形式)
+ * @param {Object} data  操作对象
+ * @param {Array<String>} deleteKeys 需要删除的键名(数组形式)
  */
 vk.pubfn.deleteObjectKeys(data, deleteKeys);
 ```
@@ -623,12 +731,14 @@ vk.pubfn.timeUtil.isQingming(new Date());
 ```js
 /**
  * 单位进制换算
- * @param {number} 第1个参数 length  大小
- * @param {Array<String>} 第2个参数 arr 进制的数组,如["B","KB","MB","GB"]
- * @param {number} 第3个参数 ary  进制,如KB-MB-GB,进制1024
- * @param {number} 第4个参数 precision  数值精度（小数点后面位数）
+ * @param {number} length  大小
+ * @param {Array<String>} arr 进制的数组,如["B","KB","MB","GB"]
+ * @param {number} ary  进制,如KB-MB-GB,进制1024
+ * @param {number} precision  数值精度（小数点后面位数）
  */
-vk.pubfn.calcSize(length,["B","KB","MB","GB"],1024,3);
+vk.pubfn.calcSize(length, arr, ary, precision);
+
+vk.pubfn.calcSize(length, ["B","KB","MB","GB"], 1024, 3);
 ```
 
 ### vk.pubfn.isArray（判断变量是否是数组）
@@ -655,9 +765,11 @@ vk.pubfn.isObject(obj);
 ```js
 /**
  * 产生订单号，不依赖数据库，高并发时性能高（理论上会重复，但概率非常非常低）
- * @param {String} 第1个参数 prefix 前缀
- * @param {Number} 第2个参数 num 位数，建议在25-30之间，默认25
+ * @param {String} prefix 前缀
+ * @param {Number} count 位数，建议在25-30之间，默认25
  */
+vk.pubfn.createOrderNo(prefix, count);
+
 vk.pubfn.createOrderNo("NO");
 
 vk.pubfn.createOrderNo("NO", 25);
@@ -709,8 +821,8 @@ vk.pubfn.camel2snake(value);
 ```js
 /**
  * 将能转成数字的字符串转数字（支持字符串、对象、数组）
- * @param {Any} 第1个参数 obj 数据源
- * @param {Object} 第2个参数 option 哪些格式需要排除
+ * @param {Any} obj 数据源
+ * @param {Object} option 哪些格式需要排除
  * 默认排除
  * mobile:true 手机号，如 15200000001
  * idCard:true 身份证，如 330154202109301214
@@ -724,10 +836,12 @@ vk.pubfn.string2Number(obj, option);
 ```js
 /**
  * 保留小数
- * @param {Number} 第1个参数 val 原值
- * @param {Number} 第2个参数 precision 精度
+ * @param {Number} val 原值
+ * @param {Number} precision 精度
  */
-vk.pubfn.toDecimal(val, 2);
+vk.pubfn.toDecimal(val, precision);
+
+vk.pubfn.toDecimal(1.56555, 2);
 ```
 
 
@@ -739,19 +853,22 @@ vk.pubfn.toDecimal(val, 2);
  * @param {Number} money 金额
  */
 vk.pubfn.priceFilter(money);
+
+vk.pubfn.priceFilter(100); // 1
 ```
 
 ### vk.pubfn.percentageFilter（百分比显示过滤器）
 百分比过滤器 将 0.01 显示成 1%  1 显示成 100%
 ```js
 /**
- * 金额显示过滤器（已分为单位，将100 转成 1
- * @param {Number} 第1个参数 value 百分比值
- * @param {Boolean} 第2个参数 needShowSymbol 显示 % 这个符号
- * @param {String | Number} 第3个参数 defaultValue value为空时的默认值
+ * 百分比过显示滤器
+ * @param {Number} value 百分比值
+ * @param {Boolean} needShowSymbol 显示 % 这个符号
+ * @param {String | Number} defaultValue value为空时的默认值
  */
 vk.pubfn.percentageFilter(value);
 vk.pubfn.percentageFilter(value, needShowSymbol, defaultValue);
+vk.pubfn.percentageFilter(0.1); // 10%
 ```
 
 
@@ -759,13 +876,14 @@ vk.pubfn.percentageFilter(value, needShowSymbol, defaultValue);
 折扣过滤器 将 0.1 显示成 1折 1 显示成 原价 0 显示成免费
 ```js
 /**
- * 金额显示过滤器（已分为单位，将100 转成 1
- * @param {Number} 第1个参数 value 折扣值
- * @param {Boolean} 第2个参数 needShowSymbol 显示 折 这个中文字符
- * @param {String | Number} 第3个参数 defaultValue value为空时的默认值
+ * 折扣显示过滤器
+ * @param {Number} value 折扣值
+ * @param {Boolean} needShowSymbol 显示 折 这个中文字符
+ * @param {String | Number} defaultValue value为空时的默认值
  */
 vk.pubfn.discountFilter(value);
 vk.pubfn.discountFilter(value, needShowSymbol, defaultValue);
+vk.pubfn.discountFilter(0.7); // 7折
 ```
 
 
@@ -775,10 +893,12 @@ vk.pubfn.discountFilter(value, needShowSymbol, defaultValue);
 /**
  * 将时间显示成1秒前、1天前（计算方式为：当前时间 - startTime）
  * @description 主要用于 文章最后回复时间: 1分钟前
- * @param {String || Number} 	第1个参数 startTime	需要计算的时间 如文章最后回复时间
- * @param {String} 第2个参数 suffix	后缀，默认为前，如 1秒前 ,若设置为空字符串，则只显示 1秒
+ * @param {String || Number}  startTime	需要计算的时间 如文章最后回复时间
+ * @param {String} suffix	后缀，默认为前，如 1秒前 ,若设置为空字符串，则只显示 1秒
  */
 vk.pubfn.dateDiff(startTime, suffix);
+
+vk.pubfn.dateDiff(Date.now()-1000*3600*24); // 1天前
 ```
 
 ### vk.pubfn.dateDiff2（将时间显示成1秒、1天）
@@ -787,10 +907,12 @@ vk.pubfn.dateDiff(startTime, suffix);
 /**
  * 将时间显示成1秒、1天（计算方式为：endTime - 当前时间）
  * @description 主要用于 到期时间剩余 : 3天 这样的场景
- * @param {String || Number} 第1个参数 endTime	需要计算的时间 如到期时间
- * @param {String} 第2个参数 endText	到期时显示的文字
+ * @param {String || Number} endTime	需要计算的时间 如到期时间
+ * @param {String} endText	到期时显示的文字
  */
 vk.pubfn.dateDiff2(endTime, endText);
+
+vk.pubfn.dateDiff2(Date.now()+1000*3600*24); // 23小时
 ```
 
 ### vk.pubfn.numStr（将大数字转中文）
@@ -807,6 +929,8 @@ vk.pubfn.dateDiff2(endTime, endText);
  * @param {Number} n 需要转换的数字
  */
 vk.pubfn.numStr(n);
+
+vk.pubfn.numStr(1523412); // 1百万
 ```
 
 ## 前端专属
@@ -824,7 +948,6 @@ vk.pubfn.numStr(n);
  * @param {function} dataPreprocess	数据预处理函数
  *
  * 代码示例
-  
  */
 vk.pubfn.getListData({
     that : this,
@@ -842,8 +965,6 @@ vk.pubfn.getListData({
 ### vk.pubfn.getComponentsDynamicData（动态组件数据获取）
 
 ```js
-
-
 /**
  * 动态组件数据获取
  * @description 主要用于动态组件的数据获取
