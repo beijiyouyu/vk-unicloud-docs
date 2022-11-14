@@ -1,5 +1,5 @@
-const navbar =  require("./configs/navbar.js"); // 顶部导航
-const sidebar =  require("./configs/sidebar.js"); // 左侧菜单
+const navbar = require("./configs/navbar.js"); // 顶部导航
+const sidebar = require("./configs/sidebar.js"); // 左侧菜单
 module.exports = {
   base: "/", // 部署站点的基础路径
   title: 'vk-unicloud 快速开发框架', // 网站的标题
@@ -13,7 +13,7 @@ module.exports = {
       'link', { rel: 'stylesheet', href: '/css/index.css' },
     ],
     [
-      'script',{},
+      'script', {},
       `
       var _hmt = _hmt || [];
       (function() {
@@ -49,7 +49,7 @@ module.exports = {
     editLinkText: '编辑此页（一起来纠错与优化，方便你我Ta）',
     docsRepo: 'https://gitee.com/vk-uni/vk-unicloud-docs.git', // 文档源文件的仓库 URL 。
     docsBranch: 'master', // 文档源文件的仓库分支。
-    docsDir:"docs", // 文档源文件存放在仓库中的目录名。
+    docsDir: "docs", // 文档源文件存放在仓库中的目录名。
   },
   markdown: {
     lineNumbers: true, // 是否在每个代码块的左侧显示行号。
@@ -76,5 +76,13 @@ module.exports = {
         }
       }
     ],
+    [
+      "vuepress-plugin-juejin-style-copy",
+      {
+        copyText: '复制代码',
+        tip: { content: "复制成功", title: "" },
+        visibleTip: true,
+      }
+    ]
   ]
 };
