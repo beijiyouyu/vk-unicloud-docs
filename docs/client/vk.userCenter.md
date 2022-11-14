@@ -264,11 +264,12 @@ vk.userCenter.resetPwd({
  * 设置头像
  * data 请求参数 说明
  * @param {String} avatar 头像地址
- * @param {Boolean} deleteOldFile 是否同时删除云储存内的头像文件
+ * @param {Boolean} deleteOldFile 是否同时删除云储存内的旧头像文件
  */
 vk.userCenter.setAvatar({
   data: {
-    avatar: "https://www.aa.com/1.jpg"
+    avatar: "https://www.aa.com/1.jpg",
+    deleteOldFile: false, // 是否同时删除云储存内的旧头像文件，true代表是
   },
   success: (data) => {
     // 成功后的逻辑
