@@ -8,7 +8,16 @@
 
 > [点击安装自动生成Dao层基础代码插件](https://ext.dcloud.net.cn/plugin?id=6663)
 
-### 注意：`dao` 层尽量只写跟数据库交互的代码，少写业务逻辑代码，业务逻辑应写在 `service` 层
+### 注意：
+
+* Dao层代码必须写在 `router/dao/modules/` 目录
+
+* 文件名必须以 `xxxDao.js` 这样的格式命名(即必须Dao.js结尾)
+
+* 最终通过 `await vk.daoCenter.xxxDao.xxxx();` 形式进行调用
+
+* 尽量只写跟数据库交互的代码，少写业务逻辑代码，业务逻辑应写在 `service` 层
+
 ### `dao` 层与 `baseDao`的区别
 * `baseDao`相当于 `万能dao`，他是最基础的零件，而 `dao` 层是利用零件组装不同形状和规则的积木，供 `service` 层使用。
 
