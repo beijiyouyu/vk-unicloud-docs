@@ -6,14 +6,15 @@
   "passwordSecret": "passwordSecret-demo",// 加密密码所用的密钥，修改会导致所用户之前的密码失效。如一定要修改，请查看https://uniapp.dcloud.io/uniCloud/uni-id?id=modifysecret
   "tokenSecret": "tokenSecret-demo",      // 生成token所用的密钥，修改会导致所有用户之前的token失效。
   "tokenExpiresIn": 604800,               // 全平台token过期时间，未指定过期时间的平台会使用此值，604800代表7天
-  "tokenExpiresThreshold": 3600,          // 新增于uni-id 1.1.7版本，checkToken时如果token有效期小于此值则自动获取新token，如果不配置此参数则不开启自动获取新token功能
-  "tokenMaxLimit":0,                      // 每个账户的最大token数量，0为不限，淘汰策略：新的淘汰旧的（注意，即使设置为0，框架也会自动淘汰已过期的token）
+  "tokenExpiresThreshold": 259200,        // checkToken时如果token有效期小于此值则自动获取新token，如果不配置此参数则不开启自动获取新token功能
+  "tokenMaxLimit": 10,                    // 每个账户的最大token数量，0为不限，淘汰策略：新的淘汰旧的（注意，即使设置为0，框架也会自动淘汰已过期的token）
   "passwordErrorLimit": 6,                // 密码错误最大重试次数
   "bindTokenToDevice": false,             // 是否将token和设备绑定，设置为true会进行ua校验
   "passwordErrorRetryTime": 3600,         // 密码错误重试次数超限之后的冻结时间
   "autoSetInviteCode": true,              // 是否在用户注册时自动设置邀请码
   "forceInviteCode": false,               // 是否强制用户注册时必填邀请码，默认为false（需要注意的是目前只有短信验证码注册才可以填写邀请码）
-  "preferedAppPlatform": "app-plus",      // 新增于uni-id 3.3.12，指定app端对应的PLATFORM名称，用于处理app-plus和app的兼容问题，详细说明见：https://uniapp.dcloud.net.cn/uniCloud/uni-id?id=prefered-app-platform
+  "preferedAppPlatform": "app-plus",      // 指定app端对应的PLATFORM名称，用于处理app-plus和app的兼容问题，详细说明见：https://uniapp.dcloud.net.cn/uniCloud/uni-id?id=prefered-app-platform
+  "preferedWebPlatform": "h5",            // 指定web端对应的PLATFORM名称，用于处理web和h5兼容性问题
   "app-plus": {
     "tokenExpiresIn": 604800,             // app端 token过期时间
     "oauth" : {
