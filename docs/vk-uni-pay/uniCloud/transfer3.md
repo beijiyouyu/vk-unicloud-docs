@@ -187,9 +187,17 @@ java -jar certificatedownloader-1.2.0-jar-with-dependencies.jar  -k 92fc67db1ff9
 
 [证书转换传送门](https://vkunicloud.fsq.pub/admin/?t=20220904#/pages_template/components/form/form-cert)
 
-#### 阿里云空间支持微信转账
+## 7.3、设置IP白名单
 
-由于微信转账需要固定IP白名单，而阿里云没有出代理模式前是没有固定IP的，因此无法完成微信转账功能，但现在可以了。你只需要将以下IP加入微信支付转账API的IP白名单里即可。
+### 腾讯云空间
+
+前往unicloud控制台，打开转账对应的云函数详情，开启固定IP即可。
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0c2634e7-b26a-4e6f-ae8b-ecdeed0772d2.png)
+
+### 阿里云空间
+
+直接把下面的ip都加进去即可。
 
 ```js
 39.100.3.155
