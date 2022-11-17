@@ -29,19 +29,19 @@ ___该表为插件支付专用表，正常你自己业务的订单还应有一�
 | provider_appid    |  string   |   |   | 公众号appid，小程序appid，app开放平台appid 等 |
 | appid    |  string   |   |   | dcloud_appid |
 | user_order_success    |  boolean   |   |   | 用户自己的回调逻辑是否执行成功 |
-| custom    |  object   |   |   | 自定义数据|
+| custom    |  object   |   |   | 自定义数据 |
 | original_data    |  object   |   |   | 原始数据,微信是v2是xml，v3是json，支付宝是json |
 | wxpay_info    |  object   |   |   | 微信支付特有数据 |
 | alipay_info    |  object   |   |   | 支付宝支付特有数据 |
-| create_date    |  timestamp   |   |   | 创建时间|
-| pay_date    |  timestamp   |   |   | 支付时间|
-| notify_date    |  timestamp   |   |   | 订单通知支付成功时间|
-| cancel_date    |  timestamp   |   |   | 订单主动关闭时间|
-| stat_data    |  timestamp   |   |   | 用于支付统计的相关数据|
-| pid    |  string   |   |   | 商户id，若此参数有值，则会从数据库中获取支付配置进行支付|
-| app_auth_token    |  string   |   |   | 支付宝服务商模式-对应子商户的token|
-| auth_appid    |  string   |   |   | 支付宝服务商模式-对应子商户的appid，如果不是服务商模式，则auth_appid = appid|
-| seller_id    |  string   |   |   | 支付宝服务商模式-对应的卖家id|
+| create_date    |  timestamp   |   |   | 创建时间 |
+| pay_date    |  timestamp   |   |   | 支付时间 |
+| notify_date    |  timestamp   |   |   | 订单通知支付成功时间 |
+| cancel_date    |  timestamp   |   |   | 订单主动关闭时间 |
+| stat_data    |  object   |   |   | 用于支付统计的相关数据 |
+| pid    |  string   |   |   | 商户id，若此参数有值，则会从数据库中获取支付配置进行支付 |
+| app_auth_token    |  string   |   |   | 支付宝服务商模式-对应子商户的token |
+| auth_appid    |  string   |   |   | 支付宝服务商模式-对应子商户的appid，如果不是服务商模式，则auth_appid = appid |
+| seller_id    |  string   |   |   | 支付宝服务商模式-对应的卖家id |
 
 ### pay_type
 
