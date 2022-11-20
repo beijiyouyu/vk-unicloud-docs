@@ -97,6 +97,16 @@ module.exports = {
         }
       },
       "version": 2
+    },
+    // 微信 - 转账到零钱 v3版本
+    "transfer": {
+      "appId": "",
+      "mchId": "",
+      "apiV3key": "", // api v3密钥
+      "appCertSn":"", // 商家应用证书的序列号
+      "privateKey":"", // 商家私钥
+      "wxpayPublicCertSn":"", // 微信支付公钥证书的序列号
+      "wxpayPublicCertContent": "", // 微信支付公钥内容
     }
   },
   /**
