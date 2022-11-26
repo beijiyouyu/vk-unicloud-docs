@@ -38,7 +38,7 @@ module.exports = {
    * secret             微信后台的secret
    * mchId              微信支付的商户id
    * key                微信支付V2版本的api密钥
-   * pfx                微信支付V2版本的p12证书（wxpay.p12）（退款需要）
+   * pfx                微信支付V2版本的p12证书（apiclient_cert.p12）（退款需要）
    * v3Key              微信支付V3版本的api密钥
    * appCertPath        微信支付V3版本需要用到的证书（apiclient_cert.pem）（退款需要）
    * appPrivateKeyPath  微信支付V3版本需要用到的证书（apiclient_key.pem）（退款需要）
@@ -51,7 +51,7 @@ module.exports = {
       "secret": "",
       "mchId": "",
       "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12'),
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
       "version": 2
     },
     // 微信 - APP支付
@@ -60,7 +60,7 @@ module.exports = {
       "secret": "",
       "mchId": "",
       "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12'),
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
       "version": 2
     },
     // 微信 - H5网站二维码支付
@@ -69,7 +69,7 @@ module.exports = {
       "secret": "",
       "mchId": "",
       "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12'),
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
       "version": 2
     },
     // 微信 - 公众号支付
@@ -78,7 +78,7 @@ module.exports = {
       "secret": "84119e740cc4e98b84e088c5051d05bb",
       "mchId": "",
       "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12'),
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
       "version": 2
     },
     // 微信 - 手机外部浏览器H5支付
@@ -87,7 +87,7 @@ module.exports = {
       "secret": "",
       "mchId": "",
       "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12'),
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
       // 场景信息，必填
       "sceneInfo": {
         "h5_info": {
@@ -168,10 +168,18 @@ module.exports = {
 
 如果你的证书名字不是图上的名字，则改名成图上对应的名字即可。
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/30ecaeaa-0adc-434e-94b1-733300479c6e.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/aa2bef2a-8b61-4dbd-9627-ea7e83767a63.png)
 
 * 蓝色框内是支付宝证书（3个）
-* 红色框内是微信支付证书（1个）
+* 绿色框内是微信支付证书（3个）
+
+## 支付宝支付证书生成教程 
+
+[支付宝支付证书生成教程](https://docs.qq.com/doc/DWVBlVkZ1Z21SZFpS)
+
+## 微信支付证书生成教程 
+
+[微信支付证书生成教程](https://docs.qq.com/doc/DWUpGTW1kSUdpZGF5)
 
 ## 设置异步回调notifyUrl
 

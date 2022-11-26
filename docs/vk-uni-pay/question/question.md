@@ -44,7 +44,7 @@
   "secret": "", 
   "mchId": "", // 商户id
   "key": "", // 商户key
-  "pfx": fs.readFileSync(__dirname+'/wxpay/wxpay.p12'),
+  "pfx": fs.readFileSync(__dirname+'/wxpay/apiclient_cert.p12'),
   // 场景信息，必填
   "sceneInfo":{
     "h5_info":{
@@ -115,7 +115,7 @@ vkUtil.getH5Openid(code).then((res) => {
   "secret": "",
   "mchId": "",
   "key": "",
-  "pfx": fs.readFileSync(__dirname + '/wxpay/wxpay.p12')
+  "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12')
 },
 ```
 
