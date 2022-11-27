@@ -45,4 +45,6 @@ Linux box是运行Linux 2.6,这是X3320 Xeon 2.5 ghz。
 
 * 完善的Redis API 文档
 
+* 一台外部Redis服务器可以给你N个空间使用，增加你的Redis服务器资源利用率（省钱、性价比高)
+
 ### Q群：22466457 
