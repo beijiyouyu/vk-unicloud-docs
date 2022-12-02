@@ -776,9 +776,12 @@ APP登录配置
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1944c923-65d7-47ed-a34c-0f8862225ac3.png)
 
-**注意：h5的路由模式必须配置为 `history`，因为微信公众号登录的回调地址不支持 `hash` 模式。**
+**注意1：h5的路由模式必须配置为 `history`，因为微信公众号登录的回调地址不支持 `hash` 模式。**
+**注意2：你的前端托管那需要设置404指向的页面为index.html**
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/5e7cc610-e36c-47a2-a8ac-ea091f9bd04c.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c3b343cd-0058-46db-86f4-64ae46fdf2fb.png)
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0a79aeb8-33d6-4c7e-bc08-f0aa7d7ab4fd.png)
 
 注意：自 2.11.0（2022-08-22）版本起，不再返回 sessionKey 和 accessToken 取而代之的是返回 `encryptedKey`（加密后的数据，云函数解密后可获得 `sessionKey`）
  

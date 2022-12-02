@@ -244,7 +244,12 @@ let url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&re
 window.location.href = url;
 ```
 
-**注意：h5的路由模式必须配置为 `history`，因为微信公众号登录的回调地址不支持 `hash` 模式。**
+**注意1：h5的路由模式必须配置为 `history`，因为微信公众号登录的回调地址不支持 `hash` 模式。**
+**注意2：你的前端托管那需要设置404指向的页面为index.html**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c3b343cd-0058-46db-86f4-64ae46fdf2fb.png)
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0a79aeb8-33d6-4c7e-bc08-f0aa7d7ab4fd.png)
 
 * 4、授权完后页面会重新返回到你自己的页面（但此时页面已经刷新了），此时在页面 `onLoad` 函数中可以获取到 `code`
 * 5、运行如下代码，进行微信公众号登录（其中 this.options 是 onLoad 获取的参数对象）
