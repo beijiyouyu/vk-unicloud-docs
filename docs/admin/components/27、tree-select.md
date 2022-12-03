@@ -85,7 +85,6 @@
 | children         | 指定选项的子选项为选项对象的某个属性值 | String  | children | - |
 | disabled         | 指定选项的禁用为选项对象的某个属性值 | String  | disabled | - |
 
-
 #### onChange 使用示例
 ```js
 {
@@ -122,6 +121,7 @@
 }
 ```
 
+推荐使用 `watch` 代替 `onChange` [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
 
 #### 多选模式下，获取选中的树状结构的数据
 ```js

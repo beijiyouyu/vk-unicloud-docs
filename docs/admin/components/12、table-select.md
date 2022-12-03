@@ -72,6 +72,8 @@
 }
 ```
 
+推荐使用 `watch` 代替 `onChange` [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
+
 #### valueFields
 #### 不设置 `valueFields` 时 表单绑定的值为`字符串数组形式`
 ```js
