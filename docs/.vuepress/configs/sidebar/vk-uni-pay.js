@@ -39,6 +39,14 @@ module.exports = [{
     ]
   },
   {
+    title: '进阶',
+    collapsable: false,
+    children: [
+      'advanced/multi-merchant',
+      'advanced/multi-merchant-service-provider'
+    ]
+  },
+  {
     title: 'vk-pay云函数示例代码',
     path: '/vk-uni-pay/template/service/tips',
     collapsable: false,
