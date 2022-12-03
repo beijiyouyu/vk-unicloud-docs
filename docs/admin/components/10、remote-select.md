@@ -4,16 +4,20 @@
 #### 下拉选择方式
 #### 应用场景：直接加载所有远程待选项（数据量不大时使用。）
 
-通过设置参数 `showAll:true` 可以直接将所有远程待选项直接加载完。
+通过设置参数 `showAll:true` 可以直接将所有远程待选项直接加载完。（最多支持500条数据）
 
 ```js
 {
   key:"category_ids1", title:"远程select（单选）", type:"remote-select", placeholder:"请选择分类",
   action:"admin/select/kh/categorys",
   props:{ list:"rows", value:"_id", label:"name" },
-  showAll:true
+  showAll:true,
+  actionData:{
+    pageSize:500
+  }
 }
 ```
+
 
 #### 远程搜索方式
 #### 应用场景：数据量很大，不方便一次性全部加载时使用。
