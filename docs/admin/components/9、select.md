@@ -84,7 +84,7 @@
 }
 ```
 
-推荐使用 `watch` 代替 `onChange` [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
+**推荐使用 `watch` 代替 `onChange`** [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
 
 ### 万能表格使用方式
 
