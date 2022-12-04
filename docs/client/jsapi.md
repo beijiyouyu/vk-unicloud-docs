@@ -933,6 +933,53 @@ vk.pubfn.numStr(n);
 vk.pubfn.numStr(1523412); // 1百万
 ```
 
+
+### vk.request（请求http接口）
+
+前端调用时文档看这里：[传送门 - 前端request](https://uniapp.dcloud.net.cn/api/request/request.html)
+
+前端调用时文档看这里：[传送门 - 云端request](https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#httpclient)
+
+vk.request 就是通过上面2个API封装的，参数跟上面的基本一致
+
+**前端调用**
+
+```js
+vk.request({
+	url: `https://www.xxx.com/api/xxxx`,
+	method:"POST",
+	header:{
+		"content-type": "application/x-www-form-urlencoded",
+	},
+	data:{
+
+	},
+	success: (data) => {
+
+	},
+	fail: (err) => {
+
+	}
+});
+```
+
+**云端调用**
+
+云端必须加 `await` 同时没有 success 和 fail 回调
+
+```js
+await vk.request({
+	url: `https://www.xxx.com/api/xxxx`,
+	method:"POST",
+	header:{
+		"content-type": "application/x-www-form-urlencoded",
+	},
+	data:{
+
+	}
+});
+```
+
 ## 前端专属
 
 ### vk.pubfn.getListData（手机长列表分页加载数据）

@@ -628,7 +628,11 @@ ___这个错误是HBX目前一直存在的问题，手动解决方案：___
 也是大概这个逻辑，找到HBX的 `uni_modules` 缓存目录，删除里面的缓存文件即可。（mac开发者如有空，欢迎补充完这个操作文档）
 
 
+## 运行项目报Failed to execute 'open' on 'XMLHttpRequest': Invalid URL
 
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/2a6639d1-7482-4ffa-b446-c5907be35f50.png)
+
+如果你运行项目碰到这个问题，你必须重启HBX才能解决，这是HBX某个服务奔溃了导致的，如果重启HBX还无法解决，则需要重启电脑解决。
 
 
 
