@@ -10,7 +10,7 @@
 
 你只需要将原本配置在 `common/uni-config-center/uni-pay/config.js` 中的支付配置改成存入数据库表 `vk-pay-config`，同时在 `vkPay.createPayment` 接口中多传一个参数 `pid` 即可
 
-[传送门 - 支付配置表](../db/vk-pay-config)
+[传送门 - 支付配置表](https://vkdoc.fsq.pub/vk-uni-pay/db/vk-pay-config.html)
 
 示例代码
 

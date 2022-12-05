@@ -15,7 +15,7 @@
 
 配置 `common/uni-config-center/uni-pay/config.js` 中的参数使用服务商的密钥和证书
 
-[传送门 - 支付配置](../config)
+[传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 
  `vkPay.createPayment` 接口中多传一个参数 `app_auth_token` 即可
 
