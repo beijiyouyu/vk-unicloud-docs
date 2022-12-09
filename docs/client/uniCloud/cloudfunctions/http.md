@@ -5,6 +5,9 @@
 let requestRes = await vk.request({
   url:`https://xxxx.xxxx.com/xxxx`,
   method:"POST",
+  headers:{
+    "content-type": "application/x-www-form-urlencoded",
+  },
   data:{
   
   },
