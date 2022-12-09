@@ -40,8 +40,8 @@ exports.main = async (event, context) => {
 | context    |   云函数的context  | Object  | -    | - |
 | provider  |   wxpay：微信支付 alipay：支付宝支付  | String  | -    | wxpay、alipay  |
 | isPC  |  如果是PC扫码支付，则设为true（使用支付组件时，组件会自动上传isPC的参数）| Boolean  | false  | true  |
-| needQRcode | 是否强制使用二维码支付（让顾客扫码支付，一般用于物联网，如按摩椅上的扫码支付） | Boolean  | false  | true  |
-| data  |  订单数据  | Object  | -   | [见下方](#data参数)  |
+| needQRcode | 是否强制使用二维码支付（让顾客扫码支付，一般用于物联网，如按摩椅上的扫码支付） [查看详情](#needqrcode-强制使用二维码支付模式)   | Boolean  | false  | true  |
+| data  |  订单数据 [查看详情](#data-参数)   | Object  | -   |  |
 
 ### data 参数
 
@@ -96,37 +96,70 @@ exports.main = async (event, context) => {
 
 ```
  
-
 ### needQRcode（强制使用二维码支付模式）
 
+给vue页面使用时，传 `needQRcode:true`
+ 
+```js
+ const vkPay = require("vk-uni-pay");
+ 
+ exports.main = async (event, context) => {
+   
+   let res = await vkPay.createPayment({
+     context,
+     provider: "alipay",
+     needQRcode:true, // 前端页面是vue时，传true
+     data: {
+       openid: "用户openid，小程序支付时必传",
+       out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
+       total_fee: 1, // 订单金额(单位分 100 = 1元)
+       subject: "订单标题",
+       type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。", // 此处type的值如果是goods，则回调时就会执行 pay-notify 目录下的 goods.js 内的逻辑
+       // 自定义回调数据，能在回调事件获取到以下数据，回调函数中通过 let { out_trade_no, user_id, recharge_balance } = data;方式获取（不可与data内的一级属性名重复）
+       custom:{
+         
+       },
+       // 微信、支付宝文档上的其他选填参数（other内的参数会原样发送给微信、支付宝）
+       other:{
+       
+       }
+     }
+   });
+ 
+   return res;
+ };
+ 
+```
+ 
+给nvue页面使用时，传 `needQRcode:'image'`
 
 ```js
-const vkPay = require("vk-uni-pay");
-
-exports.main = async (event, context) => {
-  
-  let res = await vkPay.createPayment({
-    context,
-    provider: "alipay",
-    needQRcode: true, // 设置为true，代表强制使用二维码支付模式
-    data: {
-      openid: "用户openid，小程序支付时必传",
-      out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
-      total_fee: 1, // 订单金额(单位分 100 = 1元)
-      subject: "订单标题",
-      type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。", // 此处type的值如果是goods，则回调时就会执行 pay-notify 目录下的 goods.js 内的逻辑
-      // 自定义回调数据，能在回调事件获取到以下数据，回调函数中通过 let { out_trade_no, user_id, recharge_balance } = data;方式获取（不可与data内的一级属性名重复）
-      custom:{
-        
-      },
-      // 微信、支付宝文档上的其他选填参数（other内的参数会原样发送给微信、支付宝）
-      other:{
-      
-      }
-    }
-  });
-
-  return res;
-};
-
+ const vkPay = require("vk-uni-pay");
+ 
+ exports.main = async (event, context) => {
+   
+   let res = await vkPay.createPayment({
+     context,
+     provider: "alipay",
+     needQRcode: "image", // 前端页面是nvue时，传 "image"
+     data: {
+       openid: "用户openid，小程序支付时必传",
+       out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
+       total_fee: 1, // 订单金额(单位分 100 = 1元)
+       subject: "订单标题",
+       type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。", // 此处type的值如果是goods，则回调时就会执行 pay-notify 目录下的 goods.js 内的逻辑
+       // 自定义回调数据，能在回调事件获取到以下数据，回调函数中通过 let { out_trade_no, user_id, recharge_balance } = data;方式获取（不可与data内的一级属性名重复）
+       custom:{
+         
+       },
+       // 微信、支付宝文档上的其他选填参数（other内的参数会原样发送给微信、支付宝）
+       other:{
+       
+       }
+     }
+   });
+ 
+   return res;
+ };
+ 
 ```
