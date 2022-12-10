@@ -1,8 +1,10 @@
-# 前端请求云函数
+# vk.callFunction（请求云函数）
 
-#### 请求云函数 如果是点击按钮进行表单提交请求，建议加上参数 title:'请求中...'
+`vk.callFunction` 用来请求云函数
 
-### 回调形式 
+如果该请求是点击按钮进行的表单提交请求，建议加上参数 `title:'请求中...'` 具有遮罩功能，可以有效防止同一时间重复点击。
+
+## 回调形式 
 
 ```js
 // 回调形式 success fail complete
@@ -18,7 +20,7 @@ vk.callFunction({
 });
 ```
 
-### promise方式
+## promise方式
 
 ```js
 // promise方式
@@ -35,7 +37,9 @@ vk.callFunction({
 });
 ```
 
-### async/await方式
+## async/await方式
+
+注意：该方式也同时支持在云函数或云对象内使用。
 
 ```js
 // async/await方式
@@ -48,8 +52,7 @@ let data = await vk.callFunction({
 });
 ``` 
 
-
-### api
+## 属性
 
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
@@ -61,6 +64,8 @@ let data = await vk.callFunction({
 | isRequest        | 是否使用云函数url化地址访问云函数 | Boolean  | false | true |
 | needAlert        | 为true代表请求错误时，会有alert弹窗提示 | Boolean  | true | false |
 | globalParamName  | 全局请求参数的名称， 如果设置了正则规则，则不需要此参数  [查看详情](#globalparamname)  | String  | - | - |
+| env              | 请求多服务空间的环境 [查看详情](https://vkdoc.fsq.pub/client/question/q9.html#%E5%89%8D%E7%AB%AF%E8%AF%B7%E6%B1%82%E5%A4%9A%E6%9C%8D%E5%8A%A1%E7%A9%BA%E9%97%B4)| String  | - | - |
+| retryCount       | 系统异常重试机制（表单提交时慎用，建议只用在查询请求中，即无任何数据库修改的请求中） | Number  | 0 | - |
 | success          | 请求成功时，执行的回调函数 | Function  | - | - |
 | fail             | 请求失败时，执行的回调函数 | Function  | - | - |
 | complete         | 无论请求成功与否，都会执行的回调函数 | Function  | - | - |
@@ -84,7 +89,6 @@ loading:{ that:this, name:"loading2"}
 ```js
 loading:{ that:this, name:"page.loading"}
 ```
-
 
 #### globalParamName
 
