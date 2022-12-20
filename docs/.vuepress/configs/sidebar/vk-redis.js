@@ -1,10 +1,9 @@
 module.exports = [{
-  title: 'vk-redis',
+  title: 'Redis扩展',
   collapsable: false,
   children: [
     '',
     'quickstart',
-    'api',
-    'question'
+    'api'
   ]
 }]

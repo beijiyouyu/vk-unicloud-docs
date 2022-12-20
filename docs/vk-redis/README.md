@@ -35,16 +35,25 @@ Linux box是运行Linux 2.6,这是X3320 Xeon 2.5 ghz。
 
 结果:读的速度是110000次/s,写的速度是81000次/s 。
 
-### 本插件的特点
+### uniCloud的Redis和MongoDB的比较
 
-* 支持外网Redis
+* 读写速度：MongoDB数据存储在磁盘里，读写语法复杂，速度较慢。redis在内存中读写，只根据key访问数据，速度快很多。
+* 并发能力：MongoDB并发能力有限。redis几乎没有限制，更多取决于云函数的并发限制。
+* 查询能力：MongoDB支持所有查询语法，各种where、联表。redis只能根据key和有限语法操作数据。
+* 计费：MongoDB按读写次数收费。redis虽然也收费，但无论写多少次读多少次，费用固定，在超过一定量的情况下，使用redis会大大降低成本，同时还能提升性能。
 
-* 几乎支持Redis全部功能，包括（位图计算)
+### redis主要用来做什么?
 
-* 使用简单
+* 云端全局缓存
 
-* 完善的Redis API 文档
+* IP白名单机制
 
-* 一台外部Redis服务器可以给你N个空间使用，增加你的Redis服务器资源利用率（省钱、性价比高)
+* 秒杀活动记录库存
+
+* 其他涉及高并发的场景
+
+### 注意
+
+* 使用腾讯云node12和redis，务必仔细阅读此文档：[keepRunningAfterReturn](https://uniapp.dcloud.net.cn/uniCloud/cf-functions.html#keep-running)
 
 ### Q群：22466457 

@@ -15,7 +15,6 @@ module.exports = [
       { text: 'vk-uni-pay（统一支付）', link: 'https://ext.dcloud.net.cn/plugin?id=5642' },
       { text: 'vk-data-goods-sku-popup（sku组件）', link: 'https://ext.dcloud.net.cn/plugin?id=2848' },
       { text: 'vk-uview-ui（uView Vue3.0）', link: 'https://ext.dcloud.net.cn/plugin?id=6692' },
-      { text: 'vk-redis（Redis数据库模块）', link: 'https://ext.dcloud.net.cn/plugin?id=6158' },
       { text: 'vk-unicloud数据库一键搬家工具', link: 'https://ext.dcloud.net.cn/plugin?id=6089' },
       { text: 'vk-hbx插件（开发辅助工具）', link: 'https://ext.dcloud.net.cn/plugin?id=6663' },
       { text: 'vk-mail（邮件发送公共模块）', link: 'https://ext.dcloud.net.cn/plugin?id=7688' },

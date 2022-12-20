@@ -4,28 +4,16 @@
 
 - 调用示例
 
-推荐此方式：
-
 ```js
-const vk = require('vk-redis');
 const redis = vk.redis();
 ```
 
-- 默认情况下，redis会自动读取 `uni-config-center/vk-redis/config.json`下的配置 
-
-- 当然你也可以直接在获取redis对象时传配置参数，如：
+也可以通过 `uniCloud.redis()` 获得redis实例
 
 ```js
-const vk = require('vk-redis');
-const redis = vk.redis({
-  "port": 6379,
-  "host": "你的Redis外网访问地址",
-  "password": "用户名:密码",
-  "db": 0
-});
+const redis = uniCloud.redis();
 ```
 
-- 注意：如果在 `VK框架` 中，不用写 `const vk = require('vk-redis');` 这段代码。
 
 ## 字符串类型（String）
 
@@ -52,11 +40,16 @@ await redis.get(key);
 
 ```js
 await redis.set(key, value);
-await redis.set(key, value, duration); // duration可为小数,如 0.1代表100毫秒 10代表10秒
-// 常用的为上面2种形式，下面的为非常用方式。
 await redis.set(key, value, flag);
 await redis.set(key, value, mode, duration);
 await redis.set(key, value, mode, duration, flag);
+```
+
+```js
+await redis.set('key', 1)  // redis内存储为字符串"1"
+await redis.set('key', '1', 'NX')  // key不存在时设置为1
+await redis.set('key', '1', 'EX', 100)  // key 100秒后过期
+await redis.set('key', '1', 'EX', 100, 'NX')  // key不存在时设置为1，过期时间设置为100秒
 ```
 
 - 参数说明
