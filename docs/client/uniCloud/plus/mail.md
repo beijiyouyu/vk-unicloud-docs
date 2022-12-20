@@ -49,7 +49,16 @@
 ```
 
 ## 3、添加 vk-mail 公共模块依赖
+
 插件地址：[点击前往](https://ext.dcloud.net.cn/plugin?id=7688)
+
+成功导入后，还需要在你需要使用 `邮件发送功能` 的云函数上，如 `router` 上 `右键` `管理公共模块依赖或扩展库`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/cfbfd5fb-44e6-40e3-b1f0-a6b4e6d1c53c.png)
+
+然后打勾 `vk-mail` 模块。
+
+最后还需要重新上传公共模块 `vk-mail` 和云函数 `router`
 
 ## 4、发送邮箱验证码示例代码（router内版本）
 ```js
