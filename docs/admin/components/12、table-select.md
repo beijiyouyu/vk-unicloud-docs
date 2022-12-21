@@ -98,7 +98,7 @@ props 对象属性
 | total           | 总记录条数的键名           | String | total  | - |
 | pageIndex       | 查询时当前第几页的键名      | String | pageIndex  | - |
 | pageSize        | 查询时每页显示几条的键名    | String | pageSize  | - |
-| formData        | 查询表单的数据源的键名      | String | formData  | - |
+| formData        | 查询表单的数据源的键名（填/代表参数在根节点上）      | String | formData  | - |
 
 万能表单使用方式
 
