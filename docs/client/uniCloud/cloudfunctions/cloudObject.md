@@ -92,9 +92,9 @@ getClientInfo().source，返回云函数调用来源，它的值域为：
 |--			|--									|
 |client		|uni-app客户端导入云对象调用			|
 |function	|由其他云函数或云对象调用		|
-|http	|url化调用	（后面支持）	|
-|timing	| 定时器调用（后面支持）		|
-
+|http	|云对象URL化后通过http访问调用 `HBuilderX 3.5.2+`		|
+|timing	|定时任务调用云对象 `HBuilderX 3.5.2+`		|
+|server	|云函数上传并运行	|
 
 **注意事项**
 - source值是客户端提交的，理论上是可以被篡改的，因此不能单纯的通过if (source == 'function') 就无条件信任所有参数，该做的判断依然要做。
