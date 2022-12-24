@@ -85,34 +85,40 @@ module.exports = {
 	main: async (event) => {
 		let { data = {}, util } = event;
 		let { uniID, config } = util;
-		let { email, type } = data;
 		let res = { code: 0, msg: 'ok' };
 		// 业务逻辑开始----------------------------------------------------------- 
+    let { 
+      email,
+      type
+    } = data;
 		let code = vk.pubfn.random(6, "0123456789");
-		let param = {
-			code,
-			type,
-			email
-		};
+    
+    let serviceType = "qq";
+    let subject = "验证码";
+    
 		// 发送验证码开始
 		var emailConfig = config.vk.service.email;
 		let emailService = vkmail.createTransport({
-			"host": emailConfig[data.serviceType].host,
-			"port": emailConfig[data.serviceType].port,
-			"secure": emailConfig[data.serviceType].secure, // use SSL
-			"auth": emailConfig[data.serviceType].auth
+			"host": emailConfig[serviceType].host,
+			"port": emailConfig[serviceType].port,
+			"secure": emailConfig[serviceType].secure, // use SSL
+			"auth": emailConfig[serviceType].auth
 		});
 		try {
 			// 发送邮件
 			await emailService.sendMail({
-				"from": emailConfig[data.serviceType].auth.user,
-				"to": data.email,
-				"cc": emailConfig[data.serviceType].auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把邮件抄送给自己一份，就不会被当成垃圾邮件。
-				"subject": data.subject, // 邮件的标题
+				"from": emailConfig[serviceType].auth.user, // 邮件的发送者
+				"to": email, // 邮件的接收者
+				"cc": emailConfig[serviceType].auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把邮件抄送给自己一份，就不会被当成垃圾邮件。
+				"subject": subject, // 邮件的标题
 				"text": `您的验证码是${code},打死也不要告诉别人哦!`, // 邮件的内容
 			});
 			// 发送验证码成功后，设置验证码
-			await uniID.setVerifyCode(param);
+			await uniID.setVerifyCode({
+        code,
+        type,
+        email
+      });
 		} catch (err) {
 			console.error(err);
 			return { code: -1, msg: "邮件发送失败", err };
