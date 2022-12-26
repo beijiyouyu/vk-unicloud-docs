@@ -29,7 +29,6 @@
 | needSave          | 是否需要保存图片url到admin后台 | Boolean  | false | true  |
 | categoryId          | 当needSave=true时，文件保存的分类id（即vk-files-categories表的_id） | String  | - | -  |
 | httpRequest       | 覆盖默认的上传行为，可以自定义上传的实现（下方有详细说明） | function  | - | -  |
-| listType          | 文件列表的类型  | String  | picture-card | text/picture/picture-card |
 | buttonText        | 上传按钮的文本  | String  | 点击上传 | - |
 | 其他       | 其他参数请查看element Upload 上传组件 https://element.eleme.cn/#/zh-CN/component/upload | -  | - | -  |
 
