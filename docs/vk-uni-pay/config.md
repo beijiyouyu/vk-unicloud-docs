@@ -3,7 +3,7 @@
 * 1、打开 `cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建)
 * 复制下方代码到 `uni-pay/config.js`
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/720f095f-85ac-44b8-9aa2-9c69f90a48b8.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c209fb67-fe1a-4a7e-8e43-11cbffadb50c.png)
 
 **注意**
 
