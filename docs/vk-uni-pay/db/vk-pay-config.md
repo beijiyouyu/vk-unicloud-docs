@@ -57,7 +57,7 @@ ___该表为插件支付专用表，主要存放商户的支付配置___
         "h5_info": {
           "type": "Wap",
           "wap_url": "https://www.xxxxxx.com",
-          "wap_name": "网站名称",
+          "wap_name": "网站名称"
         }
       }
     }
