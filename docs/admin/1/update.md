@@ -23,6 +23,10 @@
 ```
 * 1、按上图进行操作
 * 2、更新完成后，在项目根目录重新执行下 `npm i`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c679978e-13e8-470f-9b69-877529608a5b.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/fd4c2a5f-95af-42da-a391-a8dcb02d7eef.png)
+
 * 3、重新上传公共模块和云函数（如果 `admin端` 是绑定的 `client端`，则去 `client端` 上传即可）（`client端` 也执行下更新 `uni_modules` 模块）
 * 4、重启hbx编译器
 
@@ -33,9 +37,12 @@
 
 * 2、修改 `package.json` 内的npm包版本(如果npm包有更新的话)
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/14a55ee2-f811-4619-8d53-19d3ec998566.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/8b84f42e-3ea8-4ed9-a009-42754b4fcd20.png)
 
 * 3、在项目根目录重新执行下 `npm i`(如果npm包有更新的话)
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c679978e-13e8-470f-9b69-877529608a5b.png)
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/fd4c2a5f-95af-42da-a391-a8dcb02d7eef.png)
 
 * 4、重新上传公共模块和云函数（如果 `admin端` 是绑定的 `client端`，则去 `client端` 上传即可）（`client端` 也执行下更新 `uni_modules` 模块）
 
