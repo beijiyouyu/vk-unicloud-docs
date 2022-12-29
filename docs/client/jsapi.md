@@ -192,27 +192,28 @@ vk.pubfn.getDateInfo(new Date());
  * 获取时间范围
  * @param {Date} date 日期对象 可以指定时间计算节点，默认使用当前时间进行计算
  * @param {Number} targetTimezone 时区 默认东8区 正数代表东 负数代表西
- * 返回的是时间戳(防止时区问题)
+ * 返回的是时间戳（防止时区问题）
  * 返回数据如下：
  {
-   todayStart     今日开始时间
-   todayEnd       今日结束时间
-   today12End     今日上午结束时间
-   monthStart     本月开始时间
-   monthEnd       本月结束时间
-   yearStart      本年开始时间
-   yearEnd        本年结束时间
-   weekStart      本周开始时间
-   weekEnd        本周结束时间
-   hourStart      当前小时开始时间
-   hourEnd        当前小时结束时间
-   yesterdayStart 昨天开始时间
-   yesterday12End 昨天上午结束时间
-   yesterdayEnd   昨天结束时间
-   lastMonthStart 上月开始时间
-   lastMonthEnd   上月结束时间
-   now            现在的时间点(含年、月、日、时、分、秒、毫秒、星期几、季度)
-   months         本年度每月的开始和结束时间 months[1] 代表1月
+ 	 todayStart     今日开始时间（时间戳）
+ 	 todayEnd       今日结束时间（时间戳）
+ 	 today12End     今日上午结束时间（时间戳）
+ 	 monthStart     本月开始时间（时间戳）
+ 	 monthEnd       本月结束时间（时间戳）
+ 	 yearStart      本年开始时间（时间戳）
+ 	 yearEnd        本年结束时间（时间戳）
+ 	 weekStart      本周开始时间（时间戳）
+ 	 weekEnd        本周结束时间（时间戳）
+ 	 hourStart      当前小时开始时间（时间戳）
+ 	 hourEnd        当前小时结束时间（时间戳）
+ 	 yesterdayStart 昨天开始时间（时间戳）
+ 	 yesterday12End 昨天上午结束时间（时间戳）
+ 	 yesterdayEnd   昨天结束时间（时间戳）
+ 	 lastMonthStart 上月开始时间（时间戳）
+ 	 lastMonthEnd   上月结束时间（时间戳）
+ 	 now        现在的时间点（含月年日时分秒）
+ 	 months     本年度每月的开始和结束时间 months[1] 代表1月
+ 	 days       本月每天的开始和结束时间 days[1] 代表1日
  }
  */
 vk.pubfn.getCommonTime(date, targetTimezone);
@@ -933,6 +934,20 @@ vk.pubfn.numStr(n);
 vk.pubfn.numStr(1523412); // 1百万
 ```
 
+
+### vk.pubfn.numStr（将大数字转中文）
+
+```js
+
+/**
+ * 将一个大数组拆分成N个小数组（分割数组）
+ * @param {Array} array 大数组
+ * @param {Number} size 小数组每组最大多少个
+ */
+vk.pubfn.splitArray(array, size);
+
+let newArray = vk.pubfn.splitArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 6);
+```
 
 ### vk.request（请求http接口）
 
