@@ -1,4 +1,4 @@
-# 2、万能连表 selects（连表、聚合、分组）
+# 万能连表 selects（连表、聚合、分组）
  
 ### 目录
 #### 1、[1张主表多张副表](#场景1)
@@ -13,12 +13,141 @@
 #### 10、[利用分组查询实现以指定字段去重复查询](#场景10)
 #### 11、[连表查询，使用数组下标对应的值进行连表（如连表查推荐人信息）](#场景11)
 
+### vk.baseDao.selects（万能连表查询）
+
+**接口名**
+
+`vk.baseDao.selects`
+
+云开发数据库连表查询最大支持查询500条数据，即pageSize最大值为500
+
+特别注意：此分页功能会随着 `pageIndex` 的值越大，效率越低（传统mysql也有此问题），pageIndex * pageSize 的值最好不要超过 400万（如每页显示10条，则建议最多让用户查看到第40万页）
+
+**调用示例**
+
+```js
+let res = await vk.baseDao.selects({
+  dbName:"",
+  getCount:false,
+  pageIndex:1,
+  pageSize:20,
+  // 主表where条件
+  whereJson:{
+    
+  },
+  // 主表字段显示规则
+  fieldJson:{},
+  // 主表排序规则
+  sortArr:[{ name:"_id", type:"desc" }],
+  // 副表列表
+  foreignDB:[
+    {
+      dbName:"副表表名",
+      localKey:"主表外键名",
+      foreignKey:"副表外键名",
+      as:"副表as字段",
+      limit:1
+    }
+  ]
+});
+```
+
+**参数说明**
+
+|    参数名   |   类型   | 必填 |    说明    |
+|------------|----------|------|-----------|
+|   dbName   |  String  |  是  |   主表表名    |
+|   whereJson |  Object  |  否  |   主表 where 条件  |
+|   pageIndex |  Number  |  否  |   第几页 默认 1  |
+|   pageSize |  Number  |  否  |   每页显示数量 默认 10  |
+|   getOne |  Boolean  |  否  |   是否只返回第一条数据。默认 false  |
+|   getMain |  Boolean  |  否  |   是否只返回rows数组。默认 false |
+|   getCount |  Boolean  |  否  |   是否返回满足条件的记录总数。默认 false |
+|   groupJson |  Object  |  否  |   主表分组规则（副表不支持分组） |
+|   sortArr |  Array  |  否  |   主表排序规则  |
+|   foreignDB |  Array  |  否  |   连表规则 [详情](#foreigndb-连表规则) |
+|   lastWhereJson |  Object  |  否  |   连表后的查询条件  |
+|   lastSortArr |  Array  |  否  |   连表后的排序条件  |
+|   fieldJson |  Object  |  否  |   字段显示规则  |
+|   addFields |  Object  |  否  |   添加自定义字段规则  |
+|   db   |  DB  |  否  |   指定数据库实例 const db = uniCloud.database(); |
+
+**返回值**
+
+|    参数名   |   类型   |     说明    |
+|------------|----------|-----------|
+|   rows   |  Array  |    数据列表    |
+|   total   |  Number  |    满足条件的记录总数（如果getCount为false，则total=rows.length  |
+|   hasMore   |  Boolean  |    分页参数，true 还有下一页 false 无下一页    |
+|   pagination   |  Object  |   当前分页的页码pageIndex和每页显示的大小pageSize    |
+
+### foreignDB（连表规则）
+
+foreignDB是一个数组，数组内每一个对象代表一个连表规则
+
+**代码示例**
+
+```js
+foreignDB:[
+  {
+    dbName:"副表表名",
+    localKey:"主表外键名",
+    foreignKey:"副表外键名",
+    as:"副表as字段",
+    limit:1, // limit=1则以对象形式返回
+  },
+  {
+    dbName:"副表表名",
+    localKey:"主表外键名",
+    foreignKey:"副表外键名",
+    as:"副表as字段",
+    limit:10, // limit>1则以数组形式返回
+  },
+  {
+    dbName:"副表表名",
+    localKey:"主表外键名",
+    foreignKey:"副表外键名",
+    as:"副表as字段",
+    limit:1,
+    // foreignDB能再嵌套foreignDB，等于副表的副表（因云数据库限制，最多可以嵌套15层）
+    foreignDB:[
+      {
+        dbName:"副表表名",
+        localKey:"主表外键名",
+        foreignKey:"副表外键名",
+        as:"副表as字段",
+        limit:1,
+      }
+    ]
+  }
+]
+```
+
+**foreignDB的参数说明**
+
+|    参数名   |   类型   | 必填 |    说明    |
+|------------|----------|------|-----------|
+|   dbName   |  String  |  是  |   副表表名  |
+|   localKey |  String  |  是  |   主表外键名 |
+|   foreignKey |  String  |  是  |   副表外键名 |
+|   as         |  String  |  是  |   副表连表结果的别名 |
+|   whereJson |  Object  |  否  |   副表 where 条件  |
+|   fieldJson |  Object  |  否  |   副表字段显示规则  |
+|   addFields |  Object  |  否  |   副表添加自定义字段规则  |
+|   sortArr |  Array  |  否  |   副表排序规则  |
+|   foreignDB |  Array  |  否  |   副表连表规则 |
+
 ### 场景1
 #### 1张主表多张副表
-##### 主表：uni-id-users （用户表）
-##### 副表：order （用户订单表）
-##### 副表：vip （会员卡表）
-##### 以下代码作用是：用一条聚合查询语句，查询前10个用户的信息，并查询他们的最新10个订单记录表，再查询他们的VIP信息
+
+主表：uni-id-users （用户表）
+
+副表：order （用户订单表）
+
+副表：vip （会员卡表）
+
+以下代码作用是：用一条聚合查询语句，查询前10个用户的信息，并查询他们的最新10个订单记录表，再查询他们的VIP信息
+
 ```js
 
 res = await vk.baseDao.selects({
@@ -66,10 +195,15 @@ res = await vk.baseDao.selects({
 ```
 ### 场景2
 #### 1张主表多张副表,同时副表也有多张副表
-##### 主表：opendb-mall-comments （评论表）
-##### 副表：uni-id-users （用户表）
-##### 副表的副表：opendb-mall-orders（用户订单表）
-##### 以下代码作用是：用一条聚合查询语句，查询前10个评论信息，并查询评论的发布者信息，再查询他们各自最新的3个订单信息
+
+主表：opendb-mall-comments （评论表）
+
+副表：uni-id-users （用户表）
+
+副表的副表：opendb-mall-orders（用户订单表）
+
+以下代码作用是：用一条聚合查询语句，查询前10个评论信息，并查询评论的发布者信息，再查询他们各自最新的3个订单信息
+
 ```js
 res = await vk.baseDao.selects({
   dbName:"opendb-mall-comments",
@@ -100,9 +234,13 @@ res = await vk.baseDao.selects({
 ```
 ### 场景3
 #### 需要查询同时满足主表和副表的条件，即副表不满足条件，则主表记录也不获取
-##### 主表：opendb-mall-comments （评论表）
-##### 副表：uni-id-users （用户表）
-##### 以下代码作用是：用一条聚合查询语句，查询前10条女性用户的评论信息
+
+主表：opendb-mall-comments （评论表）
+
+副表：uni-id-users （用户表）
+
+以下代码作用是：用一条聚合查询语句，查询前10条女性用户的评论信息
+
 ```js
 res = await vk.baseDao.selects({
   dbName:"opendb-mall-comments",
@@ -124,10 +262,15 @@ res = await vk.baseDao.selects({
 });
 ```
 ### 场景4
-#### 连表查询时需要按照离给定点从近到远输出（地理位置经纬度）。
-##### 主表：vk-test （地理位置测试表）
-##### 副表：uni-id-users （用户表）
-##### 以下代码作用是：用一条聚合查询语句，查询前10条离我最近的记录
+
+连表查询时需要按照离给定点从近到远输出（地理位置经纬度）。
+
+主表：vk-test （地理位置测试表）
+
+副表：uni-id-users （用户表）
+
+以下代码作用是：用一条聚合查询语句，查询前10条离我最近的记录
+
 ```js
 res = await vk.baseDao.selects({
   dbName: "vk-test",
@@ -167,9 +310,13 @@ res = await vk.baseDao.selects({
 ```
 ### 场景5
 #### 连表查询，主表外键是数组（id数组），查询出数组内的每个记录详情
-##### 主表：uni-id-users （用户表）
-##### 副表：uni-id-roles （角色表）
-##### 以下代码作用是：用一条聚合查询语句，查询前10个用户信息（同时带出角色列表roleList）
+
+主表：uni-id-users （用户表）
+
+副表：uni-id-roles （角色表）
+
+以下代码作用是：用一条聚合查询语句，查询前10个用户信息（同时带出角色列表roleList）
+
 ```js
 res = await vk.baseDao.selects({
   dbName: "uni-id-users",
@@ -194,9 +341,13 @@ res = await vk.baseDao.selects({
 
 ### 场景6
 #### 连表查询，副表外键是数组（只要数组内任意元素与主表外键匹配即可）
-##### 主表：uni-id-roles （角色表）
-##### 副表：uni-id-users （用户表）
-##### 以下代码作用是：用一条聚合查询语句，查询前10个角色信息（同时带出拥有该角色的用户列表）
+
+主表：uni-id-roles （角色表）
+
+副表：uni-id-users （用户表）
+
+以下代码作用是：用一条聚合查询语句，查询前10个角色信息（同时带出拥有该角色的用户列表）
+
 ```js
 res = await vk.baseDao.selects({
   dbName:"uni-id-roles",
@@ -224,9 +375,13 @@ res = await vk.baseDao.selects({
 
 ### 场景7
 #### 分组查询
-##### 主表：你的消费记录表或订单表
-##### 副表：uni-id-users （用户表）
-##### 以下代码作用是：用一条聚合查询语句，查询排行榜前10名用户消费金额和用户信息
+
+主表：你的消费记录表或订单表
+
+副表：uni-id-users （用户表）
+
+以下代码作用是：用一条聚合查询语句，查询排行榜前10名用户消费金额和用户信息
+
 ```js
 res = await vk.baseDao.selects({
   dbName: "你的消费记录表或订单表",
@@ -259,7 +414,9 @@ res = await vk.baseDao.selects({
 ```
 ### 场景8
 #### 分组统计带if
-##### 以下代码作用是：以班级分组，统计本期考试每个班级学生成绩中，数学成绩大于语文成绩的人数和物理成绩大于化学成绩的人数
+
+以下代码作用是：以班级分组，统计本期考试每个班级学生成绩中，数学成绩大于语文成绩的人数和物理成绩大于化学成绩的人数
+
 ```js
 res = await vk.baseDao.selects({
   dbName: "学生学科成绩表",
@@ -289,7 +446,9 @@ res = await vk.baseDao.selects({
 });
 ```
 ### 场景9
-#### 连表查询，并获取满足条件的第一条记录，以对象形式返回
+
+连表查询，并获取满足条件的第一条记录，以对象形式返回
+
 ```js
 let info = await vk.baseDao.selects({
   dbName: "用户表",
