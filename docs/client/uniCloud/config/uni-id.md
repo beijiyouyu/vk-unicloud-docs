@@ -76,6 +76,67 @@
 }
 ```
 
+## 修改passwordSecret
+
+> `注意：通常情况下设定好passwordSecret之后不需要再进行修改，使用此功能时请务必小心谨慎`
+
+**说明**
+
+在config.json内修改passwordSecret会导致历史用户无法通过密码登录。但是某些情况下有些应用有修改passwordSecret的需求，例如刚开始使用uni-id时没有自定义passwordSecret，现在想要自定义passwordSecret）
+
+**如何使用**
+
+下面以将passwordSecret从`passwordSecret-demo`修改为`qwertyasdfgh`为例介绍如何使用
+
+```json
+// 旧config.json
+{
+  "passwordSecret": "passwordSecret-demo"
+}
+
+// 新config.json
+{
+  "passwordSecret": [{
+    "version": 1,
+    "value": "passwordSecret-demo"
+  },{
+    "version": 2,
+    "value": "qwertyasdfgh"
+  }]
+}
+
+```
+
+如果在上面基础上再修改passwordSecret为`1q2w3e4r5t`,config.json调整如下
+
+> !!!注意只有在数据库内完全没有使用某个版本（`password_secret_version`字段表示了用户密钥版本）密钥的用户才可以将此密钥从config.json内去除。没有`password_secret_version`的用户使用的是最旧版本的passwordSecret，如果存在这样的用户对应的passwordSecret也不可去除。
+
+```json
+// 新config.json，
+{
+  "passwordSecret": [{
+    "version": 1,
+    "value": "passwordSecret-demo"
+  },{
+    "version": 2,
+    "value": "qwertyasdfgh"
+  },{
+    "version": 3,
+    "value": "1q2w3e4r5t"
+  }]
+}
+```
+
+**原理**
+
+uni-id-users表内存储的password字段为使用hmac-sha1生成的hash值，此值不可逆向推出用户真实密码。所以直接修改passwordSecret会导致老用户无法使用密码登录。
+
+上述修改通过密钥版本号区分新旧密钥，用户登录时如果密钥版本小于当前最新版本，会为用户更新数据库内存储的password字段，并记录当前使用的密钥版本。
+
+用户对应的数据库记录内没有密钥版本的话会使用最低版本密钥进行密码校验，校验通过后为用户更新为最新版密钥对应的password并记录版本号。
+
+由于是不可逆加密，理论上passwordSecret泄露不会造成用户的真实密码被泄露，自定义passwordSecret只是进一步加强安全性。
+
 ## 自定义token内容
 
 token内默认缓存了用户的角色权限。但是某些情况下开发者可能还希望缓存一些别的东西，以便在客户端能方便的访问（**注意：不可缓存机密信息到token内**）。
