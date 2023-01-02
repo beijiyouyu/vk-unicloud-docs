@@ -50,6 +50,13 @@ module.exports = {
     docsRepo: 'https://gitee.com/vk-uni/vk-unicloud-docs.git', // 文档源文件的仓库 URL 。
     docsBranch: 'master', // 文档源文件的仓库分支。
     docsDir: "docs", // 文档源文件存放在仓库中的目录名。
+    // algolia 全文搜索
+    // algolia: {
+    //   apiKey: 'b6683ab8120eeb1a89844ddf2831092d',
+    //   indexName: 'vk-doc',
+    //   appId: 'UKNABXMBX5',
+    //   searchParameters: { hitsPerPage: 50 }
+    // }
   },
   markdown: {
     lineNumbers: true, // 是否在每个代码块的左侧显示行号。
