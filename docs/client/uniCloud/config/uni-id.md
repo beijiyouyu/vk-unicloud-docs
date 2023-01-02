@@ -1,6 +1,11 @@
 # uni-id配置
-### 配置文件所在文件位置：`uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json`
-### 由于`uni-id`配置无法打注释，故下方为`uni-id`配置的介绍（实际使用需要去除所有注释）
+
+## 完整配置
+
+**配置文件所在文件位置：`uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json`**
+
+**由于`uni-id`配置无法打注释，故下方为`uni-id`配置的介绍（实际使用需要去除所有注释）**
+
 ```js
 {
   "passwordSecret": "passwordSecret-demo",// 加密密码所用的密钥，修改会导致所用户之前的密码失效。如一定要修改，请查看https://uniapp.dcloud.io/uniCloud/uni-id?id=modifysecret
@@ -70,3 +75,32 @@
   }
 }
 ```
+
+## 自定义token内容
+
+token内默认缓存了用户的角色权限。但是某些情况下开发者可能还希望缓存一些别的东西，以便在客户端能方便的访问（**注意：不可缓存机密信息到token内**）。
+
+**用法**
+
+创建文件：`uniCloud/cloudfunctions/common/uni-config-center/uni-id/custom-token.js` 内容如下：
+
+```js
+module.exports = async (tokenObj) => { 
+  // tokenObj为原始token信息结构如下
+  // {
+  //   uid: 'abc', // 用户id
+  //   role: [], // 用户角色列表
+  //   permission: [] // 用户权限列表，admin角色的用户权限列表为空数组
+  // }
+  
+  tokenObj.customField = 'hello custom token' // 自定义token字段
+  return tokenObj // 注意务必返回修改后的token对象
+}
+```
+
+uni-id会自动加载custom-token.js进行处理，在所有生成token的操作（包括：登录、注册、token过期自动刷新、开发者自行调用createToken）执行时自动获取新token信息，并生成token。
+
+**注意**
+
+- 使用custom-token时自行调用createToken接口会变为异步操作，需使用`await uniID.createToken(...)`
+- 千万不要删除原始token内的字段
