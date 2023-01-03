@@ -1,12 +1,5 @@
 # 群友问题集
 
-## vk-data-table、vk-data-form 框架里面这两个组件没有文档？
-
-[点击查看『vk-data-table』文档](https://vkdoc.fsq.pub/admin/2/table.html)
- 
-[点击查看『vk-data-form』文档](https://vkdoc.fsq.pub/admin/3/form.html)
-
-
 ## 数据库明明有数据，但用户登录提示用户不存在？
 
 * 1、先用admin账号登录后台，进入应用管理
