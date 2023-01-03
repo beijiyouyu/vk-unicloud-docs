@@ -579,6 +579,18 @@ form1:{
         { key:"b", title:"对象内属性b", type:"text" },
       ]
     },
+    // 多层嵌套object
+    { key:"object3", title:"对象类型3", type:"object", showLabel:true,
+      columns:[
+        { key:"a", title:"对象内属性a", type:"text" },
+        { key:"b", title:"嵌套对象b", type:"object", showLabel:true, 
+          columns:[
+            { key:"b1", title:"嵌套对象b内属性b1", type:"text" },
+            { key:"b2", title:"嵌套对象b内属性b2", type:"text" },
+          ]
+        },
+      ]
+    },
     // 特殊类型
     { key:"", title:"特殊类型", type:"bar-title" },
     { key:"editor", title:"富文本类型", type:"editor" },
