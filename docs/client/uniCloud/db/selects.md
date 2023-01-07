@@ -610,7 +610,7 @@ res = await vk.baseDao.selects({
 
 副表：uni-id-users （用户表）
 
-以下代码作用是：用一条聚合查询语句，查询前10条女性用户的评论信息，且优先展示新用户
+以下代码作用是：用一条聚合查询语句，查询前10条用户的评论信息，且优先展示新用户
 
 ```js
 res = await vk.baseDao.selects({
