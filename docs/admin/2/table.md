@@ -119,6 +119,26 @@ columns 是一个数组，数组内每个元素有以下属性
 ></vk-data-table>
 ```
 
+**注意**
+
+你填的 `name的值` 必须在 `columns` 的数组中存在对应的 `key`，即不可以对一个没有在 `columns` 内声明的字段进行排序。
+
+**推荐写法**
+
+```html
+<vk-data-table
+  :default-sort="{ name:'_add_time', type:'asc' }"
+></vk-data-table>
+```
+
+`columns` 中的 `key` 也要写 `_add_time`，同时加上属性 `sortable:"custom"`
+
+```js
+columns:[
+  { key:"_add_time", title:"添加时间", type:"time", width:160, sortable:"custom"  },
+],
+```
+
 ### right-btns（右侧固定按钮列表）
 
 **高效用法**
