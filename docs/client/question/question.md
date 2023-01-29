@@ -339,6 +339,10 @@ $.ajax({
 
 **vk核心库版本>=2.12.0**
 
+查看vk核心库版本的方法
+
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/cloudstorage/55e431c1-c89e-4922-8c04-5cb038240cec.png)
+
 ```js
 'use strict';
 // 引入 vk-unicloud
