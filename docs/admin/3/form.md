@@ -930,6 +930,236 @@ adopt(status){
 ></vk-data-form>
 ```
 
+## 弹窗表单独立组件形式（vk.pubfn.openForm）
+
+**介绍**
+
+如果把所有表单全写在一个vue页面内，会导致后期不方便维护，因此可以写成一个弹窗表单对应一个组件的形式。
+
+**打开弹窗API**
+
+```js
+vk.pubfn.openForm(name, value, this);
+
+vk.pubfn.openForm('bindRole',{ item:  }); // 来源页面 /pages_plugs/system/user/list
+```
+
+**参数**
+
+| 参数							| 说明																				| 类型		| 默认值							| 可选值|
+|------------------	|-----------------------											|---------|--------							|-------|
+| name							| 弹窗表单组件名															| String	|											|				|
+| value							| 传给表单的数据（格式为 { item: 当前行数据 }	| Object	|											|				|
+| this							| 页面或组件实例，在组件内调用时必传					| Object	|当前页面实例（this）	|				|
+
+**使用示例**
+
+以 `/pages_plugs/system/user/list` 用户管理页面为例，功能是点击弹出表单【绑定角色】
+
+- 1、新建一个表单组件，一般在该页面新建form目录，在form目录下创建弹窗表单组件，如 `bindRole`
+
+**bindRole.vue代码如下**
+
+```html
+<template>
+	<vk-data-dialog
+		v-model="value.show"
+		:title="page.title"
+		:top="page.top"
+		:width="page.width"
+		mode="form"
+		@open="onOpen"
+		@closed="onClose"
+	>
+		<!-- 页面主体内容开始 -->
+		<vk-data-form
+			ref="form1"
+			:form-type="value.mode"
+			v-loading="page.loading"
+			v-model="form1.data"
+			:rules="form1.props.rules"
+			:action="form1.props.action"
+			:columns="form1.props.columns"
+			:loading.sync="form1.props.loading"
+			:labelWidth="form1.props.labelWidth"
+			:show-cancel="page.showCancel"
+			:cancel-text="page.cancelText"
+			:submit-text="page.submitText"
+			@success="onFormSuccess"
+		>
+			<template v-slot:user_id>
+				<view style="display: flex;align-items: center;">
+					<el-avatar v-if="data.avatar" :src="data.avatar" fit="cover"></el-avatar>
+					<text style="margin-left: 10px;">{{ data.nickname }}（ID：{{ data._id }}）</text>
+				</view>
+			</template>
+		</vk-data-form>
+		<!-- 页面主体内容结束 -->
+	</vk-data-dialog>
+</template>
+
+<script>
+var that; // 当前页面对象
+var vk = uni.vk; // vk实例
+export default {
+	props: {
+		value: {
+			Type: Object,
+			default: function() {
+				return {
+					show: false,
+					mode: "",
+					item: ""
+				};
+			}
+		}
+	},
+	data: function() {
+		// 组件创建时,进行数据初始化
+		return {
+			// 页面基础数据
+			page: {
+				title: "角色绑定",
+				submitText: "绑定",
+				cancelText: "关闭",
+				showCancel: true,
+				top: "7vh",
+				width:"820px",
+				loading: false
+			},
+			data:{
+
+			},
+			form1: {
+				// 表单请求数据，此处可以设置默认值
+				data: {
+					user_id: "",
+					roleList: [],
+					reset: true
+				},
+				// 表单属性
+				props: {
+					// 表单请求地址
+					action: "admin/system/user/sys/bindRole",
+					// 表单字段显示规则
+					columns: [
+						{ key:"user_id", title:"用户", type:"text" },
+						{
+							key: "roleList", title: "角色列表", type: "table-select", placeholder:"选择角色",
+							action:"admin/system/role/sys/getList",
+							columns:[
+								{ key:"role_name", title:"角色昵称", type:"text", nameKey:true },
+								{ key:"role_id", title:"角色标识", type:"text", idKey:true },
+								{ key:"comment", title:"备注", type:"text" },
+							],
+							formData:{
+								enable:true
+							},
+							queryColumns:[
+								{ key: "role_name", title: "角色昵称", type: "text", width: 150, mode: "%%" },
+								{ key: "role_id", title: "角色标识", type: "text", width: 150, mode: "%%" },
+								{ key: "enable", type: "text", mode: "=", hidden:true }
+							],
+							multiple:true,
+							pageSize:10, // 只有5和10可以选
+						},
+					],
+					// 表单验证规则
+					rules: {
+						user_id: [
+							{ "required": true, "message": "user_id不能为空", "trigger": "change" }
+						]
+					},
+					// label宽度
+					labelWidth:"100px",
+					// label对其方式
+					labelPosition:"left",
+				}
+			}
+		};
+	},
+	mounted() {
+		that = this;
+		that.init();
+	},
+	methods: {
+		// 初始化
+		init() {
+			let { value } = that;
+			that.$emit("input", value);
+		},
+		// 监听 - 页面打开
+		onOpen() {
+			that = this;
+			let { value } = that;
+			let { role = [], _id } = value.item;
+			that.data = value.item;
+			that.form1.props.show = true;
+			that.form1.data.user_id = _id;
+			that.form1.data.roleList = role;
+		},
+		// 监听 - 页面关闭
+		onClose() {
+			that.$refs.form1.resetForm(); // 关闭时，重置表单
+		},
+		// 表单提交成功后
+		onFormSuccess() {
+			that.$set(that.value.item, "role", that.form1.data.roleList);
+			that.value.show = false; // 关闭页面
+			that.$emit("success");
+		}
+	},
+	// 监听属性
+	watch: {
+
+	},
+	// 计算属性
+	computed: {}
+};
+</script>
+
+<style lang="scss" scoped>
+
+</style>
+
+```
+
+- 2、list.vue的 `template` 新增以下代码
+
+```html
+<el-button type="primary" size="small" icon="el-icon-s-tools" @click="bindRoleBtn">角色绑定</el-button>
+
+<bindRole v-model="formDatas.bindRole"></bindRole>
+
+```
+
+- 3、list.vue的 `script` 新增以下代码
+
+```js
+import bindRole from './form/bindRole'
+
+export default {
+  components:{
+    bindRole,
+  },
+  data(){
+    return {
+      formDatas:{}, // 在此处定义下formDatas（无论该页面有几个弹窗表单，只需要定义这一个空对象即可）
+    }
+  },
+  methods:{
+    // 角色绑定按钮
+    bindRoleBtn(){
+    	let item = this.getCurrentRow(true);
+    	vk.pubfn.openForm('bindRole',{ item });
+    },
+  }
+}
+```
+
+- 4、完成，此时点击【角色绑定】按钮即可弹出表单【角色绑定】
+
+
 ## 表单可视化拖拽工具
 
 可直接生成 `vk框架代码` 和 `element` 原生代码 [点击体验](https://vkunicloud.fsq.pub/vk-form-visualizer/)
