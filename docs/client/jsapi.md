@@ -95,13 +95,68 @@ vk.pubfn.throttle(() => {
  * @param {Object} treeProps 树结构配置
  * { id:"_id", parent_id:"parent_id", children:"children",need_field:["_id","name"],deleteParentId:true }
  */
-vk.pubfn.arrayToTree(arrayData, treeProps);
-
-vk.pubfn.arrayToTree(arrayData,{
-  id:"_id", 
+let arrayData = [
+  { _id:"001", name:"手机" },
+  { _id:"002", name:"华为", parent_id: "001" },
+  { _id:"003", name:"荣耀", parent_id: "002" },
+  { _id:"004", name:"苹果", parent_id: "001" },
+  { _id:"005", name:"电脑" },
+  { _id:"006", name:"联想", parent_id: "005" },
+  { _id:"007", name:"小米", parent_id: "005" },
+];
+let treeProps = {
+  id:"_id",
   parent_id:"parent_id", 
   children:"children"
-});
+};
+
+let treeData = vk.pubfn.arrayToTree(arrayData, treeProps);
+```
+
+**返回的treeData**
+
+```json
+[
+  {
+    "_id": "001",
+    "name": "手机",
+    "children": [
+      {
+        "_id": "002",
+        "name": "华为",
+        "parent_id": "001",
+        "children": [
+          {
+            "_id": "003",
+            "name": "荣耀",
+            "parent_id": "002"
+          }
+        ]
+      },
+      {
+        "_id": "004",
+        "name": "苹果",
+        "parent_id": "001"
+      }
+    ]
+  },
+  {
+    "_id": "005",
+    "name": "电脑",
+    "children": [
+      {
+        "_id": "006",
+        "name": "联想",
+        "parent_id": "005"
+      },
+      {
+        "_id": "007",
+        "name": "小米",
+        "parent_id": "005"
+      }
+    ]
+  }
+]
 ```
 
 ### vk.pubfn.treeToArray（树转数组）
@@ -113,13 +168,67 @@ vk.pubfn.arrayToTree(arrayData,{
  * @param {Object} treeProps 树结构配置 
  * { id:"_id", parent_id:"parent_id", children:"children", deleteChildren:true }
  */
-vk.pubfn.treeToArray(treeData, treeProps);
-
-vk.pubfn.treeToArray(treeData,{
+let treeData = [
+  {
+    "_id": "001",
+    "name": "手机",
+    "children": [
+      {
+        "_id": "002",
+        "name": "华为",
+        "parent_id": "001",
+        "children": [
+          {
+            "_id": "003",
+            "name": "荣耀",
+            "parent_id": "002"
+          }
+        ]
+      },
+      {
+        "_id": "004",
+        "name": "苹果",
+        "parent_id": "001"
+      }
+    ]
+  },
+  {
+    "_id": "005",
+    "name": "电脑",
+    "children": [
+      {
+        "_id": "006",
+        "name": "联想",
+        "parent_id": "005"
+      },
+      {
+        "_id": "007",
+        "name": "小米",
+        "parent_id": "005"
+      }
+    ]
+  }
+];
+let treeProps = {
   id:"_id",
   parent_id:"parent_id",
   children:"children"
-});
+};
+let arrayData = vk.pubfn.treeToArray(treeData, treeProps);
+```
+
+**返回的arrayData**
+
+```json
+[
+  { _id:"001", name:"手机" },
+  { _id:"002", name:"华为", parent_id: "001" },
+  { _id:"003", name:"荣耀", parent_id: "002" },
+  { _id:"004", name:"苹果", parent_id: "001" },
+  { _id:"005", name:"电脑" },
+  { _id:"006", name:"联想", parent_id: "005" },
+  { _id:"007", name:"小米", parent_id: "005" },
+]
 ```
 
 ### vk.pubfn.sleep（进程强制等待，休眠）
