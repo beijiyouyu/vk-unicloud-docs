@@ -1043,7 +1043,6 @@ vk.pubfn.numStr(n);
 vk.pubfn.numStr(1523412); // 1百万
 ```
 
-
 ### vk.pubfn.numStr（将大数字转中文）
 
 ```js
@@ -1056,6 +1055,42 @@ vk.pubfn.numStr(1523412); // 1百万
 vk.pubfn.splitArray(array, size);
 
 let newArray = vk.pubfn.splitArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 6);
+```
+
+**返回的newArray**
+
+```json
+[
+  [1,2,3,4,5,6],
+  [7,8,9,10,11,12],
+  [13,14,15,16]
+]
+```
+
+### vk.pubfn.objectKeySort（对象属性排序）
+
+```js
+
+/**
+ * 将对象内的属性按照ASCII字符顺序进行排序，返回排序后的对象
+ * @param {Object} obj 需要排序对象
+ */
+vk.pubfn.objectKeySort(obj);
+
+let newObj = vk.pubfn.objectKeySort({
+  c:1,
+  a:2,
+  b:3
+});
+```
+
+**返回的newObj**
+```json
+{
+  "a": 2,
+  "b": 3,
+  "c": 1
+}
 ```
 
 ### vk.request（请求http接口）
