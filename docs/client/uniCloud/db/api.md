@@ -390,12 +390,21 @@ let info = await vk.baseDao.findByWhereJson({
 let res = await vk.baseDao.select({
   dbName:"vk-test", // 表名
   getCount:false, // 是否需要同时查询满足条件的记录总数量，默认false
-  getMain:false,// 是否只返回rows数据，默认false
+  getMain:false, // 是否只返回rows数据，默认false
   pageIndex:1, // 当前第几页
   pageSize:20, // 每页条数
   whereJson:{ // 条件
     money:_.gte(0)  // 金额大于0
-  }
+  },
+  // 代表只显示_id和money字段
+  fieldJson:{
+    _id: true,
+    money: true, 
+  },
+  // 按_id降序 asc 升序 desc 降序 
+  sortArr:[
+    { name:"_id", type:"desc" }
+  ],
 });
 ```
 
@@ -406,14 +415,14 @@ ___若 pageSize 设置成-1，则默认查全部数据，但由于云数据库�
 |    参数名   |   类型   | 必填 |    说明    |
 |------------|----------|------|-----------|
 |   dbName   |  String  |  是  |   表名    |
-|   whereJson |  Object  |  否  |   where 条件  |
+|   getCount |  Boolean  |  否  |   是否返回满足条件的记录总数。默认 false |
+|   getMain |  Boolean  |  否  |   是否只返回rows数组。默认 false |
+|   getOne |  Boolean  |  否  |   是否只返回第一条数据。默认 false  |
 |   pageIndex |  Number  |  否  |   第几页 默认 1  |
 |   pageSize |  Number  |  否  |   每页显示数量 默认 10  |
-|   getOne |  Boolean  |  否  |   是否只返回第一条数据。默认 false  |
-|   getMain |  Boolean  |  否  |   是否只返回rows数组。默认 false |
-|   getCount |  Boolean  |  否  |   是否返回满足条件的记录总数。默认 false |
-|   fieldJson |  Object  |  否  |   字段显示规则  |
-|   sortArr |  Array  |  否  |   排序规则  |
+|   whereJson |  Object  |  否  |   where 条件  |
+|   fieldJson |  Object  |  否  |   字段显示规则（见上方调用示例）   |
+|   sortArr |  Array  |  否  |   排序规则（见上方调用示例）  |
 |   db   |  DB  |  否  |   指定数据库实例 const db = uniCloud.database(); |
 
 **返回值**
