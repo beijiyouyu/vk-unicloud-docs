@@ -107,7 +107,7 @@ ___该表为插件支付专用表，主要存放商户的支付配置___
 * 微信的 `pfx` 的值是 `apiclient_cert.p12` 证书文件转 `base64` 后的值
 * 支付宝的 `alipayPublicCertContent` 的值是 `alipayCertPublicKey_RSA2.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
 * 支付宝的 `alipayRootCertContent` 的值是 `alipayRootCert.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
-* 支付宝的 `appCertPublicKeyContent` 的值是 `appCertPublicKey.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
+* 支付宝的 `appCertContent` 的值是 `appCertPublicKey.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
 
 **证书如何转base64**
 新建一个云函数，同时将微信p12证书复制到跟这个云函数同级目录，运行以下代码即可获得base64。
