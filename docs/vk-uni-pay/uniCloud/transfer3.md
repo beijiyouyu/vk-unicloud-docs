@@ -102,8 +102,8 @@ if (transferRes.code === 0) {
 
 
 #### 注意：
-* 新注册的微信商户号，转账接口的申请需要入驻满90天，且连续正常交易30天（刷单不算）
 
+* 新注册的微信商户号，转账接口的申请需要入驻满90天，且连续正常交易30天（刷单不算）
 
 #### 特别注意
 
@@ -117,10 +117,10 @@ if (transferRes.code === 0) {
     "transfer": {
       "appId": "",
       "mchId": "",
-      "apiV3key": "", // api v3密钥
-      "appCertSn":"", // 商家应用证书的序列号
-      "privateKey":"", // 商家私钥
-      "wxpayPublicCertSn":"", // 微信支付公钥证书的序列号
+      "v3Key": "", // api v3密钥
+      "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 商家应用证书
+      "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 商家私钥证书
+      "wxpayPublicCertSn": "", // 微信支付公钥证书的序列号
       "wxpayPublicCertContent": "", // 微信支付公钥内容
     },
   }
@@ -133,49 +133,19 @@ if (transferRes.code === 0) {
 
 * 2、mchId 微信支付商户id：去微信支付后台查看。
 
-* 3、apiV3key api v3的密钥：去微信支付后台查看。
+* 3、v3Key api v3的密钥：去微信支付后台查看。
 
-* 4、appCertSn 商家应用证书的序列号：可以直接在微信支付后台查看到证书的序列号
+* 4、appCertPath 商家应用证书（apiclient_cert.pem）的路径
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c87b06a2-64f2-4c6e-9bfd-2ceba8e3cd0d.png)
-
-* 5、privateKey 商家私钥：从 `apiclient_key.pem` 这个证书的内容复制过来即可。需保持一行。（下方有小技巧）
-
-* 6、wxpayPublicCertSn 微信支付公钥证书的序列号
-
-**方式一（推荐）**
+* 5、appPrivateKeyPath 商家私钥证书（apiclient_key.pem）的路径
 
 先把1-5的参数先填完，然后运行 `vk-uni-pay` 示例项目，将项目根目录 `使用帮助/7、vk-pay云函数示例代码/service/pay/getWxpayPublicCert.js` 文件复制到 `uniCloud/cloudfunctions/vk-pay/service/pay/` 目录中，然后启动项目，点击【获取微信支付v3平台证书】按钮，在浏览器控制台可看到证书信息。
 
-**方式二（需安装Jdk1.8）**
+* 6、wxpayPublicCertSn 微信支付公钥证书的序列号（运行插件示例项目后获取）
 
-下载[dependencies.jar](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-3fbab731-e993-47e6-882f-a74e444709a3/3af5267f-2b69-474d-88ef-9741ba766403.jar)
+* 7、wxpayPublicCertContent 微信支付公钥内容（运行插件示例项目后获取）
 
-将下载的 `dependencies.jar` 文件放在和微信支付证书所在目录，然后执行以下代码即可获取到序列号（必要安装软件：Jdk1.8以上，需要执行jar文件）
-
-[Jdk1.8安装教程-传送门](https://blog.csdn.net/qq_42393720/article/details/125070939)
-
-安装完Jdk且配置环境变量完成后，进入 `cmd` 命令，进入微信支付证书所在目录，运行下方java命令（注意将命令内的v3的密钥等替换成你自己的）
-
-```
-java -jar certificatedownloader-1.2.0-jar-with-dependencies.jar  -k v3的密钥 -m 商户号 -f apiclient_key.pem -s 证书序列号 -o ./
-
-```
-
-完整java命令如下：
-
-```
-java -jar certificatedownloader-1.2.0-jar-with-dependencies.jar  -k 92fc67db1ff923456d356f5a32087490 -m 1015875945 -f apiclient_key.pem -s 13232141BC5115C3FE6BAD2D857422346CECA44E -o ./
-
-```
-
-执行后，可以在当前目录看到 wechatpay_1C9FA130*****5EDE16ABBF8D5808 文件，  
-
-1C9FA130*****5EDE16ABBF8D5808 就是 `wxpayPublicCertSn`
-
-* 7、wxpayPublicCertContent 微信支付公钥内容
-
-而这个文件的内容就是 `wxpayPublicCertContent` 参数的值（需保持一行）（下方有小技巧）
+`wxpayPublicCertContent` 参数的值（需保持一行）（下方有小技巧）
 
 **秘钥文件内容转换为一行小技巧，高手可忽略**
 
@@ -223,5 +193,3 @@ java -jar certificatedownloader-1.2.0-jar-with-dependencies.jar  -k 92fc67db1ff9
 
 - 1、只支持微信支付V3版本，不支持微信支付V2版本
 - 2、转账前请保证微信支付商户号内有足够的余额（有些分运营账户和基本账户的，请充值到运营账户中，支出款项都由运营账户出资，下单收款都收到基本账户。）
-
-

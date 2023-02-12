@@ -60,11 +60,19 @@ ___该表为插件支付专用表，主要存放商户的支付配置___
           "wap_name": "网站名称"
         }
       }
+    },
+    "transfer": {
+      "appId": "",
+      "mchId": "",
+      "v3Key": "",
+      "appCertContent": "",
+      "appPrivateKeyContent": "",
+      "wxpayPublicCertSn": "",
+      "wxpayPublicCertContent": ""
     }
   },
   "alipay": {
     "mp-alipay": {
-      "mchId": "",
       "appId": "",
       "privateKey": "",
       "alipayPublicCertContent": "",
@@ -73,7 +81,6 @@ ___该表为插件支付专用表，主要存放商户的支付配置___
       "sandbox": false
     },
     "app-plus": {
-      "mchId": "",
       "appId": "",
       "privateKey": "",
       "alipayPublicCertContent": "",
@@ -83,7 +90,6 @@ ___该表为插件支付专用表，主要存放商户的支付配置___
     },
     "h5": {
       "appId": "",
-      "mchId": "",
       "privateKey": "",
       "alipayPublicCertContent": "",
       "alipayRootCertContent": "",
@@ -91,11 +97,11 @@ ___该表为插件支付专用表，主要存放商户的支付配置___
       "sandbox": false
     },
     "transfer": {
-      "mchId": "",
       "appId": "",
       "privateKey": "",
-      "appCertSn": "",
-      "alipayRootCertSn": "",
+      "alipayPublicCertContent": "",
+      "alipayRootCertContent": "",
+      "appCertContent": "",
       "sandbox": false
     }
   }

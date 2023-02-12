@@ -102,17 +102,16 @@ module.exports = {
     "transfer": {
       "appId": "",
       "mchId": "",
-      "apiV3key": "", // api v3密钥
-      "appCertSn":"", // 商家应用证书的序列号
-      "privateKey":"", // 商家私钥
-      "wxpayPublicCertSn":"", // 微信支付公钥证书的序列号
-      "wxpayPublicCertContent": "", // 微信支付公钥内容
-    }
+      "v3Key": "",
+      "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'),
+      "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'),
+      "wxpayPublicCertSn": "",
+      "wxpayPublicCertContent": "",
+    },
   },
   /**
    * 支付宝（证书记得选java版本）
    * 公共参数说明
-   * mchId                  支付宝商户id 2088开头的那个（此参数可以去除）
    * appId                  支付宝开放平台的应用appId
    * privateKey             应用私钥
    * alipayPublicCertPath   支付宝公钥证书路径地址  与之对应的 alipayPublicCertContent 为支付宝公钥证书内容（值可以是字符串也可以是Buffer）
@@ -123,7 +122,6 @@ module.exports = {
   "alipay": {
     // 支付宝 - 小程序支付配置
     "mp-alipay": {
-      "mchId": "",
       "appId": "",
       "privateKey": "",
       "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
@@ -133,7 +131,6 @@ module.exports = {
     },
     // 支付宝 - APP支付配置
     "app-plus": {
-      "mchId": "",
       "appId": "",
       "privateKey": "",
       "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
@@ -143,7 +140,6 @@ module.exports = {
     },
     // 支付宝 - H5支付配置（包含：网站二维码、手机H5，需申请支付宝当面付接口权限）
     "h5": {
-      "mchId": "",
       "appId": "",
       "privateKey": "",
       "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
@@ -151,13 +147,13 @@ module.exports = {
       "appCertPath": path.join(__dirname, 'alipay/appCertPublicKey.crt'),
       "sandbox": false
     },
-    // 支付宝 - 转账到支付宝等资金转出接口，其中 appCertSn 和 alipayRootCertSn 通过工具获取
+    // 支付宝 - 转账到支付宝等资金转出接口
     "transfer": {
-      "mchId": "",
       "appId": "",
       "privateKey": "",
-      "appCertSn": "", // 应用证书的序列号
-      "alipayRootCertSn": "", // 支付宝根证书的序列号
+      "alipayPublicCertPath": path.join(__dirname, 'alipay/alipayCertPublicKey_RSA2.crt'),
+      "alipayRootCertPath": path.join(__dirname, 'alipay/alipayRootCert.crt'),
+      "appCertPath": path.join(__dirname, 'alipay/appCertPublicKey.crt'),
       "sandbox": false
     }
   }
@@ -226,26 +222,18 @@ module.exports = {
 
 #### 注意一
 
-因支付宝转账接口需要用到参数 `appCertSn` 和 `alipayRootCertSn` 
-
-> [传送门-获取证书序列号在线工具](https://vkunicloud.fsq.pub/getCertSn/#/)
-
-__这么做是为了不导入第三方npm包（因为从证书中解析序列号需要导入额外一些npm包，增大代码体积）__
-
-#### 注意二
-
 * 支付宝H5网站扫码支付需签约 支付宝当面付（非PC网站支付）
 * 支付宝H5移动支付需签约 支付宝当面付（非移动网站支付）
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/4b40e4ab-b507-43a1-9fbb-1cc3364d67c7.png)
 
-#### 注意三
+#### 注意二
 
 * 每次修改了支付参数后，需要重新上传公共模块 `uni-config-center`
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/5bb008ac-3032-4374-88fa-1cd66e72984f.png)
 
-#### 注意四
+#### 注意三
 
 * 如果提示找不到 `xxx` 模块，如 `uni-id` 模块，则
 * 1、在 `uniCloud/cloudfunctions/common/vk-uni-pay` 目录右键选择 `管理公共模块依赖` 菜单，引入这2个模块 `uni-config-center`、 `uni-pay`
