@@ -124,3 +124,42 @@ let requestRes = await vk.openapi.weixin.h5.request({
 47.92.207.183
 8.142.185.204
 ```
+
+## 常见问题
+
+### 如何调用上传临时素材接口?
+
+上传素材接口与其他接口不一样，因为涉及到formData格式的参数
+
+**代码块**
+
+```js
+let {
+  base64, //前端通过vk.pubfn.fileToBase64将图片转为base64
+} = data;
+
+if (!base64) return { code:-1, msg:"base64不能为空" };
+
+let base64Str = "base64,";
+let base64Index = base64.indexOf(base64Str);
+if (base64Index > -1) base64 = base64.substring(base64Index + base64Str.length);
+let dataBuffer = new Buffer(base64, 'base64');
+
+let	formData = new vk.formDataUtil.FormData();
+formData.append('media', dataBuffer, {
+  filename: `${Date.now()}.png`,
+  contentType: 'image/png'
+});
+
+let type = "image";
+let requestRes = await vk.openapi.weixin.h5.request({
+  method: "POST",
+  url: `cgi-bin/media/upload?type=${type}`,
+  content: formData.getBuffer(),
+  headers: formData.getHeaders(),
+  useContent: false
+});
+
+console.log('requestRes: ', requestRes)
+
+```
