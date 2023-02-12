@@ -155,7 +155,7 @@ if (transferRes.code === 0) {
 
 **你也可以直接访问下面的链接快速转换并复制证书内容**
 
-[证书转换传送门](https://vkunicloud.fsq.pub/admin/?t=20220904#/pages_template/components/form/form-cert)
+[传送门 - 证书转换成一行](https://vkunicloud.fsq.pub/admin/?t=20220904#/pages_template/components/form/form-cert)
 
 ## 7.3、设置IP白名单
 
