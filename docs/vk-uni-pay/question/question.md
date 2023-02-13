@@ -145,12 +145,9 @@ ___你浏览器中访问的域名是什么，就加什么域名___
 
 将以下域名加入小程序 `request` 合法域名（为了省事，可以两个都加了）
 
-阿里云：https://api.next.bspapp.com;https://api.bspapp.com;
-	
-___这里阿里云可以把2个都加了 https://api.next.bspapp.com（正式商用版） https://api.bspapp.com（公测版）___
+阿里云：https://api.next.bspapp.com;
 
 腾讯云：https://tcb-api.tencentcloudapi.com;
-
 
 - 1、 进入小程序后台 `https://mp.weixin.qq.com/wxamp/devprofile/get_profile` [点击前往](https://mp.weixin.qq.com/wxamp/devprofile/get_profile)
 
