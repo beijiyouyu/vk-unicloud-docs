@@ -18,7 +18,7 @@
 
 #### 5、全面支持 `url化` 的云函数请求，您无需关心url化后参数的获取问题
 
-#### 6、已集成 `uni-id` 当前版本: `3.3.26`（已支持真实发送邮箱验证码和阿里云短信验证码）
+#### 6、已集成 `uni-id` 当前版本: `3.3.26`（已支持真实发送邮箱验证码和短信验证码）
 * 6.1、由于每个应用基本都会用上用户系统，官方建议所有 `uniCloud` 应用均使用 `uni-id` 作为用户体系，
 有了统一的账户规范，并且围绕这套账户规范，有各种各样插件，那么开发者可以随意整合这些插件，让数据连同。
 
@@ -59,7 +59,7 @@
 
 #### 22、其他好处…
 
-### 目前已集成的第三方API
+### 目前已集成的服务端API
 
 #### 1、微信小程序服务端API [传送门](https://vkdoc.fsq.pub/client/uniCloud/plus/weixin.html)
 
@@ -67,7 +67,7 @@
 
 #### 3、百度开放平台服务端API [传送门](https://vkdoc.fsq.pub/client/uniCloud/plus/baidu.html)
 
-#### 4、阿里云官方短信发送 [传送门](https://vkdoc.fsq.pub/client/uniCloud/plus/sms.html)
+#### 4、短信发送 [传送门](https://vkdoc.fsq.pub/client/uniCloud/plus/sms.html)
 
 #### 5、邮箱发送 [传送门](https://vkdoc.fsq.pub/client/uniCloud/plus/mail.html)
 

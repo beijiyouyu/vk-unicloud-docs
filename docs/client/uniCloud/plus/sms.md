@@ -1,12 +1,11 @@
 # 短信发送（聚合版）
  
-#### 支持 aliyun、unicloud
-#### 阿里云短信的实现不依赖阿里云SDK核心库，无需`npm install @alicloud/pop-core`，大大减少代码体积。
 ## 1、调用示例
+
 ```js
 /**
  * 发送短信(聚合版)
- * @param {String} provider   服务供应商 目前支持 aliyun、unicloud
+ * @param {String} provider   服务供应商
  * @param {String} smsKey     密钥ID，若不传，则自动从config公共模块中获取
  * @param {String} smsSecret  密钥密码，若不传，则自动从config公共模块中获取
  * @param {String} signName   短信签名，若不传，则自动从config公共模块中获取
@@ -14,15 +13,7 @@
  * @param {String} templateId 发送的短信模板ID
  * @param {object} data       短信模板内的参数数据
  */
-// 阿里云调用示例
-let sendSmsRes = await vk.system.smsUtil.sendSms({
-  provider: "aliyun",
-  phone: "15200000001",
-  templateId: "SMS_202470413",
-  data: {
-    code: "1234"
-  }
-});
+
 // unicloud调用示例
 let sendSmsRes = await vk.system.smsUtil.sendSms({
   provider: "unicloud",
@@ -36,10 +27,22 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
   }
 });
 
+// 阿里云调用示例
+let sendSmsRes = await vk.system.smsUtil.sendSms({
+  provider: "aliyun",
+  phone: "15200000001",
+  templateId: "SMS_202470413",
+  data: {
+    code: "1234"
+  }
+});
+
 ```
 
 ## 2、配置unicloud短信
+
 #### 定位到文件 `uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json` 的 `service.sms`
+
 ```js
 "sms": {
   "name": "重要",
@@ -48,21 +51,18 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
   "smsSecret": "你的smsSecret", // 短信密钥secret，开通短信服务处可以看到 https://dev.dcloud.net.cn/uniSms
   "templateId": "你的短信模板ID" // 发送验证码的短信模板ID
 },
-
-
 ```
 
 ## 3、配置阿里云短信
 
-___这里的阿里云短信指的是阿里云官方买的短信接口，非 unicloud短信接口___
-
 #### 定位到文件 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 的 `vk.service.sms`
+
 ```js
 // 短信服务
 "sms": {
   // 阿里云短信服务
   "aliyun": {
-    "enable": false,       // 是否使用阿里云短信代替unicloud短信发送短信验证码（此设置只影响user/pub/sendSmsCode接口的逻辑）
+    "enable": false,       // 是否启用阿里云短信
     "accessKeyId": "",     // 短信密钥key
     "accessKeySecret": "", // 短信密钥secret
     "signName": "",        // 默认签名
@@ -71,5 +71,4 @@ ___这里的阿里云短信指的是阿里云官方买的短信接口，非 unic
     }
   }
 },
-
 ```
