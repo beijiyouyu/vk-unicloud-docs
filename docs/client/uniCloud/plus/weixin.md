@@ -40,19 +40,16 @@ app-plus" APP（需要用到APP登录才需要配置）
 
 配置完需要上传 `uni-config-center` 这个公共模块
 
-## 1.1、授权相关API
+## 授权相关API
 
 ### 获取token 
 `vk.openapi.weixin.auth.getAccessToken` 
 ```js
 /**
  * (带缓存,缓存1小时) 获取小程序全局唯一后台接口调用凭据（access_token）。调用绝大多数后台接口时都需使用 access_token，开发者需要进行妥善保存。
- * @param {String} appid 小程序APPID,默认使用config公共模块中的config.uni["mp-weixin"].oauth.weixin.appid
- * @param {String} appsecret 小程序appsecret,默认使用config公共模块中的config.uni["mp-weixin"].oauth.weixin.appsecret
  * @param {String} cache 默认true 使用缓存
  */
 let access_token = await vk.openapi.weixin.auth.getAccessToken();
-
 ```
 
 ### code换取openid 
@@ -60,8 +57,6 @@ let access_token = await vk.openapi.weixin.auth.getAccessToken();
 ```js
 /**
  * 登录凭证校验。通过 wx.login 接口获得临时登录凭证 code 后传到开发者服务器调用此接口完成登录流程。
- * @param {String} appid 小程序APPID,默认使用config公共模块中的config.uni["mp-weixin"].oauth.weixin.appid
- * @param {String} appsecret 小程序appsecret,默认使用config公共模块中的config.uni["mp-weixin"].oauth.weixin.appsecret
  * @param {String} js_code 登录时获取的 code
  */
 let code2SessionRes = await vk.openapi.weixin.auth.code2Session({
@@ -73,7 +68,6 @@ let code2SessionRes = await vk.openapi.weixin.auth.code2Session({
 ```js
 /**
  * 获取微信绑定的手机号
- * @param {String} appId 小程序APPID,默认使用config公共模块中的config.uni["mp-weixin"].oauth.weixin.appid
  * @param {String} encryptedData 加密数据
  * @param {String} iv 密钥1
  * @param {String} sessionKey 密钥2
@@ -202,7 +196,7 @@ let generateRes = await vk.openapi.weixin.urllink.generate({
 });
 ```
 
-## 1.2、内容安全
+## 内容安全
 ### 检测文本是否违规
 `vk.openapi.weixin.security.msgSecCheck`
 ```js
@@ -230,7 +224,7 @@ let imgSecCheckRes = await vk.openapi.weixin.security.imgSecCheck({
   base64:base64
 });
 ```
-## 1.3、发送消息
+## 发送消息
 
 ### 发送订阅消息 
 `vk.openapi.weixin.subscribeMessage.send`
@@ -454,7 +448,7 @@ let sendRes = await vk.openapi.weixin.h5.templateMessage.send({
 | 45009  |   接口调用超过限额  |
 | 40013  |   不符合绑定关系要求   |
 
-## 1.4、直播
+## 直播
 
 ### 获取直播间列表 
 `vk.openapi.weixin.livebroadcast.getLiveInfo`
@@ -528,3 +522,18 @@ let requestRes = await vk.openapi.weixin.request({
 | msg           | 失败时的提示内容           | String | 
 
 其他返回参数参考微信小程序服务端API文档 [传送门](https://developers.weixin.qq.com/miniprogram/dev/api-backend/)
+
+
+## 多小程序调用
+
+以上所有API均支持多加2个参数 
+
+| 参数							| 说明																												| 类型		|
+|------------------	|----------------------------------------------------------		|---------|
+| appid							| 可不填，不填会自动从uni-id配置的mp-weixin节点里获取appid		| String	|
+| appsecret					| 可不填，不填会自动从uni-id配置的mp-weixin节点里获取appsecret| String	|
+
+1. 如果 `appid` 和 `appsecret` 均不填，则自动从uni-id配置的mp-weixin节点里获取appid
+2. 如果填了 `appid` 不填 `appsecret`，则 `appsecret` 会自动从这里找对应的值
+
+
