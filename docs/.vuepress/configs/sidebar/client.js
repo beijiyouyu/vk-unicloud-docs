@@ -46,7 +46,9 @@ module.exports = [{
     title: '后端（云函数）',
     collapsable: false,
     initialOpenGroupIndex: -1,
-    children: [{
+    children: [
+      'uniCloud/cloudfunctions/resformat',
+      {
         title: '云函数',
         collapsable: true,
         children: [
