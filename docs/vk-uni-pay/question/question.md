@@ -174,7 +174,7 @@ APP支付必须打自定义基座，包名和签名等必须和开放平台上�
 如： 
 ```json
 "notifyUrl": {
-   "a4f90532-ac60-4a43-81c1-a5c4s3fbs66": "https://a4f90532-ac60-4a43-81c1-a5c4s3fbs66.bspapp.com/http/vk-pay",
+  "mp-22d55e33-c2f3-22b4-55fc-7b33a6144e22": "https://fc-mp-22d55e33-c2f3-22b4-55fc-7b33a6144e22.next.bspapp.com/http/vk-pay",
 }
 ```
 
