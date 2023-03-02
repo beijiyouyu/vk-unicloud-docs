@@ -535,7 +535,7 @@ vk.userCenter.resetPasswordByMobile({
 
 **注意**
 
-* 对应发送短信验证码接口 `type` 为 `reset`
+* 对应发送短信验证码接口 `type` 为 `reset-pwd`
 
 ### vk.userCenter.loginByUniverify（手机一键登录）
 
@@ -738,6 +738,10 @@ vk.userCenter.resetPasswordByEmail({
   }
 });
 ```
+
+**注意**
+
+* 对应发送邮件验证码接口 `type` 为 `reset-pwd`
 
 ## 微信
 
