@@ -18,12 +18,13 @@ exports.main = async (event, context) => {
 };
 ```
 
-### 参数
+### 请求参数
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
 | out_trade_no  |   必填项，商户支付订单号，需自行保证全局唯一    | String  | -    | -  |
 | await_notify  |   是否需要等待异步通知执行完成后才返回给前端支付结果   | Boolean  | false  | true  |
+| await_max_time  |   最大等待时长，默认20秒（单位秒）   | Number  | 20  | 范围1-40  |
 | pay_order_info  |   是否需要返回支付订单信息  | Boolean  | false  | true  |
  
 ### await_notify
@@ -42,4 +43,15 @@ exports.main = async (event, context) => {
 
 但是如果你想让前端更快的获得结果（比如不管异步回调执行是否完成，前端都显示支付成功，则设置 `await_notify` 为 `false` 可以加快响应速度）
 
+
+### 返回参数
+
+|参数名							|类型		|说明																																													|
+|:-:								|:-:		|:-:																																													|
+|orderPaid					|boolean|标记用户是否已付款成功（此参数只能表示用户确实付款了，但系统的异步回调逻辑可能还未执行完成）	|
+|user_order_success	|boolean|用户异步通知逻辑是否全部执行完成，且无异常（建议前端通过此参数是否为true来判断是否支付成功）	|
+|out_trade_no				|string	|支付插件订单号																																								|
+|transaction_id			|string	|第三方支付交易单号（只有付款成功的才会返回）																									|
+|status							|int		|当前支付订单状态 -1：已关闭 0：未支付 1：已支付 2：已部分退款 3：已全额退款									|
+|payOrder						|object	|支付订单完整信息																																							|
 
