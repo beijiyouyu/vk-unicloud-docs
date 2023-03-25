@@ -39,9 +39,9 @@ ___作者：`VK`___
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/6c5262f5-2ed3-43da-95cf-dd558c86dfa8.png)
 
 ### 3、复制VK云函数路由框架内的云对象下的云函数路径
-需要先选中云对象内的某个函数名（双击函数名达到选中效果），再右键-VK-本地运行云函数
+需要先选中云对象内的某个函数名（双击函数名达到选中效果），再右键-VK-复制云函数（云对象）路径
 
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/e647fdbb-dedb-433e-b5c9-1f15b9349a1c.png)
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/cloudstorage/1be8a665-499e-4e00-864b-6604117ce336.png)
 
 ### 4、新建云函数
 在需要新建云函数的目录右键，点击VK-新建云函数
@@ -59,7 +59,7 @@ ___作者：`VK`___
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/066fed7d-11fe-4c72-91a3-a8a0e6390be8.png)
 
 ### 7、本地运行云函数
-右键云函数，点击VK-本地运行云函数
+右键云函数，点击VK-本地运行云函数1
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/f0e2ff43-8e54-45b3-bc93-3cd5f461f38f.png)
 
