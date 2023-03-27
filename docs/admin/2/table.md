@@ -1057,7 +1057,7 @@ columns:[
 
 ### lastWhereJson 参数的用处
 
-##### 如userInfo是连表字段的as的值，想要根据 userInfo.mobile 进行查询
+**如userInfo是连表字段的as的值，想要根据 userInfo.mobile 进行查询**
 
 ```js
 columns:[
@@ -1211,7 +1211,7 @@ vk.baseDao.getTableData({
 
 ### 自定义模式
 
-#### 自定义函数方法，如果想要自定义合计规则和样式，则需要使用summary-method属性进行自定义，代码如下
+**自定义函数方法，如果想要自定义合计规则和样式，则需要使用summary-method属性进行自定义，代码如下**
 
 ```html
 <vk-data-table
