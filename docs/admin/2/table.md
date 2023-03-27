@@ -2,9 +2,10 @@
 
 ## 组件名：vk-data-table
 
-#### 核心思想：通过 JSON 配置渲染规则
+**核心思想：通过 JSON 配置渲染规则**
 
 ## 基础用法
+
 ```html
 <vk-data-table :data="table1.data" :columns="table1.columns"></vk-data-table>
 ```
@@ -33,8 +34,6 @@ export default {
 ## 进阶用法
 
 请直接看示例文件 `/pages_template/components/table/table-easy`
-
-# API
 
 ## 属性
 
@@ -87,6 +86,7 @@ export default {
 | right-fixed     | 通用 - 操作按钮是否固定在右侧 |Boolean  | true | false |
 
 ### columns（字段列表）
+
 columns 是一个数组，数组内每个元素有以下属性
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
@@ -106,6 +106,7 @@ columns 是一个数组，数组内每个元素有以下属性
 | buttons  | 扩展按钮列表 [查看buttons](#buttons-字段扩展按钮列表)| Array | -  | -  |
 
 ### default-sort（默认排序）
+
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
 | name           | 需要排序的字段名            | String | -      | - |
@@ -196,6 +197,7 @@ data() {
 ```
 
 ##### right-btns数组内的可选值有
+
 | 可选值   | 说明                    |
 |----------|------------------------|
 | detail     | 点击后触发detail事件 |
@@ -205,6 +207,7 @@ data() {
 | more     | 与 rightBtnsMore 搭配使用|
 
 ### right-btns-more（更多按钮列表）
+
 right-btns-more（右侧更多按钮点击后显示的按钮列表）
 
 **效果图**
@@ -365,7 +368,8 @@ data() {
 
 
 ### http请求模式
-#### props 对象属性
+
+**props 对象属性**
 
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
@@ -375,7 +379,7 @@ data() {
 | pageSize        | 查询时每页显示几条的键名    | String | pageSize  | - |
 | formData        | 查询表单的数据源的键名      | String | formData  | - |
 
-#### 示例代码
+**示例代码**
 
 ```html
 <vk-data-table
@@ -418,7 +422,9 @@ export default {
 ```
 
 ### 展开行
+
 当行内容过多并且不想显示横向滚动条时，可以使用 Table 展开行功能。
+
 ```html
 <vk-data-table
   ref="table1"
@@ -434,6 +440,7 @@ export default {
 同时还可以通过插槽编写展开后的样式 [查看插槽](#展开行插槽)
 
 ### 表格自带的多选框禁用规则
+
 ```html
 <vk-data-table
   :selection="true"
@@ -500,6 +507,7 @@ show是一个字符串数组，columns 数组内每一个元素都可以单独�
 [返回展开行](#展开行)
 
 ### type（字段类型）
+
 ```js
 table1:{
   columns:[
@@ -692,6 +700,7 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
 ```
 
 ### filter（本地数据过滤器）
+
 ```js
 { key:"remark", title:"备注", type:"text", width:200,
   // 本地数据过滤器
@@ -767,6 +776,7 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
 ## 方法
 
 #### 通过 this.$refs.table1.xxx(); 方式调用
+
 | 方法名   | 说明                    |
 |----------|------------------------|
 | refresh     | 刷新 |
@@ -783,14 +793,14 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
 | setTableData | 手动给表格重新赋值数据 |
 | toggleRowSelection | 批量修改表格内的多选框选中状态 |
 
-
-
 ### showDetail（显示详情页）
+
 ```js
 that.$refs.table1.showDetail(item); // item是该条记录的数据源
 ```
 
 ### 删除指定的行（不删数据库数据）
+
 ```js
 that.$refs.table1.deleteRows({
   ids:["60acf6248a69dc00018d8520"],
@@ -799,7 +809,9 @@ that.$refs.table1.deleteRows({
   }
 });
 ```
+
 ### 更新指定的行数据（不更新据库数据）
+
 ```js
 that.$refs.table1.updateRows({
   mode:"update", // update 局部字段更新 set 覆盖字段更新
@@ -813,16 +825,21 @@ that.$refs.table1.updateRows({
 ```
 
 ### 导出表格显示的数据
+
 ```js
 that.$refs.table1.exportExcel();
 ```
+
 ### 导出表格显示的数据（不显示序号）
+
 ```js
 that.$refs.table1.exportExcel({
   showNo: false
 });
 ```
+
 ### 自定义导出表格数据
+
 ```js
 that.$refs.table1.exportExcel({
   fileName : "表格数据",
@@ -833,7 +850,9 @@ that.$refs.table1.exportExcel({
   ]
 });
 ```
+
 ### 导出满足表格查询条件的数据库内所有数据
+
 ```js
 that.$refs.table1.exportExcel({
   fileName: "表格全部数据",
@@ -842,7 +861,9 @@ that.$refs.table1.exportExcel({
   pageSize: -1, // 此值为-1，代表导出所有数据
 });
 ```
+
 ### 导出自定义数据
+
 ```js
 that.$refs.table1.exportExcel({
   fileName:"文件名称",
@@ -856,29 +877,39 @@ that.$refs.table1.exportExcel({
   ]
 });
 ```
+
 ### 获取当前选中的行的数据（原始数据）
+
 ```js
 let info = that.$refs.table1.getCurrentRow();
 console.log(info);
 ```
+
 ### 获取整个表格数据（原始数据）
+
 ```js
 let info = that.$refs.table1.getTableData();
 console.log(info);
 ```
+
 ### 获取整个表格数据（格式化后的数据）
+
 ```js
 let info = that.$refs.table1.getTableFormatterData();
 console.log(info);
 ```
+
 ### 获取整个表格数据（格式化后的数据,key为中文）
+
 ```js
 let info = that.$refs.table1.getTableFormatterData({
   key:"title"
 });
 console.log(info);
 ```
+
 ### 批量修改表格内的多选框选中状态
+
 ```js
 let arr = [];
 let uTreeData = that.$refs.table1.getUTreeData(); // 这一步很重要，row只接收 uTreeData 内的元素
@@ -893,10 +924,12 @@ arr.push({
 that.$refs.table1.toggleRowSelection(arr);
 ```
 
-        
 ## 插槽
+
 #### columns中的每一个key都是插槽的名称
+
 #### 如重写`gender`字段的渲染
+
 * 注意: 只需要把下方`<template></template>`标签和标签内的代码复制到你页面上的`<vk-data-table></vk-data-table>`标签内即可
 
 ```html
@@ -911,6 +944,7 @@ that.$refs.table1.toggleRowSelection(arr);
 ```
 
 #### 展开行插槽
+
 ```html
 <vk-data-table>
 
@@ -925,7 +959,6 @@ that.$refs.table1.toggleRowSelection(arr);
 [返回展开行](#展开行)
 
 ## 万能表格搜索组件 
-
 
 ```html
 <!-- 表格搜索组件开始 -->
@@ -945,8 +978,8 @@ that.$refs.table1.toggleRowSelection(arr);
 <!-- 表格组件结束 -->
 ```
 
-
 #### 折叠抽屉弹窗模式
+
 ```html
 <vk-data-table-query
   ref="tableQuery1"
@@ -972,7 +1005,6 @@ queryForm1:{
 
 ```
 
-
 ### 组件属性
 
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
@@ -986,6 +1018,7 @@ queryForm1:{
 | senior-search-text            | 高级搜索按钮的文本 | String  | 高级搜索 | -  |
 
 ### columns
+
 queryForm1.columns 参数说明
 columns属性的写法与万能表单相似(但部分表单组件搜索不支持)
 
@@ -1005,9 +1038,10 @@ columns属性的写法与万能表单相似(但部分表单组件搜索不支持
 | hidden   |  是否隐藏该字段（规则依然生效，但不在页面中渲染此组件） | Boolean  | false | true  |
 | show     | 显示规则,page代表显示在页面上，drawer代表显示在高级搜索中 | Array  | ["page"] |  ["page","drawer"] |
 
-
 ### fieldName 参数的用处
+
 ##### 如余额按金额范围查询
+
 ```js
 columns:[
   { 
@@ -1020,8 +1054,11 @@ columns:[
   }
 ]
 ```
+
 ### lastWhereJson 参数的用处
+
 ##### 如userInfo是连表字段的as的值，想要根据 userInfo.mobile 进行查询
+
 ```js
 columns:[
   { 
@@ -1032,7 +1069,9 @@ columns:[
 ```
 
 ### mode
+
 #### queryForm1.columns 中 mode 参数详情
+
 | 值         | 说明              
 |------------|-------------------|
 | =          | 完全匹配 |
@@ -1052,6 +1091,7 @@ columns:[
 | ()          | 范围 arr[0] <  x <  arr[1] |
 
 ### 特殊说明
+
 当 value 为以下值时，会有特殊效果。
 
 | value值         | 说明              
@@ -1088,6 +1128,7 @@ ___tips: 左右各 3 个下划线____
 | sortRule         | 排序规则 | Array  | - | -  |
 
 ### 云函数代码示例
+
 ```js
 // 通常data是前端传过来的数据
 let data = {
@@ -1151,9 +1192,10 @@ vk.baseDao.getTableData({
 }
 ```
 
-
 ## 万能表格合计列的示例
+
 ### 简单模式
+
 ```html
 <vk-data-table
   ...其他属性
@@ -1164,9 +1206,13 @@ vk.baseDao.getTableData({
   ]"
 ></vk-data-table>
 ```
+
 #### summary-method
+
 ### 自定义模式
+
 #### 自定义函数方法，如果想要自定义合计规则和样式，则需要使用summary-method属性进行自定义，代码如下
+
 ```html
 <vk-data-table
   ...其他属性
