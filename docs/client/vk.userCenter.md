@@ -59,7 +59,7 @@ loading:{ that:this, name:"page.loading"}
 ```js
 onLaunch: function() {
   // 监听token的更新
-  vk.onRefreshToken((data)=>{
+  uni.vk.onRefreshToken((data)=>{
     if (data.token) {
       // 有新的token
       console.log('token更新监听：', data);
@@ -135,7 +135,6 @@ export default {
   }
 }
 ```
-
 
 ## 通用
 
