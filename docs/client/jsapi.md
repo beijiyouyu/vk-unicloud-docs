@@ -26,9 +26,9 @@ export default {
 }
 ```
 
-**支付宝小程序特别注意**
+**支付宝、百度 小程序特别注意**
 
-在 `js` 中需用 `uni.vk` 代替 `vk`。
+在 `js` 中需用 `uni.vk` 代替 `vk`，或者在页面 `<script>` 标签第一行增加代码 `var vk = uni.vk`
 
 ## 前后端通用
 ### vk.pubfn.debounce（防抖函数）
