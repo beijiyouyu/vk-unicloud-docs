@@ -10,7 +10,7 @@
 
 在 `js` 中需用 `uni.vk` 代替 `vk`，或者在页面 `<script>` 标签第一行增加代码 `var vk = uni.vk;`
 
-```html
+```vue
 <script>
 	var vk = uni.vk;
 	export default {
