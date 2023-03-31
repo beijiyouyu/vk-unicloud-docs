@@ -1,11 +1,14 @@
 # JS API文档大全
 
-`vk.pubfn.` 不仅可以在 `js` 中使用，也可以直接在 `template` 模板中使用（在template中也可以用简写法$fn代替vk.pubfn）。如
+`vk.pubfn.` 不仅可以在 `js` 中使用，也可以直接在 `template` 模板中使用（在 `template` 中也可以用简写法 `$fn` 代替 `vk.pubfn`）。如
 
 **以下两种写法都可用**
-```html
-<view>{{ vk.pubfn.hidden("15200000001", 3, 4) }}</view>
-<view>{{ $fn.hidden("15200000001", 3, 4) }}</view>
+
+```vue
+<template>
+  <view>{{ vk.pubfn.hidden("15200000001", 3, 4) }}</view>
+  <view>{{ $fn.hidden("15200000001", 3, 4) }}</view>
+</template>
 ```
 
 **NVUE特别注意**
