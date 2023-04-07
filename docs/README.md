@@ -3,7 +3,7 @@ home: true
 pageClass: main-home
 heroImage: /image/logo.png
 heroText: vk-unicloud 快速开发框架
-tagline: 无需转变开发习惯，0成本上手云开发。
+tagline: 无需转变开发习惯，零成本上手云开发。
 actionText: 快速上手 →
 actionLink: /client/
 features:

@@ -1,41 +1,37 @@
 # vk.userCenter 用户中心 API
 
-**仅限前端使用，云函数中无法使用**
+**该 API 仅适用于前端使用，无法在云函数中使用。**
 
-**NVUE特别注意**
+**注意事项**
 
-如果你的页面是 `nvue` 页面，则无法直接使用 `vk`，需用 `uni.vk` 代替。
-
-**支付宝、百度 小程序特别注意**
-
-在 `js` 中需用 `uni.vk` 代替 `vk`，或者在页面 `<script>` 标签第一行增加代码 `var vk = uni.vk;`
+* 对于 `nvue` 页面、`支付宝小程序`、`百度小程序`，需要在 `js` 中使用 `uni.vk` 替代 `vk`，或者在页面 `<script>` 标签的第一行增加代码 `var vk = uni.vk;`
 
 ```vue
 <script>
-	var vk = uni.vk;
-	export default {
-		data() {
-			// 页面数据变量
-			return {
-				
-			}
-		},
-		...其他代码
-	}
+  var vk = uni.vk;
+  export default {
+    data() {
+      // 页面数据变量
+      return {
+
+      }
+    },
+    // 其他代码
+  }
 </script>
 ```
 
 ## 公共请求参数
 
-| 参数   | 说明       | 类型    | 
-|------- |-----------|---------|
-| data    |  发送到云函数的参数数据  | Object  |
-| title    |  遮罩层提示语，为空或不传则代表不显示遮罩层。   | String  |
-| loading    |  自定义loading [查看详情](#loading) | Boolean、Object  |
-| needAlert     | 为true代表请求错误时，会有alert弹窗提示 | Boolean  | true | false |
-| success       | 请求成功时，执行的回调函数 | Function  | - | - |
-| fail          | 请求失败时，执行的回调函数 | Function  | - | - |
-| complete      | 无论请求成功与否，都会执行的回调函数 | Function  | - | - |
+|参数			|说明																				|类型						|
+|:-:			|:-:																				|:-:						|
+|data			|发送到云函数的参数数据											|Object					|
+|title		|遮罩层提示语，为空或不传则代表不显示遮罩层	|String					|
+|loading	|自定义loading [查看详情](#loading)					|Boolean、Object|
+|needAlert|请求错误时是否弹窗提示，默认true											|Boolean				|
+|success	|请求成功时的回调函数												|Function				|
+|fail			|请求失败时的回调函数												|Function				|
+|complete	|请求完成时的回调函数												|Function				|
 
 ### loading
 
@@ -51,7 +47,7 @@ loading 参数详细说明
 loading:{ that:this, name:"loading2"}
 ```
 
-* name 支持. 如下方代码效果是：请求时，会自动执行 `this.page.loading=true` ，请求完成时，会自动执行 `this.page.loading=false`
+* name 属性支持使用 `.` 表示嵌套变量，如下方代码效果是：请求时，会自动执行 `this.page.loading=true` ，请求完成时，会自动执行 `this.page.loading=false`
 
 ```js
 loading:{ that:this, name:"page.loading"}
@@ -155,7 +151,7 @@ export default {
 
 ### vk.userCenter.register（注册）
 
-用户名+密码
+通过用户名+密码方式进行注册，注册成功则自动登录。
 
 ___框架会自动保存 `token`，无需你再手动去保存。___
 
@@ -164,14 +160,17 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 ```js
 /**
  * 用户注册(用户名+密码)
- * data 请求参数 说明
- * @param {String} username 用户名
- * @param {String} password 密码
- * res 返回参数说明
- * @param {String} token 注册完成自动登录之后返回的token信息
- * @param {String} tokenExpired token过期时间
- * @param {Object} userInfo 用户信息
- * @param {String} uid 用户ID
+ * @param {Object} data 请求参数 
+ * @param {String} data.username 用户名
+ * @param {String} data.password 密码
+ * @param {Function} success 成功回调函数，参数为请求成功后的数据
+ * @param {Function} fail 失败回调函数，参数为请求失败后的错误信息
+ * @param {Function} complete 无论请求成功与否，都会执行的回调函数
+ * @returns 返回参数说明
+ * @returns {String} token 注册完成自动登录之后返回的token信息
+ * @returns {String} tokenExpired token过期时间
+ * @returns {Object} userInfo 用户信息
+ * @returns {String} uid 用户ID
  */
 vk.userCenter.register({
   data: {
@@ -184,6 +183,7 @@ vk.userCenter.register({
   }
 });
 ```
+
 
 ### vk.userCenter.login（登录）
 
@@ -1293,20 +1293,20 @@ vk.userCenter.getInvitedUser({
 
 ### token介绍
 
-以下仅为介绍 `token`，实际开发过程中，即使你不了解 `token` 的实现逻辑，也不影响你开发项目（框架已经处理完token的逻辑）。
+以下仅为介绍 `token`，实际开发过程中，即使你不了解 `token` 的实现逻辑，也不影响你开发项目（框架已经处理完 `token` 的逻辑）。
 
-* 云函数通过 `token` 作为识别用户的令牌
+* `token` 是云函数用来识别用户身份的令牌。
 
-* 当用户登录成功后，云函数会返回 `token` 给前端，前端会自动将 `token` 保存到本地缓存。
+* 用户登录成功后，云函数会返回 `token` 给前端，前端会自动将 `token` 保存到本地缓存。
 
-* 在客户端，`token的值` 存在 `localStorage` 的 `uni_id_token` 键值中，`token的过期时间` 存在 `uni_id_token_expired` 键值中。
+* 在客户端，`token` 的值存在 `localStorage` 的 `uni_id_token` 键值中，`token` 的过期时间存在 `uni_id_token_expired` 键值中。
 
-* 在云函数端，`token` 存在 `uni-id-users` 表的 `token` 字段中，云函数端解密 `token` 可以获得 `用户ID` 和 `过期时间`
+* 在云函数端，`token` 存在 `uni-id-users` 表的 `token` 字段中，云函数端解密 `token` 可以获得用户ID和过期时间
 
-* 当你访问需要登录的函数时，框架会自动检测token是否有效，有效则放行，无效则拦截。（无需你手动传token和验证token）
+* 当你访问需要登录的云函数时，框架会自动检测 `token` 是否有效，有效则放行，无效则拦截，无需手动传递和验证 `token`
 
-* `uni-id配置` 中的 `tokenExpiresIn` 参数，代表产生 `新token` 时，该 `token` 的有效期，单位为秒
+* `uni-id` 配置中， `tokenExpiresIn` 参数代表新生成的 `token` 有效期，单位为秒
 
-* 当你在 `uni-id配置` 中设置了 `tokenExpiresThreshold` 时，`token` 在满足条件的情况下，会自动续期，前端也会自动更新 `token` 到本地缓存
+* `uni-id` 配置中，`tokenExpiresThreshold` 参数代表 `token` 在满足条件的情况下会自动续期，前端也会自动更新 `token` 到本地缓存。
 
-* 当你在 `uni-id配置` 中设置了 `tokenMaxLimit`（单一用户最大token数量） 时，当该用户 `token` 数量达到此值时，会直接淘汰旧的 `token`（即使未过期也会淘汰）
+* `uni-id` 配置中，`tokenMaxLimit` 参数代表单一用户最大 `token` 数量。当该用户 `token` 数量达到此值时，会淘汰旧的 `token`，即使未过期也会淘汰。
