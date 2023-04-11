@@ -767,7 +767,7 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 
 注意：
 
-微信小程序登录配置
+**微信小程序登录配置**
 
 * 配置 `common/uni-config-center/uni-id/config.json` 内 `mp-weixin` 的 `appid` 和 `appsecret`
 
@@ -777,7 +777,7 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/3f52a650-759d-4c21-a526-7041d4bcbca7.png)
 
-APP登录配置
+**APP登录配置**
 
 * 在 `manifest.json` 的APP模块配置微信登录用 `appid`
 
@@ -788,7 +788,7 @@ APP登录配置
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/9464eee0-cfd8-4517-acbd-dfa07763aef0.png)
 
-微信公众号H5登录配置
+**微信公众号H5登录配置**
 
 * 配置 `common/uni-config-center/uni-id/config.json` 内 `h5-weixin` 的 `appid` 和 `appsecret`
 
@@ -800,6 +800,8 @@ APP登录配置
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c3b343cd-0058-46db-86f4-64ae46fdf2fb.png)
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0a79aeb8-33d6-4c7e-bc08-f0aa7d7ab4fd.png)
+
+**注意3：网页授权时拼接的scope参数的值必须是snsapi_userinfo，同时再绑定开放平台，才能获取到unionid**
 
 注意：自 2.11.0（2022-08-22）版本起，不再返回 sessionKey 和 accessToken 取而代之的是返回 `encryptedKey`（加密后的数据，云函数解密后可获得 `sessionKey`）
  
