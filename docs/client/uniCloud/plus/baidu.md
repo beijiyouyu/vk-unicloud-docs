@@ -87,6 +87,12 @@ vk.openapi.baidu.request({
 
 * 1、有token泄露风险，但此token并不会造成多大的危害。
 
+**如果是小程序，需要将以下域名加入到小程序的request域名白名单（去小程序后台加）**
+
+```
+https://aip.baidubce.com
+```
+
 **以下是前端使用的更快捷的API形式**
 
 ```js
@@ -125,5 +131,6 @@ vk.openapi.baidu.open.ocr.idcard({
   },
 });
 ```
+
 
 
