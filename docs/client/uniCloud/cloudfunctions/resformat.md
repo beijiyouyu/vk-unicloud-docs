@@ -38,3 +38,17 @@
   }
 }
 ```
+
+### 自动更新前端token
+
+当 `vk_uni_token` 有值，且满足以下格式时，自动更新前端token
+ 
+```json
+{
+  "code": 0,
+  "vk_uni_token": {
+    "token":"xxxxxx", // token的值
+    "tokenExpired": 1681818627000, // token的过期时间（时间戳）
+  }
+}
+```
