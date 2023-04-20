@@ -113,53 +113,54 @@ export default {
 
 ## 属性
 
-| 参数             | 说明                   | 类型    | 默认值  | 可选值 |
-|------------------|-----------------------|---------|--------|-------|
-| v-model           | 表单数据源            | Object | {}      | - |
-| rules       | 表单验证规则 [查看规则](#rules-表单验证)| Object  | 无 | -  |
-| action   | vk框架云函数地址(表单提交地址：表单点击确定按钮后请求的云函数地址) | String  | 无 | -  |
-| before-action   | action请求前拦截器 [查看示例代码](#before-action-请求前拦截) | Function  | 无 | -  |
-| is-request    | 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
-| form-type       | 表单类型，用于复用表单 [查看表单复用](#show-复用时的显示规则) | String  | 无 | -  |
-| columns          | 通用 - 字段规则 [查看columns](#columns-字段渲染规则) | Array  | [] | - |
-| loading           | 表单是否在请求中 | Boolean  | false | true  |
-| label-width        | 左侧label宽度 | String,Number  | "80px" | -  |
-| width     | 表单宽度 | Number,String  | 无 | - |
-| footer-show          | 底部按钮是否显示 | Boolean  | true | false  |
-| footer-center          | 底部按钮是否居中 | Boolean  | true | false |
-| show-cancel          | 是否显示取消按钮 | Boolean  | true | false |
-| cancel-text     | 取消按钮的文字 | String  | 关 闭 | - |
-| submit-text       | 确定按钮的文字 | String  | 确 定 | - |
-| submit-disabled      | 确定按钮是否禁用 | Boolean  | false | true |
-| auto-close      | 表单请求成功后自动关闭 | Boolean  | true | false |
-| auto-reset      | 自动重置表单 | String  | Boolean  | true | false |
-| label-position      | 对齐方式 | String  | right | right left top |
-| max-height      | 表单最大高度 | String  | 无 | - |
-| size      | 表单内组件的size | String  | 无 | - |
-| label-suffix      | label的后缀 | String  | 无 | - |
-| disabled      | 禁用表单 | Boolean  | false | true |
-| clearable      | 表单内的组件有清空效果 | Boolean  | true | false |
-| success-msg      | 表单提交成功后右上角的提示 | String  | 操作成功！ | - |
-| inline      | 是否设置整个表单为横向表单 | Boolean  | false | true |
-| columns-number      | 横向表单每行显示数量 | Number  | 2 | - |
+| 参数							| 说明																															| 类型					| 默认值		| 可选值				|
+|------------------	|-----------------------																						|---------			|--------		|-------				|
+| v-model						| 表单数据源																												| Object				| {}				| -							|
+| rules							| 表单验证规则 [查看规则](#rules-表单验证)													| Object				| 无				| -							|
+| action						| vk框架云函数地址(表单提交地址：表单点击确定按钮后请求的云函数地址)| String				| 无				| -							|
+| before-action			| action请求前拦截器 [查看示例代码](#before-action-请求前拦截)			| Function			| 无				| -							|
+| is-request				| 是否是http请求模式 [查看http请求模式](#http请求模式)							| Boolean				| false			| true					|
+| form-type					| 表单类型，用于复用表单 [查看表单复用](#show-复用时的显示规则)			| String				| 无				| -							|
+| columns						| 通用 - 字段规则 [查看columns](#columns-字段渲染规则)							| Array					| []				| -							|
+| loading						| 表单是否在请求中																									| Boolean				| false			| true					|
+| label-width				| 左侧label宽度																											| String,Number	| "80px"		| -							|
+| width							| 表单宽度																													| Number,String	| 无				| -							|
+| footer-show				| 底部按钮是否显示																									| Boolean				| true			| false					|
+| footer-center			| 底部按钮是否居中																									| Boolean				| true			| false					|
+| show-cancel				| 是否显示取消按钮																									| Boolean				| true			| false					|
+| cancel-text				| 取消按钮的文字																										| String				| 关 闭			| -							|
+| submit-text				| 确定按钮的文字																										| String				| 确 定			| -							|
+| submit-disabled		| 确定按钮是否禁用																									| Boolean				| false			| true					|
+| auto-close				| 表单请求成功后自动关闭																						| Boolean				| true			| false					|
+| auto-reset				| 自动重置表单			| String																														| Boolean				| true			| false					|
+| label-position		| 对齐方式																													| String				| right			| right left top|
+| max-height				| 表单最大高度																											| String				| 无				| -							|
+| size							| 表单内组件的size																									| String				| 无				| -							|
+| label-suffix			| label的后缀																												| String				| 无				| -							|
+| disabled					| 禁用表单																													| Boolean				| false			| true					|
+| clearable					| 表单内的组件有清空效果																						| Boolean				| true			| false					|
+| success-msg				| 表单提交成功后右上角的提示																				| String				| 操作成功！| -							|
+| inline						| 是否设置整个表单为横向表单																				| Boolean				| false			| true					|
+| columns-number		| 横向表单每行显示数量																							| Number				| 2					| -							|
 
 
 ### columns（字段渲染规则）
 columns是一个数组，数组内每个元素有以下属性，每个元素代表一个表单元素
 
-| 参数   | 说明       | 类型    | 默认值  | 可选值 |
-|------- |-----------|---------|-------|-------|
-| key           | 字段名  [查看](#key-字段名)           | String | -    | -      |
-| title         | 字段显示的名称  [查看](#title-标题)     | String | -    | -      |
-| type          | 组件类型    [查看](#type-组件类型)        | String | -    | -      |
-| width         | 宽度      [查看](#width-宽度)          | Number | -    | -      |
-| placeholder   | 占位符  [查看](#placeholder-占位符)        | String | -    | -      |
-| tips  | 下方的提示  [查看](#tips-下方的固定提示)  | String  | 无    | -  |
-| showLabel  |  是否显示label [查看](#showLabel-是否显示label)  | Boolean  | true    | false  |
-| show  | 表单复用时的显示规则 [查看](#show-复用时的显示规则)  | array | -  | - |
-| showRule  |  是否显示该字段  [查看](#showrule-自定义显示规则) | String、Function  | -    | -  |
-| disabled  |  是否禁用 [查看](#disabled-自定义禁用规则) | Boolean、String、Function| false | true  |
-| watch     | 监听key对应的值的改变（只监听组件内部造成的值的改变） [查看](#watch-监听) | Function | - | - |
+| 参数				| 说明																																							| 类型											| 默认值| 可选值|
+|-------			|-----------																																				|---------									|-------|-------|
+| key					| 字段名  [查看](#key-字段名)																												| String										| -			| -			|
+| title				| 字段显示的名称  [查看](#title-标题)																								| String										| -			| -			|
+| type				| 组件类型    [查看](#type-组件类型)																								| String										| -			| -			|
+| width				| 宽度      [查看](#width-宽度)																											| Number										| -			| -			|
+| placeholder	| 占位符  [查看](#placeholder-占位符)																								| String										| -			| -			|
+| tips				| 下方的提示  [查看](#tips-下方的固定提示)																					| String										| 无		| -			|
+| labelWidth	| 单独设置该字段的左侧label宽度，单位px [查看](#labelWidth-单独设置左侧label宽度)		| Number										| -			| -			|
+| showLabel		|  是否显示左侧label文字 [查看](#showLabel-是否显示label)														| Boolean										| true	| false	|
+| show				| 表单复用时的显示规则 [查看](#show-复用时的显示规则)																| array											| -			| -			|
+| showRule		|  是否显示该字段  [查看](#showrule-自定义显示规则)																	| String、Function					| -			| -			|
+| disabled		|  是否禁用 [查看](#disabled-自定义禁用规则)																				| Boolean、String、Function	| false	| true	|
+| watch				| 监听key对应的值的改变（只监听组件内部造成的值的改变） [查看](#watch-监听)					| Function									| -			| -			|
 
 
 ### key（字段名）
@@ -240,6 +241,10 @@ columns是一个数组，数组内每个元素有以下属性，每个元素代�
   ]
 },
 ```
+
+### labelWidth（单独设置左侧label宽度）
+
+默认在万能表单的属性上设置统一的labelWidth，如果在columns内设置了labelWidth，则此为准
 
 ### showLabel（是否显示label）
 
