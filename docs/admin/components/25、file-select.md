@@ -4,7 +4,7 @@
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/0ca12bfc-703e-4662-98b8-068ed01e4fac.png)
 ### 万能表单使用方式
 ```js
-{ key:"image1", title:"多选图片", type:"file-select", placeholder:"请选择图片", fileType:"image", multiple:true, multipleLimit:6 }
+{ key: "image1", title: "多选图片", type: "file-select", placeholder: "请选择图片", fileType: "image", multiple: true, multipleLimit: 6 },
 ```
 
 ### API
@@ -27,7 +27,7 @@
 ### 万能表格使用方式
 
 ```js
- { key: "image", title: "图片", type: "image", width: 120 }
+ { key: "image", title: "图片", type: "image", width: 120 },
 ```
 
 

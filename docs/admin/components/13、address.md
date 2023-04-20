@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"address", title:"address类型", type:"address" }
+{ key: "address", title: "address类型", type: "address" },
 ```
 
 ### API
@@ -22,7 +22,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key: "address", title: "地址", type: "address", width: 120 }
+{ key: "address", title: "地址", type: "address", width: 120 },
 ```
 
 

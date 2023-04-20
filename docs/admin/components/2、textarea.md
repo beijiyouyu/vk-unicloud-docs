@@ -4,11 +4,11 @@
 
 ```js
 {
-  key:"textarea", title:"多行文本", type:"textarea",
-  autosize:{ minRows:4, maxRows:10 },
-  maxlength:200,
-  showWordLimit:true,
-}
+  key: "textarea", title: "多行文本", type: "textarea",
+  autosize: { minRows: 4, maxRows: 10 },
+  maxlength: 200,
+  showWordLimit: true,
+},
 ```
 
 ### API
@@ -29,7 +29,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key:"comment" , title:"备注" , type:"textarea" , width:200 }
+{ key:"comment" , title:"备注" , type:"textarea" , width:200 },
 ```
 
 

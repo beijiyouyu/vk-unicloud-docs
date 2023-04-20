@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"text", title:"单行文本", type:"text" }
+{ key: "text", title: "单行文本", type: "text" },
 ```
 
 ### API
@@ -25,7 +25,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key:"nickname" , title:"用户昵称" , type:"text" , width:200 }
+{ key:"nickname" , title:"用户昵称" , type:"text" , width:200 },
 ```
 
 

@@ -5,49 +5,49 @@
 #### 应用场景：选项数据为静态数据的情况。
 ```js
 {
-  key:"tree1", title:"本地数据", type:"tree-select",
-  data:[
+  key: "tree1", title: "本地数据", type: "tree-select",
+  data: [
     {
-      value:1,
-      label:"数学",
-      children:[
-        { value:11,label:"奥数" },
-        { value:12,label:"微积分" }
+      value: 1,
+      label: "数学",
+      children: [
+        { value: 11, label: "奥数" },
+        { value: 12, label: "微积分" }
       ]
     },
     {
-      value:2,
-      label:"语文",
-      children:[
-        { value:21, label:"文言文" },
-        { value:22, label:"古诗" }
+      value: 2,
+      label: "语文",
+      children: [
+        { value: 21, label: "文言文" },
+        { value: 22, label: "古诗" }
       ]
     },
   ]
-}
+},
 ```
 
 #### 静态数据方式2
 #### 应用场景：选项数据需要通过函数计算
 ```js
 {
-  key:"tree1", title:"本地数据", type:"tree-select",
-  data:()=>{
+  key: "tree1", title: "本地数据", type: "tree-select",
+  data: () => {
     let list = that.list;
     return list;
   }
-}
+},
 ```
 
 
 #### 远程数据方式
 #### 应用场景：需要从数据库中获取选项的情况。
 ```js
-{ 
-  key:"parent_id", title:"父级菜单", type:"tree-select", tips:"父级的menu_id" ,
-  action:"admin/system/menu/sys/getAll",
-  props: { list:"rows", value:"menu_id", label:"label", children:"children" },
-}
+{
+  key: "parent_id", title: "父级菜单", type: "tree-select", tips: "父级的menu_id",
+  action: "admin/system/menu/sys/getAll",
+  props: { list: "rows", value: "menu_id", label: "label", children: "children" },
+},
 ```
 
 ### API
@@ -88,26 +88,26 @@
 #### onChange 使用示例
 ```js
 {
-  key:"tree1", title:"本地数据", type:"tree-select",
-  data:[
+  key: "tree1", title: "本地数据", type: "tree-select",
+  data: [
     {
-      value:1,
-      label:"数学",
-      children:[
-        { value:11,label:"奥数" },
-        { value:12,label:"微积分" }
+      value: 1,
+      label: "数学",
+      children: [
+        { value: 11, label: "奥数" },
+        { value: 12, label: "微积分" }
       ]
     },
     {
-      value:2,
-      label:"语文",
-      children:[
-        { value:21, label:"文言文" },
-        { value:22, label:"古诗" }
+      value: 2,
+      label: "语文",
+      children: [
+        { value: 21, label: "文言文" },
+        { value: 22, label: "古诗" }
       ]
     }
   ],
-  onChange:(val, formData, column, index, option, val2, option2)=>{
+  onChange: (val, formData, column, index, option, val2, option2) => {
     /**
      * val 双向绑定的表单值
      * formData 双向绑定的整个表单数据源
@@ -115,8 +115,8 @@
      * val2 多选模式下包含了父级的值
      * option2 val2对应的对象
      */
-    console.log(1,val, formData, column, index, option, val2, option2);
-   
+    console.log(1, val, formData, column, index, option, val2, option2);
+
   }
 }
 ```
@@ -126,26 +126,26 @@
 #### 多选模式下，获取选中的树状结构的数据
 ```js
 {
-  key:"tree1", title:"本地数据", type:"tree-select",
-  data:[
+  key: "tree1", title: "本地数据", type: "tree-select",
+  data: [
     {
-      value:1,
-      label:"数学",
-      children:[
-        { value:11,label:"奥数" },
-        { value:12,label:"微积分" }
+      value: 1,
+      label: "数学",
+      children: [
+        { value: 11, label: "奥数" },
+        { value: 12, label: "微积分" }
       ]
     },
     {
-      value:2,
-      label:"语文",
-      children:[
-        { value:21, label:"文言文" },
-        { value:22, label:"古诗" }
+      value: 2,
+      label: "语文",
+      children: [
+        { value: 21, label: "文言文" },
+        { value: 22, label: "古诗" }
       ]
     }
   ],
-  onChange:(val, formData, column, index, option, val2, option2)=>{
+  onChange: (val, formData, column, index, option, val2, option2) => {
     /**
      * val 双向绑定的表单值
      * formData 双向绑定的整个表单数据源
@@ -157,14 +157,14 @@
     let newObj = vk.pubfn.copyObject(option2); //拷贝
     let arr = []
     for (let i = 0; i < newObj.length; i++) {
-        delete newObj[i].children //去除children
-        arr.push(newObj[i])
+      delete newObj[i].children //去除children
+      arr.push(newObj[i])
     }
     // 通过数组转对象的方法转成需要的树状结构并赋给formData
-    formData.objArr = vk.pubfn.arrayToTree(arr,{
-        id:"_id", 
-        parent_id:"parent_id", 
-        children:"children"
+    formData.objArr = vk.pubfn.arrayToTree(arr, {
+      id: "_id",
+      parent_id: "parent_id",
+      children: "children"
     });
   }
 }

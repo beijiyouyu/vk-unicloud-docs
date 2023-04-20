@@ -2,21 +2,20 @@
 
 ### 万能表单使用方式
 
-
 ```js
 {
-  key: "role", title: "通过表格选择(单选)", type: "table-select", placeholder:"请选择角色",
-  action:"admin/system/role/sys/getList",
-  columns:[
-    { key:"role_name", title:"角色昵称", type:"text", nameKey:true },
-    { key:"role_id", title:"角色标识", type:"text", idKey:true }, // idKey:true 代表此字段为主键字段，若设置show:["none"],则可以在表格中隐藏该字段的显示
-    { key:"comment", title:"备注", type:"text" }
+  key: "role", title: "通过表格选择(单选)", type: "table-select", placeholder: "请选择角色",
+  action: "admin/system/role/sys/getList",
+  columns: [
+    { key: "role_name", title: "角色昵称", type: "text", nameKey: true },
+    { key: "role_id", title: "角色标识", type: "text", idKey: true }, // idKey:true 代表此字段为主键字段，若设置show:["none"],则可以在表格中隐藏该字段的显示
+    { key: "comment", title: "备注", type: "text" }
   ],
-  queryColumns:[
+  queryColumns: [
     { key: "role_name", title: "角色昵称", type: "text", width: 150, mode: "%%" },
     { key: "role_id", title: "角色标识", type: "text", width: 150, mode: "%%" }
   ]
-}
+},
 ```
 
 
@@ -55,21 +54,21 @@
 #### onChange 使用示例
 ```js
 {
-  key: "role", title: "通过表格选择(单选)", type: "table-select", placeholder:"请选择角色",
-  action:"admin/system/role/sys/getList",
-  columns:[
-    { key:"role_name", title:"角色昵称", type:"text", nameKey:true },
-    { key:"role_id", title:"角色标识", type:"text", idKey:true }, // idKey:true 代表此字段为主键字段，若设置show:["none"],则可以在表格中隐藏该字段的显示
-    { key:"comment", title:"备注", type:"text" }
+  key: "role", title: "通过表格选择(单选)", type: "table-select", placeholder: "请选择角色",
+  action: "admin/system/role/sys/getList",
+  columns: [
+    { key: "role_name", title: "角色昵称", type: "text", nameKey: true },
+    { key: "role_id", title: "角色标识", type: "text", idKey: true }, // idKey:true 代表此字段为主键字段，若设置show:["none"],则可以在表格中隐藏该字段的显示
+    { key: "comment", title: "备注", type: "text" }
   ],
-  queryColumns:[
+  queryColumns: [
     { key: "role_name", title: "角色昵称", type: "text", width: 150, mode: "%%" },
     { key: "role_id", title: "角色标识", type: "text", width: 150, mode: "%%" }
   ],
-  onChange:(val, formData, column, index, option)=>{
-    console.log(1,val, formData, column, index, option);
+  onChange: (val, formData, column, index, option) => {
+    console.log(1, val, formData, column, index, option);
   }
-}
+},
 ```
 
 **推荐使用 `watch` 代替 `onChange`** [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
@@ -104,28 +103,28 @@ props 对象属性
 
 ```js
 {
-  key: "user_id", title: "选择用户", type: "table-select", placeholder:"请选择用户",
-  action:"https://www.xxx.com/xxx/xxx",
-  isRequest:true,
-  requestHeader:{
-    "Content-Type":"application/x-www-form-urlencoded"
+  key: "user_id", title: "选择用户", type: "table-select", placeholder: "请选择用户",
+  action: "https://www.xxx.com/xxx/xxx",
+  isRequest: true,
+  requestHeader: {
+    "Content-Type": "application/x-www-form-urlencoded"
   },
-  props:{ rows: 'rows', total: 'total', pageIndex: 'pageIndex', pageSize: 'pageSize', formData: 'formData' },
-  columns:[
-    { key:"id", title:"用户标识", type:"text", idKey:true, show:["none"] }, // idKey:true 代表此字段为主键字段，若设置show:["none"],则可以在表格中隐藏该字段的显示
-    { key:"avatar", title:"头像", type:"image", width:80 },
-    { key:"nickname", title:"用户昵称", type:"text", width:260, align:"left", nameKey:true  },
-    { key:"mobile", title:"手机号", type:"text", width:140 },
+  props: { rows: 'rows', total: 'total', pageIndex: 'pageIndex', pageSize: 'pageSize', formData: 'formData' },
+  columns: [
+    { key: "id", title: "用户标识", type: "text", idKey: true, show: ["none"] }, // idKey:true 代表此字段为主键字段，若设置show:["none"],则可以在表格中隐藏该字段的显示
+    { key: "avatar", title: "头像", type: "image", width: 80 },
+    { key: "nickname", title: "用户昵称", type: "text", width: 260, align: "left", nameKey: true },
+    { key: "mobile", title: "手机号", type: "text", width: 140 },
   ],
-  queryColumns:[
+  queryColumns: [
     { key: "nickname", title: "用户昵称", type: "text", width: 150, mode: "%%" },
     { key: "mobile", title: "手机号", type: "text", width: 150, mode: "%%" }
   ],
-  formData:{
-    nickname:"",
-    mobile:""
+  formData: {
+    nickname: "",
+    mobile: ""
   }
-}
+},
 ```
 
 #### columns 参数详情
@@ -148,20 +147,19 @@ props 对象属性
 
 ```js
 {
-  key: "role", title: "通过表格选择(单选)", type: "table-select", placeholder:"请选择",
-  action:"云函数请求地址",
-  multiple:true,
-  columns:[
-    { key:"_id", title:"id", type:"text", width:260, idKey:true },
-    { key:"name", title:"昵称", type:"text", width:260, nameKey:true },
-    { key:"money", title:"金额", type:"money", width:100, sortable:"custom", summaryKey:true, summaryUnit:"元" }, // summaryKey开启该字段为求和字段， summaryUnit：单位
+  key: "role", title: "通过表格选择(单选)", type: "table-select", placeholder: "请选择",
+  action: "云函数请求地址",
+  multiple: true,
+  columns: [
+    { key: "_id", title: "id", type: "text", width: 260, idKey: true },
+    { key: "name", title: "昵称", type: "text", width: 260, nameKey: true },
+    { key: "money", title: "金额", type: "money", width: 100, sortable: "custom", summaryKey: true, summaryUnit: "元" }, // summaryKey开启该字段为求和字段， summaryUnit：单位
   ],
-  queryColumns:[
+  queryColumns: [
     { key: "name", title: "昵称", type: "text", width: 150, mode: "%%" },
     { key: "_id", title: "标识", type: "text", width: 150, mode: "%%" }
   ]
-}
-
+},
 ```
 
 #### queryColumns 参数详情

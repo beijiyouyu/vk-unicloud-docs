@@ -5,13 +5,13 @@
 **文件**
 
 ```js
-{ key:"file", title:"文件类型", type:"file", buttonText:"点击上传", limit:9, accept:".txt,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf" }
+{ key: "file", title: "文件类型", type: "file", buttonText: "点击上传", limit: 9, accept: ".txt,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf" },
 ```
 
 **视频**
 
 ```js
-{ key:"file", title:"视频类型", type:"file", buttonText:"点击上传", limit:9, accept:".mp4,.avi,.3gp,.mov,.rmvb,.rm,.flv,.mkv" }
+{ key: "file", title: "视频类型", type: "file", buttonText: "点击上传", limit: 9, accept: ".mp4,.avi,.3gp,.mov,.rmvb,.rm,.flv,.mkv" },
 ```
 
 ### API
@@ -35,19 +35,20 @@
 #### httpRequest 用法
 #### 注意：如果是上传到unicloud云储存或阿里云OSS，无需写httpRequest，框架已集成。
 ```js
-{ key:"file", title:"文件类型", type:"file", buttonText:"点击上传", limit:9, accept:".txt,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf",
+{
+  key: "file", title: "文件类型", type: "file", buttonText: "点击上传", limit: 9, accept: ".txt,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf",
   // 此时的 onSuccess 需要自己实现
-  onSuccess(data){
+  onSuccess(data) {
     // 此处写上传成功后，把数据赋值到你的表单变量中，如下
     // 多图上传 that.form1.data.file.push(data.url);
     // 单图上传 that.form1.data.file = data.url;
   },
-  httpRequest(obj){
+  httpRequest(obj) {
     let { action, file, filename, data, headers, onProgress, onSuccess, onError } = obj;
-     // 在此处写将 file 上传到你指定的地方
-     // 上传成功后，需要执行 onSuccess(res);
-     // 上传失败时，需要执行 onError(res);
-     // 正在上传时，可以监听上传过程，同时执行下方代码，达到显示上传过程进度条的功能 
+    // 在此处写将 file 上传到你指定的地方
+    // 上传成功后，需要执行 onSuccess(res);
+    // 上传失败时，需要执行 onError(res);
+    // 正在上传时，可以监听上传过程，同时执行下方代码，达到显示上传过程进度条的功能 
     /* 
     onProgress({
        percent:progress,
@@ -56,39 +57,39 @@
        total:progressEvent.total
      }); 
      */
-     // 例如
-     uni.uploadFile({
-       url: 'https://www.example.com/upload', //仅为示例，非真实的接口地址
-       file: file,
-       name: filename,
-       header:{
-         
-       },
-       formData: {
-         
-       },
-       onProgressUpdate: (res) => {
-         let { progress, totalBytesExpectedToWrite } = res;
-         onProgress({
-           percent: progress,
-           isTrusted: progress >= 100 ? true:false,
-           returnValue: progress >= 100 ? true:false,
-           total: totalBytesExpectedToWrite
-         }); 
-       },
-       success: (res) => {
-         if (res.statusCode == 200) {
-           onSuccess(res.data);
-         } else {
-           onError(res);
-         }
-       },
-       fail: (res) => {
-       	onError(res);
-       }
-     });
+    // 例如
+    uni.uploadFile({
+      url: 'https://www.example.com/upload', //仅为示例，非真实的接口地址
+      file: file,
+      name: filename,
+      header: {
+
+      },
+      formData: {
+
+      },
+      onProgressUpdate: (res) => {
+        let { progress, totalBytesExpectedToWrite } = res;
+        onProgress({
+          percent: progress,
+          isTrusted: progress >= 100 ? true : false,
+          returnValue: progress >= 100 ? true : false,
+          total: totalBytesExpectedToWrite
+        });
+      },
+      success: (res) => {
+        if (res.statusCode == 200) {
+          onSuccess(res.data);
+        } else {
+          onError(res);
+        }
+      },
+      fail: (res) => {
+        onError(res);
+      }
+    });
   }
-}
+},
 ```
 ### 万能表格使用方式
 

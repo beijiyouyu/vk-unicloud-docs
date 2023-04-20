@@ -4,13 +4,13 @@
 
 ```js
 // date类型
-{ key:"date", title:"date类型", type:"date", dateType:"date", tips:"可选择年月日" },
+{ key: "date", title: "date类型", type: "date", dateType: "date", tips: "可选择年月日" },
 // dataTime类型
-{ key:"dateTime", title:"dataTime类型", type:"date", dateType:"datetime", tips:"可选择年月日时分秒" },
+{ key: "dateTime", title: "dataTime类型", type: "date", dateType: "datetime", tips: "可选择年月日时分秒" },
 // date类型范围
-{ key:"dateArr", title:"date类型范围", type:"date", dateType:"daterange" },
+{ key: "dateArr", title: "date类型范围", type: "date", dateType: "daterange" },
 // dataTime类型范围
-{ key:"dataTimeArr", title:"dataTime类型范围", type:"date", dateType:"datetimerange" },
+{ key: "dataTimeArr", title: "dataTime类型范围", type: "date", dateType: "datetimerange" },
 ```
 
 ### API

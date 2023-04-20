@@ -8,14 +8,14 @@
 
 ```js
 {
-  key:"category_ids1", title:"远程select（单选）", type:"remote-select", placeholder:"请选择分类",
-  action:"admin/select/kh/categorys",
-  props:{ list:"rows", value:"_id", label:"name" },
-  showAll:true,
-  actionData:{
-    pageSize:500
+  key: "category_ids1", title: "远程select（单选）", type: "remote-select", placeholder: "请选择分类",
+  action: "admin/select/kh/categorys",
+  props: { list: "rows", value: "_id", label: "name" },
+  showAll: true,
+  actionData: {
+    pageSize: 500
   }
-}
+},
 ```
 
 
@@ -23,47 +23,47 @@
 #### 应用场景：数据量很大，不方便一次性全部加载时使用。
 ```js
 {
-  key:"user_id", title:"用户选择器", type:"remote-select", placeholder:"请输入用户账号/昵称",
-  action:"admin/select/kh/user",
-}
+  key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
+  action: "admin/select/kh/user",
+},
 ```
 
 #### 远程搜索带参数方式1
 ```js
 {
-  key:"user_id", title:"用户选择器", type:"remote-select", placeholder:"请输入用户账号/昵称",
-  action:"admin/select/kh/user",
-  actionData:{
-    a:1
+  key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
+  action: "admin/select/kh/user",
+  actionData: {
+    a: 1
   }
-}
+},
 ```
 
 #### 远程搜索带参数方式2
 ```js
 {
-  key:"user_id", title:"用户选择器", type:"remote-select", placeholder:"请输入用户账号/昵称",
-  action:"admin/select/kh/user",
-  actionData:()=>{
+  key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
+  action: "admin/select/kh/user",
+  actionData: () => {
     return {
-      a:that.form1.data.a
+      a: that.form1.data.a
     }
   }
-}
+},
 ```
 #### 数据预处理
 ```js
 {
-  key:"user_id", title:"用户选择器", type:"remote-select", placeholder:"请输入用户账号/昵称",
-  action:"你的云函数",
-  props:{ list:"rows", value:"_id", label:"name" },
-  dataPreprocess:(list)=>{
+  key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
+  action: "你的云函数",
+  props: { list: "rows", value: "_id", label: "name" },
+  dataPreprocess: (list) => {
     list.map((item, index) => {
       item.name = `${item.name}(${item._id})`
     });
     return list;
   }
-}
+},
 ```
 
 ### API
@@ -92,12 +92,12 @@
 #### onChange 使用示例
 ```js
 {
-  key:"user_id", title:"用户选择器", type:"remote-select", placeholder:"请输入用户账号/昵称",
-  action:"admin/select/kh/user",
-  onChange:(val, formData, column, index, option)=>{
-    console.log(1,val, formData, column, index, option);
+  key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
+  action: "admin/select/kh/user",
+  onChange: (val, formData, column, index, option) => {
+    console.log(1, val, formData, column, index, option);
   }
-}
+},
 ```
 
 **推荐使用 `watch` 代替 `onChange`** [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)

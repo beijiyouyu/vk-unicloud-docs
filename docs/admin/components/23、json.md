@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"json", title:"json类型", type:"json" }
+{ key: "json", title: "json类型", type: "json" },
 ```
 
 ### API

@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"rate", title:"评分类型", type:"rate", allowHalf:false }
+{ key: "rate", title: "评分类型", type: "rate", allowHalf: false },
 ```
 
 ### API
@@ -31,7 +31,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key: "rate", title: "评分", type: "rate", width: 120 }
+{ key: "rate", title: "评分", type: "rate", width: 120 },
 ```
 
 

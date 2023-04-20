@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"goods_tags", title:"商品标签", type:"tag" },
+{ key: "goods_tags", title: "商品标签", type: "tag" },
 ```
 
 ### API
@@ -33,7 +33,7 @@
 如：输出商品标签 `goods_tags:["标签1","标签2"]`，最长显示的是 标签1 标签2
 
 ```js
-{ key:"goods_tags", title:"商品标签", type:"tag", width: 200 }
+{ key: "goods_tags", title: "商品标签", type: "tag", width: 200 },
 ```
 
 **方式二**
@@ -44,11 +44,11 @@
 如：输出类型 `type:1` 最终显示的是 `收入`
 
 ```js
-{ 
+{
   key: "type", title: "类型", type: "tag", width: 120, size: "small",
-  data:[
-    { value:1, label:"收入", tagType:"success" },
-    { value:2, label:"支出", tagType:"danger" }
+  data: [
+    { value: 1, label: "收入", tagType: "success" },
+    { value: 2, label: "支出", tagType: "danger" }
   ]
 },
 ```

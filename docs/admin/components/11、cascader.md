@@ -9,26 +9,26 @@
 
 ```js
 {
-  key:"cascader1", title:"本地数据级联", type:"cascader",
-  data:[
+  key: "cascader1", title: "本地数据级联", type: "cascader",
+  data: [
     {
-      value:1,
-      label:"数学",
-      children:[
-        { value:11,label:"奥数" },
-        { value:12,label:"微积分" }
+      value: 1,
+      label: "数学",
+      children: [
+        { value: 11, label: "奥数" },
+        { value: 12, label: "微积分" }
       ]
     },
     {
-      value:2,
-      label:"语文",
-      children:[
-        { value:21, label:"文言文" },
-        { value:22, label:"古诗" }
+      value: 2,
+      label: "语文",
+      children: [
+        { value: 21, label: "文言文" },
+        { value: 22, label: "古诗" }
       ]
-    },
+    }
   ]
-}
+},
 ```
 #### 静态数据方式2
 
@@ -38,12 +38,12 @@
 
 ```js
 {
-  key:"cascader1", title:"本地数据级联", type:"cascader",
-  data:()=>{
+  key: "cascader1", title: "本地数据级联", type: "cascader",
+  data: () => {
     let list = that.list;
     return list;
   }
-}
+},
 ```
 
 #### 远程数据方式
@@ -54,16 +54,16 @@
 
 ```js
 {
-  key:"cascader2", title:"云端数据级联", type:"cascader",
-  action:"admin/system/permission/sys/getAll",
-  props:{
-    list:"rows",
-    value:"permission_id",
-    label:"label",
-    children:"children",
+  key: "cascader2", title: "云端数据级联", type: "cascader",
+  action: "admin/system/permission/sys/getAll",
+  props: {
+    list: "rows",
+    value: "permission_id",
+    label: "label",
+    children: "children",
     // multiple:true
   }
-}
+},
 ```
 
 #### 远程搜索带参数方式1
@@ -72,19 +72,19 @@
 
 ```js
 {
-  key:"cascader2", title:"云端数据级联", type:"cascader",
-  action:"admin/system/permission/sys/getAll",
-  actionData:{
-    a:1
+  key: "cascader2", title: "云端数据级联", type: "cascader",
+  action: "admin/system/permission/sys/getAll",
+  actionData: {
+    a: 1
   },
-  props:{
-    list:"rows",
-    value:"permission_id",
-    label:"label",
-    children:"children",
+  props: {
+    list: "rows",
+    value: "permission_id",
+    label: "label",
+    children: "children",
     // multiple:true
   }
-}
+},
 ```
 
 #### 远程搜索带参数方式2
@@ -93,21 +93,21 @@
 
 ```js
 {
-  key:"cascader2", title:"云端数据级联", type:"cascader",
-  action:"admin/system/permission/sys/getAll",
-  actionData:()=>{
+  key: "cascader2", title: "云端数据级联", type: "cascader",
+  action: "admin/system/permission/sys/getAll",
+  actionData: () => {
     return {
-      a:that.form1.data.a
+      a: that.form1.data.a
     }
   },
-  props:{
-    list:"rows",
-    value:"permission_id",
-    label:"label",
-    children:"children",
+  props: {
+    list: "rows",
+    value: "permission_id",
+    label: "label",
+    children: "children",
     // multiple:true
   }
-}
+},
 ```
 
 #### 远程懒加载方式
@@ -120,17 +120,16 @@
 
 ```js
 {
-  key:"cascader2", title:"云端数据级联", type:"cascader",
-  action:"admin/system/menu/sys/getCascader",
-  props:{
-    list:"rows",
-    value:"menu_id",
-    label:"label",
-    children:"children",
-    lazy:true
+  key: "cascader2", title: "云端数据级联", type: "cascader",
+  action: "admin/system/menu/sys/getCascader",
+  props: {
+    list: "rows",
+    value: "menu_id",
+    label: "label",
+    children: "children",
+    lazy: true
   }
-}
-
+},
 ```
 
 
@@ -150,18 +149,17 @@
 
 ```js
 {
-  key:"cascader2", title:"云端数据级联", type:"cascader",
-  action:"admin/system/menu/sys/getCascader",
-  props:{
-    list:"rows",
-    value:"menu_id",
-    label:"label",
-    children:"children",
-    checkStrictly:true,
-    emitPath:false
+  key: "cascader2", title: "云端数据级联", type: "cascader",
+  action: "admin/system/menu/sys/getCascader",
+  props: {
+    list: "rows",
+    value: "menu_id",
+    label: "label",
+    children: "children",
+    checkStrictly: true,
+    emitPath: false
   }
-}
-
+},
 ```
 
 
@@ -206,29 +204,29 @@
 #### onChange 使用示例
 ```js
 {
-  key:"cascader1", title:"cascader类型1", type:"cascader",
-  data:[
+  key: "cascader1", title: "cascader类型1", type: "cascader",
+  data: [
     {
-      value:1,
-      label:"数学",
-      children:[
-        { value:11,label:"奥数" },
-        { value:12,label:"微积分" }
+      value: 1,
+      label: "数学",
+      children: [
+        { value: 11, label: "奥数" },
+        { value: 12, label: "微积分" }
       ]
     },
     {
-      value:2,
-      label:"语文",
-      children:[
-        { value:21, label:"文言文" },
-        { value:22, label:"古诗" }
+      value: 2,
+      label: "语文",
+      children: [
+        { value: 21, label: "文言文" },
+        { value: 22, label: "古诗" }
       ]
     }
   ],
-  onChange:(val, formData, column, index, option)=>{
-    console.log(1,val, formData, column, index, option);
+  onChange: (val, formData, column, index, option) => {
+    console.log(1, val, formData, column, index, option);
   }
-}
+},
 ```
 
 **推荐使用 `watch` 代替 `onChange`** [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
@@ -322,22 +320,20 @@ module.exports = {
       whereJson,
       sortArr: [{ name: "sort", type: "asc" }],
       // 副表列表
-      foreignDB: [
-        {
-          dbName: "opendb-admin-menus",
-          localKey:"menu_id",
-          foreignKey: "parent_id",
-          as: "hasChildren",
-          limit: 1, // 避免浪费查询,这里设置limit:1
-        }
-      ]
+      foreignDB: [{
+        dbName: "opendb-admin-menus",
+        localKey: "menu_id",
+        foreignKey: "parent_id",
+        as: "hasChildren",
+        limit: 1, // 避免浪费查询,这里设置limit:1
+      }]
     });
     // 数据预处理
     let rows = res.rows;
     for (let i in rows) {
       let item = rows[i];
       rows[i].label = `${item.name}（${item.menu_id}）`;
-      if(vk.pubfn.isNull(item.hasChildren)){
+      if (vk.pubfn.isNull(item.hasChildren)) {
         rows[i].leaf = true;
       }
     }

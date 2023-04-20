@@ -25,7 +25,7 @@
 字段名，如下方代码中，`key` 为 `nickname`，代表绑定 `nickname` 字段
 
 ```js
-{ key: "nickname", title:"昵称", type:"text", },
+{ key: "nickname", title: "昵称", type: "text" },
 ```
 
 ## title（标题）
@@ -33,7 +33,7 @@
 字段显示的名称，如下方代码中，`title` 为 `昵称`，代表该字段以别名 `昵称` 显示在页面上。
 
 ```js
-{ key: "nickname", title:"昵称", type:"text", },
+{ key: "nickname", title: "昵称", type: "text" },
 ```
 
 ## type（组件类型）
@@ -41,7 +41,7 @@
 页面需要渲染的组件类型，如下方代码中，`type` 为 `text`，在 `万能表格` 中渲染为 `字符串`，在 `万能表单` 中渲染为 `input输入框`
 
 ```js
-{ key: "nickname", title:"昵称", type:"text", },
+{ key: "nickname", title: "昵称", type: "text" },
 ```
 
 
@@ -50,7 +50,7 @@
 单位是px，只能是数字，如下
 
 ```js
-{ key: "nickname", title:"昵称", type:"text", width: 200 },
+{ key: "nickname", title: "昵称", type: "text", width: 200 },
 ```
 
 ## placeholder（占位符）
@@ -212,7 +212,7 @@
 
 ```js
 {
-  key: "text", title:"text类型字段", type:"text",
+  key: "text", title: "text类型字段", type: "text",
   watch: ({ value, formData, column, index, $set }) => {
     // 此处演示根据选择的值动态改变text1的值
     $set("text1", `昵称${value}`);
@@ -223,7 +223,7 @@
 
 ```js
 {
-  key: "text", title:"text类型字段", type:"text",
+  key: "text", title: "text类型字段", type: "text",
   watch: (res) => {
     console.log('res: ', res)
   }

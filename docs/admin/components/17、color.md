@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"color", title:"颜色类型", type:"color" }
+{ key: "color", title: "颜色类型", type: "color" },
 ```
 
 ### API

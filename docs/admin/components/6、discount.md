@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"discount", title:"折扣类型", type:"discount" }
+{ key: "discount", title: "折扣类型", type: "discount" },
 ```
 
 ### API
@@ -24,7 +24,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key:"discount" , title:"折扣类型" , type:"discount" , width:100 }
+{ key: "discount", title: "折扣类型", type: "discount", width: 100 },
 ```
 
 

@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"percentage", title:"百分比类型", type:"percentage" }
+{ key: "percentage", title: "百分比类型", type: "percentage" },
 ```
 
 ### API
@@ -24,7 +24,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key:"percentage" , title:"百分比类型" , type:"percentage" , width:100 }
+{ key: "percentage", title: "百分比类型", type: "percentage", width: 100 },
 ```
 
 

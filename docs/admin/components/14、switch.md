@@ -4,11 +4,11 @@
 
 ### 开关形式
 ```js
-{ key:"switch", title:"switch类型", type:"switch", activeValue:true, inactiveValue:false }
+{ key: "switch", title: "switch类型", type: "switch", activeValue: true, inactiveValue: false },
 ```
 ### 多选框形式
 ```js
-{ key:"switch", title:"switch类型", type:"switch", activeValue:true, inactiveValue:false, switchType:"checkbox", label:"允许为空" },
+{ key: "switch", title: "switch类型", type: "switch", activeValue: true, inactiveValue: false, switchType: "checkbox", label: "允许为空" },
 ```
 
 ### API
@@ -34,13 +34,16 @@
 ### 万能表格使用方式
 
 ```js
-{ key: "switch", title: "switch类型", type: "switch", activeValue:true, inactiveValue:false, width: 100 }
+{ key: "switch", title: "switch类型", type: "switch", activeValue: true, inactiveValue: false, width: 100 },
 ```
 
 ### 表格行内动态编辑模式
 ```js
 {
-  key: "is_on_sale", title:"是否上架", type:"switch", activeValue:true, inactiveValue:false, width:80,
+  key: "is_on_sale", title: "是否上架", type: "switch",
+  activeValue: true,
+  inactiveValue: false,
+  width: 80,
   watch: (res) => {
     let { value, row, change } = res;
     vk.callFunction({
@@ -55,7 +58,7 @@
       }
     });
   }
-}
+},
 ```
 
 

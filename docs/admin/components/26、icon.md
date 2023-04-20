@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"icon", title:"图标", type:"icon" },
+{ key: "icon", title: "图标", type: "icon" },
 ```
 
 ### API
@@ -25,14 +25,15 @@
 **字符串过滤模式**
 ```js
 // 只显示 vk- 开头的图标
-{ key:"icon", title:"图标", type:"icon", filter:"vk-" },
+{ key: "icon", title: "图标", type: "icon", filter: "vk-" },
 ```
 
 **函数过滤模式**
 ```js
 // 只显示 vk-custom-icon 开头的图标
-{ key:"icon", title:"图标", type:"icon",
-  filter:(name)=>{
+{
+  key: "icon", title: "图标", type: "icon",
+  filter: (name) => {
     return name.indexOf("vk-custom-icon") === 0 ? true : false;
   },
 },
@@ -41,7 +42,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key:"icon", title:"图标", type:"icon" },
+{ key: "icon", title: "图标", type: "icon" },
 ```
 
 ### template 使用方式

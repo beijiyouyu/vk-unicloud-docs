@@ -16,49 +16,54 @@
 
 ```js
 {
-  key:"array", title:"数组<对象>类型", type:"array<object>", itemWidth:260,
-  showAdd:true,
-  showClear:true,
-  showSort:true,
+  key: "array", title: "数组<对象>类型", type: "array<object>", itemWidth: 260,
+  showAdd: true,
+  showClear: true,
+  showSort: true,
   // 新增一行时,该行的默认值
-  defaultValue:{
-    switch:true,
-    text1:""
+  defaultValue: {
+    switch: true,
+    text1: ""
   },
-  rightBtns:['copy','delete'],
+  rightBtns: ['copy', 'delete'],
   // 每行每个字段对应的渲染规则
-  columns:[
-    {
-      key:"text1", title:"昵称", type:"text",
-      isUnique:true,
-      rules:[
-        { required:true, message:"该项不能为空", trigger:["change","blur"] },
-        { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: ["change","blur"] }
+  columns: [{
+      key: "text1",
+      title: "昵称",
+      type: "text",
+      isUnique: true,
+      rules: [
+        { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
+        { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: ["change", "blur"] }
       ]
     },
     {
-      key:"number1", title:"数字", type:"number",
-      rules:[
-        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      key: "number1",
+      title: "数字",
+      type: "number",
+      rules: [
+        { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
       ]
     },
     {
-      key:"select1", title:"select类型", type:"select",
-      data:[
-        { value:1, label:"选项1" },
-        { value:2, label:"选项2" }
+      key: "select1",
+      title: "select类型",
+      type: "select",
+      data: [
+        { value: 1, label: "选项1" },
+        { value: 2, label: "选项2" }
       ],
-      rules:[
-        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      rules: [
+        { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
       ],
-      watch: ({ column, formData:row, index, value, $set }) => {
-      	// 此处演示根据选择的值动态改变text1的值
-      	$set("text1", `昵称${value}`);
+      watch: ({ column, formData: row, index, value, $set }) => {
+        // 此处演示根据选择的值动态改变text1的值
+        $set("text1", `昵称${value}`);
       }
     },
-    { key:"switch", title:"switch类型", type:"switch", width:160 },
+    { key: "switch", title: "switch类型", type: "switch", width: 160 },
   ]
-}
+},
 ```
 
 #### 数组<字符串>类型
@@ -72,7 +77,7 @@
 **代码**
 
 ```js
-{ key:"array1", title:"数组<字符串>类型", type:"array<string>" },
+{ key: "array1", title: "数组<字符串>类型", type: "array<string>" },
 ```
 
 #### 数组<数字>类型
@@ -86,7 +91,7 @@
 **代码**
 
 ```js
-{ key:"array2", title:"数组<数字>类型", type:"array<number>" },
+{ key: "array2", title: "数组<数字>类型", type: "array<number>" },
 ```
 
 
@@ -102,55 +107,59 @@
 
 ```js
 {
-  key:"array", title:"数组<对象>类型", type:"array<object>", itemWidth:260,
-  showAdd:true,
-  showClear:true,
-  showSort:true,
+  key: "array", title: "数组<对象>类型", type: "array<object>", itemWidth: 260,
+  showAdd: true,
+  showClear: true,
+  showSort: true,
   // 新增一行时,该行的默认值
-  defaultValue:{
-    switch:true,
-    array:[]
+  defaultValue: {
+    switch: true,
+    array: []
   },
-  rightBtns:['copy','delete'],
+  rightBtns: ['copy', 'delete'],
   // 每行每个字段对应的渲染规则
-  columns:[
+  columns: [
     {
-      key:"text1", title:"昵称", type:"text",
-      isUnique:true,
-      rules:[
-        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      key: "text1", title: "昵称", type: "text",
+      isUnique: true,
+      rules: [
+        { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
       ]
     },
     {
-      key:"number1", title:"数字", type:"number",
-      rules:[
-        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      key: "number1", title: "数字", type: "number",
+      rules: [
+        { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
       ]
     },
-    { key:"switch", title:"switch类型", type:"switch", width:160 },
+    { key: "switch", title: "switch类型", type: "switch", width: 160 },
     {
-      key:"array", title:"数组<对象>类型", type:"array<object>", buttonText: "设置", dialog:true, width:140, dialogWidth:1000,
-      showAdd:true,
-      showClear:true,
-      showSort:true,
+      key: "array", title: "数组<对象>类型", type: "array<object>",
+      buttonText: "设置",
+      dialog: true,
+      width: 140,
+      dialogWidth: 1000,
+      showAdd: true,
+      showClear: true,
+      showSort: true,
       // 新增一行时,该行的默认值
-      defaultValue:{
+      defaultValue: {
 
       },
-      rightBtns:['delete'],
+      rightBtns: ['delete'],
       // 每行每个字段对应的渲染规则
-      columns:[
+      columns: [
         {
-          key:"text1", title:"昵称", type:"text", minWidth:160,
-          isUnique:true,
-          rules:[
-            { required:true, message:"该项不能为空", trigger:["change","blur"] },
+          key: "text1", title: "昵称", type: "text", minWidth: 160,
+          isUnique: true,
+          rules: [
+            { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
           ]
         },
         {
-          key:"number1", title:"数字", type:"number", minWidth:160,
-          rules:[
-            { required:true, message:"该项不能为空", trigger:["change","blur"] },
+          key: "number1", title: "数字", type: "number", minWidth: 160,
+          rules: [
+            { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
           ]
         }
       ]
@@ -204,10 +213,10 @@
 
 ```js
 {
-  key:"select1", title:"select类型", type:"select",
-  data:[
-    { value:1, label:"选项1" },
-    { value:2, label:"选项2" }
+  key: "select1", title: "select类型", type: "select",
+  data: [
+    { value: 1, label: "选项1" },
+    { value: 2, label: "选项2" }
   ],
   watch: ({ value, formData, column, index, $set }) => {
     // 此处演示根据选择的值动态改变text1的值
@@ -228,44 +237,44 @@
 
 ```js
 {
-  key:"array2", title:"数组<对象>类型", type:"array<object>", itemWidth:260,
-  showAdd:true,
-  showClear:true,
-  showSort:true,
+  key: "array2", title: "数组<对象>类型", type: "array<object>", itemWidth: 260,
+  showAdd: true,
+  showClear: true,
+  showSort: true,
   // 新增一行时,该行的默认值
-  defaultValue:{
-    switch:true,
-    text1:""
+  defaultValue: {
+    switch: true,
+    text1: ""
   },
-  rightBtns:['copy','delete'],
+  rightBtns: ['copy', 'delete'],
   // 每行每个字段对应的渲染规则
-  columns:[
+  columns: [
     {
-      key:"number1", title:"递增[>]", type:"number", placeholder:"输入数字",
+      key: "number1", title: "递增[>]", type: "number", placeholder: "输入数字",
       incMode: 1, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
-      rules:[
-        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      rules: [
+        { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
       ]
     },
     {
-      key:"number2", title:"递增[>=]", type:"number", placeholder:"输入数字",
+      key: "number2", title: "递增[>=]", type: "number", placeholder: "输入数字",
       incMode: 2, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
-      rules:[
-        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      rules: [
+        { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
       ]
     },
     {
-      key:"number3", title:"递减[<]", type:"number", placeholder:"输入数字",
+      key: "number3", title: "递减[<]", type: "number", placeholder: "输入数字",
       incMode: -1, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
-      rules:[
-        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      rules: [
+        { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
       ]
     },
     {
-      key:"number4", title:"递减[<=]", type:"number", placeholder:"输入数字",
+      key: "number4", title: "递减[<=]", type: "number", placeholder: "输入数字",
       incMode: -2, // 1必须递增[>] 2 必须递增[>=] -1 必须递减[<]  -2 必须递减[<=]
-      rules:[
-        { required:true, message:"该项不能为空", trigger:["change","blur"] },
+      rules: [
+        { required: true, message: "该项不能为空", trigger: ["change", "blur"] },
       ]
     },
   ]
@@ -281,24 +290,24 @@
 
 **一直显示**
 ```js
-rightBtns:['copy','delete']
+rightBtns: ['copy', 'delete']
 ```
 
 **动态显示和隐藏**
 ```js
-rightBtns:[
+rightBtns: [
   {
-    mode:'copy',
-    title:'复制',
-    show: (item,index)=>{
+    mode: 'copy',
+    title: '复制',
+    show: (item, index) => {
       // 第一1个不显示
       return index > 0;
     }
   },
   {
-    mode:'delete',
-    title:'删除',
-    show: (item,index)=>{
+    mode: 'delete',
+    title: '删除',
+    show: (item, index) => {
       // 第一1个不显示
       return index > 0;
     }

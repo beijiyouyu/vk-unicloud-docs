@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"number", title:"数字类型", type:"number" }
+{ key: "number", title: "数字类型", type: "number" },
 ```
 
 ### API
@@ -30,7 +30,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key:"number" , title:"数字类型" , type:"number" , width:100 }
+{ key:"number" , title:"数字类型" , type:"number" , width:100 },
 ```
 
 

@@ -5,26 +5,26 @@
 #### 应用场景：选项数据为静态数据的情况。
 ```js
 {
-  key:"checkbox1", title:"多选类型", type:"checkbox",
-  itemWidth:80,
-  data:[
-    { value:1, label:"选项一" },
-    { value:2, label:"选项二" }
+  key: "checkbox1", title: "多选类型", type: "checkbox",
+  itemWidth: 80,
+  data: [
+    { value: 1, label: "选项一" },
+    { value: 2, label: "选项二" }
   ]
-}
+},
 ```
 
 #### 静态数据方式2
 #### 应用场景：选项数据需要通过函数计算
 ```js
 {
-  key:"checkbox1", title:"多选类型", type:"checkbox",
-  itemWidth:80,
-  data:()=>{
+  key: "checkbox1", title: "多选类型", type: "checkbox",
+  itemWidth: 80,
+  data: () => {
     let list = that.list;
     return list;
   }
-}
+},
 ```
 
 
@@ -32,58 +32,58 @@
 #### 应用场景：需要从数据库中获取选项的情况。
 ```js
 {
-  key:"checkbox1", title:"多选类型", type:"checkbox",
-  border:true,
-  itemWidth:80,
-  action:"admin/select/kh/categorys",
-  props:{ list:"rows", value:"_id", label:"name" },
-}
+  key: "checkbox1", title: "多选类型", type: "checkbox",
+  border: true,
+  itemWidth: 80,
+  action: "admin/select/kh/categorys",
+  props: { list: "rows", value: "_id", label: "name" },
+},
 ```
 
 #### 远程数据带参数方式1
 ```js
 {
-  key:"checkbox1", title:"多选类型", type:"checkbox",
-  border:true,
-  itemWidth:80,
-  action:"admin/select/kh/categorys",
-  actionData:{
-    a:1
+  key: "checkbox1", title: "多选类型", type: "checkbox",
+  border: true,
+  itemWidth: 80,
+  action: "admin/select/kh/categorys",
+  actionData: {
+    a: 1
   },
-  props:{ list:"rows", value:"_id", label:"name" },
-}
+  props: { list: "rows", value: "_id", label: "name" },
+},
 ```
 #### 远程数据带参数方式2
 ```js
 {
-  key:"checkbox1", title:"多选类型", type:"checkbox",
-  border:true,
-  itemWidth:80,
-  action:"admin/select/kh/categorys",
-  actionData:()=>{
+  key: "checkbox1", title: "多选类型", type: "checkbox",
+  border: true,
+  itemWidth: 80,
+  action: "admin/select/kh/categorys",
+  actionData: () => {
     return {
-      a:that.form1.data.a
+      a: that.form1.data.a
     }
   },
-  props:{ list:"rows", value:"_id", label:"name" },
-}
+  props: { list: "rows", value: "_id", label: "name" },
+},
 ```
 
 #### 数据预处理
 ```js
 {
-  key:"checkbox1", title:"多选类型", type:"checkbox",
-  border:true,
-  itemWidth:80,
-  action:"admin/select/kh/categorys",
-  props:{ list:"rows", value:"_id", label:"name" },
-  dataPreprocess:(list)=>{
+  key: "checkbox1", title: "多选类型", type: "checkbox",
+  border: true,
+  itemWidth: 80,
+  action: "admin/select/kh/categorys",
+  props: { list: "rows", value: "_id", label: "name" },
+  dataPreprocess: (list) => {
     list.map((item, index) => {
       item.name = `${item.name}(${item._id})`
     });
     return list;
   }
-}
+},
 ```
 
 
@@ -112,15 +112,15 @@
 #### onChange 使用示例
 ```js
 {
-  key:"checkbox1", title:"多选类型", type:"checkbox",
-  border:true,
-  itemWidth:80,
-  action:"admin/select/kh/categorys",
-  props:{ list:"rows", value:"_id", label:"name" },
-  onChange:(val, formData, column, index, option)=>{
-    console.log(1,val, formData, column, index, option);
+  key: "checkbox1", title: "多选类型", type: "checkbox",
+  border: true,
+  itemWidth: 80,
+  action: "admin/select/kh/categorys",
+  props: { list: "rows", value: "_id", label: "name" },
+  onChange: (val, formData, column, index, option) => {
+    console.log(1, val, formData, column, index, option);
   }
-}
+},
 ```
 
 **推荐使用 `watch` 代替 `onChange`** [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
@@ -129,12 +129,12 @@
 
 ```js
 { 
-  key: "checkbox", title: "多选字段", type: "checkbox", width: 120, defaultValue:1,
-  data:[
+  key: "checkbox", title: "多选字段", type: "checkbox", width: 120, defaultValue: 1,
+  data: [
     { value:1, label:"选项一" },
     { value:2, label:"选项二" }
   ]
-}
+},
 ```
 
 

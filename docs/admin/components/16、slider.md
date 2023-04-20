@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"slider", title:"滑块类型", type:"slider" }
+{ key: "slider", title: "滑块类型", type: "slider" },
 ```
 
 ### API

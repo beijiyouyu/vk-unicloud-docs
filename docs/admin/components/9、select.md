@@ -5,47 +5,46 @@
 #### 应用场景：选项数据为静态数据的情况。
 ```js
 {
-  key:"select1", title:"select类型", type:"select",
-  data:[
-    { value:1, label:"选项一" },
-    { value:2, label:"选项二" }
+  key: "select1", title: "select类型", type: "select",
+  data: [
+    { value: 1, label: "选项一" },
+    { value: 2, label: "选项二" }
   ]
-}
+},
 ```
 #### 静态数据方式2
 #### 应用场景：选项数据需要通过函数计算
 ```js
 {
-  key:"select1", title:"select类型", type:"select",
-  data:()=>{
+  key: "select1", title: "select类型", type: "select",
+  data: () => {
     let list = that.list;
     return list;
   }
-}
+},
 ```
 
 ### 分组用法
 ```js
 {
-  key:"select3", title:"select类型3", type:"select",
-  group:true,
-  data:[
+  key: "select3", title: "select类型3", type: "select", group: true,
+  data: [
     {
       label: "分组1",
-      children:[
-        { value:1, label:"选项一" },
-        { value:2, label:"选项二" }
+      children: [
+        { value: 1, label: "选项一" },
+        { value: 2, label: "选项二" }
       ]
     },
     {
       label: "分组2",
-      children:[
-        { value:3, label:"选项三" },
-        { value:4, label:"选项四" }
+      children: [
+        { value: 3, label: "选项三" },
+        { value: 4, label: "选项四" }
       ]
     }
   ]
-}
+},
 ```
 
 ### 远程数据用法
@@ -73,15 +72,15 @@
 #### onChange 使用示例
 ```js
 {
-  key:"select1", title:"select类型", type:"select",
-  data:[
-    { value:1, label:"选项一" },
-    { value:2, label:"选项二" }
+  key: "select1", title: "select类型", type: "select",
+  data: [
+    { value: 1, label: "选项一" },
+    { value: 2, label: "选项二" }
   ],
-  onChange:(val, formData, column, index, option)=>{
-    console.log(1,val, formData, column, index, option);
+  onChange: (val, formData, column, index, option) => {
+    console.log(1, val, formData, column, index, option);
   }
-}
+},
 ```
 
 **推荐使用 `watch` 代替 `onChange`** [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
@@ -90,13 +89,13 @@
 
 ```js
 { 
-  key: "gender", title: "性别", type: "select", width: 120, defaultValue:0,
-  data:[
-    { value:1, label:"男" },
-    { value:2, label:"女" },
-    { value:0, label:"保密" },
+  key: "gender", title: "性别", type: "select", width: 120, defaultValue: 0,
+  data: [
+    { value: 1, label: "男" },
+    { value: 2, label: "女" },
+    { value: 0, label: "保密" },
   ]
-}
+},
 ```
 
 

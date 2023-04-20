@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"balance", title:"金额类型", type:"money" }
+{ key: "balance", title: "金额类型", type: "money" },
 ```
 
 ### API
@@ -28,7 +28,7 @@
 ### 万能表格使用方式
 
 ```js
-{ key:"balance" , title:"金额类型" , type:"money" , width:100 }
+{ key:"balance" , title:"金额类型" , type:"money" , width:100 },
 ```
 
 

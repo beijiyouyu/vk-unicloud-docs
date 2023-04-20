@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"position", title:"地图位置", type:"map", width:600, height:300, defaultLocation:{ latitude: 30.224781, longitude: 120.12438 } }
+{ key: "position", title: "地图位置", type: "map", width: 600, height: 300, defaultLocation: { latitude: 30.224781, longitude: 120.12438 } },
 ```
 
 **注意**
@@ -36,16 +36,18 @@ key的申请地址：[点击查看](https://lbs.qq.com/)
 
 #### onChange 使用示例
 ```js
-{ 
-  key:"position", title:"地图位置", type:"map", width:600, height:300,
-  onChange:(val, formData, column, index)=>{
+{
+  key: "position", title: "地图位置", type: "map",
+  width: 600,
+  height: 300,
+  onChange: (val, formData, column, index) => {
     /**
      * val 双向绑定的表单值
      * formData 双向绑定的整个表单数据源
      */
-    console.log(1,val, formData, column, index);
+    console.log(1, val, formData, column, index);
   }
-}
+},
 ```
 
 **推荐使用 `watch` 代替 `onChange`** [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
@@ -53,7 +55,7 @@ key的申请地址：[点击查看](https://lbs.qq.com/)
 ### 万能表格使用方式
 
 ```js
-{ key:"position", title:"地图位置", type:"map", width:400 }
+{ key: "position", title: "地图位置", type: "map", width: 400 },
 ```
 
 ### template 使用方式

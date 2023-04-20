@@ -3,31 +3,33 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"time1", title:"time类型1", type:"time" },
+{ key: "time1", title: "time类型1", type: "time" },
 {
-  key:"time2", title:"time类型2", type:"time",
-  valueFormat:"HH:mm",
-  pickerOptions:{
-    format:"HH:mm"
+  key: "time2", title: "time类型2", type: "time",
+  valueFormat: "HH:mm",
+  pickerOptions: {
+    format: "HH:mm"
   }
 },
 {
-  key:"time3", title:"time类型3", type:"time", custom:true,
-  pickerOptions:{
+  key: "time3", title: "time类型3", type: "time",
+  custom: true,
+  pickerOptions: {
     start: '08:00',
     step: '01:00',
     end: '24:00'
   }
 },
-{ key:"timeArr1", title:"time类型范围1", type:"time", isRange:true },
+{ key: "timeArr1", title: "time类型范围1", type: "time", isRange: true },
 {
-  key:"timeArr2", title:"time类型范围2", type:"time", isRange:true,
-  valueFormat:"HH:mm",
-  pickerOptions:{
+  key: "timeArr2", title: "time类型范围2", type: "time",
+  isRange: true,
+  valueFormat: "HH:mm",
+  pickerOptions: {
     selectableRange: '18:30:00 - 20:30:00',
-    format:"HH:mm"
+    format: "HH:mm"
   }
-}
+},
 ```
 
 ### API

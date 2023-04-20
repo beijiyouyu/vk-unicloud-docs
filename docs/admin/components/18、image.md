@@ -3,7 +3,7 @@
 ### 万能表单使用方式
 
 ```js
-{ key:"image1", title:"image类型", type:"image", limit:9 }
+{ key: "image1", title: "image类型", type: "image", limit: 9 },
 ```
 
 ### API
@@ -27,19 +27,20 @@
 #### httpRequest 用法
 #### 注意：如果是上传到unicloud云储存或阿里云OSS，无需写httpRequest，框架已集成。
 ```js
-{ key:"image1", title:"image类型", type:"image", limit:9,
+{
+  key: "image1", title: "image类型", type: "image", limit: 9,
   // 此时的 onSuccess 需要自己实现
-  onSuccess(data){
+  onSuccess(data) {
     // 此处写上传成功后，把数据赋值到你的表单变量中，如下
     // 多图上传 that.form1.data.image1.push(data.url);
     // 单图上传 that.form1.data.image1 = data.url;
   },
-  httpRequest(obj){
+  httpRequest(obj) {
     let { action, file, filename, data, headers, onProgress, onSuccess, onError } = obj;
-     // 在此处写将 file 上传到你指定的地方
-     // 上传成功后，需要执行 onSuccess(res);
-     // 上传失败时，需要执行 onError(res);
-     // 正在上传时，可以监听上传过程，同时执行下方代码，达到显示上传过程进度条的功能 
+    // 在此处写将 file 上传到你指定的地方
+    // 上传成功后，需要执行 onSuccess(res);
+    // 上传失败时，需要执行 onError(res);
+    // 正在上传时，可以监听上传过程，同时执行下方代码，达到显示上传过程进度条的功能 
     /* 
     onProgress({
        percent:progress,
@@ -48,44 +49,44 @@
        total:progressEvent.total
      }); 
      */
-     // 例如
-     uni.uploadFile({
-       url: 'https://www.example.com/upload', //仅为示例，非真实的接口地址
-       file: file,
-       name: filename,
-       header:{
-         
-       },
-       formData: {
-         
-       },
-       onProgressUpdate: (res) => {
-         let { progress, totalBytesExpectedToWrite } = res;
-         onProgress({
-           percent: progress,
-           isTrusted: progress >= 100 ? true:false,
-           returnValue: progress >= 100 ? true:false,
-           total: totalBytesExpectedToWrite
-         }); 
-       },
-       success: (res) => {
-         if (res.statusCode == 200) {
-           onSuccess(res.data);
-         } else {
-           onError(res);
-         }
-       },
-       fail: (res) => {
-       	onError(res);
-       }
-     });
+    // 例如
+    uni.uploadFile({
+      url: 'https://www.example.com/upload', //仅为示例，非真实的接口地址
+      file: file,
+      name: filename,
+      header: {
+
+      },
+      formData: {
+
+      },
+      onProgressUpdate: (res) => {
+        let { progress, totalBytesExpectedToWrite } = res;
+        onProgress({
+          percent: progress,
+          isTrusted: progress >= 100 ? true : false,
+          returnValue: progress >= 100 ? true : false,
+          total: totalBytesExpectedToWrite
+        });
+      },
+      success: (res) => {
+        if (res.statusCode == 200) {
+          onSuccess(res.data);
+        } else {
+          onError(res);
+        }
+      },
+      fail: (res) => {
+        onError(res);
+      }
+    });
   }
-}
+},
 ```
 ### 万能表格使用方式
 
 ```js
- { key: "image", title: "图片", type: "image", width: 120 }
+ { key: "image", title: "图片", type: "image", width: 120 },
 ```
 
 
