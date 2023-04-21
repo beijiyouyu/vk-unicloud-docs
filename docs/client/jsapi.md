@@ -1649,8 +1649,9 @@ let request_id = vk.pubfn.getUniCloudRequestId();
  * @param	{Number} length 随机数固定位数
  * @param	{String} range 指定的字符串中随机范围
  * @param	{Function} fn 产生的随机数判断重复的自定义函数
+ * @param	{Number} maxRetryCount 最大重试次数 默认500
  */
-await vk.pubfn.randomAsync(length, range, fn);
+await vk.pubfn.randomAsync(length, range, fn, maxRetryCount);
 ```
 
 **以下是产生用户6位数分享码的具体代码**
@@ -1664,7 +1665,7 @@ let randomStr = await vk.pubfn.randomAsync(6, "23456789ABCDEFGHJKLMNPQRSTUVWXYZ"
     whereJson:{
       my_invite_code: val
     }
-  });
+  }, 10); // 最大重试10次
   return num === 0 ? true : false;
 });
 ```
