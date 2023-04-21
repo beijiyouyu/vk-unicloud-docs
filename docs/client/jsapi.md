@@ -1655,8 +1655,10 @@ await vk.pubfn.randomAsync(length, range, fn);
 
 **以下是产生用户6位数分享码的具体代码**
 
+特意从可选字符中去除 0、1、I、O
+
 ```js
-let randomStr = await vk.pubfn.randomAsync(6, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", async (val)=>{
+let randomStr = await vk.pubfn.randomAsync(6, "23456789ABCDEFGHJKLMNPQRSTUVWXYZ", async (val)=>{
   let num = await vk.baseDao.count({
     dbName:"uni-id-users",
     whereJson:{
