@@ -17,9 +17,10 @@
 #### 14、[查出表中字段a等于字段b的数据](#查出表中字段a等于字段b的数据)
 #### 15、[如何查询数组字段内包含某个值的数据](#如何查询数组字段内包含某个值的数据)
 #### 16、[分组count](#分组count)
-#### 17、[删除某个字段](#删除某个字段)
-#### 18、[vk.baseDao.findById和vk.baseDao.findByWhereJson如何连表](#findbyid如何连表)
-#### 19、[如何更改字段名](#如何更改字段名)
+#### 17、[用户表按注册日期分组统计](#用户表按注册日期分组统计)
+#### 18、[删除某个字段](#删除某个字段)
+#### 19、[vk.baseDao.findById和vk.baseDao.findByWhereJson如何连表](#findbyid如何连表)
+#### 20、[如何更改字段名](#如何更改字段名)
 
 ### and
 ### `and` 、`or`、`in`、`nin`、`neq`的用法
@@ -444,6 +445,7 @@ let selectRes = await vk.baseDao.select({
 ### 分组count
 
 #### 最终返回的本月共有多少用户登录（去重后）。 
+
 ```js
 let { monthStart, monthEnd } = vk.pubfn.getCommonTime(new Date());
 let selectRes = await vk.baseDao.count({
@@ -458,8 +460,8 @@ let selectRes = await vk.baseDao.count({
 });
 ```
 
-
 #### 最终返回的是每个日期登录的用户数量分别有多少个。 
+
 ```js
 let selectRes = await vk.baseDao.selects({
   dbName: "登录日志表",
@@ -477,6 +479,31 @@ let selectRes = await vk.baseDao.selects({
   addFields:{
     count: _.$.size("$count")
   }
+});
+```
+
+### 用户表按注册日期分组统计
+
+以下语句是统计本年度每月注册用户的数量
+
+```js
+let { yearStart, yearEnd } = vk.pubfn.getCommonTime();
+res = await vk.baseDao.selects({
+  dbName: "uni-id-users",
+  pageIndex: 1,
+  pageSize: -1,
+  whereJson: {
+    register_date : _.gte(yearStart).lte(yearEnd), // 只查询本年，不加此条件则查全表
+  },
+  groupJson: {
+    // _id是分组id， 将$register_date转为date，然后将date转为需要分组的date格式，直接分组
+    _id: _.$.dateToString({
+      date: _.$.add([new Date(0), "$register_date"]),
+      format: "%Y-%m"
+    }),
+    count: _.$.sum(1),
+  },
+  sortArr: [{ "name": "_id", "type": "desc" }]
 });
 ```
 
@@ -606,3 +633,5 @@ await vk.baseDao.update({
 ```
 
 **特别注意：如果数据库数据很多，会报超时，但不用管，数据库依然在执行，速度大概是 `5万条记录/秒`，因此你可以用 `总数据量/50000` 计算出大概需要耗时多少。**
+
+
