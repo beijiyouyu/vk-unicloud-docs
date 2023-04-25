@@ -169,7 +169,7 @@ await vk.baseDao.deleteById({
 
 `vk.baseDao.update`
 
-批量修改 对应的传统sql语句: `update vk-test set money = money-1 where _id="5f3a14823d11c6000106ff5c" and money > 0`
+批量修改 对应的传统sql语句: `update vk-test set money = money-100 where _id="5f3a14823d11c6000106ff5c" and money >= 100`
 
 **调用示例**
 
@@ -179,10 +179,10 @@ let num = await vk.baseDao.update({
   dbName:"vk-test", // 表名
   whereJson:{ // 条件
     _id:"5f3a14823d11c6000106ff5c",
-    money:_.gt(0)
+    money:_.gte(100)
   },
   dataJson:{ // 需要修改的数据
-    money:_.inc(-1)
+    money:_.inc(-100)
   }
 });
 ```
