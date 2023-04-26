@@ -21,6 +21,9 @@
 
 #### 思路：因为云函数会互相覆盖，因此我们可以把 `service端（云函数端）` 统一放在 `client端` 的项目中，而 `admin端` 项目 直接绑定 `client端` 项目
 #### 安装步骤：
+
+**友情提示：可以直接从第4步开始，1-3步client端已经自带了**
+
 * 1、把 `admin端` 内的 `uniCloud/router/service/admin` 内的以下文件复制到你之前的 `client端` 项目 `uniCloud/router/service/admin` 内（复制整个目录）
 * 2、把 `admin端` 内的 `uniCloud/router/service/template` 内的以下文件复制到你之前的 `client端` 项目 `uniCloud/router/service/template` 内（复制整个目录）
 * 3、把 `admin端` 内的 `uniCloud/database/db_init/` 目录下的3个数据库表数据导入对应的表内（导入方法：服务空间后台 - 数据库 - 导入）
