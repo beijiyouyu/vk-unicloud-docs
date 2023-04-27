@@ -198,36 +198,59 @@ let generateRes = await vk.openapi.weixin.urllink.generate({
 
 ## 内容安全
 ### 检测文本是否违规
+
 `vk.openapi.weixin.security.msgSecCheck`
+
 ```js
 /**
  * 检查一段文本是否含有违法违规内容。
  * 频率限制：单个 appId 调用上限为 4000 次/分钟，2,000,000 次/天*
- * @param {String} access_token   默认自动获取,不需要传
+ * @param {String} access_token   默认自动获取，不需要传
  * @param {String} content        要检测的文本内容，长度不超过 500KB
+ * @param {String} openid         用户的小程序openid（用户需在近两小时访问过小程序）version=2时必填
+ * @param {Number} scene          场景值（1 资料；2 评论；3 论坛；4 社交日志）
+ * @param {Number} version        接口版本号，可选1或2，但1的检测能力很弱
  */
 let msgSecCheckRes = await vk.openapi.weixin.security.msgSecCheck({
-  content:content
+  content: '', // 文本内容，不可超过500KB
+  openid: '', // 用户的小程序openid
+  scene: 2, // 场景值（建议为2或3）
+  version: 2, // 接口版本号（建议为2）
 });
-
 ```
+
 ### 检测图片是否违规
+
 `vk.openapi.weixin.security.imgSecCheck`
+
 ```js
 /**
  * 校验一张图片是否含有违法违规内容。
  * 频率限制：单个 appId 调用上限为 2000 次/分钟，200,000 次/天 （ 图片大小限制：1M **）
  * @param {String} access_token   默认自动获取,不需要传
  * @param {String} base64         要检测的图片文件base64，图片尺寸不超过 750px x 1334px
+ * @param {String} openid         用户的小程序openid（用户需在近两小时访问过小程序）version=2时必填
+ * @param {Number} scene          场景值（1 资料；2 评论；3 论坛；4 社交日志）
+ * @param {Number} version        接口版本号，可选1或2，但1的检测能力很弱
  */
 let imgSecCheckRes = await vk.openapi.weixin.security.imgSecCheck({
-  base64:base64
+  base64: base64,
+  openid: '', // 用户的openid
+	scene: 2, // 场景值（建议为2或3）
+	version: 2 // 接口版本号（建议为2）
 });
 ```
+
+**注意**
+
+- V2的检测结果是异步返回的，需要提前在微信公众平台「开发」-「开发设置」-「消息推送」开启消息服务，检测结果在 30 分钟内会推送到你的消息接收服务器。
+
 ## 发送消息
 
 ### 发送订阅消息 
+
 `vk.openapi.weixin.subscribeMessage.send`
+
 ```js
 /**
  * 发送订阅消息
