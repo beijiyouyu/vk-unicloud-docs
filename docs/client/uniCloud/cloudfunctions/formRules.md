@@ -102,9 +102,10 @@ if (formRulesRes.code !== 0) {
 
 ### 云对象
 
+#### 云对象-表单验证和业务逻辑代码写在一起的示例
+
 ```js
 'use strict';
-var vk; // 全局vk实例
 // 涉及的表名
 const dbName = {
   //test: "vk-test", // 测试表
@@ -162,10 +163,10 @@ var cloudObject = {
 module.exports = cloudObject;
 ```
 
-**表单验证和业务逻辑代码独立版**
+#### 云对象-表单验证和业务逻辑代码独立版示例
+
 ```js
 'use strict';
-var vk; // 全局vk实例
 // 涉及的表名
 const dbName = {
   //test: "vk-test", // 测试表
@@ -250,7 +251,137 @@ class Util {
 module.exports = new Util
 ```
 
+#### 云对象-利用_before实现表单验证
 
+```js
+'use strict';
+var vk; // 全局vk实例
+// 涉及的表名
+const dbName = {
+  //test: "vk-test", // 测试表
+};
+
+var db = uniCloud.database(); // 全局数据库引用
+var _ = db.command; // 数据库操作符
+var $ = _.aggregate; // 聚合查询操作符
+
+var cloudObject = {
+  isCloudObject: true, // 标记为云对象模式
+  /**
+   * 请求前处理，主要用于调用方法之前进行预处理，一般用于拦截器、统一的身份验证、参数校验、定义全局对象等。
+   * 文档地址：https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/cloudObject.html#before-预处理
+   */
+  _before: async function() {
+  	vk = this.vk; // 将vk定义为全局对象
+  	// 引入表单验证
+  	const formRules = require("./util/formRules.js"); // 基于该云对象文件所在路径的相对路径
+  	// 获取当前运行的函数
+  	const methodName = this.getMethodName();
+  	// 如果该函数有表单验证的方法，则进行验证
+  	if (typeof formRules[methodName] === "function") {
+  		// 进行表单验证
+  		let formRulesRes = await formRules[methodName].call(this);
+  		if (formRulesRes.code !== 0) {
+  			// 表单验证未通过
+  			return formRulesRes;
+  		}
+  	}
+  },
+  /**
+   * 模板函数
+   * @url client/muban.add 前端调用的url参数地址
+   */
+  test: async function(data) {
+    let { uid } = this.getClientInfo(); // 获取客户端信息
+    let res = { code: 0, msg: '' };
+   
+    
+    
+    // 业务逻辑结束-----------------------------------------------------------
+    return res;
+  },
+  /**
+   * 模板函数
+   * @url client/muban.add 前端调用的url参数地址
+   */
+  add: async function(data) {
+    let { uid } = this.getClientInfo(); // 获取客户端信息
+    let res = { code: 0, msg: '' };
+   
+    
+    
+    // 业务逻辑结束-----------------------------------------------------------
+    return res;
+  }
+};
+
+module.exports = cloudObject;
+```
+
+**./util/formRules.js**
+
+```js
+'use strict';
+/**
+ * 表单验证
+ */
+class Util {
+	constructor() {}
+	/**
+	 * 验证test函数
+	 */
+	async test() {
+		const data = this.getParams();
+		let res = { code: 0, msg: '' };
+		// 验证规则开始 -----------------------------------------------------------
+		let rules = {
+			username: [{
+				required: true,
+				validator: vk.pubfn.validator("username"),
+				message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线',
+				trigger: 'blur'
+			}],
+			nickname: [
+				{ required: true, message: '昵称为必填字段', trigger: 'blur' },
+				{ min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
+			]
+		};
+		// 验证规则结束 -----------------------------------------------------------
+
+		// 开始进行验证
+		res = vk.pubfn.formValidate({
+			data: data,
+			rules: rules
+		});
+		// 返回验证结果
+		return res;
+	},
+  /**
+   * 验证add函数
+   */
+  async add() {
+  	const data = this.getParams();
+  	let res = { code: 0, msg: '' };
+  	// 验证规则开始 -----------------------------------------------------------
+  	let rules = {
+  		nickname: [
+  			{ required: true, message: '昵称为必填字段', trigger: 'blur' },
+  			{ min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
+  		]
+  	};
+  	// 验证规则结束 -----------------------------------------------------------
+  
+  	// 开始进行验证
+  	res = vk.pubfn.formValidate({
+  		data: data,
+  		rules: rules
+  	});
+  	// 返回验证结果
+  	return res;
+  }
+}
+module.exports = new Util
+```
 
 
 ### rules详解
