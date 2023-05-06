@@ -310,6 +310,10 @@ uni.requestSubscribeMessage({
 
 **该接口亮点：可以用小程序的 openid 来发送公众号的模板消息（用户只需关注公众号，无需点击订阅消息）**
 
+**特别注意**
+
+2023年5月4日，微信官方限制了模板消息不再支持 `first` 和 `remark` 以及字体颜色，详情看 [微信公告](https://mp.weixin.qq.com/s?__biz=Mzg4NDYwOTcyNA==&mid=2247509160&idx=1&sn=d65ca01350c4e0aa5c2000a6388994fa&chksm=cfb7637bf8c0ea6d2c123321e88a586e8d03e01d976b6e79e7fb0480a6a6fe99be926de68e3b#rd)
+
 **请求参数**
 
 | 参数   | 类型    |说明                                    |
@@ -387,7 +391,6 @@ let sendRes = await vk.openapi.weixin.uniformMessage.send({
 | 45009  |   接口调用超过限额  |
 | 40013  |   不符合绑定关系要求   |
 
-
 ### 单独公众号模板消息
 `vk.openapi.weixin.h5.templateMessage.send`
 
@@ -395,6 +398,10 @@ let sendRes = await vk.openapi.weixin.uniformMessage.send({
 
 * 1、templateMessage 只需配置公众号的配置，而 uniformMessage 需要同时配置小程序+公众号的配置。（在uni-id的配置文件中配置）
 * 2、templateMessage 的 touser 参数只能是公众号下的openid，而 uniformMessage 可以是小程序下的openid，也可以是公众号下的openid）
+
+**特别注意**
+
+2023年5月4日，微信官方限制了模板消息不再支持 `first` 和 `remark` 以及字体颜色，详情看 [微信公告](https://mp.weixin.qq.com/s?__biz=Mzg4NDYwOTcyNA==&mid=2247509160&idx=1&sn=d65ca01350c4e0aa5c2000a6388994fa&chksm=cfb7637bf8c0ea6d2c123321e88a586e8d03e01d976b6e79e7fb0480a6a6fe99be926de68e3b#rd)
 
 **请求参数**
 
