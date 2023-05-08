@@ -1,6 +1,7 @@
 # 使用事务
  
 ### 两个账户之间进行转账的简易示例
+
 ```js
 let { data = {}, userInfo, util, originalParam } = event;
 let { customUtil, config, pubFun, vk, db, _ } = util;
@@ -71,15 +72,6 @@ try {
 return res;
 ```
 
-#### 注意：
-#### 暂只有以下API支持事务
-* 1、`vk.baseDao.add`
-* 2、`vk.baseDao.findById`
-* 3、`vk.baseDao.updateById`
-* 4、`vk.baseDao.deleteById`
-* 5、`vk.baseDao.updateAndReturn`
-
-
 #### 简易模板
 
 ```js
@@ -99,3 +91,23 @@ try {
   });
 }
 ```
+
+**请注意以下内容：**
+
+1. 事务自带锁，因此需要注意事务操作时会对行进行锁定。
+2. 事务开始后到提交或回滚之间的时间不能超过10秒，否则会报错。
+
+**暂只有以下API支持事务**
+
+1. vk.baseDao.add
+2. vk.baseDao.findById
+3. vk.baseDao.updateById
+4. vk.baseDao.deleteById
+5. vk.baseDao.updateAndReturn
+
+**事务隔离级别：**
+
+- 读：ReadConcern.SNAPSHOT
+- 写：WriteConcern.MAJORITY
+
+[传送门 - MongoDB事务隔离级别详细介绍](https://blog.csdn.net/zxwjx/article/details/106069585)
