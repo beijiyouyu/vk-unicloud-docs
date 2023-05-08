@@ -314,6 +314,10 @@ uni.requestSubscribeMessage({
 
 2023年5月4日，微信官方限制了模板消息不再支持 `first` 和 `remark` 以及字体颜色，详情看 [微信公告](https://mp.weixin.qq.com/s?__biz=Mzg4NDYwOTcyNA==&mid=2247509160&idx=1&sn=d65ca01350c4e0aa5c2000a6388994fa&chksm=cfb7637bf8c0ea6d2c123321e88a586e8d03e01d976b6e79e7fb0480a6a6fe99be926de68e3b#rd)
 
+**同时微信官方出了类目模板，此接口不支持新出的类目模板，只能用历史模板**
+
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/cloudstorage/6c6145dc-daa0-4e18-a5b9-f2bf6e159e8d.png)
+
 **请求参数**
 
 | 参数   | 类型    |说明                                    |
