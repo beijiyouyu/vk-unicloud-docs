@@ -2,12 +2,14 @@
 
 
 ### 当表单参数不多时，这样写并无不雅的地方。
+
 ```js
 if (!data.username) return { code:-1, msg:"用户名不能为空" }
 if (!data.password) return { code:-1, msg:"密码不能为空" }
 ```
 
 ### 但是如果参数有10个以上呢？还这样写吗？
+
 ```js
 if (!data.param1) return { code:-1, msg:"XXX不能为空" }
 if (data.param2<=0) return { code:-1, msg:"XXX必须大于0" }
@@ -20,7 +22,8 @@ if (!data.param8) return { code:-1, msg:"XXX不能为空" }
 if (!data.param9) return { code:-1, msg:"XXX不能为空" }
 。。。
 ```
-#### 上面的代码是不是很lows？
+
+**上面的代码是不是很繁琐？**
 
 ### 如何优化？
 
@@ -383,7 +386,6 @@ class Util {
 module.exports = new Util
 ```
 
-
 ### rules详解
 
 **rules跟前端vue表单验证写法是完全一样的**
@@ -457,6 +459,18 @@ module.exports = new Util
   HTML: [
     // HTML
     { validator: vk.pubfn.validator("HTML"),  message: 'html格式错误', trigger: 'blur' }
+  ],
+  pwd2: [
+    // 自定义
+    { validator: (rule, value, callback)=>{
+      if (value === '') {
+        callback(new Error('请再次输入密码'));
+      } else if (value !== data.pwd) { // 需要特別注意，如果用到跟其他变量做对比，前端写法是 this.form1.data.pwd 而云端写法是 data.pwd
+        callback(new Error('两次输入密码不一致!'));
+      } else {
+        callback();
+      }
+    }, trigger: ['blur','change'] }
   ]
 }
 ```
