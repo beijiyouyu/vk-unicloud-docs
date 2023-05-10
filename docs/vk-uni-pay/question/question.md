@@ -143,23 +143,7 @@ ___你浏览器中访问的域名是什么，就加什么域名___
 
 ## 小程序体验版和正式版无法请求云函数
 
-将以下域名加入小程序 `request` 合法域名（为了省事，可以两个都加了）
-
-阿里云：https://api.next.bspapp.com;
-
-腾讯云：https://tcb-api.tencentcloudapi.com;
-
-- 1、 进入小程序后台 `https://mp.weixin.qq.com/wxamp/devprofile/get_profile` [点击前往](https://mp.weixin.qq.com/wxamp/devprofile/get_profile)
-
-- 2、 点击 `开发管理` - `开发设置` - 服务器域名 点击 `修改`
-
-- 3、 在 `request` 合法域名中添加域名。
-
-___添加域名后还是无法请求?___
-
-- 1、可能是缓存问题，删除微信APP里对应的小程序（清空缓存），微信开发者工具点下清空全部缓存，并重启微信开发者工具（点重新打开项目），最后重新上传体验版。
-
-- 2、如果上面的清空缓存还是不行，则点击微信开发者工具右上角【详情】，把不校验合法域名前的勾去掉，尝试在微信开发者工具里访问云函数，此时会提示还有哪个域名没有加入白名单。
+[传送门 - 查看解决方案](https://vkdoc.fsq.pub/client/question/q10.html)
 
 ## APP支付签名失败？
 
