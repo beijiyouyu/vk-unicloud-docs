@@ -71,7 +71,7 @@ module.exports = [{
       'uniCloud/cloudfunctions/cloudObject',
       {
         title: '数据库',
-        collapsable: true,
+        collapsable: false,
         children: [
           'uniCloud/db/api',
           'uniCloud/db/selects',
