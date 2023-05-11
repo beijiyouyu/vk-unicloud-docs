@@ -29,8 +29,8 @@
 
 ```js
 /**
- * (带缓存,缓存1小时) 获取小程序全局唯一后台接口调用凭据（access_token）。调用绝大多数后台接口时都需使用 access_token，开发者需要进行妥善保存。
- * @param {String} cache 默认true 使用缓存
+ * 获取小程序全局唯一后台接口调用凭据（access_token）。调用绝大多数后台接口时都需使用 access_token，接口会自动缓存token，无需再手动保存token
+ * @param {Boolean} cache 默认true 如果为false，代表不从缓存中读取token，一般不传此参数
  */
 let access_token = await vk.openapi.qq.auth.getAccessToken();
 ```
@@ -56,11 +56,10 @@ let code2SessionRes = await vk.openapi.qq.auth.code2Session({
 `vk.openapi.qq.acode.getMiniCode`
 
 ```js
-
 /**
- * 获取小程序码，适用于需要的码数量极多的业务场景。通过该接口生成的小程序码，永久有效，数量暂无限制。 更多用法详见 获取二维码。
- * @param {String} access_token 默认自动获取,不需要传
- * @param {String} path         必须是已经发布的小程序存在的页面（否则报错），例如 pages/index/index, 根路径前不要填加 /,不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面
+ * 获取小程序码
+ * @param {String} access_token   默认自动获取，不需要传
+ * @param {String} path 必须是已经发布的小程序存在的页面（否则报错），例如 pages/index/index, 根路径前不要填加 /,不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面
  */
 let getMiniCodeRes = await vk.openapi.qq.acode.getMiniCode({
   path: "pages/index/index",
@@ -97,7 +96,6 @@ try {
 }
 ```
 
-
 ## 内容安全
 ### 检测文本是否违规
 
@@ -123,7 +121,7 @@ let msgSecCheckRes = await vk.openapi.qq.security.msgSecCheck({
 /**
  * 校验一张图片是否含有违法违规内容。
  * 频率限制：单个 appId 调用上限为 2000 次/分钟，200,000 次/天 （ 图片大小限制：1M **）
- * @param {String} access_token   默认自动获取,不需要传
+ * @param {String} access_token   默认自动获取，不需要传
  * @param {String} base64         要检测的图片文件base64，图片尺寸不超过 750px x 1334px
  */
 let imgSecCheckRes = await vk.openapi.qq.security.imgSecCheck({
@@ -142,6 +140,7 @@ let imgSecCheckRes = await vk.openapi.qq.security.imgSecCheck({
 ```js
 /**
  * 发送订阅消息
+ * @param {String} access_token       默认自动获取，不需要传
  * @param {String} touser             接收者（用户）的 openid
  * @param {String} template_id        所需下发的订阅模板id
  * @param {String} page               点击模板卡片后的跳转页面，仅限本小程序内的页面。支持带参数,（示例index?foo=bar）。该字段不填则模板无跳转。
@@ -207,6 +206,6 @@ uni.subscribeAppMsg({
 | appsecret					| 可不填，不填会自动从uni-id配置的mp-qq节点里获取appsecret| String	|
 
 1. 如果 `appid` 和 `appsecret` 均不填，则自动从uni-id配置的mp-qq节点里获取appid
-2. 如果填了 `appid` 不填 `appsecret`，则 `appsecret` 会自动从这里找对应的值
+2. 如果填了 `appid` 不填 `appsecret`，则 `appsecret` 会自动从 `uni-config-center/vk-unicloud/index.js 的QQ小程序配置（vk.oauth.qq.list）` 里找对应的值
 
 
