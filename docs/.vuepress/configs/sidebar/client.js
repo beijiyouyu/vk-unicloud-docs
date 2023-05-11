@@ -104,6 +104,7 @@ module.exports = [{
           'uniCloud/plus/weixin',
           'uniCloud/plus/weixin-h5',
           'uniCloud/plus/qq',
+          'uniCloud/plus/douyin',
           'uniCloud/plus/baidu',
           'uniCloud/plus/sms',
           'uniCloud/plus/mail',
