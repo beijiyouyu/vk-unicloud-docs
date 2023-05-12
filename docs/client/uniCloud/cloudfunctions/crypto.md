@@ -111,17 +111,17 @@ console.log('sessionKey: ', sessionKey)
 
 ### 在云函数加密，java或php等其他后端语言解密
 
-> 以下API需要vk-unicloud核心库版本 >= 2.14.0
+> 以下API需要vk-unicloud核心库版本 >= 2.14.1
 
 #### 用云函数加密
 
 ```js
 // 加密数据
-let key = '1234567890123456'; // 必须是固定的16位（只支持数字、英文）
+let key = '12345678901234561234567890123456'; // 必须是固定的32位（只支持数字、英文）
 let text = { a: 1, b: "2" }; // 待加密的内容
 
 let encrypted = vk.crypto.aes.encrypt({
-  mode: "aes-128-ecb",
+  mode: "aes-256-ecb",
   data: text,
   key: key,
 });
@@ -140,10 +140,11 @@ public class CryptoUtil {
     // 调用示例
     public static void main(String[] args) {
         try {
-            String encrypted = "ogASOzc3LzUAL7iA2LAXSQ=="; // 带解密的密文
-            String key = "1234567890123456"; // 必须是固定的16位（只支持数字、英文）
-            String decryptedData = decrypt(encrypted, key);
-            System.out.println("Decrypted: " + decryptedData);
+            String encrypted = "es2aF7DWr169X4fvMnlKNg=="; // 待解密的密文
+            String key = "12345678901234561234567890123456"; // 必须是固定的32位（只支持数字、英文）
+            // 解密
+            String decrypted = decrypt(encrypted, key);
+            System.out.println("decrypted: " + decrypted);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -151,8 +152,8 @@ public class CryptoUtil {
 
     // 解密函数
     private static String decrypt(String encryptedData, String key) throws Exception {
-        if (key.length() > 16) {
-            key = key.substring(0,16);
+        if (key.length() > 32) {
+            key = key.substring(0, 32);
         }
         byte[] encryptedBytes = Base64.getDecoder().decode(encryptedData);
         byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
@@ -166,8 +167,8 @@ public class CryptoUtil {
     }
     // 加密函数
     private static String encrypt(String data, String key) throws Exception {
-        if (key.length() > 16) {
-            key = key.substring(0,16);
+        if (key.length() > 32) {
+            key = key.substring(0, 32);
         }
         byte[] dataBytes = data.getBytes(StandardCharsets.UTF_8);
         byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
@@ -186,12 +187,11 @@ public class CryptoUtil {
 #### 用php解密
 
 ```php
-
 <?php
-    $method = 'aes-128-ecb'; // 加密算法
-    $key = '1234567890123456'; // 必须是固定的16位（只支持数字、英文）
-    $encrypt = "ogASOzc3LzUAL7iA2LAXSQ=="; // 待解密的内容
-    $decrypt = openssl_decrypt(base64_decode($encrypt), $method, substr($key, 0, 16), OPENSSL_RAW_DATA);
+    $key = '12345678901234561234567890123456'; // 必须是固定的32位（只支持数字、英文）
+    $encrypt = "es2aF7DWr169X4fvMnlKNg=="; // 待解密的内容
+    // 解密
+    $decrypt = openssl_decrypt(base64_decode($encrypt), 'aes-256-ecb', substr($key, 0, 32), OPENSSL_RAW_DATA);
     echo $decrypt;
 ?>
 ```
@@ -202,11 +202,11 @@ public class CryptoUtil {
 
 ```js
 // 加密数据
-let key = '1234567890123456'; // 必须是固定的16位（只支持数字、英文）
-let encrypted = "ogASOzc3LzUAL7iA2LAXSQ=="; // 待解密的内容
-// 进行解密
+let key = '12345678901234561234567890123456'; // 必须是固定的32位（只支持数字、英文）
+let encrypted = "es2aF7DWr169X4fvMnlKNg=="; // 待解密的内容
+// 解密
 let decrypted = vk.crypto.aes.decrypt({
-  mode: "aes-128-ecb",
+  mode: "aes-256-ecb",
   data: encrypted, // 待解密的内容
   key: key,
 });
@@ -225,8 +225,9 @@ public class CryptoUtil {
     // 调用示例
     public static void main(String[] args) {
         try {
-            String key = "1234567890123456"; // 必须是固定的16位（只支持数字、英文）
+            String key = "12345678901234561234567890123456"; // 必须是固定的32位（只支持数字、英文）
             String text = "{\"a\":1,\"b\":\"2\"}"; // 待加密的内容
+            // 加密
             String encrypted = encrypt(text, key);
             System.out.println("encrypted: " + encrypted);
         } catch (Exception e) {
@@ -236,8 +237,8 @@ public class CryptoUtil {
 
     // 解密函数
     private static String decrypt(String encryptedData, String key) throws Exception {
-        if (key.length() > 16) {
-            key = key.substring(0,16);
+        if (key.length() > 32) {
+            key = key.substring(0, 32);
         }
         byte[] encryptedBytes = Base64.getDecoder().decode(encryptedData);
         byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
@@ -251,8 +252,8 @@ public class CryptoUtil {
     }
     // 加密函数
     private static String encrypt(String data, String key) throws Exception {
-        if (key.length() > 16) {
-            key = key.substring(0,16);
+        if (key.length() > 32) {
+            key = key.substring(0, 32);
         }
         byte[] dataBytes = data.getBytes(StandardCharsets.UTF_8);
         byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
@@ -266,19 +267,16 @@ public class CryptoUtil {
     }
 
 }
-
 ```
 
 #### 用php加密
 
 ```php
 <?php
-    $method = 'aes-128-ecb'; // 加密算法
-    $key = '1234567890123456'; // 必须是固定的16位（只支持数字、英文）
+    $key = '12345678901234561234567890123456'; // 必须是固定的32位（只支持数字、英文）
     $text = '{"a":1,"b":"2"}'; // 待加密的内容
     // 解密
-    $encrypted = base64_encode(openssl_encrypt($text, $method, substr($key, 0, 16), OPENSSL_RAW_DATA));
+    $encrypted = base64_encode(openssl_encrypt($text, 'aes-256-ecb', substr($key, 0, 32), OPENSSL_RAW_DATA));
     echo $encrypted;
 ?>
-
 ```

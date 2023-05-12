@@ -1,6 +1,6 @@
 # 抖音小程序API
 
-> 以下API需要vk-unicloud核心库版本 >= 2.14.0
+> 以下API需要vk-unicloud核心库版本 >= 2.14.1
 
 ## 配置文件
 
