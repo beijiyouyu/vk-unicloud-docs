@@ -58,30 +58,6 @@ console.log('decrypted: ', decrypted)
 
 ```
 
-**AES加解密（VK简易版）**
-
-注意：需要配置 `vk.crypto.aes` 用于返回给前端加密数据时的加密密钥
-
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/a4ca3d72-358e-4437-8766-d0b14e269697.png)
-
-```js
-// 加密数据
-let encryptedKey = vk.crypto.aes.encrypt({
-  data: {
-    sessionKey: "XXXXX"
-  }
-});
-console.log('encryptedKey: ', encryptedKey)
-
-// 解密 sessionKey 示例
-let decryptedRes = vk.crypto.aes.decrypt({
-  data: encryptedKey, // 待解密的原文
-});
-console.log('decryptedRes: ', decryptedRes)
-let sessionKey = decryptedRes.sessionKey;
-console.log('sessionKey: ', sessionKey)
-```
-
 ## 5、RSA-SHA256签名
 
 一般用于对传输的http文本内容进行签名，防止伪造。
@@ -104,4 +80,205 @@ console.log('sign: ', sign);
 // 验证签名是否正确
 let verify = crypto.createVerify('RSA-SHA256').update(text).verify(publicKey, sign, 'base64');
 console.log('verify: ', verify);
+```
+
+
+## 6、AES加解密（VK简易版）
+
+注意：需要配置 `vk.crypto.aes` 用于返回给前端加密数据时的加密密钥
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/a4ca3d72-358e-4437-8766-d0b14e269697.png)
+
+### 在云函数内加解密
+
+```js
+// 加密数据
+let encryptedKey = vk.crypto.aes.encrypt({
+  data: {
+    sessionKey: "XXXXX"
+  }
+});
+console.log('encryptedKey: ', encryptedKey)
+
+// 解密 sessionKey 示例
+let decryptedRes = vk.crypto.aes.decrypt({
+  data: encryptedKey, // 待解密的原文
+});
+console.log('decryptedRes: ', decryptedRes)
+let sessionKey = decryptedRes.sessionKey;
+console.log('sessionKey: ', sessionKey)
+```
+
+### 在云函数加密，java或php等其他后端语言解密
+
+> 以下API需要vk-unicloud核心库版本 >= 2.14.0
+
+#### 用云函数加密
+
+```js
+// 加密数据
+let key = '1234567890123456'; // 必须是固定的16位（只支持数字、英文）
+let text = { a: 1, b: "2" }; // 待加密的内容
+
+let encrypted = vk.crypto.aes.encrypt({
+  mode: "aes-128-ecb",
+  data: text,
+  key: key,
+});
+console.log('encrypted: ', encrypted);
+```
+
+#### 用java解密
+
+```java
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
+public class CryptoUtil {
+    // 调用示例
+    public static void main(String[] args) {
+        try {
+            String encrypted = "ogASOzc3LzUAL7iA2LAXSQ=="; // 带解密的密文
+            String key = "1234567890123456"; // 必须是固定的16位（只支持数字、英文）
+            String decryptedData = decrypt(encrypted, key);
+            System.out.println("Decrypted: " + decryptedData);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 解密函数
+    private static String decrypt(String encryptedData, String key) throws Exception {
+        if (key.length() > 16) {
+            key = key.substring(0,16);
+        }
+        byte[] encryptedBytes = Base64.getDecoder().decode(encryptedData);
+        byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
+
+        SecretKeySpec secretKey = new SecretKeySpec(keyBytes, "AES");
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+
+        byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
+        return new String(decryptedBytes, StandardCharsets.UTF_8);
+    }
+    // 加密函数
+    private static String encrypt(String data, String key) throws Exception {
+        if (key.length() > 16) {
+            key = key.substring(0,16);
+        }
+        byte[] dataBytes = data.getBytes(StandardCharsets.UTF_8);
+        byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
+
+        SecretKeySpec secretKey = new SecretKeySpec(keyBytes, "AES");
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+
+        byte[] encryptedBytes = cipher.doFinal(dataBytes);
+        return Base64.getEncoder().encodeToString(encryptedBytes);
+    }
+
+}
+```
+
+#### 用php解密
+
+```php
+
+<?php
+    $method = 'aes-128-ecb'; // 加密算法
+    $key = '1234567890123456'; // 必须是固定的16位（只支持数字、英文）
+    $encrypt = "ogASOzc3LzUAL7iA2LAXSQ=="; // 待解密的内容
+    $decrypt = openssl_decrypt(base64_decode($encrypt), $method, substr($key, 0, 16), OPENSSL_RAW_DATA);
+    echo $decrypt;
+?>
+```
+
+### 在java或php等其他后端语言加密，用云函数解密
+
+#### 用云函数解密
+
+```js
+// 加密数据
+let key = '1234567890123456'; // 必须是固定的16位（只支持数字、英文）
+let encrypted = "ogASOzc3LzUAL7iA2LAXSQ=="; // 待解密的内容
+// 进行解密
+let decrypted = vk.crypto.aes.decrypt({
+  mode: "aes-128-ecb",
+  data: encrypted, // 待解密的内容
+  key: key,
+});
+console.log('decrypted: ', decrypted);
+```
+
+#### 用java加密
+
+```java
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
+public class CryptoUtil {
+    // 调用示例
+    public static void main(String[] args) {
+        try {
+            String key = "1234567890123456"; // 必须是固定的16位（只支持数字、英文）
+            String text = "{\"a\":1,\"b\":\"2\"}"; // 待加密的内容
+            String encrypted = encrypt(text, key);
+            System.out.println("encrypted: " + encrypted);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 解密函数
+    private static String decrypt(String encryptedData, String key) throws Exception {
+        if (key.length() > 16) {
+            key = key.substring(0,16);
+        }
+        byte[] encryptedBytes = Base64.getDecoder().decode(encryptedData);
+        byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
+
+        SecretKeySpec secretKey = new SecretKeySpec(keyBytes, "AES");
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+
+        byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
+        return new String(decryptedBytes, StandardCharsets.UTF_8);
+    }
+    // 加密函数
+    private static String encrypt(String data, String key) throws Exception {
+        if (key.length() > 16) {
+            key = key.substring(0,16);
+        }
+        byte[] dataBytes = data.getBytes(StandardCharsets.UTF_8);
+        byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
+
+        SecretKeySpec secretKey = new SecretKeySpec(keyBytes, "AES");
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+
+        byte[] encryptedBytes = cipher.doFinal(dataBytes);
+        return Base64.getEncoder().encodeToString(encryptedBytes);
+    }
+
+}
+
+```
+
+#### 用php加密
+
+```php
+<?php
+    $method = 'aes-128-ecb'; // 加密算法
+    $key = '1234567890123456'; // 必须是固定的16位（只支持数字、英文）
+    $text = '{"a":1,"b":"2"}'; // 待加密的内容
+    // 解密
+    $encrypted = base64_encode(openssl_encrypt($text, $method, substr($key, 0, 16), OPENSSL_RAW_DATA));
+    echo $encrypted;
+?>
+
 ```
