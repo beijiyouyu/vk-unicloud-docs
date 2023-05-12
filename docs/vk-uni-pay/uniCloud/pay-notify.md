@@ -132,13 +132,141 @@ module.exports = async (obj, originalParam) => {
 
 优势：无需鉴权，无需加密解密（插件已帮你验证签名，能进到这里，就是已经通过签名验证）
 
+代码示例
+
+```js
+'use strict';
+/**
+ * 此处建议只改下订单状态，保证能及时返回给第三方支付服务器成功状态
+ * 且where条件可以增加判断服务器推送过来的金额和订单表中订单需支付金额是否一致
+ * 将消息发送、返佣、业绩结算等业务逻辑异步处理(写入异步任务队列表)
+ * 如开启定时器每隔5秒触发一次，处理订单
+ */
+module.exports = async (obj, originalParam) => {
+	let user_order_success = true;
+	let { data = {}, verifyResult } = obj;
+	let { db, _ } = originalParam;
+	let {
+		out_trade_no,
+		transaction_id,
+		total_fee,
+		user_id,
+		recharge_balance
+	} = data;
+	// 此处写你自己的支付成功逻辑开始-----------------------------------------------------------
+	// 方式一：直接写数据库操作（原生数据库语句）
+	// 示例：给用户充值余额(可以去数据库查看余额是否有增加)
+	let res = await db.collection("uni-id-users").doc(user_id).update({
+	  balance: _.inc(recharge_balance)
+	});
+	if (res.updated) {
+	  user_order_success = true;
+	} else {
+	  user_order_success = false;
+	}
+	// 此处写你自己的支付成功逻辑结束-----------------------------------------------------------
+	// user_order_success =  true 代表你自己的逻辑处理成功 返回 false 代表你自己的处理逻辑失败。
+	return user_order_success;
+};
+```
+
 ##### 方式二：使用 await uniCloud.callFunction 调用其他云函数
 
 优势：可以访问其他云函数，适用于回调函数的主要逻辑在另外一个云函数中执行，如router
 
+代码示例
+
+```js
+'use strict';
+/**
+ * 此处建议只改下订单状态，保证能及时返回给第三方支付服务器成功状态
+ * 且where条件可以增加判断服务器推送过来的金额和订单表中订单需支付金额是否一致
+ * 将消息发送、返佣、业绩结算等业务逻辑异步处理(写入异步任务队列表)
+ * 如开启定时器每隔5秒触发一次，处理订单
+ */
+module.exports = async (obj, originalParam) => {
+	let user_order_success = true;
+	let { data = {}, verifyResult } = obj;
+	let { db, _ } = originalParam;
+	let {
+		out_trade_no,
+		transaction_id,
+		total_fee,
+	} = data;
+	// 此处写你自己的支付成功逻辑开始-----------------------------------------------------------
+	// 设置订单为已付款
+	// 方式二：使用 await uniCloud.callFunction 调用其他云函数
+  
+  // 加密
+	let encryptedData = vkPay.crypto.aes.encrypt({
+		data: data
+	});
+  // 调用其他云函数（在该云函数中需要解密，加密方式见文档最后）
+	let callFunctionRes = await uniCloud.callFunction({
+		name: "router",
+		data: {
+			$url: "template/test/pub/http",
+			data: encryptedData
+		}
+	});
+  // 云函数执行成功后需要返回{ code: 0 }
+	if (callFunctionRes.result.code === 0) {
+		user_order_success = true; // 表示你后端执行成功了
+	} else {
+		user_order_success = false; // 表示你后端执行失败了
+	}
+	// 此处写你自己的支付成功逻辑结束-----------------------------------------------------------
+	// user_order_success =  true 代表你自己的逻辑处理成功 返回 false 代表你自己的处理逻辑失败。
+	return user_order_success;
+};
+```
+
 ##### 方式三：使用 await uniCloud.httpclient.request 调用http接口地址
 
 优势：可以访问java或php写的后端接口，适用于回调函数的主要逻辑在另外一个系统中执行。
+
+代码示例
+
+```js
+'use strict';
+/**
+ * 此处建议只改下订单状态，保证能及时返回给第三方支付服务器成功状态
+ * 且where条件可以增加判断服务器推送过来的金额和订单表中订单需支付金额是否一致
+ * 将消息发送、返佣、业绩结算等业务逻辑异步处理(写入异步任务队列表)
+ * 如开启定时器每隔5秒触发一次，处理订单
+ */
+module.exports = async (obj, originalParam) => {
+	let user_order_success = true;
+	let { data = {}, verifyResult } = obj;
+	let { db, _ } = originalParam;
+	let {
+		out_trade_no,
+		transaction_id,
+		total_fee,
+	} = data;
+	// 此处写你自己的支付成功逻辑开始-----------------------------------------------------------
+	// 设置订单为已付款
+	// 方式三：使用 await uniCloud.httpclient.request 调用http接口地址
+	let res = await uniCloud.httpclient.request("https://xxxx.com/xxx", {
+		method: "POST",
+		data: {
+			...data,
+			key: "与你后端约定的口令", // 你后端接受key参数，判断key等于约定的口令，则视为正常推送订单，否则，拦截
+		},
+		contentType: "json",
+		dataType: "json"
+	});
+	// 后端执行成功后需要返回{ code: 0 }
+	if (res && res.data && res.data.code === 0) {
+		user_order_success = true; // 表示你后端执行成功了
+	} else {
+		user_order_success = false; // 表示你后端执行失败了
+	}
+	// 此处写你自己的支付成功逻辑结束-----------------------------------------------------------
+	// user_order_success =  true 代表你自己的逻辑处理成功 返回 false 代表你自己的处理逻辑失败。
+	return user_order_success;
+};
+```
 
 ##### 注意：
 
