@@ -2,6 +2,8 @@
 
 **暂未发布，敬请期待**
 
+> 以下API需要vk-unicloud核心库版本 >= 2.14.0
+
 ## 配置文件
 
 打开 `uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json` 文件，配置里面的 
