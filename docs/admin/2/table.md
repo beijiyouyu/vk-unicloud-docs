@@ -196,6 +196,44 @@ data() {
 }
 ```
 
+##### right-btns根据当前用户角色或权限控制是否显示、隐藏、禁用
+
+```html
+<vk-data-table
+  :right-btns="table1.rightBtns"
+  right-btns-align="right"
+></vk-data-table>
+```
+
+```js
+data() {
+  return {
+    table1:{
+      
+      rightBtns:[
+        'detail_auto',
+        {
+          mode:'update',
+          title:'编辑',
+          disabled: (item)=>{
+            return !this.$hasRole("admin") && !this.$hasPermission("user-delete"); // 代表不是admin角色也没有user-delete权限的用户则按钮置灰禁用
+          }
+        },
+        {
+          mode:'delete',
+          title:'删除',
+          show: (item)=>{
+            return this.$hasRole("admin") || this.$hasPermission("user-delete"); // 代表只有admin角色或拥有user-delete权限的用户才能看到删除按钮
+          }
+        },
+        'more'
+      ],
+      
+    }
+  }
+}
+```
+
 ##### right-btns数组内的可选值有
 
 | 可选值   | 说明                    |
@@ -219,7 +257,6 @@ right-btns-more（右侧更多按钮点击后显示的按钮列表）
   right-btns="['detail_auto','update','delete','more']"
   :right-btns-more="table1.rightBtnsMore"
 ></vk-data-table>
-
 ```
 
 ```js
@@ -258,6 +295,46 @@ data() {
           disabled: '_id!=002',
           onClick: (item)=>{
             vk.toast(`${item._id}-按钮4`);
+          }
+        }
+      ]
+      
+    }
+  }
+}
+```
+
+##### right-btns-more根据当前用户角色或权限控制是否显示、隐藏、禁用
+
+```html
+<vk-data-table
+  right-btns="['detail_auto','update','delete','more']"
+  :right-btns-more="table1.rightBtnsMore"
+></vk-data-table>
+```
+
+```js
+data() {
+  return {
+    table1:{
+      
+      rightBtnsMore:[
+        {
+          title: '按钮1',
+          disabled: (item)=>{
+            return !this.$hasRole("admin") && !this.$hasPermission("user-delete"); // 代表不是admin角色也没有user-delete权限的用户则按钮置灰禁用
+          },
+          onClick: (item)=>{
+            vk.toast(`${item._id}-按钮1`);
+          }
+        },
+        {
+          title: '按钮2',
+          show: (item)=>{
+            return this.$hasRole("admin") || this.$hasPermission("user-delete"); // 代表只有admin角色或拥有user-delete权限的用户才能看到删除按钮
+          },
+          onClick: (item)=>{
+            vk.toast(`${item._id}-按钮2`);
           }
         }
       ]
@@ -316,6 +393,46 @@ data() {
           disabled: '_id!=002',
           onClick:(item)=>{
             vk.toast(`${item._id}-按钮4`);
+          }
+        }
+      ],
+      
+    }
+  }
+}
+```
+
+##### custom-right-btns根据当前用户角色或权限控制是否显示、隐藏、禁用
+
+```html
+<vk-data-table
+  :custom-right-btns="table1.customRightBtns"
+  right-btns-align="right"
+></vk-data-table>
+```
+
+```js
+data() {
+  return {
+    table1: {
+      
+      customRightBtns: [
+        {
+          title: '按钮1', type: 'primary', icon: 'el-icon-edit',
+          disabled: (item)=>{
+            return !this.$hasRole("admin") && !this.$hasPermission("user-delete"); // 代表不是admin角色也没有user-delete权限的用户则按钮置灰禁用
+          },
+          onClick:(item)=>{
+            vk.toast(`${item._id}-按钮1`);
+          }
+        },
+        {
+          title: '按钮2', type: 'success', icon: 'el-icon-edit',
+          show: (item)=>{
+            return this.$hasRole("admin") || this.$hasPermission("user-delete"); // 代表只有admin角色或拥有user-delete权限的用户才能看到删除按钮
+          },
+          onClick:(item)=>{
+            vk.toast(`${item._id}-按钮2`);
           }
         }
       ],
