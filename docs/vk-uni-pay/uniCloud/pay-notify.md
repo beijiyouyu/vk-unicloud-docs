@@ -301,8 +301,8 @@ let {
 } = decryptedRes;
 ```
 
-如果是java和php，需要自己实现类似 `vkPay.crypto.aes.decrypt` 解密功能。[node.js加密解密源码](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/crypto.html#_4%E3%80%81aes%E5%8A%A0%E8%A7%A3%E5%AF%86)
+如果是java和php，[点击此处查看加密解密算法示例](https://vkdoc.fsq.pub/client/uniCloud/cloudfunctions/crypto.html#%E5%9C%A8%E4%BA%91%E5%87%BD%E6%95%B0%E5%8A%A0%E5%AF%86-java%E6%88%96php%E7%AD%89%E5%85%B6%E4%BB%96%E5%90%8E%E7%AB%AF%E8%AF%AD%E8%A8%80%E8%A7%A3%E5%AF%86)
 
-或者可以传密钥key，你的后端接受key参数，判断key等于约定的口令，则视为正常推送订单，否则，拦截（因为是服务端与服务器端的交互，理论上只要key不暴露给前端，则是安全的，当然安全系数会比通过加密和解密方式稍低点，但也是安全的）
+也可以直接传密钥key，你的后端接受key参数，判断key等于约定的口令，则视为正常推送订单，否则，拦截（因为是服务端与服务器端的交互，理论上只要key不暴露给前端，则是安全的，当然安全系数会比通过加密和解密方式稍低点，但也是安全的）
 
 **当然加密方式不仅限此方案，如果你有自己的加密方案，则可以使用自己的方案来解决。**
