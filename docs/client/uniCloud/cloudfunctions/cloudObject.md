@@ -734,7 +734,7 @@ let data = await userObject.getInfo({
 
 如果你的URL尾部不想要带. 则可以使用 `URL重写` 来达到效果。
 
-你可以将 `https://www.aaa.com/http/router/client/user.getInfo` 重写为 `https://www.aaa.com/http/router/client/user/getInfo`
+`https://www.aaa.com/http/router/client/user.getInfo` 重写为 `https://www.aaa.com/http/router/client/user/getInfo`
 
 重写规则为：
 
@@ -742,6 +742,22 @@ let data = await userObject.getInfo({
 module.exports = {
   "rule": {
     "^client/user/(.+)": "client/user.$1"
+  },
+  "config": {
+    // 当设置为true时，只有符合url重写规则内的云函数才可以被url化访问。
+    "accessOnlyInRule":false
+  }
+};
+```
+
+`https://www.aaa.com/http/router/client/pub.user.getInfo` 重写为 `https://www.aaa.com/http/router/client/user/getInfo`
+
+重写规则为：
+
+```js
+module.exports = {
+  "rule": {
+    "^client/user/(.+)": "client/pub.user.$1"
   },
   "config": {
     // 当设置为true时，只有符合url重写规则内的云函数才可以被url化访问。
