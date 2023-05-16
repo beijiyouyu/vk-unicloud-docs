@@ -177,6 +177,8 @@ data() {
         {
           mode:'update',
           title:'编辑',
+          plain:true,
+          round:true,
           disabled: (item)=>{
             return item._id == '002'
           }
