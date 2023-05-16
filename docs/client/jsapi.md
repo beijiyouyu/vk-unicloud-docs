@@ -1567,7 +1567,7 @@ let batchRunRes = await vk.pubfn.batchRun({
     return { code:0, index }
   },
   // 最大并发量，如果设置为1，则会按顺序执行
-  concurrency: 100, 
+  concurrency: 50, 
   // 数据源，这些数据会依次跑一遍main函数
   data: [
     { a: 1 }, 
