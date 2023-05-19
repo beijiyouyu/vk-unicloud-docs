@@ -60,7 +60,7 @@
 
 最后还需要重新上传公共模块 `vk-mail` 和云函数 `router`
 
-## 4、发送邮箱验证码示例代码（router内版本）
+## 4、发送邮箱验证码示例代码（vk框架下router函数内）
 ```js
 var vkmail;
 try {
@@ -133,7 +133,8 @@ module.exports = {
 
 ```
 
-## 5、发送邮箱验证码示例代码（非router版本）
+## 5、发送邮箱验证码示例代码（vk框架下非router函数内）
+
 ```js
 'use strict';
 // 通过 require 引入 vk 实例
