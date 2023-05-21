@@ -10,7 +10,9 @@
 
 目前有2种方式操作vuex数据
 
-## 方式一：
+## 方式一
+
+如果只是获取或更新Vuex数据，推荐方式一的写法
 
 ```js
 // 获取 Vuex 数据： 
@@ -20,7 +22,9 @@ vk.getVuex('$user.userInfo')
 vk.setVuex('$user.userInfo.avatar', avatar);
 ```
 
-## 方式二：
+## 方式二
+ 
+如果需要用到 `getters` `commit` `dispatch`，则用方式二写法（可以与方式一混用）
 
 ```js
 // 获取 Vuex 数据： 
@@ -79,6 +83,19 @@ vk.vuex.dispatch('$user/addFootprint', data);
 而使用新方案，则不会影响页面加载时间。
 
 ### 如何在vue页面监听vuex内的数据变化
+
+代码示例
+
+```js
+watch: {
+  "$store.state.$user.xxx": {
+    deep: true, // 如果是对象，需要深度监听设置为 true
+    handler: function(newVal, oldVal) {
+      console.log(`数据发生变化啦，值从 ${oldVal} 变为 ${newVal}`);
+    }
+  }
+},
+```
 
 完整示例代码
 
