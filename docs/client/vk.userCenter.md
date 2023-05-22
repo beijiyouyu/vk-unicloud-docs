@@ -480,10 +480,16 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 
 ```js
 /**
- * 手机号登录(手机号+手机验证码)
+ * 手机号登录（手机号+手机验证码）
  * data 请求参数 说明
- * @param {String} mobile 手机号
- * @param {String} code 验证码
+ * @param {String} mobile 手机号（必填）
+ * @param {String} code 验证码（必填）
+ * @param {String} type 指定操作类型，不传：存在则登录不存在则注册 login：只能登录 register：只能注册 
+ * @param {String} password 密码，当前用户为新注册时生效
+ * @param {String} inviteCode 邀请人的邀请码，当前用户为新注册时生效
+ * @param {String} myInviteCode 设置当前注册用户自己的邀请码，当前用户为新注册时生效（不传会自动生成）
+ * @param {Boolean} needPermission 设置为true时会在checkToken时返回用户权限（permission），如果是在admin端，需传true
+ * @param {Array} role 设定用户角色，当前用户为新注册时生效
  * res 返回参数说明
  * @param {String} token 注册完成自动登录之后返回的token信息
  * @param {String} tokenExpired token过期时间
@@ -686,10 +692,15 @@ ___框架会自动保存 `token`，无需你再手动去保存。___
 
 ```js
 /**
- * 邮箱登录(邮箱+邮箱验证码)
+ * 邮箱登录（邮箱+邮箱验证码）
  * data 请求参数 说明
  * @param {String} email 邮箱
  * @param {String} code  邮箱收到的验证码
+ * @param {String} type 指定操作类型，不传：存在则登录不存在则注册 login：只能登录 register：只能注册 
+ * @param {String} password 密码，当前用户为新注册时生效
+ * @param {String} myInviteCode 设置当前注册用户自己的邀请码，当前用户为新注册时生效（不传会自动生成）
+ * @param {Boolean} needPermission 设置为true时会在checkToken时返回用户权限（permission），如果是在admin端，需传true
+ * @param {Array} role 设定用户角色，当前用户为新注册时生效
  * res 返回参数说明
  * @param {String} token 注册完成自动登录之后返回的token信息
  * @param {String} tokenExpired token过期时间
