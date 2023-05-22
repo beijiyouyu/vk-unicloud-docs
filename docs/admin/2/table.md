@@ -84,6 +84,8 @@ export default {
 | expand     | 通用 - 是否开启点击可以展开行 [查看展开行](#展开行)|Boolean  | false | true |
 | left-fixed     | 通用 - 序号、多选框是否固定在左侧 |Boolean  | true | false |
 | right-fixed     | 通用 - 操作按钮是否固定在右侧 |Boolean  | true | false |
+| searched-clean-selection     | 通用 - 表格搜索后是否清空多选框选中的值 |Boolean  | true | false |
+
 
 ### columns（字段列表）
 
