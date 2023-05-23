@@ -8,6 +8,7 @@
 
 使用此功能前需要先开通uni-push 2.0，参考文档：[uni-push 2.0](https://uniapp.dcloud.net.cn/unipush-v2.html#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%BC%80%E9%80%9A)
 
+
 ## 客户端API
 
 [查看完整示例](#完整示例)
