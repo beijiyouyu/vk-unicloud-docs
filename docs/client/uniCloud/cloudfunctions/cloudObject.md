@@ -552,7 +552,7 @@ module.exports = cloudObject;
 
 ___注意： vk = this.vk 或 vk = uni.vk___
 
-**方式一：使用 vk.callFunction**
+#### 方式一：使用 vk.callFunction
 
 **回调形式**
 
@@ -573,6 +573,7 @@ vk.callFunction({
 ```
 
 **promise形式**
+
 ```js
 // promise方式
 vk.callFunction({
@@ -589,6 +590,7 @@ vk.callFunction({
    
 });
 ```
+
 **async/await形式**
 
 此方式只能在声明了 async 的函数中运行。
@@ -606,7 +608,6 @@ let data = await vk.callFunction({
 });
 ```
 
-
 **云对象函数路径url获取方式**
 
 云对象函数路径url = service内的目录名+对象名+函数名
@@ -614,8 +615,7 @@ let data = await vk.callFunction({
 如：`client/user.getInfo` 代表调用 client 目录下的 user 对象内的 getInfo 函数。
 
 
-**方式二：使用 uni.vk.importObject**
-
+#### 方式二：使用 uni.vk.importObject
 
 方式二分两步
 
@@ -625,7 +625,9 @@ let data = await vk.callFunction({
 const userObject = uni.vk.importObject("client/user"); // 这段代码可以写在外层顶部，也可以直接写在对应函数内部。
 ```
 
+
 **特别注意：目前vue3的app模式下，不可直接写在页面生命周期外，如果非要写在生命周期外（外层顶部）则需要这样写**
+
 ```js
 var userObject;
 setTimeout(() => {
@@ -655,6 +657,7 @@ userObject.getInfo({
 ```
 
 **promise形式**
+
 ```js
 // promise方式
 userObject.getInfo({
@@ -670,6 +673,7 @@ userObject.getInfo({
    
 });
 ```
+
 **async/await形式**
 
 此方式只能在声明了 async 的函数中运行。
@@ -686,8 +690,72 @@ let data = await userObject.getInfo({
 });
 ```
 
+**执行router2内的云对象**
 
+```js
+const pubObject = uni.vk.importObject('client/user', {
+  name: "router2"
+});
 
+let res = await pubObject.getList({
+  title: "请求中",
+  data: { 
+    a: 1,
+    b: "2"
+  }
+});
+```
+
+**设置默认title**
+
+```js
+const pubObject = uni.vk.importObject('client/user', {
+  title: "请求中",
+});
+
+let res = await pubObject.getList({
+  data: { 
+    a: 1,
+    b: "2"
+  }
+});
+```
+
+**设置默认请求参数**
+
+```js
+const pubObject = uni.vk.importObject('client/user', {
+  data: {
+    a: 0,
+    c: 2
+  }
+});
+
+let res = await pubObject.getList({
+  data: { 
+    a: 1,
+    b: "2"
+  }
+});
+
+// 此时最终发送的请求参数是 { a: 1, b: "2", c: 2 }
+
+```
+
+**开启简易传参模式**
+
+```js
+const pubObject = uni.vk.importObject('client/pub.test', {
+  title: "请求中",
+  easy: true, // 开启简易传参模式
+});
+
+// 设置easy为true后，请求参数省略data
+let res = await pubObject.getList({
+  a: 1,
+  b: "2"
+});
+```
 
 ## 本地运行
 
