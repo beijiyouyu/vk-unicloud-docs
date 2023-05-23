@@ -10,50 +10,23 @@
 
 ## 客户端API
 
+[查看完整示例](#完整示例)
+
 ### 创建通道
 
-用法：`const channel = uniCloud.SSEChannel()`
-
-**示例**
-
 ```js
-export default {
-  data() {},
-  onLoad() {},
-  methods: {
-    async testSSE() {
-      // 创建消息通道
-      const channel = new uniCloud.SSEChannel();
-      // 监听message事件
-      channel.on('message', (message) => { 
-        console.log('on message', message);
-      });
-      // 监听end事件，如果云端执行end时传了message，会在客户端end事件内收到传递的消息
-      channel.on('end', (message) => {
-        console.log('on end', message);
-      });
-      // 等待通道开启
-      await channel.open();
-      // 发送请求
-      let res = await vk.callFunction({
-        name: "router",
-        url: 'template/pub.test.testSSE',
-        title: '请求中...',
-        data: {
-          channel: channel
-        }
-      });
-      console.log('res: ', res)
-    }
-  }
-}
+const channel = uniCloud.SSEChannel();
 ```
 
 ### 开启通道
 
 用于开启消息通道。
 
-用法：`await channel.open()`
+用法：
+
+```js
+await channel.open();
+```
 
 注意通道一定要在open之后再传给云函数
 
@@ -63,7 +36,11 @@ export default {
 
 用于关闭消息通道，关闭后将不会收到message和end事件（在接收到end事件后会自动关闭，无需手动执行close）
 
-用法：`channel.close()`
+用法：
+
+```js
+channel.close();
+```
 
 ### 通道开启事件
 
@@ -161,25 +138,39 @@ channel.off('message', function(message){
 
 ## 云函数API
 
+[查看完整示例](#完整示例)
+
 ### 反序列化消息通道
 
-用法：`const channel = uniCloud.deserializeSSEChannel(data.channel)`
+用法：
 
-参数中的data.channel是客户端在callFunction时传递的消息通道对象
+```js
+const channel = uniCloud.deserializeSSEChannel(data.channel);
+```
+
+参数中的 `data.channel` 是客户端在 `callFunction` 时传递的消息通道对象
 
 ### 写入消息
 
-用法：`await channel.write(message)`
+用法：
+
+```js
+await channel.write(message);
+```
 
 ### 结束消息通道
 
-用法：`await channel.end(message)`
+用法：
+
+```js
+await channel.end(message);
+```
 
 end方法内message可以不传
 
-## 示例
+## 完整示例
 
-**客户端代码示例**
+### 客户端代码示例
 
 ```js
 // 客户端代码
@@ -215,7 +206,7 @@ export default {
 }
 ```
 
-**云函数代码示例**
+### 云函数代码示例
 
 ```js
 'use strict';
@@ -257,7 +248,7 @@ module.exports = {
 }
 ```
 
-**云对象代码示例**
+### 云对象代码示例
 
 ```js
 'use strict';
