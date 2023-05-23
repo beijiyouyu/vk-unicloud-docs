@@ -65,6 +65,7 @@ module.exports = [{
           'uniCloud/cloudfunctions/formRules',
           'uniCloud/cloudfunctions/originalParam',
           'uniCloud/cloudfunctions/urlOriginalParam',
+          'uniCloud/cloudfunctions/sseChannel',
           'uniCloud/cloudfunctions/question'
         ]
       },
