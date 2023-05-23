@@ -166,7 +166,7 @@ await channel.write(message);
 await channel.end(message);
 ```
 
-end方法内message可以不传
+注意：message可以不传
 
 ## 完整示例
 
