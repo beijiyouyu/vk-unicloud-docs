@@ -690,6 +690,8 @@ let data = await userObject.getInfo({
 });
 ```
 
+##### uni.vk.importObject的高级用法
+
 **执行router2内的云对象**
 
 ```js
