@@ -604,6 +604,27 @@ res = await vk.baseDao.selects({
 });
 ```
 
+下方的代码效果是查询并连表带出用户的最后一级分享人信息
+
+```js
+res = await vk.baseDao.selects({
+  dbName: "uni-id-users",
+  getCount: false,
+  pageIndex: 1,
+  pageSize: 5,
+  fieldJson:{ token: false, password: false },
+  // 副表列表
+  foreignDB: [{
+    dbName: "uni-id-users",
+    localKey: $.arrayElemAt(['$inviter_uid', -1]),
+    foreignKey: "_id",
+    as: "lastInviterUserInfo",
+    limit: 1,
+    fieldJson:{ token: false, password: false },
+  }]
+});
+```
+
 ### 场景12：通过副表字段排序
 
 主表：opendb-mall-comments （评论表）
