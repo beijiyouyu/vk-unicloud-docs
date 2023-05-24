@@ -315,12 +315,9 @@ on end {a: 5}
 开发者使用push时可以忽略此类型消息
 
 ```js
-function getType(val) {
-  return Object.prototype.toString.call(val).slice(8,-1).toLowerCase()
-}
 uni.onPushMessage((res) => {
-  const payload = res && res.data && res.data.payload
-  if(getType(payload)==='object' && payload.channel === 'UNI_CLOUD_SSE'){
+  const payload = res && res.data && res.data.payload;
+  if (typeof payload === "object" && payload.channel === 'UNI_CLOUD_SSE'){
     // 收到云函数请求中的中间状态通知通道消息，忽略处理此类消息
     return
   }
