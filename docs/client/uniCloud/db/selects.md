@@ -573,8 +573,16 @@ res = await vk.baseDao.selects({
 
 **核心**
 
+第一个
+
 ```js
 localKey: $.arrayElemAt(['$inviter_uid', 0]),
+```
+
+最后一个
+ 
+```js
+localKey: $.arrayElemAt(['$inviter_uid', -1]),
 ```
 
 **注意**
