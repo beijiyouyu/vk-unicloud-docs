@@ -23,7 +23,11 @@
 
 ## 【云函数】调用百度开放平台API
 
-**API通用接口**
+### 百度API通用接口（简易版）
+
+优势：代码极简
+
+缺点：部分接口不支持
 
 ```js
 /**
@@ -42,6 +46,135 @@ let requestRes = await vk.openapi.baidu.open.request({
     image:base64
   }
 });
+```
+
+### 百度API通用接口（通用版）
+
+优势：支持所有接口
+
+#### 文本合成语音示例代码
+
+```js
+// 获取tokne
+let access_token = await vk.openapi.baidu.open.auth.getAccessToken();
+// 发起请求
+let buffer = await vk.request({
+  method: "POST",
+  url: "https://tsn.baidu.com/text2audio", // 请求地址
+  // 请求头
+  headers: {
+    "content-type": "application/x-www-form-urlencoded",
+  },
+  dataType: "default", // 如果对方返回的是二进制数据，则需要传设置为default
+  // 请求参数
+  data: {
+    tok: access_token,
+    tex: "你好,我是AI小助手",
+    cuid: "1",
+    ctp: 1,
+    lan: "zh",
+    spd: 5,
+    pit: 5,
+    vol: 5,
+    per: 0,
+    aue: 3
+  }
+});
+try {
+  // 如果buffer的长度小于500，基本上就是报错了，转json看下错误信息
+  if (buffer.length < 500) {
+    let err = JSON.parse(buffer.toString("utf-8"));
+    return {
+      code: err.err_no,
+      msg: err.err_msg,
+      err: err
+    }
+  }
+} catch (err) {}
+
+// 上传到云存储
+let uploadFileRes = await uniCloud.uploadFile({
+  cloudPath: `${Date.now()}.mp3`,
+  fileContent: buffer
+});
+// 获得url地址
+let url = uploadFileRes.fileID;
+console.log('url: ', url);
+return {
+  code: 0,
+  url
+};
+```
+
+#### 语音解析文本示例代码
+
+格式支持：pcm（不压缩）、wav（不压缩，pcm编码）、amr（压缩格式）、m4a（压缩格式，仅支持极速版模型，m4a格式输入适用于微信小程序的录音文件，详见格式说明）。推荐pcm 采样率 ：16000 固定值。 编码：16bit 位深的单声道。
+
+百度服务端会将非pcm格式，转为pcm格式，因此使用wav、amr、m4a会有额外的转换耗时。
+
+[16k 采样率pcm文件样例下载](https://platform.bj.bcebos.com/sdk/asr/asr_doc/doc_download_files/16k.pcm)
+[16k 采样率wav文件样例下载](https://platform.bj.bcebos.com/sdk/asr/asr_doc/doc_download_files/16k.wav)
+[16k 采样率amr文件样例下载](https://platform.bj.bcebos.com/sdk/asr/asr_doc/doc_download_files/16k-23850.amr)
+[16k 采样率m4a文件样例下载](https://platform.bj.bcebos.com/sdk/asr/asr_doc/doc_download_files/16k-48000.m4a)
+
+注意：微信小程序的录音文件格式是 `m4a`
+
+```js
+// 解析语音
+let mediaUrl = "https://mp-70255e58-5282-4b64-941f-006c17c560c8.cdn.bspapp.com/cloudstorage/95ee5952-7aef-4bf9-8b2c-15bd43eb5b7b.pcm";
+
+// 获取文件的后缀名
+let suffixName = mediaUrl.substring(mediaUrl.lastIndexOf(".") + 1);
+
+// 文件转buffer
+let buffer = await vk.request({
+  url: mediaUrl,
+  method: "GET",
+  dataType: "default",
+});
+
+// buffer转base64
+let base64 = buffer.toString('base64');
+
+// 获取token
+let access_token = await vk.openapi.baidu.open.auth.getAccessToken();
+
+// 请求接口
+let requestRes = await vk.request({
+  method: "POST",
+  url: "https://vop.baidu.com/pro_api",
+  headers: {
+    "content-type": "application/json",
+  },
+  dataType: "json",
+  data: {
+    token: access_token,
+    format: suffixName,
+    rate: 16000,
+    channel: 1,
+    cuid: "001",
+    dev_pid: 80001,
+    speech: base64,
+    len: buffer.length,
+  }
+});
+if (requestRes.err_no !== 0) {
+  // 失败直接返回
+  return {
+    code: requestRes.err_no,
+    msg: requestRes.err_msg,
+    err: requestRes
+  }
+}
+// 得到文件内容，注意，这是一个数组
+let result = requestRes.result;
+console.log('result: ', result);
+
+return {
+  code: 0,
+  msg: requestRes.err_msg,
+  result: requestRes.result
+};
 ```
 
 ## 【前端】直接调用百度开放平台API
