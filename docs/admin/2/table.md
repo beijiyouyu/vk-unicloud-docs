@@ -85,7 +85,7 @@ export default {
 | left-fixed     | 通用 - 序号、多选框是否固定在左侧 |Boolean  | true | false |
 | right-fixed     | 通用 - 操作按钮是否固定在右侧 |Boolean  | true | false |
 | searched-clean-selection     | 通用 - 表格搜索后是否清空多选框选中的值 |Boolean  | true | false |
-
+| need-alert | 通用 - 表格请求失败后，是否自动alert弹窗（若设为false，则可以通过监听fail事件自己处理错误） |Boolean  | true | false |
 
 ### columns（字段列表）
 
