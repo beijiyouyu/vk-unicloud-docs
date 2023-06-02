@@ -728,6 +728,7 @@ vk.userCenter.loginByEmail({
  * data 请求参数 说明
  * @param {String} email 邮箱
  * @param {String} type  验证码类型，用于防止不同功能的验证码混用，目前支持的类型login登录、register注册、bind绑定手机、unbind解绑手机、reset-pwd重置密码
+ * @param {String} serviceType 邮件服务类型，默认为qq，可自定义，与uni-config-center/vk-unicloud/index.js内配置的一致即可。
  * res 返回参数说明
  * @param {String} email 邮箱
  * @param {String} verifyCode 验证码
@@ -736,6 +737,7 @@ vk.userCenter.sendEmailCode({
   data: {
     email: '',
     type: 'login',
+    serviceType: 'qq'
   },
   success: (data) => {
     // 成功后的逻辑
