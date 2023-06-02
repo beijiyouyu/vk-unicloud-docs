@@ -264,6 +264,9 @@ vk.userCenter.logout({
  * @param {String} password 重置后的密码
  */
 vk.userCenter.resetPwd({
+  data: {
+    password: "123456"
+  },
   success: (data) => {
     // 成功后的逻辑
 
