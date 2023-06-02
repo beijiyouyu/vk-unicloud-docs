@@ -680,6 +680,7 @@ table1:{
     { key: "balance", title: "余额", type: "money", width: 120 },
     { key: "percentage", title: "占比", type: "percentage", width: 120 },
     { key: "address", title: "地址", type: "address", width: 120 },
+    // 方便连表查询时快速将userInfo的头像和昵称展示出来（值需有avatar和nickname字段）
     { key: "userInfo", title: "用户", type: "userInfo", width: 120 },
     // group 是将多个字段显示在一个单元格内
     { 
