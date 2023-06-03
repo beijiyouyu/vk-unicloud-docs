@@ -8,6 +8,44 @@
 
 `持久化vuex`是`VK框架`在`vuex`的基础上进行的深度封装，使`vuex`具有`持久化储存`
 
+## vuex配置
+
+vuex配置文件在根目录的store/modules目录下，每一个.js文件都是一个vuex模块，如 `$user.js` 代表用户模块
+
+文件内 `state` 下的属性就是该模块的变
+
+**注意：所有变量名必须提前声明，这样才能持久化储存。**
+
+以 `$user.js` 模块为例，该模块声明下两个变量，分别是 `userInfo` 和 `permission`
+
+```js
+/**
+ * vuex 用户状态管理模块
+ */
+let lifeData = uni.getStorageSync('lifeData') || {};
+
+let $user = lifeData.$user || {};
+
+export default {
+	// 通过添加 namespaced: true 的方式使其成为带命名空间的模块
+	namespaced: true,
+	/**
+	 * vuex的基本数据，用来存储变量
+	 */
+	state: {
+		userInfo: $user.userInfo || {},
+		permission:$user.permission || [],
+	}
+}
+```
+
+访问userInfo的代码为：`vk.getVuex('$user.userInfo')`
+
+修改userInfo的代码为：`vk.setVuex('$user.userInfo', userInfo)`
+
+修改userInfo的avatar的代码为：`vk.setVuex('$user.userInfo.avatar', avatar)`
+
+
 目前有2种方式操作vuex数据
 
 ## 方式一
