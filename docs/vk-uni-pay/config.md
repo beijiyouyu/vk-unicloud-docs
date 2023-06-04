@@ -40,54 +40,69 @@ module.exports = {
    * key                微信支付V2版本的api密钥
    * pfx                微信支付V2版本的p12证书（apiclient_cert.p12）（退款需要）
    * v3Key              微信支付V3版本的api密钥
-   * appCertPath        微信支付V3版本需要用到的证书（apiclient_cert.pem）（退款需要）
-   * appPrivateKeyPath  微信支付V3版本需要用到的证书（apiclient_key.pem）（退款需要）
+   * appCertPath        微信支付V3版本需要用到的证书（apiclient_cert.pem）
+   * appPrivateKeyPath  微信支付V3版本需要用到的证书（apiclient_key.pem）
    * version            启用支付的版本 2代表v2版本 3 代表v3版本，默认是2
    */
   "wxpay": {
     // 微信 - 小程序支付
     "mp-weixin": {
-      "appId": "",
-      "secret": "",
-      "mchId": "",
-      "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
+      "appId": "", // 微信小程序的appId
+      "secret": "", // 微信小程序的secret（需要填写）
+      "mchId": "", // 微信支付的商户id
+      "key": "", // 微信支付V2版本的api密钥
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 微信支付V2版本的api密钥
+      "v3Key": "", // 微信支付V3版本的api密钥
+      "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 微信支付V3版本需要用到的证书（apiclient_cert.pem）
+      "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 微信支付V3版本需要用到的证书（apiclient_key.pem）
       "version": 2
     },
     // 微信 - APP支付
     "app-plus": {
-      "appId": "",
-      "secret": "",
-      "mchId": "",
-      "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
+      "appId": "", // 微信开放平台下app的appId
+      "secret": "", // 微信开放平台下app的secret（app可不填此项）
+      "mchId": "", // 微信支付的商户id
+      "key": "", // 微信支付V2版本的api密钥
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 微信支付V2版本的api密钥
+      "v3Key": "", // 微信支付V3版本的api密钥
+      "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 微信支付V3版本需要用到的证书（apiclient_cert.pem）
+      "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 微信支付V3版本需要用到的证书（apiclient_key.pem）
       "version": 2
     },
     // 微信 - H5网站二维码支付
     "h5": {
-      "appId": "",
-      "secret": "",
-      "mchId": "",
-      "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
+      "appId": "", // 微信公众号或小程序或app的appId（任意都可）
+      "secret": "", // 微信后台与之对应的secret（可不填此项）
+      "mchId": "", // 微信支付的商户id
+      "key": "", // 微信支付V2版本的api密钥
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 微信支付V2版本的api密钥
+      "v3Key": "", // 微信支付V3版本的api密钥
+      "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 微信支付V3版本需要用到的证书（apiclient_cert.pem）
+      "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 微信支付V3版本需要用到的证书（apiclient_key.pem）
       "version": 2
     },
     // 微信 - 公众号支付
     "h5-weixin": {
-      "appId": "wx2ebf03d174875bed",
-      "secret": "84119e740cc4e98b84e088c5051d05bb",
-      "mchId": "",
-      "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
+      "appId": "", // 微信公众号下app的appId
+      "secret": "", // 微信公众号的secret（需要填写）
+      "mchId": "", // 微信支付的商户id
+      "key": "", // 微信支付V2版本的api密钥
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 微信支付V2版本的api密钥
+      "v3Key": "", // 微信支付V3版本的api密钥
+      "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 微信支付V3版本需要用到的证书（apiclient_cert.pem）
+      "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 微信支付V3版本需要用到的证书（apiclient_key.pem）
       "version": 2
     },
     // 微信 - 手机外部浏览器H5支付
     "mweb": {
-      "appId": "",
-      "secret": "",
-      "mchId": "",
-      "key": "",
-      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'),
+      "appId": "", // 微信公众号或小程序或app的appId（任意都可）
+      "secret": "", // 微信后台与之对应的secret（可不填此项）
+      "mchId": "", // 微信支付的商户id
+      "key": "", // 微信支付V2版本的api密钥
+      "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 微信支付V2版本的api密钥
+      "v3Key": "", // 微信支付V3版本的api密钥
+      "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 微信支付V3版本需要用到的证书（apiclient_cert.pem）
+      "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 微信支付V3版本需要用到的证书（apiclient_key.pem）
       // 场景信息，必填
       "sceneInfo": {
         "h5_info": {
@@ -100,13 +115,13 @@ module.exports = {
     },
     // 微信 - 转账到零钱 v3版本
     "transfer": {
-      "appId": "",
-      "mchId": "",
-      "v3Key": "",
-      "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'),
-      "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'),
-      "wxpayPublicCertSn": "",
-      "wxpayPublicCertContent": ""
+      "appId": "", // 微信公众号或小程序或app的appId（任意都可）
+      "mchId": "", // 微信支付的商户id
+      "v3Key": "", // 微信支付V3版本的api密钥
+      "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 微信支付V3版本需要用到的证书（apiclient_cert.pem）
+      "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 微信支付V3版本需要用到的证书（apiclient_key.pem）
+      "wxpayPublicCertSn": "", // 微信平台证书序列号，详见：https://vkdoc.fsq.pub/vk-uni-pay/uniCloud/transfer3.html#_7-2%E3%80%81%E6%89%B9%E9%87%8F%E6%A8%A1%E5%BC%8F
+      "wxpayPublicCertContent": "" // 微信平台证书内容，详见：https://vkdoc.fsq.pub/vk-uni-pay/uniCloud/transfer3.html#_7-2%E3%80%81%E6%89%B9%E9%87%8F%E6%A8%A1%E5%BC%8F
     },
   },
   /**
