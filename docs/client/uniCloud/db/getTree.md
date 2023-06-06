@@ -1,6 +1,7 @@
 # 查询返回树状结构
  
-#### 以下语句效果是：查询已启用的菜单，并自动将子菜单合并到父菜单的children字段下
+以下语句效果是：查询已启用的菜单，并自动将子菜单合并到父菜单的children字段下
+
 ```js
 res = await vk.baseDao.selects({
   dbName: "opendb-admin-menus",
@@ -8,7 +9,8 @@ res = await vk.baseDao.selects({
   pageSize: 500,
   whereJson:{
     enable: true,
-    parent_id: null
+    parent_id: _.in([null, ""]),
+    menu_id: _.exists(true)
   },
   sortArr: [{ name: "sort", type: "asc" }],
   // 树状结构参数
@@ -24,11 +26,16 @@ res = await vk.baseDao.selects({
   }
 });
 ```
-### 注意：`treeProps` 内的`whereJson` 若需要用到 `or` 和 `and` 则
-####  `_.or` 需写成` _.$.or`
-#### `_.and` 需写成` _.$.and`
 
-#### `foreignDB` 属性需写在主表下，无需写在 `treeProps` 内。（子表会继承主表的 `foreignDB` 属性)
+**注意：**
+
+1. `treeProps` 内的 `whereJson` 若需要用到 `or` 和 `and` 则
+
+`_.or` 需写成 `_.$.or`
+
+`_.and` 需写成 `_.$.and`
+
+2. `foreignDB` 属性需写在主表下，无需写在 `treeProps` 内。（子表会继承主表的 `foreignDB` 属性)
 
 
 
