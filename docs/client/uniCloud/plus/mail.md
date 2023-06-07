@@ -11,6 +11,7 @@
 "vk":{
   "service": {
     "email": {
+      "codeExpiresIn": 180, // 邮件验证码有效期（单位秒）
       "qq": {
         "host": "smtp.qq.com",
         "port": 465,
@@ -34,6 +35,7 @@
 "vk":{
   "service": {
     "email": {
+      "codeExpiresIn": 180, // 邮件验证码有效期（单位秒）
       "163": {
         "host": "smtp.163.com",
         "port": 465,
@@ -61,76 +63,78 @@
 最后还需要重新上传公共模块 `vk-mail` 和云函数 `router`
 
 ## 4、发送邮箱验证码示例代码（vk框架下router函数内）
+
 ```js
 var vkmail;
 try {
-	vkmail = require('vk-mail');
+  vkmail = require('vk-mail');
 } catch (err) {
-	console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
+  console.error("请先添加公共模块：vk-mail（右键对应的云函数，点击管理公共模块或扩展库依赖，勾选vk-mail依赖）");
 }
 module.exports = {
-	/**
-	 * 发送邮箱验证码
-	 * @url user/pub/sendEmailCode 前端调用的url参数地址
-	 * @description 发送邮箱验证码
-	 * data 请求参数 说明
-	 * @param {String} email 邮箱
-	 * @param {String} type  验证码类型
-	 * res 返回参数说明
-	 * @param {Number} code 错误码，0表示成功
-	 * @param {String} msg 详细信息
-	 * @param {String} email 手机号  
-	 * @param {String} verifyCode 验证码
-	 */
-	main: async (event) => {
-		let { data = {}, util } = event;
-		let { uniID, config } = util;
-		let res = { code: 0, msg: 'ok' };
-		// 业务逻辑开始----------------------------------------------------------- 
+  /**
+   * 发送邮箱验证码
+   * @url user/pub/sendEmailCode 前端调用的url参数地址
+   * @description 发送邮箱验证码
+   * data 请求参数 说明
+   * @param {String} email 邮箱
+   * @param {String} type  验证码类型
+   * res 返回参数说明
+   * @param {Number} code 错误码，0表示成功
+   * @param {String} msg 详细信息
+   * @param {String} email 手机号  
+   * @param {String} verifyCode 验证码
+   */
+  main: async (event) => {
+    let { data = {}, util } = event;
+    let { uniID, config } = util;
+    let res = { code: 0, msg: 'ok' };
+    // 业务逻辑开始----------------------------------------------------------- 
     let { 
       email,
       type
     } = data;
-		let code = vk.pubfn.random(6, "0123456789");
+    let code = vk.pubfn.random(6, "0123456789");
     
     let serviceType = "qq";
     let subject = "验证码";
     
-		// 发送验证码开始
-		var emailConfig = config.vk.service.email;
-		let emailService = vkmail.createTransport({
-			"host": emailConfig[serviceType].host,
-			"port": emailConfig[serviceType].port,
-			"secure": emailConfig[serviceType].secure, // use SSL
-			"auth": emailConfig[serviceType].auth
-		});
-		try {
-			// 发送邮件
-			await emailService.sendMail({
-				"from": emailConfig[serviceType].auth.user, // 邮件的发送者
-				"to": email, // 邮件的接收者
-				"cc": emailConfig[serviceType].auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把邮件抄送给自己一份，就不会被当成垃圾邮件。
-				"subject": subject, // 邮件的标题
-				"text": `您的验证码是${code},打死也不要告诉别人哦!`, // 邮件的内容
-			});
-			// 发送验证码成功后，设置验证码
-			await uniID.setVerifyCode({
+    // 发送验证码开始
+    let emailConfig = config.vk.service.email;
+    // 如果配置设置了过期时间，则使用配置的过期时间，否则默认180秒
+    let expiresIn = emailConfig.codeExpiresIn || 180;
+    let emailService = vkmail.createTransport({
+      "host": emailConfig[serviceType].host,
+      "port": emailConfig[serviceType].port,
+      "secure": emailConfig[serviceType].secure, // use SSL
+      "auth": emailConfig[serviceType].auth
+    });
+    try {
+      // 发送邮件
+      await emailService.sendMail({
+        "from": emailConfig[serviceType].auth.user, // 邮件的发送者
+        "to": email, // 邮件的接收者
+        "cc": emailConfig[serviceType].auth.user, // 由于邮件可能会被当成垃圾邮件，但只要把邮件抄送给自己一份，就不会被当成垃圾邮件。
+        "subject": subject, // 邮件的标题
+        "text": `您的验证码是${code},打死也不要告诉别人哦!`, // 邮件的内容
+      });
+      // 发送验证码成功后，设置验证码
+      await uniID.setVerifyCode({
         code,
         type,
-        email
+        email,
+        expiresIn
       });
-		} catch (err) {
-			console.error(err);
-			return { code: -1, msg: "邮件发送失败", err };
-		}
-		// 发送验证码结束
+    } catch (err) {
+      console.error(err);
+      return { code: -1, msg: "邮件发送失败", err };
+    }
+    // 发送验证码结束
 
-		// 业务逻辑结束-----------------------------------------------------------
-		return res;
-	}
+    // 业务逻辑结束-----------------------------------------------------------
+    return res;
+  }
 }
-
-
 ```
 
 ## 5、发送邮箱验证码示例代码（vk框架下非router函数内）
@@ -193,8 +197,8 @@ exports.main = async (event, context) => {
 
 ```
 
-
 ## 6、发送邮箱验证码示例代码（uniCloud通用版本，也是 node.js 通用版本）
+
 ```js
 'use strict';
 
@@ -261,5 +265,4 @@ exports.main = async (event, context) => {
   }
   return res;
 };
-
 ```
