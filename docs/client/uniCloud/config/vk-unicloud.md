@@ -95,10 +95,34 @@ module.exports = {
         }
       }
     },
-    // 其他小程序的密钥 当需要多个小程序绑定同一服务空间,并调用小程序服务端API时需要填写 暂只支持微信小程序
+    // 其他小程序的密钥，当需要多个小程序绑定同一服务空间，并调用小程序服务端API时需要填写
     "oauth": {
-      // 微信小程序
+      // 微信（含小程序、公众号、APP）
       "weixin": {
+        // 密钥列表
+        "list": [
+          { "appid": "", "appsecret": "" },
+          { "appid": "", "appsecret": "" }
+        ]
+      },
+      // 支付宝（小程序）
+      "alipay": {
+        // 密钥列表（注意：支付宝比较特殊，没有appsecret，这里的 privateKey 是应用私钥）
+        "list": [
+          { "appid": "", "privateKey": "" },
+          { "appid": "", "privateKey": "" }
+        ]
+      },
+      // qq（小程序）
+      "qq": {
+        // 密钥列表
+        "list": [
+          { "appid": "", "appsecret": "" },
+          { "appid": "", "appsecret": "" }
+        ]
+      },
+      // 抖音（小程序）
+      "toutiao": {
         // 密钥列表
         "list": [
           { "appid": "", "appsecret": "" },
