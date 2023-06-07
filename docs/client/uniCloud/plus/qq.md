@@ -59,12 +59,11 @@ let code2SessionRes = await vk.openapi.qq.auth.code2Session({
 /**
  * 获取小程序码
  * @param {String} access_token   默认自动获取，不需要传
- * @param {String} path 必须是已经发布的小程序存在的页面（否则报错），例如 pages/index/index, 根路径前不要填加 /,不能携带参数（参数请放在scene字段里），如果不填写这个字段，默认跳主页面
+ * @param {String} path 必须是已经发布的小程序存在的页面（否则报错），例如 pages/index/index 根路径前不要填加 / 可以携带参数 如 pages/index/index?a=1
  */
 let getMiniCodeRes = await vk.openapi.qq.acode.getMiniCode({
-  path: "pages/index/index",
+  path: "pages/index/index?a=1&b=2",
 });
-
 ```
 
 **注意：getMiniCode在执行成功后返回的是二进制，故在云函数中需要转换，完整代码如下**
