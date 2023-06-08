@@ -38,6 +38,7 @@ module.exports = [{
       'db/vk-pay-config'
     ]
   },
+  "iosiap",
   {
     title: '进阶',
     collapsable: false,
@@ -46,7 +47,6 @@ module.exports = [{
       'advanced/multi-merchant-service-provider'
     ]
   },
-  "iosiap",
   {
     title: 'vk-pay云函数示例代码',
     path: '/vk-uni-pay/template/service/tips',

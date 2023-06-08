@@ -1,6 +1,15 @@
 # 1、vk-uni-pay统一支付组件
 
-## 1.1、template
+**使用 `vk-uni-pay` 组件的优势**
+
+* 1、自动请求云函数
+* 2、自动识别H5、小程序、APP，抹平不同平台的代码差异
+* 3、H5扫码支付自动获取二维码地址vkPay.codeUrl，支持自动轮询获取支付状态
+* 4、可实时监听支付状态vkPay.status 0：待支付 1：支付中 2：已支付
+* 5、支付成功的判断是直接查你数据库的订单状态是否已支付，安全可靠。
+
+## template
+
 ```html
 <vk-uni-pay
   ref="vkPay"
@@ -12,25 +21,34 @@
 ></vk-uni-pay>
 ```
 
-## 1.2、属性
+## 属性
 
-| 参数   | 说明       | 类型    | 默认值  | 可选值 |
-|------- |-----------|---------|-------|-------|
-| query-payment-action    |   查询支付状态的云函数配置  | Object/String  | -    | - |
-| status.sync  | 支付状态 0:待支付 1:支付中 2:已支付  |  Numbner  | -    | -  |
-| code-url.sync  |   PC扫码支付专用 - 二维码地址  | String  | -    | -  |
-| page-show  |  PC扫码支付专用 - 当前页面是否在前端显示  | Boole  | true | false |
-| polling  |  PC扫码支付专用 - 是否自动轮询检测扫码支付状态  | Boole  | false  | true |
+| 参数								| 说明																																								| 类型					| 默认值| 可选值|
+|-------							|-----------																																					|---------			|-------|-------|
+| query-payment-action|   查询支付状态的云函数配置																													| Object、String| -			| -			|
+| status.sync					| 支付状态 0:待支付 1:支付中 2:已支付																									|  Numbner			| -			| -			|
+| code-url.sync				|   PC扫码支付专用 - 二维码url地址																										| String				| -			| -			|
+| qrcode-image.sync		|   PC扫码支付专用 - 二维码图片base64值																								| String				| -			| -			|
+| page-show						|  PC扫码支付专用 - 当前页面是否在前端显示																						| Boolean				| true	| false	|
+| polling							|  PC扫码支付专用 - 是否自动轮询检测扫码支付状态																			| Boolean				| false	| true	|
+| polling-time				|  轮询间隔																																						| Number				| 1500	| -			|
+| return-url					|  仅微信手机外部浏览器H5支付时有效																										| String				| -			| -			|
+| await-notify				|  支付成功后，是否需要等待异步回调全部执行完成后才通知前端														| Boolean				| false	| true	|
+| pay-order-info			|  支付成功后，是否需要返回支付订单数据																								| Boolean				| true	| false	|
+| debug								|  是否需要打印调试日志（当前仅用于ios内购时生效）																		| Boolean				| false	| true	|
+| auto-get-openid			|  是否自动获取小程序的openid（若传false，则在createPayment时需要自己传对应的openid）	| Boolean				| true	| false	|
 
-## 1.3、方法
+## 方法
 
-#### 通过 this.$refs.vkPay.xxx(); 方式调用
+**通过 this.$refs.vkPay.xxx(); 方式调用**
+
 | 方法名   | 说明                    |
 |----------|------------------------|
 | createPayment     | 发起支付 |
 | queryPayment     | 查询支付状态 |
 
-## 1.4、createPayment 示例
+## createPayment 示例
+
 ```js
 this.$refs.vkPay.createPayment({
   // 如果是非路由框架，则action为字符串，值为云函数名称
@@ -75,7 +93,8 @@ this.$refs.vkPay.createPayment({
 });
 ```
 
-## 1.5、queryPayment 示例
+## queryPayment 示例
+
 ```js
 this.$refs.vkPay.queryPayment({
   title: "查询中...",
@@ -88,7 +107,9 @@ this.$refs.vkPay.queryPayment({
   }
 });
 ```
-#### toast 和 alert 简易封装
+
+**toast 和 alert 简易封装**
+
 ```js
 toast(title, icon = "none", mask = false) {
   uni.showToast({
@@ -107,9 +128,9 @@ alert(content, title = "提示") {
 }
 ```
 
+## 完整示例
 
-## 1.6、完整示例
-```html
+```vue
 <template>
   <view class="app content">
     <!-- #ifdef H5 || APP-PLUS -->
@@ -440,5 +461,4 @@ export default {
   }
 }
 </style>
-
 ```
