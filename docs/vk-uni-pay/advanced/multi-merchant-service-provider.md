@@ -22,7 +22,7 @@
 
 参数和普通商户模式一样的，服务商模式下多了2个参数，`subAppId` 和 `subMchId`，但这两个参数均可不填。
 
-H5网站二维码支付配置为
+以H5网站二维码支付配置为例
 
 ```js
 "h5": {
@@ -36,82 +36,6 @@ H5网站二维码支付配置为
   "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 服务商v3证书
   "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 服务商v3证书
   "version": 2
-},
-```
-
-小程序支付配置为
-
-```js
-"mp-weixin": {
-  "appId": "", // 服务商名下的任意公众号appid（注意，不管什么支付，这里填的都是服务商名下的任意公众号appid）
-  "mchId": "", // 服务商商户号
-  "subAppId": "", // 默认子商户小程序appid（可不填）
-  "subSecret": "", // 默认子商户小程序secret（可不填）
-  "subMchId": "", // 默认子商户商户号（可不填）
-  "key": "", // 服务商api的v2的key
-  "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 服务商v2证书
-  "v3Key": "", // 服务商api的v3的key
-  "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 服务商v3证书
-  "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 服务商v3证书
-  "version": 2
-},
-```
-
-APP支付配置为
-
-```js
-"app-plus": {
-  "appId": "", // 服务商名下的任意公众号appid（注意，不管什么支付，这里填的都是服务商名下的任意公众号appid）
-  "mchId": "", // 服务商商户号
-  "subAppId": "", // 默认子商户app的appid（可不填）
-  "subMchId": "", // 默认子商户商户号（可不填）
-  "key": "", // 服务商api的v2的key
-  "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 服务商v2证书
-  "v3Key": "", // 服务商api的v3的key
-  "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 服务商v3证书
-  "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 服务商v3证书
-  "version": 2
-},
-```
-
-公众号支付配置为
-
-```js
-"h5-weixin": {
-  "appId": "", // 服务商名下的任意公众号appid（注意，不管什么支付，这里填的都是服务商名下的任意公众号appid）
-  "mchId": "", // 服务商商户号
-  "subAppId": "", // 默认子商户app的appid（可不填）
-  "subMchId": "", // 默认子商户商户号（可不填）
-  "key": "", // 服务商api的v2的key
-  "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 服务商v2证书
-  "v3Key": "", // 服务商api的v3的key
-  "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 服务商v3证书
-  "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 服务商v3证书
-  "version": 2
-},
-```
-
-手机外部浏览器H5支付配置为
-
-```js
-"mweb": {
-  "appId": "", // 服务商名下的任意公众号appid（注意，不管什么支付，这里填的都是服务商名下的任意公众号appid）
-  "mchId": "", // 服务商商户号
-  "subAppId": "", // 默认子商户app的appid（可不填）
-  "subMchId": "", // 默认子商户商户号（可不填）
-  "key": "", // 服务商api的v2的key
-  "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 服务商v2证书
-  "v3Key": "", // 服务商api的v3的key
-  "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 服务商v3证书
-  "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 服务商v3证书
-  "version": 2,
-  "sceneInfo": {
-    "h5_info": {
-      "type": "Wap", // 此值固定Wap
-      "wap_url": "https://www.xxx.com", // 你的H5首页地址，必须和你发起支付的页面的域名一致。
-      "wap_name": "xxx", // 你的H5网站名称
-    }
-  }
 },
 ```
 
