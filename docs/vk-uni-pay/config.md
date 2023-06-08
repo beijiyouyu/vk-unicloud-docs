@@ -125,14 +125,15 @@ module.exports = {
     },
   },
   /**
-   * 支付宝（证书记得选java版本）
+   * 支付宝
    * 公共参数说明
    * appId                  支付宝开放平台的应用appId
    * privateKey             应用私钥
-   * alipayPublicCertPath   支付宝公钥证书路径地址  与之对应的 alipayPublicCertContent 为支付宝公钥证书内容（值可以是字符串也可以是Buffer）
-   * alipayRootCertPath     支付宝根证书路径地址   与之对应的 alipayRootCertContent 为支付宝根证书内容（值可以是字符串也可以是Buffer）
-   * appCertPath            应用证书路径地址      与之对应的 appCertPathContent 为应用证书内容（值可以是字符串也可以是Buffer）
-   * sandbox  是否沙箱模式 true 沙箱模式 false 正常模式
+   * alipayPublicCertPath   [证书模式] 支付宝公钥证书路径地址  与之对应的 alipayPublicCertContent 为支付宝公钥证书内容（值可以是字符串也可以是Buffer）
+   * alipayRootCertPath     [证书模式] 支付宝根证书路径地址   与之对应的 alipayRootCertContent 为支付宝根证书内容（值可以是字符串也可以是Buffer）
+   * appCertPath            [证书模式] 应用证书路径地址      与之对应的 appCertPathContent 为应用证书内容（值可以是字符串也可以是Buffer）
+   * alipayPublicKey        [密钥模式] 支付宝公钥（证书模式3个参数，密钥模式1个参数，选一种模式即可，密钥模式不支持转账到支付宝）
+   * sandbox                是否沙箱模式 true 沙箱模式 false 正常模式
    */
   "alipay": {
     // 支付宝 - 小程序支付配置
