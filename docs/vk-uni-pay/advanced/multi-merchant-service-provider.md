@@ -16,7 +16,7 @@
 
 > vk-pay的版本需 >= 1.10.0
 
-### 配置
+**配置**
 
 配置文件：`common/uni-config-center/uni-pay/config.js` [传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 
@@ -115,7 +115,7 @@ APP支付配置为
 },
 ```
 
-### 使用
+**使用**
 
 `vkPay.createPayment` 接口中多传两个参数 `sub_appid` 和 `sub_mchid` 即可
 
@@ -154,27 +154,15 @@ exports.main = async (event, context) => {
 
 ## 支付宝服务商
 
-### 配置
+> vk-pay的版本需 >= 1.10.0
+
+**配置**
 
 配置 `common/uni-config-center/uni-pay/config.js` 中的参数使用服务商的密钥和证书
 
-注意：支付宝服务商的配置和普通商户一样，只多个一个可选参数appAuthToken。[传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
+注意：支付宝服务商的配置和普通商户一样 [传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 
-如：
-
-```js
-"h5": {
-  "appId": "",
-  "privateKey": "",
-  "alipayPublicCertPath": path.join(__dirname, 'alipay/service/alipayCertPublicKey_RSA2.crt'),
-  "alipayRootCertPath": path.join(__dirname, 'alipay/service/alipayRootCert.crt'),
-  "appCertPath": path.join(__dirname, 'alipay/service/appCertPublicKey.crt'),
-  "appAuthToken": "", // 默认子商户的授权token（可不传）
-  "sandbox": false
-},
-```
-
-### 使用
+**使用**
 
 `vkPay.createPayment` 接口中多传一个参数 `app_auth_token` 即可
 
@@ -213,3 +201,10 @@ exports.main = async (event, context) => {
   return res;
 };
 ```
+
+## 常见问题
+
+### 为什么小程序报code无效或openid无效？
+
+小程序支付必传openid，而默认插件会自动获取用户的openid，但是在服务商模式下，用户的openid需要自己获取，因此需要将支付组件属性 `autoGetOpenid` 的值设置为false，同时在 `createPayment` 时主动传入当前用户的openid
+
