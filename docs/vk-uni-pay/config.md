@@ -171,6 +171,16 @@ module.exports = {
       "appCertPath": path.join(__dirname, 'alipay/appCertPublicKey.crt'),
       "sandbox": false
     }
+  },
+  // ios内购相关
+  "appleiap": {
+    // ios内购支付
+    "app-plus": {
+      "password": "", // 非自动续订场景不需要此参数
+      "timeout": 10000, // 请求超时时间，单位：毫秒
+      "receiptExpiresIn": 86400, // ios内购凭据有效期，单位：秒 86400 = 24小时 3600 = 1小时
+      "sandbox": true, // 是否是沙箱环境（正式上线时必须配置为false）
+    }
   }
 }
 ```
