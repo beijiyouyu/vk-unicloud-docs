@@ -158,7 +158,21 @@ exports.main = async (event, context) => {
 
 配置 `common/uni-config-center/uni-pay/config.js` 中的参数使用服务商的密钥和证书
 
-注意：支付宝服务商的配置和普通商户一模一样，无特殊参数。[传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
+注意：支付宝服务商的配置和普通商户一样，只多个一个可选参数appAuthToken。[传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
+
+如：
+
+```js
+"h5": {
+  "appId": "",
+  "privateKey": "",
+  "alipayPublicCertPath": path.join(__dirname, 'alipay/service/alipayCertPublicKey_RSA2.crt'),
+  "alipayRootCertPath": path.join(__dirname, 'alipay/service/alipayRootCert.crt'),
+  "appCertPath": path.join(__dirname, 'alipay/service/appCertPublicKey.crt'),
+  "appAuthToken": "", // 默认子商户的授权token（可不传）
+  "sandbox": false
+},
+```
 
 ### 使用
 
@@ -179,7 +193,7 @@ exports.main = async (event, context) => {
     context,
     provider: "alipay",
     data: {
-      app_auth_token: "xxxxxxxxxxxx", // 子商户的授权token
+      app_auth_token: "xxxxxxxxxxxx", // 子商户的授权token（若不传，会尝试从配置去获取）
       openid: "用户openid，小程序支付时必传",
       out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
       total_fee: 1, // 订单金额(单位分 100 = 1元)
