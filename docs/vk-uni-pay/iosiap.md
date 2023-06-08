@@ -240,9 +240,28 @@ button {
 </style>
 ```
 
+## 开通  
+
+- 登录[App Store Connect](https://appstoreconnect.apple.com/)签署《付费应用程序协议》
+- 在App Store Connect中为 App 配置 App 内购买项目产品，参考[创建App内购买项目](https://help.apple.com/app-store-connect/#/devae49fb316)，设置产品ID（productId）
+
+更多信息详见苹果官方文档 [App 内购买项目配置流程](https://help.apple.com/app-store-connect/#/devb57be10e7)。
+
+**注意**  
+
+- 提交 App Store 的 App 才能开通应用内支付，使用 `苹果企业账号` 发布的 App 不能开通使用  
+- 根据 App Store 审核指南条款 [3.1.1](https://developer.apple.com/cn/app-store/review/guidelines/#in-app-purchase) 要求，虚拟物品交易必须使用应用内支付，实物交易才可使用第三方支付(支付宝、微信等)
+- 创建 App内购买项目的各项信息需要填写完整，保存后内购项目的状态是准备提交，当提交应用通过审核后，状态则变为已批准
+- 正式上线前可在 Test Flight 平台添加 App Store Connect 用户，测试支付时可以使用此用户帐号
+
+## 沙箱账号
+
+1. 登陆苹果开发者中心，添加沙箱账号
+2. 手机或iPad登陆沙箱账号，在 系统设置 -> App Store
+
 ## 注意事项
 
-1. ios内购支付需勾选App模块配置中的Apple应用内支付
+1. ios内购支付需勾选App模块配置中的Apple应用内支付，打开项目的manifest.json文件，在“App模块配置”项的“Payment(支付)”下勾选“Apple应用内支付”：
 2. 需要打ios自定义基座
 3. 需要注册ios开发者账号，且交了年费（688元/年）
 4. 需要在ios开发者平台添加内购商品，并获得商品id
