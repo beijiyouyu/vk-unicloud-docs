@@ -1316,17 +1316,31 @@ vk.baseDao.getTableData({
 在 `common/uni-config-center/vk-unicloud/index.js` 中
 
 配置 `vk.db.unicloud.getTableData.sortArr`，可以设置 `vk.baseDao.getTableData` 全局默认排序规则
+
 ```js
 "vk":{
   "db":{
     "unicloud":{
       "getTableData":{
-        "sortArr":[{"name":"_add_time","type":"desc"}], // vk.baseDao.getTableData 默认排序规则
+        // vk.baseDao.getTableData 默认排序规则
+        "sortArr":[
+          {"name":"_add_time","type":"desc"}
+        ]
       }
     }
   }
 }
 ```
+
+sortArr是一个数组，支持多个排序条件
+
+sortArr 参数说明
+
+| 参数             | 说明                           | 类型    | 默认值  | 可选值 |
+|------------------|-------------------------------|---------|--------|-------|
+| name           | 需要排序的字段名            | String | -      | - |
+| type           | 排序类型            | String | asc（升序）  | desc（降序） |
+
 
 ## 万能表格合计列的示例
 
