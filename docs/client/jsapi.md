@@ -1135,8 +1135,8 @@ vk.request 就是通过上面2个API封装的，参数跟上面的基本一致
 ```js
 vk.request({
 	url: `https://www.xxx.com/api/xxxx`,
-	method:"POST",
-	header:{
+	method: "POST",
+	header: {
 		"content-type": "application/x-www-form-urlencoded",
 	},
 	data:{
@@ -1150,6 +1150,37 @@ vk.request({
 	}
 });
 ```
+
+**前端调用常用参数列表**
+
+|参数名					|类型												|必填	|默认值	|说明																																							|平台差异说明																																		|
+|:-							|:-													|:-		|:-			|:-																																								|:-																																							|
+|url						|String											|是		|				|开发者服务器接口地址																															|																																								|
+|data						|Object、String、ArrayBuffer|否		|				|请求的参数																																				|App 3.3.7 以下不支持 ArrayBuffer 类型																					|
+|header					|Object											|否		|				|设置请求的 header，header 中不能设置 Referer																			|App、H5端会自动带上cookie，且H5端不可手动修改																	|
+|method					|String											|否		|POST		|注意，vk.request默认是POST请求，其他有效值详见下方说明														|																																								|
+|timeout				|Number											|否		|60000	|超时时间，单位 ms																																|H5(HBuilderX 2.9.9+)、APP(HBuilderX 2.9.9+)、微信小程序（2.10.0）、支付宝小程序|
+|dataType				|String											|否		|json		|如果设为 json，会对返回的数据进行一次 JSON.parse，非 json 不会进行 JSON.parse		|																																								|
+|responseType		|String											|否		|text		|设置响应的数据类型。合法值：text、arraybuffer																		|支付宝小程序不支持																															|
+|needOriginalRes|Boolean										|否		|false	|此参数为vk新增，设置为true后，返回数据会多一个originalRes参数，里面有请求头等信息|																																								|
+|success				|Function										|否		|				|收到开发者服务器成功返回的回调函数																								|																																								|
+|fail						|Function										|否		|				|接口调用失败的回调函数																														|																																								|
+|complete				|Function										|否		|				|接口调用结束的回调函数（调用成功、失败都会执行）																	|&nbsp;																																					|
+
+**method 有效值**
+
+注意：method有效值必须大写，每个平台支持的method有效值不同，详细见下表。
+
+|method	|App|H5	|微信小程序	|支付宝小程序	|百度小程序	|抖音小程序、飞书小程序	|快手小程序	|京东小程序	|
+|:-:		|:-:|:-:|:-:				|:-:					|:-:				|:-:										|:-:				|:-:				|
+|GET		|√	|√	|√					|√						|√					|√											|√					|√					|
+|POST		|√	|√	|√					|√						|√					|√											|√					|√					|
+|PUT		|√	|√	|√					|x						|√					|√											|x					|x					|
+|DELETE	|√	|√	|√					|x						|√					|x											|x					|x					|
+|CONNECT|x	|√	|√					|x						|x					|x											|x					|x					|
+|HEAD		|√	|√	|√					|x						|√					|x											|x					|x					|
+|OPTIONS|√	|√	|√					|x						|√					|x											|x					|x					|
+|TRACE	|x	|√	|√					|x						|x					|x											|x					|x					|
 
 **云端调用**
 
@@ -1166,6 +1197,62 @@ await vk.request({
 
 	}
 });
+```
+
+**云端调用常用请求参数**
+
+|参数名							|类型																																					|是否必填	|默认值	|说明																																																																																			|
+|:--								|:-:																																					|:-:			|:-:		|:--																																																																																			|
+|method							|String																																				|-				|POST		|HTTP 请求方法, 默认为：POST. 可选值： GET, POST, DELETE, PUT																																																							|
+|data								|Object																																				|-				|-			|发送的数据																																																																																|
+|header							|Object																																				|-				|-			|请求头																																																																																		|
+|dataAsQueryString	|Boolean																																			|-				|true		|是否强制转换data为queryString																																																																						|
+|dataType						|String																																				|-				|-			|返回的数据格式，默认为json，可选值为 <br/>json 返回数据转为JSON（如果不满足JSON格式会报错）<br/>text 返回数据转为字符串<br/>default 返回二进制数据												|
+|contentType				|String																																				|-				|-			|上传数据的格式，设为json会自动在header内设置Content-Type: application/json																																																|
+|useContent					|Boolean																																			|-				|false	|是否将data的值转content，效果：content = JSON.stringify(data);																																																						|
+|content						|String、 Buffer																															|-				|-			|手动设置请求的payload，设置后会忽略data																																																																	|
+|timeout						|Number、 Array																																|-				|5000		|超时时间设置。设置为数组时第一项为请求超时，第二项为返回超时。设置为数字时相当于同时设置请求超时和返回超时，即timeout:3000效果等于timeouut:[3000,3000]										|
+|files							|Array<ReadStream、Buffer、String> 、 Object 、 ReadStream 、 Buffer、 String	|-				|-			|上传的文件，设置后将会使用 multipart/form-data 格式。如果未设置method，将会自动将method设置为POST																																				|
+|nestedQuerystring	|Boolean																																			|-				|-			|转换data为queryString时默认不支持嵌套Object，此选项设置为true则支持转换嵌套Object																																												|
+|consumeWriteStream	|Boolean																																			|-				|true		|是否等待 writeStream 完全写完才算响应全部接收完毕																																																												|
+|auth								|String																																				|-				|-			|简单登录授权（Basic Authentication）参数，必须按照 user:password 格式设置																																																|
+|ca									|String、Buffer、Array																												|-				|-			|证书内容																																																																																	|
+|pfx								|String、Buffer																																|-				|-			|包含了私钥, 证书和CA certs, 一般是 PFX 或者 PKCS12 格式																																																									|
+|key								|String、Buffer																																|-				|-			|PEF格式的服务器的私钥																																																																										|
+|cert								|String、Buffer																																|-				|-			|PEM格式的服务器证书密钥																																																																									|
+|stream							|ReadStream																																		|-				|-			|发送请求正文的可读数据流																																																																									|
+|writeStream				|WriteStream																																	|-				|-			|接受响应数据的可写数据流																																																																									|
+|streaming					|Boolean																																			|-				|false	|是否直接返回响应流，开启 streaming 之后，HttpClient 会在拿到响应对象 res 之后马上返回， 此时 result.headers 和 result.status 已经可以读取到，只是没有读取 data 数据而已。|
+
+**注意**
+
+默认情况下request接口会尝试将返回数据`JSON.parse(res)`，但需要对方接口返回的数据格式不是JSON，而是普通文本或xml格式，则你需要将 `dataType` 设置为 `text`，如果对方返回的是二进制流，则需要设置 `dataType` 设置为 `default`
+
+接收text示例代码
+
+```js
+let requestRes = await vk.request({
+  method: 'POST',
+  url: "https://www.xxx.com/xxx",
+  data: {
+    test: 'testValue'
+  },
+  contentType: 'json', // 指定以application/json发送data内的数据
+  dataType: 'text' // 指定返回值为text格式
+})
+console.log(requestRes)
+```
+
+接收二进制流示例代码
+
+```js
+let imageBuffer = await vk.request({
+  url: "https://xxxx.xxxx.com/xxx.jpg",
+  method: "GET",
+  dataType: "default"
+});
+// 还可以把二进制流转base64
+let base64 = "data:image/png;base64," + imageBuffer.toString('base64');
 ```
 
 ## 前端专属
