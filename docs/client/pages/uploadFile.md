@@ -2,6 +2,8 @@
 
 ## 接口名：vk.uploadFile
 
+## 属性
+
 | 参数									| 说明																										| 类型		| 默认值	| 可选值|
 |------------------			|-------------------------------													|---------|--------	|-------|
 | title									| 上传时的loading提示语																		| String	| -				| -			|
@@ -99,10 +101,12 @@ service:{
 }
 ```
 
-#### service.aliyunOSS 参数生成工具 [点击下载](https://gitee.com/vk-uni/oss-h5-upload-js-direct.git)
+service.aliyunOSS 参数生成工具 [点击下载](https://gitee.com/vk-uni/oss-h5-upload-js-direct.git)
+
 导入项目后,修改项目根目录`upload.js`内的参数,然后运行`index.html`,随便上传一张图片,页面上会显示`aliyunOSS`参数配置
 
-#### 如下图所示
+如下图所示
+
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1a02b98c-ac0e-4662-95d9-e170f5f246d3.png)
 
 #### 上传阿里云OSS注意：
@@ -125,7 +129,11 @@ Etag
 x-oss-request-id
 ```
 
-## 上传图片，并将图片记录保存到admin后台
+## 更多示例
+
+### 上传图片，并将图片记录保存到admin后台
+
+关键属性：`设置 needSave 为 true`
 
 ```js
 // 选择图片
@@ -147,7 +155,9 @@ uni.chooseImage({
 
 ```
 
-## 上传图片，并将图片记录保存到admin后台指定分类,category_id对应vk-files-categories表的分类ID(可在admin素材管理中新建分类)
+### 上传图片，并将图片记录保存到admin后台指定分类,category_id对应vk-files-categories表的分类ID(可在admin素材管理中新建分类)
+
+关键属性：`设置 needSave 为 true，并设置category_id`
 
 ```js
 // 选择图片
@@ -170,7 +180,7 @@ uni.chooseImage({
 
 ```
 
-## 自定义云端图片保存路径
+### 自定义云端图片保存路径
 
 通过 cloudPath 参数可直接指定路径（需包含文件后缀名）
 
@@ -194,7 +204,9 @@ uni.chooseImage({
 });
 ```
 
-## 监听实时上传进度回调
+### 监听实时上传进度回调
+
+关键属性：onUploadProgress
 
 ```js
 // 选择图片
@@ -218,5 +230,3 @@ uni.chooseImage({
   }
 });
 ```
-
-
