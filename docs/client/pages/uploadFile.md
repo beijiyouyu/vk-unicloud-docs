@@ -1,7 +1,32 @@
-# 上传 云储存或阿里云OSS
+# 上传云储存或阿里云OSS
 
-### 上传至`unicloud云储存`
-#### 注意，记得小程序需要加域名白名单 [点击查看](https://uniapp.dcloud.net.cn/uniCloud/publish.html#useinmp)
+## 接口名：vk.uploadFile
+
+| 参数									| 说明																										| 类型		| 默认值	| 可选值|
+|------------------			|-------------------------------													|---------|--------	|-------|
+| title									| 上传时的loading提示语																		| String	| -				| -			|
+| file									| 要上传的文件对象，file与filePath二选一即可							| File		| -				| -			|
+| filePath							| 要上传的文件路径，file与filePath二选一即可							| String	| -				| -			|
+| suffix								| 指定上传后的文件后缀，如果传了file 参数，则此参数可不传	| String	| -				| -			|
+| provider							| 云存储供应商，支持：unicloud、aliyun										| String	| unicloud| aliyun|
+| cloudPath							| 指定上传后的云端文件路径（不指定会自动生成）						| String	| -				| -			|
+| needSave							| 是否需要将图片信息保存到admin素材库											| Boolean	| false		| true	|
+| category_id						| 素材库分类id，当needSave为true时生效										| String	| -				| -			|
+| uniCloud							| 上传到其他空间时使用，uniCloud和env二选一即可						| cloud		| -				| -			|
+| env										| 上传到其他空间时使用，uniCloud和env二选一即可						| String	| -				| -			|
+| cloudPathAsRealPath		| 阿里云目录支持，需HBX3.8.5以上版本才支持								| Boolean	| true		| false	|
+| cloudPathRemoveChinese| 删除文件名中的中文																			| Boolean	| true		| false	|
+| onUploadProgress			| 上传进度回调																						| Function| -				| -			|
+| success								| 上传成功时，执行的回调函数															| Function| -				| -			|
+| fail									| 上传失败时，执行的回调函数															| Function| -				| -			|
+| complete							| 无论上传成功与否，都会执行的回调函数										| Function| -				| -			|
+
+uniCloud 和 env 参数用法与vk.callFunction 用法一致 [点击查看](https://vkdoc.fsq.pub/client/question/q9.html)
+
+## 上传至unicloud云储存
+
+注意，记得小程序需要加域名白名单 [点击查看](https://uniapp.dcloud.net.cn/uniCloud/publish.html#useinmp)
+
 ```js
 // 选择图片
 uni.chooseImage({
@@ -10,21 +35,20 @@ uni.chooseImage({
   success: (res) => {
     // 上传至 unicloud云储存
     vk.uploadFile({
-      title:"上传中...",
-      filePath: res.tempFilePaths[0],
-      suffix:"png", // 不传suffix会自动获取，但H5环境下获取不到后缀，但可以通过file.name 获取
-      provider:"unicloud",
-      success:(res) => {
+      title: "上传中...",
+      file: res.tempFiles[0],
+      success: (res) => {
        // 上传成功
 
       }
     });
   }
 });
-
 ```
 
-### 上传至 `阿里云oss`
+提示： file和filePath二选一即可，都传也可以，如果传了file，可以不传suffix，suffix会自动从file.name中获取
+
+## 上传至阿里云oss
 
 ```js
 // 选择图片
@@ -34,10 +58,9 @@ uni.chooseImage({
   success: (res) => {
     // 上传至 阿里云oss
     vk.uploadFile({
-      title:"上传中...",
-      filePath: res.tempFilePaths[0],
-      suffix:"png", // 不传suffix会自动获取，但H5环境下获取不到后缀，但可以通过file.name 获取
-      provider:"aliyun",
+      title: "上传中...",
+      file: res.tempFiles[0],
+      provider: "aliyun",
       success:(res) => {
        // 上传成功
 
@@ -45,11 +68,12 @@ uni.chooseImage({
     });
   }
 });
-
 ```
 
-#### 注意，记得小程序需要加域名白名单
-#### 还需要在`app.config.js`中配置
+注意，记得小程序需要加域名白名单
+
+**还需要在`app.config.js`中配置**
+
 ```js
 // 第三方服务配置
 service:{
@@ -74,6 +98,7 @@ service:{
   }
 }
 ```
+
 #### service.aliyunOSS 参数生成工具 [点击下载](https://gitee.com/vk-uni/oss-h5-upload-js-direct.git)
 导入项目后,修改项目根目录`upload.js`内的参数,然后运行`index.html`,随便上传一张图片,页面上会显示`aliyunOSS`参数配置
 
@@ -100,8 +125,8 @@ Etag
 x-oss-request-id
 ```
 
-
 ## 上传图片，并将图片记录保存到admin后台
+
 ```js
 // 选择图片
 uni.chooseImage({
@@ -109,10 +134,9 @@ uni.chooseImage({
   sizeType: ['compressed'],
   success: (res) => {
     vk.uploadFile({
-      title:"上传中...",
-      filePath: res.tempFilePaths[0],
+      title: "上传中...",
       file: res.tempFiles[0],
-      needSave:true,
+      needSave: true,
       success:(res) => {
        // 上传成功
 
@@ -124,6 +148,7 @@ uni.chooseImage({
 ```
 
 ## 上传图片，并将图片记录保存到admin后台指定分类,category_id对应vk-files-categories表的分类ID(可在admin素材管理中新建分类)
+
 ```js
 // 选择图片
 uni.chooseImage({
@@ -131,11 +156,10 @@ uni.chooseImage({
   sizeType: ['compressed'],
   success: (res) => {
     vk.uploadFile({
-      title:"上传中...",
-      filePath: res.tempFilePaths[0],
+      title: "上传中...",
       file: res.tempFiles[0],
-      needSave:true,
-      category_id : "001"
+      needSave: true,
+      category_id: "001"
       success:(res) => {
        // 上传成功
 
@@ -158,8 +182,8 @@ uni.chooseImage({
   success: (res) => {
     // 上传至 unicloud云储存
     vk.uploadFile({
-      title:"上传中...",
-      filePath: res.tempFilePaths[0],
+      title: "上传中...",
+      file: res.tempFiles[0],
       cloudPath: "myPath/aa.png",
       success:(res) => {
        // 上传成功
@@ -168,6 +192,31 @@ uni.chooseImage({
     });
   }
 });
-
 ```
+
+## 监听实时上传进度回调
+
+```js
+// 选择图片
+uni.chooseImage({
+  count: 1,
+  sizeType: ['compressed'],
+  success: (res) => {
+    console.log('res: ', res)
+    // 上传至 unicloud云储存
+    vk.uploadFile({
+      title: "上传中...",
+      file: res.tempFiles[0],
+      onUploadProgress: (res) => {
+        let { progress } = res;
+        console.log(`当前进度：${progress}%`);
+      },
+      success: (res) => {
+        this.url = res.url;
+      }
+    });
+  }
+});
+```
+
 
