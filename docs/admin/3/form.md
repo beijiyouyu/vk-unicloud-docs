@@ -671,17 +671,32 @@ data: function() {
           ],
           mobile: [
             // 必填
-            { required:true,  message: '提现人手机号不能为空', trigger: ['blur','change'] },
+            { required:true, message: '提现人手机号不能为空', trigger: ['blur','change'] },
             // 必须是手机号格式
             { validator: vk.pubfn.validator("mobile"),  message: '手机号格式错误', trigger: 'blur' }
           ],
+          mobileCode: [
+            // 6位数数字验证码
+            { validator: vk.pubfn.validator("mobileCode"),  message: '验证码格式错误', trigger: 'blur' }
+          ],
           username:[
-            // 必填，且用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线
+            // 必填
+            { required: true, message: '密码不能为空', trigger: ['blur','change'] },
+            // 满足用户名格式
             { 
-              required: true, 
               validator:vk.pubfn.validator("username"), 
               message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线', 
-              trigger: ['blur','change']
+              trigger: 'blur'
+            }
+          ],
+          password: [
+            // 必填
+            { required: true, message: '密码不能为空', trigger: ['blur','change'] },
+            // 满足密码格式
+            { 
+              validator: vk.pubfn.validator("password"), 
+              message: '密码长度在6~18之间，只能包含字母、数字和下划线', 
+              trigger: 'blur' 
             }
           ],
           nickname: [
@@ -693,10 +708,6 @@ data: function() {
           card: [
             // 身份证
             { validator: vk.pubfn.validator("card"),  message: '身份证格式错误', trigger: 'blur' }
-          ],
-          pwd: [
-            // 密码
-            { validator: vk.pubfn.validator("pwd"),  message: '密码长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
           ],
           payPwd: [
             // 支付密码
