@@ -671,17 +671,19 @@ data: function() {
           ],
           mobile: [
             // 必填
-            { required:true, message: '提现人手机号不能为空', trigger: ['blur','change'] },
+            { required: true, message: '提现人手机号不能为空', trigger: ['blur','change'] },
             // 必须是手机号格式
             { validator: vk.pubfn.validator("mobile"),  message: '手机号格式错误', trigger: 'blur' }
           ],
           mobileCode: [
+            // 必填
+            { required: true, message: '验证码不能为空', trigger: ['blur','change'] },
             // 6位数数字验证码
             { validator: vk.pubfn.validator("mobileCode"),  message: '验证码格式错误', trigger: 'blur' }
           ],
           username:[
             // 必填
-            { required: true, message: '密码不能为空', trigger: ['blur','change'] },
+            { required: true, message: '用户名不能为空', trigger: ['blur','change'] },
             // 满足用户名格式
             { 
               validator:vk.pubfn.validator("username"), 
