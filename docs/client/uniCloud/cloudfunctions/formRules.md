@@ -57,7 +57,7 @@ module.exports = {
     // 验证规则开始 -----------------------------------------------------------
     let rules = {
       username: [
-        { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线', trigger: 'blur' }
+        { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线', trigger: ['blur','change'] }
       ],
       nickname: [
         { required: true, message: '昵称为必填字段', trigger: 'blur' },
@@ -224,7 +224,7 @@ class Util {
     let rules = {
       username: [
         { required: true, validator: vk.pubfn.validator("username"),
-          message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线', trigger: 'blur' }
+          message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线', trigger: ['blur','change'] }
       ],
       nickname: [
         { required: true, message: '昵称为必填字段', trigger: 'blur' },
@@ -342,11 +342,11 @@ class Util {
 				required: true,
 				validator: vk.pubfn.validator("username"),
 				message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线',
-				trigger: 'blur'
+				trigger: ['blur','change']
 			}],
 			nickname: [
-				{ required: true, message: '昵称为必填字段', trigger: 'blur' },
-				{ min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: 'blur' }
+				{ required: true, message: '昵称为必填字段', trigger: ['blur','change'] },
+				{ min: 2, max: 20, message: '昵称长度在 2 到 20 个字符', trigger: ['blur','change'] }
 			]
 		};
 		// 验证规则结束 -----------------------------------------------------------
