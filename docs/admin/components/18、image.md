@@ -20,9 +20,10 @@
 | provider          | 储存空间供应商 | String  | unicloud | aliyun |
 | needSave          | 是否需要保存图片url到admin后台 | Boolean  | false | true  |
 | categoryId          | 当needSave=true时，图片保存的分类id（即vk-files-categories表的_id） | String  | - | -  |
+| cloudDirectory    | 上传至指定的云端目录（默认会以年月日为目录）  | String  | - | - |
 | httpRequest       | 覆盖默认的上传行为，可以自定义上传的实现（下方有详细说明） | function  | - | -  |
 | listType          | 文件列表的类型  | String  | picture-card | text/picture/picture-card |
-| 其他       | 其他参数请查看element Upload 上传组件 https://element.eleme.cn/#/zh-CN/component/upload | -  | - | -  |
+| 其他       | 其他参数请查看element Upload 上传组件 https://element.eleme.cn/#/zh-CN/component/upload	| -				| -						| -													|
 
 #### httpRequest 用法
 #### 注意：如果是上传到unicloud云储存或阿里云OSS，无需写httpRequest，框架已集成。
