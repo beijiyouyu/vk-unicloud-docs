@@ -57,7 +57,7 @@ module.exports = {
     // 验证规则开始 -----------------------------------------------------------
     let rules = {
       username: [
-        { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+        { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线', trigger: 'blur' }
       ],
       nickname: [
         { required: true, message: '昵称为必填字段', trigger: 'blur' },
@@ -132,7 +132,7 @@ var cloudObject = {
     // 验证规则开始 -----------------------------------------------------------
     let rules = {
       username: [
-        { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+        { required: true, validator: vk.pubfn.validator("username"), message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线', trigger: 'blur' }
       ],
       nickname: [
         { required: true, message: '昵称为必填字段', trigger: 'blur' },
@@ -224,7 +224,7 @@ class Util {
     let rules = {
       username: [
         { required: true, validator: vk.pubfn.validator("username"),
-          message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线', trigger: 'blur' }
+          message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线', trigger: 'blur' }
       ],
       nickname: [
         { required: true, message: '昵称为必填字段', trigger: 'blur' },
@@ -341,7 +341,7 @@ class Util {
 			username: [{
 				required: true,
 				validator: vk.pubfn.validator("username"),
-				message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线',
+				message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线',
 				trigger: 'blur'
 			}],
 			nickname: [

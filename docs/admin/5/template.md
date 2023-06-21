@@ -272,7 +272,7 @@ form1: {
         {
           required: true,
           validator:vk.pubfn.validator("username"),
-          message: '用户名以字母开头，长度在6~18之间，只能包含字母、数字和下划线',
+          message: '用户名以字母开头，长度在3~32之间，只能包含字母、数字和下划线',
           trigger: 'blur'
         }
       ],
