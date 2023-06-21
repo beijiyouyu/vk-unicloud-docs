@@ -701,6 +701,20 @@ data: function() {
               trigger: 'blur' 
             }
           ],
+          password2: [
+            // 必填
+            { required: true, message: '密码不能为空', trigger: ['blur','change'] },
+            // 自定义
+            { validator: (rule, value, callback)=>{
+              if (value === '') {
+                callback(new Error('请再次输入密码'));
+              } else if (value !== that.form1.data.password) {
+                callback(new Error('两次输入密码不一致!'));
+              } else {
+                callback();
+              }
+            }, trigger: ['blur','change'] }
+          ],
           nickname: [
             // 必填
             { required: true, message: '昵称为必填字段', trigger: ['blur','change'] },
@@ -774,18 +788,6 @@ data: function() {
           HTML: [
             // HTML
             { validator: vk.pubfn.validator("HTML"),  message: 'html格式错误', trigger: 'blur' }
-          ],
-          pwd2: [
-            // 自定义
-            { validator: (rule, value, callback)=>{
-              if (value === '') {
-                callback(new Error('请再次输入密码'));
-              } else if (value !== that.form1.data.pwd) {
-                callback(new Error('两次输入密码不一致!'));
-              } else {
-                callback();
-              }
-            }, trigger: ['blur','change'] }
           ]
         }
       }
