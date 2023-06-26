@@ -67,6 +67,7 @@
 | multiple        | 是否允许多选 | Boolean  | false | true  |
 | multipleLimit   | 最多可选数量 | Number  | - | -  |
 | group          | 是否需要分组 | Boolean  | false| true  |
+| clearable          | 是否可以清空选项 | Boolean  | true| false  |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 
 #### onChange 使用示例

@@ -87,6 +87,7 @@
 | loadingText          | 远程加载时显示的文字 | String  | 加载中| -  |
 | noMatchText          | 搜索条件无匹配时显示的文字 | String  | 无匹配数据| -  |
 | noDataText          | 选项为空时显示的文字 | String  | 无数据| -  |
+| clearable          | 是否可以清空选项 | Boolean  | true| false  |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 
 #### onChange 使用示例
