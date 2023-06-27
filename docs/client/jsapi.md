@@ -1153,19 +1153,19 @@ vk.request({
 
 **前端调用常用参数列表**
 
-|参数名					|类型												|必填	|默认值	|说明																																							|平台差异说明																																		|
-|:-							|:-													|:-		|:-			|:-																																								|:-																																							|
-|url						|String											|是		|				|开发者服务器接口地址																															|																																								|
-|data						|Object、String、ArrayBuffer|否		|				|请求的参数																																				|App 3.3.7 以下不支持 ArrayBuffer 类型																					|
-|header					|Object											|否		|				|设置请求的 header，header 中不能设置 Referer																			|App、H5端会自动带上cookie，且H5端不可手动修改																	|
-|method					|String											|否		|POST		|注意，vk.request默认是POST请求，其他有效值详见下方说明														|																																								|
-|timeout				|Number											|否		|60000	|超时时间，单位 ms																																|H5(HBuilderX 2.9.9+)、APP(HBuilderX 2.9.9+)、微信小程序（2.10.0）、支付宝小程序|
-|dataType				|String											|否		|json		|如果设为 json，会对返回的数据进行一次 JSON.parse，非 json 不会进行 JSON.parse		|																																								|
-|responseType		|String											|否		|text		|设置响应的数据类型。合法值：text、arraybuffer																		|支付宝小程序不支持																															|
-|needOriginalRes|Boolean										|否		|false	|此参数为vk新增，设置为true后，返回数据会多一个originalRes参数，里面有请求头等信息|																																								|
-|success				|Function										|否		|				|收到开发者服务器成功返回的回调函数																								|																																								|
-|fail						|Function										|否		|				|接口调用失败的回调函数																														|																																								|
-|complete				|Function										|否		|				|接口调用结束的回调函数（调用成功、失败都会执行）																	|&nbsp;																																					|
+|参数名					|类型												|必填	|默认值	|说明																																										|平台差异说明																																		|
+|:-							|:-													|:-		|:-			|:-																																											|:-																																							|
+|url						|String											|是		|				|开发者服务器接口地址																																		|																																								|
+|data						|Object、String、ArrayBuffer|否		|				|请求的参数																																							|App 3.3.7 以下不支持 ArrayBuffer 类型																					|
+|header					|Object											|否		|				|设置请求的 header，header 中不能设置 Referer																						|App、H5端会自动带上cookie，且H5端不可手动修改																	|
+|method					|String											|否		|POST		|注意，vk.request默认是POST请求，其他有效值详见下方说明																	|																																								|
+|timeout				|Number											|否		|60000	|超时时间，单位 ms																																			|H5(HBuilderX 2.9.9+)、APP(HBuilderX 2.9.9+)、微信小程序（2.10.0）、支付宝小程序|
+|dataType				|String											|否		|json		|可选值为<br/> json 会对返回的数据进行一次 JSON.parse <br/> default 不会进行 JSON.parse	|																																								|
+|responseType		|String											|否		|text		|设置响应的数据类型。合法值：text、arraybuffer																					|支付宝小程序不支持																															|
+|needOriginalRes|Boolean										|否		|false	|此参数为vk新增，设置为true后，返回数据会多一个originalRes参数，里面有请求头等信息			|																																								|
+|success				|Function										|否		|				|收到开发者服务器成功返回的回调函数																											|																																								|
+|fail						|Function										|否		|				|接口调用失败的回调函数																																	|																																								|
+|complete				|Function										|否		|				|接口调用结束的回调函数（调用成功、失败都会执行）																				|&nbsp;																																					|
 
 **method 有效值**
 
