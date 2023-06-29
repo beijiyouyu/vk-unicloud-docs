@@ -47,6 +47,18 @@
 | createPayment     | 发起支付 |
 | queryPayment     | 查询支付状态 |
 
+**注意：需要在 `template` 内声明组件，且声明 `ref="vkPay"`**
+
+```html
+<vk-uni-pay
+  ref="vkPay"
+  :query-payment-action="vkPay.queryPaymentAction"
+  :status.sync="vkPay.status"
+  :code-url.sync="vkPay.codeUrl"
+  :page-show="vkPay.pageShow"
+  :polling="vkPay.polling"
+></vk-uni-pay>
+```
 ## createPayment 示例
 
 ```js
