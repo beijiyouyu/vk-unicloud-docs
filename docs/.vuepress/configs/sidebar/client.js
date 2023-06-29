@@ -33,6 +33,7 @@ module.exports = [{
       'pages/uploadFile',
       'pages/config',
       'pages/localStorage',
+      'pages/sessionStorage',
       'pages/isQingming',
       {
         title: '组件',
