@@ -52,11 +52,7 @@
 ```html
 <vk-uni-pay
   ref="vkPay"
-  :query-payment-action="vkPay.queryPaymentAction"
-  :status.sync="vkPay.status"
-  :code-url.sync="vkPay.codeUrl"
-  :page-show="vkPay.pageShow"
-  :polling="vkPay.polling"
+  ...其他参数
 ></vk-uni-pay>
 ```
 ## createPayment 示例
