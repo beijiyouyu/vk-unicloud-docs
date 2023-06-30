@@ -945,7 +945,7 @@ adopt(status){
   :rules="form1.props.rules"
   action="https://www.xxx.com/xxx/xxx"
   :is-request="true"
-  :request-header="{ 'content-type':'application/x-www-form-urlencoded'} "
+  :request-header="{ 'content-type':'application/json; charset=utf-8'} "
   :columns="form1.props.columns"
 ></vk-data-form>
 ```

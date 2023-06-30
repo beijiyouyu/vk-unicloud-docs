@@ -107,7 +107,7 @@ props 对象属性
   action: "https://www.xxx.com/xxx/xxx",
   isRequest: true,
   requestHeader: {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/json; charset=utf-8"
   },
   props: { rows: 'rows', total: 'total', pageIndex: 'pageIndex', pageSize: 'pageSize', formData: 'formData' },
   columns: [

@@ -1130,14 +1130,14 @@ let newObj = vk.pubfn.objectKeySort({
 
 vk.request 就是通过上面2个API封装的，参数跟上面的基本一致
 
-**前端调用**
+#### vk.request（前端调用）
 
 ```js
 vk.request({
 	url: `https://www.xxx.com/api/xxxx`,
 	method: "POST",
 	header: {
-		"content-type": "application/x-www-form-urlencoded",
+		"content-type": "application/json; charset=utf-8",
 	},
 	data:{
 
@@ -1213,7 +1213,7 @@ vk.request({
 	url: `https://www.xxx.com/api/xxxx`,
 	method: "POST",
 	header: {
-		"content-type": "application/x-www-form-urlencoded",
+		"content-type": "application/json; charset=utf-8",
 	},
 	data:{
 
@@ -1248,7 +1248,7 @@ vk.request({
 });
 ```
 
-**云端调用**
+#### vk.request（云端调用）
 
 云端必须加 `await` 同时没有 success 和 fail 回调
 
@@ -1257,7 +1257,7 @@ await vk.request({
 	url: `https://www.xxx.com/api/xxxx`,
 	method:"POST",
 	header:{
-		"content-type": "application/x-www-form-urlencoded",
+		"content-type": "application/json; charset=utf-8",
 	},
 	data:{
 
