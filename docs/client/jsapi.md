@@ -1163,6 +1163,7 @@ vk.request({
 |dataType				|String											|否		|json		|可选值为<br/> json 会对返回的数据进行一次 JSON.parse <br/> default 不会进行 JSON.parse	|																																								|
 |responseType		|String											|否		|text		|设置响应的数据类型。合法值：text、arraybuffer																					|支付宝小程序不支持																															|
 |needOriginalRes|Boolean										|否		|false	|此参数为vk新增，设置为true后，返回数据会多一个originalRes参数，里面有请求头等信息			|																																								|
+|interceptor		|Object											|否		|false	|此参数为vk新增，请求拦截器[详情](#interceptor)																														|																																								|
 |success				|Function										|否		|				|收到开发者服务器成功返回的回调函数																											|																																								|
 |fail						|Function										|否		|				|接口调用失败的回调函数																																	|																																								|
 |complete				|Function										|否		|				|接口调用结束的回调函数（调用成功、失败都会执行）																				|&nbsp;																																					|
@@ -1181,6 +1182,71 @@ vk.request({
 |HEAD		|√	|√	|√					|x						|√					|x											|x					|x					|
 |OPTIONS|√	|√	|√					|x						|√					|x											|x					|x					|
 |TRACE	|x	|√	|√					|x						|x					|x											|x					|x					|
+
+##### interceptor
+
+> vk-unicloud 核心库版本需 >= 2.14.4
+
+拦截器，可在发起请求前、成功回调前、失败回调前、完成回调前进行拦截并执行一段自定义逻辑。
+
+**属性**
+
+|参数名		|类型			|必填	|默认值	|说明																																							|平台差异说明	|
+|:-				|:-				|:-		|:-			|:-																																								|:-						|
+|invoke		|Function	|否		|				|发起请求前拦截，可在此修改请求参数，若函数return false，可阻止请求发起						|							|
+|success	|Function	|否		|				|成功回调前拦截，可在此修改success回调参数，若函数return false，可阻止success回调	|							|
+|fail			|Function	|否		|				|失败回调前拦截，可在此修改fail回调参数，若函数return false，可阻止fail回调				|							|
+|complete	|Function	|否		|				|完成回调前拦截，可在此complete回调参数，若函数return false，可阻止complete回调		|							|
+
+**执行顺序**
+
+执行成功时：interceptor.invoke -> 执行request请求 -> interceptor.success -> success -> interceptor.complete -> complete
+
+执行失败时：interceptor.invoke -> 执行request请求 -> interceptor.fail -> fail -> interceptor.complete -> complete
+
+特殊情况，如果code返回的不是0，则执行顺序为：interceptor.invoke -> 执行request请求 -> interceptor.success -> fail -> interceptor.complete -> complete
+
+**interceptor示例**
+
+```js
+vk.request({
+	url: `https://www.xxx.com/api/xxxx`,
+	method: "POST",
+	header: {
+		"content-type": "application/x-www-form-urlencoded",
+	},
+	data:{
+
+	},
+  interceptor: {
+    invoke: (res) => {
+      console.log('interceptor-invoke: ', res);
+      if (!res.data) res.data = {};
+      res.data.a = 1; // 新增请求参数a=1
+    },
+    success: (res) => {
+      console.log('interceptor-success: ', res);
+      // 处理code状态码和msg
+      res.code = res.returnCode === "SUCCESS" ? 0 : res.returnCode;
+      res.msg = res.returnMsg;
+      delete res.returnCode;
+      delete res.returnMsg;
+    },
+    fail: (res) => {
+      console.log('interceptor-fail: ', res);
+    },
+    complete: (res) => {
+      console.log('interceptor-complete: ', res);
+    }
+  },
+	success: (data) => {
+
+	},
+	fail: (err) => {
+
+	}
+});
+```
 
 **云端调用**
 
