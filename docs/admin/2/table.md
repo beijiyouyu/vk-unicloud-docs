@@ -39,7 +39,7 @@ export default {
 
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
-| action           | 动态模式 - vk框架下的云函数地址            | String | 无      | - |
+| action           | 动态模式 - 支持：<br/>1、vk框架下的云函数地址 <br/>2、http请求地址<br/>3、[自定义function请求模式](#自定义function请求模式)  | String、Function | 无      | - |
 | auto-action       | 动态模式 - 是否组件加载完毕后自动运行action | Boolean  | 无 | -  |
 | query-form-param   | 动态模式 - 请求参数（表格查询参数） | Object  | {} | -  |
 | data-preprocess          | 动态模式 - 云函数返回的数据进行预处理 [查看数据预处理](#数据预处理)  | function(list)  | - | -  |
@@ -487,7 +487,6 @@ data() {
 }
 ```
 
-
 ### http请求模式
 
 **props 对象属性**
@@ -511,6 +510,122 @@ data() {
   :columns="table1.columns"
   :query-form-param="queryForm1"
 ></vk-data-table>
+```
+
+### 自定义function请求模式
+
+> vk-unicloud-admin-ui 的npm依赖版本需 >= 1.17.0
+
+此方式同样支持http，且更自由化，比如可以在发起请求前处理请求参数，在请求成功后，处理返回参数等等。
+
+优势：更自由化、基本可以满足所有需求场景
+
+劣势：代码量较多
+
+#### 自定义function-http请求模式示例
+
+```html
+<vk-data-table
+  ref="table1"
+  :action="table1.action"
+></vk-data-table>
+```
+
+```js
+export default {
+  data() {
+    return {
+      table1:{
+        
+        
+        action: (obj={})=>{
+          let {
+            data, // 请求数据
+            success, // 成功回调
+            fail, // 失败回调
+            complete, // 成功回调
+          } = obj;
+          // 发起http请求
+          vk.request({
+            url: `https://www.xxx.com/api/list`,
+            method: "POST",
+            header: {
+              "content-type": "application/json; charset=utf-8",
+            },
+            data: data,
+            success: (res) => {
+              if (typeof success === "function") {
+                success({
+                  rows: res.rows, // 列表数据
+                  total: res.total, // 总记录数
+                });
+              }
+            },
+            fail: (res) => {
+              if (typeof fail === "function") fail(res);
+            },
+            complete: (res) => {
+              if (typeof complete === "function") complete(res);
+            }
+          });
+        },
+        
+        
+      }
+    }
+  }
+}
+```
+
+#### 自定义function-云函数请求模式示例
+
+```html
+<vk-data-table
+  ref="table1"
+  :action="table1.action"
+></vk-data-table>
+```
+
+```js
+export default {
+  data() {
+    return {
+      table1:{
+        
+        
+        action: (obj={})=>{
+          let {
+            data, // 请求数据
+            success, // 成功回调
+            fail, // 失败回调
+            complete, // 成功回调
+          } = obj;
+          // 发起http请求
+          vk.callFunction({
+            url: `云函数路径`,
+            data: data,
+            success: (res) => {
+              if (typeof success === "function") {
+                success({
+                  rows: res.rows, // 列表数据
+                  total: res.total, // 总记录数
+                });
+              }
+            },
+            fail: (res) => {
+              if (typeof fail === "function") fail(res);
+            },
+            complete: (res) => {
+              if (typeof complete === "function") complete(res);
+            }
+          });
+        },
+        
+        
+      }
+    }
+  }
+}
 ```
 
 ### 数据预处理

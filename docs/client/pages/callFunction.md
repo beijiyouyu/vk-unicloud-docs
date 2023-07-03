@@ -16,6 +16,12 @@ vk.callFunction({
   },
   success: (data) => {
     
+  },
+  fail: (err) => {
+    
+  },
+  complete: (res) => {
+    
   }
 });
 ```
