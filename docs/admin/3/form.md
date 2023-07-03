@@ -117,7 +117,7 @@ export default {
 |------------------	|-----------------------																						|---------			|--------		|-------				|
 | v-model						| 表单数据源																												| Object				| {}				| -							|
 | rules							| 表单验证规则 [查看规则](#rules-表单验证)													| Object				| 无				| -							|
-| action						| vk框架云函数地址(表单提交地址：表单点击确定按钮后请求的云函数地址)| String				| 无				| -							|
+| action						| 表单提交地址，支持：<br/>1、vk框架下的云函数地址 <br/>2、http请求地址<br/>3、[自定义function请求模式](#自定义function请求模式)  | String、Function		| 无				| -							|
 | before-action			| action请求前拦截器 [查看示例代码](#before-action-请求前拦截)			| Function			| 无				| -							|
 | is-request				| 是否是http请求模式 [查看http请求模式](#http请求模式)							| Boolean				| false			| true					|
 | form-type					| 表单类型，用于复用表单 [查看表单复用](#show-复用时的显示规则)			| String				| 无				| -							|
@@ -639,6 +639,7 @@ data: function() {
 ```
 
 ### rules（表单验证）
+
 表单验证规则，和 element 表单验证规则一致，以下是部分示例
 
 ```html
@@ -796,8 +797,6 @@ data: function() {
 }
 ```
 
-
-
 ## 事件
 
 | 事件名   | 说明                    | 回调参数 |
@@ -837,8 +836,8 @@ methods: {
 | validateField     | 对部分表单字段进行校验 |
 | setResetFormData     | 设置重置表单函数执行后，数据重置的数据源 |
 
-
 #### validate
+
 ```js
 that.$refs.form1.validate((valid) => {
   if (valid){
@@ -849,6 +848,7 @@ that.$refs.form1.validate((valid) => {
 ```
 
 #### validateField
+
 ```js
 that.$refs.form1.validate("username",(errMsg, arr) => {
   if (errMsg) {
@@ -859,6 +859,7 @@ that.$refs.form1.validate("username",(errMsg, arr) => {
 ```
 
 #### setResetFormData
+
 ```js
 // 执行了这个setResetFormData方法后
 this.$refs.form1.setResetFormData(data);
@@ -867,9 +868,11 @@ this.$refs.form1.resetForm();
 ```
 
 ## 插槽
+
 columns中的每一个key都是插槽的名称 （详情见示例:`/pages_template/components/form/form-slot`)
 
-#### 如重写 `rate` 字段的渲染
+**如重写 `rate` 字段的渲染**
+
 ```html
 <vk-data-form
   ref="form1"
@@ -891,7 +894,8 @@ columns中的每一个key都是插槽的名称 （详情见示例:`/pages_templa
 </vk-data-form>
 ```
 
-#### 还可以重写提交按钮
+**还可以重写提交按钮**
+
 ```html
 <vk-data-form
   ref="form1"
@@ -948,6 +952,118 @@ adopt(status){
   :request-header="{ 'content-type':'application/json; charset=utf-8'} "
   :columns="form1.props.columns"
 ></vk-data-form>
+```
+
+## 自定义function请求模式
+
+> vk-unicloud-admin-ui 的npm依赖版本需 >= 1.17.0
+
+此方式同样支持http，且更自由化，比如可以在发起请求前处理请求参数，在请求成功后，处理返回参数等等。
+
+优势：更自由化、基本可以满足所有需求场景
+
+劣势：代码量较多
+
+### 自定义function-http请求模式示例
+
+```html
+<vk-data-form
+  ref="form1"
+  :action="form1.props.action"
+  ...其他属性
+></vk-data-form>
+```
+
+```js
+export default {
+  data() {
+    return {
+      form1:{
+        // 表单属性
+        props: {
+          
+          
+          action: (obj={})=>{
+            let {
+              data, // 请求数据
+              success, // 成功回调
+              fail, // 失败回调
+              complete, // 成功回调
+            } = obj;
+            vk.request({
+              url: `https://www.xxx.com/api/form`,
+              method: "POST",
+              header: {
+                "content-type": "application/json; charset=utf-8",
+              },
+              data: data,
+              success: (res) => {
+                if (typeof success === "function") success(res);
+              },
+              fail: (res) => {
+                if (typeof fail === "function") fail(res);
+              },
+              complete: (res) => {
+                if (typeof complete === "function") complete(res);
+              }
+            });
+          },
+              
+          
+        }
+      }
+    }
+  }
+}
+```
+
+### 自定义function-云函数请求模式示例
+
+```html
+<vk-data-form
+  ref="form1"
+  :action="form1.props.action"
+  ...其他属性
+></vk-data-form>
+```
+
+```js
+export default {
+  data() {
+    return {
+      form1:{
+        // 表单属性
+        props: {
+          
+          
+          action: (obj={})=>{
+            let {
+              data, // 请求数据
+              success, // 成功回调
+              fail, // 失败回调
+              complete, // 成功回调
+            } = obj;
+            vk.callFunction({
+              url: `云函数或云对象路径`,
+              data: data,
+              success: (res) => {
+                if (typeof success === "function") success(res);
+              },
+              fail: (res) => {
+                if (typeof fail === "function") fail(res);
+              },
+              complete: (res) => {
+                if (typeof complete === "function") complete(res);
+              }
+            });
+          },
+              
+          
+        }
+      }
+    }
+  }
+}
 ```
 
 ## 弹窗表单独立组件形式（vk.pubfn.openForm）

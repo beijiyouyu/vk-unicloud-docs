@@ -583,6 +583,7 @@ export default {
 <vk-data-table
   ref="table1"
   :action="table1.action"
+  ...其他属性
 ></vk-data-table>
 ```
 
@@ -602,7 +603,7 @@ export default {
           } = obj;
           // 发起http请求
           vk.callFunction({
-            url: `云函数路径`,
+            url: `云函数或云对象路径`,
             data: data,
             success: (res) => {
               if (typeof success === "function") {
