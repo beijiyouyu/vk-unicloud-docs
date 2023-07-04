@@ -144,8 +144,8 @@ export default {
 | columns-number		| 横向表单每行显示数量																																																					| Number					| 2					| -							|
 | need-alert				| 表单请求失败后，是否自动alert弹窗（若设为false，则可以通过监听fail事件自己处理错误）																					|Boolean					| true			| false					|
 
-
 ### columns（字段渲染规则）
+
 columns是一个数组，数组内每个元素有以下属性，每个元素代表一个表单元素
 
 | 参数				| 说明																																							| 类型											| 默认值| 可选值|
