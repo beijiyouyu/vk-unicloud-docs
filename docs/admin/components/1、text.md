@@ -8,7 +8,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -28,8 +28,8 @@
 { key:"nickname" , title:"用户昵称" , type:"text" , width:200 },
 ```
 
-
 ### template 使用方式
+
 ```html
 <el-input v-model="form1.value" placeholder="请输入内容"></el-input>
 ```

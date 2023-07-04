@@ -1,8 +1,11 @@
 # 9、select 下拉选择
 
 ### 万能表单使用方式
+
 #### 静态数据方式1
-#### 应用场景：选项数据为静态数据的情况。
+
+应用场景：选项数据为静态数据的情况。
+
 ```js
 {
   key: "select1", title: "select类型", type: "select",
@@ -12,8 +15,11 @@
   ]
 },
 ```
+
 #### 静态数据方式2
-#### 应用场景：选项数据需要通过函数计算
+
+应用场景：选项数据需要通过函数计算
+
 ```js
 {
   key: "select1", title: "select类型", type: "select",
@@ -24,7 +30,8 @@
 },
 ```
 
-### 分组用法
+#### 分组用法
+
 ```js
 {
   key: "select3", title: "select类型3", type: "select", group: true,
@@ -47,14 +54,13 @@
 },
 ```
 
-### 远程数据用法
+#### 远程数据用法
 
 请直接查看 `remote-select` 远程下拉组件 [点击前往](https://vkdoc.fsq.pub/admin/components/10%E3%80%81remote-select.html)
 
-
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -71,6 +77,7 @@
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 
 #### onChange 使用示例
+
 ```js
 {
   key: "select1", title: "select类型", type: "select",
@@ -101,7 +108,9 @@
 
 
 ### template 使用方式
-### 常规用法
+
+#### 常规用法
+
 ```html
 <vk-data-input-select
   v-model="form1.value1"
@@ -112,7 +121,9 @@
   placeholder="请选择"
 ></vk-data-input-select>
 ```
-### 分组用法
+
+#### 分组用法
+
 ```html
 <vk-data-input-select
   v-model="form1.value2"

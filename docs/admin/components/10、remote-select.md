@@ -1,8 +1,10 @@
 # 10、remote-select 远程下拉
 
 ### 万能表单使用方式
+
 #### 下拉选择方式
-#### 应用场景：直接加载所有远程待选项（数据量不大时使用。）
+
+应用场景：直接加载所有远程待选项（数据量不大时使用。）
 
 通过设置参数 `showAll:true` 可以直接将所有远程待选项直接加载完。（最多支持1000条数据）
 
@@ -18,9 +20,10 @@
 },
 ```
 
-
 #### 远程搜索方式
-#### 应用场景：数据量很大，不方便一次性全部加载时使用。
+
+应用场景：数据量很大，不方便一次性全部加载时使用。
+
 ```js
 {
   key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
@@ -29,6 +32,7 @@
 ```
 
 #### 远程搜索带参数方式1
+
 ```js
 {
   key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
@@ -40,6 +44,7 @@
 ```
 
 #### 远程搜索带参数方式2
+
 ```js
 {
   key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
@@ -51,7 +56,9 @@
   }
 },
 ```
+
 #### 数据预处理
+
 ```js
 {
   key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
@@ -68,7 +75,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -91,6 +98,7 @@
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 
 #### onChange 使用示例
+
 ```js
 {
   key: "user_id", title: "用户选择器", type: "remote-select", placeholder: "请输入用户账号/昵称",
@@ -114,12 +122,15 @@
 
 ### 万能表格使用方式
 
-#### 暂无，请通过连表查询方式获取数据。
+暂无，请通过连表查询方式获取数据。
 
 
 ### template 使用方式
-### 下拉选择方式
-#### 应用场景：数据量不大时使用。
+
+#### 下拉选择方式
+
+应用场景：数据量不大时使用。
+
 ```html
 <vk-data-input-remote-select
   v-model="form1.category_ids"
@@ -132,8 +143,11 @@
   :limit="3"
 ></vk-data-input-remote-select>
 ```
+
 #### 远程搜索方式
-#### 应用场景：数据量很大，不方便一次性全部加载时使用。
+
+应用场景：数据量很大，不方便一次性全部加载时使用。
+ 
 ```html
 <vk-data-input-remote-select
   v-model="form1.user_id"

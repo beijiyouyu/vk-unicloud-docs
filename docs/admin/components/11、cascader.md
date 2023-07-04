@@ -165,7 +165,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -201,8 +201,8 @@
 | disabled         | 指定选项的禁用为选项对象的某个属性值 | String  | disabled | - |
 | leaf             | 指定选项的叶子节点的标志位为选项对象的某个属性值，当 lazy = true 时生效  | String  | leaf | - |
 
-
 #### onChange 使用示例
+
 ```js
 {
   key: "cascader1", title: "cascader类型1", type: "cascader",
@@ -234,11 +234,13 @@
 
 ### 万能表格使用方式
 
-#### 无
+无
 
 
 ### template 使用方式
+
 #### 静态数据方式
+
 
 应用场景：选项数据为静态数据的情况。
 
@@ -268,6 +270,7 @@
   placeholder="请选择"
 ></vk-data-input-cascader>
 ```
+
 #### 远程数据方式
 
 应用场景：需要从数据库中获取选项的情况。
@@ -344,5 +347,3 @@ module.exports = {
   }
 }
 ```
-
-

@@ -8,7 +8,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -27,8 +27,8 @@
 { key: "percentage", title: "百分比类型", type: "percentage", width: 100 },
 ```
 
-
 ### template 使用方式
+
 ```html
 <vk-data-input-percentage v-model="form1.value1" placeholder="请输入百分比" :precision="2" :max="100" width="300px"></vk-data-input-percentage>
 ```

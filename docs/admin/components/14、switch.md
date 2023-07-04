@@ -2,18 +2,21 @@
 
 ### 万能表单使用方式
 
-### 开关形式
+#### 开关形式
+
 ```js
 { key: "switch", title: "switch类型", type: "switch", activeValue: true, inactiveValue: false },
 ```
-### 多选框形式
+
+#### 多选框形式
+
 ```js
 { key: "switch", title: "switch类型", type: "switch", activeValue: true, inactiveValue: false, switchType: "checkbox", label: "允许为空" },
 ```
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -38,6 +41,7 @@
 ```
 
 ### 表格行内动态编辑模式
+
 ```js
 {
   key: "is_on_sale", title: "是否上架", type: "switch",
@@ -61,13 +65,16 @@
 },
 ```
 
-
 ### template 使用方式
-### 开关形式
+
+#### 开关形式
+
 ```html
 <el-switch v-model="switch" :active-value="true" :inactive-value="false"></el-switch>
 ```
-### 多选框形式
+
+#### 多选框形式
+
 ```html
 <el-checkbox v-model="switch" :true-label="true" :false-label="false">允许为空</el-checkbox>
 ```

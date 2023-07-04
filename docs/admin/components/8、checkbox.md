@@ -1,8 +1,11 @@
 # 8、checkbox 多选
 
 ### 万能表单使用方式
+
 #### 静态数据方式1
-#### 应用场景：选项数据为静态数据的情况。
+
+应用场景：选项数据为静态数据的情况。
+
 ```js
 {
   key: "checkbox1", title: "多选类型", type: "checkbox",
@@ -15,7 +18,9 @@
 ```
 
 #### 静态数据方式2
-#### 应用场景：选项数据需要通过函数计算
+
+应用场景：选项数据需要通过函数计算
+
 ```js
 {
   key: "checkbox1", title: "多选类型", type: "checkbox",
@@ -27,9 +32,10 @@
 },
 ```
 
-
 #### 远程数据方式
-#### 应用场景：需要从数据库中获取选项的情况。
+
+应用场景：需要从数据库中获取选项的情况。
+
 ```js
 {
   key: "checkbox1", title: "多选类型", type: "checkbox",
@@ -41,6 +47,7 @@
 ```
 
 #### 远程数据带参数方式1
+
 ```js
 {
   key: "checkbox1", title: "多选类型", type: "checkbox",
@@ -53,7 +60,9 @@
   props: { list: "rows", value: "_id", label: "name" },
 },
 ```
+
 #### 远程数据带参数方式2
+
 ```js
 {
   key: "checkbox1", title: "多选类型", type: "checkbox",
@@ -70,6 +79,7 @@
 ```
 
 #### 数据预处理
+
 ```js
 {
   key: "checkbox1", title: "多选类型", type: "checkbox",
@@ -86,10 +96,9 @@
 },
 ```
 
-
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -110,6 +119,7 @@
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 
 #### onChange 使用示例
+
 ```js
 {
   key: "checkbox1", title: "多选类型", type: "checkbox",
@@ -137,10 +147,12 @@
 },
 ```
 
-
 ### template 使用方式
+
 #### 静态数据方式
-#### 应用场景：选项数据为静态数据的情况。
+
+应用场景：选项数据为静态数据的情况。
+
 ```html
 <vk-data-input-checkbox
   v-model="form1.value"
@@ -150,8 +162,11 @@
   ]"
 ></vk-data-input-checkbox>
 ```
+
 #### 远程数据方式
-#### 应用场景：需要从数据库中获取选项的情况。
+
+应用场景：需要从数据库中获取选项的情况。
+
 ```html
 <vk-data-input-checkbox
   v-model="form1.value"

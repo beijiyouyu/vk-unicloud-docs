@@ -8,7 +8,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -24,6 +24,7 @@ Vue.component("vk-data-input-editor", VkDataInputEditor);
 
 #### 其中`vk-data-input-editor` 需要放到项目根目录的`components/vk-data-input-editor/vk-data-input-editor.vue`（没有则新建）
 #### `vk-data-input-editor`组件源码 
+
 ```html
 <template>
   <view class="vk-data-input-editor" :style="[style_obj,styleCom]" @tap="close_popup">

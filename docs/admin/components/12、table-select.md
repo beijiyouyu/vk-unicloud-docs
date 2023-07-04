@@ -18,10 +18,9 @@
 },
 ```
 
-
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -29,7 +28,7 @@
 
 | 参数             | 说明               | 类型    | 默认值  | 可选值 |
 |------------------|-------------------|---------|--------|-------|
-| action          | 远程请求的云函数地址 | String  |  -  |  -  |
+| action           | 支持：<br/>1、vk框架下的云函数地址 <br/>2、http请求地址<br/>3、[自定义function请求模式](#自定义function请求模式)  | String、Function | 无      | - |
 | columns          | 表格字段显示规则    | Array  |  -  |  - |
 | queryColumns      | 搜索栏字段显示规则 | Array  |  -  |  -  |
 | multiple      | 是否允许多选 | Boolean  | false | true  |
@@ -50,8 +49,8 @@
 | requestHeader    |  http请求头 | Object  | - | - |
 | props    | 动态模式 - 渲染数据的配置选项 [查看http请求模式](#http请求模式) | Object  | - | - |
 
-
 #### onChange 使用示例
+
 ```js
 {
   key: "role", title: "通过表格选择(单选)", type: "table-select", placeholder: "请选择角色",
@@ -74,12 +73,17 @@
 **推荐使用 `watch` 代替 `onChange`** [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
 
 #### valueFields
-#### 不设置 `valueFields` 时 表单绑定的值为`字符串数组形式`
+
+不设置 `valueFields` 时 表单绑定的值为 `字符串数组形式`
+
 ```js
 ["001","002"]
 ```
-#### 设置 `valueFields` 时 表单绑定的值为`对象数组形式`
-#### 如 `valueFields:["_id","nickname","mobile"]` 表单绑定的值为
+
+设置 `valueFields` 时 表单绑定的值为`对象数组形式`
+
+如 `valueFields:["_id","nickname","mobile"]` 表单绑定的值为
+
 ```js
 [
   {"_id":"001","nickname":"昵称1","mobile":"手机号1"}，
@@ -127,7 +131,120 @@ props 对象属性
 },
 ```
 
+#### 自定义function请求模式
+
+> vk-unicloud-admin-ui 的npm依赖版本需 >= 1.17.0
+
+此方式同样支持http，且更自由化，比如可以在发起请求前处理请求参数，在请求成功后，处理返回参数等等。
+
+优势：更自由化、基本可以满足所有需求场景
+
+劣势：代码量较多
+
+##### 自定义function-http请求模式示例
+
+```js
+{
+  key: "user_id", title: "选择用户", type: "table-select", placeholder: "请选择用户",
+  action: (obj={})=>{
+    let {
+      data, // 请求数据
+      success, // 成功回调
+      fail, // 失败回调
+      complete, // 成功回调
+    } = obj;
+    // 发起http请求
+    vk.request({
+      url: `https://www.xxx.com/api/list`,
+      method: "POST",
+      header: {
+        "content-type": "application/json; charset=utf-8",
+      },
+      data: data,
+      success: (res) => {
+        if (typeof success === "function") {
+          success({
+            rows: res.rows, // 列表数据
+            total: res.total, // 总记录数
+          });
+        }
+      },
+      fail: (res) => {
+        if (typeof fail === "function") fail(res);
+      },
+      complete: (res) => {
+        if (typeof complete === "function") complete(res);
+      }
+    });
+  },
+  columns: [
+    { key: "id", title: "用户标识", type: "text", idKey: true, show: ["none"] }, // idKey:true 代表此字段为主键字段，若设置show:["none"],则可以在表格中隐藏该字段的显示
+    { key: "avatar", title: "头像", type: "image", width: 80 },
+    { key: "nickname", title: "用户昵称", type: "text", width: 260, align: "left", nameKey: true },
+    { key: "mobile", title: "手机号", type: "text", width: 140 },
+  ],
+  queryColumns: [
+    { key: "nickname", title: "用户昵称", type: "text", width: 150, mode: "%%" },
+    { key: "mobile", title: "手机号", type: "text", width: 150, mode: "%%" }
+  ],
+  formData: {
+    nickname: "",
+    mobile: ""
+  }
+},
+```
+
+##### 自定义function-云函数请求模式示例
+
+```js
+{
+  key: "user_id", title: "选择用户", type: "table-select", placeholder: "请选择用户",
+  action: (obj={})=>{
+    let {
+      data, // 请求数据
+      success, // 成功回调
+      fail, // 失败回调
+      complete, // 成功回调
+    } = obj;
+    // 发起http请求
+    vk.callFunction({
+      url: `云函数或云对象路径`,
+      data: data,
+      success: (res) => {
+        if (typeof success === "function") {
+          success({
+            rows: res.rows, // 列表数据
+            total: res.total, // 总记录数
+          });
+        }
+      },
+      fail: (res) => {
+        if (typeof fail === "function") fail(res);
+      },
+      complete: (res) => {
+        if (typeof complete === "function") complete(res);
+      }
+    });
+  },
+  columns: [
+    { key: "id", title: "用户标识", type: "text", idKey: true, show: ["none"] }, // idKey:true 代表此字段为主键字段，若设置show:["none"],则可以在表格中隐藏该字段的显示
+    { key: "avatar", title: "头像", type: "image", width: 80 },
+    { key: "nickname", title: "用户昵称", type: "text", width: 260, align: "left", nameKey: true },
+    { key: "mobile", title: "手机号", type: "text", width: 140 },
+  ],
+  queryColumns: [
+    { key: "nickname", title: "用户昵称", type: "text", width: 150, mode: "%%" },
+    { key: "mobile", title: "手机号", type: "text", width: 150, mode: "%%" }
+  ],
+  formData: {
+    nickname: "",
+    mobile: ""
+  }
+},
+```
+
 #### columns 参数详情
+
 | 参数             | 说明               | 类型    | 默认值  | 可选值 |
 |------------------|-------------------|---------|--------|-------|
 | key          | 字段名 | String  |  -  |  -  |
@@ -139,6 +256,7 @@ props 对象属性
 | 其他  | 其他参数参考万能表格（和万能表格参数一致）| -  | - |  -  |
 
 ### 注意：
+
 1、`idKey` 和 `nameKey` 只能各设置1个。
 2、 设置了`idKey:true`的字段，必须在列表中非空唯一(如主键_id)，默认`idKey`为`_id`
 3、 设置了`nameKey:true`的字段，用于展示在已选择的列表中（如用户昵称字段）默认`nameKey`为`name`
@@ -163,6 +281,7 @@ props 对象属性
 ```
 
 #### queryColumns 参数详情
+
 | 参数             | 说明               | 类型    | 默认值  | 可选值 |
 |------------------|-------------------|---------|--------|-------|
 | key          | 字段名 | String  |  -  |  -  |
@@ -171,8 +290,8 @@ props 对象属性
 | mode      | 查询匹配方式 | String  | = | 见下方 |
 | 其他  | 其他参数参考万能表单（和万能表单参数大部分一致）| -  | - |  -  |
 
-
 #### queryColumns 中 mode 参数详情
+
 | 值         | 说明              
 |------------|-------------------|
 | =          | 完全匹配 |
@@ -196,6 +315,7 @@ props 对象属性
 无
 
 ### template 使用方式
+
 ```html
 <vk-data-input-table-select
   v-model="role"

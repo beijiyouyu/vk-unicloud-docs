@@ -8,7 +8,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -34,14 +34,16 @@
 
 ### 万能表格使用方式
 
-### 暂无
+暂无
 
 ### template 使用方式
+
 ```html
 <el-slider v-model="value1"></el-slider>
 ```
 
 ### marks用法
+
 ```html
 <template>
   <view>

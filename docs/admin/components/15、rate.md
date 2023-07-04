@@ -8,7 +8,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -34,8 +34,8 @@
 { key: "rate", title: "评分", type: "rate", width: 120 },
 ```
 
-
 ### template 使用方式
+
 ```html
 <el-rate v-model="rate"></el-rate>
 ```

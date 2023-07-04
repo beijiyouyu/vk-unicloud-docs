@@ -52,7 +52,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -86,6 +86,7 @@
 | disabled         | 指定选项的禁用为选项对象的某个属性值 | String  | disabled | - |
 
 #### onChange 使用示例
+
 ```js
 {
   key: "tree1", title: "本地数据", type: "tree-select",
@@ -124,6 +125,7 @@
 **推荐使用 `watch` 代替 `onChange`** [传送门 - watch](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html#watch-%E7%9B%91%E5%90%AC)
 
 #### 多选模式下，获取选中的树状结构的数据
+
 ```js
 {
   key: "tree1", title: "本地数据", type: "tree-select",
@@ -179,6 +181,7 @@
 ### template 使用方式
 #### 静态数据方式
 #### 应用场景：选项数据为静态数据的情况。
+
 ```html
 <vk-data-input-tree-select
   v-model="form1.value"
@@ -203,8 +206,10 @@
   placeholder="请选择"
 ></vk-data-input-tree-select>
 ```
+
 #### 远程数据方式
 #### 应用场景：需要从数据库中获取选项的情况。
+
 ```html
 <vk-data-input-tree-select
   v-model="form1.value"

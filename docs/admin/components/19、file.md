@@ -16,7 +16,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -34,7 +34,9 @@
 | 其他       | 其他参数请查看element Upload 上传组件 https://element.eleme.cn/#/zh-CN/component/upload | -  | - | -  |
 
 #### httpRequest 用法
-#### 注意：如果是上传到unicloud云储存或阿里云OSS，无需写httpRequest，框架已集成。
+
+注意：如果是上传到unicloud云储存或阿里云OSS，无需写httpRequest，框架已集成。
+
 ```js
 {
   key: "file", title: "文件类型", type: "file", buttonText: "点击上传", limit: 9, accept: ".txt,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf",
@@ -92,12 +94,13 @@
   }
 },
 ```
+
 ### 万能表格使用方式
 
-### 暂无
-
+暂无
 
 ### template 使用方式
+
 ```html
 <vk-data-upload v-model="image1" :limit="9" upload-type="file" list-type="text" button-text="点击上传"></vk-data-upload>
 ```

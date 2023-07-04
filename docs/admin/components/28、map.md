@@ -14,7 +14,7 @@ key的申请地址：[点击查看](https://lbs.qq.com/)
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -35,6 +35,7 @@ key的申请地址：[点击查看](https://lbs.qq.com/)
 | longitude            | 经度 | Number  | - | - |
 
 #### onChange 使用示例
+
 ```js
 {
   key: "position", title: "地图位置", type: "map",
@@ -59,6 +60,7 @@ key的申请地址：[点击查看](https://lbs.qq.com/)
 ```
 
 ### template 使用方式
+
 ```html
 <vk-data-input-map v-model="value" placeholder="请选择地图" :width="600" :height="300"></vk-data-input-map>
 ```

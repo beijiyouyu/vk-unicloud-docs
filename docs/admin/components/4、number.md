@@ -8,7 +8,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -35,11 +35,15 @@
 
 
 ### template 使用方式
-### 普通模式 
+
+#### 普通模式 
+
 ```html
 <vk-data-input-number v-model="form1.value2" :precision="2" width="300px" placeholder="请输入数字"></vk-data-input-number>
 ```
-### 步进器模式
+
+#### 步进器模式
+
 ```html
 <vk-data-input-number-box v-model="form1.value2" :precision="2" :step="0.01" width="200px" placeholder="请输入数字"></vk-data-input-number-box>
 ```

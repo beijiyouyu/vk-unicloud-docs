@@ -15,7 +15,7 @@
 
 ### API
 
-### 属性
+### 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
@@ -32,6 +32,7 @@
 | pickerOptions    | 当前时间日期选择器特有的选项参考下表 | Object  | {} | - |
 
 ### pickerOptions 详情说明
+
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
 | shortcuts            | 设置快捷选项，需要传入 { text, onClick }  | Object[]  | - | - |
@@ -50,8 +51,8 @@
 { key: "_add_time", title: "距离现在", type: "dateDiff", width: 120 },
 ```
 
-
 ### template 使用方式
+
 ```html
 <!-- 选择日期 -->
 <vk-data-input-date-time v-model="value1" type="date"></vk-data-input-date-time>
