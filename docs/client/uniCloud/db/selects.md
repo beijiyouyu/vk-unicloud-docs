@@ -82,6 +82,29 @@ let res = await vk.baseDao.selects({
 |   hasMore   |  Boolean  |    分页参数，true 还有下一页 false 无下一页    |
 |   pagination   |  Object  |   当前分页的页码pageIndex和每页显示的大小pageSize    |
 
+### vk.baseDao.getTableData的连表
+
+注意：`vk.baseDao.getTableData` 和 `vk.baseDao.selects` 的连表用法完全一致，也支持 `foreignDB` 属性。
+
+getTableData连表示例：
+
+```js
+res = await vk.baseDao.getTableData({
+  dbName: "主表表名",
+  data,
+  // 副表列表
+  foreignDB:[
+    {
+      dbName:"副表表名",
+      localKey:"主表外键名",
+      foreignKey:"副表外键名",
+      as:"副表as字段",
+      limit:1
+    }
+  ]
+});
+```
+
 ### foreignDB（连表规则）
 
 foreignDB是一个数组，数组内每一个对象代表一个连表规则
