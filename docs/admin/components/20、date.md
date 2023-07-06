@@ -2,14 +2,27 @@
 
 ### 万能表单使用方式
 
+单个时间 - date类型（年月日）
+
 ```js
-// date类型
 { key: "date", title: "date类型", type: "date", dateType: "date", tips: "可选择年月日" },
-// dataTime类型
+```
+
+单个时间 - dataTime类型（年月日时分秒）
+
+```js
 { key: "dateTime", title: "dataTime类型", type: "date", dateType: "datetime", tips: "可选择年月日时分秒" },
-// date类型范围
+```
+
+时间范围 - date类型（年月日）
+
+```js
 { key: "dateArr", title: "date类型范围", type: "date", dateType: "daterange" },
-// dataTime类型范围
+```
+
+时间范围 - dataTime类型（年月日时分秒）
+
+```js
 { key: "dataTimeArr", title: "dataTime类型范围", type: "date", dateType: "datetimerange" },
 ```
 
