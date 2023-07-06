@@ -59,20 +59,55 @@
 
 ### 万能表格使用方式
 
+只显示年月日
+
+```js
+{ key: "_add_time", title: "添加时间", type: "time", width: 160, valueFormat:"yyyy-MM-dd" },
+```
+
+显示年月日时分秒
+
 ```js
 { key: "_add_time", title: "添加时间", type: "time", width: 160 },
+```
+
+显示距离现在XX秒，xx时，xx天，xx年
+
+```js
 { key: "_add_time", title: "距离现在", type: "dateDiff", width: 120 },
+```
+
+显示距离到期剩XX秒，xx时，xx天，xx年
+
+```js
+{ key:"exp_time", title:"到期剩", type:"dateDiff2", endText:"已到期", width:120, defaultValue: "永久" },
 ```
 
 ### template 使用方式
 
+单个时间 - date类型（年月日）
+
 ```html
-<!-- 选择日期 -->
 <vk-data-input-date-time v-model="value1" type="date"></vk-data-input-date-time>
-<!-- 选择日期+时间 -->
+```
+
+单个时间 - dataTime类型（年月日时分秒）
+
+
+```html
 <vk-data-input-date-time v-model="value1" type="datetime"></vk-data-input-date-time>
-<!-- 选择日期范围-->
+```
+
+
+时间范围 - date类型（年月日）
+
+```html
 <vk-data-input-date-time v-model="value1" type="daterange"></vk-data-input-date-time>
-<!-- 选择日期时间范围-->
+```
+
+
+时间范围 - dataTime类型（年月日时分秒）
+
+```html
 <vk-data-input-date-time v-model="value1" type="datetimerange"></vk-data-input-date-time>
 ```
