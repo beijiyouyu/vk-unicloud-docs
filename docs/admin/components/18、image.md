@@ -17,16 +17,21 @@
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
 | limit            | 最大上传数量 | Number  | - | -  |
-| provider          | 储存空间供应商 | String  | unicloud | aliyun |
-| needSave          | 是否需要保存图片url到admin后台 | Boolean  | false | true  |
-| categoryId          | 当needSave=true时，图片保存的分类id（即vk-files-categories表的_id） | String  | - | -  |
-| cloudDirectory    | 上传至指定的云端目录（默认会以年月日为目录）  | String  | - | - |
-| httpRequest       | 覆盖默认的上传行为，可以自定义上传的实现（下方有详细说明） | function  | - | -  |
-| listType          | 文件列表的类型  | String  | picture-card | text/picture/picture-card |
-| drag          | 是否开启拖拽上传  | Boolean  | false | true |
-| fileSize          | 限制文件大小  | Number  | - | - |
-| sizeUnit          | 文件的单位  | String  | MB | KB、MB、GB |
-| 其他       | 其他参数请查看element Upload 上传组件 https://element.eleme.cn/#/zh-CN/component/upload	| -				| -						| -													|
+| provider         | 储存空间供应商 | String  | unicloud | aliyun |
+| needSave         | 是否需要保存图片url到admin后台 | Boolean  | false | true  |
+| categoryId       | 当needSave=true时，图片保存的分类id（即vk-files-categories表的_id） | String  | - | -  |
+| cloudDirectory   | 上传至指定的云端目录（默认会以年月日为目录）  | String  | - | - |
+| httpRequest      | 覆盖默认的上传行为，可以自定义上传的实现（下方有详细说明） | function  | - | -  |
+| listType         | 文件列表的类型  | String  | picture-card | text/picture/picture-card |
+| drag             | 是否开启拖拽上传  | Boolean  | false | true |
+| fileSize         | 限制文件大小  | Number  | - | - |
+| sizeUnit         | 文件的单位  | String  | MB | KB、MB、GB |
+| autoUpload       | 是否在选取文件后立即进行上传，默认为true<br/>如果为false，则提交表单前需主动调用vk.uploadFile来上传  | Boolean  | true | false |
+| buttonText       | 当listType=picture或text时，上传按钮的文本 | String  | 点击上传 | - |
+| tipsImageText    | 右侧提示图的文本，一般配合drag=true时使用 如 示例图 | String  | - | - |
+| tipsImage        | 右侧提示图的图片地址，一般配合drag=true时使用 | String  | - | - |
+| tipsImageStyle   | 右侧提示图的图片样式，一般配合drag=true时使用 | String	| width: 200px| -													|
+| 其他              | 其他参数请查看element Upload 上传组件 https://element.eleme.cn/#/zh-CN/component/upload	| -				| -						| -													|
 
 #### httpRequest 用法
 
