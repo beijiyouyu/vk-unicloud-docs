@@ -10,8 +10,10 @@
 
 #### 多选框形式
 
+注意：多选框形式下，`activeValue` 和 `inactiveValue` 只能是 `number` 或 `string`，不可以是 `boolean`
+
 ```js
-{ key: "switch", title: "switch类型", type: "switch", activeValue: true, inactiveValue: false, switchType: "checkbox", label: "允许为空" },
+{ key: "switch", title: "switch类型", type: "switch", activeValue: 1, inactiveValue: 0, switchType: "checkbox", label: "允许为空" },
 ```
 
 ### API
@@ -70,11 +72,13 @@
 #### 开关形式
 
 ```html
-<el-switch v-model="switch" :active-value="true" :inactive-value="false"></el-switch>
+<el-switch v-model="switch" :active-value="1" :inactive-value="0"></el-switch>
 ```
 
 #### 多选框形式
 
+注意：多选框形式下，`activeValue` 和 `inactiveValue` 只能是 `number` 或 `string`，不可以是 `boolean`
+
 ```html
-<el-checkbox v-model="switch" :true-label="true" :false-label="false">允许为空</el-checkbox>
+<el-checkbox v-model="switch" :true-label="1" :false-label="0">允许为空</el-checkbox>
 ```
