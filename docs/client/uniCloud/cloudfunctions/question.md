@@ -3,58 +3,36 @@
 [点击查看更多问题解答](https://vkdoc.fsq.pub/client/question/question.html)
 
 ## 1、如何在云函数中访问http服务
-```js
-let requestRes = await vk.request({
-  url:`https://xxxxxxx.xxxx.com`,
-  method:"POST",
-  data:{
-    a:1,
-    b:{
-     c:"2"
-    }						
-  },
-  useContent:true, // true代表将参数转为使用body请求体
-});
-```
+
+[传送门](https://vkdoc.fsq.pub/client/jsapi.html#vk-request-%E4%BA%91%E7%AB%AF%E8%B0%83%E7%94%A8)
+
 ## 2、请求云函数报403错误
+
 ```js
 code=403 为权限不足，通常是因为你写的云函数没有放在`pub`或`kh`目录下导致的
 pub目录：任何人都可以请求的云函数
 kh目录：只有登录用户才可以请求的云函数
 sys目录：登录且拥有对应权限的用户才可以请求的云函数
 ```
+
 ## 3、云函数中时区问题导致获取到的本月起始时间和截止时间不准确
+
 ```js
 // 使用以下api可以解决时区问题：
 let commonTime = vk.pubfn.getCommonTime(new Date());
 ```
+
 ## 4、云函数中如何使用缓存
 
-[点击查看缓存使用](https://vkdoc.fsq.pub/client/uniCloud/cache/cache.html)
+[传送门](https://vkdoc.fsq.pub/client/uniCloud/cache/cache.html)
 
 ## 5、云函数中如何将网络图片上传到云储存
-```js
-let imageBuffer = await vk.request({
-  url: "https://xxxx.xxxx.com/xxx.jpg",
-  method: "GET",
-  dataType: "default"
-});
-let uploadFileRes = await uniCloud.uploadFile({
-  cloudPath: "test.jpg",
-  fileContent: imageBuffer
-});
-let fileUrl = uploadFileRes.fileID;
-```
+
+[传送门](https://vkdoc.fsq.pub/client/question/question.html#%E4%BA%91%E5%87%BD%E6%95%B0%E4%B8%AD%E5%A6%82%E4%BD%95%E5%B0%86%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%88%B0%E4%BA%91%E5%82%A8%E5%AD%98)
 
 ## 6、云函数中如何将网络图片转成base64
-```js
-let imageBuffer = await vk.request({
-  url: "https://xxxx.xxxx.com/xxx.jpg",
-  method: "GET",
-  dataType: "default"
-});
-let base64 = "data:image/png;base64," + imageBuffer.toString('base64');
-```
+
+[传送门](https://vkdoc.fsq.pub/client/question/question.html#%E4%BA%91%E5%87%BD%E6%95%B0%E4%B8%AD%E5%A6%82%E4%BD%95%E5%B0%86%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87%E8%BD%AC%E6%88%90base64)
 
 ## 7、云函数中如何调用另一个云函数
 

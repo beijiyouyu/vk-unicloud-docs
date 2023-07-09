@@ -104,11 +104,15 @@ let commonTime = vk.pubfn.getCommonTime(new Date());
 [点击查看缓存使用](https://vkdoc.fsq.pub/client/uniCloud/cache/cache.html)
 
 ## 云函数中如何将网络图片上传到云储存
+
 ```js
 let imageBuffer = await vk.request({
   url: "https://xxxx.xxxx.com/xxx.jpg",
   method: "GET",
-  dataType: "default"
+  dataType: "default",
+  header: {
+    "cache-control": "no-cache",
+  }
 });
 let uploadFileRes = await uniCloud.uploadFile({
   cloudPath: "test.jpg",
@@ -118,11 +122,15 @@ let fileUrl = uploadFileRes.fileID;
 ```
 
 ## 云函数中如何将网络图片转成base64
+
 ```js
 let imageBuffer = await vk.request({
   url: "https://xxxx.xxxx.com/xxx.jpg",
   method: "GET",
-  dataType: "default"
+  dataType: "default",
+  header: {
+    "cache-control": "no-cache",
+  }
 });
 let base64 = "data:image/png;base64," + imageBuffer.toString('base64');
 ```
