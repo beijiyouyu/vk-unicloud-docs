@@ -193,7 +193,6 @@ submitForm(){
 module.exports = {
   /**
    * 上传加密的文件
-   * @url common/pub/uploadEncryption 前端调用的url参数地址
    */
   main: async (event) => {
     let { data = {}, userInfo, util, filterResponse, originalParam } = event;
@@ -227,6 +226,57 @@ module.exports = {
 
     res.fileID = uploadFileRes.fileID;
     res.url = uploadFileRes.fileID;
+
+    // 业务逻辑结束-----------------------------------------------------------
+    return res;
+  }
+}
+```
+
+**云函数解密云存储示例**
+
+```js
+'use strict';
+module.exports = {
+  /**
+   * 解密文件
+   */
+  main: async (event) => {
+    let { data = {}, userInfo, util, filterResponse, originalParam } = event;
+    let { customUtil, uniID, config, pubFun, vk, db, _ } = util;
+    let { uid } = data;
+    let res = { code: 0, msg: "" };
+    // 业务逻辑开始-----------------------------------------------------------
+    
+    let id_card_front = "加密文件的url";
+    
+    // 此处应该判断下该用户是否有权限解密此文件
+    if (userInfo.role.indexOf("admin") === -1) {
+      return { code:-1, msg: "您没有权限访问" };
+    }
+    
+    // 下载图片
+    let imageBuffer = await vk.request({
+      url: id_card_front,
+      method: "GET",
+      dataType: "default",
+      header: {
+        "cache-control": "no-cache",
+      }
+    });
+    
+    // 将imageBuffer转待解密的字符串
+    let decrypt = imageBuffer.toString('utf8');
+    
+    // 解密得到真实的图片base64
+    let id_card_front_base64 = vk.crypto.aes.decrypt({
+      mode: "aes-256-ecb",
+      data: decrypt
+    });
+    
+    // 返回给前端解密后的文件的base64
+
+    res.base64 = id_card_front_base64
 
     // 业务逻辑结束-----------------------------------------------------------
     return res;
