@@ -253,7 +253,7 @@ let newInfo = await vk.baseDao.updateById({
 
 `vk.baseDao.updateAndReturn`
 
-根据ID修改数据，并返回修改后的数据对象（原子操作）（支持事务）
+优势：此为原子操作，并不是先判断是否存在，再进行修改或新增。只计一次写操作。（原子操作）（支持事务）
 
 **调用示例**
 
@@ -306,6 +306,45 @@ vk.baseDao.updateAndReturn 可以实现什么功能？
 * 1、实现id自增
 * 2、实现阅读数自增（同时返回自增后的商品或文章详细信息等）
 * 3、实现跟数值有关的自增和自减（同时需要实时获取自增或自减后的值）
+
+
+### vk.baseDao.setById（根据ID判断存在则修改，不存在则添加）
+
+优势：此为原子操作，并不是先判断是否存在，再进行修改或新增。只计一次写操作。（原子操作）（支持事务）
+
+> VK框架核心库版本需 >= 2.15.1
+
+**接口名**
+
+`vk.baseDao.setById`
+
+**调用示例**
+
+```js
+let setRes = await vk.baseDao.setById({
+  dbName:"vk-test",
+  dataJson:{
+    _id: "666",
+    money: 1
+  }
+});
+```
+
+**参数说明**
+
+|    参数名   |   类型   | 必填 |    说明    |
+|------------|----------|------|-----------|
+|   dbName   |  String  |  是  |   表名    |
+|   dataJson |  Object  |  是  |   需要修改或新增的数据（必须包含_id） |
+|   id |  String  |  否  |  如果传了id参数，则会与dataJson中的_id判断是否一致，不一致会报错 |
+|   db   |  DB  |  否  |   指定数据库实例 const db = uniCloud.database(); |
+
+**返回值**
+
+|    参数名		|   类型		| 必填	|    说明																						|
+|------------	|----------	|------	|-----------																				|
+|   type			|  String		|  是		|  add 添加 update 修改															|
+|   id				|  String		|  是		|   若返回的type=add，则会额外返回当前新增的记录的id|
 
 ## 查
 ### vk.baseDao.findById（根据id获取单条记录）

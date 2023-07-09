@@ -105,6 +105,7 @@ try {
 3. vk.baseDao.updateById
 4. vk.baseDao.deleteById
 5. vk.baseDao.updateAndReturn
+6. vk.baseDao.setById
 
 **事务隔离级别：**
 
