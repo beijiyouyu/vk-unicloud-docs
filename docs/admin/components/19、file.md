@@ -106,7 +106,7 @@
 
 #### 手动上传示例
 
-> vk-unicloud-admin-ui 的npm依赖需 >= 1.17.5
+> vk-unicloud-admin-ui 的npm依赖需 >= 1.17.6
 
 如果不希望选择图片马上就上传，则可以设置 `autoUpload: false`，设置后，表单双向绑定的值为图片的本地路径，在最终提交表单前，需要手动执行 `vk.uploadFile` 来上传。
 
