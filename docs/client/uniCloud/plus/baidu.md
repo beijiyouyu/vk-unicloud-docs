@@ -179,6 +179,8 @@ return {
 
 ## 【前端】直接调用百度开放平台API
 
+前端直接调用只有小程序和APP可以调用，H5有跨域限制
+
 **API通用接口**
 
 ```js
@@ -242,7 +244,7 @@ vk.openapi.baidu.open.ocr.business_license({
   data: {
     file: res.tempFiles[0]
   },
-  success: (res) = >{
+  success: (res) => {
     this.data = res.data;
   },
 });
@@ -259,7 +261,7 @@ vk.openapi.baidu.open.ocr.idcard({
   data: {
     image: base64
   },
-  success: (res) = >{
+  success: (res) => {
     this.data = res.data;
   },
 });

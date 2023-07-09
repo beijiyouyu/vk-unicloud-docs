@@ -138,7 +138,7 @@ module.exports = [
 
 'use strict';
 module.exports = {
-  main: async(event) = >{
+  main: async(event) => {
     // filterResponse 为过滤器传给业务函数的数据
     let { filterResponse } = event;
     /**
