@@ -34,7 +34,13 @@
 | drag          | 是否开启拖拽上传  | Boolean  | false | true |
 | fileSize          | 限制文件大小  | Number  | - | - |
 | sizeUnit          | 文件的单位  | String  | MB | KB、MB、GB |
-| 其他       | 其他参数请查看element Upload 上传组件 https://element.eleme.cn/#/zh-CN/component/upload | -  | - | -  |
+| autoUpload       | 是否在选取文件后立即进行上传，默认为true<br/>如果为false，则提交表单前需主动调用vk.uploadFile来上传 [手动上传示例](#手动上传示例)  | Boolean  | true | false |
+| tempFileType     | 当autoUpload为false时，本地文件转为哪种类型<br/>tempPath 文件临时路径<br/>base64 文件base64编码后的值 [手动上传示例](#手动上传示例)  | Boolean  | true | false |
+| buttonText       | 当listType=picture或text时，上传按钮的文本 | String  | 点击上传 | - |
+| tipsImageText    | 右侧提示图的文本，一般配合drag=true时使用 如 示例图 | String  | - | - |
+| tipsImage        | 右侧提示图的图片地址，一般配合drag=true时使用 | String  | - | - |
+| tipsImageStyle   | 右侧提示图的图片样式，一般配合drag=true时使用 | String	| width: 200px| -													|
+| 其他              | 其他参数请查看element Upload 上传组件 https://element.eleme.cn/#/zh-CN/component/upload	| -				| -						| -													|
 
 #### httpRequest 用法
 
@@ -97,6 +103,30 @@
   }
 },
 ```
+
+#### 手动上传示例
+
+> vk-unicloud-admin-ui 的npm依赖需 >= 1.17.5
+
+如果不希望选择图片马上就上传，则可以设置 `autoUpload: false`，设置后，表单双向绑定的值为图片的本地路径，在最终提交表单前，需要手动执行 `vk.uploadFile` 来上传。
+
+```js
+{
+  key:"bank_front", title:"银行卡正面", type:"image", limit:1, width:800,
+  autoUpload: false,
+  tempFileType: "tempPath", // tempPath 文件临时路径 base64 文件base64编码后的值
+  drag:true,
+  fileSize:2,
+  sizeUnit:"mb",
+  tipsImageText: "示例图",
+  tipsImage: "static/tips/bank_front.png",
+  tips:"只能上传jpg/png文件，且不超过2MB"
+},
+```
+
+#### 加密存储上传的文件
+
+[传送门](https://vkdoc.fsq.pub/admin/components/18%E3%80%81image.html#%E5%8A%A0%E5%AF%86%E5%AD%98%E5%82%A8%E4%B8%8A%E4%BC%A0%E7%9A%84%E6%96%87%E4%BB%B6)
 
 ### 万能表格使用方式
 
