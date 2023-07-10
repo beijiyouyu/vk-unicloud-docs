@@ -30,6 +30,11 @@
 
 `vkPay.createPayment` 接口中多传两个参数 `sub_appid` 和 `sub_mchid` 即可
 
+注意：
+
+1. `sub_mchid` 必传
+2. 如果 `openid` 是子商户小程序的，则 `sub_appid` 必传，如果 `openid` 是服务商小程序的，则 `sub_appid` 不传。
+
 ```js
 const vkPay = require("vk-uni-pay");
 
