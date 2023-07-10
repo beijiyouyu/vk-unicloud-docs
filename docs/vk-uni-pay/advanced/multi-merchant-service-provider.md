@@ -20,30 +20,11 @@
 
 配置文件：`common/uni-config-center/uni-pay/config.js` [传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 
-参数和普通商户模式一样的，服务商模式下多了2个参数，`subAppId` 和 `subMchId`，但这两个参数均可不填。
-
-以H5网站二维码支付配置为例
-
-```js
-"h5": {
-  "appId": "", // 服务商名下的任意公众号appid（注意，不管什么支付，这里填的都是服务商名下的任意公众号appid）
-  "mchId": "", // 服务商商户号
-  "subAppId": "", // 默认子商户appid（可不填）
-  "subMchId": "", // 默认子商户商户号（可不填）
-  "key": "", // 服务商api的v2的key
-  "pfx": fs.readFileSync(__dirname + '/wxpay/apiclient_cert.p12'), // 服务商v2证书
-  "v3Key": "", // 服务商api的v3的key
-  "appCertPath": path.join(__dirname, 'wxpay/apiclient_cert.pem'), // 服务商v3证书
-  "appPrivateKeyPath": path.join(__dirname, 'wxpay/apiclient_key.pem'), // 服务商v3证书
-  "version": 2
-},
-```
+注意：微信服务商的配置和普通商户一样 [传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 
 **使用**
 
 `vkPay.createPayment` 接口中多传两个参数 `sub_appid` 和 `sub_mchid` 即可
-
-如果未传 `sub_appid` 和 `sub_mchid` ，将会自动从配置中获取默认的子商户，参数分别对应为：`subAppId` 和 `subMchId` 
 
 ```js
 const vkPay = require("vk-uni-pay");
@@ -52,7 +33,7 @@ exports.main = async (event, context) => {
   
   let res = await vkPay.createPayment({
     context,
-    provider: "alipay",
+    provider: "wxpay",
     data: {
       sub_appid: "xxxxxxx", // 子商户appid（注意，此appid必须绑定在子商户商户号下）
       sub_mchid: "xxxxxxx", // 子商户商户号（注意，此商户号必须绑定在服务商名下）
