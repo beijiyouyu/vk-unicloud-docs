@@ -18,7 +18,7 @@
 
 **配置**
 
-配置文件：`common/uni-config-center/uni-pay/config.js` [传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
+配置 `common/uni-config-center/uni-pay/config.js` 中的参数使用服务商的密钥和证书
 
 注意：微信服务商的配置和普通商户一样 [传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 
@@ -112,4 +112,10 @@ exports.main = async (event, context) => {
 ### 为什么小程序报code无效或openid无效？
 
 小程序支付必传openid，而默认插件会自动获取用户的openid，但是在服务商模式下，用户的openid需要自己获取，因此需要将支付组件属性 `autoGetOpenid` 的值设置为false，同时在 `createPayment` 时主动传入当前用户的openid
+
+### 微信服务商的配置正确，但依然报appid和mch_id不匹配的错误？
+
+前往微信服务商后台，关联appid
+
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/vk-doc/402.png)
 
