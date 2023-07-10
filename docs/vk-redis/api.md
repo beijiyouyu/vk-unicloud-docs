@@ -14,7 +14,6 @@ const redis = vk.redis();
 const redis = uniCloud.redis();
 ```
 
-
 ## 字符串类型（String）
 
 ### get
@@ -26,6 +25,7 @@ const redis = uniCloud.redis();
 ```js
 await redis.get(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -71,6 +71,7 @@ await redis.set('key', '1', 'EX', 100, 'NX')  // key不存在时设置为1，过
 ```js
 await redis.getrange(key, start , end);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -88,6 +89,7 @@ await redis.getrange(key, start , end);
 ```js
 await redis.getset(key, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -114,6 +116,7 @@ await redis.mget(key1, key2, ...);
 ```js
 await redis.setex(key, seconds, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -121,7 +124,6 @@ await redis.setex(key, seconds, value);
 | key       | 键名            | String  | 是     | - |
 | seconds     | 值           | Number  | 是      | 单位为秒 |
 | value     | 值           | String  | 是      | - |
-
 
 ### setnx
 
@@ -132,6 +134,7 @@ await redis.setex(key, seconds, value);
 ```js
 await redis.setnx(key, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -148,12 +151,12 @@ await redis.setnx(key, value);
 ```js
 await redis.strlen(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
 |-----------|-----------------|---------|--------|-------|
 | key       | 键名            | String  | 是     | - |
-
 
 ### mset
 
@@ -164,7 +167,6 @@ await redis.strlen(key);
 ```js
 await redis.mset(key1, value1, key2, value2);
 ```
-
 
 ### msetnx
 
@@ -185,6 +187,7 @@ await redis.msetnx(key1, value1, key2, value2);
 ```js
 await redis.psetex(key, milliseconds, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -192,7 +195,6 @@ await redis.psetex(key, milliseconds, value);
 | key       | 键名            | String  | 是     | - |
 | milliseconds     | 值           | Number  | 是      | 单位为毫秒 |
 | value     | 值           | String  | 是      | - |
-
 
 ### incr
 
@@ -203,12 +205,12 @@ await redis.psetex(key, milliseconds, value);
 ```js
 await redis.incr(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
 |-----------|-----------------|---------|--------|-------|
 | key       | 键名            | String  | 是     | - |
-
 
 ### incrby
 
@@ -219,6 +221,7 @@ await redis.incr(key);
 ```js
 await redis.incrby(key, increment);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -235,6 +238,7 @@ await redis.incrby(key, increment);
 ```js
 await redis.incrbyfloat(key, increment);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -251,6 +255,7 @@ await redis.incrbyfloat(key, increment);
 ```js
 await redis.decrby(key, increment);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -267,6 +272,7 @@ await redis.decrby(key, increment);
 ```js
 await redis.append(key, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -285,6 +291,7 @@ await redis.append(key, value);
 ```js
 await redis.del(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -300,6 +307,7 @@ await redis.del(key);
 ```js
 await redis.dump(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -315,6 +323,7 @@ await redis.dump(key);
 ```js
 await redis.exists(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -330,6 +339,7 @@ await redis.exists(key);
 ```js
 await redis.expire(key, seconds);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -346,6 +356,7 @@ EXPIREAT 的作用和 EXPIRE 类似，都用于为 key 设置过期时间。 不
 ```js
 await redis.expireat(key, timestamp);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -362,6 +373,7 @@ await redis.expireat(key, timestamp);
 ```js
 await redis.pexpire(key, milliseconds);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -378,6 +390,7 @@ await redis.pexpire(key, milliseconds);
 ```js
 await redis.pexpireat(key, timestamp);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -395,6 +408,7 @@ await redis.pexpireat(key, timestamp);
 await redis.keys(key, pattern);
 await redis.keys(key, "a*");
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -411,6 +425,7 @@ await redis.keys(key, "a*");
 ```js
 await redis.move(key, db);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -427,6 +442,7 @@ await redis.move(key, db);
 ```js
 await redis.persist(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -442,6 +458,7 @@ await redis.persist(key);
 ```js
 await redis.pttl(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -457,6 +474,7 @@ await redis.pttl(key);
 ```js
 await redis.ttl(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -482,6 +500,7 @@ await redis.randomkey();
 ```js
 await redis.rename(key, newkey);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -498,6 +517,7 @@ await redis.rename(key, newkey);
 ```js
 await redis.renamenx(key, newkey);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -515,6 +535,7 @@ await redis.renamenx(key, newkey);
 await redis.scan(cursor);
 await redis.scan(0, "match", "a*");
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -530,6 +551,7 @@ await redis.scan(0, "match", "a*");
 ```js
 await redis.type(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -547,6 +569,7 @@ await redis.type(key);
 ```js
 await redis.rpush(key, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -563,6 +586,7 @@ await redis.rpush(key, value);
 ```js
 await redis.rpushx(key, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -579,6 +603,7 @@ await redis.rpushx(key, value);
 ```js
 await redis.rpop(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -594,6 +619,7 @@ await redis.rpop(key);
 ```js
 await redis.rpoplpush(key1, key2);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -610,6 +636,7 @@ await redis.rpoplpush(key1, key2);
 ```js
 await redis.lpush(key, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -626,6 +653,7 @@ await redis.lpush(key, value);
 ```js
 await redis.lpushx(key, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -642,6 +670,7 @@ await redis.lpushx(key, value);
 ```js
 await redis.lpop(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -657,6 +686,7 @@ await redis.lpop(key);
 ```js
 await redis.linsert(key, dir, pivot, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -675,6 +705,7 @@ await redis.linsert(key, dir, pivot, value);
 ```js
 await redis.lindex(key, index);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -691,6 +722,7 @@ await redis.lindex(key, index);
 ```js
 await redis.llen(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -706,6 +738,7 @@ await redis.llen(key);
 ```js
 await redis.lrange(key, start, end);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -728,6 +761,7 @@ await redis.lrange(key, start, end);
 ```js
 await redis.lrem(key, count, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -747,6 +781,7 @@ await redis.lrem(key, count, value);
 ```js
 await redis.lset(key, index, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -766,6 +801,7 @@ await redis.lset(key, index, value);
 ```js
 await redis.ltrim(key, start, end);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -785,6 +821,7 @@ await redis.ltrim(key, start, end);
 ```js
 await redis.blpop(key, seconds);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -803,6 +840,7 @@ await redis.blpop(key, seconds);
 ```js
 await redis.brpop(key, seconds);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -821,6 +859,7 @@ await redis.brpop(key, seconds);
 ```js
 await redis.brpoplpush(key1, key2, seconds);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -842,6 +881,7 @@ await redis.brpoplpush(key1, key2, seconds);
 ```js
 await redis.hget(key, name);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -859,6 +899,7 @@ await redis.hget(key, name);
 await redis.hset(key, json);
 await redis.hset(key, name, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -877,6 +918,7 @@ await redis.hset(key, name, value);
 ```js
  await redis.hmget(key, name1, name2, ...);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -894,6 +936,7 @@ await redis.hset(key, name, value);
 ```js
 await redis.hgetall(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -909,6 +952,7 @@ await redis.hgetall(key);
 ```js
 await redis.hdel(key, name1, name2);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -926,6 +970,7 @@ await redis.hdel(key, name1, name2);
 ```js
 await redis.hexists(key, name);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -942,6 +987,7 @@ await redis.hexists(key, name);
 ```js
 await redis.hincrby(key, name, increment);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -959,6 +1005,7 @@ await redis.hincrby(key, name, increment);
 ```js
 await redis.hincrbyfloat(key, name, increment);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -976,6 +1023,7 @@ await redis.hincrbyfloat(key, name, increment);
 ```js
 await redis.hkeys(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -991,6 +1039,7 @@ await redis.hkeys(key);
 ```js
 await redis.hlen(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1007,6 +1056,7 @@ await redis.hlen(key);
 await redis.hset(key, json);
 await redis.hset(key, name, value);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1025,6 +1075,7 @@ await redis.hset(key, name, value);
 ```js
 await redis.hvals(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1041,6 +1092,7 @@ await redis.hvals(key);
 await redis.hscan(key, cursor);
 await redis.hscan(key, 0, "match", "a*");
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1061,6 +1113,7 @@ set 类似 不可重复的 字符串数组
 ```js
 await redis.sadd(key, value1, value2);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1078,6 +1131,7 @@ await redis.sadd(key, value1, value2);
 ```js
 await redis.scard(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1093,6 +1147,7 @@ await redis.scard(key);
 ```js
 await redis.sdiff(key1, key2);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1109,6 +1164,7 @@ await redis.sdiff(key1, key2);
 ```js
 await redis.sdiffstore(destination, key1, key2);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1126,6 +1182,7 @@ await redis.sdiffstore(destination, key1, key2);
 ```js
 await redis.sinter(key1, key2);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1142,6 +1199,7 @@ await redis.sinter(key1, key2);
 ```js
 await redis.sinterstore(destination, key1, key2);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1159,6 +1217,7 @@ await redis.sinterstore(destination, key1, key2);
 ```js
 await redis.sismember(key, member);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1175,6 +1234,7 @@ await redis.sismember(key, member);
 ```js
  await redis.smembers(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1190,6 +1250,7 @@ await redis.sismember(key, member);
 ```js
 await redis.smove(source, destination, member);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1207,6 +1268,7 @@ await redis.smove(source, destination, member);
 ```js
 await redis.spop(key, count);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1223,6 +1285,7 @@ await redis.spop(key, count);
 ```js
 await redis.srandmember(key, count);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1239,6 +1302,7 @@ await redis.srandmember(key, count);
 ```js
 await redis.srem(key, member1, member2);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1256,6 +1320,7 @@ await redis.srem(key, member1, member2);
 ```js
 await redis.sunion(key1, key2, key3, ...);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1273,6 +1338,7 @@ await redis.sunion(key1, key2, key3, ...);
 ```js
 await redis.sunionstore(destination, key1, key2, key3);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1292,6 +1358,7 @@ await redis.sunionstore(destination, key1, key2, key3);
 await redis.sscan(key, cursor);
 await redis.sscan(key, 0, "match", "a*");
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1310,6 +1377,7 @@ await redis.sscan(key, 0, "match", "a*");
 ```js
 await redis.zadd(key, score1, value1, score2, value2);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1329,6 +1397,7 @@ await redis.zadd(key, score1, value1, score2, value2);
 ```js
 await redis.zcard(key);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1344,6 +1413,7 @@ await redis.zcard(key);
 ```js
 await redis.zcount(key, min, max);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1363,6 +1433,7 @@ await redis.zcount(key, min, max);
 ```js
 await redis.zincrby(key, increment, member);
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
@@ -1381,6 +1452,7 @@ await redis.zincrby(key, increment, member);
 await redis.zinterstore(destination, numkeys, key1, key2);
 await redis.zinterstore("newZSet", 2, "oldZset1", "oldZset2");
 ```
+
 - 参数说明
 
 | 参数      | 说明             | 类型    | 必填  | 说明 |
