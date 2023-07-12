@@ -33,15 +33,16 @@ if (transferRes.code === 0) {
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
-| appid  |  手动传appid，不填则自动从配置中获取   | String  | -    | -  |
-| real_name  |  对方真实姓名（转账大于2000元时必填）   | String  | -    | -  |
-| amount  |  转账金额 100=1元(单位分)，金额最低0.1元，也就是 amount >= 10  | Number  | -    | -  |
-| title  |  转账标题   | String  | -    | -  |
-| pay_type  |  固定 wxpay  | String  | -  | wxpay  |
-| remark  |  转账备注  | String  | -    | -  |
-| out_biz_no  |  转账单号  | String  | -    | -  |
-| openid  |  微信专用 - 用户的openid   | String  | -    | -  |
-| pid  |  多商户模式下的自定义商户id（等于vk-pay-config表的_id） [查看vk-pay-config表](https://vkdoc.fsq.pub/vk-uni-pay/db/vk-pay-config.html)   | String  | -    | -  |
+| real_name  | 【特殊选填】对方真实姓名（转账大于2000元时必填）   | String  | -    | -  |
+| amount  |  【必填】转账金额 100=1元(单位分)，金额最低0.1元，也就是 amount >= 10  | Number  | -    | -  |
+| title  |  【必填】转账标题   | String  | -    | -  |
+| pay_type  |  【必填】固定 wxpay  | String  | -  | wxpay  |
+| remark  |  【必填】转账备注  | String  | -    | -  |
+| out_biz_no  |  【必填】转账单号  | String  | -    | -  |
+| openid  |  【必填】微信专用 - 用户的openid，需要与配置中的appid对应或与appid参数对应   | String  | -    | -  |
+| appid  | 【选填】手动传appid，不填则自动从配置中获取   | String  | -    | -  |
+| platform  | 【选填】若传了platform，且没传appid，则appid从指定的platform中获取   | String  | -    | -  |
+| pid  |  【选填】多商户模式下的自定义商户id（等于vk-pay-config表的_id） [查看vk-pay-config表](https://vkdoc.fsq.pub/vk-uni-pay/db/vk-pay-config.html)   | String  | -			| -			|
 
 
 ## 7.2、批量模式
