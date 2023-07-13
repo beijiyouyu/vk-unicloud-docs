@@ -345,6 +345,10 @@ $.ajax({
 
 任意云函数其实都可以通过下面的方式去使用 `VK` 框架的API
 
+**首先先右键云函数添加依赖，必须勾上的依赖是 `uni-config-center` 和 `vk-unicloud`，其他依赖看你自己需求**
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/91b28a9f-cf6c-4cdd-ae69-24ddff279941.png)
+
 **vk核心库版本>=2.12.0**
 
 查看vk核心库版本的方法
@@ -414,11 +418,6 @@ exports.main = async (event, context) => {
 };
 
 ```
-
-**同时右键云函数添加依赖，必须勾上的依赖是 `uni-config-center` 和 `vk-unicloud`**
-
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/91b28a9f-cf6c-4cdd-ae69-24ddff279941.png)
-
 
 ___特别注意：___
 
