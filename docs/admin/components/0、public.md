@@ -209,11 +209,10 @@
 
 使用示例如下：
 
-
 ```js
 {
   key: "text", title: "text类型字段", type: "text",
-  watch: ({ value, formData, column, index, $set }) => {
+  watch: ({ value, formData, column, index, option, $set }) => {
     // 此处演示根据选择的值动态改变text1的值
     $set("text1", `昵称${value}`);
   }
@@ -229,3 +228,15 @@
   }
 }
 ```
+
+**watch回调函数接收的参数**
+
+| 参数					| 说明																				| 类型		| 默认值| 可选值|
+|---------------|------------------														|--------	|-------|-------|
+| value					| 当前此字段在表单内双向绑定的值							| -				| -			| -			|
+| formData			| 当前整个表单的值														| Object	| -			| -			|
+| column				|  此字段的属性																| Object	| -			| -			|
+| index					| 在columns数组中的索引位置										| number	| -			| -			|
+| option				|  部分组件有返回此值，代表当前选项的完整数据	| Object	| -			| -			|
+| $set					| 等于Vue的 this.$set 函数										|Function	| -			| -			|
+
