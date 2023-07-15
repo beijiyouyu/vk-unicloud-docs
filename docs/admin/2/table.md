@@ -258,7 +258,7 @@ right-btns-more（右侧更多按钮点击后显示的按钮列表）
 
 ```html
 <vk-data-table
-  right-btns="['detail_auto','update','delete','more']"
+  :right-btns="['detail_auto','update','delete','more']"
   :right-btns-more="table1.rightBtnsMore"
 ></vk-data-table>
 ```
@@ -312,7 +312,7 @@ data() {
 
 ```html
 <vk-data-table
-  right-btns="['detail_auto','update','delete','more']"
+  :right-btns="['detail_auto','update','delete','more']"
   :right-btns-more="table1.rightBtnsMore"
 ></vk-data-table>
 ```
