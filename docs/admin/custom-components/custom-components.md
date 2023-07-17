@@ -6,6 +6,8 @@
 
 如果你愿意分享你的组件，你可以将你认为比较好的组件上传到你的 `Gitee` 或 `GitHub`，同时在这里添加一段你的组件的仓库链接和描述，方便大家使用你的组件，你的头像会显示在文档仓库中，成为 `vk-admin` 框架贡献者之一。
 
+[组件提交地址](https://gitee.com/vk-uni/vk-unicloud-docs/edit/master/docs/admin/custom-components/custom-components-list.md)
+
 ## 步骤
 
 假设我们需要创建的组件名为 `aaa`，则只需要在项目根目录的的 `components` 目录下创建 `custom-aaa/custom-aaa.vue` 文件即可
@@ -69,9 +71,13 @@
     // 计算属性
     computed: {
     
-    },
+    }
   };
 </script>
+
+<style lang="scss" scoped>
+
+</style>
 ```
 
 ## 使用方式
