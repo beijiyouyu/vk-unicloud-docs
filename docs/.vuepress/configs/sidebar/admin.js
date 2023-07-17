@@ -71,6 +71,14 @@ module.exports = [{
     ]
   },
   {
+    title: '扩展自定义组件',
+    collapsable: false,
+    children: [
+      'custom-components/custom-components',
+      'custom-components/custom-components-list'
+    ]
+  },
+  {
     title: '内置功能',
     collapsable: false,
     children: [
