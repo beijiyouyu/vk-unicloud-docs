@@ -19,9 +19,9 @@
 | showAlpha            | 是否支持透明度选择 | Boolean  | false | true  |
 | colorFormat            | 写入 v-model 的颜色的格式 | String  | hex（show-alpha 为 false）/ rgb（show-alpha 为 true） | hsl / hex / rgb  |
 | predefine            | 预定义颜色 | Array  | - | -  |
+| activeChange            | 面板中当前显示的颜色发生改变时触发 | function(value)  | - | -  |
 
 **colorFormat介绍**
-
 
 colorFormat 的作用是将你选择的颜色以什么样的字符串存到 v-model 绑定的变量中。
 

@@ -61,7 +61,7 @@
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
 | data            | 静态模式数据源 | Array、Function  | - | -  |
-| action          | 动态模式 - 远程请求的云函数地址 | String  | - | -  |
+| action           | 支持：<br/>1、vk框架下的云函数地址 <br/>2、http请求地址<br/>3、[自定义function请求模式](#自定义function请求模式)  | String、Function | 无      | - |
 | props          | 数据源的属性匹配规则 | Object  | [查看props](#props)  | -  |
 | showAllLevels      | 输入框中是否显示选中值的完整路径 | Boolean  | true | false  |
 | collapseTags      | 多选模式下是否折叠Tag | Boolean  | false | true  |
@@ -72,8 +72,6 @@
 | beforeFilter          | 筛选之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止筛选 | function(value)  | -| - |
 | multiple      | 是否可多选 | Boolean  | false | true  |
 | checkStrictly      | 在显示复选框的情况下，是否严格的遵循父子不互相关联的做法 | Boolean  | false | true  |
-
-
 
 #### props
 
@@ -172,6 +170,89 @@
 }
 ```
 
+#### 自定义function请求模式
+
+> vk-unicloud-admin-ui 的npm依赖版本需 >= 1.17.17
+
+此方式同样支持http，且更自由化，比如可以在发起请求前处理请求参数，在请求成功后，处理返回参数等等。
+
+优势：更自由化、基本可以满足所有需求场景
+
+劣势：代码量较多
+
+##### 自定义function-http请求模式示例
+
+```js
+{
+  key: "parent_id", title: "父级菜单", type: "tree-select", tips: "父级的menu_id",
+  action: (obj={})=>{
+    let {
+      data, // 请求数据
+      success, // 成功回调
+      fail, // 失败回调
+      complete, // 成功回调
+    } = obj;
+    // 发起http请求
+    vk.request({
+      url: `https://www.xxx.com/api/list`,
+      method: "POST",
+      header: {
+        "content-type": "application/json; charset=utf-8",
+      },
+      data: data,
+      success: (res) => {
+        if (typeof success === "function") {
+          success({
+            rows: res.rows
+          });
+        }
+      },
+      fail: (res) => {
+        if (typeof fail === "function") fail(res);
+      },
+      complete: (res) => {
+        if (typeof complete === "function") complete(res);
+      }
+    });
+  },
+  props: { list: "rows", value: "menu_id", label: "label", children: "children" },
+},
+```
+
+##### 自定义function-云函数请求模式示例
+
+```js
+{
+  key: "parent_id", title: "父级菜单", type: "tree-select", tips: "父级的menu_id",
+  action: (obj={})=>{
+    let {
+      data, // 请求数据
+      success, // 成功回调
+      fail, // 失败回调
+      complete, // 成功回调
+    } = obj;
+    // 发起http请求
+    vk.callFunction({
+      url: `admin/system/menu/sys/getAll`,
+      data: data,
+      success: (res) => {
+        if (typeof success === "function") {
+          success({
+            rows: res.rows
+          });
+        }
+      },
+      fail: (res) => {
+        if (typeof fail === "function") fail(res);
+      },
+      complete: (res) => {
+        if (typeof complete === "function") complete(res);
+      }
+    });
+  },
+  props: { list: "rows", value: "menu_id", label: "label", children: "children" },
+},
+```
 
 ### 万能表格使用方式
 

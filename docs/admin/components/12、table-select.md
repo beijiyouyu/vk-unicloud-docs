@@ -133,7 +133,7 @@ props 对象属性
 
 #### 自定义function请求模式
 
-> vk-unicloud-admin-ui 的npm依赖版本需 >= 1.17.0
+> vk-unicloud-admin-ui 的npm依赖版本需 >= 1.17.17
 
 此方式同样支持http，且更自由化，比如可以在发起请求前处理请求参数，在请求成功后，处理返回参数等等。
 
