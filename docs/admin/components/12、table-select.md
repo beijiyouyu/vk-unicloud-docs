@@ -41,13 +41,14 @@
 | dialogWidth  | 弹窗的窗体宽度（单位px） | Number  | - | -  |
 | pageSize  | 表格分页每页显示数量 | Number  | 5 | 5、10、20、50、100、500  |
 | valueFields  | 用于控制value的值由哪些字段组成 [查看valueFields](#valuefields) | Array  | - | - |
-| onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 | rowHeight   | 表格行高，单位为px（特殊情况下，可能需要手动设置行高） | Number  | - | - |
 | leftFixed     | 序号、多选框是否固定在左侧 |Boolean  | true | false |
 | rightFixed     |  操作按钮是否固定在右侧 |Boolean  | true | false |
 | isRequest    | 是否是http请求模式 [查看http请求模式](#http请求模式) | Boolean  | false | true |
 | requestHeader    |  http请求头 | Object  | - | - |
+| requestMethod    |  http请求method | String  | - | - |
 | props    | 动态模式 - 渲染数据的配置选项 [查看http请求模式](#http请求模式) | Object  | - | - |
+| onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 
 #### onChange 使用示例
 

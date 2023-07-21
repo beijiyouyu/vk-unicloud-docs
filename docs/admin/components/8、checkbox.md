@@ -116,6 +116,9 @@
 | optionType        | 选项形状类型 | String  | default | button  |
 | border          | 是否显示边框 | Boolean  | false| true |
 | itemWidth          | 选项的统一宽度（用于排版） | Number  | - | -  |
+| isRequest    | 是否是http请求模式 | Boolean  | false | true |
+| requestHeader    |  http请求头 | Object  | - | - |
+| requestMethod    |  http请求method | String  | - | - |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 
 #### onChange 使用示例

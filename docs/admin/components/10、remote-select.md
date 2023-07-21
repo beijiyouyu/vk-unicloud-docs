@@ -96,6 +96,9 @@
 | noDataText          | 选项为空时显示的文字 | String  | 无数据| -  |
 | clearable          | 是否可以清空选项 | Boolean  | true| false  |
 | maxOptions        | 最大待选项 | Number  | - | -  |
+| isRequest    | 是否是http请求模式 | Boolean  | false | true |
+| requestHeader    |  http请求头 | Object  | - | - |
+| requestMethod    |  http请求method | String  | - | - |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 
 #### onChange 使用示例

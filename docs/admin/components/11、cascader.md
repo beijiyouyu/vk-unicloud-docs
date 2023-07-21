@@ -184,6 +184,9 @@
 | debounce          | 搜索关键词输入的去抖延迟，毫秒 | Number  | 300 | -  |
 | beforeFilter          | 筛选之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止筛选 | function(value)  | -| - |
 | clearable          | 是否可以清空选项 | Boolean  | true| false  |
+| isRequest    | 是否是http请求模式 | Boolean  | false | true |
+| requestHeader    |  http请求头 | Object  | - | - |
+| requestMethod    |  http请求method | String  | - | - |
 
 #### props
 

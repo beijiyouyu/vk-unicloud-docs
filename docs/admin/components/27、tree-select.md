@@ -62,16 +62,23 @@
 |------------------|-------------------------------|---------|--------|-------|
 | data            | 静态模式数据源 | Array、Function  | - | -  |
 | action           | 支持：<br/>1、vk框架下的云函数地址 <br/>2、http请求地址<br/>3、[自定义function请求模式](#自定义function请求模式)  | String、Function | 无      | - |
+| actionData          | 动态模式 - 远程请求的云函数时的额外参数 | Object、Function  | - | -  |
 | props          | 数据源的属性匹配规则 | Object  | [查看props](#props)  | -  |
-| showAllLevels      | 输入框中是否显示选中值的完整路径 | Boolean  | true | false  |
-| collapseTags      | 多选模式下是否折叠Tag | Boolean  | false | true  |
-| separator        | 选项分隔符 | String  | 斜杠' / ' | -  |
-| filterable        | 是否可搜索选项 | Boolean  | - | -  |
-| filterMethod          | 自定义搜索逻辑 | function(node, keyword)  | -| - |
-| debounce          | 搜索关键词输入的去抖延迟，毫秒 | Number  | 300 | -  |
-| beforeFilter          | 筛选之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止筛选 | function(value)  | -| - |
 | multiple      | 是否可多选 | Boolean  | false | true  |
+| showCheckbox      | 节点是否可被选择 | Boolean  | false | true  |
 | checkStrictly      | 在显示复选框的情况下，是否严格的遵循父子不互相关联的做法 | Boolean  | false | true  |
+| defaultExpandAll      | 是否默认展开所有节点| Boolean  | true | false  |
+| expandOnClickNode      | 是否在点击节点的时候展开或者收缩节点， 默认值为 true，如果为 false，则只有点箭头图标的时候才会展开或者收缩节点。| Boolean  | false | true  |
+| checkOnClickNode      | 是是否在点击节点的时候选中节点，默认值为 false，即只有在点击复选框时才会选中节点。| Boolean   | true | false  |
+| defaultExpandedKeys      | 默认展开的节点的 key 的数组 | Array   | - | -  |
+| defaultCheckedKeys      | 默认勾选的节点的 key 的数组| Array   | - | -  |
+| currentNodeKey      | 当前选中的节点 | String、Number   | - | -  |
+| accordion      | 是否每次只打开一个同级树节点展开 | Boolean  | false | true  |
+| indent      | 相邻级节点间的水平缩进，单位为像素 | indent  | 16 | -  |
+| iconClass      | 自定义树节点的图标 | string  | - | -  |
+| isRequest    | 是否是http请求模式 | Boolean  | false | true |
+| requestHeader    |  http请求头 | Object  | - | - |
+| requestMethod    |  http请求method | String  | - | - |
 
 #### props
 
@@ -82,6 +89,7 @@
 | label            | 指定选项标签为选项对象的某个属性值 | String  | label | - |
 | children         | 指定选项的子选项为选项对象的某个属性值 | String  | children | - |
 | disabled         | 指定选项的禁用为选项对象的某个属性值 | String  | disabled | - |
+| isLeaf         | 指定节点是否为叶子节点，仅在指定了 lazy 属性的情况下生效 | String  | disabled | - |
 
 #### onChange 使用示例
 
