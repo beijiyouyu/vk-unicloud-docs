@@ -179,11 +179,11 @@
 | showAllLevels      | 输入框中是否显示选中值的完整路径 | Boolean  | true | false  |
 | collapseTags      | 多选模式下是否折叠Tag | Boolean  | false | true  |
 | separator        | 选项分隔符 | String  | 斜杠' / ' | -  |
-| filterable        | 是否可搜索选项 | Boolean  | - | -  |
-| filterMethod          | 自定义搜索逻辑 | function(node, keyword)  | -| - |
-| debounce          | 搜索关键词输入的去抖延迟，毫秒 | Number  | 300 | -  |
-| beforeFilter          | 筛选之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止筛选 | function(value)  | -| - |
 | clearable          | 是否可以清空选项 | Boolean  | true| false  |
+| filterable        | 是否可搜索选项 | Boolean  | - | -  |
+| filterMethod          | 自定义搜索逻辑，filterable:true时生效 | function(node, keyword)  | -| - |
+| debounce          | 搜索关键词输入的去抖延迟，毫秒，filterable:true时生效  | Number  | 300 | -  |
+| beforeFilter          | 筛选之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止筛选，filterable:true时生效  | function(value)  | -| - |
 | isRequest    | 是否是http请求模式 | Boolean  | false | true |
 | requestHeader    |  http请求头 | Object  | - | - |
 | requestMethod    |  http请求method | String  | - | - |
