@@ -351,6 +351,8 @@ vk.pubfn.getCommonTime(new Date(), 8); // 东8区
 
 // 获取今日00:00:00和23:59:59
 let { todayStart, todayEnd } = vk.pubfn.getCommonTime(new Date());
+// 获取本月开始和结束
+let { monthStart, monthEnd } = vk.pubfn.getCommonTime(new Date());
 
 ```
 
@@ -427,7 +429,7 @@ vk.pubfn.getHourOffsetStartAndEnd(count, date);
 
 vk.pubfn.getHourOffsetStartAndEnd(0);
 
-vk.pubfn.getHourOffsetStartAndEnd(0, new Date());
+let { startTime, endTime } = vk.pubfn.getHourOffsetStartAndEnd(0, new Date());
 ```
 
 ### vk.pubfn.getDayOffsetStartAndEnd（获得相对当前时间的偏移 count 天的起止日期）
@@ -442,7 +444,7 @@ vk.pubfn.getDayOffsetStartAndEnd(count, date);
 
 vk.pubfn.getDayOffsetStartAndEnd(0);
 
-vk.pubfn.getDayOffsetStartAndEnd(0, new Date());
+let { startTime, endTime } = vk.pubfn.getDayOffsetStartAndEnd(0, new Date());
 ```
 
 ### vk.pubfn.getWeekOffsetStartAndEnd（获得相对当前时间的偏移 count 周的起止日期）
@@ -457,7 +459,7 @@ vk.pubfn.getWeekOffsetStartAndEnd(count, date);
 
 vk.pubfn.getWeekOffsetStartAndEnd(0);
 
-vk.pubfn.getWeekOffsetStartAndEnd(0, new Date());
+let { startTime, endTime } = vk.pubfn.getWeekOffsetStartAndEnd(0, new Date());
 ```
 
 
@@ -473,7 +475,7 @@ vk.pubfn.getMonthOffsetStartAndEnd(count, date);
 
 vk.pubfn.getMonthOffsetStartAndEnd(0);
 
-vk.pubfn.getMonthOffsetStartAndEnd(0, new Date());
+let { startTime, endTime } = vk.pubfn.getMonthOffsetStartAndEnd(0, new Date());
 ```
 
 ### vk.pubfn.getQuarterOffsetStartAndEnd（获得相对当前时间的偏移 count 季度的起止日期）
@@ -488,7 +490,7 @@ vk.pubfn.getQuarterOffsetStartAndEnd(count, date);
 
 vk.pubfn.getQuarterOffsetStartAndEnd(0);
 
-vk.pubfn.getQuarterOffsetStartAndEnd(0, new Date());
+let { startTime, endTime } = vk.pubfn.getQuarterOffsetStartAndEnd(0, new Date());
 ```
 
 ### vk.pubfn.getYearOffsetStartAndEnd（获得相对当前时间的偏移 count 年的起止日期）
@@ -503,7 +505,7 @@ vk.pubfn.getYearOffsetStartAndEnd(count, date);
 
 vk.pubfn.getYearOffsetStartAndEnd(0);
 
-vk.pubfn.getYearOffsetStartAndEnd(0, new Date());
+let { startTime, endTime } = vk.pubfn.getYearOffsetStartAndEnd(0, new Date());
 ```
 
 ### vk.pubfn.test（检测文本格式）
