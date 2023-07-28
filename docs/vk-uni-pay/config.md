@@ -32,7 +32,7 @@ module.exports = {
     "mp-6666d886-00b6-22b2-9156-84afeadcf669": "https://fc-mp-6666d886-00b6-22b2-9156-84afeadcf669.next.bspapp.com/http/vk-pay"
   },
   /**
-   * 微信
+   * 微信支付官方商户配置
    * 公共参数说明
    * appId              微信后台的appId
    * secret             微信后台的secret
@@ -125,7 +125,7 @@ module.exports = {
     },
   },
   /**
-   * 支付宝
+   * 支付宝官方商户配置
    * 公共参数说明
    * appId                  支付宝开放平台的应用appId
    * privateKey             应用私钥
@@ -182,6 +182,16 @@ module.exports = {
       "receiptExpiresIn": 86400, // ios内购凭据有效期，单位：秒 86400 = 24小时 3600 = 1小时
       "sandbox": true, // 是否是沙箱环境（正式上线时必须配置为false）
     }
+  },
+  /**
+   * VksPay商户支付配置
+   * 支持个人无需营业执照即可签约开户，正规通道，非市面上的挂机免签。（同时也支持企业签约）
+   * 消费者付款资金直接进入您签约的支付宝、微信支付商户号里，支付资金由支付宝、微信支付官方结算，避免二次清算。
+   * 开户联系QQ：370725567
+   */
+  "vkspay": {
+    "mchId": "", // 商户号
+    "key": "" // 商户key
   }
 }
 ```

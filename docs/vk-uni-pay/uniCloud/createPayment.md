@@ -35,13 +35,13 @@ exports.main = async (event, context) => {
  
 ### 请求参数
 
-| 参数   | 说明       | 类型    | 默认值  | 可选值 |
-|------- |-----------|---------|-------|-------|
-| context    |   云函数的context  | Object  | -    | - |
-| provider  |   wxpay：微信支付 alipay：支付宝支付  | String  | -    | wxpay、alipay  |
-| isPC  |  如果是PC扫码支付，则设为true（使用支付组件时，组件会自动上传isPC的参数）| Boolean  | false  | true  |
-| needQRcode | 是否强制使用二维码支付（让顾客扫码支付，一般用于物联网，如按摩椅上的扫码支付） [查看详情](#needqrcode-强制使用二维码支付模式)   | Boolean  | false  | true  |
-| data  |  订单数据 [查看详情](#data-参数)   | Object  | -   |  |
+| 参数			| 说明																																																													| 类型		| 默认值| 可选值								|
+|-------		|-----------																																																										|---------|-------|-------								|
+| context		|  云函数的context																																																							| Object	| -			| -											|
+| provider	|  wxpay：微信支付官方 <br/>alipay：支付宝支付官方 <br/>vkspay：VksPay个人支付																									| String	| -			| wxpay、alipay、vkspay	|
+| isPC			|  如果是PC扫码支付，则设为true（使用支付组件时，组件会自动上传isPC的参数）																											| Boolean	| false	| true									|
+| needQRcode|  是否强制使用二维码支付（让顾客扫码支付，一般用于物联网，如按摩椅上的扫码支付） [查看详情](#needqrcode-强制使用二维码支付模式)| Boolean	| false	| true									|
+| data			|  订单数据 [查看详情](#data-参数)																																															| Object	| -			|												|
 
 ### data 参数
 
