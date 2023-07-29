@@ -264,7 +264,7 @@ let newInfo = await vk.baseDao.updateAndReturn({
   dbName: "vk-test",
   id: _id,
   dataJson: {
-    money: 1
+    money: _.inc(1)
   }
 });
 ```
@@ -278,10 +278,12 @@ let newInfo = await vk.baseDao.updateAndReturn({
     _id: _id
   },
   dataJson: {
-    money: 1
+    money: _.inc(1)
   }
 });
 ```
+
+如上代码运行后，`newInfo.money` 的值就会自增1，且不会受到并发影响
 
 **参数说明**
 
