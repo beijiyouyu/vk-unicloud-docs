@@ -281,6 +281,8 @@ module.exports = async (obj, originalParam) => {
 这里插件提供了 aes 加密API（需要配置 `uni-config-center/uni-pay/config.js` 内的 `notifyKey`
 
 ```js
+// 引入vkPay模块
+const vkPay = require("vk-uni-pay");
 // 对数据进行加密
 let encryptedData = vkPay.crypto.aes.encrypt({
   data: {
@@ -292,6 +294,8 @@ let encryptedData = vkPay.crypto.aes.encrypt({
 ```
 
 ```js
+// 引入vkPay模块
+const vkPay = require("vk-uni-pay");
 // 对数据进行解密
 let decryptedRes;
 try {
