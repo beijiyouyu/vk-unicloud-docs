@@ -187,39 +187,41 @@ module.exports = async (obj, originalParam) => {
  * 如开启定时器每隔5秒触发一次，处理订单
  */
 module.exports = async (obj, originalParam) => {
-	let user_order_success = true;
-	let { data = {}, verifyResult } = obj;
-	let { db, _ } = originalParam;
-	let {
-		out_trade_no,
-		transaction_id,
-		total_fee,
-	} = data;
-	// 此处写你自己的支付成功逻辑开始-----------------------------------------------------------
-	// 设置订单为已付款
-	// 方式二：使用 await uniCloud.callFunction 调用其他云函数
+  let user_order_success = true;
+  let { data = {}, verifyResult } = obj;
+  let { db, _ } = originalParam;
+  let {
+    out_trade_no,
+    transaction_id,
+    total_fee,
+  } = data;
+  // 此处写你自己的支付成功逻辑开始-----------------------------------------------------------
+  // 设置订单为已付款
+  // 方式二：使用 await uniCloud.callFunction 调用其他云函数
   
   // 加密
-	let encryptedData = vkPay.crypto.aes.encrypt({
-		data: data
-	});
+  let encryptedData = vkPay.crypto.aes.encrypt({
+    data: data
+  });
   // 调用其他云函数（在该云函数中需要解密，加密方式见文档最后）
-	let callFunctionRes = await uniCloud.callFunction({
-		name: "router",
-		data: {
-			$url: "template/test/pub/http",
-			data: encryptedData
-		}
-	});
+  let callFunctionRes = await uniCloud.callFunction({
+    name: "router",
+    data: {
+      $url: "template/test/pub/http",
+      data: {
+        encryptedData
+      }
+    }
+  });
   // 云函数执行成功后需要返回{ code: 0 }
-	if (callFunctionRes.result.code === 0) {
-		user_order_success = true; // 表示你后端执行成功了
-	} else {
-		user_order_success = false; // 表示你后端执行失败了
-	}
-	// 此处写你自己的支付成功逻辑结束-----------------------------------------------------------
-	// user_order_success =  true 代表你自己的逻辑处理成功 返回 false 代表你自己的处理逻辑失败。
-	return user_order_success;
+  if (callFunctionRes.result.code === 0) {
+    user_order_success = true; // 表示你后端执行成功了
+  } else {
+    user_order_success = false; // 表示你后端执行失败了
+  }
+  // 此处写你自己的支付成功逻辑结束-----------------------------------------------------------
+  // user_order_success =  true 代表你自己的逻辑处理成功 返回 false 代表你自己的处理逻辑失败。
+  return user_order_success;
 };
 ```
 
@@ -291,9 +293,15 @@ let encryptedData = vkPay.crypto.aes.encrypt({
 
 ```js
 // 对数据进行解密
-let decryptedRes = vkPay.crypto.aes.decrypt({
-  data: encryptedData, // 待解密的原文
-});
+let decryptedRes;
+try {
+  decryptedRes = vkPay.crypto.aes.decrypt({
+    data: encryptedData, // 待解密的原文
+  });
+} catch (err) {
+  console.log("解密失败", err);
+  throw err;
+}
 let {
   out_trade_no, // 订单号
   recharge_balance, // 充值余额的数量
