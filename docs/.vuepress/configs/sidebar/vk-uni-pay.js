@@ -48,6 +48,7 @@ module.exports = [{
   },
   "iosiap",
   "vkspay",
+  "error",
   {
     title: 'vk-pay云函数示例代码',
     path: '/vk-uni-pay/template/service/tips',
