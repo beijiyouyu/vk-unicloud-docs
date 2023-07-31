@@ -106,5 +106,29 @@ let selectsRes = await vk.baseDao.selects({
 
 2. `foreignDB` 属性需写在主表下，无需写在 `treeProps` 内。（子表会继承主表的 `foreignDB` 属性)
 
+下方的代码效果是查询用户列表，并自动带出用户推广的用户列表（组成树状结构，支持带出多层）
+
+```js
+res = await vk.baseDao.selects({
+  dbName: "uni-id-users",
+  pageIndex: 1,
+  pageSize: 1000,
+  whereJson:{
+    inviter_uid:  _.exists(false),
+  },
+  // 树状结构参数
+  treeProps: {
+    id: "_id",
+    parent_id: $.arrayElemAt(['$inviter_uid', 0]),
+    children: "children",
+    level: 2,
+    limit: 1000,
+    whereJson: {
+      
+    }
+  }
+});
+```
+
 
 

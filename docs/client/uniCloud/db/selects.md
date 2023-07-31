@@ -656,6 +656,53 @@ res = await vk.baseDao.selects({
 });
 ```
 
+下方的代码效果是查询并连表带出用户的直推用户列表
+
+```js
+res = await vk.baseDao.selects({
+  dbName: "uni-id-users",
+  pageIndex: 1,
+  pageSize: 1000,
+  whereJson:{
+    inviter_uid:  _.exists(false),
+  },
+  fieldJson:{ token: false, password: false },
+  // 副表列表
+  foreignDB: [{
+    dbName: "uni-id-users",
+    localKey: "_id",
+    foreignKey: $.arrayElemAt(['$inviter_uid', 0]),
+    as: "shareUserList",
+    limit: 1000,
+    fieldJson:{ token: false, password: false },
+  }]
+});
+```
+
+下方的代码效果是查询用户列表，并自动带出用户推广的用户列表（组成树状结构，支持带出多层）
+
+```js
+res = await vk.baseDao.selects({
+  dbName: "uni-id-users",
+  pageIndex: 1,
+  pageSize: 1000,
+  whereJson:{
+    inviter_uid:  _.exists(false),
+  },
+  // 树状结构参数
+  treeProps: {
+    id: "_id",
+    parent_id: $.arrayElemAt(['$inviter_uid', 0]),
+    children: "children",
+    level: 2,
+    limit: 1000,
+    whereJson: {
+      
+    }
+  }
+});
+```
+
 ### 场景12：通过副表字段排序
 
 主表：opendb-mall-comments （评论表）
