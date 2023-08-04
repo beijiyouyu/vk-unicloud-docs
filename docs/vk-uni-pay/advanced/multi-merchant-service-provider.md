@@ -24,7 +24,7 @@
 
 配置 `common/uni-config-center/uni-pay/config.js` 中的参数使用服务商的密钥和证书
 
-注意：微信服务商的配置和普通商户一样 [传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
+注意：微信服务商的配置和普通商户一样，但里面的appId等都是用服务商的，而不是用子商户的 [传送门 - 支付配置](https://vkdoc.fsq.pub/vk-uni-pay/config.html)
 
 **使用**
 
