@@ -908,6 +908,31 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
 },
 ```
 
+**复制文本按钮示例**
+
+```js
+{
+  key: "key1", title: "标题", type: "text", width: 200,
+  buttonsPosition:"right", // 支持 left right bottom top
+  buttons: [
+    {
+      title: "复制",
+      type: "text", // 文字形式按钮 可选：primary / success / warning / danger / info / text
+      mode: "default", // 模式 可选：update（通用修改模式） / default（自定义模式）
+      show: ["row","detail"], // 在哪些场景显示按钮 多选：row（在行内显示） / detail（在详情页显示）
+      click: (options) => {
+        uni.setClipboardData({
+          data: options.value,
+          success: () => {
+            vk.toast("复制成功");
+          }
+        });
+      }
+    }
+  ]
+},
+```
+
 **多个修改按钮示例**
 
 ```js
