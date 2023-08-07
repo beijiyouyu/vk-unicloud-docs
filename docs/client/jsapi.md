@@ -515,6 +515,7 @@ let { startTime, endTime } = vk.pubfn.getYearOffsetStartAndEnd(0, new Date());
  * 检测文本是否满足指定格式
  * @param {String} str 需要检测的文本
  * @param {String} type 检测类型（忽略大小写）
+ * @param {Boolean} allowEmpty 是否允许为空，默认false（vk-unicloud版本需≥2.15.2）
  * 包含
  * mobile 手机号码
  * tel 座机
@@ -547,7 +548,33 @@ let { startTime, endTime } = vk.pubfn.getYearOffsetStartAndEnd(0, new Date());
  * video 视频
  * audio 音频
  */
-vk.pubfn.test(str, type);
+vk.pubfn.test(str, type, allowEmpty);
+```
+
+如检测手机号（不允许为空）
+
+```js
+let mobile = "15200000001";
+let testRes = vk.pubfn.test(mobile, 'mobile');
+if (testRes) {
+  // 是手机号
+} else {
+  // 不是手机号
+}
+```
+
+如检测手机号（允许为空）
+
+> vk-unicloud版本需≥2.15.2
+
+```js
+let mobile = "";
+let testRes = vk.pubfn.test(mobile, 'mobile', true);
+if (testRes) {
+  // 是手机号或者手机号是空
+} else {
+  // 不是手机号且不是空
+}
 ```
 
 ### vk.pubfn.objectAssign（对象属性浅拷贝）
