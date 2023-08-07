@@ -34,6 +34,9 @@
 
 1. `sub_mchid` 必传
 2. 如果 `openid` 是子商户小程序的，则 `sub_appid` 必传，如果 `openid` 是服务商小程序的，则 `sub_appid` 不传。
+3. 服务商必须要有一个绑定了服务商商户且已微信认证的微信公众号或微信小程序（主体是服务商公司的，此公众号或小程序的appId就是服务商的appId，只需要一个即可，服务商支付配置里都用这个appId）
+4. `sp_appid` 和 `sp_mchid` 这2个参数是配置在支付配置里的 `appId` 和 `mchId`，不需要单独传，也不需要把配置里的参数改名成 `sp_appid`，只需要配置 `appId` 和 `mchId`，插件会自动识别并转化
+5. 服务商模式下，组件页面上的 `autoGetOpenid` 必须设置为 `false`，而用户的 `openid` 需要自己传
 
 ```js
 const vkPay = require("vk-uni-pay");
