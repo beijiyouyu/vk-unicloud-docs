@@ -72,17 +72,16 @@ let requestRes = await vk.openapi.weixin.h5.request({
   method: "POST",
   url: "cgi-bin/qrcode/create",
   data: {
-    expire_seconds: 604800,
+    expire_seconds: 604800, // 单位秒，最大2592000秒
     action_name: "QR_STR_SCENE",
     action_info:{
       scene:{
-        user_id: "001"
+        scene_str: "001", // 注意，这里只能是字符串，且只有scene_str一个参数
       }
     }
   }
 });
 ```
-
 
 **公共返回参数**
 
@@ -152,4 +151,37 @@ let requestRes = await vk.openapi.weixin.h5.request({
 
 console.log('requestRes: ', requestRes)
 
+```
+
+### 如何回复消息？
+
+因微信公众号回复消息需要返回xml格式，因此我们需要使用[返回集成响应](https://uniapp.dcloud.net.cn/uniCloud/http.html#integrationresponse)
+
+**代码示例**
+
+```js
+let params = {
+  ToUserName: "", // 用户openid
+  FromUserName: "", // 微信公众号原始id（gh_开头的那个）
+  CreateTime: parseInt(Date.now() / 1000), // 时间戳（到秒）
+  MsgType: "text", // 消息类型
+  Content: "你好", // 消息内容
+};
+let xml = `
+<xml>
+  <ToUserName><![CDATA[${params.ToUserName}]]></ToUserName>
+  <FromUserName><![CDATA[${params.FromUserName}]]></FromUserName>
+  <CreateTime>${params.CreateTime}</CreateTime>
+  <MsgType><![CDATA[${params.MsgType}]]></MsgType>
+  <Content><![CDATA[${params.Content}]]></Content>
+</xml>
+`;
+return {
+  mpserverlessComposedResponse: true, // 强制字字段为true
+  statusCode: 200, // 返回200状态码
+  headers: {
+    'content-type': 'application/xml', // 返回xml格式
+  },
+  body: xml, // xml内容
+}
 ```
