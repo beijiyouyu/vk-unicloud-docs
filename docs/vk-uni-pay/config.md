@@ -31,6 +31,13 @@ module.exports = {
     // 线上正式环境
     "mp-6666d886-00b6-22b2-9156-84afeadcf669": "https://fc-mp-6666d886-00b6-22b2-9156-84afeadcf669.next.bspapp.com/http/vk-pay"
   },
+  // 此密钥主要用于跨云函数回调或回调java、php等外部系统时的通信密码（建议修改成自己的，最好64位以上，更加安全）
+  // 详细介绍：https://vkdoc.fsq.pub/vk-uni-pay/uniCloud/pay-notify.html#特别注意
+  "notifyKey": "5fb2cd73c7b53918728417c50762e6d45fb2cd73c7b53918728417c50762e6d4",
+  // 自动删除N天前的订单（未付款的订单），若此值设为0，则代表不删除未付款订单，如果你的支付统计需要统计需要统计未付款订单数据，则此处可以填0
+  "autoDeleteExpiredOrders": 0, // 0代表永不删除，3代表3天（单位：天）
+  // 是否使用当面付接口来代替支付宝app支付（可免去申请支付宝APP支付的接口）
+  "alipayAppPayToH5Pay": false,
   /**
    * 微信支付官方商户配置
    * 公共参数说明
