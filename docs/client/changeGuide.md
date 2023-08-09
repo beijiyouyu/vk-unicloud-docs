@@ -1,9 +1,7 @@
 # client端框架升级指南
 
-### 目前升级框架方式：
-
 ## 方式一：升级整个框架
-#### (包含模块) HBX编译器版本需 `3.1.6` 或更高
+
 ![输入图片说明](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/88cbde8c-30ac-4dbc-adbc-03fb675a34a7.png "插件更新方法.png")
 
 * 注意事项：使用方式一更新框架是最方便的，但是如果你改动了框架内置的部分代码，你改动过的代码可能会被还原，因此如果你改动过框架内置代码，合并的时候，可以先看下改动的文件。
@@ -26,8 +24,7 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c72fa719-9444-4874-93a5-7b09d440feee.jpg)
 
-
-## 注意
+## 注意事项
 
 * 更新 `vk-unicloud` 后，需要在 `common/vk-unicloud` 右键上传公共模块才会生效
 

@@ -478,7 +478,9 @@ console.log("result", result);
 | &emsp;&#124;-- level		|Array	|行政区划级别																																																																																																					|高德地图	|
 | &emsp;&#124;-- children	|Array	|下级行政区列表，需传subdistrict参数才会有此值																																																																																																			|高德地图	|
 
-### 路线规划-驾车（driving）
+### 路线规划
+
+#### 驾车（driving）
 
 **接口名**
 
@@ -644,7 +646,7 @@ console.log("result", result);
 | &emsp;&emsp;&emsp;&#124;-- name						|String	|途径区县名称																																																																																	|高德地图														|
 | &emsp;&emsp;&emsp;&#124;-- adcode					|String	|途径区县adcode			
 
-### 路线规划-步行（walking）
+#### 步行（walking）
 
 **接口名**
 
@@ -705,7 +707,7 @@ console.log("result", result);
 | &emsp;&emsp;&#124;-- taxi_cost		|Number	|预估打车费用，单位：元（此字段不一定会返回）																					|高德地图	|
 | &emsp;&emsp;&#124;-- duration			|Number	|线路耗时，分段step中的耗时，单位：分钟																								|高德地图	|
 
-### 路线规划-骑行（bicycling）
+#### 骑行（bicycling）
 
 **接口名**
 
@@ -763,7 +765,7 @@ console.log("result", result);
 | &emsp;&emsp;&#124;-- polyline_idx						|Array	|阶段路线坐标点串在方案路线坐标点串的位置																																																																																																																																					|腾讯地图	|
 | &emsp;&emsp;&#124;-- duration					|String	|线路耗时，分段step中的耗时																																																																																																																																												|高德地图	|
 
-### 路线规划-电动车（ebicycling）
+#### 电动车（ebicycling）
 
 **接口名**
 
@@ -820,7 +822,7 @@ console.log("result", result);
 | &emsp;&emsp;&#124;-- polyline_idx						|Array	|阶段路线坐标点串在方案路线坐标点串的位置																																																																																																																																					|腾讯地图	|
 | &emsp;&emsp;&#124;-- duration								|Number	|线路耗时，分段step中的耗时																																																																																																																																												|高德地图	|
 
-### 路线规划-公交（transit）
+#### 公交（transit）
 
 **接口名**
 

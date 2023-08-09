@@ -60,6 +60,11 @@ module.exports = {
   },
   markdown: {
     lineNumbers: true, // 是否在每个代码块的左侧显示行号。
+    externalLinks: {
+      target: '_blank',
+      rel: 'noopener noreferrer'
+    },
+    extractHeaders: [ 'h1', 'h2', 'h3', 'h4' ]
   },
   plugins: [
     '@vuepress/back-to-top',

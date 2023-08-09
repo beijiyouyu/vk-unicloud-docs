@@ -1,23 +1,23 @@
 # 快速上手 - 安装步骤
 
-下载地址：[https://ext.dcloud.net.cn/plugin?id=2204](https://ext.dcloud.net.cn/plugin?id=2204)
+> 下载地址：[https://ext.dcloud.net.cn/plugin?id=2204](https://ext.dcloud.net.cn/plugin?id=2204)
 
 ## 后端（云函数端）安装步骤
+
 打开 `uniCloud/cloudfunctions` 目录
 
-#### 前置工作：修改云函数全局配置文件（用到微信登录的必须要配置）[微信小程序配置详细教程](https://vkdoc.fsq.pub/client/question/q12.html)
-#### 注意：
-* 1、开发微信小程序和APP微信登录需要额外配置 manifest.json 以及 uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json 这2个配置文件，且改动配置后需要重新上传 公共模块 和 router 函数。
-* 2、若你的电脑没有安装 Node.js，则无法使用 npm 命令。
-* 3、Node.js 安装包及源码下载地址为：[https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-* 4、Node.js 安装教程：[https://www.runoob.com/nodejs/nodejs-install-setup.html](https://www.runoob.com/nodejs/nodejs-install-setup.html)
+前置工作：修改云函数全局配置文件（用到微信登录的必须要配置）[微信小程序配置详细教程](https://vkdoc.fsq.pub/client/question/q12.html)
 
-查看 `uni-id/config.json` 代码格式 [点击查看](https://vkdoc.fsq.pub/client/uniCloud/config/uni-id.html)
+**注意：**
 
+1. 开发微信小程序和APP微信登录需要额外配置 manifest.json 以及 uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json 这2个配置文件，且改动配置后需要重新上传 公共模块 和 router 函数。
+2. 若你的电脑没有安装 Node.js，则无法使用 npm 命令。
+3. Node.js 安装包及源码下载地址为：[https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+4. Node.js 安装教程：[https://www.runoob.com/nodejs/nodejs-install-setup.html](https://www.runoob.com/nodejs/nodejs-install-setup.html)
 
-#### 正式安装
+查看 `uni-id/config.json` 代码格式 [传送门](https://vkdoc.fsq.pub/client/uniCloud/config/uni-id.html)
 
-直接右键`uniCloud`目录 点击 `运行云服务空间初始化向导` 即可
+直接右键 `uniCloud` 目录 点击 `运行云服务空间初始化向导` 即可
 
 ## 前端（页面端）安装步骤
 
@@ -127,7 +127,6 @@ Vue.use(uView);
 @import "@/uni_modules/vk-uview-ui/theme.scss";
 ```
 
-
 ### 集成 `vk-uview-ui`（vue3.0版）
 
 ___若不想集成 `vk-uview-ui` 可跳过此处___
@@ -198,7 +197,6 @@ export function createApp() {
 @import "@/uni_modules/vk-uview-ui/theme.scss";
 ```
 
-
 ### 集成 `uview-ui`（nvue2.0版）
 
 ___若不想集成 `uview-ui` 可跳过此处___
@@ -234,13 +232,11 @@ Vue.use(uView);
 
 别想了，还没出生。
 
-
 ### 集成 `tmui`（vue2.0版）
 
 ___若不想集成 `tmui` 可跳过此处___
 
 适合开发：App(非nvue版本)、H5、微信小程序、支付宝小程序、头条小程序等
-
 
 **安装步骤**
 
@@ -545,7 +541,6 @@ Vue.use(uView);
 }
 ```
 
-
 ### 卸载 `vk-uview-ui` 的步骤
 
 * 1、main.js 删除vk-uview-ui
@@ -570,4 +565,3 @@ Vue.use(uView);
 ```
 
 * 4、删除 uni_modules/vk-uview-ui 整个目录
-
