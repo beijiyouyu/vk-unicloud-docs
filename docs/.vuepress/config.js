@@ -90,6 +90,23 @@ module.exports = {
         tip: { content: "复制成功", title: "" },
         visibleTip: true,
       }
+    ],
+    [
+      'vuepress-plugin-right-anchor',
+      {
+        showDepth: 3,
+        ignore: [
+          "/",
+          "/client/",
+          "/client/vk-unicloud-router.html"
+        ],
+        expand: {
+          trigger: 'click',
+          clickModeDefaultOpen: true
+        },
+        customClass: 'vk-right-anchor',
+        disableGlobalUI: false
+      }
     ]
   ]
 };
