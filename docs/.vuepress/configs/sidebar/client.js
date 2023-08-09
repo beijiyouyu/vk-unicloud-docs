@@ -111,6 +111,7 @@ module.exports = [{
           'uniCloud/plus/baidu',
           'uniCloud/plus/sms',
           'uniCloud/plus/mail',
+          'uniCloud/plus/map'
         ]
       },
       {
