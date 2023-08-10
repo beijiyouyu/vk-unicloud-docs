@@ -1,10 +1,11 @@
 # 创建我的第一个带CRUD的页面
 
-#### 建议：你自己业务的页面全部创建在 `pages` 目录下
+建议：你自己业务的页面全部创建在 `pages` 目录下
 
-#### 此处我们已创建自己业务的用户管理为例。
+此处我们已创建自己业务的用户管理为例。
 
 ## 1、写云函数
+
 * 1、在目录`uniCloud/cloudfunctions/router/service/admin/`下创建新的目录 `user`
 
 * 2、复制`router/service/admin/kong/sys/` 目录到 刚刚新建的`user`目录（包含sys文件夹）
@@ -14,6 +15,7 @@
 * 4、正确编写add、update中的请求参数和可操作的字段名称
 
 ### 增：`add.js`
+
 ```js
 module.exports = {
   /**
@@ -52,9 +54,11 @@ module.exports = {
   }
 }
 ```
-##### 实际开发用户管理时，接口可以参考`admin/system/user/sys/add`内的更详细的写法。（这里是为了演示常规页面的CRUD）
+
+实际开发用户管理时，接口可以参考`admin/system/user/sys/add`内的更详细的写法。（这里是为了演示常规页面的CRUD）
 
 ### 删：delete.js
+
 ```js
 module.exports = {
   /**
@@ -86,7 +90,9 @@ module.exports = {
 }
 ```
 ### 查：getList.js （只改dbName即可）
-##### 全部代码如下：
+
+全部代码如下：
+
 ```js
 module.exports = {
   /**
@@ -115,7 +121,9 @@ module.exports = {
 
 }
 ```
+
 ### 改：update.js 
+
 ```js
 module.exports = {
   /**
@@ -156,11 +164,13 @@ module.exports = {
   }
 }
 ```
-##### 实际开发用户管理时，接口可以参考`admin/system/user/sys/update`内的更详细的写法。（这里是为了演示常规页面的CRUD）
+
+实际开发用户管理时，接口可以参考`admin/system/user/sys/update`内的更详细的写法。（这里是为了演示常规页面的CRUD）
 
 * 5、上传云函数`router`
 
 ## 2、写页面
+
 * 1、在目录 `pages` 下创建新的目录 `user`（只建目录，无需建页面）
 
 * 2、复制 `pages_template/kong/list.vue` 文件到 刚刚新建的`pages/user`目录
@@ -318,7 +328,9 @@ form1: {
   ]
 }
 ```
-#### 参数
+
+**参数**
+
 ```js
 menu_id : 菜单唯一标识
 name : 菜单名称
@@ -326,4 +338,5 @@ icon : 菜单图标
 sort : 菜单排序（从小到大排序）
 children : 子菜单列表
 ```
+
 * 12、完成

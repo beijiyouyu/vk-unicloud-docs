@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # App升级中心管理
 
 最低 `vk-admin` 版本号：`1.14.0`

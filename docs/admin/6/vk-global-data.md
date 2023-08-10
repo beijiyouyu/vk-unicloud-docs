@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 全局缓存管理
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/d3d338b3-56e7-4286-8dad-7093339c1e2e.png)

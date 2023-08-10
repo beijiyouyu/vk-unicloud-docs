@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 素材管理
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/7396e5fb-49d1-4843-89e9-5c95e1ef3ff5.png)

@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 关于vk-unicloud-admin框架
 
 ### 什么是 `vk-unicloud-admin` ？

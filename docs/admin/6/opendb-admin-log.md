@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 系统操作日志
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/25dc4a77-9a04-417c-8797-d6e11ed5d311.png)

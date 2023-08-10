@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 3、强制重置admin账号密码
 
 ### 如何强制重置admin账号密码？

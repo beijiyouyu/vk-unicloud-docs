@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 用户登录日志
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/bd79dbe1-cc6b-4c12-8d0a-247c42945591.png)
