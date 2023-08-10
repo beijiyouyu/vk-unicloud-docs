@@ -88,7 +88,7 @@ uniCloud是DCloud在阿里云和腾讯云的serverless服务上封装而成的�
 
 开发时虽使用DCloud的工具，但应用上线时，手机端是直连阿里云或腾讯云的serverless，不经由DCloud的服务器。
 
-## uniCloud为何可降低云服务租用成本
+## uniCloud为何可降低云服务成本
 
 1、传统云服务的租用，按占用的硬件资源的上限值+固定时长来租用。
 
