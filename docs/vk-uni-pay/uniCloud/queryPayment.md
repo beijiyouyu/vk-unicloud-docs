@@ -1,8 +1,13 @@
+---
+sidebarDepth: 0
+---
+
 # 4、查询付款状态
 
-### 接口名：`queryPayment`
+## 接口名：`queryPayment`
 
-#### 无框架下的云函数代码示例（该写法同时也适用于任何框架）
+无框架下的云函数代码示例（该写法同时也适用于任何框架）
+
 ```js
 const vkPay = require("vk-uni-pay");
 
@@ -18,7 +23,7 @@ exports.main = async (event, context) => {
 };
 ```
 
-### 请求参数
+## 请求参数
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
@@ -27,7 +32,7 @@ exports.main = async (event, context) => {
 | await_max_time  |   最大等待时长，默认20秒（单位秒）   | Number  | 20  | 范围1-40  |
 | pay_order_info  |   是否需要返回支付订单信息  | Boolean  | false  | true  |
  
-### await_notify
+## await_notify
 
 详细说明
 
@@ -43,8 +48,7 @@ exports.main = async (event, context) => {
 
 但是如果你想让前端更快的获得结果（比如不管异步回调执行是否完成，前端都显示支付成功，则设置 `await_notify` 为 `false` 可以加快响应速度）
 
-
-### 返回值
+## 返回值
 
 |参数名							|类型		|说明																																																																						|
 |:-:								|:-:		|:-:																																																																						|

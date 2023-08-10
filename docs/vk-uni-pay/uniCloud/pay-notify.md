@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 2、接收付款成功异步通知
 
 在你发起支付的api中，有个 `type` 属性，这个 `type` 属性的值你填了什么，最终回调的时候就会执行什么。
@@ -8,20 +12,24 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/92da4249-8250-4a79-960d-611cefadc6d8.png)
 
-### 在云函数 `vk-pay` 的 `service/pay-notify` 目录创建以下3个文件，用于编写异步回调后自己的业务逻辑
+在云函数 `vk-pay` 的 `service/pay-notify` 目录创建以下3个文件，用于编写异步回调后自己的业务逻辑
+
 ```js
 1、goods.js
 2、recharge.js
 3、vip.js
 ```
-#### goods : [商品订单](#goods)
 
-#### recharge : [余额充值订单](#recharge)
+goods : [商品订单](#goods)
 
-#### vip : [vip购买订单](#vip)
+recharge : [余额充值订单](#recharge)
 
-#### goods
-#### goods.js 模板示例
+vip : [vip购买订单](#vip)
+
+goods
+
+## 示例
+### goods
 ```js
 'use strict';
 /**
@@ -51,8 +59,8 @@ module.exports = async (obj, originalParam) => {
 };
 ```
 
-#### recharge
-#### recharge.js模板示例
+### recharge
+
 ```js
 'use strict';
 /**
@@ -93,8 +101,8 @@ module.exports = async (obj, originalParam) => {
 };
 ```
 
-#### vip
-#### vip.js模板示例
+### vip
+
 ```js
 'use strict';
 /**
@@ -124,11 +132,11 @@ module.exports = async (obj, originalParam) => {
 };
 ```
 
-**特别注意**
+## 回调处理方式
 
 回调处理大致有三种方式
 
-## 方式一：直接写数据库操作
+### 方式一：直接写数据库操作
 
 优势：无需鉴权，无需加密解密（插件已帮你验证签名，能进到这里，就是已经通过签名验证）
 
@@ -170,7 +178,7 @@ module.exports = async (obj, originalParam) => {
 };
 ```
 
-## 方式二：调用其他云函数
+### 方式二：调用其他云函数
 
 使用 await uniCloud.callFunction 调用其他云函数
 
@@ -225,7 +233,7 @@ module.exports = async (obj, originalParam) => {
 };
 ```
 
-## 方式三：调用http接口地址（对接外部系统）
+### 方式三：调用http接口地址（对接外部系统）
 
 使用 await uniCloud.httpclient.request 调用http接口地址（对接外部系统）
 

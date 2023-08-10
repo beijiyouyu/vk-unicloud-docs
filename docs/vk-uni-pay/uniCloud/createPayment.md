@@ -1,8 +1,13 @@
+---
+sidebarDepth: 0
+---
+
 # 1、获取支付参数
 
-### 接口名：`createPayment`
+## 接口名：`createPayment`
 
-#### 无框架下的云函数代码示例（该写法同时也适用于任何框架）
+无框架下的云函数代码示例（该写法同时也适用于任何框架）
+
 ```js
 const vkPay = require("vk-uni-pay");
 
@@ -33,7 +38,7 @@ exports.main = async (event, context) => {
 };
 ```
  
-### 请求参数
+## 请求参数
 
 | 参数			| 说明																																																																																												| 类型		| 默认值| 可选值								|
 |-------		|-----------																																																																																									|---------|-------|-------								|
@@ -43,7 +48,7 @@ exports.main = async (event, context) => {
 | needQRcode|  是否强制使用二维码支付（让顾客扫码支付，一般用于物联网，如按摩椅上的扫码支付） [查看详情](#needqrcode-强制使用二维码支付模式)																															| Boolean	| false	| true									|
 | data			|  订单数据 [查看详情](#data-参数)																																																																														| Object	| -			|												|
 
-### data 参数
+## data 参数
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
@@ -63,7 +68,7 @@ exports.main = async (event, context) => {
  * 但如果你的订单分多次付款（如预付款，尾款等，则需要分别创建不同的支付订单号，如pre2107151010101541001、due2107151010101541001，也可以是2107151010101541001-1、2107151010101541001-2）
  * 对未支付的订单再次发起支付时，商户应该使用原单号发起，不要更换支付单号，避免用户重复支付。
 
-### 返回值
+## 返回值
 
 |参数名				|类型		|说明																																								|
 |:-:					|:-:		|:-:																																								|
@@ -74,7 +79,7 @@ exports.main = async (event, context) => {
 |needQRcode		|boolean|本次交易的是否是扫码支付模式																												|
 |qrcodeImage	|string	|如果是扫码支付，且设置了`needQRcode:'image'`，则会返回此字段，代表二维码的base64值	|
 
-### pid（多商户模式）
+## pid（多商户模式）
 
 ```js
 const vkPay = require("vk-uni-pay");
@@ -107,7 +112,7 @@ exports.main = async (event, context) => {
 };
 ```
  
-### needQRcode（强制使用二维码支付模式）
+## needQRcode（强制使用二维码支付模式）
 
 给vue页面使用时，传 `needQRcode:true`
  

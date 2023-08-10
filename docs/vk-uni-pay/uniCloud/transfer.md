@@ -1,10 +1,15 @@
+---
+sidebarDepth: 0
+---
+
 # 6、单笔转账到支付宝或微信
 
-### 接口名：`transfer`
+## 接口名：`transfer`
 
-#### 无框架下的云函数代码示例（该写法同时也适用于任何框架）
+无框架下的云函数代码示例（该写法同时也适用于任何框架）
 
-## 6.1、支付宝
+## 支付宝
+
 ```js
 const vkPay = require("vk-uni-pay");
 
@@ -27,7 +32,8 @@ if (transferRes.code === 0) {
 
 ```
 
-## 6.2、微信
+## 微信
+
 ```js
 const vkPay = require("vk-uni-pay");
 
@@ -52,9 +58,7 @@ if (transferRes.code === 0) {
 
 ```
 
-
-
-#### 参数
+## 参数
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
@@ -70,7 +74,8 @@ if (transferRes.code === 0) {
 | platform  |  微信专用 - 平台类型：app-plus、mp-weixin，用于获取对应平台的支付配置信息     | String  | -    | app-plus、mp-weixin、h5  |
 | pid  |  多商户模式下的自定义商户id（等于vk-pay-config表的_id） [查看vk-pay-config表](https://vkdoc.fsq.pub/vk-uni-pay/db/vk-pay-config.html)   | String  | -    | -  |
 
-#### 注意：
+## 注意事项
+
 * 新注册的企业支付宝账号，单笔转账接口的申请直接在支付宝官网申请可能会无法申请，此时可以联系支付宝商务人员，进行人工申请。
 * 新注册的微信商户号，单笔转账接口的申请需要入驻满90天，且连续正常交易30天（刷单不算）
 * 支付宝不校验姓名时，account 参数为 支付宝的会员ID，而非支付宝账号

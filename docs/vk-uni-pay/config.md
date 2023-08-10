@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # 配置支付参数文件
 
 * 1、打开 `cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建)
@@ -259,24 +263,24 @@ module.exports = {
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/8612eddc-c799-4baa-a4ab-9b734b5bebcb.png)
 
-#### 支付宝证书生成指南：[点击查看](https://opendocs.alipay.com/open/291/105971)
+支付宝证书生成指南：[点击查看](https://opendocs.alipay.com/open/291/105971)
 
 ## 特别注意
 
-#### 注意一
+### 注意一
 
 * 支付宝H5网站扫码支付需签约 支付宝当面付（非PC网站支付）
 * 支付宝H5移动支付需签约 支付宝当面付（非移动网站支付）
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/4b40e4ab-b507-43a1-9fbb-1cc3364d67c7.png)
 
-#### 注意二
+### 注意二
 
 * 每次修改了支付参数后，需要重新上传公共模块 `uni-config-center`
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/5bb008ac-3032-4374-88fa-1cd66e72984f.png)
 
-#### 注意三
+### 注意三
 
 * 如果提示找不到 `xxx` 模块，如 `uni-id` 模块，则
 * 1、在 `uniCloud/cloudfunctions/common/vk-uni-pay` 目录右键选择 `管理公共模块依赖` 菜单，引入这2个模块 `uni-config-center`、 `uni-pay`
@@ -295,7 +299,7 @@ module.exports = {
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/627737c7-0677-4f18-88c1-1f3ea087477c.png)
 
-#### 1.9.0以下的版本注意事项
+### 1.9.0以下的版本注意事项
 
 **支付宝**
 

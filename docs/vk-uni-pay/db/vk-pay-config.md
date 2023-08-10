@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # vk-pay-config
 
 ## 说明

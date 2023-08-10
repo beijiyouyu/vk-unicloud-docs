@@ -1,10 +1,15 @@
+---
+sidebarDepth: 0
+---
+
 # 7、微信商家转账到零钱V3接口
 
-### 接口名：`transfer`
+## 接口名：`transfer`
 
-#### 无框架下的云函数代码示例（该写法同时也适用于任何框架）
+无框架下的云函数代码示例（该写法同时也适用于任何框架）
 
-## 7.1、单笔模式
+## 单笔模式
+
 ```js
 const vkPay = require("vk-uni-pay");
 
@@ -28,8 +33,7 @@ if (transferRes.code === 0) {
 
 ```
 
-
-#### 参数
+### 参数
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
@@ -44,8 +48,8 @@ if (transferRes.code === 0) {
 | platform  | 【选填】若传了platform，且没传appid，则appid从指定的platform中获取   | String  | -    | -  |
 | pid  |  【选填】多商户模式下的自定义商户id（等于vk-pay-config表的_id） [查看vk-pay-config表](https://vkdoc.fsq.pub/vk-uni-pay/db/vk-pay-config.html)   | String  | -			| -			|
 
+## 批量模式
 
-## 7.2、批量模式
 ```js
 const vkPay = require("vk-uni-pay");
 let out_biz_no = "test" + new Date().getTime();
@@ -85,8 +89,7 @@ if (transferRes.code === 0) {
 
 ```
 
-
-#### 参数
+### 参数
 
 | 参数   | 说明       | 类型    | 默认值  | 可选值 |
 |------- |-----------|---------|-------|-------|
@@ -102,11 +105,11 @@ if (transferRes.code === 0) {
 | pid  |  多商户模式下的自定义商户id（等于vk-pay-config表的_id） [查看vk-pay-config表](https://vkdoc.fsq.pub/vk-uni-pay/db/vk-pay-config.html)   | String  | -    | -  |
 
 
-#### 注意：
+## 注意事项
 
 * 新注册的微信商户号，转账接口的申请需要入驻满90天，且连续正常交易30天（刷单不算）
 
-#### 特别注意
+特别注意
 
 微信转账接口配置
 
@@ -128,7 +131,7 @@ if (transferRes.code === 0) {
 }
 ```
 
-#### 参数的获取方式
+## 参数的获取方式
 
 * 1、appId 微信appId：去微信后台查看。
 
@@ -158,7 +161,7 @@ if (transferRes.code === 0) {
 
 [传送门 - 证书转换成一行](https://vkunicloud.fsq.pub/admin/?t=20220904#/pages_template/components/form/form-cert)
 
-## 7.3、设置IP白名单
+## 设置IP白名单
 
 ### 腾讯云空间
 
