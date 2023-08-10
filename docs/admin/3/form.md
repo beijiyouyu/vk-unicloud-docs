@@ -1,8 +1,12 @@
+---
+sidebarDepth: 1
+---
+
 # 万能表单
 
 ## 组件名：vk-data-form
 
-#### 核心思想：通过 JSON 配置渲染规则
+### 核心思想：通过 JSON 配置渲染规则
 
 如：渲染一个input输入框,只需要如下代码
 
@@ -22,9 +26,10 @@
 }
 ```
 
-#### 你甚至还可以通过 `表单可视化拖拽工具` 直接生成`vk框架代码` [点击体验](https://vkunicloud.fsq.pub/vk-form-visualizer/)
+### 你甚至还可以通过 `表单可视化拖拽工具` 直接生成`vk框架代码` [点击体验](https://vkunicloud.fsq.pub/vk-form-visualizer/)
 
 ## 基础用法
+
 vk-data-dialog为弹窗表单，去掉则为表单页面
 
 ```html
@@ -1301,4 +1306,4 @@ export default {
 
 可直接生成 `vk框架代码` 和 `element` 原生代码 [点击体验](https://vkunicloud.fsq.pub/vk-form-visualizer/)
 
-#### 更多请见：`/pages_template/components/form/form-pro`
+更多请见：`/pages_template/components/form/form-pro`
