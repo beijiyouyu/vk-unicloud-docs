@@ -1,6 +1,10 @@
+---
+sidebarDepth: 0
+---
+
 # 短信发送（聚合版）
  
-## 1、调用示例
+## 调用示例
 
 ```js
 /**
@@ -39,9 +43,9 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
 
 ```
 
-## 2、配置unicloud短信
+## 配置unicloud短信
 
-#### 定位到文件 `uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json` 的 `service.sms`
+定位到文件 `uniCloud/cloudfunctions/common/uni-config-center/uni-id/config.json` 的 `service.sms`
 
 ```js
 "sms": {
@@ -53,9 +57,9 @@ let sendSmsRes = await vk.system.smsUtil.sendSms({
 },
 ```
 
-## 3、配置阿里云短信
+## 配置阿里云短信
 
-#### 定位到文件 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 的 `vk.service.sms`
+定位到文件 `uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js` 的 `vk.service.sms`
 
 ```js
 // 短信服务

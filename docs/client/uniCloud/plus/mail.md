@@ -1,6 +1,25 @@
+---
+sidebarDepth: 0
+---
+
 # 发送邮箱验证码
- 
-## 1、配置QQ邮箱教程
+
+## 配置
+
+### 添加 vk-mail 公共模块依赖
+
+插件地址：[点击前往](https://ext.dcloud.net.cn/plugin?id=7688)
+
+成功导入后，还需要在你需要使用 `邮件发送功能` 的云函数上，如 `router` 上 `右键` `管理公共模块依赖或扩展库`
+
+![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/cfbfd5fb-44e6-40e3-b1f0-a6b4e6d1c53c.png)
+
+然后打勾 `vk-mail` 模块。
+
+最后还需要重新上传公共模块 `vk-mail` 和云函数 `router`（本地运行则需要重启项目）
+
+### 配置QQ邮箱教程
+
 * 1、登录QQ邮箱
 * 2、`邮箱首页` | `设置` - `换肤` 的设置
 * 3、点击`常规` `帐户` `换肤` 中的 `帐户`
@@ -26,7 +45,8 @@
 }
 ```
 
-## 2、配置163邮箱教程
+### 配置163邮箱教程
+
 * 1、登录163邮箱
 * 2、`邮箱首页` | `设置` - `POP3/SMTP服务` - 开启 `POP3/SMTP服务`
 * 3、复制授权码
@@ -50,19 +70,9 @@
 }
 ```
 
-## 3、添加 vk-mail 公共模块依赖
+## 发送邮箱验证码示例
 
-插件地址：[点击前往](https://ext.dcloud.net.cn/plugin?id=7688)
-
-成功导入后，还需要在你需要使用 `邮件发送功能` 的云函数上，如 `router` 上 `右键` `管理公共模块依赖或扩展库`
-
-![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/cfbfd5fb-44e6-40e3-b1f0-a6b4e6d1c53c.png)
-
-然后打勾 `vk-mail` 模块。
-
-最后还需要重新上传公共模块 `vk-mail` 和云函数 `router`（本地运行则需要重启项目）
-
-## 4、发送邮箱验证码示例代码（vk框架下router函数内）
+### vk框架下router函数内
 
 ```js
 var vkmail;
@@ -138,7 +148,7 @@ module.exports = {
 }
 ```
 
-## 5、发送邮箱验证码示例代码（vk框架下非router函数内）
+### vk框架下非router函数内
 
 ```js
 'use strict';
@@ -198,7 +208,9 @@ exports.main = async (event, context) => {
 
 ```
 
-## 6、发送邮箱验证码示例代码（uniCloud通用版本，也是 node.js 通用版本）
+### uniCloud通用版本
+
+也是 node.js 通用版本
 
 ```js
 'use strict';

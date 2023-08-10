@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 云函数URL化之URL重写
 
 **什么是URL化?**
@@ -25,7 +29,7 @@ URL重写就是将URL按一定规则书写一个更容易阅读的URL
 
 用户请求后，在路由框架的规则下，最终执行的是`client/user/pub/findGoodsList`这个云函数
 
-#### 而重写可以达到这样的效果
+**而重写可以达到这样的效果**
 
 可以将  `https://xxx.bspapp.com/http/router/client/user/pub/findGoodsList` 
 重写成  `https://xxx.bspapp.com/http/router/findGoodsList`

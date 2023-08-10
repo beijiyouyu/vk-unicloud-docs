@@ -1,4 +1,10 @@
+---
+sidebarDepth: 0
+---
+
 # vuex持久化（新版）
+
+## 介绍
 
 **什么是vuex?**
 
@@ -48,7 +54,9 @@ export default {
 
 目前有2种方式操作vuex数据
 
-## 方式一
+## 使用
+
+### 方式一
 
 如果只是获取或更新Vuex数据，推荐方式一的写法
 
@@ -60,7 +68,7 @@ vk.getVuex('$user.userInfo')
 vk.setVuex('$user.userInfo.avatar', avatar);
 ```
 
-## 方式二
+### 方式二
  
 如果需要用到 `getters` `commit` `dispatch`，则用方式二写法（可以与方式一混用）
 
@@ -98,7 +106,7 @@ vk.vuex.dispatch('$user/addFootprint', data);
 而使用 `vk.getVuex(key)` 或 `vk.vuex.get(key)`时则不会有警告。
 
 
-## 问题
+## 常见问题
 
 ### vuex模块文件地址保存在哪里？
 

@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # 云对象
 
 > 新增于 vk-unicloud 2.8.0（于 2022-04-01 发布）
@@ -397,7 +401,7 @@ module.exports = {
 
 云对象已内置以下权限类型。
 
-### pub（无需登录即可访问的函数类型）
+### pub（无需登录即可访问的函数）
 
 **满足以下任意一条规则，即为 `pub` 类型函数**
 
@@ -405,7 +409,7 @@ module.exports = {
 - 2、云对象以 `pub.js` 命名 或以 `pub.xxx.js` 命名（xxx可以是任意字符串，如：`pub.user.js`）（权重2）
 - 3、云对象写在 `pub` 目录下，如：`pub/user.js`（权重1）
 
-### kh（需要登录才能访问的函数类型）
+### kh（需要登录才能访问的函数）
 
 **满足以下任意一条规则，即为 `kh` 类型函数**
 
@@ -414,7 +418,7 @@ module.exports = {
 - 3、云对象以 `kh.js` 命名 或以 `kh.xxx.js` 命名（xxx可以是任意字符串，如 `kh.user.js`）（权重2）
 - 4、云对象写在 `kh` 目录下，如：`kh/user.js`（权重1）
 
-### sys（需要角色授权才能访问的函数类型）
+### sys（需要角色授权才能访问的函数）
 
 **满足以下任意一条规则，即为 `sys` 类型函数**
 
@@ -884,8 +888,12 @@ let xxxRes = await pubFun.xxx();
 
 **我就要互相调用，应该怎么写？**
 
-#### 方式一（推荐，vk-unicloud版本需>=2.9.0）
+#### 方式一（推荐）
+
+> vk-unicloud版本需>=2.9.0
+
 **注意：方式一只支持符合VK框架路由规则的云函数或云对象**
+
 ```js
 // 云对象内调用其他云函数或云对象内的函数，在同一个router大函数下，name参数可不传
 let callRes = await vk.callFunction({
@@ -899,7 +907,7 @@ let callRes = await vk.callFunction({
 console.log(callRes)
 ```
 
-#### 方式二（此方式适用任何场景）
+#### 方式二（通用）
 
 ```js
 let callFunctionRes = await uniCloud.callFunction({

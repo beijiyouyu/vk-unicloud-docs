@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # 万能连表 selects（连表、聚合、分组）
  
 ## 目录

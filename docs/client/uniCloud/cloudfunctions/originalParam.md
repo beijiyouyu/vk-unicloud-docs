@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 获取云函数原始请求参数
 
 `originalParam` 为原始请求参数

@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 关于schema的说明
 
 **先说结论：vk框架不依赖 `schema`，`schema` 对vk框架不生效。（如果你用JQL去操作数据库，`schema` 是生效的）**

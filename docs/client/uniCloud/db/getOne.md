@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 连表返回单条记录
  
 * 主表：uni-id-users （用户表）

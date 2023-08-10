@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # uni-id配置
 
 ## 完整配置

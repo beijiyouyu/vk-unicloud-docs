@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # 群友问题集
 
 ## 为什么云函数执行成功了，前端还是会返回错误呢？
@@ -79,6 +83,7 @@ sys目录：登录且拥有对应权限的用户才可以请求的云函数
 ```
 
 ## 如何在云函数中访问http服务
+
 ```js
 let requestRes = await vk.request({
   url:`https://xxxxxxx.xxxx.com`,
@@ -94,6 +99,7 @@ let requestRes = await vk.request({
 ```
 
 ## 云函数中时区问题导致获取到的本月起始时间和截止时间不准确
+
 ```js
 // 使用以下api可以解决时区问题：
 let commonTime = vk.pubfn.getCommonTime(new Date());

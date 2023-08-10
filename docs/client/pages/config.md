@@ -1,6 +1,11 @@
+---
+sidebarDepth: 0
+---
+
 # app.config.js 参数说明
 
-### 完整的 `app.config.js`
+## 完整的 `app.config.js`
+
 ```js
 // 引入自定义公共函数
 import myPubFunction from '@/common/function/myPubFunction.js'
@@ -109,7 +114,7 @@ export default {
 
 ```
 
-### config已注入vuex，可以通过 vk.getVuex('$app.config') 获取配置信息（不包含函数）
+**config已注入vuex，可以通过 vk.getVuex('$app.config') 获取配置信息（不包含函数）**
 
 ```html
 <image :src="vk.getVuex('$app.config.staticUrl.cartEmpty')" style="width: 330rpx;height: 275rpx;"></image>

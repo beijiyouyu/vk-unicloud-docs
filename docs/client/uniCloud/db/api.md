@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # 数据库API
  
 调用示例在`router/service/db_test/pub/`目录下

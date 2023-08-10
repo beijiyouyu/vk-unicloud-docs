@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 对开发者的价值
 
 ### `vk-unicloud-router` 是一个云函数路由模式开发框架，它提供以下主要功能：

@@ -1,11 +1,19 @@
+---
+sidebarDepth: 0
+---
+
 # 全局数据缓存
 
-### 什么是全局数据缓存
-#### 全局数据缓存是通过`key`，`value`键值对的形式进行数据的储存，通过`key`对数据进行读取
+## 什么是全局数据缓存
+
+全局数据缓存是通过`key`，`value`键值对的形式进行数据的储存，通过`key`对数据进行读取
 
 `vk.globalDataCache` 有以下API
 
-### 缓存 - 获取 （方式一）
+## API
+
+### get（获取方式一）
+
 ```js
 /**
  * 缓存 - 获取 （方式一）
@@ -14,7 +22,8 @@
 await vk.globalDataCache.get(key);
 ```
 
-### 缓存 - 获取 （方式二）
+### get（获取方式二）
+
 ```js
 /**
  * 缓存 - 获取 （方式二）
@@ -36,7 +45,8 @@ let requestRes = await vk.globalDataCache.get(key, second,
 });
 ```
 
-### 缓存 - 保存
+### set（保存）
+
 ```js
 /**
  * 缓存 - 保存
@@ -47,7 +57,8 @@ let requestRes = await vk.globalDataCache.get(key, second,
 await vk.globalDataCache.set(key, value, second);
 ```
 
-### 缓存 - 删除
+### del（删除）
+
 ```js
 /**
  * 缓存 - 删除
@@ -56,7 +67,8 @@ await vk.globalDataCache.set(key, value, second);
 await vk.globalDataCache.del(key);
 ```
 
-### 缓存 - 清空
+### clear（清空）
+
 ```js
 /**
  * 缓存 - 清空
@@ -65,7 +77,8 @@ await vk.globalDataCache.del(key);
 await vk.globalDataCache.clear(key);
 ```
 
-### 缓存 - 获取所有缓存
+### list（获取所有缓存）
+
 ```js
 /**
  * 缓存 - 获取所有缓存
@@ -82,7 +95,8 @@ await vk.globalDataCache.list({
 });
 ```
 
-### 缓存 - 记录总数
+### count（记录总数）
+
 ```js
 /**
  * 缓存 - 记录总数
@@ -91,21 +105,20 @@ await vk.globalDataCache.list({
 await vk.globalDataCache.count(whereJson);
 ```
 
+### deleteExpired（删除过期缓存）
 
-### 缓存 - 自动删除已过期的缓存
 ```js
 /**
- * 缓存 - 自动删除已过期的缓存
+ * 缓存 - 删除已过期的缓存
  */
 await vk.globalDataCache.deleteExpired();
 ```
 
+**注意：目前数据是储存在数据库中的**
 
-#### 注意：目前数据是储存在数据库中的
-### 数据库
+## 数据库
 
-#### 表名：`vk-global-data`
-
+### 表名：vk-global-data
 
 | 字段名             | 字段类型                           | 必填    | 默认值  | 说明 |
 |------------------|-------------------------------|---------|--------|-------|

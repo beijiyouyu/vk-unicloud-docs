@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # vk.callFunction（请求云函数）
 
 `vk.callFunction` 用来请求云函数
@@ -76,7 +80,7 @@ let data = await vk.callFunction({
 | fail             | 请求失败时，执行的回调函数 | Function  | - | - |
 | complete         | 无论请求成功与否，都会执行的回调函数 | Function  | - | - |
 
-#### loading
+### loading
 
 loading 参数说明
 
@@ -96,7 +100,7 @@ loading:{ that:this, name:"loading2"}
 loading:{ that:this, name:"page.loading"}
 ```
 
-#### globalParamName
+### globalParamName
 
 globalParamName 参数说明
 

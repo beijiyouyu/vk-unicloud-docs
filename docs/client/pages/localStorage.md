@@ -1,8 +1,10 @@
+---
+sidebarDepth: 0
+---
+
 # 本地持久化缓存
 
-
-
-### 前端js调用示例
+## 前端js调用示例
 
 **储存缓存**
 
@@ -40,7 +42,7 @@ vk.clearStorageSync(keyPrefix);
 let storageInfo = vk.getStorageInfoSync();
 ```
 
-### 注意
+## 注意事项
 
 1. H5端为localStorage，浏览器限制5M大小，是缓存概念，可能会被清理
 

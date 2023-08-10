@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # vk-unicloud配置
 ### 配置文件所在文件位置：`uniCloud/cloudfunctions/common/uni-config-center/vk-unicloud/index.js`
 ```js

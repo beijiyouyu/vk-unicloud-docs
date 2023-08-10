@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 地图API
 
 ## 功能介绍

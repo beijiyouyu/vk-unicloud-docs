@@ -1,6 +1,11 @@
+---
+sidebarDepth: 0
+---
+
 # 配置前端全局异常拦截器
 
-#### 在`app.config.js`的 `interceptor`属性新增
+在`app.config.js`的 `interceptor`属性新增
+
 ```js
 interceptor:{
   fail:(obj)=>{

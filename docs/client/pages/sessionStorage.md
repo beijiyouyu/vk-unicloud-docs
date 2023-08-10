@@ -1,8 +1,12 @@
+---
+sidebarDepth: 0
+---
+
 # 本地临时会话缓存
 
 **注意：仅H5端支持，其他端均不支持。**
 
-### 前端js调用示例
+## 前端js调用示例
 
 **储存缓存**
 
@@ -34,7 +38,7 @@ vk.clearSessionStorageSync();
 vk.clearSessionStorageSync(keyPrefix);
 ```
 
-### 注意
+## 注意事项
 
 1. 仅H5端支持，其他端均不支持
 

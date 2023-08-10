@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 上传云储存或阿里云OSS
 
 ## 接口名：vk.uploadFile
@@ -109,7 +113,7 @@ service.aliyunOSS 参数生成工具 [点击下载](https://gitee.com/vk-uni/oss
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/1a02b98c-ac0e-4662-95d9-e170f5f246d3.png)
 
-#### 上传阿里云OSS注意：
+**上传阿里云OSS注意**
 
 需要在oss上配置允许跨域
 

@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 支付宝小程序API
 
 > 以下API需要vk-unicloud核心库版本 >= 2.14.3

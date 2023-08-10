@@ -1,14 +1,18 @@
-# 云函数/云对象内如何优雅的写表单验证
+---
+sidebarDepth: 0
+---
+
+# 云函数/云对象优雅的写表单验证
 
 
-### 当表单参数不多时，这样写并无不雅的地方。
+当表单参数不多时，这样写并无不雅的地方。
 
 ```js
 if (!data.username) return { code:-1, msg:"用户名不能为空" }
 if (!data.password) return { code:-1, msg:"密码不能为空" }
 ```
 
-### 但是如果参数有10个以上呢？还这样写吗？
+但是如果参数有10个以上呢？还这样写吗？
 
 ```js
 if (!data.param1) return { code:-1, msg:"XXX不能为空" }
@@ -25,7 +29,7 @@ if (!data.param9) return { code:-1, msg:"XXX不能为空" }
 
 **上面的代码是不是很繁琐？**
 
-### 如何优化？
+## 如何优化？
 
 **优化思路：**
 * 首先，前端一般都会写一下vue表单验证，毕竟前端的验证是没有网络请求，及时响应的
@@ -36,7 +40,7 @@ if (!data.param9) return { code:-1, msg:"XXX不能为空" }
 
 **接下来重点介绍 `vk.pubfn.formValidate`**
 
-### 云函数
+## 云函数
 
 ```js
 'use strict';
@@ -103,9 +107,9 @@ if (formRulesRes.code !== 0) {
 
 ```
 
-### 云对象
+## 云对象
 
-#### 云对象-表单验证和业务逻辑代码写在一起的示例
+### 云对象-表单验证和业务逻辑代码写在一起的示例
 
 ```js
 'use strict';
@@ -166,7 +170,7 @@ var cloudObject = {
 module.exports = cloudObject;
 ```
 
-#### 云对象-表单验证和业务逻辑代码独立版示例
+### 云对象-表单验证和业务逻辑代码独立版示例
 
 ```js
 'use strict';
@@ -254,7 +258,7 @@ class Util {
 module.exports = new Util
 ```
 
-#### 云对象-利用_before实现表单验证
+### 云对象-利用_before实现表单验证
 
 ```js
 'use strict';
@@ -386,7 +390,7 @@ class Util {
 module.exports = new Util
 ```
 
-### rules详解
+## rules详解
 
 **rules跟前端vue表单验证写法是完全一样的**
 

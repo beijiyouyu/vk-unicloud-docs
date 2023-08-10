@@ -1,13 +1,18 @@
+---
+sidebarDepth: 0
+---
+
 # 关于vk-unicloud-router框架
 
-### 什么是 vk-unicloud-router ？
+## 什么是 vk-unicloud-router ？
 * `vk-unicloud-router` 是基于 `unicloud` + `uni-id` 的一套快速（client端）完整开发框架
 * （支持H5、APP、小程序）
 
-### vk-unicloud-router 与官方 unicloud-router 的关系？
+## vk-unicloud-router 与官方 unicloud-router 的关系？
 
 `vk-unicloud-router` 的出现时间比 `unicloud-router` 要早，没有太大关系，用户在此框架上的编码风格与 `unicloud-router` 差别较大。
-### vk-unicloud-router 与官方 uni-starter 的区别是什么？
+
+## vk-unicloud-router 与官方 uni-starter 的区别是什么？
 
 * `uni-starter`是官方维护的，主要使用的技术栈是 `uniapp` + `vue` + `uni-id`  + `DB Schema` + `clientDB` （数据库操作主要在前端）
 

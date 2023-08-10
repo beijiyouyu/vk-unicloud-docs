@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # service模板内参数含义
  
 ```js
@@ -5,7 +9,7 @@ let { data = {}, userInfo, util, filterResponse, originalParam } = event;
 let { customUtil, uniID, config, pubFun, vk, db, _ } = util;
 let { uid } = data;
 ```
-### 常用
+## 常用
 | 参数             | 说明                   | 
 |------------------|-----------------------|
 | data          | 前端传过来的请求参数            |
@@ -16,7 +20,7 @@ let { uid } = data;
 | db          | 数据库对象            |
 | _          | 等价于 db.command            |
 
-#### need_user_info示例
+### need_user_info示例
 
 **正确示例**
 ```js
@@ -33,6 +37,7 @@ vk.callFunction({
 ```
 
 **错误示例**
+
 ```js
 vk.callFunction({
   url: 'template/db_api/pub/add',
@@ -44,7 +49,7 @@ vk.callFunction({
 });
 ```
 
-### 特殊
+## 特殊
 
 | 参数             | 说明                   | 
 |------------------|-----------------------|
@@ -56,7 +61,8 @@ vk.callFunction({
 | uniID          |  uni-id 实例对象            |
 
 
-### originalParam.context 介绍
+## originalParam.context 介绍
+
 ```js
 //originalParam.context中可获取客户端调用的上下文
 let os = originalParam.context.OS //客户端操作系统，返回值：android、ios    等
