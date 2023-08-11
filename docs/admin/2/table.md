@@ -581,7 +581,7 @@ export default {
 }
 ```
 
-#### 自定义function-云函数请求模式示例
+#### 自定义function-云函数请求示例
 
 ```html
 <vk-data-table
@@ -1091,7 +1091,7 @@ that.$refs.table1.deleteRows({
 });
 ```
 
-### 更新指定的行数据（不更新据库数据）
+### 更新指定行数据（不更新据库）
 
 ```js
 that.$refs.table1.updateRows({
@@ -1111,7 +1111,7 @@ that.$refs.table1.updateRows({
 that.$refs.table1.exportExcel();
 ```
 
-### 导出表格显示的数据（不显示序号）
+### 导出表格显示的数据（不含序号）
 
 ```js
 that.$refs.table1.exportExcel({
@@ -1159,28 +1159,57 @@ that.$refs.table1.exportExcel({
 });
 ```
 
-### 获取当前选中的行的数据（原始数据）
+### 获取选中行数据（原始数据）
+
+如果此时修改info变量的值会改变表格数据
+
+```js
+let info = that.$refs.table1.getCurrentRow(true);
+console.log(info);
+```
+
+### 获取选中行数据（原始数据副本）
+
+如果此时修改info变量的值不会改变表格数据
 
 ```js
 let info = that.$refs.table1.getCurrentRow();
 console.log(info);
 ```
 
+### 设置整个表格数据
+
+```js
+let list = [{_id:"001", name:"测试"}];
+that.$refs.table1.setTableData(list);
+```
+
 ### 获取整个表格数据（原始数据）
+
+如果此时修改info变量的值会改变表格数据
 
 ```js
 let info = that.$refs.table1.getTableData();
 console.log(info);
 ```
 
-### 获取整个表格数据（格式化后的数据）
+### 获取整个表格数据（数据副本）
+
+如果此时修改info变量的值不会改变表格数据
+
+```js
+let info = vk.pubfn.copyObject(that.$refs.table1.getTableData());
+console.log(info);
+```
+
+### 获取整个表格数据（格式化数据）
 
 ```js
 let info = that.$refs.table1.getTableFormatterData();
 console.log(info);
 ```
 
-### 获取整个表格数据（格式化后的数据,key为中文）
+### 获取整个表格数据（格式化数据,key为中文）
 
 ```js
 let info = that.$refs.table1.getTableFormatterData({
@@ -1207,7 +1236,7 @@ that.$refs.table1.toggleRowSelection(arr);
 
 ## 插槽
 
-### columns中的每一个key都是插槽的名称
+### columns中每一个key都是插槽名称
 
 ### 重写`gender`字段的渲染示例
 

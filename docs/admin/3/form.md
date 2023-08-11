@@ -6,7 +6,7 @@ sidebarDepth: 1
 
 ## 组件名：vk-data-form
 
-### 核心思想：通过 JSON 配置渲染规则
+### 核心思想：通过JSON配置渲染规则
 
 如：渲染一个input输入框,只需要如下代码
 
@@ -248,7 +248,7 @@ columns是一个数组，数组内每个元素有以下属性，每个元素代�
 },
 ```
 
-### labelWidth（单独设置左侧label宽度）
+### labelWidth（单独设置label宽度）
 
 默认在万能表单的属性上设置统一的labelWidth，如果在columns内设置了labelWidth，则此为准
 
@@ -875,9 +875,11 @@ this.$refs.form1.resetForm();
 
 ## 插槽
 
-columns中的每一个key都是插槽的名称 （详情见示例:`/pages_template/components/form/form-slot`)
+### columns中每一个key都是插槽名称
 
-**如重写 `rate` 字段的渲染**
+详情见示例:`/pages_template/components/form/form-slot`
+
+### 重写`rate`字段的渲染示例
 
 ```html
 <vk-data-form
@@ -900,7 +902,7 @@ columns中的每一个key都是插槽的名称 （详情见示例:`/pages_templa
 </vk-data-form>
 ```
 
-**还可以重写提交按钮**
+### 重写提交按钮的示例
 
 ```html
 <vk-data-form
@@ -943,10 +945,9 @@ adopt(status){
 }
 ```
 
-
 ## http请求模式
 
-#### 示例代码
+**示例代码**
 
 ```html
 <vk-data-form
@@ -1023,7 +1024,7 @@ export default {
 }
 ```
 
-### 自定义function-云函数请求模式示例
+### 自定义function-云函数请求示例
 
 ```html
 <vk-data-form
@@ -1072,7 +1073,9 @@ export default {
 }
 ```
 
-## 弹窗表单独立组件形式（vk.pubfn.openForm）
+## 弹窗表单独立组件形式
+
+### 接口名：vk.pubfn.openForm
 
 **介绍**
 
