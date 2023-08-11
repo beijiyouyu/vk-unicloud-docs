@@ -28,9 +28,8 @@ sidebarDepth: 0
 19. [vk.baseDao.findById和vk.baseDao.findByWhereJson如何连表](#findbyid如何连表)
 20. [如何更改字段名](#如何更改字段名)
 
-## 示例
 
-### and
+## and
 
 `and` 、`or`、`in`、`nin`、`neq`的用法
 
@@ -182,7 +181,7 @@ whereJson: _.and([
 ])
 ```
 
-### 多字段模糊搜索or
+## 多字段模糊搜索or
 
 ### 一个搜索value对应多个字段模糊搜索
 
@@ -217,7 +216,7 @@ if (andArr.length > 0) {
 }
 ```
 
-### in
+## in
 
 ### in （包含其中） `nin`（都不包含）
 
@@ -229,13 +228,13 @@ _id : _.nin(["1","2","3"])
 
 ```
 
-### `neq` (不等于）
+## `neq` (不等于）
 ```js
 // num != 1
 num : _.neq(1)
 ```
 
-### 大于小于
+## 大于小于
 ### `gt`(大于）
 ```js
 // num > 0
@@ -270,7 +269,7 @@ num : _.lte(0)
 num : _.gte(0).lte(10) 
 ```
 
-### 如何获取今日注册的用户列表
+## 如何获取今日注册的用户列表
 
 ```js
 let { todayStart, todayEnd } = vk.pubfn.getCommonTime();
@@ -285,7 +284,7 @@ let selectRes = await vk.baseDao.select({
 
 ```
 
-### 数组第一个字段是开始时间-第二个字段是结束时间-判断当前时间是否在范围内
+## 数组第一个字段是开始时间-第二个字段是结束时间-判断当前时间是否在范围内
 
 ```js
 let time = Date.now();
@@ -300,7 +299,7 @@ let selectRes = await vk.baseDao.select({
 });
 ```
 
-### 如何控制只获取部分字段
+## 如何控制只获取部分字段
 
 只取 `username` 和 `nickname`
 
@@ -330,8 +329,8 @@ let selectRes = await vk.baseDao.select({
 });
 ```
 
-### 排序
-#### 升序
+## 排序
+### 升序
 ```js
 // 按注册时间升序
 let selectRes = await vk.baseDao.select({
@@ -342,7 +341,7 @@ let selectRes = await vk.baseDao.select({
 });
 ```
 
-#### 降序
+### 降序
 
 ```js
 // 按注册时间降序
@@ -354,7 +353,7 @@ let selectRes = await vk.baseDao.select({
 });
 ```
 
-#### 多个排序条件
+### 多个排序条件
 
 ```js
 // 按注册时间降序，时间相同者按_id 降序
@@ -369,9 +368,9 @@ let selectRes = await vk.baseDao.select({
 });
 ```
 
-### 模糊查询
+## 模糊查询
 
-#### 以`xxxx`开头
+### 以`xxxx`开头
 
 ```js
 let selectRes = await vk.baseDao.select({
@@ -384,7 +383,7 @@ let selectRes = await vk.baseDao.select({
 });
 ```
 
-#### 以`xxxx`结尾
+### 以`xxxx`结尾
 
 ```js
 let selectRes = await vk.baseDao.select({
@@ -397,7 +396,7 @@ let selectRes = await vk.baseDao.select({
 });
 ```
 
-#### 包含`xxxx`
+### 包含`xxxx`
 
 ```js
 let selectRes = await vk.baseDao.select({
@@ -410,7 +409,7 @@ let selectRes = await vk.baseDao.select({
 });
 ```
 
-### 如何判断字段是否存在
+## 如何判断字段是否存在
 
 ```js
 let selectRes = await vk.baseDao.select({
@@ -424,7 +423,7 @@ let selectRes = await vk.baseDao.select({
 
 ```
 
-### 返回字段别名
+## 返回字段别名
 
 如数据库中是`_id`，但想返回给前端是`user_id`
 
@@ -446,7 +445,7 @@ let selectRes = await vk.baseDao.selects({
 
 ```
 
-### 查出表中字段a等于字段b的数据
+## 查出表中字段a等于字段b的数据
 
 ```js
 let selectRes = await vk.baseDao.select({
@@ -460,7 +459,7 @@ let selectRes = await vk.baseDao.select({
 
 ```
 
-### 如何查询数组字段内包含某个值的数据
+## 如何查询数组字段内包含某个值的数据
 
 直接 ids: id 即可，如
 
@@ -476,9 +475,9 @@ let selectRes = await vk.baseDao.select({
 
 ```
 
-### 分组count
+## 分组count
 
-#### 最终返回的本月共有多少用户登录（去重后）。 
+### 最终返回的本月共有多少用户登录（去重后）。 
 
 ```js
 let { monthStart, monthEnd } = vk.pubfn.getCommonTime(new Date());
@@ -494,7 +493,7 @@ let selectRes = await vk.baseDao.count({
 });
 ```
 
-#### 最终返回的是每个日期登录的用户数量分别有多少个。 
+### 最终返回的是每个日期登录的用户数量分别有多少个。 
 
 ```js
 let selectRes = await vk.baseDao.selects({
@@ -516,7 +515,7 @@ let selectRes = await vk.baseDao.selects({
 });
 ```
 
-### 用户表按注册日期分组统计
+## 用户表按注册日期分组统计
 
 以下语句是统计本年度每月注册用户的数量
 
@@ -541,7 +540,7 @@ res = await vk.baseDao.selects({
 });
 ```
 
-### 删除某个字段
+## 删除某个字段
 
 ```js
 await vk.baseDao.update({
@@ -555,7 +554,7 @@ await vk.baseDao.update({
 });
 ```
 
-### findById如何连表
+## findById如何连表
 
 `findById` 和 `findByWhereJson` 不支持连表，可以用 `selects + getOne + getMain` 代替
 
@@ -623,7 +622,7 @@ let info = await vk.baseDao.selects({
 {"_id":"001","name":"xxx"}
 ```
 
-### 如何更改字段名
+## 如何更改字段名
 
 `rename` 是字段重命名操作符。如果需要对嵌套深层的字段做重命名，需要用点路径表示法。不能对嵌套在数组里的对象的字段进行重命名。
 
