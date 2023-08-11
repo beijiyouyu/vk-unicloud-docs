@@ -4,30 +4,36 @@ sidebarDepth: 0
 
 # 数据库操作常见问题
  
-### 目录
-#### 1、[and、or、in、nin、neq用法](#and)
-#### 2、[针对同一个字段的and和or](#针对同一个字段的and和or)
-#### 3、[跨字段的and和or](#跨字段的and和or)
-#### 4、[多字段模糊搜索or](#多字段模糊搜索or)
-#### 5、[in （包含其中）nin（都不包含）](#in)
-#### 6、[大于小于](#大于小于)
-#### 7、[获取今日注册的用户列表](#如何获取今日注册的用户列表)
-#### 8、[数组第一个字段是开始时间，第二个字段是结束时间，判断当前时间是否在范围内](#数组第一个字段是开始时间-第二个字段是结束时间-判断当前时间是否在范围内)
-#### 9、[控制只获取部分字段](#如何控制只获取部分字段)
-#### 10、[排序](#排序)
-#### 11、[模糊查询](#模糊查询)
-#### 12、[如判断字段是否存在](#如何判断字段是否存在)
-#### 13、[返回字段别名](#返回字段别名)
-#### 14、[查出表中字段a等于字段b的数据](#查出表中字段a等于字段b的数据)
-#### 15、[如何查询数组字段内包含某个值的数据](#如何查询数组字段内包含某个值的数据)
-#### 16、[分组count](#分组count)
-#### 17、[用户表按注册日期分组统计](#用户表按注册日期分组统计)
-#### 18、[删除某个字段](#删除某个字段)
-#### 19、[vk.baseDao.findById和vk.baseDao.findByWhereJson如何连表](#findbyid如何连表)
-#### 20、[如何更改字段名](#如何更改字段名)
+## 目录
+
+1. [and、or、in、nin、neq用法](#and)
+
+2. [针对同一个字段的and和or](#针对同一个字段的and和or)
+3. [跨字段的and和or](#跨字段的and和or)
+4. [多字段模糊搜索or](#多字段模糊搜索or)
+5. [in （包含其中）nin（都不包含）](#in)
+6. [大于小于](#大于小于)
+7. [获取今日注册的用户列表](#如何获取今日注册的用户列表)
+8. [数组第一个字段是开始时间，第二个字段是结束时间，判断当前时间是否在范围内](#数组第一个字段是开始时间-第二个字段是结束时间-判断当前时间是否在范围内)
+9. [控制只获取部分字段](#如何控制只获取部分字段)
+10. [排序](#排序)
+11. [模糊查询](#模糊查询)
+12. [如判断字段是否存在](#如何判断字段是否存在)
+13. [返回字段别名](#返回字段别名)
+14. [查出表中字段a等于字段b的数据](#查出表中字段a等于字段b的数据)
+15. [如何查询数组字段内包含某个值的数据](#如何查询数组字段内包含某个值的数据)
+16. [分组count](#分组count)
+17. [用户表按注册日期分组统计](#用户表按注册日期分组统计)
+18. [删除某个字段](#删除某个字段)
+19. [vk.baseDao.findById和vk.baseDao.findByWhereJson如何连表](#findbyid如何连表)
+20. [如何更改字段名](#如何更改字段名)
+
+## 示例
 
 ### and
-### `and` 、`or`、`in`、`nin`、`neq`的用法
+
+`and` 、`or`、`in`、`nin`、`neq`的用法
+
 ### 针对同一个字段的and和or
 ```js
 // num >=0 and num <= 10
@@ -176,9 +182,10 @@ whereJson: _.and([
 ])
 ```
 
-
 ### 多字段模糊搜索or
+
 ### 一个搜索value对应多个字段模糊搜索
+
 ```js
 let whereJson = {};
 let andArr = [];
@@ -209,8 +216,11 @@ if (andArr.length > 0) {
   whereJson = _.and(andArr);
 }
 ```
+
 ### in
+
 ### in （包含其中） `nin`（都不包含）
+
 ```js
 // 等价于 _id = "1" or _id = "2" or _id =  "3"
 _id : _.in(["1","2","3"])
@@ -233,28 +243,35 @@ num : _.gt(0)
 ```
 
 ### `gte`(大于等于）
+
 ```js
 // num >= 0
 num : _.gte(0)
 ```
+
 ### `lt`(小于）
+
 ```js
 // num < 0
 num : _.lt(0)
 ```
+
 ### `lte`(小于等于）
+
 ```js
 // num <= 0
 num : _.lte(0)
 ```
 
 ### 组合使用
+
 ```js
 // num >=0 and num <= 10
 num : _.gte(0).lte(10) 
 ```
 
 ### 如何获取今日注册的用户列表
+
 ```js
 let { todayStart, todayEnd } = vk.pubfn.getCommonTime();
 let selectRes = await vk.baseDao.select({
@@ -269,6 +286,7 @@ let selectRes = await vk.baseDao.select({
 ```
 
 ### 数组第一个字段是开始时间-第二个字段是结束时间-判断当前时间是否在范围内
+
 ```js
 let time = Date.now();
 let selectRes = await vk.baseDao.select({
@@ -283,7 +301,9 @@ let selectRes = await vk.baseDao.select({
 ```
 
 ### 如何控制只获取部分字段
-#### 只取 `username` 和 `nickname`
+
+只取 `username` 和 `nickname`
+
 ```js
 let selectRes = await vk.baseDao.select({
   dbName:"uni-id-users",
@@ -296,7 +316,8 @@ let selectRes = await vk.baseDao.select({
 });
 ```
 
-#### 除了 `token` 和 `password` 其他都取
+除了 `token` 和 `password` 其他都取
+
 ```js
 let selectRes = await vk.baseDao.select({
   dbName:"uni-id-users",
@@ -322,6 +343,7 @@ let selectRes = await vk.baseDao.select({
 ```
 
 #### 降序
+
 ```js
 // 按注册时间降序
 let selectRes = await vk.baseDao.select({
@@ -331,7 +353,9 @@ let selectRes = await vk.baseDao.select({
   sortArr:[{ "name":"register_date", "type":"desc" }]
 });
 ```
+
 #### 多个排序条件
+
 ```js
 // 按注册时间降序，时间相同者按_id 降序
 let selectRes = await vk.baseDao.select({
@@ -346,7 +370,9 @@ let selectRes = await vk.baseDao.select({
 ```
 
 ### 模糊查询
+
 #### 以`xxxx`开头
+
 ```js
 let selectRes = await vk.baseDao.select({
   dbName:"uni-id-users",
@@ -359,6 +385,7 @@ let selectRes = await vk.baseDao.select({
 ```
 
 #### 以`xxxx`结尾
+
 ```js
 let selectRes = await vk.baseDao.select({
   dbName:"uni-id-users",
@@ -369,7 +396,9 @@ let selectRes = await vk.baseDao.select({
   }
 });
 ```
+
 #### 包含`xxxx`
+
 ```js
 let selectRes = await vk.baseDao.select({
   dbName:"uni-id-users",
@@ -382,6 +411,7 @@ let selectRes = await vk.baseDao.select({
 ```
 
 ### 如何判断字段是否存在
+
 ```js
 let selectRes = await vk.baseDao.select({
   dbName:"uni-id-users",
@@ -395,9 +425,10 @@ let selectRes = await vk.baseDao.select({
 ```
 
 ### 返回字段别名
-### 如何返回字段别名，如数据库中是`_id`,但想返回给前端是`user_id`
 
-* 注意：select不支持字段别名，需要selects
+如数据库中是`_id`，但想返回给前端是`user_id`
+
+**注意：select不支持字段别名，需要selects**
 
 ```js
 let selectRes = await vk.baseDao.selects({
@@ -416,6 +447,7 @@ let selectRes = await vk.baseDao.selects({
 ```
 
 ### 查出表中字段a等于字段b的数据
+
 ```js
 let selectRes = await vk.baseDao.select({
   dbName:"表名",
@@ -443,8 +475,6 @@ let selectRes = await vk.baseDao.select({
 });
 
 ```
-
-
 
 ### 分组count
 
@@ -510,7 +540,6 @@ res = await vk.baseDao.selects({
   sortArr: [{ "name": "_id", "type": "desc" }]
 });
 ```
-
 
 ### 删除某个字段
 
@@ -637,5 +666,3 @@ await vk.baseDao.update({
 ```
 
 **特别注意：如果数据库数据很多，会报超时，但不用管，数据库依然在执行，速度大概是 `5万条记录/秒`，因此你可以用 `总数据量/50000` 计算出大概需要耗时多少。**
-
-
