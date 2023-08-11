@@ -1161,15 +1161,44 @@ that.$refs.table1.exportExcel({
 
 ### 获取当前选中的行的数据（原始数据）
 
+如果此时修改info变量的值会改变表格数据
+
+```js
+let info = that.$refs.table1.getCurrentRow(true);
+console.log(info);
+```
+
+### 获取当前选中的行的数据（原始数据副本）
+
+如果此时修改info变量的值不会改变表格数据
+
 ```js
 let info = that.$refs.table1.getCurrentRow();
 console.log(info);
 ```
 
+### 设置整个表格数据
+
+```js
+let list = [{_id:"001", name:"测试"}];
+that.$refs.table1.setTableData(list);
+```
+
 ### 获取整个表格数据（原始数据）
+
+如果此时修改info变量的值会改变表格数据
 
 ```js
 let info = that.$refs.table1.getTableData();
+console.log(info);
+```
+
+### 获取整个表格数据（原始数据副本）
+
+如果此时修改info变量的值不会改变表格数据
+
+```js
+let info = vk.pubfn.copyObject(that.$refs.table1.getTableData());
 console.log(info);
 ```
 
