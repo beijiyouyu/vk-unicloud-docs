@@ -1,38 +1,134 @@
+---
+sidebarDepth: 0
+---
+
 # 20、date 日期选择
 
-### 万能表单使用方式
+## 万能表单使用方式
 
-单个时间 - date类型（年月日）
+### 单个时间
 
-```js
-{ key: "date", title: "date类型", type: "date", dateType: "date", tips: "可选择年月日" },
-```
+#### date类型（年月日）
 
-单个时间 - dataTime类型（年月日时分秒）
+双向绑定的值为时间戳（如：`1666022400000`）
 
 ```js
-{ key: "dateTime", title: "dataTime类型", type: "date", dateType: "datetime", tips: "可选择年月日时分秒" },
+{ key: "date1", title: "date类型", type: "date", valueFormat: "timestamp", dateType: "date", tips: "可选择年月日" },
 ```
 
-时间范围 - date类型（年月日）
+双向绑定的值为字符串（如：`2022-10-18`）
 
 ```js
-{ key: "dateArr", title: "date类型范围", type: "date", dateType: "daterange" },
+{ key: "date2", title: "date类型", type: "date", valueFormat: "yyyy-MM-dd", dateType: "date", tips: "可选择年月日" },
 ```
 
-时间范围 - dataTime类型（年月日时分秒）
+#### dataTime类型（年月日时分秒）
+
+双向绑定的值为时间戳（如：`1666062000000`）
 
 ```js
-{ key: "dataTimeArr", title: "dataTime类型范围", type: "date", dateType: "datetimerange" },
+{ key: "date3", title: "dataTime类型", type: "date", valueFormat: "timestamp", dateType: "datetime", tips: "可选择年月日时分秒" },
 ```
 
-### API
+双向绑定的值为字符串（如：`2022-10-18 11:00:00`）
 
-### 公共属性
+```js
+{ key: "date4", title: "dataTime类型", type: "date", valueFormat: "yyyy-MM-dd hh:mm:ss", dateType: "datetime", tips: "可选择年月日时分秒" },
+```
+
+#### date类型（年月）
+
+双向绑定的值为时间戳（如：`1664553600000`）
+
+```js
+{ key: "date5", title: "date类型", type: "date", dateType: "date", valueFormat: "timestamp", format: "yyyy年MM月", tips: "可选择年月" },
+```
+
+双向绑定的值为字符串（如：`2022-10`）
+
+```js
+{ key: "date6", title: "date类型", type: "date", dateType: "date", valueFormat: "yyyy-MM", format: "yyyy年MM月", tips: "可选择年月" },
+```
+
+#### date类型（年）
+
+双向绑定的值为时间戳（如：`1640966400000`）
+
+```js
+{ key: "date7", title: "date类型", type: "date", dateType: "date", valueFormat: "timestamp", format: "yyyy年", tips: "可选择年" },
+```
+
+双向绑定的值为字符串（如：`2022`）
+
+```js
+{ key: "date8", title: "date类型", type: "date", dateType: "date", valueFormat: "yyyy", format: "yyyy年", tips: "可选择年" },
+```
+
+### 时间范围
+
+#### date类型（年月日）
+
+双向绑定的值为时间戳数组（如：`[1666022400000, 1666108800000]`）
+
+```js
+{ key: "dateArr1", title: "date类型范围", type: "date", dateType: "daterange", valueFormat: "timestamp" },
+```
+
+双向绑定的值为（如：`['2022-10-18 00:00:00', '2022-10-19 00:00:00']`）
+
+```js
+{ key: "dateArr2", title: "date类型范围", type: "date", dateType: "daterange", valueFormat: "yyyy-MM-dd" },
+```
+
+#### dataTime类型（年月日时分秒）
+
+双向绑定的值为时间戳数组（如：`[1666062000000, 1666065600000]`）
+
+```js
+{ key: "dateArr3", title: "dataTime类型范围", type: "date", dateType: "datetimerange", valueFormat: "timestamp" },
+```
+
+双向绑定的值为字符串数组（如：`['2022-10-18 00:00:00', '2022-10-19 00:00:00']`）
+
+```js
+{ key: "dateArr4", title: "dataTime类型范围", type: "date", dateType: "datetimerange", valueFormat: "yyyy-MM-dd hh:mm:ss" },
+```
+
+#### date类型范围（年月）
+
+双向绑定的值为时间戳数组（如：`[1666062000000, 1666065600000]`）
+
+```js
+{ key: "dateArr5", title: "date类型范围", type: "date", dateType: "daterange", valueFormat: "timestamp", format: "yyyy年MM月", tips: "可选择年月" },
+```
+
+双向绑定的值为字符串（如：`['2023-08', '2023-09']`）
+
+```js
+{ key: "dateArr6", title: "date类型范围", type: "date", dateType: "daterange", valueFormat: "yyyy-MM", format: "yyyy年MM月", tips: "可选择年月" },
+```
+
+#### date类型范围（年）
+
+双向绑定的值为时间戳数组（如：`[1666062000000, 1666065600000]`）
+
+```js
+{ key: "dateArr7", title: "date类型范围", type: "date", dateType: "daterange", valueFormat: "timestamp", format: "yyyy年", tips: "可选择年" },
+```
+
+双向绑定的值为字符串（如：`['2022', '2023']`）
+
+```js
+{ key: "dateArr8", title: "date类型范围", type: "date", dateType: "daterange", valueFormat: "yyyy", format: "yyyy年", tips: "可选择年" },
+```
+
+## API
+
+## 公共属性
 
 [点击查看『公共属性』](https://vkdoc.fsq.pub/admin/components/0%E3%80%81public.html)
 
-### 组件属性
+## 组件属性
 
 | 参数             | 说明                           | 类型    | 默认值  | 可选值 |
 |------------------|-------------------------------|---------|--------|-------|
@@ -57,56 +153,53 @@
 [点击查看更多element 官方API](https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi)
 
 
-### 万能表格使用方式
+## 万能表格使用方式
 
-只显示年月日
+### 只显示年月日
 
 ```js
 { key: "_add_time", title: "添加时间", type: "time", width: 160, valueFormat:"yyyy-MM-dd" },
 ```
 
-显示年月日时分秒
+### 显示年月日时分秒
 
 ```js
 { key: "_add_time", title: "添加时间", type: "time", width: 160 },
 ```
 
-显示距离现在XX秒，xx时，xx天，xx年
+### 显示距离现在XX秒，xx时，xx天，xx年
 
 ```js
 { key: "_add_time", title: "距离现在", type: "dateDiff", width: 120 },
 ```
 
-显示距离到期剩XX秒，xx时，xx天，xx年
+### 显示距离到期剩XX秒，xx时，xx天，xx年
 
 ```js
 { key:"exp_time", title:"到期剩", type:"dateDiff2", endText:"已到期", width:120, defaultValue: "永久" },
 ```
 
-### template 使用方式
+## template 使用方式
 
-单个时间 - date类型（年月日）
+### 单个时间 - date类型（年月日）
 
 ```html
 <vk-data-input-date-time v-model="value1" type="date"></vk-data-input-date-time>
 ```
 
-单个时间 - dataTime类型（年月日时分秒）
-
+### 单个时间 - dataTime类型（年月日时分秒）
 
 ```html
 <vk-data-input-date-time v-model="value1" type="datetime"></vk-data-input-date-time>
 ```
 
-
-时间范围 - date类型（年月日）
+### 时间范围 - date类型（年月日）
 
 ```html
 <vk-data-input-date-time v-model="value1" type="daterange"></vk-data-input-date-time>
 ```
 
-
-时间范围 - dataTime类型（年月日时分秒）
+### 时间范围 - dataTime类型（年月日时分秒）
 
 ```html
 <vk-data-input-date-time v-model="value1" type="datetimerange"></vk-data-input-date-time>
