@@ -94,7 +94,7 @@ sidebarDepth: 0
 { key: "dateArr4", title: "dataTime类型范围", type: "date", dateType: "datetimerange", valueFormat: "yyyy-MM-dd hh:mm:ss" },
 ```
 
-#### date类型范围（年月）
+#### date类型（年月）
 
 双向绑定的值为时间戳数组（如：`[1666062000000, 1666065600000]`）
 
@@ -108,7 +108,7 @@ sidebarDepth: 0
 { key: "dateArr6", title: "date类型范围", type: "date", dateType: "daterange", valueFormat: "yyyy-MM", format: "yyyy年MM月", tips: "可选择年月" },
 ```
 
-#### date类型范围（年）
+#### date类型（年）
 
 双向绑定的值为时间戳数组（如：`[1666062000000, 1666065600000]`）
 
