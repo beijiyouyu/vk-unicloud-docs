@@ -9,7 +9,7 @@ module.exports = {
    * @url pay/code2SessionWeixinH5 前端调用的url参数地址
    * data 请求参数 说明
    * @param {String} code 微信登录返回的code
-   * @param {String} 多商户模式下的自定义商户id（等于vk-pay-config表的_id）
+   * @param {String} pid 多商户模式下的自定义商户id（等于vk-pay-config表的_id）
    * res 返回参数说明
    * @param {Number} code 错误码，0表示成功
    * @param {String} msg 详细信息
