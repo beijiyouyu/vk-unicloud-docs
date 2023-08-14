@@ -172,7 +172,9 @@ sidebarDepth: 0
 
 ## 特别说明
 
-* 微信的 `pfx` 的值是 `apiclient_cert.p12` 证书文件转 `base64` 后的值
+* 微信V2版本的 `pfx` 的值是 `apiclient_cert.p12` 证书文件转 `base64` 后的值
+* 微信V3版本的 `appCertContent` 的值是 `apiclient_cert.pem` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
+* 微信V3版本的 `appPrivateKeyContent` 的值是 `apiclient_key.pem` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
 * 支付宝的 `alipayPublicCertContent` 的值是 `alipayCertPublicKey_RSA2.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
 * 支付宝的 `alipayRootCertContent` 的值是 `alipayRootCert.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
 * 支付宝的 `appCertContent` 的值是 `appCertPublicKey.crt` 证书文件内的字符串的值（变成一行，且换行处需要加\n）
