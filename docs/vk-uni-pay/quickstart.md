@@ -9,13 +9,17 @@
 **如果你已经跑通了示例项目，则继续往下看！**
 
 ## 1、 下载安装
-* 1、从插件市场安装 `vk-uni-pay` 插件到你的项目中。[插件市场传送门](https://ext.dcloud.net.cn/plugin?id=5642)
+
+* 1、从插件市场安装（购买） `vk-uni-pay` 插件到你的项目中。[插件市场传送门](https://ext.dcloud.net.cn/plugin?id=5642)
+
 * 2、在 `uniCloud/cloudfunctions/common/vk-uni-pay` 目录右键选择 `管理公共模块依赖` 菜单，引入这2个模块 `uni-config-center`、 `uni-pay`
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/89476792-3685-4ba1-a9b7-a9b63625a393.png)
-* 3、在需要引入支付API的云函数右键选择 `管理公共模块依赖` 菜单，至少引入这4个模块 `uni-config-center`、 `uni-id`、 `uni-pay`、 `vk-uni-pay`
+
+* 3、在需要引入支付API的云函数右键选择 `管理公共模块依赖` 菜单，至少引入这2个模块 `uni-config-center`、`vk-uni-pay`
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/90bb2ac1-8165-44af-ae56-05d5616cef55.png)
+
 * 4、配置支付参数文件地址: `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建)（注意这里是 `config.js` ) [查看支付参数](#支付参数)
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c209fb67-fe1a-4a7e-8e43-11cbffadb50c.png)
