@@ -239,9 +239,9 @@ module.exports = {
 ```js
 "notifyUrl": {
   // 本地开发环境，如果你本地开发和线上环境共用同一个服务空间则只需要填线上环境的即可
-  "a4f90532-ac60-4a43-81c1-a5c4s3fbs66": "https://a4f90532-ac60-4a43-81c1-a5c4s3fbs66.bspapp.com/http/vk-pay",
+  "mp-22d55e33-c2f3-22b4-55fc-7b33a6144e22": "https://fc-mp-22d55e33-c2f3-22b4-55fc-7b33a6144e22.next.bspapp.com/http/vk-pay",
   // 线上正式环境
-  "b5a9s861-ba20-dca5-56a2-bd3fbsasxz6": "https://b5a9s861-ba20-dca5-56a2-bd3fbsasxz6.bspapp.com/http/vk-pay"
+  "mp-6666d886-00b6-22b2-9156-84afeadcf669": "https://fc-mp-6666d886-00b6-22b2-9156-84afeadcf669.next.bspapp.com/http/vk-pay"
 },
 ```
 
