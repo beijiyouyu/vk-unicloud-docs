@@ -17,7 +17,7 @@ sidebarDepth: 0
 
 ## 安装依赖
 
-1. 前往插件市场，导入地图公共模块[uni-map-common](https://ext.dcloud.net.cn/plugin?name=uni-map-common)
+1. 前往插件市场，导入地图公共模块[uni-map-common](https://ext.dcloud.net.cn/plugin?name=uni-map-common) [官方文档地址](https://uniapp.dcloud.net.cn/uniCloud/uni-map-common.html)
 2. 右键router云函数，管理公共模块或扩展库依赖，添加 `uni-map-common` 公共模块依赖
 
 ## 公共返回参数
@@ -1144,6 +1144,12 @@ console.log("result", result);
 | uni-map-common	|396				|最多支持200个坐标点，且起终点数目乘积最多为625（距离矩阵）																|
 | uni-map-common	|397				|一对多最多支持200个坐标点，多对多最多支持25个坐标点且起终点数目乘积最多为625（距离矩阵）	|
 | uni-map-common	|500				|服务响应失败																																							|
+
+## 相关的插件
+
+> [unicloud-map 云端一体组件](https://uniapp.dcloud.net.cn/uniCloud/unicloud-map.html)
+
+> [unicloud-city-select 城市选择组件](https://uniapp.dcloud.net.cn/uniCloud/unicloud-city-select.html)
 
 ## 常见问题
 
