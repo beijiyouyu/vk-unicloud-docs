@@ -367,8 +367,17 @@ console.log("result", result);
 ```js
 let result = await uniMap.search({
   keyword: "酒店",
-  boundary: "nearby(39.908815,116.397507,1000,1)"
-  city: "北京市"
+  location: {
+    lat: 39.908815,
+    lng: 116.397507
+  },
+  radius: 1000,
+  auto_extend: 1,
+  get_subpois: 0,
+  orderby: "weight",
+  page_index: 1,
+  page_size: 20,
+  city: "北京市",
 });
 console.log("result", result);
 ```
