@@ -37,14 +37,11 @@
 
 ## 统一支付插件
 
-> 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=5642](https://ext.dcloud.net.cn/plugin?id=6158)
+> 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=5642](https://ext.dcloud.net.cn/plugin?id=5642)
 
 > 快速上手 →文档地址：[https://vkdoc.fsq.pub/vk-uni-pay/](https://vkdoc.fsq.pub/vk-uni-pay/)
 
-
 ## Redis插件
-
-> 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=6158](https://ext.dcloud.net.cn/plugin?id=6158)
 
 > 快速上手 →文档地址：[https://vkdoc.fsq.pub/vk-redis/](https://vkdoc.fsq.pub/vk-redis/)
 
@@ -53,6 +50,3 @@
 > 快速上手 →下载地址：[https://ext.dcloud.net.cn/plugin?id=6089](https://ext.dcloud.net.cn/plugin?id=6089)
 
 > 快速上手 →文档地址：[https://vkdoc.fsq.pub/db-migration/](https://vkdoc.fsq.pub/db-migration/)
-
-
-
