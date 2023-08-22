@@ -11,8 +11,8 @@
 ```js
 {
   key: "category_ids1", title: "远程select（单选）", type: "remote-select", placeholder: "请选择分类",
-  action: "admin/select/kh/categorys",
-  props: { list: "rows", value: "_id", label: "name" },
+  action: "admin/system/user/sys/getList",
+  props: { list: "rows", value: "_id", label: "nickname" },
   showAll: true,
   actionData: {
     pageSize: 1000
@@ -232,8 +232,8 @@
 <vk-data-input-remote-select
   v-model="form1.category_ids"
   placeholder="请选择分类"
-  action="admin/select/kh/categorys"
-  :props="{ list: 'rows', value: '_id', label: 'name' }"
+  action="admin/system/user/sys/getList"
+  :props="{ list: 'rows', value: '_id', label: 'nickname' }"
   width="300px"
   show-all
   multiple

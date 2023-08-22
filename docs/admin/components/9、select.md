@@ -76,6 +76,26 @@
 | clearable          | 是否可以清空选项 | Boolean  | true| false  |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
 
+**以下属性需 `vk-unicloud-admin-ui` npm依赖 ≥ `1.17.30`
+
+| 参数             | 说明                           | 类型    | 默认值  | 可选值 |
+|------------------|-------------------------------|---------|--------|-------|
+| collapseTags          | 多选时是否将选中值按文字的形式展示 | Boolean	| false	| true	|
+| filterable          | 是否可搜索 | Boolean	| false	| true	|
+| allowCreate          |是否允许用户创建新条目，需配合 `filterable` 使用 | Boolean	| false	| true	|
+| filterMethod          |自定义搜索方法 | function	| -	| -	|
+| remote          | 是否为远程搜索 | Boolean	| false	| true	|
+| remoteMethod          | 远程搜索方法 | function	|  -	| -	|
+| loading          | 是否正在从远程获取数据 | Boolean	| false	| true	|
+| loadingText          | 远程加载时显示的文字 | String	| 加载中	| -	|
+| noMatchText          | 搜索条件无匹配时显示的文字 | String	| 无匹配数据	| -	|
+| noDataText          | 选项为空时显示的文字 | String	| 无数据	| -	|
+| popperClass          | Select 下拉框的类名 | String	| -	| -	|
+| reserveKeyword          | 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词| Boolean	| false	| true	|
+| defaultFirstOption          | 在输入框按下回车，选择第一个匹配项。需配合 `filterable` 或 `remote` 使用 | Boolean	| false	| true	|
+| popperAppendToBody          | 是否将弹出框插入至 body 元素。在弹出框的定位出现问题时，可将该属性设置为 false | Boolean	| true	| false	|
+| automaticDropdown          | 对于不可搜索的 Select，是否在输入框获得焦点后自动弹出选项菜单 | Boolean	| false	| true	|
+
 #### onChange 使用示例
 
 ```js

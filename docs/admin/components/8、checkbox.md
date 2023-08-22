@@ -41,8 +41,8 @@
   key: "checkbox1", title: "多选类型", type: "checkbox",
   border: true,
   itemWidth: 80,
-  action: "admin/select/kh/categorys",
-  props: { list: "rows", value: "_id", label: "name" },
+  action: "admin/system/user/sys/getList",
+  props: { list: "rows", value: "_id", label: "nickname" },
 },
 ```
 
@@ -53,11 +53,11 @@
   key: "checkbox1", title: "多选类型", type: "checkbox",
   border: true,
   itemWidth: 80,
-  action: "admin/select/kh/categorys",
+  action: "admin/system/user/sys/getList",
   actionData: {
     a: 1
   },
-  props: { list: "rows", value: "_id", label: "name" },
+  props: { list: "rows", value: "_id", label: "nickname" },
 },
 ```
 
@@ -68,13 +68,13 @@
   key: "checkbox1", title: "多选类型", type: "checkbox",
   border: true,
   itemWidth: 80,
-  action: "admin/select/kh/categorys",
+  action: "admin/system/user/sys/getList",
   actionData: () => {
     return {
       a: that.form1.data.a
     }
   },
-  props: { list: "rows", value: "_id", label: "name" },
+  props: { list: "rows", value: "_id", label: "nickname" },
 },
 ```
 
@@ -85,11 +85,11 @@
   key: "checkbox1", title: "多选类型", type: "checkbox",
   border: true,
   itemWidth: 80,
-  action: "admin/select/kh/categorys",
-  props: { list: "rows", value: "_id", label: "name" },
+  action: "admin/system/user/sys/getList",
+  props: { list: "rows", value: "_id", label: "nickname" },
   dataPreprocess: (list) => {
     list.map((item, index) => {
-      item.name = `${item.name}(${item._id})`
+      item.name = `${item.nickname}(${item._id})`
     });
     return list;
   }
@@ -128,8 +128,8 @@
   key: "checkbox1", title: "多选类型", type: "checkbox",
   border: true,
   itemWidth: 80,
-  action: "admin/select/kh/categorys",
-  props: { list: "rows", value: "_id", label: "name" },
+  action: "admin/system/user/sys/getList",
+  props: { list: "rows", value: "_id", label: "nickname" },
   onChange: (val, formData, column, index, option) => {
     console.log(1, val, formData, column, index, option);
   }
@@ -275,7 +275,7 @@
 <vk-data-input-checkbox
   v-model="form1.value"
   :item-width="80"
-  action="admin/select/kh/categorys"
-  :props="{ list:'rows', value:'_id', label:'name' }"
+  action="admin/system/user/sys/getList"
+  :props="{ list:'rows', value:'_id', label:'nickname' }"
 ></vk-data-input-checkbox>
 ```
