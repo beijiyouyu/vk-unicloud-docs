@@ -1105,7 +1105,7 @@ vk.pubfn.numStr(n);
 vk.pubfn.numStr(1523412); // 1百万
 ```
 
-### vk.pubfn.numStr（将大数字转中文）
+### vk.pubfn.splitArray（分割数组）
 
 ```js
 
