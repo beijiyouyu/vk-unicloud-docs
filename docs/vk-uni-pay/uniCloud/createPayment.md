@@ -60,6 +60,9 @@ exports.main = async (event, context) => {
 | custom  |   自定义数据，不可与外部重复（custom内的参数不会发送给微信、支付宝）    | Object  | -    | -  |
 | other  |   微信、支付宝文档上的其他选填参数（other内的参数会原样发送给微信、支付宝）    | Object  | -    | -  |
 | pid  |  多商户模式下的自定义商户id（等于vk-pay-config表的_id）[查看vk-pay-config表](https://vkdoc.fsq.pub/vk-uni-pay/db/vk-pay-config.html)   | String  | -    | -  |
+| user_id  | 用户id（选填） | String  | -    | -  |
+| nickname  | 用户昵称（选填） | String  | -    | -  |
+| return_url  | 手机端同步回调地址，仅`provider=vkspay`时生效（选填） | String  | -    | -  |
 
  * out_trade_no作用: 用于根据out_trade_no查订单状态、发起退款等接口需要。
  * 同时该订单号需保证全局唯一。
