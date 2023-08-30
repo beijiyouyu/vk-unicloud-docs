@@ -1,3 +1,7 @@
+---
+sidebarDepth: 0
+---
+
 # 快速上手 - 安装步骤
 
 > 下载地址：[https://ext.dcloud.net.cn/plugin?id=2204](https://ext.dcloud.net.cn/plugin?id=2204)
