@@ -70,6 +70,7 @@ export default {
 | right-btns-type      | 通用 - 右侧显示的按钮类型 | String  | button | text |
 | right-btns-align     | 通用 - 右侧显示的按钮对齐方式 | String  | center | left right |
 | right-btns-more      | 通用 - 右侧更多按钮 [查看right-btns-more](#right-btns-more-更多按钮列表)| Array  | [] | - |
+| right-btns-width | 通用 - 右侧按钮宽度，单位px，不传会根据按钮数量自动计算宽度 |Number  | - | - |
 | custom-right-btns      | 通用 - 自定义右侧按钮 [查看custom-right-btns](#custom-right-btns-自定义右侧固定按钮)| Array  | [] | - |
 | empty-text      | 通用 - 空数据时显示的文本内容 | String  | "暂无数据" | - |
 | default-expand-all      | 通用 - 是否默认展开所有行，当 Table 包含展开行存在或者为树形表格时有效 | Boolean  | false | true |
@@ -90,6 +91,8 @@ export default {
 | right-fixed     | 通用 - 操作按钮是否固定在右侧 |Boolean  | true | false |
 | searched-clean-selection     | 通用 - 表格搜索后是否清空多选框选中的值 |Boolean  | true | false |
 | need-alert | 通用 - 表格请求失败后，是否自动alert弹窗（若设为false，则可以通过监听fail事件自己处理错误） |Boolean  | true | false |
+
+
 
 ### columns（字段列表）
 
