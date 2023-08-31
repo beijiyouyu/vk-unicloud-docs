@@ -1731,6 +1731,75 @@ if (eventChannel.emit) eventChannel.emit('update', { a:1 }); // 触发A页面的
 vk.navigateBack();
 ```
 
+## 页面实例函数
+
+### $hasRole
+
+判断当前登录的用户是否有此角色（此函数可在client端和admin端使用）
+
+**接口名**
+
+```js
+$hasRole(...args)
+```
+
+**参数**
+
+args：可变数量的参数，每个参数可以是一个角色字符串或一个角色数组。
+
+**返回值**
+
+true：用户拥有至少一个传入的角色或者数组内的所有角色。
+false：用户没有传入的任何一个角色，或者数组内的所有角色至少缺少一个。
+
+**在 js 中使用示例**
+
+以下代码表示：用户是否有角色 user-read 或 admin 或 同时拥有a和b
+
+```js
+if (this.$hasRole('admin', 'user-manage', ['a', 'b'])) {
+  console.log('用户拥有所需角色');
+} else {
+  console.log('用户缺少所需角色');
+}
+```
+
+**在 template 内使用示例**
+
+```vue
+<template>
+	<view class="app">
+		<button v-if="$hasRole('admin','user-manage')">查看</button>
+		<button v-if="$hasRole('admin','user-manage')">修改</button>
+	</view>
+</template>
+```
+
+### $hasPermission
+
+判断当前登录的用户是否有此权限（此函数只有admin端可用）
+
+**在 js 中使用**
+
+```js
+if (this.$hasRole('admin') || this.$hasPermission('user-update')) {
+  console.log('有此权限');
+} else {
+  console.log('无此权限');
+}
+```
+
+**在 template 内使用**
+
+```vue
+<template>
+	<view class="app">
+		<button v-if="$hasRole('admin') || $hasPermission('user-read'))">查看</button>
+		<button v-if="$hasRole('admin') || $hasPermission('user-update'))">修改</button>
+	</view>
+</template>
+```
+
 ## 全局配置
 
 ### vk.getConfig
