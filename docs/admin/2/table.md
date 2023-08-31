@@ -413,7 +413,9 @@ data() {
 }
 ```
 
-##### custom-right-btns根据当前用户角色或权限控制是否显示、隐藏、禁用
+#### 根据当前用户角色或权限控制是否显示、隐藏、禁用
+
+`right-btns` `right-btns-more` `custom-right-btns` 均支持
 
 ```html
 <vk-data-table
