@@ -1166,4 +1166,13 @@ console.log("result", result);
 
 ### 使用uni-map-common后，我还需要购买5万元的地图商业授权费用吗?
 
-答：使用地图服务需要商业授权，可联系DCloud申请折扣优惠。详情参考 [商业授权相关说明](https://uniapp.dcloud.net.cn/tutorial/app-geolocation.html#lic)
+使用地图服务需要商业授权，可联系DCloud申请折扣优惠。详情参考 [商业授权相关说明](https://uniapp.dcloud.net.cn/tutorial/app-geolocation.html#lic)
+
+### 地图API报TypeError: vk.uniMap is not a constructor
+
+1. 需要vk-unicloud核心库版本 >= 2.15.2
+2. 请确保云函数添加了相关依赖（如下图所示）
+
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/vk-doc/392.png)
+
+
