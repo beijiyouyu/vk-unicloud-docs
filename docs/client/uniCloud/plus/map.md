@@ -20,6 +20,8 @@ sidebarDepth: 0
 1. 前往插件市场，导入地图公共模块[uni-map-common](https://ext.dcloud.net.cn/plugin?name=uni-map-common) [官方文档地址](https://uniapp.dcloud.net.cn/uniCloud/uni-map-common.html)
 2. 右键router云函数，管理公共模块或扩展库依赖，添加 `uni-map-common` 公共模块依赖
 
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/vk-doc/392.png)
+
 ## 公共返回参数
 
 以下所有API均会返回的参数
