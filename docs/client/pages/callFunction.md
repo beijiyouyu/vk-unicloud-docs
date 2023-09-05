@@ -130,3 +130,41 @@ vk.callFunction({
   }
 });
 ```
+
+### 请求拦截器
+
+`uniCloud.addInterceptor` 提供了拦截器功能，[文档传送门](https://uniapp.dcloud.net.cn/uniCloud/client-sdk.html#add-interceptor)
+
+**示例代码**
+
+此代码写在 `App.vue` 的 `onLaunch` 中
+
+```js
+uniCloud.addInterceptor('callFunction', {
+  invoke: (res) => {
+    // res格式
+    // {
+    // 	"name": "router",
+    // 	"data": {
+    // 		"$url": "template/test/pub/test",
+    // 		"data": {
+
+    // 		}
+    // 	}
+    // }
+    console.log('interceptor-invoke: ', res);
+    res.data.data.a = 1; // 新增请求参数a=1（注意：此参数不会显示在vk的请求日志中，但可在HBX控制台内可看到）
+  },
+  success: (res) => {
+    console.log('interceptor-success ', res);
+    // 请求成功后，修改a值为1
+    res.result.a = 1;
+  },
+  fail: (err) => {
+    console.log('interceptor-fail', err);
+  },
+  complete: (res) => {
+    console.log('interceptor-complete', res);
+  }
+});
+```
