@@ -153,7 +153,7 @@ uniCloud.addInterceptor('callFunction', {
     // 	}
     // }
     console.log('interceptor-invoke: ', res);
-    res.data.data.a = 1; // 新增请求参数a=1（注意：此参数不会显示在vk的请求日志中，但可在HBX控制台内可看到）
+    res.data.data.a = 1; // 新增请求参数a=1（注意：此参数不会显示在vk的请求日志中，但可在HBX控制台内可看到，即最终此参数可在云函数中取到）
     // throw new Error(`请求【${res.data.$url}】已被拦截`); // 在此抛出异常可拦截后续请求
   },
   success: (res) => {
