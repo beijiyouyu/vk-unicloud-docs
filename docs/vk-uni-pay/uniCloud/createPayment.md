@@ -19,7 +19,7 @@ exports.main = async (event, context) => {
     data: {
       openid: "用户openid，小程序支付时必传",
       out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
-      total_fee: 1, // 订单金额(单位分 100 = 1元)
+      total_fee: 1, // 订单金额（单位分 100 = 1元）
       subject: "订单标题",
       type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。", // 此处type的值如果是goods，则回调时就会执行 pay-notify 目录下的 goods.js 内的逻辑
       // 自定义回调数据，能在回调事件获取到以下数据，回调函数中通过 let { out_trade_no, user_id, recharge_balance } = data;方式获取（不可与data内的一级属性名重复）
@@ -54,7 +54,7 @@ exports.main = async (event, context) => {
 |------- |-----------|---------|-------|-------|
 | openid    |   用户openid，小程序支付和微信公众号支付时必传    | String  | -    | - |
 | out_trade_no  |   必填项，商户支付订单号，需自行保证全局唯一    | String  | -    | -  |
-| total_fee  |   订单金额(单位分 100 = 1元)    | Number  | -    | -  |
+| total_fee  |   订单金额（单位分 100 = 1元）    | Number  | -    | -  |
 | subject  |   订单标题    | String  | -    | -  |
 | type  |   订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。    | String  | -    | -  |
 | custom  |   自定义数据，不可与外部重复（custom内的参数不会发送给微信、支付宝）    | Object  | -    | -  |
@@ -81,6 +81,8 @@ exports.main = async (event, context) => {
 |pay_type			|string	|本次交易的付款方式																																	|
 |needQRcode		|boolean|本次交易的是否是扫码支付模式																												|
 |qrcodeImage	|string	|如果是扫码支付，且设置了`needQRcode:'image'`，则会返回此字段，代表二维码的base64值	|
+|total_fee		|number	|本次交易的付款金额（单位分 100 = 1元）（新增于 1.11.3）														|
+|platform			|string	|发起支付时的客户端运行环境（新增于 1.11.3）																				|
 
 ## pid（多商户模式）
 
@@ -96,7 +98,7 @@ exports.main = async (event, context) => {
       pid: "001", // 使用_id为001的商户配置
       openid: "用户openid，小程序支付时必传",
       out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
-      total_fee: 1, // 订单金额(单位分 100 = 1元)
+      total_fee: 1, // 订单金额（单位分 100 = 1元）
       subject: "订单标题",
       type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。", // 此处type的值如果是goods，则回调时就会执行 pay-notify 目录下的 goods.js 内的逻辑
       // 自定义回调数据，能在回调事件获取到以下数据，回调函数中通过 let { out_trade_no, user_id, recharge_balance } = data;方式获取（不可与data内的一级属性名重复）
@@ -131,7 +133,7 @@ exports.main = async (event, context) => {
      data: {
        openid: "用户openid，小程序支付时必传",
        out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
-       total_fee: 1, // 订单金额(单位分 100 = 1元)
+       total_fee: 1, // 订单金额（单位分 100 = 1元）
        subject: "订单标题",
        type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。", // 此处type的值如果是goods，则回调时就会执行 pay-notify 目录下的 goods.js 内的逻辑
        // 自定义回调数据，能在回调事件获取到以下数据，回调函数中通过 let { out_trade_no, user_id, recharge_balance } = data;方式获取（不可与data内的一级属性名重复）
@@ -164,7 +166,7 @@ exports.main = async (event, context) => {
      data: {
        openid: "用户openid，小程序支付时必传",
        out_trade_no: "必填项，商户支付订单号，需自行保证全局唯一",
-       total_fee: 1, // 订单金额(单位分 100 = 1元)
+       total_fee: 1, // 订单金额（单位分 100 = 1元）
        subject: "订单标题",
        type: "订单类型如recharge（充值订单）、goods（商品订单）、vip（会员订单）等。", // 此处type的值如果是goods，则回调时就会执行 pay-notify 目录下的 goods.js 内的逻辑
        // 自定义回调数据，能在回调事件获取到以下数据，回调函数中通过 let { out_trade_no, user_id, recharge_balance } = data;方式获取（不可与data内的一级属性名重复）
