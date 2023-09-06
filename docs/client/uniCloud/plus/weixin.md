@@ -336,6 +336,7 @@ uni.requestSubscribeMessage({
 /**
  * 发送公众号模板消息
  * @param {String} touser             接收者（用户）的 openid（可以是小程序下的openid，也可以是公众号下的openid）
+ * @param {String} template_appid     公众号appid（不传自动从uni-id配置中获取）
  * @param {String} template_id        所需下发的消息模板id
  * @param {String} url                跳转网页时填写
  * @param {Object} miniprogram  			跳转小程序时填写
