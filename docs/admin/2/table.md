@@ -1063,32 +1063,33 @@ ___如果扩展按钮列表无法满足你的需求，则可以用插槽来完�
 
 **通过 this.$refs.table1.xxx(); 方式调用**
 
-| 方法名   | 说明                    |
-|----------|------------------------|
-| refresh     | 刷新 |
-| search     | 查询（搜索） |
-| getCurrentRow     | 获取当前选中的行的数据 |
-| getTableData     | 获取整个表格数据 |
-| getTableFormatterData     | 获取整个表格数据（格式化后的数据） |
-| getMultipleSelection     | 获取多选框的数据 |
-| showDetail     | 显示详情页 |
-| closeDetail     | 关闭详情页 |
-| exportExcel     | 导出xls表格文件 |
-| deleteRows     | 删除指定的行（不删数据库数据） |
-| updateRows     | 更新指定的行数据（不更新据库数据） |
-| setTableData | 手动给表格重新赋值数据 |
-| toggleRowSelection | 批量修改表格内的多选框选中状态 |
+| 方法名								| 说明																		|
+|----------							|------------------------									|
+| refresh								| 刷新																		|
+| search								| 查询（搜索）														|
+| getCurrentRow					| 获取当前选中的行的数据									|
+| getTableData					| 获取整个表格数据												|
+| getTableFormatterData	| 获取整个表格数据（格式化后的数据）			|
+| getMultipleSelection	| 获取多选框的数据												|
+| showDetail						| 显示详情页															|
+| closeDetail						| 关闭详情页															|
+| exportExcel						| 导出xls表格文件													|
+| deleteRows						| 删除指定的行（不删数据库数据）					|
+| updateRows						| 更新指定的行数据（不更新据库数据）			|
+| setTableData					| 手动给表格重新赋值数据									|
+| toggleRowSelection		| 批量修改表格内的多选框选中状态					|
+| getRowIndex						| 获取指定行所在的index （新增于1.17.38）	|
 
 ### showDetail（显示详情页）
 
 ```js
-that.$refs.table1.showDetail(item); // item是该条记录的数据源
+this.$refs.table1.showDetail(item); // item是该条记录的数据源
 ```
 
 ### 删除指定的行（不删数据库数据）
 
 ```js
-that.$refs.table1.deleteRows({
+this.$refs.table1.deleteRows({
   ids:["60acf6248a69dc00018d8520"],
   success:()=>{
     
@@ -1099,7 +1100,7 @@ that.$refs.table1.deleteRows({
 ### 更新指定行数据（不更新据库）
 
 ```js
-that.$refs.table1.updateRows({
+this.$refs.table1.updateRows({
   mode:"update", // update 局部字段更新 set 覆盖字段更新
   rows:[
     { _id:"60acf6248a69dc00018d8520", remark:"被修改了", money:10000 }
@@ -1113,13 +1114,13 @@ that.$refs.table1.updateRows({
 ### 导出表格显示的数据
 
 ```js
-that.$refs.table1.exportExcel();
+this.$refs.table1.exportExcel();
 ```
 
 ### 导出表格显示的数据（不含序号）
 
 ```js
-that.$refs.table1.exportExcel({
+this.$refs.table1.exportExcel({
   showNo: false
 });
 ```
@@ -1127,7 +1128,7 @@ that.$refs.table1.exportExcel({
 ### 自定义导出表格数据
 
 ```js
-that.$refs.table1.exportExcel({
+this.$refs.table1.exportExcel({
   fileName : "表格数据",
   original : false,
   columns: [
@@ -1140,7 +1141,7 @@ that.$refs.table1.exportExcel({
 ### 导出满足表格查询条件的数据库内所有数据
 
 ```js
-that.$refs.table1.exportExcel({
+this.$refs.table1.exportExcel({
   fileName: "表格全部数据",
   title: "正在导出数据...",
   pageIndex: 1,
@@ -1151,7 +1152,7 @@ that.$refs.table1.exportExcel({
 ### 导出自定义数据
 
 ```js
-that.$refs.table1.exportExcel({
+this.$refs.table1.exportExcel({
   fileName:"文件名称",
   data:[
     { a:1,b:2},
@@ -1169,7 +1170,7 @@ that.$refs.table1.exportExcel({
 如果此时修改info变量的值会改变表格数据
 
 ```js
-let info = that.$refs.table1.getCurrentRow(true);
+let info = this.$refs.table1.getCurrentRow(true);
 console.log(info);
 ```
 
@@ -1178,7 +1179,7 @@ console.log(info);
 如果此时修改info变量的值不会改变表格数据
 
 ```js
-let info = that.$refs.table1.getCurrentRow();
+let info = this.$refs.table1.getCurrentRow();
 console.log(info);
 ```
 
@@ -1186,7 +1187,7 @@ console.log(info);
 
 ```js
 let list = [{_id:"001", name:"测试"}];
-that.$refs.table1.setTableData(list);
+this.$refs.table1.setTableData(list);
 ```
 
 ### 获取整个表格数据（原始数据）
@@ -1194,7 +1195,7 @@ that.$refs.table1.setTableData(list);
 如果此时修改info变量的值会改变表格数据
 
 ```js
-let info = that.$refs.table1.getTableData();
+let info = this.$refs.table1.getTableData();
 console.log(info);
 ```
 
@@ -1203,21 +1204,21 @@ console.log(info);
 如果此时修改info变量的值不会改变表格数据
 
 ```js
-let info = vk.pubfn.copyObject(that.$refs.table1.getTableData());
+let info = vk.pubfn.copyObject(this.$refs.table1.getTableData());
 console.log(info);
 ```
 
 ### 获取整个表格数据（格式化数据）
 
 ```js
-let info = that.$refs.table1.getTableFormatterData();
+let info = this.$refs.table1.getTableFormatterData();
 console.log(info);
 ```
 
 ### 获取整个表格数据（格式化数据,key为中文）
 
 ```js
-let info = that.$refs.table1.getTableFormatterData({
+let info = this.$refs.table1.getTableFormatterData({
   key:"title"
 });
 console.log(info);
@@ -1227,7 +1228,7 @@ console.log(info);
 
 ```js
 let arr = [];
-let uTreeData = that.$refs.table1.getUTreeData(); // 这一步很重要，row只接收 uTreeData 内的元素
+let uTreeData = this.$refs.table1.getUTreeData(); // 这一步很重要，row只接收 uTreeData 内的元素
 arr.push({
   row: uTreeData[0],
   selected: true
@@ -1236,7 +1237,15 @@ arr.push({
   row: uTreeData[1],
   selected: false
 });
-that.$refs.table1.toggleRowSelection(arr);
+this.$refs.table1.toggleRowSelection(arr);
+```
+
+### getRowIndex（获取指定行所在的index）
+
+> 新增于1.17.38
+
+```js
+let index = this.$refs.table1.getRowIndex(item); // item是该条记录的数据源
 ```
 
 ## 插槽
