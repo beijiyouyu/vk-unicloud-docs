@@ -524,7 +524,7 @@ let { yearStart, yearEnd } = vk.pubfn.getCommonTime();
 res = await vk.baseDao.selects({
   dbName: "uni-id-users",
   pageIndex: 1,
-  pageSize: -1,
+  pageSize: 1000,
   whereJson: {
     register_date : _.gte(yearStart).lte(yearEnd), // 只查询本年，不加此条件则查全表
   },
@@ -532,13 +532,44 @@ res = await vk.baseDao.selects({
     // _id是分组id， 将$register_date转为date，然后将date转为需要分组的date格式，直接分组
     _id: _.$.dateToString({
       date: _.$.add([new Date(0), "$register_date"]),
-      format: "%Y-%m"
+      format: "%Y-%m",
+      timezone: "+08:00", // +08:00 代表北京时间（东八区）
+      onNull: null, // 可选。当 <日期表达式> 返回空或者不存在的时候，会返回此表达式指明的值。
     }),
     count: _.$.sum(1),
   },
   sortArr: [{ "name": "_id", "type": "desc" }]
 });
 ```
+
+下面是格式说明符的详细说明：
+
+**常用**
+
+|说明符	|描述														|合法值			|
+|:-:		|:-:														|:-:				|
+|%Y			|年份（4位数，0填充）						|0000 - 9999|
+|%m			|月份（2位数，0填充）						|01 - 12		|
+|%d			|月份的日期（2位数，0填充）			|01 - 31		|
+|%H			|小时（2位数，0填充，24小时制）	|00 - 23		|
+|%M			|分钟（2位数，0填充）						|00 - 59		|
+|%S			|秒（2位数，0填充）							|00 - 60		|
+|%L			|毫秒（3位数，0填充）						|000 - 999	|
+|%w			|星期几													|1 - 7			|
+|%j			|一年中的一天（3位数，0填充）		|001 - 366	|
+|%U			|一年中的一周（2位数，0填充）		|00 - 53		|
+
+**不常用**
+
+|说明符	|描述															|合法值			|
+|:-:		|:-:															|:-:				|
+|%Z			|以分钟为单位，与 UTC 的时区偏移量|+/-mmm			|
+|%z			|与 UTC 的时区偏移量							|+/-[hh][mm]|
+|%G			|ISO 8601 格式的年份							|0000 - 9999|
+|%u			|ISO 8601 格式的星期几						|1 - 7			|
+|%V			|ISO 8601 格式的一年中的一周			|1 - 53			|
+|%%			|百分号作为字符										|%					|
+
 
 ## 删除某个字段
 
