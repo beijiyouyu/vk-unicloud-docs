@@ -20,13 +20,22 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/90bb2ac1-8165-44af-ae56-05d5616cef55.png)
 
-* 4、配置支付参数文件地址: `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建)（注意这里是 `config.js` ) [查看支付参数](#支付参数)
+* 4、配置支付参数文件地址: `uniCloud/cloudfunctions/common/uni-config-center/uni-pay/config.js` (没有则新建,或从示例项目中复制)（注意这里是 `config.js` ) [查看支付参数](#支付参数)
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/c209fb67-fe1a-4a7e-8e43-11cbffadb50c.png)
 
-* 5、从支付示例项目中 复制 `使用帮助/vk-pay云函数示例代码/service/` 目录内的所有文件粘贴到 你的项目的 `uniCloud/cloudfunctions/vk-pay/service/` 目录（没有目录则新建）
+* 5、从支付示例项目中 复制 `使用帮助/vk-pay云函数示例代码/service/` 目录内的所有文件粘贴到 你的项目的 `uniCloud/cloudfunctions/vk-pay/service/` 目录（没有目录则新建）(注意: 插件本身不带这些文件，在示例项目中)
+
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/vk-doc/427.png)
+
 * 6、上传公共模块 `vk-uni-pay`（右键，上传公共模块）
+
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/vk-doc/425.png)
+
 * 7、上传云函数 `vk-pay`（右键，上传云函数）
+
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/vk-doc/426.png)
+
 * 8、完成
 
 ## 特别注意

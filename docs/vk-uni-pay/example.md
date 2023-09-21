@@ -11,6 +11,10 @@
 
 ![](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-cf0c5e69-620c-4f3c-84ab-f4619262939f/5be98077-d85c-4392-9a70-3b6941a0af00.png)
 
+其中第三步的文件在这里
+
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/vk-doc/427.png)
+
 ## 2、配置uni-id里的小程序参数
 
 因为小程序支付需要获取用户openid（故需要配置uni-id）
