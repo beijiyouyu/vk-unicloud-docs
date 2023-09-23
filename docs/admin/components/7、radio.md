@@ -130,6 +130,8 @@
 | requestHeader    |  http请求头 | Object  | - | - |
 | requestMethod    |  http请求method | String  | - | - |
 | onChange          | function(val, formData, column, index, option) | Function  | -| -  |
+| direction          | 元素排列方向 row 横向<br/>column 竖向 | String  | row | row、column  |
+| columnMargin          | direction=column时元素的上下间隔 | Number  | 20 | -  |
 
 #### onChange 使用示例
 
