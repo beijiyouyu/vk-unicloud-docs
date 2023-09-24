@@ -78,9 +78,12 @@ time_expire的值是时间戳，如 `time_expire: Date.now() + 1000*60` 代表60
 
 建议time_expire的值在1-10分钟内
 
-微信支付time_expire的扫码支付最短时间是1分钟，其他是5分钟
+**注意：**
 
-支付宝支付time_expire的最短时间是1秒
+1. provider=wxpay时，time_expire的扫码支付最短时间是1分钟，其他是5分钟
+2. provider=alipay时，time_expire的最短时间是1秒
+3. provider=appleiap时，不支持此参数
+4. provider=vkspay时，不支持此参数
 
 ## 返回值
 
