@@ -63,6 +63,7 @@ exports.main = async (event, context) => {
 | user_id  | 用户id（选填） | String  | -    | -  |
 | nickname  | 用户昵称（选填） | String  | -    | -  |
 | return_url  | 手机端同步回调地址，仅`provider=vkspay`时生效（选填） | String  | -    | -  |
+| time_expire  | 指定支付截至时间，时间戳形式（选填）| Number  | -    | -  |
 
  * out_trade_no作用: 用于根据out_trade_no查订单状态、发起退款等接口需要。
  * 同时该订单号需保证全局唯一。
@@ -70,6 +71,16 @@ exports.main = async (event, context) => {
  * 假设你的订单号是：2107151010101541001
  * 但如果你的订单分多次付款（如预付款，尾款等，则需要分别创建不同的支付订单号，如pre2107151010101541001、due2107151010101541001，也可以是2107151010101541001-1、2107151010101541001-2）
  * 对未支付的订单再次发起支付时，商户应该使用原单号发起，不要更换支付单号，避免用户重复支付。
+
+**time_expire**
+
+time_expire的值是时间戳，如 `time_expire: Date.now() + 1000*60` 代表60秒后过期
+
+建议time_expire的值在1-10分钟内
+
+微信支付time_expire的扫码支付最短时间是1分钟，其他是5分钟
+
+支付宝支付time_expire的最短时间是1秒
 
 ## 返回值
 
