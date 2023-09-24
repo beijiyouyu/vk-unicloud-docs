@@ -286,6 +286,8 @@ vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss.S");
 vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss（第q季度）");
 // 带时区
 vk.pubfn.timeFormat(new Date(),"yyyy-MM-dd hh:mm:ss", 8); // 东8区
+// 显示时区
+vk.pubfn.timeFormat(new Date(),"yyyy-MM-ddThh:mm:ssZ", 8); // 东8区
 ```
 
 ### vk.pubfn.getDateInfo（解析日期对象属性）
