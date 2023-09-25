@@ -12,7 +12,7 @@ sidebarDepth: 0
 
 **什么是持久化vuex**
 
-`持久化vuex` 是 `VK框架 `在 `vuex` 的基础上进行的深度封装，使 `vuex` 具有 `持久化储存`，需要先[配置vuex](vuex配置)
+`持久化vuex` 是 `VK框架 `在 `vuex` 的基础上进行的深度封装，使 `vuex` 具有 `持久化储存`，需要先[配置vuex](#vuex配置)
 
 ## vuex配置
 

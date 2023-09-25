@@ -79,9 +79,9 @@ module.exports = [{
           'uniCloud/db/selects',
           'uniCloud/db/getOne',
           'uniCloud/db/getTree',
+          'uniCloud/db/question',
           'uniCloud/db/dao',
           'uniCloud/db/transaction',
-          'uniCloud/db/question',
           'uniCloud/db/schema'
         ]
       },
