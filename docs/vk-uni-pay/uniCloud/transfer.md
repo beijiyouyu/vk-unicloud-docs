@@ -6,8 +6,6 @@ sidebarDepth: 0
 
 ## 接口名：`transfer`
 
-无框架下的云函数代码示例（该写法同时也适用于任何框架）
-
 ## 支付宝
 
 **注意**
@@ -45,6 +43,8 @@ if (transferRes.code === 0) {
 需要申请开通微信支付的【企业付款到零钱】接口（只有以前的老商户才有这个接口），如下图所示
 
 ![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/vk-doc/423.png)
+
+无框架下的云函数代码示例（该写法同时也适用于任何框架）
 
 ```js
 const vkPay = require("vk-uni-pay");
