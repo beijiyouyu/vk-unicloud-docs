@@ -186,6 +186,7 @@
 | showAdd            | 是否显示添加按钮 | Boolean  | true | false |
 | showClear            | 是否显示清除按钮 | Boolean  | true | false |
 | showSort            | 是否显示排序按钮 | Boolean  | false | true |
+| showDelete            | 是否显示删除按钮,array object不支持,请用rightBtns控制 | Boolean  | true | false |
 | emptyText            | 没有数据时显示的文字 | String  | 暂无数据 | -  |
 | defaultValue            | 每一项的默认值 | Object  | - | -  |
 | rowKey            | 每一项唯一索引值 | String  | _index | -  |
