@@ -114,3 +114,27 @@ wx.scanQRCode({
 3. 执行 `wx.xxx` 可直接调用微信公众号JS-SDK的API [JS-SDK文档](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#10)
 
 至于token获取，jsapi_ticket获取，页面签名等等各种繁琐的步骤再也不用管了，直接通过 `wx.xxx` 调用即可。
+
+## 多公众号调用
+
+只需要修改第一步 App.vue 的 onLaunch 的代码如下
+
+其中 appid 前端传，而 appsecret 在云函数 `user/pub/getWeiXinJsapiSign` 里通过 appid 获取
+
+```js
+onLaunch(options){
+  // #ifdef H5
+  uni.vk.userCenter.getWeiXinJsapiSign({
+    data: {
+      appid: "你的公众号appid"
+    },
+    success: (data) => {
+      uni.vk.h5.init({
+        ...data.config,
+        debug: false
+      });
+    }
+  });
+  // #endif
+}
+```
