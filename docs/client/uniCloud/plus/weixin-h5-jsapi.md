@@ -50,7 +50,7 @@ App.vue 的 onLaunch 增加以下代码
 ```js
 onLaunch(options){
   // #ifdef H5
-  vk.h5.init(); // 此方法全局调用一次即可
+  uni.vk.h5.init(); // 此方法全局调用一次即可
   // #endif
 }
 ```
@@ -109,7 +109,7 @@ wx.scanQRCode({
 
 完成，就是这么简单，总结以下一共3句代码
 
-1. App.vue 的 onLaunch 执行 `vk.h5.init();`
+1. App.vue 的 onLaunch 执行 `uni.vk.h5.init();`
 2. 执行 `let wx = vk.h5.getWeiXinJsApi();` 获得 wx 实例
 3. 执行 `wx.xxx` 可直接调用微信公众号JS-SDK的API [JS-SDK文档](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#10)
 
