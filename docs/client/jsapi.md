@@ -1802,6 +1802,113 @@ if (this.$hasRole('admin') || this.$hasPermission('user-update')) {
 </template>
 ```
 
+## 事件函数
+
+> 事件函数API需要vk-unicloud核心库版本 >= 2.16.0
+
+### vk.notifyEventReady
+
+通知特定事件已准备就绪，并将数据传递给 `vk.awaitEventReady` 注册的回调函数。一定会在 `vk.awaitEventReady` 函数被调用之前触发。
+
+```js
+vk.notifyEventReady("事件名", {
+  a: 1,
+  b: "2"
+});
+```
+
+### vk.awaitEventReady
+
+等待特定事件执行后再执行相应的回调函数，如果事件已准备就绪，它会立即执行回调函数；否则，它将等待事件执行 `vk.notifyEventReady` 后再执行。
+
+该函数与 `uni.$emit` 和 `uni.$on` 的功能区别
+
+1. 无论 notifyEventReady 函数先执行，还是 awaitEventReady 函数先执行，最终都能触发 awaitEventReady 内的回调函数。
+2. awaitEventReady 函数始终会等待 notifyEventReady 函数先执行后再执行。
+3. 每个 awaitEventReady 内的回调函数只会执行一次。
+
+**回调形式**
+
+```js
+vk.awaitEventReady("事件名", (data)=>{
+  console.log('onLaunch-awaitEventReady: ', data)
+});
+```
+
+**Promise 方式**
+
+```js
+vk.awaitEventReady("事件名").then((data)=>{
+  console.log('onLaunch-awaitEventReady: ', data);
+});
+```
+
+**async/await 方式**
+
+```js
+let data = await vk.awaitEventReady("事件名"); 
+console.log('onLaunch-awaitEventReady: ', data);
+```
+
+**实现等待 onLaunch 执行完毕后 再执行页面 onLoad 示例**
+
+App.vue onLaunch 代码
+
+```js
+async onLaunch(options){
+  let data = await uni.vk.callFunction({
+    url: '云函数路径',
+    title: '请求中...',
+    data: {
+      
+    }
+  });
+  uni.vk.notifyEventReady("onLaunch", data);
+},
+```
+
+页面的 onLoad 代码
+
+```js
+async onLoad(){
+  let data = await vk.awaitEventReady("onLaunch");
+  console.log('onLaunch-awaitEventReady: ', data);
+},
+```
+
+### vk.checkEventReady
+
+检查事件是否已准备就绪，如果事件已准备就绪，它会返回true；否则，它将返回false
+
+```js
+if (vk.checkEventReady("事件名")) {
+  console.log("已准备就绪");
+} else {
+  console.log("未准备就绪");
+}
+```
+
+### vk.checkEventReady
+
+检查事件是否已准备就绪，如果事件已准备就绪，它会返回true；否则，它将返回false
+
+```js
+if (vk.checkEventReady("事件名")) {
+  console.log("已准备就绪");
+} else {
+  console.log("未准备就绪");
+}
+```
+
+### vk.getEventReadyData
+
+获取事件就绪时的参数（如果未就绪，会返回null，此API不会等待事件就绪）
+
+```js
+let data = vk.getEventReadyData("事件名");
+console.log('data: ', data)
+```
+
 ## 全局配置
 
 ### vk.getConfig
@@ -1814,7 +1921,6 @@ let config = vk.getConfig();
 // 获取指定配置
 let url = vk.getConfig("login.url");
 ```
-
 
 ## 云函数专属
 
