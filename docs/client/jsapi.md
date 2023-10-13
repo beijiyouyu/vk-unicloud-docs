@@ -1856,14 +1856,11 @@ App.vue onLaunch 代码
 
 ```js
 async onLaunch(options){
-  let data = await uni.vk.callFunction({
-    url: '云函数路径',
-    title: '请求中...',
-    data: {
-      
-    }
-  });
-  uni.vk.notifyEventReady("onLaunch", data);
+  console.log("app.vue-----onLaunch生命周期");
+  setTimeout(() => {
+    console.log('setTimeout模拟执行异步接口');
+    uni.vk.notifyEventReady("onLaunch", { a:1, b:"2" }); // 通知onLaunch事件准备就绪
+  }, 2000);
 },
 ```
 
@@ -1871,21 +1868,9 @@ async onLaunch(options){
 
 ```js
 async onLoad(){
-  let data = await vk.awaitEventReady("onLaunch");
-  console.log('onLaunch-awaitEventReady: ', data);
+  let data = await vk.awaitEventReady("onLaunch"); // 等待onLaunch事件准备就绪，并获得就绪数据
+  console.log('onLaunch事件已准备就绪，开始执行onLoad事件逻辑: ', data);
 },
-```
-
-### vk.checkEventReady
-
-检查事件是否已准备就绪，如果事件已准备就绪，它会返回true；否则，它将返回false
-
-```js
-if (vk.checkEventReady("事件名")) {
-  console.log("已准备就绪");
-} else {
-  console.log("未准备就绪");
-}
 ```
 
 ### vk.checkEventReady
