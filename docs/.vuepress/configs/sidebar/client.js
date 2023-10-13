@@ -105,6 +105,7 @@ module.exports = [{
         children: [
           'uniCloud/plus/weixin',
           'uniCloud/plus/weixin-h5',
+          'uniCloud/plus/weixin-h5-jsapi',
           'uniCloud/plus/qq',
           'uniCloud/plus/douyin',
           'uniCloud/plus/alipay',
