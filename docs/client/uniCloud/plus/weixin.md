@@ -310,8 +310,12 @@ uni.requestSubscribeMessage({
 | 41030  |   page路径不正确，需要保证在现网版本小程序中存在，与app.json保持一致    |
 
 ### 小程序转公众号模板消息
+
 `vk.openapi.weixin.uniformMessage.send`
 
+**注意：此接口已被微信官方废弃，无法使用，即无法用微信小程序的openid来发送微信公众号的模板消息了**
+
+<!-- 
 **该接口亮点：可以用小程序的 openid 来发送公众号的模板消息（用户只需关注公众号，无需点击订阅消息）**
 
 **特别注意**
@@ -320,7 +324,8 @@ uni.requestSubscribeMessage({
 
 **同时微信官方出了 `类目模板`，但此接口不支持新出的 `类目模板`，只能用 `历史模板`**
 
-![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/cloudstorage/6c6145dc-daa0-4e18-a5b9-f2bf6e159e8d.png)
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/cloudstorage/6c6145dc-daa0-4e18-a5b9-f2bf6e159e8d.png) 
+-->
 
 **请求参数**
 
