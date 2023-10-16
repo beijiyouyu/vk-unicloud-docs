@@ -1340,6 +1340,7 @@ queryForm1:{
 | drawer            | 高级搜索的抽屉弹窗的属性（详情见element的drawer文档）| Object | -  |
 | search-text            | 搜索按钮的文本 | String  | 搜索 | -  |
 | senior-search-text            | 高级搜索按钮的文本 | String  | 高级搜索 | -  |
+| auto-search            | 选择型组件触发change时是否自动搜索 | Boolean  | true | false  |
 
 ### columns
 
@@ -1361,6 +1362,7 @@ columns属性的写法与万能表单相似(但部分表单组件搜索不支持
 | lastWhereJson   |  是否是连表后的where条件 | Boolean  | false | true  |
 | hidden   |  是否隐藏该字段（规则依然生效，但不在页面中渲染此组件） | Boolean  | false | true  |
 | show     | 显示规则,page代表显示在页面上，drawer代表显示在高级搜索中 | Array  | ["page"] |  ["page","drawer"] |
+| autoSearch        | 选择型组件触发change时是否自动搜索 | Boolean  | true | false  |
 
 ### fieldName 参数的用处
 
