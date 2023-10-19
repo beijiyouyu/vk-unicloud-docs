@@ -1415,6 +1415,8 @@ queryForm1.columns 中 mode 参数详情
 | [)          | 范围 arr[0] <= x <  arr[1]|
 | (]          | 范围 arr[0] <  x <= arr[1] |
 | ()          | 范围 arr[0] <  x <  arr[1] |
+| custom      | 声明此字段不自动参与where条件 |
+
 
 ### 特殊说明
 
