@@ -8,7 +8,7 @@
 
 ```js
 {
-  key: "select1", title: "select类型", type: "select",
+  key: "select1", title: "select类型", type: "select", filterable: true, clearable: true,
   data: [
     { value: 1, label: "选项一" },
     { value: 2, label: "选项二" }
@@ -22,7 +22,7 @@
 
 ```js
 {
-  key: "select1", title: "select类型", type: "select",
+  key: "select1", title: "select类型", type: "select", filterable: true, clearable: true,
   data: () => {
     let list = that.list;
     return list;
@@ -34,7 +34,7 @@
 
 ```js
 {
-  key: "select3", title: "select类型3", type: "select", group: true,
+  key: "select3", title: "select类型3", type: "select", group: true, filterable: true, clearable: true,
   data: [
     {
       label: "分组1",
@@ -100,7 +100,7 @@
 
 ```js
 {
-  key: "select1", title: "select类型", type: "select",
+  key: "select1", title: "select类型", type: "select", filterable: true, clearable: true,
   data: [
     { value: 1, label: "选项一" },
     { value: 2, label: "选项二" }
