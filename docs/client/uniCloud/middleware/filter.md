@@ -10,22 +10,16 @@ sidebarDepth: 0
 
 过滤器可以在业务云函数执行之前（或之后），统一拦截，进行过滤后再放行。
 
-## 重要提示
-
-* 【重要】示例代码在目录`router/middleware/modules/` 下
+完整示例代码在目录 `router/middleware/modules/` 目录下
 
 ## 我用自定义过滤器可以做什么?
+
 ### 自定义过滤器使用场景1 - 电商多店店铺管理系统后台
 
  * 1、使用自定义过滤器拦截当前登录用户
  * 2、检查该用户是否有权限操作该店铺
  * 3、如有权限，则同时将店铺信息直接回传给业务云函数
  * 4、在业务云函数的内置变量 `filterResponse` 中可直接获得当前操作的店铺的信息
-
- ```
-自定义过滤器支持正则匹配请求路径。
-自定义过滤器支持层级 越小越先执行
- ```
 
 ## 框架内置的过滤器
 
@@ -172,5 +166,26 @@ module.exports = {
 }
 ```
 
+### 如何在onActionExecuted类型的过滤器中获取云函数返回的数据?
 
-
+```js
+/**
+ * 自定义过滤器 - 后置
+ */
+module.exports = [
+  {
+    id: "xxxx2",
+    regExp: "^xxx2/kh", // 正则匹配规则，这个是以^xxx2/kh/开头的云函数会被拦截
+    description: "这里是你过滤器2号的描述",
+    index: 310,// 此处必须>300 因为检测用户是否登录的过滤器的index是200（sys是300，因此为了能通用，建议填大于300的值）（越小越先执行）
+    mode:"onActionExecuted",
+    main: async function(event, serviceRes) {
+      let { data = {}, util } = event;
+      let { vk , db, _ } = util;
+      // 这里的 serviceRes 即云函数将要返回给前端的数据
+      serviceRes.msg = "被过滤器修改后的值";
+      return serviceRes;
+    }
+  }
+]
+```
