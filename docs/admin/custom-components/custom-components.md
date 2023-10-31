@@ -18,15 +18,15 @@
 <template>
   <!-- 万能表单 -->
   <view v-if="scene === 'form'">
-
+    <el-input :value="value" @input="_input"></el-input>
   </view>
   <!-- 万能表格 -->
   <view v-else-if="scene === 'table'">
-
+    <text>{{ value }}</text>
   </view>
   <!-- 万能表格详情 -->
   <view v-else-if="scene === 'detail'">
-
+    <text>{{ value }}</text>
   </view>
 </template>
 
@@ -62,16 +62,20 @@
     },
     // 组件函数
     methods: {
-
+      _input(value){
+        // 固定顺序，先input，再change
+        this.$emit("input", value);
+        this.$emit("change", value);
+      }
     },
     // 监听器
     watch: {
-    
+
     },
     // 计算属性
     computed: {
-    
-    }
+
+    },
   };
 </script>
 
@@ -98,10 +102,10 @@
 
 在万能表单场景下，组件需要提供2个事件，分别为
 
-1. change（watch需要）
-2. input（表单双向绑定需要）
+1. input（表单双向绑定需要）
+2. change（watch需要）
 
-注意：事件触发顺序必须是先 `change` 再 `input`
+注意：事件触发顺序必须是先 `input` 再 `change`
 
 ### 开发万能表格和详情
 
