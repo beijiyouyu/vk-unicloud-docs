@@ -161,6 +161,9 @@ ___注意：运行前先确认下，旧空间和新空间没有填错，否则�
 如果使用数据库搬家项目的时候遇到 `data undefined` 同时提示 `[vk-database-one-click-migration]：不能在当前云服务空间使用​`
 则去项目根目录下的 `package.json` 文件内查看看是否有名为 `sn` 的属性，把Ta删除后再试试。
 
+## 特别注意
+
+搬家完成后请将 `uniCloud/cloudfunctions/vk-db-migration/vk.db.config.js` 的 `runKey` 设置为false，再分别上传到 `旧空间` 和 `新空间`（这步很关键，防止后面误点导致数据被清空，也可以直接去web控制台删除云函数 `vk-db-migration`）
 
 
 
