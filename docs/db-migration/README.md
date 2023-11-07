@@ -52,7 +52,7 @@
 
 ```js
 /**
- * 有关配置的填写教程可查看文档：https://vkdoc.fsq.pub/db-migration/
+ * 一键搬家配置
  */
 export default {
 	// 旧环境
