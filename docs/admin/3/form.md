@@ -807,9 +807,9 @@ data: function() {
 
 | 事件名   | 说明                    | 回调参数 |
 |----------|------------------------|------|
-| success     | 表单提交成功   |  data, formType  |
-| fail    | 表单提交失败       |  data, formType   |
-| complete | 表单提交结束 |   data, formType |
+| success     | 表单提交成功   |  { data, formType }  |
+| fail    | 表单提交失败       |  { data, formType }   |
+| complete | 表单提交结束 |  { data, formType } |
 | cancel  | 表单点击取消按钮 |    -     |
 
 **如监听表单提交成功事件**
@@ -823,8 +823,8 @@ data: function() {
 
 ```js
 methods: {
-  onFormSuccess(data, formType){
-    console.log("表单提交成功", data);
+  onFormSuccess(res){
+    console.log("表单提交成功", res);
   }
 },
 ```
