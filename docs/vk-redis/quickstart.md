@@ -5,7 +5,11 @@
 * 1、右键云函数，选择 `管理公共模块依赖` 菜单，打勾 `uni-cloud-redis` 模块
 * 2、安装完成。就是这么简单。
 
+![](https://mp-cf0c5e69-620c-4f3c-84ab-f4619262939f.cdn.bspapp.com/vk-doc/438.png)
+
 ## 尝试运行第一个Redis API
+
+**方式一**
 
 ```js
 const redis = vk.redis();
@@ -13,7 +17,7 @@ await redis.set('a','我是a的值');
 let redisRes = await redis.get('a');
 ```
 
-或
+**方式二**
 
 ```js
 const redis = uniCloud.redis();
